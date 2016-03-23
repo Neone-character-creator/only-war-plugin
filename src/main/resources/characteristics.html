@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-standard" ng-click="generate()">Generate</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table style="width:100%" class="text-center">
+                <tr>
+                    <td ng-repeat="characteristic in characteristics"><p class="text-center">{{characteristic}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat="characteristic in characteristics" class="text-center">
+                        <input type="text" ng-model="character.characteristics[characteristic]" style="width:50px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat="characteristic in characteristics" class="text-center">
+                        <button class="btn btn-standard" ng-click="generate(characteristic)">Reroll</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,639 @@
+[
+    {
+        "name": "Leman Russ Battle Tank",
+        "type": "Tracked",
+        "tactical speed": 12,
+        "cruising speed": 35,
+        "maneuverability": -10,
+        "structural integrity": 55,
+        "armor": {
+            "Front": 40,
+            "Side": 32,
+            "Rear": 20
+        },
+        "traits": [
+            "Enclosed",
+            "Reinforced Armor",
+            "Rugged",
+            "Tracked Vehicle"
+        ],
+        "crew": [
+            "1 Commander (Turret)",
+            "1 Driver",
+            "1 Gunner (Turret)",
+            "1 Loader/Gunner (Turret/Hull Weapon)",
+            "2 Additional Gunners (Sponsons; if taken)"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [
+            {
+                "name": "Battle Cannon",
+                "mount": "Turret"
+            }
+        ],
+        "additional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Bolter",
+                        "mount": "Front"
+                    },
+                    {
+                        "name": "Lascannon",
+                        "mount": "Front"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ],
+        "optional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    [
+                        {
+                            "name": "Heavy Bolter",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Heavy Bolter",
+                            "mount": "Sponson"
+                        }
+                    ],
+                    [
+                        {
+                            "name": "Plasma Cannon",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Plasma Cannon",
+                            "mount": "Sponson"
+                        }
+                    ],
+                    [
+                        {
+                            "name": "Heavy Flamer",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Heavy Flamer",
+                            "mount": "Sponson"
+                        }
+                    ]
+                ]
+            },
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Stubber",
+                        "mount": "Pintle"
+                    },
+                    {
+                        "name": "Storm Bolter",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Leman Russ Demolisher",
+        "type": "Tracked",
+        "tactical speed": 10,
+        "cruising speed": 28,
+        "maneuverability": -15,
+        "structural integrity": 60,
+        "armor": {
+            "Front": 40,
+            "Side": 35,
+            "Rear": 22
+        },
+        "traits": [
+            "Enclosed",
+            "Reinforced Armor",
+            "Rugged",
+            "Tracked Vehicle"
+        ],
+        "crew": [
+            "1 Commander (Turret)",
+            "1 Driver",
+            "1 Gunner (Turret)",
+            "1 Loader/Gunner (Turret/Hull Weapon)",
+            "2 Additional Gunners (Sponsons; if taken)"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [
+            {
+                "name": "Demolisher Cannon",
+                "mount": "Turret"
+            }
+        ],
+        "additional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Bolter",
+                        "mount": "Front"
+                    },
+                    {
+                        "name": "Lascannon",
+                        "mount": "Front"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ],
+        "optional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    [
+                        {
+                            "name": "Heavy Bolter",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Heavy Bolter",
+                            "mount": "Sponson"
+                        }
+                    ],
+                    [
+                        {
+                            "name": "Plasma Cannon",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Plasma Cannon",
+                            "mount": "Sponson"
+                        }
+                    ],
+                    [
+                        {
+                            "name": "Heavy Flamer",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Heavy Flamer",
+                            "mount": "Sponson"
+                        }
+                    ],
+                    [
+                        {
+                            "name": "Multi-Melta",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Multi-Melta",
+                            "mount": "Sponson"
+                        }
+                    ]
+                ]
+            },
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Stubber",
+                        "mount": "Pintle"
+                    },
+                    {
+                        "name": "Storm Bolter",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Leman Russ Vanquisher",
+        "type": "Tracked",
+        "tactical speed": 12,
+        "cruising speed": 35,
+        "maneuverability": -10,
+        "structural integrity": 55,
+        "armor": {
+            "Front": 40,
+            "Side": 32,
+            "Rear": 20
+        },
+        "traits": [
+            "Command and Control",
+            "Enclosed",
+            "Reinforced Armor",
+            "Rugged",
+            "Tracked Vehicle"
+        ],
+        "crew": [
+            "1 Commander (Turret)",
+            "1 Driver",
+            "1 Gunner (Turret)",
+            "1 Loader/Gunner (Turret/Hull Weapon)",
+            "2 Additional Gunners (Sponsons; if taken)"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [
+            {
+                "name": "Vanquisher Cannon",
+                "mount": "Turret"
+            }
+        ],
+        "additional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Bolter",
+                        "mount": "Front"
+                    },
+                    {
+                        "name": "Lascannon",
+                        "mount": "Front"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ],
+        "optional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    [
+                        {
+                            "name": "Heavy Bolter",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Heavy Bolter",
+                            "mount": "Sponson"
+                        }
+                    ],
+                    [
+                        {
+                            "name": "Plasma Cannon",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Plasma Cannon",
+                            "mount": "Sponson"
+                        }
+                    ],
+                    [
+                        {
+                            "name": "Heavy Flamer",
+                            "mount": "Sponson"
+                        },
+                        {
+                            "name": "Heavy Flamer",
+                            "mount": "Sponson"
+                        }
+                    ]
+                ]
+            },
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Stubber",
+                        "mount": "Pintle"
+                    },
+                    {
+                        "name": "Storm Bolter",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Chimera Armored Transport",
+        "type": "Tracked",
+        "tactical speed": 15,
+        "cruising speed": 70,
+        "maneuverability": 0,
+        "structural integrity": 35,
+        "armor": {
+            "Front": 30,
+            "Side": 22,
+            "Rear": 16
+        },
+        "traits": [
+            "Amphibious",
+            "Enclosed",
+            "Rugged",
+            "Tracked Vehicle"
+        ],
+        "crew": [
+            "1 Commander (Turret)",
+            "1 Driver",
+            "1 Gunner (Hull Weapon)"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [],
+        "additional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Multi-Laser",
+                        "mount": "Turret"
+                    },
+                    {
+                        "name": "Heavy Bolter",
+                        "mount": "Turret"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Turret"
+                    },
+                    {
+                        "name": "Autocannon",
+                        "mount": "Turret"
+                    }
+                ]
+            },
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Bolter",
+                        "mount": "Front"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ],
+        "optional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Stubber",
+                        "mount": "Pintle"
+                    },
+                    {
+                        "name": "Storm Bolter",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Basilisk",
+        "type": "Tracked",
+        "tactical speed": 12,
+        "cruising speed": 35,
+        "maneuverability": -5,
+        "structural integrity": 40,
+        "armor": {
+            "Front": 30,
+            "Side": 18,
+            "Rear": 16
+        },
+        "traits": [
+            "Open-Topped",
+            "Tracked Vehicle"
+        ],
+        "crew": [
+            "1 Commander (Main Gun)",
+            "1 Driver",
+            "1 Gunner (Hull Weapon)",
+            "1 Loader (Main Gun)"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [
+            {
+                "name": "Earthshaker Cannon",
+                "mount": "Fixed"
+            }
+        ],
+        "additional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Bolter",
+                        "mount": "Turret"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Turret"
+                    }
+                ]
+            }
+        ],
+        "optional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Stubber",
+                        "mount": "Pintle"
+                    },
+                    {
+                        "name": "Storm Bolter",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Hellhound Flame Tank",
+        "type": "Tracked",
+        "tactical speed": 18,
+        "cruising speed": 70,
+        "maneuverability": 10,
+        "structural integrity": 30,
+        "armor": {
+            "Front": 30,
+            "Side": 28,
+            "Rear": 18
+        },
+        "traits": [
+            "Enclosed",
+            "Enhanced Motive Systems",
+            "Extremely Volatile",
+            "Reinforced  Armor",
+            "Tracked Vehicle"
+        ],
+        "crew": [
+            "1 Commander (Main Gun)",
+            "1 Driver",
+            "1 Gunner (Hull Weapon)"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [
+            {
+                "name": "Inferno Cannon",
+                "mount": "Fixed"
+            }
+        ],
+        "additional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Bolter",
+                        "mount": "Turret"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Turret"
+                    }
+                ]
+            }
+        ],
+        "optional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Stubber",
+                        "mount": "Pintle"
+                    },
+                    {
+                        "name": "Storm Bolter",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Sentinel Scout Walker",
+        "type": "Walker",
+        "tactical speed": 10,
+        "cruising speed": 45,
+        "maneuverability": 10,
+        "structural integrity": 20,
+        "armor": {
+            "Front": 25,
+            "Side": 15,
+            "Rear": 15
+        },
+        "traits": [
+            "Enhanced Motive Systems",
+            "Open-Topped",
+            "Walker"
+        ],
+        "crew": [
+            "1 Driver"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [],
+        "additional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Multi-Laser",
+                        "mount": "Fixed"
+                    },
+                    {
+                        "name": "Heavy Flamer",
+                        "mount": "Fixed"
+                    },
+                    {
+                        "name": "Autocannon",
+                        "mount": "Fixed"
+                    },
+                    {
+                        "name": "Lascannon",
+                        "mount": "Fixed"
+                    }
+                ]
+            }
+        ],
+        "optional weapons": []
+    },
+    {
+        "name": "Baneblade",
+        "type": "Tracked",
+        "tactical speed": 8,
+        "cruising speed": 25,
+        "maneuverability": -30,
+        "structural integrity": 120,
+        "armor": {
+            "Front": 45,
+            "Side": 38,
+            "Rear": 30
+        },
+        "traits": [
+            "Command and Control",
+            "Damage Control",
+            "Enclosed",
+            "Ponderous",
+            "Reinforced Armor",
+            "Super-Heavy",
+            "Walker"
+        ],
+        "crew": [
+            "1 Commander (Turret)",
+            "1 Driver",
+            "5 Gunners (Turret/Demolisher cannon/ Hull Heavy Bolter Turret/ Sponsons)"
+        ],
+        "carrying capacity": "None",
+        "primary weapons": [
+            {
+                "name": "Baneblade Cannon",
+                "mount": "Turret"
+            },
+            {
+                "name": "Demolisher Cannon",
+                "mount": "Hull"
+            },
+            {
+                "name": "Heavy Bolter with Twin-Linked",
+                "mount": "Turret"
+            },
+            {
+                "name": "Heavy Bolter with Twin-Linked",
+                "mount": "Sponson"
+            },
+            {
+                "name": "Heavy Bolter with Twin-Linked",
+                "mount": "Sponson"
+            },
+            {
+                "name": "Lascannon",
+                "mount": "Turret"
+            },
+            {
+                "name": "Lascannon",
+                "mount": "Turret"
+            }
+        ],
+        "additional weapons": [],
+        "optional weapons": [
+            {
+                "selections": 1,
+                "options": [
+                    {
+                        "name": "Heavy Stubber",
+                        "mount": "Pintle"
+                    },
+                    {
+                        "name": "Storm Bolter",
+                        "mount": "Front"
+                    }
+                ]
+            }
+        ]
+    }
+]

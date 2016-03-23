@@ -1,0 +1,31 @@
+{
+	"source": "Standard Kit",
+	"cost" : 0,
+	"main weapons":
+	{
+		"Laspistol": 1
+	},
+	"melee weapons":
+	{
+		"Knife": 1
+	},
+	"armor":
+	{
+		"Flak Vest" : 1
+	},
+	"other gear":
+	{
+		"Uniform" : 1,
+		"Poor Weather Gear": 1,
+		"Charge Pack (Pistol)": 2,
+		"Rucksack": 1,
+		"Basic Tools": 1,
+		"Mess Kit and Water Canteen": 1,
+		"Blanket and Sleep Bag": 1,
+		"Rechargeable Lamp Pack": 1,
+		"Grooming Kit": 1,
+		"Identification": 1,
+		"Handbook": 1,
+		"Weeks' Rations": 4
+	}
+}

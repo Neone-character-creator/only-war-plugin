@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Only War</title>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" type="text/javascript"></script>
+    <script src="https://code.angularjs.org/1.5.1/angular.js" type="text/javascript"></script>
+    <script src="https://code.angularjs.org/1.5.1/angular-route.js" type="text/javascript"></script>
+    <script src="https://code.angularjs.org/1.5.1/angular-resource.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script src="js/character.js" type="text/javascript"></script>
+</head>
+<body ng-app="OnlyWar">
+<form>
+    <div class="container" ng-controller="NavController">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a ui-sref="sheet" data-toggle="tab" data-target="#">Character Sheet</a></li>
+            <li role="presentation"><a ui-sref="regiment" class="tab">Select Regiment</a></li>
+            <li role="presentation"><a ui-sref="characteristics" ui-sref-active="tab">Determine Characteristics</a></li>
+            <li role="presentation"><a ui-sref="specialty" ui-sref-active="tab">Select Specialty</a></li>
+            <li role="presentation"><a ui-sref="finalize" ui-sref-active="tab">Spend XP</a></li>
+        </ul>
+    </div>
+    <div class="modal">
+
+    </div>
+    <div ui-view>
+
+    </div>
+</form>
+</body>
+</html>

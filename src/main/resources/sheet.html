@@ -1,0 +1,268 @@
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <label for="character-name">Character Name</label>
+                        <input type="text" id="character-name" style="width:90%" ng-model="character.name"/>
+                    </div>
+                    <div class="row">
+                        <label for="regiment-name">Regiment</label>
+                        <a class="btn" ui-sref="regiment" id="regiment-name" style="width:90%">{{character.regiment.name}}</a>
+                    </div>
+                    <div class="row">
+                        <label for="demeanor">Demeanor</label>
+                        <input type="text" id="demeanor" style="width:90%" ng-model="character.demeanor"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <label for="player-name">Player Name</label>
+                        <input type="text" id="player-name" style="width:90%"/>
+                    </div>
+                    <div class="row">
+                        <label for="specialty">Specialty</label>
+                        <a class="btn" ui-sref="specialty" id="specialty" style="width:90%">{{character.specialty.name}}</a>
+                    </div>
+                    <div class="row">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" style="width:90%"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table style="width:100%" class="text-center">
+                <tr>
+                    <td ng-repeat="characteristic in characteristics"><p class="text-center">{{characteristic}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat="characteristic in characteristics" class="text-center">
+                        <input type="text" ng-model="character.characteristics[characteristic]" style="width:50px"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <table id="skill-div" class="table table-bordered pull-left">
+                <tr>
+                    <th class="col-md-8"></th>
+                    <th>Trained</th>
+                    <th>+10</th>
+                    <th>+20</th>
+                    <th>+30</th>
+                </tr>
+                <tr ng-repeat="skill in character.skills">
+                    <td>{{skill.name}}</td>
+                    <td><input type="checkbox" ng-model="skill.value <= 0" readonly/></td>
+                    <td><input type="checkbox" ng-model="skill.value <= 1" readonly/></td>
+                    <td><input type="checkbox" ng-model="skill.value <= 2" readonly/></td>
+                    <td><input type="checkbox" ng-model="skill.value <= 3" readonly/></td>
+                </tr>
+            </table>
+        </div>
+        Talents & Traits
+        <ul>
+            <li ng-repeat="talent in character.talents"></li>
+            <li ng-repeat="talent in character.traits"></li>
+        </ul>
+
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-4">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+        <!--Wounds-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+        <!--<div class="row">-->
+        <!--<label for="total-wounds">Total</label>-->
+        <!--<input type="text" id="total-wounds"/>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<label for="total-wounds">Current</label>-->
+        <!--<input type="text" id="current-wounds"/>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<label for="total-wounds">Fatigue</label>-->
+        <!--<input type="text" id="fatigue"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-4">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-8">-->
+        <!--Insanity-->
+        <!--</div>-->
+        <!--<div class="col-md-4">-->
+        <!--Points-->
+        <!--<input type="number"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Mental Disorders-->
+        <!--<ul>-->
+        <!--<li ng-repeat="disorder in character.disorders">{{disorder}}</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-4">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+        <!--Corruption-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+        <!--<label for="corruption-points">Points</label>-->
+        <!--<input type="number" id="corruption-points"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Malignancies-->
+        <!--<ul>-->
+        <!--<li ng-repeat="malignancy in character.malignancies">{{malignancy}}</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Mutations-->
+        <!--<ul>-->
+        <!--<li ng-repeat="mutation in character.mutations">{{mutation}}</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+        <!--<table class="table table-bordered">-->
+        <!--<tbody ng-repeat="weapon in character.equipment.weapons">-->
+        <!--<tr colspan="8">Weapon</tr>-->
+        <!--<tr>-->
+        <!--<td colspan="1">Name</td>-->
+        <!--<td colspan="7"><input type="text"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>Class</td>-->
+        <!--<td><input type="text"></td>-->
+        <!--<td>Damage</td>-->
+        <!--<td><input type="text"/></td>-->
+        <!--<td>Type</td>-->
+        <!--<td><input type="text"/></td>-->
+        <!--<td>Pen</td>-->
+        <!--<td><input type="number"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>Range</td>-->
+        <!--<td><input type="text"/></td>-->
+        <!--<td>Damage</td>-->
+        <!--<td><input type="text"/></td>-->
+        <!--<td>ROF</td>-->
+        <!--<td><input type="text"/></td>-->
+        <!--<td>Clip</td>-->
+        <!--<td><input type="text"/></td>-->
+        <!--<td>Reload</td>-->
+        <!--<td><input type="text"/></td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+        <!--</table>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+        <!--Psy Rating <input type="number" id="psy-rating" ngValue="character.psy-rating"/>-->
+        <!--<ul>-->
+        <!--<li ng-repeat="power in character.psychic-powers">{{power.name}}</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+        <!--<div class="row">-->
+        <!--Comrade-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Name<input type="text" id="comrade-name"/>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Status<input type="text" id="comrade-status">-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Special Abilities-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<ul>-->
+        <!--<li ng-repeat="ability in character.comrade.special-abilities">-->
+        <!--{{ability.name}}-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+        <!--<div class="row">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-2 col-md-offset-5">-->
+        <!--Head (1-10)-->
+        <!--<input type="text" id="armor-head"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-2 col-md-offset-1">-->
+        <!--Right Arm (11-20)-->
+        <!--<input type="text" id="armor-right-arm"/>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-md-offset-2">-->
+        <!--Body (31-70)-->
+        <!--<input type="text" id="armor-body"/>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-md-offset-2">-->
+        <!--Left Arm (21-30)-->
+        <!--<input type="text" id="armor-left-arm"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-2 col-md-offset-3">-->
+        <!--Right Leg (71-85)-->
+        <!--<input type="text" id="armor-right-leg"/>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-md-offset-2">-->
+        <!--Left Leg (86-100)-->
+        <!--<input type="text" id="armor-left-leg"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<div class="row">-->
+        <!--Gear-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<ul>-->
+        <!--<li ng-repeat="item in character.equipment.items"></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Experience-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--XP to Spend <input type="number" ng-value="character.xp-available"/>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Total XP Spent <input type="number" ng-value="character.xp-total"/>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--Aptitudes-->
+        <!--<ul>-->
+        <!--<li ng-repeat="aptitude in character.aptitudes">{{aptitude}}</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>

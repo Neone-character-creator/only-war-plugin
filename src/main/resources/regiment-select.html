@@ -1,0 +1,64 @@
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        Select Regiment<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="regiment-list">
+                        <li ng-repeat="regiment in regiments"><a ng-click="selectRegiment($index)">{{regiment.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="selectedRegiment" class="text-center">
+            <div class="col-md-10"></div>
+            <div id="regiment-details" class="container-fluid">
+                <div class="row">
+                    <h3>{{selectedRegiment.name}}</h3>
+                </div>
+                <div class="row">
+                    <h3>Characteristic Modifiers</h3>
+                    <ul>
+                        <li ng-repeat="(name, value) in selectedRegiment['fixed modifiers'].characteristics">{{name}} :
+                            {{value > 0 ?
+                            '+' +
+                            value :
+                            value}}
+                        </li>
+                        <li ng-repeat="option in selectedRegiment['optional modifiers'].characteristics">{{name}} :
+                            {{option | object_option}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Starting Skills</h3>
+                    <ul>
+                        <li ng-repeat="skill in selectedRegiment['fixed modifiers'].skills">{{skill}}</li>
+                        <li ng-repeat="skill in selectedRegiment['optional modifiers'].skills">{{skill | object_option}}</li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Starting Talents</h3>
+                    <ul>
+                        <li ng-repeat="talent in selectedRegiment['fixed modifiers'].talents">{{talent | primitive_option}}</li>
+                        <li ng-repeat="talent in selectedRegiment['optional modifiers'].talents">{{talent | primitive_option}}</li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Standard Regimental Kit</h3>
+                    <ul>
+                        <li ng-repeat="(name, count) in selectedRegiment['fixed modifiers']['standard kit']">{{count + " x " + name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Favored Weapons</h3>
+                    {{selectedRegiment['fixed modifiers']['favored weapons'].join(', ')}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

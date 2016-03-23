@@ -1,0 +1,865 @@
+[
+  {
+    "name": "Death World",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Survival"
+      ],
+      "special abilities": [
+        {
+          "name": "Fluency",
+          "description": "Death worlders do not start with Linguistics (Low Gothic) at character creation."
+        },
+        {
+          "name": "Wary of Outsiders",
+          "description": "Death worlders suffer a -10 penalty to Interaction Skill Tests in formal surroundings and impose a -10 penalty to Intervation Skill Tests on them by non-death worlders."
+        },
+        {
+          "name": "Hardened",
+          "description": "Gain one of the following talents: Light Sleeper, Lightning Reflexes or Resistance (Poison)."
+        }
+      ],
+      "wounds": 2,
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Perception": 3
+            },
+            {
+              "Strength": 3
+            },
+            {
+              "Toughness": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Light Sleeper",
+            "Lightning Reflexes",
+            "Resistance (Poison)"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Fortress World",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Common Lore (War)",
+        "Common Lore (Imperium)",
+        "Common Lore (Imperial Guard)",
+        "Linguistics (Low Gothic)"
+      ],
+      "talents": [
+        "Hatred"
+      ],
+      "special abilities": [
+        {
+          "name": "Hated Enemy",
+          "description": "Fortress worlders gain a Hatred talent. Characters may need to make an Ordinary (+10) Willpower Test to refrain from attacking their hated enemy."
+        },
+        {
+          "name": "Combat Doctrine",
+          "description": "Gain one of the following talents: Nerves of Steel or Sprint."
+        },
+        {
+          "name": "Bred for War",
+          "description": "A fortress worlder must attempt a Challenging (+0) Willpower Test to go against the rules of the Imperial Guard."
+        }
+      ],
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Ballistic Skill": 3
+            },
+            {
+              "Willpower": 3
+            },
+            {
+              "Toughness": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Nerves of Steel",
+            "Sprint"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Highborn",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Common Lore (Administratum)",
+        "Inquiry",
+        "Linguistics (High Gothic)"
+      ],
+      "talents": [
+        "Hatred"
+      ],
+      "special abilities": [
+        {
+          "name": "Fluency",
+          "description": "Highborn do not gain Linguistics (Low Gothic) at character creation."
+        },
+        {
+          "name": "Duty and Honor",
+          "description": "Highborn suffer a -10 penalty to Charm, Inquiry and Deceive test made with non-highborn characters, but gain a +10 bonus with nobility and high authority in formal situations."
+        },
+        {
+          "name": "Abundant Resources",
+          "description": "The regiment gains +10 Logistics Rating."
+        },
+        {
+          "name": "The Finest Tutors",
+          "description": "Gain one of the following talents: Air of Authority or Peer (Nobility)."
+        }
+      ],
+      "wounds": -1,
+      "regiment kit points": 30,
+      "logistics rating": 10
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Fellowship": 3
+            },
+            {
+              "Intelligence": 3
+            },
+            {
+              "Weapon Skill": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Air of Authority",
+            "Peer (Nobility)"
+          ]
+        }
+      ],
+      "logistic rating": 10
+    }
+  },
+  {
+    "name": "Hive World",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Common Lore (Imperium)",
+        "Deceive",
+        "Linguistics (Low Gothic)"
+      ],
+      "special abilities": [
+        {
+          "name": "Accustomed to Crowds",
+          "description": "Hive worlders do not count crowds as Difficult terrain and when Running or Chargin in a crowd take no penalty to Agility test to keep their feet."
+        },
+        {
+          "name": "Hivebound",
+          "description": "Hiveworlders suffer a -10 penalty ot Survival test outside of an enclosed or artificial environment."
+        },
+        {
+          "name": "Urban Violence",
+          "description": "Gain one of the following talents: Heightened Senses (Hearing), Paranoia or Unremarkable."
+        }
+      ],
+      "wounds": -1,
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Agility": 3
+            },
+            {
+              "Fellowship": 3
+            },
+            {
+              "Perception": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Air of Authority",
+            "Peer (Nobility)"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Imperial World",
+    "source": "core",
+    "cost": 1,
+    "fixed modifiers": {
+      "characteristics": {
+        "Willpower": 3
+      },
+      "skills": [
+        "Common Lore (Imperium)",
+        "Common Lore (Imperial Creed)",
+        "Linguistics (Low Gothic)"
+      ],
+      "talents": [
+        "Hatred (Mutants)"
+      ],
+      "special abilities": [
+        {
+          "name": "Blessed Ignorance",
+          "description": "Imperial worlders suffer a -5 penalty on all Forbitten Lore Tests."
+        },
+        {
+          "name": "Kill the Mutant",
+          "description": "Imperial worlders are taught to hate and fear mutants as the heralds of Chaos. Gain the Hatred (Mutants) talent."
+        }
+      ],
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 1,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Ballistic Skill": 3
+            },
+            {
+              "Weapon Skill": 3
+            },
+            {
+              "Strength": 3
+            },
+            {
+              "Toughness": 3
+            },
+            {
+              "Agility": 3
+            },
+            {
+              "Intelligence": 3
+            },
+            {
+              "Fellowship": 3
+            },
+            {
+              "Perception": 3
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Penal Colony",
+    "source": "core",
+    "cost": 2,
+    "fixed modifiers": {
+      "skills": [
+        "Intimidate",
+        "Linguistics (Low Gothic)"
+      ],
+      "talents": [
+        "Hatred (Mutants)"
+      ],
+      "special abilities": [
+        {
+          "name": "Honor Amongst Thieves",
+          "description": "Gain one of the following talents: Peer (Underworld) or Street Fighting."
+        }
+      ],
+      "wounds": 1,
+      "special abilities": [
+        {
+          "name": "Larcenous",
+          "description": "Gain a +10 bonus to Logistics tests to acquire illegal or contraband items."
+        },
+        {
+          "name": "Scum and Villany",
+          "description": "Penal colony regiments only have 15 points for determining Standard Regiment Kit."
+        }
+      ],
+      "regiment kit points": 15
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Agility": 3
+            },
+            {
+              "Strength": 3
+            },
+            {
+              "Toughness": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Street Fighting",
+            "Peer (Underworld)"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Penitent",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Common Lore (Ecclesiarchy)",
+        "Common Lore (Imperial Creed)",
+        "Intimidate",
+        "Linguistics (Low Gothic)"
+      ],
+      "special abilities": [
+        {
+          "name": "The Blood of Martyrs",
+          "description": "Gain one of the following talents: Nerves of Steel, Orthoproxy or Unshakeable Faith."
+        },
+        {
+          "name": "Only One Life to Give",
+          "description": "Penitents must pass an Ordinary (+10) Willpower Test to retreat or act in the interests of self-preservation."
+        },
+        {
+          "name": "Untempered Zeal",
+          "description": "Penitents may re-roll any failed Charm Test to inspire religous fervor or hatred in others."
+        }
+      ],
+      "wounds": 2,
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Fellowship": 3
+            },
+            {
+              "Toughness": 3
+            },
+            {
+              "Willpower": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Nerves of Steel",
+            "Orthoproxy",
+            "Unshakeable Faith"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Schola Progenium",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "fixed characteristics": [
+        {
+          "Willpower": 3
+        }
+      ],
+      "skills": [
+        "Common Lore (Imperial Guard)",
+        "Common Lore (Imperium)",
+        "Common Lore (War)",
+        "Linguistics (Low Gothic)",
+        "Linguistics (High Gothic)"
+      ],
+      "special abilities": [
+        {
+          "name": "Only In Death Does Duty End",
+          "description": "All Progena characters gain one of the following talents: Air of Authority or Unshakeable Faith."
+        }
+      ],
+      "wounds": 1,
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 1,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Weapon Skill": 3
+            },
+            {
+              "Ballistic Skill": 3
+            }
+          ]
+        }
+      ],
+      "optional talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Air of Authority",
+            "Unshakeable Faith"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Krieg",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Common Lore (Ecclesiarchy)",
+        "Common Lore (Imperial Creed)",
+        "Intimidate",
+        "Linguistics (Low Gothic)"
+      ],
+      "special abilities": [
+        {
+          "name": "The Blood of Martyrs",
+          "description": "Gain one of the following talents: Nerves of Steel, Orthoproxy or Unshakeable Faith."
+        },
+        {
+          "name": "Only One Life to Give",
+          "description": "Kriegers must pass an Ordinary (+10) Willpower Test to retreat or act in self-preservation"
+        },
+        {
+          "name": "Faceless, Nameless and Selfless",
+          "description": "Ignore all penalties to Fear and Pinning Tests."
+        }
+      ],
+      "wounds": 2,
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Fellowship": 3
+            },
+            {
+              "Toughness": 3
+            },
+            {
+              "Willpower": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Nerves of Steel",
+            "Orthoproxy",
+            "Unshakeable Faith"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tallarn",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Survival"
+      ],
+      "special abilities": [
+        {
+          "name": "Fluency",
+          "description": "Death worlders do not start with Linguistics (Low Gothic) at character creation."
+        },
+        {
+          "name": "Wary of Outsiders",
+          "description": "Tallarn suffer a -10 penalty to Interaction Skill Tests in formal surroundings and impose a -10 penalty to Intervation Skill Tests on them by non-death worlders."
+        },
+        {
+          "name": "Guerrilla Warfare",
+          "description": "After attacking and hitting a Surprised or unaware enemy, perform an immediate Movement Half Action."
+        }
+      ],
+      "wounds": 2,
+      "regiment kit points": 30
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Perception": 3
+            },
+            {
+              "Strength": 3
+            },
+            {
+              "Toughness": 3
+            }
+          ]
+        }
+      ],
+      "optional talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Light Sleeper",
+            "Lightning Reflexes",
+            "Resistance (Poison)"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Agri-World",
+    "source": "hammer of the emperor",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Linguistics (Low Gothic)",
+        "Operate (Surface)",
+        "Scholastic Lore (Beasts)"
+      ],
+      "special abilities": [
+        {
+          "name": "One With the Land",
+          "description": "The regiment was raised from a world steeped in agricultural tradition, raising crops and food animals for the teeming billions of the Calixis Sector. Men and women who grow up on these pastoral worlds gain a deep understanding of both flora and fauna, and can use those skills on the field of battle to their advantage and to the advantage of their comrades. These characters can get food to grow in even the harshest conditions, and are an incredible asset to regiments embroiled in long, planet-bound campaigns. Agri-world characters gain a +10 bonus to any Knowledge, Survival, or Trade Tests made to identify or otherwise interact with domesticated beasts or those with potential to be domesticated. They also gain a +10 bonus to any Knowledge, Survival, or Trade Tests made to identify, harvest, or cultivate food crops"
+        },
+        {
+          "name": "Blind to the Horror",
+          "description": "Those men and women raised on bucolic and backwater agricultural worlds have little to no experience with Imperial society at large. Most have never left their village or city, let alone their home world, and those that have possess even less awareness of the wider realm of the Imperium than most of their counterparts. These innocents make easy marks for grifters, con-men, and others who take advantage of the confused and ignorant. Agri-world characters suffer a –10 penalty to Scrutiny when using it to Oppose the Deceive Skill. Additionally, the first time an Agri-world character gains Insanity Points, he gains twice the normal amount instead."
+        }
+      ],
+      "wounds": 2
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Fellowship": 3
+            },
+            {
+              "Strength": 3
+            },
+            {
+              "Toughness:": 3
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Feudal World",
+    "source": "hammer of the emperor",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Athletics",
+        "Common Lore (War)"
+      ],
+      "special abilities": [
+        {
+          "name": "Fluency",
+          "description": " Few feudal worlders take the time to learn to read and write, consumed as their lives are by toil and warfare, with written language largely the domain of scribes and other specialists. Because of this, feudal world characters do not start with the Linguistics (Low Gothic) Skill at character creation, although they are still capable of engaging in any verbal communication in Low Gothic that does not require a Skill Test. "
+        },
+        {
+          "name": "Fealty",
+          "description": "The majority of feudal world troopers are brought up in a society with a very clear separation between nobles and the commoners. These societies have strict rules of etiquette surrounding how the aristocracy interacts with their inferiors and vice versa. Regiments raised from feudal worlds are led by officers drawn from the local nobility and the common men and women in the enlisted ranks tend to revere their officers as not just their leaders but as their betters. Nobles and their chosen favourites often reinforce this belief with impressive skills in single combat, while most enlisted warriors hone their ability to fight in groups, spurred on by the prowess of their lords. Feudal world characters gain the Champion or Double Team Talent."
+        },
+        {
+          "name": "Suspicious of Machine Spirits",
+          "description": "The beliefs and general understanding of the galaxy possessed by the average feudal worlder seems woefully backward and benighted to many other Guardsmen. While most believe in the God-Emperor as the saviour of Man and his church as the one true religion, especially those that have been visited by Ecclesiarchy missionaries, many have other, more esoteric beliefs that are tolerated only thanks to their battlefield prowess. In addition, feudal worlds are by their nature millennia behind many worlds that provide soldiers to the Imperial Guard when it comes to technological advancement, and their wars are still fought with sword and shield, longbow and catapult. Feudal world characters suffer an additional –10 penalty to Common Lore (Tech), Medicae, and Tech-Use Skill Tests unless they are trained in that Skill. "
+        }
+      ],
+      "wounds": 1
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Weapon Skill": 3
+            },
+            {
+              "Strength": 3
+            },
+            {
+              "Toughness": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Champion",
+            "Double Team"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Forge World",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "skills": [
+        "Common Lore (Adeptus Mechanicus)",
+        "Common Lore (Tech)",
+        "Linguistics (Low Gothic)",
+        "Linguistics (Techna Lingua)",
+        "Logic"
+      ],
+      "talents": [
+        "Peer (Adeptus Mechanicus)"
+      ],
+      "special abilities": [
+        {
+          "name": "Blessed of the Omnissiah",
+          "description": " The Omnissiah grants many blessings upon his favoured subjects, and many mysteries of technology are revealed to those so blessed. Forge world characters start with the Peer (Adeptus Mechanicus) Talent. "
+        },
+        {
+          "name": "Rites of Rewiring",
+          "description": "Where most Imperial citizens see a machine as a singular and mysterious entity, those from a forge world view machines as a collection of discreet, sacred components, each with a uniquely important purpose. They are highly prized by armoured, mechanised, and siege regiments for their ability to both keep friendly machines running in the worst conditions and to efficiently dismantle enemy equipment. Forge world characters can choose to start with one of the following Talents: Technical Knock or Weapons Tech"
+        },
+        {
+          "name": "Isolated by Machines",
+          "description": "Life on an Imperial forge world is an experience unlike that of any other world in the galaxy. Forge worlders are surrounded by the wonders of the Machine God and the teachings of the Priesthood of Mars from birth, and the mysteries and wonders of technology are as common to them as a herd of Grox to an agri-worlder. While this makes these relatively tech-savvy Guardsmen well suited for more technological occupations in the Imperial Guard, such as Operators and Tech-Priest Enginseers, it also has a tendency to produce insular, awkward troopers not fit for polite company. Forge world natives often relate to machines and servitors more readily than their flesh and blood counterparts, and have a sad tendency toward jargon and filling their conversations of long strings of Techna Lingua that are nearly unintelligible to the average trooper. Forge world characters suffer a –10 penalty to any Interaction Tests made to interact with characters who are not also from a forge world or initiates of the Adeptus Mechanicus."
+        }
+      ],
+      "wounds": -1
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Intelligence": 3
+            },
+            {
+              "Perception": 3
+            },
+            {
+              "Toughness": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Technical Knock",
+            "Weapons Tech"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Frontier World",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "skills": [
+        "Awareness",
+        "Linguistics (Low Gothic)",
+        "Nagivate (Surface)",
+        "Survival"
+      ],
+      "special abilities": [
+        {
+          "name": "Life on the Verge",
+          "description": "While frontier worlders are sometimes less refined that members of other regiments, their skills in the field are undeniably useful. Frontier world characters gain the Combat Sense or Quick Draw Talent."
+        },
+        {
+          "name": "Independent Operation",
+          "description": "Frontier worlders are more accustomed to working far from others than many of their counterparts in other regiments. Their activities on their home planet often call for them to range far and wide, often alone, and as a result they develop a sense of confidence in this solace. On the battlefield, this frequently translates into a willingness to strike out beyond the sight of allies, confident that their compatriots will react swiftly to danger. The Comrades of a frontier world character count as being within Cohesion so long as they are within 15 metres of their Player Character."
+        },
+        {
+          "name": "Distrustful of Authority",
+          "description": " Though they are valued for their ability to act independently, frontier worlders can also be difficult to control thanks to this tendency. This can be particularly problematic for newly raised regiments placed under the command of officers from outside, or for regiments merged with others after suffering losses. However, with time and patience, this friction can be overcome by outsiders who prove that they can stand on their own and contribute to the regiment. Frontier world characters tend to distrust outsiders, especially those handing out orders. They suffer a –20 penalty to Interaction Skill Tests made to interact with unfamiliar figures of authority (such as new Commissars, officers from other regiments. Senior members of the Ecclesiarchy and Adeptus Mechanicus, and other such individuals) and impose the same penalty on Interaction Skill Tests made on them by those people. These penalties can be waived at the GM’s discretion, if the frontier world characters are dealing with individuals who have earned their trust."
+        }
+      ]
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Agility": 3
+            },
+            {
+              "Ballistic Skill": 3
+            },
+            {
+              "Perception": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Combat Sense",
+            "Quick Draw"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Mining Colony",
+    "source": "hammer of the emperor",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Awareness",
+        "Common Lore (Tech)",
+        "Linguistics (Low Gothic)",
+        "Tech-Use"
+      ],
+      "special abilities": [
+        {
+          "name": "Acclimated to Darkness",
+          "description": " Life below ground is incredibly dangerous, and those who make their living in the bowels of their worlds are a hardy lot indeed. Aside from the common industrial style accidents and the ever present threat of caveins, there are also dangerous extremes of temperature, deadly clouds of invisible toxic gasses, and the constant, oppressive gloom to deal with. Regiments raised from a mining colony are full of men and women who have grown accustomed to this strange and gruelling way of life, and whose bodies have adapted to their environments. Mining colony characters can choose to start with one of the following Talents: Heightened Senses (Hearing) and Resistance (Cold) or Resistance (Heat) or Resistance (Poisons)."
+        },
+        {
+          "name": "Tunnel Rat",
+          "description": "Navigating the twisting warren of tunnels, shafts, and chambers that make up an average mine requires a good attention to detail and a well-developed sense of direction. Mining colony characters gain a +10 to Awareness and Navigation (Surface) when underground."
+        },
+        {
+          "name": "Unaccustomed to Light",
+          "description": "Unfortunately, their subterranean lifestyle makes them incredibly sensitive to bright light, and they suffer a –10 penalty to all Perception and Awareness Tests made in full daylight or bright artificial light. This penalty can be mitigated with goggles or other types of eye protection at the Game Master’s discretion."
+        }
+      ],
+      "wounds": 1
+    },
+    "optional modifiers": {
+      "characteristics": [
+        {
+          "selections": 2,
+          "selection time": "regiment",
+          "options": [
+            {
+              "Agility": 3
+            },
+            {
+              "Toughness": 3
+            },
+            {
+              "Perception": 3
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Heightened Senses (Hearing)",
+            "Resistance (Cold)",
+            "Resistance (Heat)",
+            "Resistance (Poisons)"
+          ]
+        }
+      ]
+    }
+  }
+]

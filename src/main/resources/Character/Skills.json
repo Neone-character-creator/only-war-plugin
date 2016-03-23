@@ -1,0 +1,149 @@
+[
+{
+	"name": "Acrobatics",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "General"]
+},
+{
+	"name": "Athletics",
+	"characteristic": "Strength",
+	"aptitudes": ["Strength", "General"]
+},
+{
+	"name": "Awareness",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "Fieldcraft"]
+},
+{
+	"name": "Charm",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Social"]
+},
+{
+	"name": "Command",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Leadership"]
+},
+{
+	"name": "Commerce",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "General"]
+},
+{
+	"name": "Common Lore",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "General"],
+	"specializations" : ["Adeptus Arbites", "Adeptus Astra Telepathica", "Adeptus Mechanicus", "Administratum", "Calixis Sector", "Ecclesiarchy", "Imperial Creed", "Imperial Guard", "Imperial Navy", "Imperium", "Jericho Reach", "Koronus Expanse", "Screaming Vortex", "Spinward Front", "Tech", "War"]
+},
+{
+	"name": "Deceive",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Social"]
+},
+{
+	"name": "Dodge",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Defense"]
+},
+{
+	"name": "Forbidden Lore",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Knowledge"],
+	"specializations" : ["Adeptus Mechanicus", "Adeptus Astartes", "Codex Astartes", "Archaeotech", "Daemonology", "The Horus Heresy and Long War", "The Inquisition", "Mutants", "Navigators", "Pirates", "Psykers", "The Warp", "Xenos"]
+},
+{
+	"name": "Inquiry",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Social"]
+},
+{
+	"name": "Interrogation",
+	"characteristic": "Willpower",
+	"aptitudes": ["Willpower", "Social"]
+},
+{
+	"name": "Intimidate",
+	"characteristic": "Strength",
+	"aptitudes": ["Strength", "Social"]
+},
+{
+	"name": "Linguistics",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Intelligence", "General"],
+	"specializations" : ["Chapter Runes", "Chaos Marks", "Eldar", "High Gothic", "Imperial Codes", "Kroot", "Low Gothic", "Mercenary Cant", "Ork", "Techna-Lingua",  "Tau", "Underworld", "Xenos Markings"]
+},
+{
+	"name": "Logic",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Knowledge"]
+},
+{
+	"name": "Medicae",
+	"characteristic": "Inteligence",
+	"aptitudes": ["Intelligence", "Fieldcraft"]
+},
+{
+	"name": "Navigate",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Fieldcraft"],
+	"specializations" : ["Surface", "Stellar", "Warp"]
+},
+{
+	"name": "Operate",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Fieldcraft"],
+	"specializations" : ["Surface", "Aeronautica", "Voidship"]
+},
+{
+	"name": "Parry",
+	"characteristic": "Weapon Skill",
+	"aptitudes": ["Weapon Skill", "Defense"]
+},
+{
+	"name": "Psyniscience",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "Psyker"]
+},
+{
+	"name": "Scholastic Lore",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Knowledge"],
+	"specializations" : ["Astromancy", "Beasts", "Bureaucracy", "Chymistry", "Cryptology", "Heraldry", "Imperial Warrants", "Imperial Creed", "Judgement", "Legend", "Navis Nobilite", "Numerology", "Occult", "Philosophy", "Tactica Imperialis"]
+},
+{
+	"name": "Scrutiny",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "General"]
+},
+{
+	"name": "Security",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Tech"]
+},
+{
+	"name": "Sleight of Hand",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Knowledge"]
+},
+{
+	"name": "Stealth",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Fieldcraft"]
+},
+{
+	"name": "Survival",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "Fieldcraft"]
+},
+{
+	"name": "Tech-Use",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Tech"]
+},
+{
+	"name": "Trade",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "General"],
+	"specializations" : ["Archaeologist", "Armourer", "Astrographer", "Chymist", "Cryptographer", "Cook", "Explorator", "Linguistics", "Remembracer", "Scrimshawer", "Shipwright", "Soothsayer", "Technomat", "Voidfarer"]
+}
+]

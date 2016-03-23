@@ -1,0 +1,19 @@
+group 'io.github.thisisnozaku.charactercreator'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'scala'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "io.github.thisisnozaku.charactercreator:neone-plugin-api:1.0"
+    compile "org.scala-lang:scala-library:2.11.7"
+    compile "com.typesafe.play:play_2.11:2.5.0"
+}

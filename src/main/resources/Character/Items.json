@@ -1,0 +1,632 @@
+[
+	{
+		"name" : "Chameleoline Cloak",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Clip/Drop Harness",
+		"weight" : 2,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Deadspace Earpiece",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Filtration Plugs",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Photo-Visors/Contacts",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Preysense Goggles",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Rebreather",
+		"weight" : 1,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Recoil Gloves",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Respirator/Gas Mask",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Survival Suit",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Synskin",
+		"weight" : 2,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Void Suit",
+		"weight" : 8,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Amasec",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "De-Tox",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Frenzon",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Lho-Sticks",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Obscura",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Recaf",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Abundant"
+	},
+	{
+		"name" : "Sacred Ungents",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Slaught",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Spook",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Stimm",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Tranq",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Abundant"
+	},
+	{
+		"name" : "Inhaler",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Accordian Wire",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Auspex/Scanner",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Auto Quill",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Calixian Infantryman's PCTD",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Combi-Tool",
+		"weight" : 1,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Data-slate",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Demolition Charge",
+		"weight" : 1,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Diagnostor",
+		"weight" : 4,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Field Suture",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Rechargeable Lamp-Pack",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Abundant"
+	},
+	{
+		"name" : "Grapnel & Line",
+		"weight" : 2,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Grav Chute",
+		"weight" : 15,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Injector",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Lascutter",
+		"weight" : 4,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Laud Hailer",
+		"weight" : 4,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Magboots",
+		"weight" : 2,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Magnoculars",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Manacles",
+		"weight" : 1,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Mantrap",
+		"weight" : 2,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Medi-kit",
+		"weight" : 2,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Melta Bomb",
+		"weight" : 12,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Micro-bead",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Multicompass",
+		"weight" : 4,
+		"description" : "",
+		"availability" : "Near Unique"
+	},
+	{
+		"name" : "Multikey",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Munitorum Manual",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Pict Reorder",
+		"weight" : 1,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Psy Focus",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Average"
+	},
+	{
+		"name" : "Screamer",
+		"weight" : 2,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Hand-Held Targeter",
+		"weight" : 0.5,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Uplifting Primer",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Vox-Caster",
+		"weight" : 4,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Uniform",
+		"weight" : 4,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Poor Weather Gear",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Rucksack",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Basic Tools",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Mess Kit and Water Canteen",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Blanket and Sleep Bag",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Rechargeable Lamp Pack",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Grooming Kit",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Identification",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Handbook",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Weeks' Rations",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Anointed Maintenance Toolkit",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Arrow/Quarrel",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Shot",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Bullet",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Plentiful"
+	},
+	{
+		"name" : "Cartridge",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Clip",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Backpack Power Pack",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Charge Cell",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Charge Pack (Pistol)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Charge Pack (Basic)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Charge Pack (Heavy)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Fuel (Pistol)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Fuel (Basic)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Fuel (Heavy)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Bolt Shell",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Melta Canister (Pistol)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Melta Canister (Basic)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Melta Canister (Heavy)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Plasma Flask (Pistol)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Plasma Flask (Basic)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Plasma Flask (Heavy)",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Exotic",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Artillery",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Field Uniform",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Dress Uniform",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Purity Seals",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Advanced Medkit",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Chrono",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Photo-Visor",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Photo-Contacts",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Respirator",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Gas Mask",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Empty Sandbag",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Entrenching Tool",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Basic Toolkit",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Dog Tags",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Imperial Infantryman's Uplifting Primer",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Grav-Chute",
+		"weight" : 0,
+		"description" : "",
+		"availability" : "Common"
+	},
+	{
+		"name" : "Stummer"
+	},
+	{
+		"name" : "Grapnel"
+	}
+]

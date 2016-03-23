@@ -1,0 +1,102 @@
+[
+    {
+        "name": "Bilious",
+        "cost": "2",
+        "fixed modifiers": {
+                "talents": [
+                    "Paranoia"
+                ]
+            
+        }
+    },
+    {
+        "name": "Circumspect",
+        "cost": "2",
+        "fixed modifiers": {
+            
+                "talents": [
+                    "Foresight"
+                ]
+            
+        }
+    },
+    {
+        "name": "Choleric",
+        "cost": "2",
+        "fixed modifiers": {
+            
+                "talents": [
+                    "Rapid Reaction"
+                ]
+            
+        }
+    },
+    {
+        "name": "Fixed",
+        "cost": "1",
+        "fixed modifiers": {
+            
+                "skills": [
+                    "Command"
+                ]
+            
+        }
+    },
+    {
+        "name": "Maverick",
+        "cost": "2",
+        "fixed modifiers": {
+            
+                "talents": [
+                    "Resistance (Fire)"
+                ]
+            
+        }
+    },
+    {
+        "name": "Melancholic",
+        "cost": "2",
+        "fixed modifiers": {
+            
+                "talents": [
+                    "Air of Authority"
+                ]
+            
+        }
+    },
+    {
+        "name": "Phlegmatic",
+        "cost": "1",
+        "fixed modifiers": {
+            
+                "skills": [
+                    "Common Lore (Imperial Guard)",
+                    "Common Lore (War)"
+                ]
+            
+        }
+    },
+    {
+        "name": "Sanguine",
+        "cost": "2",
+        "fixed modifiers": {
+            
+                "talents": [
+                    "Die Hard"
+                ]
+            
+        }
+    },
+    {
+        "name": "Supine",
+        "cost": "1",
+        "fixed modifiers": {
+            
+                "skills": [
+                    "Common Lore (Ecclesiarchy)",
+                    "Common Lore (Imperial Creed)"
+                ]
+            
+        }
+    }
+]

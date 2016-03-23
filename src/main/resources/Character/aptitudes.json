@@ -1,0 +1,27 @@
+{
+  "general aptitudes": [
+    "General"
+  ],
+  "characteristic aptitudes": [
+    "Weapon Skill",
+    "Ballistic Skill",
+    "Strength",
+    "Toughness",
+    "Agility",
+    "Intelligence",
+    "Perception",
+    "Willpower",
+    "Fellowship"
+  ],
+  "expertise aptitudes": [
+    "Offence",
+    "Finesse",
+    "Tech",
+    "Psyker",
+    "Defence",
+    "Knowledge",
+    "Leadership",
+    "Fieldcraft",
+    "Social"
+  ]
+}

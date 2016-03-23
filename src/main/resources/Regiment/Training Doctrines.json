@@ -1,0 +1,366 @@
+[
+  {
+    "name": "Close Order Drill",
+    "source": "core",
+    "cost": 2,
+    "optional modifiers": {
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Combat Formation",
+            "Double Team"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Die-Hards",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "aptitudes": [
+        "Toughness"
+      ]
+    }
+  },
+  {
+    "name": "Favored Foe",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        "Forbidden Lore"
+      ],
+      "talents": [
+        "Hatred"
+      ]
+    }
+  },
+  {
+    "name": "Hardened Fighters",
+    "source": "core",
+    "cost": 2,
+    "fixed modifiers": {
+      "characteristics": {
+        "Weapon Skill": 2
+      },
+      "talents": [
+        "Street Fighting"
+      ],
+      "special abilities": [
+        {
+          "name": "Hardened Fighters",
+          "description": "Replace standard melee weapon with any one Common or more available primitive melee weapon or upgrade standard melee weapon"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Iron Discipline",
+    "source": "core",
+    "cost": 3,
+    "fixed modifiers": {
+      "aptitudes": [
+        "Willpower"
+      ]
+    }
+  },
+  {
+    "name": "Sharpshooters",
+    "source": "core",
+    "cost": 4,
+    "fixed modifiers": {
+      "aptitudes": [
+        "Ballistic Skill"
+      ],
+      "talents": [
+        "Deadeye Shot"
+      ]
+    }
+  },
+  {
+    "name": "Survivalists",
+    "source": "core",
+    "cost": 4,
+    "fixed modifiers": {
+      "aptitudes": [
+        "Agility"
+      ],
+      "special abilities": [
+        {
+          "name": "Survivalists",
+          "description": "Select a type of terrain. Characters from the regiment re-roll failed Survival and Navitage (Surface) Skill Tests in that terrain."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Anti-Aircraft",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "aptitudes": [
+        "Ballistic Skill"
+      ],
+      "talents": [
+        "Storm of Iron"
+      ],
+      "special abilities": [
+        {
+          "name": "Anti-Aircraft",
+          "description": "Members of Anti-Aircraft regiments gain an additional +10 bonus to their Ballistic Skill to hit airborne targets such as aircraft, ships, and flying creatures."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Anti-Armor",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "talents": [
+        "Tank Hunter"
+      ],
+      "special abilities": [
+        {
+          "name": "Anti-Armor",
+          "description": "Due to their special training and their encyclopaedic knowledge of enemy armoured vehicles and their strengths and weaknesses, Anti-Armour regiments are unparalleled tankkillers. Members of Anti-Armour regiments add an additional amount to the Penetration of their weapons equal to their Degrees of Success on the attack roll when attacking vehicles."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Close-Quarters Battle",
+    "source": "hammer of the emperor",
+    "cost": 5,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Close-Quarters Battle",
+          "description": "Members of regiments that specialise in Close Quarters Battle gain an additional +10 bonus to all Ballistic Skill Tests made at Point-Blank Range."
+        }
+      ],
+      "character kit": {
+        "main weapon": {
+          "Lascarbine w/ Compact": 1
+        },
+        "armor": {
+          "Light Carapace Armor": 1
+        },
+        "other gear": {
+          "Knife w/ Mono": 1,
+          "Charge Pack (Basic)": 4
+        }
+      }
+    },
+    "optional modifiers": {
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Double Team",
+            "Combat Master"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Heavy Lancers",
+    "source": "hammer of the emperor",
+    "cost": 5,
+    "fixed modifiers": {
+      "aptitudes": [
+        "Weapon Skill"
+      ],
+      "special abilities": [
+        {
+          "name": "Heavy Lancers",
+          "description": "Heavy Lancers excel at the charge and train extensively for this purpose. Members of a Heavy Lancer regiment increase the distance their Mounts can move as part of a Crushing Charge Mounted Special Action by a number of metres equal to twice the Mount’s Agility Bonus."
+        }
+      ],
+      "talents": [
+        "Unstoppable Charge"
+      ]
+    }
+  },
+  {
+    "name": "Infiltrators",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "skills": [
+        "Stealth"
+      ],
+      "special abilities": [
+        {
+          "name": "Infiltrators",
+          "description": "Infiltrators are extremely adept at slipping past the enemy, and use every distraction and dirty trick in the book to this end. When two or more characters from a Squad with this Doctrine are called upon to make a Stealth Test, one of the characters making the Test may choose to make his Test at a –10 penalty. If he succeeds, one other character making the Test may use the first character’s Agility Characteristic for the Test instead of his own. The characters must be within 10 metres of one another to use this ability."
+        }
+      ],
+      "talents": [
+        "Blind Fighting"
+      ]
+    }
+  },
+  {
+    "name": "Skirmishers",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "aptitudes": [
+        "Agility"
+      ],
+      "special abilities": [
+        {
+          "name": "Skirmishers",
+          "description": "Skirmishers are adept at using terrain and the speed of their mounts to devastating effect, and are masters of strikeand-fade tactics. When member of a Skirmisher regiment hits a Surprised or Unaware target as part of a Strike and Fade Mounted Special Action, he increases the distance his Mount can move after the attack by a number of metres equal to his Mount’s Agility Bonus."
+        }
+      ],
+      "talents": [
+        "Blind Fighting"
+      ]
+    },
+    "optional modifiers": {
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Skilled Rider",
+            "Ambush"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Cavalry Mounts",
+    "source": "hammer of the emperor",
+    "cost": 5,
+    "fixed modifiers": {
+      "character kit": {
+        "other gear": {
+          "Riding Beast": 1,
+          "Saddle": 1,
+          "Bit and Bridle": 1,
+          "Saddlebag": 2,
+          "Mount Rations (Week)": 2
+        }
+      }
+    }
+  },
+  {
+    "name": "Covert Strike",
+    "source": "hammer of the emperor",
+    "cost": 5,
+    "fixed modifiers": {
+      "character kit": {
+        "other gear": {
+          "Synskin": 1,
+          "Preysense Goggles": 1
+        }
+      },
+      "special abilities": [
+        {
+          "name": "Covert Strike",
+          "description": "Members of this regiment gain a +10 bonus to all Logistics Tests made to acquire chameleoline cloaks or armour, clip/drop harnesses, rebreathers, survival suits, auspex/scanners, demolitions charges, grav chutes, multikeys, multicompasses, stummers, static generators, and any other such equipment designed for stealth and infiltration. The Logistics bonus also covers the following stealth weapons: needle rifles, needle pistols, and sniper rifles, as well as the Silencer and Tox Dispenser upgrades."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Electro-Vox Warfare",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "character kit": {
+        "other gear": {
+          "Dataslate": 1,
+          "Micro-bead": 1,
+          "Anointed Electronics Kit": 1
+        },
+        "squad kit": {
+          "Auspex/Scanner": 2,
+          "Static Generator": 2,
+          "Vox-Caster": 1,
+          "Signal Jammer": 1
+        }
+      }
+    },
+    "special abilities": [
+      {
+        "name": "Covert Strike",
+        "description": "Members of this regiment gain a +10 bonus to all Logistics Tests made to acquire chameleoline cloaks or armour, clip/drop harnesses, rebreathers, survival suits, auspex/scanners, demolitions charges, grav chutes, multikeys, multicompasses, stummers, static generators, and any other such equipment designed for stealth and infiltration. The Logistics bonus also covers the following stealth weapons: needle rifles, needle pistols, and sniper rifles, as well as the Silencer and Tox Dispenser upgrades."
+      }
+    ]
+  },
+  {
+    "name": "Forward Observation",
+    "source": "hammer of the emperor",
+    "cost": 4,
+    "fixed modifiers": {
+      "character kit": {
+        "other gear": {
+          "Magnoculars": 1,
+          "Cameleoline Cloack": 1,
+          "Hand-held Targeter": 1
+        },
+        "squad kit": {
+          "Pict Recorder": 2
+        }
+      }
+    }
+  },
+  {
+    "name": "Vanguard",
+    "source": "hammer of the emperor",
+    "cost": 6,
+    "fixed modifiers": {
+      "character kit": {
+        "other gear": {
+          "Combi-tool": 1,
+          "Data-slate": 1,
+          "Entrenching Tool": 1,
+          "Anointed Toolkit" : 1
+        },
+        "squad kit": {
+          "Lascutter": 1,
+          "Demolitions Charge": 6,
+          "Siege Auspex": 1,
+          "Chimera Armored Transport w/ Turret-Mounted Autocannon, Hull-Mounted Heavy Flamer, Pintle-Mounted Heavy Stubber, Dozer Blade, Camouflage Netting": 1
+        }
+      }
+    },
+    "optional modifiers": {
+      "character kit": [
+        {
+          "selections": 1,
+          "selection time": "regiment",
+          "options": [
+            {
+              "main weapon": {
+                "Combat Shotgun": 1
+              },
+              "other gear" : {
+                "Clip": 4
+              }
+            },
+            {
+              "main weapon": {
+                "Lascarbine": 1
+              },
+              "other gear" : {
+                "Charge Pack (Basic)":4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

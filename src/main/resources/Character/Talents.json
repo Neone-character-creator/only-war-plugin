@@ -1,0 +1,1394 @@
+[
+    {
+        "name": "Air of Authority",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Fellowship,>=,30"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "description": "Command checks may affect up to 100 x Fellowship bonus targets. Range of orders given to a sqaud increased by 100 meters."
+    },
+    {
+        "name": "Ambidextrous",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Agility,>=,30"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Ballistic Skill"
+        ],
+        "description": "Ignore off-hand penalty. Reduce penalty from two attacks using Two-Weapon Wielder talent,to -10."
+    },
+    {
+        "name": "Armour-Monger",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Intelligence,>=,30",
+            "skill,Tech Use",
+            "skill,Trade (Armourer)"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Tech"
+        ],
+        "description": "Increase the Armour Points of all worn armor by 1 when spending at least one hour a day on maintenance/repair."
+    },
+    {
+        "name": "Arms Master",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40",
+            "characteristic,Ballistic Skill,>=,40",
+            "talent,Weapon Training",
+            "talent,Weapon Training"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "description": "The untrained penalty with non-exotic weapons is reduced from -20 to -10."
+    },
+    {
+        "name": "Assassin Strike",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Agility,>=,40",
+            "skill,Acrobatics"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Fieldcraft"
+        ],
+        "description": "After making a melee attack, make a successful Acrobatic Skill to move at half rate as a Free Action once per round."
+    },
+    {
+        "name": "Bastion of Iron Will",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Willpower,>=,40",
+            "skill,Acrobatics",
+            "talent,Strong Minded",
+            "psy rating,>=,1"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Psyker"
+        ],
+        "description": "Add 5 x Psy Rating to any Opposed Test to resist psychic powers."
+    },
+    {
+        "name": "Battle Rage",
+        "tier": 2,
+        "requirements": [
+            "talent,Frenzy"
+        ],
+        "aptitudes": [
+            "Strength",
+            "Defense"
+        ],
+        "description": "May parry while Frenzied and may re-roll a failed roll to end or resist Frenzy."
+    },
+    {
+        "name": "Bezerk Charge",
+        "tier": 1,
+        "aptitudes": [
+            "Strength",
+            "Offence"
+        ],
+        "description": "Weapon Skill bonuse when charging increased to +30."
+    },
+    {
+        "name": "Blademaster",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,30",
+            "talent,Weapon Training"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Finesse"
+        ],
+        "description": "Re-roll one missed attack per round when attacking with any bladed weapon."
+    },
+    {
+        "name": "Blade Dancer",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40",
+            "talent,Two Weapon Wielder (Melee)"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Finesse"
+        ],
+        "description": "When armed with two single-handed melee weapons with theBalanced Quality, reduce the Two-Weapon Fighting penalties by -10."
+    },
+    {
+        "name": "Blind Fighting",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Perception,>=,30"
+        ],
+        "aptitudes": [
+            "Perception",
+            "Fieldcraft"
+        ],
+        "description": "Reduce all penalties from obscured vision while fighting with melee weapons by half (round up)."
+    },
+    {
+        "name": "Bulging Biceps",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Strength,>=,45"
+        ],
+        "aptitudes": [
+            "Strength",
+            "Offense"
+        ],
+        "description": "May fire heavy weapons without bracing at no penalty. Gain a +20 bonus to Athletics Skill Tests to Heft."
+    },
+    {
+        "name": "Catfall",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Agility,>=,30"
+        ],
+        "aptitudes": [
+            "Agility",
+            "Fieldcraft"
+        ],
+        "description": "Reduce the distance of all falls by your Agility Bonus. Gain a +20 bonus to Acrobatics Skill Tests to reduce damage from falling."
+    },
+    {
+        "name": "Cold Hearted",
+        "tier": 1,
+        "aptitudes": [
+            "Willpower",
+            "Defense"
+        ],
+        "description": "Seduction attempts automatically fail and Charm Tests increase their difficulty by 1 level."
+    },
+    {
+        "name": "Combat Formation",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Intelligence,>=,40"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Defense"
+        ],
+        "description": "All squad members add +1 to their Initiative Rolls. Squad members may use your Intelligence bonus in place of their own Agility bonus on Initiative rolls."
+    },
+    {
+        "name": "Combat Sense",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Perception,>=,30"
+        ],
+        "aptitudes": [
+            "Perception",
+            "Fieldcraft"
+        ],
+        "description": "You may use your Perception bonus in place of your Agility bonus when rolling initiative."
+    },
+    {
+        "name": "Counter Attack",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Defense"
+        ],
+        "description": "After you parry an attack, you may make an attack against that opponent with the weapon you parried with as a Free Action, with a -20 penalty on the attack roll."
+    },
+    {
+        "name": "Crack Shot",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,50"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Finesse"
+        ],
+        "description": "When your ranged attacks cause Critical Damage, add +2 to the damage result."
+    },
+    {
+        "name": "Crippling Strike",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,50"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Finesse"
+        ],
+        "description": "When your melee attacks cause Critical Damage, add +2 to the damage result."
+    },
+    {
+        "name": "Crushing Blow",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Offense"
+        ],
+        "description": "Add half your Weapon Skill bonus (round down) to your melee damage."
+    },
+    {
+        "name": "Deadeye Shot",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,30"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Finesse"
+        ],
+        "description": "Reduce Called Shot penalties by -10."
+    },
+    {
+        "name": "Deflect Shot",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Agility,>=,50"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Finesse"
+        ],
+        "description": "When you have a readied melee weapon, add your Weapon Skill Bonus to Armor Point on all locations against hits by weapons with the Primitive Special Quality or Thrown weapons."
+    },
+    {
+        "name": "Die Hard",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Willpower,>=,40"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Defense"
+        ],
+        "description": "Roll twice to avoid death from blood loss."
+    },
+    {
+        "name": "Disarm",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Agility,>=,30"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Defense"
+        ],
+        "description": "Take a Full Action to make an opposed Weapon Skill Test in close combat. If you win, the target drops their weapon at their feet or takes their weapon with three or more Degrees of Success."
+    },
+    {
+        "name": "Disturbing Voice",
+        "tier": 1,
+        "aptitudes": [
+            "Fellowship",
+            "Social"
+        ],
+        "description": "Gain a +10 bonus to Intimidate Skill Tests, Command Skill Tests to Terrify and to counter the effects of Fear,  but suffer a -10 penalty to non-Fellowship Tests used in a non-threatening manner."
+    },
+    {
+        "name": "Double Team",
+        "tier": 1,
+        "aptitudes": [
+            "General",
+            "Offense"
+        ],
+        "description": "Gain an additional +10 bonus when Ganging Up against an enemy in melee. If both outnumbering characters have Double Team, bonus increases to +20"
+    },
+    {
+        "name": "Enemy",
+        "tier": 1,
+        "aptitudes": [
+            "General",
+            "Offense"
+        ],
+        "specializations": [
+            "Adeptus Arbites",
+            "Adeptus Astra Telepathica",
+            "Adeptus Astartes",
+            "Adeptus Mechanicus",
+            "Adepta Sororitas",
+            "Adeptus Titanicus",
+            "Administratum",
+            "Astropaths",
+            "Dark Mechanicus",
+            "Daemon Prince",
+            "Ecclesiarchy",
+            "Chartist Captains",
+            "Heretical Cult",
+            "Imperial Navy",
+            "Inquisition",
+            "Navigators",
+            "Officio Assassinorum",
+            "Planetary Defense Force",
+            "Planetary Governors or Warlords",
+            "Rogue Traders",
+            "Schola Progenum",
+            "Scholastica Psykana",
+            "Traitor Legions"
+        ],
+        "description": "You are despised and possibly hunted by a particular group or organization. Suffer a -10 Fellowship penalty to Fellowship Tests when dealing with that group."
+    },
+    {
+        "name": "Exotic Weapon Training",
+        "tier": 2,
+        "aptitudes": [
+            "General",
+            "Offense"
+        ],
+        "specializations": [
+            "Any One Exotic Weapon"
+        ],
+        "description": "You suffer no untrained penalty with an Exotic Weapon"
+    },
+    {
+        "name": "Eye of Vengeance",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,50"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Offense"
+        ],
+        "description": "You may spend a Fate Point before making a Standard Attack Action. The attack gains a Damage and Pen bonus equal to the Degrees of Success on the attack roll."
+    },
+    {
+        "name": "Favored By The Warp",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Willpower,>=,35"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Psyker"
+        ],
+        "description": "When you roll on the Psychic Phenomena table, you may roll twice and choose a result."
+    },
+    {
+        "name": "Fearless",
+        "tier": 3,
+        "requirements": [
+            "talent,Nerves of Steel"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Defense"
+        ],
+        "description": "You are immune to Fear and Pinning but must succeed on a Willpower Test to retreat from danger."
+    },
+    {
+        "name": "Ferric Summons",
+        "tier": 1,
+        "requirements": [
+            "talent,Ferric Lure Implants",
+            "talent,Mechanicus Implants"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Tech"
+        ],
+        "description": "You may summon metal towards you objects weighing up to 2 kilograms per point of Willpower Bonus up to 40 meters away."
+    },
+    {
+        "name": "Foresight",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Intelligence,>=,30"
+        ],
+        "aptitudes": [
+            "General",
+            "Offense"
+        ],
+        "description": "You may spend ten minutes analysting a problem to gain a +10 bonus to your next Intelligence Test or Intelligence-based Skill Test."
+    },
+    {
+        "name": "Frenzy",
+        "tier": 1,
+        "aptitudes": [
+            "Strength",
+            "Offense"
+        ],
+        "description": "You may spend a Full Round to enter a rage, gaining +10 to Weapon Skill, Strength, Toughness and Willpower but -20 to Ballistic Skill, Intelligence and Fellowship. You must attack the nearest enemy in melee. You are immune to Fear, Pinning, stunning effect and Fatigue and cannot parry or retreat"
+    },
+    {
+        "name": "Furious Assault",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,35"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Offense"
+        ],
+        "description": "If you hit with an All Out Attack, you may spend your Reaction to make an additional attack."
+    },
+    {
+        "name": "Gun Slinger",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,40",
+            "talent,Two-Weapon Wielder (Ranged)"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Finesse"
+        ],
+        "description": "When armed with two pistol weapons, reduce the penalty for Two-Weapon Fighting by -10."
+    },
+    {
+        "name": "Hammer Blow",
+        "tier": 3,
+        "requirements": [
+            "talent,Crushing Blow"
+        ],
+        "aptitudes": [
+            "Strength",
+            "Offense"
+        ],
+        "description": "When you make a single attack as part of an All Out Attack, add half your Strength bonus (round down) to the Armor Penetration of the attack and it gains the Concussive (2) Special Quality."
+    },
+    {
+        "name": "Hard Target",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Agility,>=,40"
+        ],
+        "aptitudes": [
+            "Agility",
+            "Defense"
+        ],
+        "description": "When you Charge or Run, enemies suffer a -20 penalty to Ballistic Skill to hit you until the start of your next turn."
+    },
+    {
+        "name": "Hardy",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Toughness,>=,40"
+        ],
+        "aptitudes": [
+            "Toughness",
+            "Defense"
+        ],
+        "description": "You always recover Damage as though lightly wounded."
+    },
+    {
+        "name": "Hatred",
+        "tier": 2,
+        "aptitudes": [
+            "Weapon Skill",
+            "Social"
+        ],
+        "specializations": [
+            "Chaos Space Marines",
+            "Daemons",
+            "Mutants",
+            "Psykers",
+            "Xenos"
+        ],
+        "description": "When you fight opponents of the subject of your hatred in close combat, gain a +10 bonus to all Weapon Skill Tests and must make a Willpower Test to retreat or surrender to them."
+    },
+    {
+        "name": "Heightened Senses",
+        "tier": 1,
+        "aptitudes": [
+            "Perception",
+            "Fieldcraft"
+        ],
+        "specializations": [
+            "Sight",
+            "Sound",
+            "Smell",
+            "Taste",
+            "Touch"
+        ],
+        "description": "Gain a +10 bonus to any Tests specifically involving the selected sense."
+    },
+    {
+        "name": "Hip Shooting",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,40",
+            "characteristic,Agility,>=,40"
+        ],
+        "aptitudes": [
+            "Ballistic Skil",
+            "Finesse"
+        ],
+        "description": "As a Full Action you may move up to your full speed and make a single single shot with a ranged weapon."
+    },
+    {
+        "name": "Hotshot Pilot",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Agility,>=,40",
+            "skill,Operate"
+        ],
+        "aptitudes": [
+            "Agility",
+            "Fieldcraft"
+        ],
+        "description": "You have all Operate Skills at Rank 1 (Known) and add one Degree of Success to any successful Operate Tests."
+    },
+    {
+        "name": "Infused Knowledge",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Intelligence,>=,40",
+            "skill,Lore"
+        ],
+        "aptitudes": [
+            "General",
+            "Offense"
+        ],
+        "description": "You have all Common Lore and Scholastic Lore Skills at Rank 1 (Known) and add one Degree of Success to any successful Common Lore and Scholastic Lore Tests."
+    },
+    {
+        "name": "Independent Targeting",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,40"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Finesse"
+        ],
+        "description": "When firing two weapons as part of the same action, any targets do not have to be within 10 meters of each other."
+    },
+    {
+        "name": "Inspire Wrath",
+        "tier": 2,
+        "requirements": [
+            "talent,Air of Authority"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "description": "You make make a Charm Test as a Full Action to grant the Hatred talent,to your squad or other listeners against the subject of your choice for the rest of the Encounter."
+    },
+    {
+        "name": "Into the Jaws of Hell",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Fellowship,>=,50",
+            "talent,Iron Discipline"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "description": "Comrades become immune to Fear and Pinning while within 10 meters of you."
+    },
+    {
+        "name": "Iron Discipline",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Fellowship,>=,30"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "description": "If you fail a Fear or Pinning test, you comrade only fails if the roll was a double."
+    },
+    {
+        "name": "Iron Jaw",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Toughness,>=,40"
+        ],
+        "aptitudes": [
+            "Toughness",
+            "Defense"
+        ],
+        "description": "If you ever become Stunned, make a Toughness Test to ignore it"
+    },
+    {
+        "name": "Jaded",
+        "tier": 1,
+        "requirements": [
+            "talent,Air of Authority"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Defense"
+        ],
+        "description": "You do not gain Insanity Points or make Fear Tests from mundane sources"
+    },
+    {
+        "name": "Killing Strike",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,50"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Offense"
+        ],
+        "description": "You may spend a Fate Point at the beginning of a round to make all of your attacks in that round undodgeable and unblockable."
+    },
+    {
+        "name": "Lasgun Barrage",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,40",
+            "talent,Weapon Training (Las)"
+        ],
+        "aptitudes": [
+            "Ballistic Skil",
+            "Offense"
+        ],
+        "description": "When firing a Las weapon on full or semi-auto, score an additional Degree of Success on a hit if you did not take a Move Action this turn."
+    },
+    {
+        "name": "Leap Up",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Agility,>=,30"
+        ],
+        "aptitudes": [
+            "Agility",
+            "General"
+        ],
+        "description": "You may stand up as a free action."
+    },
+    {
+        "name": "Light Sleeper",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Perception,>=,30"
+        ],
+        "aptitudes": [
+            "Perception",
+            "Fieldcraft"
+        ],
+        "description": "You are always assumed to be awake for the purpose of Awareness Tests and surprise."
+    },
+    {
+        "name": "Lightning Attack",
+        "tier": 3,
+        "requirements": [
+            "talent,Swift Attack"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Finesse"
+        ],
+        "description": "You may make the Lightning Attack Combat Action."
+    },
+    {
+        "name": "Lightning Reflexes",
+        "tier": 1,
+        "aptitudes": [
+            "Agility",
+            "Fieldcraft"
+        ],
+        "description": "When you make an Initiaitve roll, roll twice and use either die."
+    },
+    {
+        "name": "Luminen Blast",
+        "tier": 3,
+        "requirements": [
+            "talent,Luminen Shock",
+            "talent,Luminen Capacitors",
+            "talent,Mechanicus Implants"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Tech"
+        ],
+        "description": "You may take a Half Action to expel the energy in your Luminen Capacitors to make a ranged attack within 10 meters that inflicts 1d10 + 2 x Willpower Bonus energy damage with the Shock Quality. Make a Toughness Test or gain a level of Fatigue after using the attack."
+    },
+    {
+        "name": "Luminen Shock",
+        "tier": 2,
+        "requirements": [
+            "talent,Luminen Capacitors",
+            "talent,Mechanicus Implants"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Tech"
+        ],
+        "description": "You may make a melee attack or forgo inflicting damage in a grapple to inflict 1d10 + your Willpower bonus Energy damage with the Shock Quality. You must make a Toughness Test or gain a level of Fatigue."
+    },
+    {
+        "name": "Maglev Transcendence",
+        "tier": 2,
+        "requirements": [
+            "talent,Maglev Coils",
+            "talent,Mechanicus Implants"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Tech"
+        ],
+        "description": "You may hover for up to 1d10 + your Toughness bonus minutes, moving up to your Run speed as a Half Action and ignoring all falling damage. Each use drains half a full charge from the Maglev Coils."
+    },
+    {
+        "name": "Marksman",
+        "tier": 2,
+        "requirements": [
+            "talent,Maglev Coils",
+            "talent,Mechanicus Implants"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Tech"
+        ],
+        "description": "You may hover for up to 1d10 + your Toughness bonus minutes, moving up to your Run speed as a Half Action and ignoring all falling damage. Each use drains half a full charge from the Maglev Coils."
+    },
+    {
+        "name": "Master Chirurgeon",
+        "tier": 3,
+        "requirements": [
+            "skill,Medicae"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Fieldcraft"
+        ],
+        "description": "You gain a +10 bonus to all Medicae Tests. If you fail a Medicae test wile providing Extended Care, reduce the Damage the patient suffers by your Intelligence bonus. You give your patients a +20 bonus to Toughness Tests to avoid limb loss."
+    },
+    {
+        "name": "Master Enginseer",
+        "tier": 3,
+        "requirements": [
+            "skill,Tech-Use Experienced"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Tech"
+        ],
+        "description": "You gain a +10 bonus to all Tech-Use Tests. You may spend a Fate Point to automatically suceed on a Tech-Use Skill Test to enhance, repair or upgrade a machine's systems."
+    },
+    {
+        "name": "Master Orator",
+        "tier": 3,
+        "requirements": [
+            "talent,Inspire Wrath"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "description": "You may affet up to 100 times your Fellowship bonus people with the Charm and Intimidate skills."
+    },
+    {
+        "name": "Mechadendrite Use",
+        "tier": 2,
+        "requirements": [
+            "talent,Mechanicus Implants"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "specializations": [
+            "Weapon",
+            "Utility"
+        ],
+        "description": "You may affet up to 100 times your Fellowship bonus people with the Charm and Intimidate skills."
+    },
+    {
+        "name": "Meditation",
+        "tier": 1,
+        "aptitudes": [
+            "Willpower",
+            "Knowledge"
+        ],
+        "description": "You may spend 10 minutes of resting and make a successful Willpower Test to remove one level of Fatigue."
+    },
+    {
+        "name": "Mighty Shot",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,40"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Offense"
+        ],
+        "description": "You add half your Ballistic Skill bonus to Damage inflicted with ranged weapons."
+    },
+    {
+        "name": "Mimic",
+        "tier": 1,
+        "aptitudes": [
+            "Fellowship",
+            "Social"
+        ],
+        "description": "You may mimic the voices of others. Listeners must suceed on a -10 Scrutiny Test to"
+    },
+    {
+        "name": "Munitorum Influence",
+        "tier": 2,
+        "aptitudes": [
+            "Fellowship",
+            "Social"
+        ],
+        "description": "Your squad's Logistic Rating increases by +5. Costs additional XP equal to 5 times the squad current Logistic Rating."
+    },
+    {
+        "name": "Nerves of Steel",
+        "tier": 2,
+        "aptitudes": [
+            "Willpower",
+            "Defense"
+        ],
+        "description": "You may re-roll failed Willpower Tests to avoid or recover from Pinning and a +10 bonus to Willpower Tests to resist Intimidation."
+    },
+    {
+        "name": "Never Die",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Willpower,>=,50",
+            "characteristic,Toughness,>=,50"
+        ],
+        "aptitudes": [
+            "Toughness",
+            "Defence"
+        ],
+        "description": "You may spend a Fate Point to ignore the effects of injury, Fatigue and Stunning for a single combat."
+    },
+    {
+        "name": "Never Die",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Willpower,>=,50",
+            "characteristic,Toughness,>=,50"
+        ],
+        "aptitudes": [
+            "Toughness",
+            "Defence"
+        ],
+        "description": "You may spend a Fate Point to ignore the effects of injury, Fatigue and Stunning for a single combat."
+    },
+    {
+        "name": "Orthoproxy",
+        "tier": 1,
+        "aptitudes": [
+            "Willpower",
+            "Tech"
+        ],
+        "description": "You receive a +20 bonus to Willpower Tests to resist mind control and interrogation."
+    },
+    {
+        "name": "Paranoia",
+        "tier": 2,
+        "aptitudes": [
+            "Perception",
+            "Fieldcraft"
+        ],
+        "description": "You gain a +2 bonus to Initiative rolls and may receive secret Perception Tests to notice hidden threats."
+    },
+    {
+        "name": "Peer",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Fellowship,>=,30"
+        ],
+        "aptitudes": [
+            "Toughness",
+            "Defence"
+        ],
+        "specializations": [
+            "Adeptus Arbites",
+            "Adeptus Astra Telepathica",
+            "Adeptus Astartes",
+            "Adeptus Mechanicus",
+            "Adepta Sororitas",
+            "Adeptus Titanicus",
+            "Administratum",
+            "Astropaths",
+            "Dark Mechanicus",
+            "Daemon Prince",
+            "Ecclesiarchy",
+            "Chartist Captains",
+            "Heretical Cult",
+            "Imperial Navy",
+            "Inquisition",
+            "Navigators",
+            "Officio Assassinorum",
+            "Planetary Defense Force",
+            "Planetary Governors or Warlords",
+            "Rogue Traders",
+            "Schola Progenum",
+            "Scholastica Psykana",
+            "Traitor Legions"
+        ],
+        "description": "You gain a +10 bonus to all Fellowship Tests to interact with the chosen group."
+    },
+    {
+        "name": "Polyglot",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40",
+            "characteristic,Fellowship,>=,30"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Social"
+        ],
+        "description": "You can make untrained Skill Tests with te Linguistics Skill."
+    },
+    {
+        "name": "Precise Blow",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40",
+            "talent,Sure Strike"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Finesse"
+        ],
+        "description": "When making a Called Shot melee attack, reduce the penalty by 10."
+    },
+    {
+        "name": "Preternatural Speed",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40",
+            "characteristic,Agility,>=,50"
+        ],
+        "aptitudes": [
+            "Agility",
+            "Offence"
+        ],
+        "description": "When making a Charge Move, double your normal charge movement."
+    },
+    {
+        "name": "Prosanguine",
+        "tier": 2,
+        "requirements": [
+            "talent,Autosanguine Implants",
+            "talent,Mechanicus Implants"
+        ],
+        "aptitudes": [
+            "Toughness",
+            "Tech"
+        ],
+        "description": "You may spend 10 minutes and make a Tech-Use Test to heal 1d5 damage. On a roll of 96 or higher, your Autosanguinator is disabled for one week."
+    },
+    {
+        "name": "Psychic Power",
+        "tier": 1,
+        "aptitudes": [
+            "Agility",
+            "Offence"
+        ],
+        "description": "You learn an additional Psychic Power."
+    },
+    {
+        "name": "Quick Draw",
+        "tier": 1,
+        "aptitudes": [
+            "Agility",
+            "Finesse"
+        ],
+        "description": "You may draw and ready a pistol or Basic ranged weapon or one handed melee weapon as a Free Action."
+    },
+    {
+        "name": "Radiant Presence",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Fellowship,>=,40"
+        ],
+        "aptitudes": [
+            "Fellowship",
+            "Leadership"
+        ],
+        "description": "Everyone within 20 meters that can see you gain a +10 bonus to Willpower Tests to resist Fear or intimidation."
+    },
+    {
+        "name": "Rapid Reaction",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Agility,>=,40"
+        ],
+        "aptitudes": [
+            "Agility",
+            "Fieldcraft"
+        ],
+        "description": "You may make an Agility Test when surprised or ambushed to act normally."
+    },
+    {
+        "name": "Rapid Reload",
+        "tier": 1,
+        "aptitudes": [
+            "Agility",
+            "Fieldcraft"
+        ],
+        "description": "You halve all reload times."
+    },
+    {
+        "name": "Resistance",
+        "tier": 1,
+        "aptitudes": [
+            "Agility",
+            "Offence"
+        ],
+        "specializations": [
+            "Cold",
+            "Fear",
+            "Heat",
+            "Poisons",
+            "Psychic Powers"
+        ],
+        "description": "You gain a +10 bonus to resist effects of the chosen type."
+    },
+    {
+        "name": "Sharpshooter",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,40",
+            "talent,Deadeye Shot"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Finesse"
+        ],
+        "description": "When you make a Called Shot, reduce the penalty by 10."
+    },
+    {
+        "name": "Sidearm",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40",
+            "characteristic,Ballistic Skill,>=,40",
+            "talent,Two Weapon Wielder (Ranged)",
+            "talent,Two Weapon Wielder (Melee)"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Weapon Skill"
+        ],
+        "description": "When armed with a pistol and melee weapon in each hand, reduce the penalty for Two Weapon Fighting by 10."
+    },
+    {
+        "name": "Sound Constitution",
+        "tier": 1,
+        "aptitudes": [
+            "Toughness",
+            "General"
+        ],
+        "description": "You gain an additional Wound."
+    },
+    {
+        "name": "Sprint",
+        "tier": 3,
+        "aptitudes": [
+            "Agility",
+            "Fieldcraft"
+        ],
+        "description": "When you perform a Full Move action, mavve an extra number of meters equal to your Ability bonus."
+    },
+    {
+        "name": "Strong Minded",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Willpower,>=,30",
+            "talent,Resistance (Psychic Powers"
+        ],
+        "aptitudes": [
+            "Agility",
+            "Fieldcraft"
+        ],
+        "description": "You may re-roll failed Willpower Tests to resist Psychic Powers that affect your mind."
+    },
+    {
+        "name": "Step Aside",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Agility,>=,40",
+            "skill,Dodge || skill Parry"
+        ],
+        "aptitudes": [
+            "Agility",
+            "Defense"
+        ],
+        "description": "You may make an additional Dodge or Parry attempt each round."
+    },
+    {
+        "name": "Storm of Iron",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,45",
+            "talent,Weapon Training (any ranged)"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Offense"
+        ],
+        "description": "When you deal damage with a semi-auto or full-auto attack, you may allocate the extra hits to targets within five instead of two meters."
+    },
+    {
+        "name": "Street Fighting",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,30"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Offense"
+        ],
+        "description": "When you are armed with a knife or similar weapon or unarmed, add half your Weapon Skill bonus to any Critical Damage you inflict."
+    },
+    {
+        "name": "Sure Strike",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,30"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Offense"
+        ],
+        "description": "When making a melee Called Shot, reduce the penalty by 10."
+    },
+    {
+        "name": "Swift Attack",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,30"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Finesse"
+        ],
+        "description": "You may take the Swift Attack Combat Action."
+    },
+    {
+        "name": "Takedown",
+        "tier": 1,
+        "aptitudes": [
+            "Weapon Skill",
+            "Offense"
+        ],
+        "description": "As a Half Action or as part of a Charge Action, you may declare a Takedown. Make an attack; if you hit and would inflict at least one damage, you inflict no damage but the target must make a Toughness Test or be stunned for 1 Round and be knocked prone."
+    },
+    {
+        "name": "Target Selection",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Ballistic Skill,>=,50"
+        ],
+        "aptitudes": [
+            "Ballistic Skill",
+            "Finesse"
+        ],
+        "description": "You may shoot into melee with no penalty and if you aim, you have no chance of hitting friendly targets."
+    },
+    {
+        "name": "Technical Knock",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Intelligence,>=,30"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Tech"
+        ],
+        "description": "You may un-jam any gun as a Half Action, once per round."
+    },
+    {
+        "name": "Thunder Charge",
+        "tier": 3,
+        "requirements": [
+            "characteristic,Strength,>=,50"
+        ],
+        "aptitudes": [
+            "Strength",
+            "Offence"
+        ],
+        "description": "When you charge, you may make an Opposed Strength Check against every enemy between you and your target. Any that fail are knocked prone, and none of them block your path to your target."
+    },
+    {
+        "name": "Total Recall",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Intelligence,>=,30"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Knowledge"
+        ],
+        "description": "You can automatically recall facts."
+    },
+    {
+        "name": "True Grit",
+        "tier": 3,
+        "requirements": [
+            "characteristic,toughness,>=,40"
+        ],
+        "aptitudes": [
+            "Toughness",
+            "Defence"
+        ],
+        "description": "Whenever you suffer Critical Damage, reduce the amount by your Toughness Bonus, minimum 1."
+    },
+    {
+        "name": "Two-Weapon Wielder (Melee)",
+        "tier": 2,
+        "aptitudes": [
+            "Weapon Skill",
+            "Offence"
+        ],
+        "description": "While armed with two one-handed melee weapons, after making a Half Attack Action with one weapon you may make an additional Half Action Attack with the other."
+    },
+    {
+        "name": "Unarmed Master",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Weapon Skill,>=, 45",
+            "characteristic,Agility,>=,40",
+            "talent,Unarmed Warrior"
+        ],
+        "aptitudes": [
+            "Strength",
+            "Offence"
+        ],
+        "description": "You gain the Deadly Natural Weapon Trait."
+    },
+    {
+        "name": "Unarmed Warrior",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,35",
+            "characteristic,Agility,>=,35"
+        ],
+        "aptitudes": [
+            "Strength",
+            "Offence"
+        ],
+        "description": "You unarmed attack inflict 1d10 damage and you count as armed even while unarmed."
+    },
+    {
+        "name": "Unremarkable",
+        "tier": 1,
+        "aptitudes": [
+            "General",
+            "Social"
+        ],
+        "description": "Rolls to recall your features or spot you in a crowd suffer a -20 penalty. In addition, you gain a +20 bonus to Deceive Skill Tests to convince someone they have never seen you before or to appear harmless."
+    },
+    {
+        "name": "Unshakeable Faith",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Willpwer,>=,35"
+        ],
+        "aptitudes": [
+            "General",
+            "Social"
+        ],
+        "description": "You reroll failed Willpower Tests to resist Fear."
+    },
+    {
+        "name": "Warp Conduit",
+        "tier": 2,
+        "requirements": [
+            "psy rating, >=,1",
+            "characteristic,Willpower,>=,50",
+            "talent,Strong Minded"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Psyker"
+        ],
+        "description": "When Pushing a psychic power, you may spend a Fate Point to add 1d5 to your Psy Rating to determine the effect of the power. Add +30 to any resulting Psychic Phenomenon rolls."
+    },
+    {
+        "name": "Warp Lock",
+        "tier": 3,
+        "requirements": [
+            "psy rating,>=,1",
+            "characteristic,Willpower,>=,50",
+            "talent,Strong Minded"
+        ],
+        "aptitudes": [
+            "Willpower",
+            "Psyker"
+        ],
+        "description": "Once per session, you may ignore a Psychic Phenomenon result. If you do, suffer 1d5 Energy Damage to the Head which ignores Armor and Toughness."
+    },
+    {
+        "name": "Warp Sense",
+        "tier": 1,
+        "requirements": [
+            "psy rating,>=,1",
+            "characteristic,Perception,>=,30",
+            "skill,Perception,>=,Known"
+        ],
+        "aptitudes": [
+            "Perception",
+            "Psyker"
+        ],
+        "description": "Using the Psyniscience skill,requires a Free Action and may detect psychic effects and entities passively."
+    },
+    {
+        "name": "Weapon-Tech",
+        "tier": 1,
+        "requirements": [
+            "characteristic,Intelligence,>=,40",
+            "skill,Tech-Use"
+        ],
+        "aptitudes": [
+            "Intelligence",
+            "Tech"
+        ],
+        "description": "Once per combat increase the Damage and Penetration of a Melta, Plasma, Power or Exotic weapon you're wielding by your Intelligence Bonus for one round."
+    },
+    {
+        "name": "Weapon Training",
+        "tier": 1,
+        "aptitudes": [
+            "General",
+            "Finesse"
+        ],
+        "specializations": [
+            "Bolt",
+            "Chain",
+            "Flame",
+            "Heavy",
+            "Las",
+            "Launcher",
+            "Melta",
+            "Plasma",
+            "Power",
+            "Low-Tech",
+            "Shock",
+            "Solid"
+        ],
+        "description": "You suffer no penalty to Weapon Skill or Ballistic Skill tests with the chosen weapons."
+    },
+    {
+        "name": "Whirldwind of Death",
+        "tier": 2,
+        "requirements": [
+            "characteristic,Weapon Skill,>=,40"
+        ],
+        "aptitudes": [
+            "Weapon Skill",
+            "Finesse"
+        ],
+        "description": "When you attack in melee, you may make a number of attacks as Free Actions up to your Weapon Skill bonus. You cannot combine these attacks with any other"
+    }
+]
