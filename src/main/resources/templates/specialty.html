@@ -43,10 +43,10 @@
                             <h3>Starting Skills</h3>
                             <ul>
                                 <li ng-repeat="skill in character.specialty['fixed modifiers'].skills">{{skill |
-                                    primitive_option}}
+                                    option_summary}}
                                 </li>
                                 <li ng-repeat="skill in character.specialty['optional modifiers'].skills">{{skill |
-                                    primitive_option}}
+                                    option_summary}}
                                 </li>
                             </ul>
                         </div>
@@ -56,10 +56,10 @@
                         <ul>
                             <!--<li ng-repeat="talent in character.regiment.talents">{{typeof talent === 'String' ? talent : talent.selections from talent.options.join(',')}}</li>-->
                             <li ng-repeat="talent in character.specialty['fixed modifiers'].talents">{{talent |
-                                primitive_option}}
+                                option_summary}}
                             </li>
                             <li ng-repeat="talent in character.specialty['optional modifiers'].talents">{{talent |
-                                primitive_option}}
+                                option_summary}}
                             </li>
                         </ul>
                     </div>
@@ -67,10 +67,10 @@
                         <h3>Specialist Equipment</h3>
                         <ul>
                             <li ng-repeat="gear in character.specialty['fixed modifiers']['character kit']['other gear']">
-                                {{gear | object_option}}
+                                {{gear | option_summary}}
                             </li>
                             <li ng-repeat="gear in character.specialty['optional modifiers']['character kit']['other gear']">
-                                {{gear | object_option}}
+                                {{gear | option_summary}}
                             </li>
                         </ul>
                     </div>

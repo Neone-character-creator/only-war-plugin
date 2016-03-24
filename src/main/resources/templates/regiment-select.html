@@ -28,23 +28,20 @@
                             value :
                             value}}
                         </li>
-                        <li ng-repeat="option in selectedRegiment['optional modifiers'].characteristics">{{name}} :
-                            {{option | object_option}}
-                        </li>
                     </ul>
                 </div>
                 <div class="row">
                     <h3>Starting Skills</h3>
                     <ul>
                         <li ng-repeat="skill in selectedRegiment['fixed modifiers'].skills">{{skill}}</li>
-                        <li ng-repeat="skill in selectedRegiment['optional modifiers'].skills">{{skill | object_option}}</li>
+                        <li ng-repeat="skill in selectedRegiment['optional modifiers'].skills"><button class='btn btn-link' ng-click="openSelectionModal('skills', $index)">{{skill | option_summary}}</button></li>
                     </ul>
                 </div>
                 <div class="row">
                     <h3>Starting Talents</h3>
                     <ul>
-                        <li ng-repeat="talent in selectedRegiment['fixed modifiers'].talents">{{talent | primitive_option}}</li>
-                        <li ng-repeat="talent in selectedRegiment['optional modifiers'].talents">{{talent | primitive_option}}</li>
+                        <li ng-repeat="talent in selectedRegiment['fixed modifiers'].talents">{{talent | option_summary}}</li>
+                        <li ng-repeat="talent in selectedRegiment['optional modifiers'].talents"><button class='btn btn-link' ng-click="openSelectionModal('talents', $index)">{{talent | option_summary}}</button></li>
                     </ul>
                 </div>
                 <div class="row">
