@@ -7,7 +7,7 @@
             Choose {{choices.selectionCount}} :
         </div>
         <div class="row">
-            <ul ng-repeat="(option,selected) in choices.options"><input type="checkbox" ng-model="choices.options[option]">{{option}}</ul>
+            <ul ng-repeat="option in choices.options"><input type="checkbox" ng-model="choices.selectedStates[$index]">{{option | option}}</ul>
         </div>
         <div class="row">
             <button ng-click="ok()">Select</button>
