@@ -1,3 +1,5 @@
-Add Selection logic to Specialty page.
+Implement finalize page.
 
-Allow selection to traverse arbitrary depth of selection object.
+Add confirmation modal to characteristics and finalize pages.
+
+Standardize data format between all character and regiment options.
