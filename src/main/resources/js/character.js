@@ -27,12 +27,25 @@ var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap"])
             return inVal;
         }
     }
+})
+.filter('option', function(){
+	function filter(inVal){
+		if (Array.isArray(inVal)){
+			for(var i = 0; i < inVal.length; i++){
+				inVal[i] = filter(inVal[i]);
+			}
+			inVal = inVal.join(', ');
+		}
+		return inVal;
+	}
+	return filter;
 });
 
 app.config(function($logProvider){
     $logProvider.debugEnabled(true);
 });
 
+//Character service.
 app.factory("character", function(){
                              var character = {
                                  name: "",
@@ -95,14 +108,15 @@ app.factory("character", function(){
                              return service;
                          });
 
+//Regiments service. Stored loaded regiment definitions and the state of the currently selected one.
 app.factory("regiments", function($resource){
     var regiments = $resource("Regiment/regiments.json").query();
     var service = {
         regiments : regiments,
-        selectedRegiment : null,
+        selected : null,
         requiredOptionSelections : [],
         selectRegiment : function(regiment) {
-            service.selectedRegiment = regiment;
+            service.selected = regiment;
             for (var property in regiment['optional modifiers']){
                 if (regiment['optional modifiers'].hasOwnProperty(property)){
                     $.each(regiment['optional modifiers'][property], function(index, value){
@@ -117,31 +131,30 @@ app.factory("regiments", function($resource){
     };
     return service;
 });
-
+//Specialties service. Stored loaded specialty definitions and the state of the currently selected one.
 app.factory("specialties", function($resource){
     var specialties = $resource("Character/Specialties.json").query();
     var service = {
         specialties : specialties,
-        selectedSpecialty : null,
-        requiredOptionSelections : []
-    };
-
-    var selectSpecialty = function(specialty) {
-        service.selectedSpecialty = specialty;
-        for (var property in specialty['optional modifiers']){
-            if (specialty['optional modifiers'].hasOwnProperty(property)){
-                $.each(specialty['optional modifiers'][property], function(index, value){
-                    service.requiredOptionSelections.push({
-                        "property" : property,
-                        index : index
-                    })
-                });
-            };
-        };
+        selected : null,
+        requiredOptionSelections : [],
+        selectSpecialty : function(specialty) {
+                                  service.selected = specialty;
+                                  for (var property in specialty['optional modifiers']){
+                                      if (specialty['optional modifiers'].hasOwnProperty(property)){
+                                          $.each(specialty['optional modifiers'][property], function(index, value){
+                                              service.requiredOptionSelections.push({
+                                                  "property" : property,
+                                                  index : index
+                                              })
+                                          })
+                                      }
+                                  }
+                              }
     };
     return service;
 });
-
+//
 app.factory("talents", function(){
     var _talents;
     $.get({
@@ -156,41 +169,67 @@ app.factory("talents", function(){
 app.factory("characteristics", function($resource){
     return $resource("Character/characteristics.json");
 });
-
+//Contains state for the selection modal.
 app.factory("selection", function(){
     return {
-        //The object the option exists on
+        //The object the option object exists within. Will be modified by the selection.
         target : {},
-        //The name of the property on the target option the option exists on
-        property : "",
-        //The actual option object
-        selectionObject : {},
-        //The index of the option within the array of property options
+        //The service for the target, keeps track of all the selections remaining to be made.
+        associatedService : null,
+        //The property names used to traverse the object fields to remove the option and add the selected values.
+        propertyChain : [],
+        //The index of the option within the array of property options for the property
         index : -1,
         //Decompose this option if valid selections made
         choose : function(chosen){
             var target = this.target;
-            var property = this.property;
-            var selectionObject = selectionObject;
+            var propertyChain = this.propertyChain;
+            var selectionObject = target['optional modifiers'];
+            for(var i = 0; i <  propertyChain.length; i++){
+            		selectionObject = selectionObject[propertyChain[i]];
+            }
+           	selectionObject = selectionObject[this.index];
 
-            if (chosen.length !== this.selectionObject.selections){
+            if (chosen.length !== selectionObject.selections){
                 throw new exception("Selection required " + selectionObject.selections + " arguments, but received " + arguments.length);
             };
             for(var i = 0; i < arguments.length; i++){
-                if(!$.inArray(arguments[i], this.selectionObject.options)){
-                    throw new exception ("Tried to select " + arguments[i] + " but selection contains " + this.selectionObject.options);
-                }
+                if(!$.inArray(arguments[i], selectionObject.options)){
+                    throw new exception ("Tried to select " + arguments[i] + " but selection contains " + selectionObject.options);
+				};
             };
             var out = [];
             $.each(chosen, function(index, element){
                 out.push(element);
             });
-            this.target['optional modifiers'][this.property].splice(this.index, 1);
+            var optionalModifier = target['optional modifiers'];
+            for(var i = 0; i <  propertyChain.length; i++){
+                optionalModifier = optionalModifier[propertyChain[i]];
+            }
+            optionalModifier.splice(this.index, 1);
+            var fixedModifier = target['fixed modifiers'];
+            for(var i = 0; i <  propertyChain.length; i++){
+            	//Add missing properties
+            	if (fixedModifier[propertyChain[i]] === undefined){
+            		switch(propertyChain[i]){
+            			case 'character kit' : fixedModifier['character kit'] = {};
+            			break;
+            			case 'other gear' : fixedModifier['other gear'] = [];
+            			break;
+            		}
+            	}
+                fixedModifier = fixedModifier[propertyChain[i]];
+            };
             $.each(out, function(index, e){
-                for(var i = 0; i < out.length; i++){
-                    target['fixed modifiers'][property].push(out[i]);
-                }
-            })
+	            if($.isArray(e)){
+	            	for(var i = 0; i < e.length; i++){
+	            		fixedModifier.push(e[i]);
+            		}
+            	} else {
+					fixedModifier.push(e);
+				}
+            });
+
         }
     };
 })
@@ -220,8 +259,10 @@ app.controller("NavController",function($scope, character){
     $scope.character = character.character;
 });
 
-app.controller("SheetController",function($scope, character, characteristics){
+app.controller("SheetController",function($scope, character, regiments, specialties, characteristics){
     $scope.character = character.character;
+    $scope.selected = regiments.selected;
+    $scope.selected = specialties.selected;
     var characteristics = characteristics.query();
     $scope.characteristics = characteristics;
 });
@@ -248,18 +289,46 @@ app.controller("CharacteristicsController", function($scope, characteristics, ch
 app.controller("RegimentSelectionController", function($scope, $uibModal, character, regiments, selection, $state){
     $scope.regiments = regiments.regiments;
     $scope.character = character.character;
-    $scope.selectedRegiment = regiments.selectedRegiment;
+    $scope.selectedRegiment = regiments.selected;
+
+    $scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams){
+        if (fromState = "regiment" && regiments.selected.requiredOptionSelections.length !== 0){
+        	$uibModal
+        }
+    });
 
     $scope.selectRegiment = function(index){
         regiments.selectRegiment(regiments.regiments[index]);
-        $scope.selectedRegiment = regiments.selectedRegiment;
+        $scope.selectedRegiment = regiments.selected;
     };
 
-    $scope.openSelectionModal = function(property, index){
-        selection.target = regiments.selectedRegiment;
-        selection.property = property;
+    $scope.openSelectionModal = function(properties, index){
+        selection.target = regiments.selected;
+        selection.propertyChain = properties;
         selection.index = index;
-        selection.selectionObject = regiments.selectedRegiment['optional modifiers'][property][index];
+        selection.associatedService = regiments;
+        $uibModal.open({
+            controller : "SelectionModalController",
+            templateUrl : 'templates/selection-modal.html',
+        });
+    };
+});
+
+app.controller("SpecialtySelectController", function($scope, specialties, character, selection, $uibModal){
+    $scope.specialties = specialties.specialties;
+    $scope.character = character.character;
+    $scope.selectedSpecialty = specialties.selected;
+
+    $scope.selectSpecialty = function(index){
+        specialties.selectSpecialty(specialties.specialties[index]);
+        $scope.selectedSpecialty = specialties.selected;
+    };
+
+    $scope.openSelectionModal = function(properties, index){
+        selection.target = specialties.selected;
+        selection.propertyChain = properties;
+        selection.index = index;
+        selection.associatedService = specialties;
         $uibModal.open({
             controller : "SelectionModalController",
             templateUrl : 'templates/selection-modal.html',
@@ -267,23 +336,33 @@ app.controller("RegimentSelectionController", function($scope, $uibModal, charac
     };
 });
 
-app.controller("SpecialtySelectController", function($scope, specialties, character){
-    $scope.specialties = specialties.specialties;
-    $scope.selectedSpecialty = specialties.selectedSpecialty;
-
-    $scope.selectSpecialty= function(index){
-        specialties.selectedSpecialty = specialties.specialties[index];
-    };
-});
-
 app.controller("SelectionModalController", function($scope, $uibModalInstance, selection){
+	var target = selection.target['optional modifiers'];
+	for(var i = 0; i <  selection.propertyChain.length; i++){
+		target = target[selection.propertyChain[i]];
+	}
+	target = target[selection.index];
     $scope.choices = {
-        selectionCount : selection.selections,
-        options : {},
+        selectionCount : target.selections,
+        //The options
+        options : [],
+        //If the option in options at the same index is selected
+        selectedStates : []
     };
 
-    $.each(selection.selectionObject.options, function(index, option){
-        $scope.choices.options[option] = false;
+    $.each(target.options, function(index, option){
+		var value = option;
+    	if(typeof option === 'object'){
+    		var options = [];
+	    	for(var property in option){
+	    		if (option.hasOwnProperty(property)){
+	    			options.push(option[property] + " x " + property);
+	    		};
+	    	}
+	    	value = options;
+	    }
+	    $scope.choices.options[index] = value;
+        $scope.choices.selectedStates[index] = false;
     });
 
     $scope.close = function() {
@@ -292,10 +371,10 @@ app.controller("SelectionModalController", function($scope, $uibModalInstance, s
 
     $scope.ok = function() {
         var choices = [];
-        for(var key in $scope.choices.options){
-            if ($scope.choices.options.hasOwnProperty(key) && $scope.choices.options[key] === true){
-                choices.push(key);
-            }
+        for(var i = 0; i < $scope.choices.options.length; i++){
+        	if($scope.choices.selectedStates[i] === true){
+        		choices.push($scope.choices.options[i]);
+        	}
         }
         selection.choose(choices);
         $uibModalInstance.close('complete');
