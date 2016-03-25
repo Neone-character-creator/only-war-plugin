@@ -1,4 +1,4 @@
-var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap.modal"])
+var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap"])
 .filter('option_summary', function(){
     return function(inVal){
         if (typeof inVal.selections === 'number'
@@ -159,9 +159,40 @@ app.factory("characteristics", function($resource){
 
 app.factory("selection", function(){
     return {
+        //The object the option exists on
+        target : {},
+        //The name of the property on the target option the option exists on
+        property : "",
+        //The actual option object
         selectionObject : {},
-        makeSelection: function(choices){}
-    }
+        //The index of the option within the array of property options
+        index : -1,
+        //Decompose this option if valid selections made
+        choose : function(chosen){
+            var target = this.target;
+            var property = this.property;
+            var selectionObject = selectionObject;
+
+            if (chosen.length !== this.selectionObject.selections){
+                throw new exception("Selection required " + selectionObject.selections + " arguments, but received " + arguments.length);
+            };
+            for(var i = 0; i < arguments.length; i++){
+                if(!$.inArray(arguments[i], this.selectionObject.options)){
+                    throw new exception ("Tried to select " + arguments[i] + " but selection contains " + this.selectionObject.options);
+                }
+            };
+            var out = [];
+            $.each(chosen, function(index, element){
+                out.push(element);
+            });
+            this.target['optional modifiers'][this.property].splice(this.index, 1);
+            $.each(out, function(index, e){
+                for(var i = 0; i < out.length; i++){
+                    target['fixed modifiers'][property].push(out[i]);
+                }
+            })
+        }
+    };
 })
 
 app.config(function($stateProvider, $urlRouterProvider){
@@ -225,10 +256,13 @@ app.controller("RegimentSelectionController", function($scope, $uibModal, charac
     };
 
     $scope.openSelectionModal = function(property, index){
+        selection.target = regiments.selectedRegiment;
+        selection.property = property;
+        selection.index = index;
         selection.selectionObject = regiments.selectedRegiment['optional modifiers'][property][index];
         $uibModal.open({
             controller : "SelectionModalController",
-            templateUrl : 'templates/selection-modal.html'
+            templateUrl : 'templates/selection-modal.html',
         })
     };
 });
@@ -239,5 +273,31 @@ app.controller("SpecialtySelectController", function($scope, specialties, charac
 
     $scope.selectSpecialty= function(index){
         specialties.selectedSpecialty = specialties.specialties[index];
+    };
+});
+
+app.controller("SelectionModalController", function($scope, $uibModalInstance, selection){
+    $scope.choices = {
+        selectionCount : selection.selections,
+        options : {},
+    };
+
+    $.each(selection.selectionObject.options, function(index, option){
+        $scope.choices.options[option] = false;
+    });
+
+    $scope.close = function() {
+        $uibModalInstance.dismiss('cancel');
+    };
+
+    $scope.ok = function() {
+        var choices = [];
+        for(var key in $scope.choices.options){
+            if ($scope.choices.options.hasOwnProperty(key) && $scope.choices.options[key] === true){
+                choices.push(key);
+            }
+        }
+        selection.choose(choices);
+        $uibModalInstance.close('complete');
     };
 });
