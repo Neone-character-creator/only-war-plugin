@@ -26,18 +26,14 @@
     "optional modifiers": {
       "talents": [
         {
-          "selections": [
-            1
-          ],
+          "selections" : 1,
           "options": [
             "Weapon Training(Las)",
             "Weapons Training (Solid Projectile)"
           ]
         },
         {
-          "selections": [
-            1
-          ],
+          "selections" : 1,
           "options": [
             "Weapon Training(Bolt)",
             "Weapon Training(Chain)",
@@ -52,9 +48,7 @@
       ],
       "skills": [
         {
-          "selections": [
-            1
-          ],
+          "selections" : 1,
           "options": [
             "Athletics",
             "Survival"
@@ -281,9 +275,7 @@
     ],
     "skill options": [
       {
-        "selections": [
-          1
-        ],
+        "selections" : 1,
         "options": [
           "Athletics",
           "Survival"
@@ -292,18 +284,14 @@
     ],
     "talent options": [
       {
-        "selections": [
-          1
-        ],
+        "selections" : 1,
         "options": [
           "Lasgun Barrage",
           "Rapid Reload"
         ]
       },
       {
-        "selections": [
-          3
-        ],
+        "selections" : 3,
         "options": [
           "Weapon Training (Las)",
           "Weapon Training (Solid Projectile)",
@@ -317,9 +305,7 @@
     ],
     "equipment options": [
       {
-        "selections": [
-          1
-        ],
+        "selections" : 1,
         "options": [
           {
             "Krak Grenades": 4
@@ -330,9 +316,7 @@
         ]
       },
       {
-        "selections": [
-          1
-        ],
+        "selections" : 1,
         "options": [
           {
             "Lasgun": 1
