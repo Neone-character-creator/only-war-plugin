@@ -1,79 +1,72 @@
 <div>
     <div class="container">
-        <div class="col-md-10">
-            <div class="row">
+        <div class="row">
+            <div class="col-md-10">
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                         Select Specialty<span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" id="regiment-list">
+                    <ul class="dropdown-menu" id="specialty-list">
                         <li ng-repeat="specialty in specialties"><a ng-click="selectSpecialty($index)">{{specialty.name}}</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="row" ng-show="character.specialty">
-                <div class="col-md-10 col-md-offset-1"></div>
-                <div id="regiment-details" class="container-fluid">
-                    <div class="row">
-                        <div class="row">
-                            <h3>{{character.specialty.name}}</h3>
-                        </div>
-                        <div class="row">
-                            <h3>Characteristic Modifiers</h3>
-                            <ul>
-                                <li ng-repeat="(name, value) in character.specialty['fixed modifiers'].characteristics">
-                                    {{name}}
-                                    : {{value > 0 ?
-                                    '+' +
-                                    value :
-                                    value}}
-                                </li>
-                                <li ng-repeat="option in character.specialty['optional modifiers'].characteristics">
-                                    {{option.selections + ' of ' }}<span ng-repeat="(name, value) in option.options">{{name}} : {{value > 0 ?
+        </div>
+        <div class="row" ng-show="selectedSpecialty" class="text-center">
+            <div class="col-md-10"></div>
+            <div id="specialty-details" class="container-fluid">
+                <div class="row">
+                    <h3>{{selectedSpecialty.name}}</h3>
+                </div>
+                <div class="row">
+                    <h3>Characteristic Modifiers</h3>
+                    <ul>
+                        <li ng-repeat="(name, value) in selectedSpecialty['fixed modifiers'].characteristics">{{name}} :
+                            {{value > 0 ?
                             '+' +
                             value :
-                            value}}</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="row">
-                            <h3>Starting Skills</h3>
-                            <ul>
-                                <li ng-repeat="skill in character.specialty['fixed modifiers'].skills">{{skill |
-                                    option_summary}}
-                                </li>
-                                <li ng-repeat="skill in character.specialty['optional modifiers'].skills">{{skill |
-                                    option_summary}}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h3>Starting Talents</h3>
-                        <ul>
-                            <!--<li ng-repeat="talent in character.regiment.talents">{{typeof talent === 'String' ? talent : talent.selections from talent.options.join(',')}}</li>-->
-                            <li ng-repeat="talent in character.specialty['fixed modifiers'].talents">{{talent |
+                            value}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Starting Skills</h3>
+                    <ul>
+                        <li ng-repeat="skill in selectedSpecialty['fixed modifiers'].skills">{{skill}}</li>
+                        <li ng-repeat="skill in selectedSpecialty['optional modifiers'].skills">
+                            <button class='btn btn-link' ng-click="openSelectionModal(['skills'], $index)">{{skill |
                                 option_summary}}
-                            </li>
-                            <li ng-repeat="talent in character.specialty['optional modifiers'].talents">{{talent |
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Starting Talents</h3>
+                    <ul>
+                        <li ng-repeat="talent in selectedSpecialty['fixed modifiers'].talents">{{talent |
+                            option_summary}}
+                        </li>
+                        <li ng-repeat="talent in selectedSpecialty['optional modifiers'].talents">
+                            <button class='btn btn-link' ng-click="openSelectionModal(['talents'], $index)">{{talent |
                                 option_summary}}
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <h3>Specialist Equipment</h3>
-                        <ul>
-                            <li ng-repeat="gear in character.specialty['fixed modifiers']['character kit']['other gear']">
-                                {{gear | option_summary}}
-                            </li>
-                            <li ng-repeat="gear in character.specialty['optional modifiers']['character kit']['other gear']">
-                                {{gear | option_summary}}
-                            </li>
-                        </ul>
-                    </div>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Extra Gear</h3>
+                    <ul>
+                        <li ng-repeat="gear in selectedSpecialty['fixed modifiers']['character kit']['other gear']">
+                            {{gear}}
+                        </li>
+                        <li ng-repeat="option in selectedSpecialty['optional modifiers']['character kit']['other gear']">
+                            <button class='btn btn-link'
+                                    ng-click="openSelectionModal(['character kit', 'other gear'], $index)">{{option |
+                                option_summary}}
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
