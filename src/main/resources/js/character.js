@@ -198,6 +198,7 @@ app.factory("selection", function(){
                     throw new exception ("Tried to select " + arguments[i] + " but selection contains " + selectionObject.options);
 				};
             };
+            this.associatedService.requiredOptionSelections.splice(this.associatedService.requiredOptionSelections.indexOf(selectionObject), 1);
             var out = [];
             $.each(chosen, function(index, element){
                 out.push(element);
@@ -229,7 +230,6 @@ app.factory("selection", function(){
 					fixedModifier.push(e);
 				}
             });
-
         }
     };
 })
@@ -286,14 +286,27 @@ app.controller("CharacteristicsController", function($scope, characteristics, ch
     };
 });
 
-app.controller("RegimentSelectionController", function($scope, $uibModal, character, regiments, selection, $state){
+app.controller("RegimentSelectionController", function($scope, $uibModal, character, regiments, selection, $state, $stateParams, $uibModal){
     $scope.regiments = regiments.regiments;
     $scope.character = character.character;
     $scope.selectedRegiment = regiments.selected;
+    var suppressDialog = false;
 
     $scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams){
-        if (fromState = "regiment" && regiments.selected.requiredOptionSelections.length !== 0){
-        	$uibModal
+        if (fromState = "regiment" && toState !== fromState && regiments.requiredOptionSelections.length !== 0){
+        	var resultHandler = function(result){
+        		if (result){
+        			suppressDialog = true;
+        			$state.go(toState);
+        		}
+        	};
+        	if(!suppressDialog){
+        		e.preventDefault();
+        		confirm = $uibModal.open({
+					controller : "NavigationConfirmationController",
+					templateUrl : "templates/confirm-modal.html"
+				}).result.then(resultHandler);
+        	}
         }
     });
 
@@ -318,6 +331,26 @@ app.controller("SpecialtySelectController", function($scope, specialties, charac
     $scope.specialties = specialties.specialties;
     $scope.character = character.character;
     $scope.selectedSpecialty = specialties.selected;
+
+     var suppressDialog = false;
+
+     $scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams){
+     	if (fromState = "specialty" && toState !== fromState && specialties.requiredOptionSelections.length !== 0){
+        	var resultHandler = function(result){
+            	if (result){
+            		suppressDialog = true;
+            		$state.go(toState);
+            	}
+           	};
+           	if(!suppressDialog){
+           		e.preventDefault();
+           		confirm = $uibModal.open({
+   					controller : "NavigationConfirmationController",
+   					templateUrl : "templates/confirm-modal.html"
+				}).result.then(resultHandler);
+			}
+		}
+	});
 
     $scope.selectSpecialty = function(index){
         specialties.selectSpecialty(specialties.specialties[index]);
@@ -378,5 +411,15 @@ app.controller("SelectionModalController", function($scope, $uibModalInstance, s
         }
         selection.choose(choices);
         $uibModalInstance.close('complete');
+    };
+});
+
+app.controller("NavigationConfirmationController", function($scope, $uibModalInstance){
+	$scope.ok = function(){
+		$uibModalInstance.close(true);
+	};
+
+	$scope.cancel = function(){
+    	$uibModalInstance.close(false);
     };
 });
