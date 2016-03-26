@@ -1,0 +1,116 @@
+The character object has the following format:
+{
+	characterName : String,
+	playerName : String,
+	regiment : Object,
+	specialty : Object,
+	description : string,
+	demeanor : String,
+	skills : Object
+	talents-traits : Array,
+	equipment : Object
+	insanity : Object,
+	mutation : Object,
+	psychicPowers : Object,
+	comrade : Object,
+	aptitudes : Array,
+	experience : Object
+}
+
+Because the specialty and regiment are meant to be combined to determine the statistics of the character, they both
+share the same format to allow for easy combination of their values:
+{
+	name : String,
+	source : String	//In the future will allow for filtering based on sources for easier searching or per-game limits on content
+	fixed modifiers : {	//These are the values for the modifier that are set.
+		characteristics : { //Modifiers to the characteristics of the character.
+			name : value	//Name of the characteristic and the modifier amount
+		},
+		skills : {	//The skills provided
+			name : value	//Name of the skill and amount of bonus: 0, +10, +20, +30
+		},
+		talents : [	//The talentss provided
+		],
+		special abilities : [	//Special traits and abilities
+			{
+				name : String,
+				description : String
+			}
+		],
+		aptitudes : [	//The aptitudes provided
+			name
+		],
+		wounds : Number,	//Integer wounds modifier
+		character kit : {	//Equipment provided
+			weapons : {
+				main weapon : name,	//The main regimental weapon
+				other weapons : name	//All other weapons
+			},
+			armor : [
+				name
+			],
+			other gear : [
+				name
+			],
+			squad : [	//Items that are provided to the entire squad, rather than the character
+
+			]
+		},
+		favored weapons : [
+			name
+		]
+	},
+	optional modifiers : [	//These are values where the user must decide from a set of options allowed. After selection, the selected values are moved into the fixed modifiers
+		{	//A selection object defines semantics for choosing between options. Decomposes into an array containing the selected elements, when the number of selected elements equals selectionCount and each selection exists within options.
+			selectionCount : Number,	//The number of options to choose.
+			selection time : String,	//When the choice is made; Character for character creation, Regiment for regiment creation.
+			options : [		//The options to chose from.
+				[	//Each option is an array.
+					{	// Each option array contains one or more value objects
+						propertyNames : [	//Array of nested property names. Determines the property that associated values will be placed under when selected.
+							name
+						],
+						value :	Any	//The value to insert into the defined location; type is whatever is appropriate to destination.
+					}
+				]
+			]
+		}
+	]
+}
+
+When creating a regiment, each regiment modifier uses the same layout as the precreated regiment and specialty format,
+with rules for how to combine them once all the modifiers have been selected and it is time to combine them into a single regiment.
+{
+	name : String,
+	source : String, //Source of created regiment is "custom"
+	fixed modifiers : {
+		characteristics : {], //When combining characteristics, the values of each key in all the modifiers are summed
+		skills : {},	//The values of skills are added together
+		talents : [],	//The talents provided are combined. In the case of duplicates, the xp bonus is increased by 100
+		special abilities : []	//Combined
+		aptitudes : [],	//Combined together. For each duplicate, the character gains a bonus aptitude selection.
+		wounds : Number,	//Added together
+		character kit : {
+			weapons : {
+				main weapon : name,	//Replaces the starting main weapon
+				other weapons : name	//Adds to existing weapons
+			},
+			armor : [	//Replaced starting armor
+				name
+			],
+			other gear : [	//Adds to other gear
+				name
+			],
+			squad : [	//Adds to squad gear
+
+			]
+		},
+		favored weapons : [
+			name
+		]
+	},
+	optional modifiers : [
+		{
+		}
+	]
+}
