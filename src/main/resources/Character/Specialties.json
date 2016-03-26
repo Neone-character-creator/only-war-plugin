@@ -1,6 +1,7 @@
 [
   {
     "name": "Heavy Gunner",
+    "source": "core",
     "type": "Guardsman",
     "fixed modifiers": {
       "characteristics": {
@@ -21,64 +22,149 @@
       ],
       "talents": [
         "Iron Jaw"
-      ]
+      ],
+      "wounds": 10
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections" : 1,
-          "options": [
-            "Weapon Training(Las)",
-            "Weapons Training (Solid Projectile)"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapons Training (Solid Projectile)"
+            }
           ]
-        },
-        {
-          "selections" : 1,
-          "options": [
-            "Weapon Training(Bolt)",
-            "Weapon Training(Chain)",
-            "Weapon Training(Flame)",
-            "Weapon Training(Launcher)",
-            "Weapon Training(Melta)",
-            "Weapon Training(Plasma)",
-            "Weapon Training(Power)",
-            "Weapon Training(Shock)"
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Bolt)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Chain)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Flame)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Launcher)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Melta)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Plasma)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Power)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training(Shock)"
+            }
           ]
-        }
-      ],
-      "skills": [
-        {
-          "selections" : 1,
-          "options": [
-            "Athletics",
-            "Survival"
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "skills",
+              "value": "Athletics"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Survival"
+            }
           ]
-        }
-      ],
-      "character kit": {
-        "other gear": [
-          {
-            "selections": 1,
-            "options": [
-              {
-                "Missile Launcher": 1,
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Missile Launcher": 1
+              }
+            },
+            {
+              "property": [
+                "character kit",
+                "other gear"
+              ],
+              "value": {
                 "Frag Missile": 5
-              },
-              {
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
                 "Heavy Stubber": 1
-              },
-              {
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other gear"
+              ],
+              "value": {
                 "Regimental Favored Heavy Weapon": 1
               }
-            ]
-          }
+            }
+          ]
         ]
       }
-    },
-    "wounds": 10
+    ]
   },
   {
     "name": "Medic",
+    "source": "core",
     "type": "Guardsman",
     "fixed modifiers": {
       "characteristics": {
@@ -108,36 +194,63 @@
       },
       "wounds": 8
     },
-    "optional modifiers": {
-      "skills": [
-        {
-          "selections": 1,
-          "options": [
-            "Scrutiny",
-            "Trade (Chymist)"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "skills",
+              "value": "Scrutiny"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Trade (Chymisty)"
+            }
           ]
-        }
-      ],
-      "talents": [
-        {
-          "selections": 1,
-          "options": [
-            "Cold Hearted",
-            "Jaded"
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Cold Hearted"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Jaded"
+            }
           ]
-        },
-        {
-          "selections": 1,
-          "options": [
-            "Weapon Training (Las)",
-            "Weapon Training (Solid Projectile)"
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile)"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Operator",
+    "source": "core",
     "type": "Guardsman",
     "fixed modifiers": {
       "characteristics": {
@@ -170,556 +283,965 @@
       },
       "wounds": 6
     },
-    "optional modifiers": {
-      "skills": [
-        {
-          "selections": 1,
-          "options": [
-            "Common Lore (Tech)",
-            "Navigate (Surface)"
-          ]
-        }
-      ],
-      "talents": [
-        {
-          "selections": 1,
-          "options": [
-            "Weapon Training (Las)",
-            "Weapon Training (Solid Projectile)"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "name": "Sergeant",
-    "type": "Guardsman",
-    "characteristics": {
-      "Fellowship": 5
-    },
-    "aptitudes": [
-      "Defense",
-      "Fellowship",
-      "Leadership",
-      "Perception",
-      "Strength",
-      "Toughness",
-      "Weapon Skill"
-    ],
-    "skills": [
-      "Command"
-    ],
-    "skill options": [
-      {
-        "selections": 1,
-        "options": [
-          "Navitage (Surface)",
-          "Scholastic Lore (Tactica Imperialis)"
-        ]
-      }
-    ],
-    "talents": [
-      "Weapon Training (Low-Tech)",
-      "Weapon Training (Chain)"
-    ],
-    "talent options": [
-      {
-        "selections": 1,
-        "options": [
-          "Weapon Training (Las)",
-          "Weapon Training (Solid Projectile)"
-        ]
-      },
-      {
-        "selections": 1,
-        "options": [
-          "Air of Authority",
-          "Iron Discipline"
-        ]
-      }
-    ],
-    "equipment": {
-      "Las Pistol": 1,
-      "Chainsword": 1
-    },
-    "wounds": 10
-  },
-  {
-    "name": "Weapon Specialist",
-    "characteristic options": [
-      {
-        "selections": 1,
-        "options": [
-          {
-            "Ballistic Skill": 5
-          },
-          {
-            "Weapon Skill": 5
-          }
-        ]
-      }
-    ],
-    "type": "Guardsman",
-    "aptitudes": [
-      "Agility",
-      "Ballistic Skill",
-      "Fellowship",
-      "Fieldcraft",
-      "Finesse",
-      "Weapon Skill"
-    ],
-    "skills": [
-      "Navigate (Surface)",
-      "Common Lore(Imperial Guard)",
-      "Common Lore (War)"
-    ],
-    "skill options": [
-      {
-        "selections" : 1,
-        "options": [
-          "Athletics",
-          "Survival"
-        ]
-      }
-    ],
-    "talent options": [
-      {
-        "selections" : 1,
-        "options": [
-          "Lasgun Barrage",
-          "Rapid Reload"
-        ]
-      },
-      {
-        "selections" : 3,
-        "options": [
-          "Weapon Training (Las)",
-          "Weapon Training (Solid Projectile)",
-          "Weapon Training (Bolt)",
-          "Weapon Training (Plasma)",
-          "Weapon Training (Flame)",
-          "Weapon Training (Low-Tech)",
-          "Weapon Training (Launcher)"
-        ]
-      }
-    ],
-    "equipment options": [
-      {
-        "selections" : 1,
-        "options": [
-          {
-            "Krak Grenades": 4
-          },
-          {
-            "Frag Grenades": 4
-          }
-        ]
-      },
-      {
-        "selections" : 1,
-        "options": [
-          {
-            "Lasgun": 1
-          },
-          {
-            "Flamer": 1
-          },
-          {
-            "Shotgun": 1
-          },
-          {
-            "Regimental Favored Basic Weapon": 1
-          }
-        ]
-      }
-    ],
-    "wounds": 8
-  },
-  {
-    "name": "Commissar",
-    "type": "Support",
-    "characteristics": {
-      "Fellowship": 5
-    },
-    "aptitudes": [
-      "Agility",
-      "Fellowship",
-      "Finesse",
-      "Leadership",
-      "Perception",
-      "Weapon Skill",
-      "Willpower"
-    ],
-    "skills": [
-      "Common Lore (Imperial Guard)",
-      "Scholastic Lore (Tactica Imperialis)"
-    ],
-    "skill options": [
-      {
-        "selections": 1,
-        "options": [
-          "Command",
-          "Intimidate"
-        ]
-      }
-    ],
-    "talents": [
-      "Air of Authority",
-      "Weapon Training (Bolt)",
-      "Weapon Training (Chain)"
-    ],
-    "talent options": [
-      {
-        "selections": 1,
-        "options": [
-          "Weapon Training (Las)",
-          "Weapon Training (Solid Projectile)"
-        ]
-      },
-      {
-        "selections": 1,
-        "options": [
-          "Cold Hearted",
-          "Unshakeable Faith"
-        ]
-      }
-    ],
-    "equipment": {
-      "Good Craftsmanship Chainsword": 1,
-      "Good Craftsmanship Bolt Pistol": 1,
-      "Commissar's Uniform": 1
-    },
-    "wounds": 10
-  },
-  {
-    "name": "Ministorum Priest",
-    "type": "Support",
-    "characteristics": {
-      "Fellowship": 5
-    },
-    "aptitudes": [
-      "Fellowship",
-      "Leadership",
-      "Perception",
-      "Social",
-      "Strength",
-      "Weapon Skill",
-      "Willpower"
-    ],
-    "skills": [
-      "Common Lore (Ecclesiarchy)",
-      "Forbidden Lore (Heresy)",
-      "Scholastic Lore (Imperial Creed)"
-    ],
-    "skill options": [
-      {
-        "selections": 1,
-        "options": [
-          "Charm",
-          "Inquiry"
-        ]
-      }
-    ],
-    "talents": [
-      "Hatred",
-      "Unshakeable Faith",
-      "Weapon Training (Chain)",
-      "Weapon Training (Flame)",
-      "Weapon Training (Low-Tech)"
-    ],
-    "talent options": [
-      {
-        "selections": 1,
-        "options": [
-          "Weapon Training (Las)",
-          "Weapon Training (Solid Projectile)"
-        ]
-      }
-    ],
-    "equipment": {
-      "Ecclesiarchy Robes": 1,
-      "Flamer": 1,
-      "Chainsword": 1,
-      "Book of Scripture": 1
-    },
-    "wounds": 9
-  },
-  {
-    "name": "Ogryn",
-    "type": "Support",
-    "characteristics": {
-      "Strength": 10,
-      "Toughness": 10,
-      "Intelligence": -15,
-      "Agility": -10
-    },
-    "aptitudes": [
-      "Ballistic Skill",
-      "Defense",
-      "Offense",
-      "Strength",
-      "Toughness",
-      "Weapon Skill"
-    ],
-    "talents": [
-      "Weapon Training (Heavy)",
-      "Weapon Training (Solid Projectile)"
-    ],
-    "talent options": [
-      {
-        "selections": 1,
-        "options": [
-          "Die Hard",
-          "Iron Jaw"
-        ]
-      }
-    ],
-    "skill options": [
-      {
-        "selections": 1,
-        "options": [
-          "Intimidate",
-          "Survival"
-        ]
-      }
-    ],
-    "equipment": {
-      "Ripper Gun": 1,
-      "Frag Grenade": "1d5"
-    },
-    "wounds": 25
-  },
-  {
-    "name": "Ratling",
-    "type": "Support",
-    "characteristics": {
-      "Perception": 10,
-      "Fellowship": 10,
-      "Toughness": -10
-    },
-    "aptitudes": [
-      "Agility",
-      "Ballistic Skill",
-      "Fellowship",
-      "Fieldcraft",
-      "Finesse",
-      "Perception",
-      "Social"
-    ],
-    "skills": [
-      "Deceive",
-      "Trade (Cook)"
-    ],
-    "skill options": [
-      {
-        "selections": 1,
-        "options": [
-          "Awareness",
-          "Stealth"
-        ]
-      }
-    ],
-    "talents": [
-      "Deadeye Shot",
-      "Weapon Training (Las)",
-      "Weapon Training (Solid Projectile)",
-      "Size (Weedy)"
-    ],
-    "talent options": [
+    "optional modifiers": [
       {
         "selections": 1,
         "options": [
           [
-            "Heightened Senses (Sight)",
-            "Heightened Senses (Smell)",
-            "Heightened Senses (Taste)"
+            {
+              "property": "skills",
+              "value": "Common Lore (Tech)"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Navigate (Surface)"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile)"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sergeant",
+    "source": "core",
+    "type": "Guardsman",
+    "fixed modifiers": {
+      "characteristics": {
+        "Fellowship": 5
+      },
+      "aptitudes": [
+        "Defense",
+        "Fellowship",
+        "Leadership",
+        "Perception",
+        "Strength",
+        "Toughness",
+        "Weapon Skill"
+      ],
+      "skills": [
+        "Command"
+      ],
+      "talents": [
+        "Weapon Training (Low-Tech)",
+        "Weapon Training (Chain)"
+      ],
+      "character kit": {
+        "other weapons": {
+          "Las Pistol": 1,
+          "Chainsword": 1
+        }
+      },
+      "wounds": 10
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "skills",
+              "value": "Navitage (Surface)"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Scholastic Lore (Tactica Imperialis)"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile)"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Air of Authority"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Iron Discipline"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Weapon Specialist",
+    "source": "core",
+    "type": "Guardsman",
+    "fixed modifiers": {
+      "aptitudes": [
+        "Agility",
+        "Ballistic Skill",
+        "Fellowship",
+        "Fieldcraft",
+        "Finesse",
+        "Weapon Skill"
+      ],
+      "skills": [
+        "Navigate (Surface)",
+        "Common Lore(Imperial Guard)",
+        "Common Lore (War)"
+      ],
+      "wounds": 8
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "characteristics",
+              "value": {
+                "Ballistic Skill": 5
+              }
+            }
+          ],
+          [
+            {
+              "property": "characteristics",
+              "value": {
+                "Weapon Skill": 5
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          {
+            "property": "skills",
+            "value": "Athletics"
+          },
+          {
+            "property": "skills",
+            "value": "Survival"
+          }
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          {
+            "property": "talents",
+            "value": "Lasgun Barrage"
+          },
+          {
+            "property": "talents",
+            "value": "Rapid Reload"
+          }
+        ]
+      },
+      {
+        "selections": 3,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Bolt)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Plasma)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Flame)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Low-Tech)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Launcher)"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Krak Grenades": 4
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Frag Grenades": 4
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Good Craftsmanship Lasgun": 1
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Flamer": 1
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Shotgun": 1
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Regimental Favored Basic Weapon": 1
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Commissar",
+    "source": "core",
+    "type": "Support",
+    "fixed modifiers": {
+      "characteristics": {
+        "Fellowship": 5
+      },
+      "aptitudes": [
+        "Agility",
+        "Fellowship",
+        "Finesse",
+        "Leadership",
+        "Perception",
+        "Weapon Skill",
+        "Willpower"
+      ],
+      "skills": [
+        "Common Lore (Imperial Guard)",
+        "Scholastic Lore (Tactica Imperialis)"
+      ],
+      "talents": [
+        "Air of Authority",
+        "Weapon Training (Bolt)",
+        "Weapon Training (Chain)"
+      ],
+      "character kit": {
+        "other weapons": {
+          "Good Craftsmanship Chainsword": 1,
+          "Good Craftsmanship Bolt Pistol": 1
+        },
+        "other gear": {
+          "Commissar's Uniform": 1
+        }
+      },
+      "wounds": 10
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": "Weapon Training (Solid Projectile)"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": "Cold Hearted"
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": "Unshakeable Faith"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": "Command"
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": "Intimidate"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ministorum Priest",
+    "source": "core",
+    "type": "Support",
+    "fixed modifiers": {
+      "characteristics": {
+        "Fellowship": 5
+      },
+      "aptitudes": [
+        "Fellowship",
+        "Leadership",
+        "Perception",
+        "Social",
+        "Strength",
+        "Weapon Skill",
+        "Willpower"
+      ],
+      "skills": [
+        "Common Lore (Ecclesiarchy)",
+        "Forbidden Lore (Heresy)",
+        "Scholastic Lore (Imperial Creed)"
+      ],
+      "talents": [
+        "Hatred",
+        "Unshakeable Faith",
+        "Weapon Training (Chain)",
+        "Weapon Training (Flame)",
+        "Weapon Training (Low-Tech)"
+      ],
+      "character kit": {
+        "other weapons": {
+          "Flamer": 1,
+          "Chainsword": 1
+        },
+        "other gear": {
+          "Ecclesiarchy Robes": 1,
+          "Book of Scripture": 1
+        }
+      },
+      "wounds": 9
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile)"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "skills",
+              "value": "Charm"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Inquiry"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ogryn",
+    "source": "core",
+    "type": "Support",
+    "fixed modifiers": {
+      "characteristics": {
+        "Strength": 10,
+        "Toughness": 10,
+        "Intelligence": -15,
+        "Agility": -10
+      },
+      "aptitudes": [
+        "Ballistic Skill",
+        "Defense",
+        "Offense",
+        "Strength",
+        "Toughness",
+        "Weapon Skill"
+      ],
+      "talents": [
+        "Weapon Training (Heavy)",
+        "Weapon Training (Solid Projectile)"
+      ],
+      "character kit": {
+        "other weapons": {
+          "Ripper Gun": 1
+        },
+        "other gear": {
+          "Frag Grenade": "1d5"
+        }
+      },
+      "wounds": 25
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "skills",
+              "value": "Intimidate"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Survival"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Die Hard"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Iron Jaw"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ratling",
+    "source": "core",
+    "type": "Support",
+    "fixed modifiers": {
+      "characteristics": {
+        "Perception": 10,
+        "Fellowship": 10,
+        "Toughness": -10
+      },
+      "aptitudes": [
+        "Agility",
+        "Ballistic Skill",
+        "Fellowship",
+        "Fieldcraft",
+        "Finesse",
+        "Perception",
+        "Social"
+      ],
+      "skills": [
+        "Deceive",
+        "Trade (Cook)"
+      ],
+      "talents": [
+        "Deadeye Shot",
+        "Weapon Training (Las)",
+        "Weapon Training (Solid Projectile)",
+        "Size (Weedy)"
+      ],
+      "character kit": {
+        "other gear": {
+          "Chameleoline Cloak": 1
+        }
+      },
+      "wounds": 9
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "skills",
+              "value": "Awareness"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Stealth"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            [
+              {
+                "property": "talents",
+                "value": "Heightened Senses (Sight)"
+              }
+            ],
+            [
+              {
+                "property": "talents",
+                "value": "Heightened Senses (Smell)"
+              }
+            ],
+            [
+              {
+                "property": "talents",
+                "value": "Heightened Senses (Taste)"
+              }
+            ]
           ],
           [
             "Light Sleeper"
           ]
         ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Good Craftsmanship Long-Las": 1
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
+                "Good Craftsmanship Sniper Rifle w/ Telescopic Sight": 1
+              }
+            }
+          ]
+        ]
       }
-    ],
-    "equipment": {
-      "Ecclesiarchy Robes": 1,
-      "Flamer": 1,
-      "Chainsword": 1,
-      "Book of Scripture": 1
-    },
-    "wounds": 9
+    ]
   },
   {
     "name": "Sanctioned Psyker",
+    "source": "core",
     "type": "Support",
-    "characteristics": {
-      "Willpower": 5
+    "fixed modifiers": {
+      "characteristics": {
+        "Willpower": 5
+      },
+      "aptitudes": [
+        "Intelligence",
+        "Knowledge",
+        "Perception",
+        "Psyker",
+        "Strength",
+        "Willpower"
+      ],
+      "skills": [
+        "Common Lore (Adeptus Astra Telepathica)",
+        "Forbidden Lore (Psykers)",
+        "Psyniscience",
+        "Scholastic Lore (Cryptology)"
+      ],
+      "talents": [
+        "Heightened Senses (Hearing)",
+        "Weapon Training (Low-Tech)",
+        "Psyker"
+      ],
+      "character kit": {
+        "other weapons": {
+          "Best Craftsmanship Staff": 1
+        },
+        "other gear": {
+          "Data-slate": 1,
+          "Psy Focus": 1
+        }
+      },
+      "wounds": 8
     },
-    "aptitudes": [
-      "Intelligence",
-      "Knowledge",
-      "Perception",
-      "Psyker",
-      "Strength",
-      "Willpower"
-    ],
-    "skills": [
-      "Common Lore (Adeptus Astra Telepathica)",
-      "Forbidden Lore (Psykers)",
-      "Psyniscience",
-      "Scholastic Lore (Cryptology)"
-    ],
-    "talents": [
-      "Heightened Senses (Hearing)",
-      "Weapon Training (Low-Tech)",
-      "Psyker"
-    ],
-    "talent options": [
+    "optional modifiers": [
       {
         "selections": 1,
         "options": [
-          "Weapon Training (Las)",
-          "Weapon Training (Solid Projectile"
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile"
+            }
+          ]
         ]
       }
-    ],
-    "equipment": {
-      "Data-slate": 1,
-      "Psy Focus": 1,
-      "Best Craftsmanship Staff": 1
-    },
-    "wounds": 8
+    ]
   },
   {
     "name": "Storm Trooper",
+    "source": "core",
     "type": "Support",
-    "characteristics": {
-      "Toughness": 5
+    "fixed modifiers": {
+      "characteristics": {
+        "Toughness": 5
+      },
+      "aptitudes": [
+        "Agility",
+        "Ballistic Skill",
+        "Fieldcraft",
+        "Finesse",
+        "Offence",
+        "Toughness"
+      ],
+      "skills": [
+        "Awareness",
+        "Scholastic Lore (Tactica Imperialis)",
+        "Stealth"
+      ],
+      "talents": [
+        "Takedown",
+        "Weapon Training (Low-Tech)"
+      ],
+      "character kit": {
+        "other weapons": {
+          "Good Craftsmanship Hot-Shot Lasgun": 1
+        },
+        "armor": {
+          "Storm Trooper Carapace Armor": 1
+        }
+      },
+      "wounds": 12
     },
-    "aptitudes": [
-      "Agility",
-      "Ballistic Skill",
-      "Fieldcraft",
-      "Finesse",
-      "Offence",
-      "Toughness"
-    ],
-    "skills": [
-      "Awareness",
-      "Scholastic Lore (Tactica Imperialis)",
-      "Stealth"
-    ],
-    "skill options": [
+    "optional modifiers": [
       {
         "selection": 1,
         "options": [
-          "Dodge",
-          "Parry"
+          [
+            {
+              "property": "skills",
+              "value": "Dodge"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Parry"
+            }
+          ]
         ]
       },
       {
         "selection": 1,
         "options": [
-          "Intimidate",
-          "Security"
-        ]
-      }
-    ],
-    "talents": [
-      "Takedown",
-      "Weapon Training (Low-Tech)"
-    ],
-    "talent options": [
-      {
-        "selections": 1,
-        "options": [
-          "Quick Draw",
-          "Rapid Reload"
+          [
+            {
+              "property": "skills",
+              "value": "Intimidate"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Security"
+            }
+          ]
         ]
       },
       {
         "selections": 1,
         "options": [
-          "Weapon Training (Las)",
-          "Weapon Training (Solid Projectile"
+          [
+            {
+              "property": "talents",
+              "value": "Quick Draw"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Rapid Reload"
+            }
+          ]
+        ]
+      },
+      {
+        "selections": 1,
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile"
+            }
+          ]
         ]
       }
-    ],
-    "equipment": {
-      "Good Craftsmanship Hot-Shot Lasgun": 1,
-      "Storm Trooper Carapace Armor": 1
-    },
-    "wounds": 12
+    ]
   },
   {
     "name": "Tech-Priest Enginseer",
+    "source": "core",
     "type": "Support",
-    "characteristics": {
-      "Intelligence": 5
+    "fixed modifiers": {
+      "characteristics": {
+        "Intelligence": 5
+      },
+      "aptitudes": [
+        "Ballistic Skill",
+        "Intelligence",
+        "Knowledge",
+        "Strength",
+        "Tech",
+        "Toughness",
+        "Weapon Skill",
+        "Willpower"
+      ],
+      "skills": [
+        "Common Lore (Adeptus Mechanicus)",
+        "Forbidden Lore (Adeptus Mechanicus)",
+        "Tech-Use"
+      ],
+      "talents": [
+        "Mechadendrite Use (Weapon)",
+        "Mechadendrite Use (Utility)",
+        "Weapon Training (Power)",
+        "Mechanicus Implants"
+      ],
+      "character kit": {
+        "other gear": {
+          "Sacred Ungents": 1,
+          "Dataslate": 1,
+          "Combi-tool": 1
+        }
+      },
+      "wounds": 8
     },
-    "aptitudes": [
-      "Ballistic Skill",
-      "Intelligence",
-      "Knowledge",
-      "Strength",
-      "Tech",
-      "Toughness",
-      "Weapon Skill",
-      "Willpower"
-    ],
-    "skills": [
-      "Common Lore (Adeptus Mechanicus)",
-      "Forbidden Lore (Adeptus Mechanicus)",
-      "Tech-Use"
-    ],
-    "skill options": [
-      {
-        "selection": 1,
-        "options": [
-          "Forbidden Lore (Archeotech)",
-          "Logic"
-        ]
-      }
-    ],
-    "talents": [
-      "Mechadendrite Use (Weapon)",
-      "Mechadendrite Use (Utility)",
-      "Weapon Training (Power)",
-      "Mechanicus Implants"
-    ],
-    "talent options": [
+    "optional modifiers": [
       {
         "selections": 1,
         "options": [
-          "Cold Hearted",
-          "Technical Knock"
+          [
+            {
+              "property": "talents",
+              "value": {
+                "Utility Mechadendrite": 1
+              }
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": {
+                "Ballistic Mechadendrite": 1
+              }
+            }
+          ]
         ]
       },
       {
         "selections": 1,
         "options": [
-          "Weapon Training (Las)",
-          "Weapon Training (Solid Projectile"
+          [
+            {
+              "property": "talents",
+              "value": "Cold Hearted"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Technical Knock"
+            }
+          ]
         ]
-      }
-    ],
-    "equipment": {
-      "Sacred Ungents": 1,
-      "Dataslate": 1,
-      "Combi-tool": 1
-    },
-    "equipment options": [
+      },
       {
         "selections": 1,
         "options": [
-          {
-            "Utility Mechadendrite": 1
-          },
-          {
-            "Ballistic Mechadendrite": 1
-          }
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Las)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Weapon Training (Solid Projectile"
+            }
+          ]
+        ]
+      },
+      {
+        "selection": 1,
+        "options": [
+          [
+            {
+              "property": "skills",
+              "value": "Forbidden Lore (Archeotech)"
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": "Logic"
+            }
+          ]
         ]
       }
-    ],
-    "wounds": 8
+    ]
   }
 ]
