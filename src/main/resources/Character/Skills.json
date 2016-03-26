@@ -33,7 +33,7 @@
 	"name": "Common Lore",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "General"],
-	"specializations" : ["Adeptus Arbites", "Adeptus Astra Telepathica", "Adeptus Mechanicus", "Administratum", "Calixis Sector", "Ecclesiarchy", "Imperial Creed", "Imperial Guard", "Imperial Navy", "Imperium", "Jericho Reach", "Koronus Expanse", "Screaming Vortex", "Spinward Front", "Tech", "War"]
+	"specializations" : true
 },
 {
 	"name": "Deceive",
@@ -49,7 +49,7 @@
 	"name": "Forbidden Lore",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "Knowledge"],
-	"specializations" : ["Adeptus Mechanicus", "Adeptus Astartes", "Codex Astartes", "Archaeotech", "Daemonology", "The Horus Heresy and Long War", "The Inquisition", "Mutants", "Navigators", "Pirates", "Psykers", "The Warp", "Xenos"]
+	"specializations" : true
 },
 {
 	"name": "Inquiry",
@@ -70,7 +70,7 @@
 	"name": "Linguistics",
 	"characteristic": "Fellowship",
 	"aptitudes": ["Intelligence", "General"],
-	"specializations" : ["Chapter Runes", "Chaos Marks", "Eldar", "High Gothic", "Imperial Codes", "Kroot", "Low Gothic", "Mercenary Cant", "Ork", "Techna-Lingua",  "Tau", "Underworld", "Xenos Markings"]
+	"specializations" : true
 },
 {
 	"name": "Logic",
@@ -86,13 +86,13 @@
 	"name": "Navigate",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "Fieldcraft"],
-	"specializations" : ["Surface", "Stellar", "Warp"]
+	"specializations" : true
 },
 {
 	"name": "Operate",
 	"characteristic": "Agility",
 	"aptitudes": ["Agility", "Fieldcraft"],
-	"specializations" : ["Surface", "Aeronautica", "Voidship"]
+	"specializations" : true
 },
 {
 	"name": "Parry",
@@ -108,7 +108,7 @@
 	"name": "Scholastic Lore",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "Knowledge"],
-	"specializations" : ["Astromancy", "Beasts", "Bureaucracy", "Chymistry", "Cryptology", "Heraldry", "Imperial Warrants", "Imperial Creed", "Judgement", "Legend", "Navis Nobilite", "Numerology", "Occult", "Philosophy", "Tactica Imperialis"]
+	"specializations" : true
 },
 {
 	"name": "Scrutiny",
@@ -144,6 +144,6 @@
 	"name": "Trade",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "General"],
-	"specializations" : ["Archaeologist", "Armourer", "Astrographer", "Chymist", "Cryptographer", "Cook", "Explorator", "Linguistics", "Remembracer", "Scrimshawer", "Shipwright", "Soothsayer", "Technomat", "Voidfarer"]
+	"specializations" : true
 }
 ]
