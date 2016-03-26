@@ -25,59 +25,83 @@
         "Rapid Reload"
       ],
       "special abilities": [
-        "Bred for War",
-        "Hated Enemy"
+        {
+          "name": "Bred for War",
+          "description": "A Cadian must attempt a Challenging (+0) Willpower Test to go against the rules of the Imperial Guard."
+        },
+        {
+          "name": "Hated Enemy",
+          "description": "Cadians gain a Hatred talent. Characters may need to make an Ordinary (+10) Willpower Test to refrain from attacking their hated enemy."
+        }
       ],
       "wounds": 0,
-      "standard kit": {
-        "Good Craftsmanship M36 Lasgun": 1,
-        "Charge Pack (Basic)": 4,
-        "Autopistol": 1,
-        "Clip": 2,
-        "Knife": 1,
-        "Imperial Guard Flak Armor": 1,
-        "Frag Grenade": 2,
-        "Krak Grenade": 2,
-        "Uniform": 1,
-        "Poor Weather Gear": 1,
-        "Rucksack": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 2,
-        "Gas Mask": 1,
-        "Micro-bead": 1,
-        "Chimera Armored Transport": 1
+      "character kit": {
+        "main weapon": {
+          "Good Craftsmanship M36 Lasgun": 1
+        },
+        "other weapon": {
+          "Autopistol": 1
+        },
+        "armor": {
+          "Imperial Guard Flak Armor": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Clip": 2,
+          "Knife": 1,
+          "Frag Grenade": 2,
+          "Krak Grenade": 2,
+          "Uniform": 1,
+          "Poor Weather Gear": 1,
+          "Rucksack": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 2,
+          "Gas Mask": 1,
+          "Micro-bead": 1,
+          "Chimera Armored Transport": 1
+        }
       },
       "favored weapons": [
         "Autocannon",
         "Grenade Launcher"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Combat Formation",
-            "Double Team"
-          ]
-        },
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Nerves of Steel",
-            "Sprint"
-          ]
-        }
-      ]
-    }
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          {
+            "property": "talents",
+            "value": "Combat Formation"
+          },
+          {
+            "property": "talents",
+            "value": "Double Team"
+          }
+        ]
+      },
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          {
+            "property": "talents",
+            "value": "Nerves of Steel"
+          },
+          {
+            "property": "talents",
+            "value": "Sprint"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Catachan 18th \"Drakebats\"",
@@ -99,52 +123,78 @@
         "Sprint"
       ],
       "special abilities": [
-        "Fluency",
-        "Survivalists (Jungles)",
-        "Wary of Outsiders"
+        {
+          "name": "Fluency",
+          "description": "Catachans do not start with Linguistics (Low Gothic) at character creation."
+        },
+        {
+          "name": "Survivalists (Jungles)",
+          "description": " Catachans have grown up fighting in the lethal jungle of their homeworld, and feel at home on any planet with a similar environment. When operating in jungle terrain, they can re-roll failed Survival and Navigate (Surface) Skill Tests."
+        },
+        {
+          "name": "Wary of Outsiders",
+          "description": "Death worlders suffer a -10 penalty to Interaction Skill Tests in formal surroundings and impose a -10 penalty to Intervation Skill Tests on them by non-death worlders."
+        }
       ],
       "wounds": 2,
-      "standard kit": {
-        "Lascarbine": 1,
-        "Charge Pack (Basic)": 4,
-        "Best Craftsmanship Sword": 1,
-        "Clip": 2,
-        "Knife": 1,
-        "Flak Vest": 1,
-        "Flak Helmet": 1,
-        "Frag Grenade": 3,
-        "Smoke Grenade": 2,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 2,
-        "Stummer": 1,
-        "Grapnel": 1
+      "character kit": {
+        "main weapon": {
+          "Lascarbine": 1
+        },
+        "other weapons": {
+          "Best Craftsmanship Sword": 1
+        },
+        "armor": {
+          "Flak Vest": 1,
+          "Flak Helmet": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Clip": 2,
+          "Knife": 1,
+          "Frag Grenade": 3,
+          "Smoke Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 2,
+          "Stummer": 1,
+          "Grapnel": 1
+        }
       },
       "favored weapons": [
         "Flamer",
         "Heavy Bolter"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Lightning Reflexes",
-            "Light Sleeper",
-            "Resistance (Poison)"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Lightning Reflexes"
+            },
+            {
+              "property": "talents",
+              "value": "Light Sleeper"
+            },
+            {
+              "property": "talents",
+              "value": "Resistance (Poison)"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Krieg 161th Siege Infantry",
@@ -172,32 +222,46 @@
         "Nerves of Steel"
       ],
       "special abilities": [
-        "Only One Life To Give",
-        "Faceless, Nameless and Selfless"
+        {
+          "name": "Only One Life to Give",
+          "description": "Penitents must pass an Ordinary (+10) Willpower Test to retreat or act in the interests of self-preservation."
+        },
+        {
+          "name": "Faceless, Nameless and Selfless",
+          "description": " Krieg Korpsmen are taught to regard themselves without identity, hidden behind gas masks and stripped of even their names. This lack of self helps them fight on against impossible odds, and neither fear nor doubt will hinder them. When required to make a Fear or Pinning Test, ignore all penalties applied to the Test, and simply treat it as a Challenging (+0) Willpower Test."
+        }
       ],
       "wounds": 2,
-      "standard kit": {
-        "M36 Lasgun": 1,
-        "Charge Pack (Basic)": 6,
-        "Knife with Mono": 1,
-        "Imperial Guard Flak Armor": 1,
-        "Respirator": 1,
-        "Empty Sandbag": 4,
-        "Entrenching Tool": 1,
-        "Frag Grenade": 4,
-        "Smoke Grenade": 2,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 2,
-        "Screamer": 6
+      "character kit": {
+        "main weapon": {
+          "M36 Lasgun": 1
+        },
+        "other weapons": {
+          "Knife with Mono": 1
+        },
+        "armor": {
+          "Imperial Guard Flak Armor": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 6,
+          "Respirator": 1,
+          "Empty Sandbag": 4,
+          "Entrenching Tool": 1,
+          "Frag Grenade": 4,
+          "Smoke Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 2,
+          "Screamer": 6
+        }
       },
       "favored weapons": [
         "Meltagun",
@@ -230,33 +294,47 @@
         "Hatred (Mutants)"
       ],
       "special abilities": [
-        "Blessed Ignorance",
-        "Demolitions Doctrine"
+        {
+          "name": "Blessed Ignorance",
+          "description": "Elysians suffer a -5 penalty on all Forbitten Lore Tests."
+        },
+        {
+          "name": "Demolitions",
+          "description": "The regiment gains a +10 bonus to Logistics tests to obtain grenades, missiles, explosives and special tank ammunition."
+        }
       ],
       "wounds": 0,
-      "standard kit": {
-        "Combat Shotgun": 1,
-        "Clip": 4,
-        "Knife": 1,
-        "Imperial Guard Flak Armor": 1,
-        "Respirator": 1,
-        "Grav-chute": 1,
-        "Frag Grenade": 3,
-        "Smoke Grenade": 3,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Dog Tags": 1,
-        "Grooming Kit": 1,
-        "Survival Suit": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Micro-bead": 1,
-        "Photo-visor": 1
+      "character kit": {
+        "main weapon": {
+          "Combat Shotgun": 1
+        },
+        "other weapons": {
+          "Knife": 1
+        },
+        "armor": {
+          "Imperial Guard Flak Armor": 1
+        },
+        "other gear": {
+          "Clip": 4,
+          "Respirator": 1,
+          "Grav-chute": 1,
+          "Frag Grenade": 3,
+          "Smoke Grenade": 3,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Dog Tags": 1,
+          "Grooming Kit": 1,
+          "Survival Suit": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Micro-bead": 1,
+          "Photo-visor": 1
+        }
       },
       "favored weapons": [
         "Heavy Bolter",
@@ -291,26 +369,34 @@
         "Untempered Zeal"
       ],
       "wounds": 2,
-      "standard kit": {
-        "Good Craftsmanship M36 Lasgun": 1,
-        "Charge Pack (Basic)": 4,
-        "Knife": 1,
-        "Imperial Guard Flak Armor": 1,
-        "Respirator": 1,
-        "Frag Grenade": 2,
-        "Krak Grenade": 2,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Photo-visor": 1,
-        "Purity Seals": 1
+      "character kit": {
+        "main weapon": {
+          "Good Craftsmanship M36 Lasgun": 1
+        },
+        "other weapons": {
+          "Knife": 1
+        },
+        "armor": {
+          "Imperial Guard Flak Armor": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Respirator": 1,
+          "Frag Grenade": 2,
+          "Krak Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Photo-visor": 1,
+          "Purity Seals": 1
+        }
       },
       "favored weapons": [
         "Lascannon",
@@ -365,25 +451,35 @@
         "Hivebound"
       ],
       "wounds": -1,
-      "standard kit": {
-        "Laspistol": 1,
-        "Charge Pack (Pistol)": 2,
-        "Knife": 1,
-        "Flak Vest": 1,
-        "Injector": 1,
-        "Stimm": 5,
-        "Anointed Maintenance Toolkit": 1,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Leman Russ Battle Tank": 1
+      "character kit": {
+        "main weapon": {
+          "Laspistol": 1
+        },
+        "other weapons": {
+          "Knife": 1
+        },
+        "armor": {
+          "Flak Vest": 1
+        },
+        "other gear": {
+          "Charge Pack (Pistol)": 2,
+          "Injector": 1,
+          "Stimm": 5,
+          "Anointed Maintenance Toolkit": 1,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4
+        },
+        "squad gear": {
+          "Leman Russ Battle Tank": 1
+        }
       },
       "favored weapons": [
         "Lascannon",
@@ -417,27 +513,35 @@
         "Wary of Outsiders"
       ],
       "wounds": 2,
-      "standard kit": {
-        "M36 Lasgun": 1,
-        "Charge Pack (Basic)": 4,
-        "Knife with Mono": 1,
-        "Flak Vest": 1,
-        "Flak Helmet": 1,
-        "Frag Grenade": 2,
-        "Smoke Grenade": 3,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Magnoculars": 1,
-        "Micro-bead": 1
+      "character kit": {
+        "main weapon": {
+          "M36 Lasgun": 1
+        },
+        "other weapons": {
+          "Knife with Mono": 1
+        },
+        "armor": {
+          "Flak Vest": 1,
+          "Flak Helmet": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Frag Grenade": 2,
+          "Smoke Grenade": 3,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Magnoculars": 1,
+          "Micro-bead": 1
+        }
       },
       "favored weapons": [
         "Missile Launcher",
@@ -476,27 +580,35 @@
         "Blessed Ignorance"
       ],
       "wounds": 0,
-      "standard kit": {
-        "Good Craftsmanship M36 Lasgun": 1,
-        "Charge Pack (Basic)": 4,
-        "Sword": 1,
-        "Imperial Guard Flak Armor": 1,
-        "Good Craftsmanship Carapace Breastplate": 1,
-        "Frag Grenade": 2,
-        "Krak Grenade": 2,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Respirator": 1,
-        "Survival Suit": 1
+      "character kit": {
+        "main weapon": {
+          "Good Craftsmanship M36 Lasgun": 1
+        },
+        "other weapons": {
+          "Sword": 1
+        },
+        "armor": {
+          "Imperial Guard Flak Armor": 1,
+          "Good Craftsmanship Carapace Breastplate": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Frag Grenade": 2,
+          "Krak Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Respirator": 1,
+          "Survival Suit": 1
+        }
       },
       "favored weapons": [
         "Long Las",
@@ -528,26 +640,36 @@
         "Unused to the Open"
       ],
       "wounds": -1,
-      "standard kit": {
-        "M36 Lasgun": 1,
-        "Charge Pack (Basic)": 4,
-        "Knife": 1,
-        "Toxic Environment Trenchcoat": 1,
-        "Armageddon Rebreather": 1,
-        "Frag Grenade": 3,
-        "Krak Grenade": 3,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Chimera Armored Fighting Vehicle (Squad)": 1
+      "character kit": {
+        "main weapon": {
+          "M36 Lasgun": 1
+        },
+        "other weapons": {
+          "Knife": 1
+        },
+        "armor": {
+          "Toxic Environment Trenchcoat": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Armageddon Rebreather": 1,
+          "Frag Grenade": 3,
+          "Krak Grenade": 3,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4
+        },
+        "squad gear": {
+          "Chimera Armored Fighting Vehicle ": 1
+        }
       },
       "favored weapons": [
         "Grenade Launcher",
@@ -585,32 +707,40 @@
         "Pride Over Life"
       ],
       "wounds": 1,
-      "standard kit": {
-        "Good Craftsmanship Hunting Lance": 1,
-        "Good Craftsmanship Laspistol": 1,
-        "Charge Pack (Pistol)": 4,
-        "Frag Grenade": 2,
-        "Krak Grenade": 2,
-        "Smoke Grenade": 2,
-        "Knife w/ Mono": 1,
-        "Flak Jacket": 1,
-        "Flak Helm": 1,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Gas Mask": 1,
-        "Horse": 1,
-        "Saddle": 1,
-        "Saddlebag": 2,
-        "Riding Tack": 1
+      "character kit": {
+        "main weapon": {
+          "Good Craftsmanship Hunting Lance": 1,
+          "Good Craftsmanship Laspistol": 1
+        },
+        "other weapons": {
+          "Knife w/ Mono": 1
+        },
+        "armor": {
+          "Flak Jacket": 1,
+          "Flak Helm": 1
+        },
+        "other gear": {
+          "Charge Pack (Pistol)": 4,
+          "Frag Grenade": 2,
+          "Krak Grenade": 2,
+          "Smoke Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Gas Mask": 1,
+          "Horse": 1,
+          "Saddle": 1,
+          "Saddlebag": 2,
+          "Riding Tack": 1
+        }
       },
       "favored weapons": [
         "Hunting Lance",
@@ -664,26 +794,34 @@
         "Hive-bound"
       ],
       "wounds": 1,
-      "standard kit": {
-        "M36 Lasgun": 1,
-        "Best Craftsmanship Knife w/ Mono": 1,
-        "Charge Pack (Basic)": 6,
-        "Frag Grenade": 3,
-        "Krak Grenade": 3,
-        "Flak Armor": 1,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Micro-bead": 1,
-        "Photo-visor": 1
+      "character kit": {
+        "main weapon": {
+          "M36 Lasgun": 1
+        },
+        "other weapons": {
+          "Best Craftsmanship Knife w/ Mono": 1
+        },
+        "armor": {
+          "Flak Armor": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 6,
+          "Frag Grenade": 3,
+          "Krak Grenade": 3,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Micro-bead": 1,
+          "Photo-visor": 1
+        }
       },
       "favored weapons": [
         "Autocannon",
@@ -738,30 +876,37 @@
         "Limited Numbers"
       ],
       "wounds": 2,
-      "standard kit": {
-        "Hunting Lance": 2,
-        "Laspistol": 1,
-        "Charge Pack (Pistol)": 4,
-        "Frag Grenade": 2,
-        "Krak Grenade": 2,
-        "Smoke Grenade": 2,
-        "Flak Jacket": 1,
-        "Flak Helmet": 1,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Krieg Riding Beast": 1,
-        "Saddle": 1,
-        "Saddlebags": 2,
-        "Riding Tack": 1
+      "character kit": {
+        "main weapon": {
+          "Hunting Lance": 2,
+          "Laspistol": 1
+        },
+        "other weapons": {},
+        "armor": {
+          "Flak Jacket": 1,
+          "Flak Helmet": 1
+        },
+        "other gear": {
+          "Charge Pack (Pistol)": 4,
+          "Frag Grenade": 2,
+          "Krak Grenade": 2,
+          "Smoke Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Krieg Riding Beast": 1,
+          "Saddle": 1,
+          "Saddlebags": 2,
+          "Riding Tack": 1
+        }
       },
       "favored weapons": [
         "Cavalry Saber",
@@ -812,31 +957,41 @@
         "Hated Enemy",
         "The Few"
       ],
-      "standard kit": {
-        "Good Craftsmanship Hot-Shot Lasgun": 1,
-        "Carapace Armor w/ Environmentally Sealed": 1,
-        "Carapace Helmet w/ Environmentally Sealed": 1,
-        "Backpack Power Generator": 1,
-        "Combat Knife": 1,
-        "Frag Grenade": 3,
-        "Krak Grenade": 3,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Helmet w/ Micro-bead": 1,
-        "Anointed Toolkit": 1,
-        "Lascutter (Squad)": 1,
-        "Demolition Charges (Squad)": 6,
-        "Siege Auspex (Squad)": 1,
-        "Chimera Armored Transport (Squad) w/ Turret-Mounted Autocannon, Hull-Mounted Heavy Flamer, Pintle-Mounted Heavy Stubber, Dozer Blade, Camouflage Netting": 1
+      "character kit": {
+        "main weapon": {
+          "Good Craftsmanship Hot-Shot Lasgun": 1
+        },
+        "other weapons": {
+          "Combat Knife": 1
+        },
+        "armor": {
+          "Carapace Armor w/ Environmentally Sealed": 1,
+          "Carapace Helmet w/ Environmentally Sealed": 1
+        },
+        "other gear": {
+          "Backpack Power Generator": 1,
+          "Frag Grenade": 3,
+          "Krak Grenade": 3,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Helmet w/ Micro-bead": 1,
+          "Anointed Toolkit": 1
+        },
+        "squad gear": {
+          "Lascutter": 1,
+          "Demolition Charge": 6,
+          "Siege Auspex": 1,
+          "Chimera Armored Transport w/ Turret-Mounted Autocannon, Hull-Mounted Heavy Flamer, Pintle-Mounted Heavy Stubber, Dozer Blade, Camouflage Netting": 1
+        }
       },
       "favored weapons": [
         "Grenade Launcher",
@@ -879,29 +1034,37 @@
         "Close-Quarters Battle"
       ],
       "wounds": 1,
-      "standard kit": {
-        "Lascarbine w/ Compact": 1,
-        "Knife w/ Mono": 2,
-        "Charge Pack (Basic)": 4,
-        "Frag Grenade": 3,
-        "Krak Grenade": 3,
-        "Flak Vest": 1,
-        "Flak Helmet": 1,
-        "Inhaler": 1,
-        "Frenzon Dose": 4,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Micro-bead": 1,
-        "Gas Mask": 1
+      "character kit": {
+        "main weapon": {
+          "Lascarbine w/ Compact": 1
+        },
+        "other weapons": {
+          "Knife w/ Mono": 2
+        },
+        "armor": {
+          "Flak Vest": 1,
+          "Flak Helmet": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Frag Grenade": 3,
+          "Krak Grenade": 3,
+          "Inhaler": 1,
+          "Frenzon Dose": 4,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Micro-bead": 1,
+          "Gas Mask": 1
+        }
       },
       "favored weapons": [
         "Autocannon",
@@ -963,31 +1126,41 @@
         "Extremely Abundant Resources"
       ],
       "wounds": -1,
-      "standard kit": {
-        "Good Craftsmanship Lascarbine ": 1,
-        "Good Craftsmanship Knife": 2,
-        "Anointed Maintenance Kit": 1,
-        "Best Craftsmanship Light Carapace w/ Ornamented": 1,
-        "Charge Pack (Basic)": 4,
-        "Frag Grenade": 3,
-        "Krak Grenade": 3,
-        "Flak Vest": 1,
-        "Flak Helmet": 1,
-        "Inhaler": 1,
-        "Frenzon Dose": 4,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 4,
-        "Leman Russ Battle Tank w/ Smoke Launchers, Searchlight, Track Guards (Squad)": 1,
-        "Gas Mask": 1
+      "character kit": {
+        "main weapon": {
+          "Good Craftsmanship Lascarbine ": 1
+        },
+        "other weapons": {
+          "Good Craftsmanship Knife": 2
+        },
+        "armor": {
+          "Best Craftsmanship Light Carapace w/ Ornamented": 1
+        },
+        "other gear": {
+          "Anointed Maintenance Kit": 1,
+          "Charge Pack (Basic)": 4,
+          "Frag Grenade": 3,
+          "Krak Grenade": 3,
+          "Flak Vest": 1,
+          "Flak Helmet": 1,
+          "Inhaler": 1,
+          "Frenzon Dose": 4,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 4,
+          "Gas Mask": 1
+        },
+        "squad gear": {
+          "Leman Russ Battle Tank w/ Smoke Launchers, Searchlight, Track Guards ": 1
+        }
       },
       "favored weapons": [
         "Bolt Pistol",
@@ -1039,30 +1212,38 @@
         "Diverse Recruits"
       ],
       "wounds": 2,
-      "standard kit": {
-        "Good Craftsmanship Lascarbine w/ Melee Attachment, Home Materials": 1,
-        "Good Craftsmanship Knife w/ Mono": 2,
-        "Charge Pack (Basic)": 4,
-        "Tube Charge": 1,
-        "Smoke Grenade": 2,
-        "Flak Jacket": 1,
-        "Flak Helmet": 1,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Entrenching Tool": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 2,
-        "Cameleoline Cloak": 1,
-        "Micro-bead": 1,
-        "Magnoculars": 1,
-        "Home World Memento": 1
+      "character kit": {
+        "main weapon": {
+          "Good Craftsmanship Lascarbine w/ Melee Attachment, Home Materials": 1
+        },
+        "other weapons": {
+          "Good Craftsmanship Knife w/ Mono": 2
+        },
+        "armor": {
+          "Flak Jacket": 1,
+          "Flak Helmet": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Tube Charge": 1,
+          "Smoke Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Entrenching Tool": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 2,
+          "Cameleoline Cloak": 1,
+          "Micro-bead": 1,
+          "Magnoculars": 1,
+          "Home World Memento": 1
+        }
       },
       "favored weapons": [
         "Long-las",
@@ -1112,26 +1293,34 @@
         "Intractable",
         "Untempered Zeal"
       ],
-      "standard kit": {
-        "M36 Lasun": 1,
-        "Knife": 2,
-        "Charge Pack (Basic)": 4,
-        "Frag Grenade": 2,
-        "Krak Grenade": 2,
-        "Flak Greatcoat w/ Thermal Insulated": 1,
-        "Flak Helmet w/ Thermal Insulated": 1,
-        "Uniform": 1,
-        "Rucksack": 1,
-        "Poor Weather Gear": 1,
-        "Basic Toolkit": 1,
-        "Mess Kit and Water Canteen": 1,
-        "Blanket and Sleep Bag": 1,
-        "Rechargeable Lamp-Pack": 1,
-        "Grooming Kit": 1,
-        "Entrenching Tool": 1,
-        "Dog Tags": 1,
-        "Imperial Infantryman's Uplifting Primer": 1,
-        "Weeks' Rations": 2
+      "character kit": {
+        "main weapon": {
+          "M36 Lasun": 1
+        },
+        "other weapons": {
+          "Knife": 2
+        },
+        "armor": {
+          "Flak Greatcoat w/ Thermal Insulated": 1,
+          "Flak Helmet w/ Thermal Insulated": 1
+        },
+        "other gear": {
+          "Charge Pack (Basic)": 4,
+          "Frag Grenade": 2,
+          "Krak Grenade": 2,
+          "Uniform": 1,
+          "Rucksack": 1,
+          "Poor Weather Gear": 1,
+          "Basic Toolkit": 1,
+          "Mess Kit and Water Canteen": 1,
+          "Blanket and Sleep Bag": 1,
+          "Rechargeable Lamp-Pack": 1,
+          "Grooming Kit": 1,
+          "Entrenching Tool": 1,
+          "Dog Tags": 1,
+          "Imperial Infantryman's Uplifting Primer": 1,
+          "Weeks' Rations": 2
+        }
       },
       "favored weapons": [
         "Flamer",
