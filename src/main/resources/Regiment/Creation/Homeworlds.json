@@ -1,3 +1,4 @@
+//TODO reorganize to use new format
 [
   {
     "name": "Death World",
@@ -78,10 +79,7 @@
           "name": "Combat Doctrine",
           "description": "Gain one of the following talents: Nerves of Steel or Sprint."
         },
-        {
-          "name": "Bred for War",
-          "description": "A fortress worlder must attempt a Challenging (+0) Willpower Test to go against the rules of the Imperial Guard."
-        }
+        H
       ],
       "regiment kit points": 30
     },
