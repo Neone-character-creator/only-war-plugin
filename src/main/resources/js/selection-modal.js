@@ -1,15 +1,13 @@
 app.controller("SelectionModalController", function($scope, $uibModalInstance, selection) {
-    $scope.choices = {
-        selectionCount: selection.selectionObject.selections,
+        $scope.selectionsNeeded = selection.selectionObject.selections;
         //The options
-        options: [],
+        $scope.options = [];
         //If the option in options at the same index is selected
-        selectedStates: []
-    };
+        $scope.selected= []
 
     $.each(selection.selectionObject.options, function(index, option) {
-        $scope.choices.options[index] = option;
-        $scope.choices.selectedStates[index] = false;
+        $scope.options[index] = option;
+        $scope.selected[index] = false;
     });
 
     $scope.close = function() {
@@ -19,7 +17,7 @@ app.controller("SelectionModalController", function($scope, $uibModalInstance, s
     $scope.ok = function() {
         var selectedIndices = [];
         for (var i = 0; i < $scope.choices.options.length; i++) {
-            if ($scope.choices.selectedStates[i] === true) {
+            if ($scope.selected[i] === true) {
                 selectedIndices.push(i);
             }
         }
