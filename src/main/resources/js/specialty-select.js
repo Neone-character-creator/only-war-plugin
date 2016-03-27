@@ -1,5 +1,7 @@
 app.controller("SpecialtySelectController", function($scope, $state, specialties, character, selection, $uibModal) {
-    $scope.specialties = specialties.specialties;
+    specialties.specialtyNames().then(function(names){
+    	$scope.specialties = names;
+    });
     $scope.character = character.character;
     $scope.selectedSpecialty = specialties.selected;
 
@@ -17,15 +19,16 @@ app.controller("SpecialtySelectController", function($scope, $state, specialties
                 e.preventDefault();
                 confirm = $uibModal.open({
                     controller: "NavigationConfirmationController",
-                    templateUrl: "templates/confirm-modal.html"
+                    templateUrl: "templates/confirm-navigation-modal.html"
                 }).result.then(resultHandler);
             }
         }
     });
 
-    $scope.selectSpecialty = function(index) {
-        specialties.selectSpecialty(specialties.specialties[index]);
+    $scope.selectSpecialty = function(specialty) {
+        specialties.selectSpecialty(specialty);
         $scope.selectedSpecialty = specialties.selected;
+        $scope.requiredSelections = specialties.requiredOptionSelections;
     };
 
     $scope.openSelectionModal = function(properties, index) {
