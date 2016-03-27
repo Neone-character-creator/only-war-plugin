@@ -53,8 +53,9 @@ var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap"])
 
 //Character service.
 app.factory("character", function() {
-    var character = {
-        name: "",
+    var character = function(){
+    	return{
+        	name: "",
         player: "",
         //The regiment of the character, contains the regiment object.
         regiment: null,
@@ -108,22 +109,30 @@ app.factory("character", function() {
         },
         aptitudes: []
     };
+    }
     var service = {
-        character: character
+        character : character(),
+        "new" : function(){
+        	this.character = character();
+        }
     };
     return service;
 });
 
-
 //Specialties service. Stored loaded specialty definitions and the state of the currently selected one.
 app.factory("specialties", function($resource) {
     var specialties = $resource("Character/Specialties.json").query();
+    var specialtiesNameToIndex = {};
+    for(var i = 0; i < specialties.length; i++){
+    	specialtiesNameToIndex[specialties[i]].name = specialties[i];
+    }
     var service = {
-        specialties: specialties,
+        specialtyNames: function(){return Object.keys(specialtiesNameToIndex)},
         selected: null,
         requiredOptionSelections: [],
-        selectSpecialty: function(specialty) {
-            service.selected = specialty;
+        dirty : false,
+        selectSpecialty: function(specialtyName) {
+            service.selected = Object.clone(specialties[specialtiesNameToIndex[specialtyName]]);
             this.requiredOptionSelections = specialty['optional modifiers'];
         }
     };
@@ -202,17 +211,18 @@ app.factory("selection", function() {
                     	fixedModifier.push(chosen[i].value);
                     };
                 }
-            }
+            };
+            this.associatedService.dirty = true;
         }
     };
 })
 
-app.controller("NavigationConfirmationController", function($scope, $uibModalInstance) {
+app.controller("ConfirmationController", function($scope, $uibModalInstance) {
     $scope.ok = function() {
-        $uibModalInstance.close(true);
+        $uibModalInstance.close('ok');
     };
 
     $scope.cancel = function() {
-        $uibModalInstance.close(false);
+        $uibModalInstance.dismiss('cancel');
     };
 });
