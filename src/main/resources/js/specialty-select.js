@@ -18,7 +18,7 @@ app.controller("SpecialtySelectController", function($scope, $state, specialties
             if (!suppressDialog) {
                 e.preventDefault();
                 confirm = $uibModal.open({
-                    controller: "NavigationConfirmationController",
+                    controller: "ConfirmationController",
                     templateUrl: "templates/confirm-navigation-modal.html"
                 }).result.then(resultHandler);
             }
@@ -31,14 +31,13 @@ app.controller("SpecialtySelectController", function($scope, $state, specialties
         $scope.requiredSelections = specialties.requiredOptionSelections;
     };
 
-    $scope.openSelectionModal = function(properties, index) {
-        selection.target = specialties.selected;
-        selection.propertyChain = properties;
-        selection.index = index;
-        selection.associatedService = specialties;
-        $uibModal.open({
-            controller: "SelectionModalController",
-            templateUrl: 'templates/selection-modal.html',
-        })
+	$scope.openSelectionModal = function(selectedObject) {
+		selection.target = specialties.selected;
+		selection.associatedService = specialties;
+		selection.selectionObject = selectedObject;
+		$uibModal.open({
+			controller: "SelectionModalController",
+			templateUrl: 'templates/selection-modal.html',
+		});
     };
 });
