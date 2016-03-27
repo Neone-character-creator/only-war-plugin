@@ -6,24 +6,25 @@ var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", 
                 var options = [];
                 $.each(inVal.options, function(index, option) {
                     var optionElements = [];
-                    for(var op = 0; op < option.length; op++){
-                    	switch(option[op].property){
-                    		case 'characteristics' : {
-                    			break;
-                    		}
-                    		case 'talents' :
-                    		case 'skills' :
-                    		optionElements.push(option[op].value);
-                    		break;
-                    	}
-                    	if(Array.isArray(option[op].property)){
-                    		for(var name in option[op].value){
-                    			if(option[op].value.hasOwnProperty(name) && name.substring(1) !== "$"){
-                    				optionElements.push(option[op].value[name] + " x " + name);
-                    			}
-                    		}
+                    for (var op = 0; op < option.length; op++) {
+                        switch (option[op].property) {
+                            case 'characteristics':
+                                {
+                                    break;
+                                }
+                            case 'talents':
+                            case 'skills':
+                                optionElements.push(option[op].value);
+                                break;
+                        }
+                        if (Array.isArray(option[op].property)) {
+                            for (var name in option[op].value) {
+                                if (option[op].value.hasOwnProperty(name) && name.substring(1) !== "$") {
+                                    optionElements.push(option[op].value[name] + " x " + name);
+                                }
+                            }
 
-                    	}
+                        }
                     }
                     options.push(optionElements.join(", "))
                 });
@@ -36,24 +37,19 @@ var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", 
     })
     .filter('modal_option', function() {
         function filter(inVal) {
-            if (Array.isArray(inVal)) {
-                for (var i = 0; i < inVal.length; i++) {
-                    inVal[i] = filter(inVal[i]);
-                }
-                inVal = inVal.join(', ');
-            } else if (typeof inVal.value === 'object') {
-                var elements = [];
-                var j = 0;
-                for (var property in inVal) {
-                    if (property.slice(0, 2) === "$$") {
-                        continue;
-                    } else if (inVal.hasOwnProperty(property)) {
-                        elements[j++] = inVal[property] + " x " + property;
+            var elements = [];
+            $.each(inVal, function(index, element) {
+                if (!Array.isArray(element.property)) {
+                    switch (element.property) {
+                        case "skills":
+                        case "talents":
+                            elements.push(element.value);
+                            break;
                     }
                 }
-                inVal = elements.join(", ");
-            }
-            return inVal.value;
+
+            });
+            return elements.join(", ");
         }
         return filter;
     });
@@ -180,34 +176,27 @@ app.factory("selection", function() {
         //The selection object being chosen from
         selectionObject: {},
         //Decompose this option if valid selections made
-        choose: function(chosen) {
-            if (chosen.length !== this.selectionObject.selections) {
-                throw "Selection required " + this.selectionObject.selections + " arguments, but received " + arguments.length;
-            };
-            for (var i = 0; i < chosen.length; i++) {
-                if ($.inArray(chosen[i], this.selectionObject.options) === -1) {
-                    throw "Tried to select " + JSON.stringify(chosen[i]) + " but selection contains " + JSON.stringify(this.selectionObject.options);
-                };
-            };
+        choose: function(selectedIndices) {
+            var selectionObject = this.selectionObject;
+            var associatedService = this.associatedService;
             var target = this.target;
+            $.each(selectedIndices, function(index, selectedIndex) {
+                associatedService.requiredOptionSelections.splice(associatedService.requiredOptionSelections.indexOf(selectionObject), 1);
 
-            for (var i = 0; i < chosen.length; i++) {
-                this.associatedService.requiredOptionSelections.splice(this.associatedService.requiredOptionSelections.indexOf(this.selectionObject), 1);
-                var out = [];
-                $.each(chosen, function(index, element) {
-                    out.push(element);
-                });
-                var fixedModifier = target['fixed modifiers'];
-                var properties;
-                if (Array.isArray(chosen[i].property)) {
-                    properties = chosen[i].property;
-                } else {
-                    properties = [chosen[i].property];
-                };
-                for (var p = 0; p < properties.length; p++) {
-                    fixedModifier = fixedModifier[properties[p]];
+                var chosen = selectionObject.options[selectedIndex];
+
+                for (var sub = 0; sub < chosen.length; sub++) {
+                    var fixedModifier = target['fixed modifiers'];
+                    var properties;
+                    if (Array.isArray(chosen[sub]["property"])) {
+                        properties = chosen[sub]["property"];
+                    } else {
+                        properties = [chosen[sub]["property"]];
+                    };
+
+                    for(var p = 0; p < properties.length; p++){
                     if (fixedModifier[properties[p]] === undefined) {
-                        switch (properties[i]) {
+                        switch (properties[p]) {
                             case 'character kit':
                                 fixedModifier['character kit'] = {};
                                 break;
@@ -215,22 +204,24 @@ app.factory("selection", function() {
                                 fixedModifier['other gear'] = [];
                                 break;
                         };
+                        }
+                        fixedModifier = fixedModifier[properties[p]];
                     };
-                    if (chosen[i].value === 'object') {
-                        for (var prop in chosen[i].value) {
-                            if (chosen[i].value.hasOwnProperty(prop)) {
-                                fixedModifier[prop] = chosen[i].value[prop];
+                    if (chosen[sub].value === 'object') {
+                        for (var prop in chosen[sub].value) {
+                            if (chosen[sub].value.hasOwnProperty(prop)) {
+                                fixedModifier[prop] = chosen[sub].value[prop];
                             }
                         }
                     } else {
-                        fixedModifier.push(chosen[i].value);
+                        fixedModifier.push(chosen[sub].value);
                     };
                 }
-            };
+            })
             this.associatedService.dirty = true;
         }
-    };
-})
+    }
+});
 
 app.controller("ConfirmationController", function($scope, $uibModalInstance) {
     $scope.ok = function() {
