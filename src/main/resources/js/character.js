@@ -1,24 +1,31 @@
-var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap"])
+var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop"])
     .filter('option_summary', function() {
         return function(inVal) {
             if (typeof inVal.selections === 'number' && Array.isArray(inVal.options)) {
-                //Determine options are primitives or objects
                 var out = "Choose " + inVal.selections + " from ";
                 var options = [];
                 $.each(inVal.options, function(index, option) {
                     var optionElements = [];
-                    if (typeof option.value === 'object') {
-                        for (var name in option.value) {
-                            if (option.hasOwnProperty(name)) {
-                                optionElements.push(option[name] + " x " + name);
-                            }
-                        }
-                        options.push(optionElements.join(", "));
-                    } else if (Array.isArray(option).value) {
+                    for(var op = 0; op < option.length; op++){
+                    	switch(option[op].property){
+                    		case 'characteristics' : {
+                    			break;
+                    		}
+                    		case 'talents' :
+                    		case 'skills' :
+                    		optionElements.push(option[op].value);
+                    		break;
+                    	}
+                    	if(Array.isArray(option[op].property)){
+                    		for(var name in option[op].value){
+                    			if(option[op].value.hasOwnProperty(name) && name.substring(1) !== "$"){
+                    				optionElements.push(option[op].value[name] + " x " + name);
+                    			}
+                    		}
 
-                    } else {
-                        options.push(option.value);
+                    	}
                     }
+                    options.push(optionElements.join(", "))
                 });
                 out += options.join(" or ");
                 return out;
@@ -53,87 +60,95 @@ var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap"])
 
 //Character service.
 app.factory("character", function() {
-    var character = function(){
-    	return{
-        	name: "",
-        player: "",
-        //The regiment of the character, contains the regiment object.
-        regiment: null,
-        //The specialty of the character, contains the specialty object
-        specialty: null,
-        description: "",
-        //Characteristics of the character. Map between name and rating.
-        characteristics: {
-            "weapon skill": null,
-            "ballistic skill": null,
-            strength: null,
-            toughness: null,
-            agility: null,
-            intelligence: null,
-            perception: null,
-            willpower: null,
-            fellowship: null
-        },
-        //Array of skills. Each skill is an object containing the name and rank.
-        //Rating 1 is known, rating 2 is trained (+10), 3 is experienced (+20), 4 is veteran (+30)
-        skills: [],
-        //The characters talents and traits.
-        talents: [],
-        wounds: {
-            total: 0,
-            current: 0
-        },
-        fatigue: 0,
-        insanity: {
-            points: 0,
-            disorders: []
-        },
-        corruption: {
-            points: 0,
-            malignancies: [],
-            mutations: []
-        },
-        movement: 0,
-        fatePoints: {
-            total: 0,
-            current: 0
-        },
-        equipment: {
-            weapons: [],
-            armor: [],
-            gear: []
-        },
-        experience: {
-            available: 0,
-            total: 0
-        },
-        aptitudes: []
-    };
+    var character = function() {
+        return {
+            name: "",
+            player: "",
+            //The regiment of the character, contains the regiment object.
+            regiment: null,
+            //The specialty of the character, contains the specialty object
+            specialty: null,
+            description: "",
+            //Characteristics of the character. Map between name and rating.
+            characteristics: {
+                "weapon skill": null,
+                "ballistic skill": null,
+                strength: null,
+                toughness: null,
+                agility: null,
+                intelligence: null,
+                perception: null,
+                willpower: null,
+                fellowship: null
+            },
+            //Array of skills. Each skill is an object containing the name and rank.
+            //Rating 1 is known, rating 2 is trained (+10), 3 is experienced (+20), 4 is veteran (+30)
+            skills: [],
+            //The characters talents and traits.
+            talents: [],
+            wounds: {
+                total: 0,
+                current: 0
+            },
+            fatigue: 0,
+            insanity: {
+                points: 0,
+                disorders: []
+            },
+            corruption: {
+                points: 0,
+                malignancies: [],
+                mutations: []
+            },
+            movement: 0,
+            fatePoints: {
+                total: 0,
+                current: 0
+            },
+            equipment: {
+                weapons: [],
+                armor: [],
+                gear: []
+            },
+            experience: {
+                available: 0,
+                total: 0
+            },
+            aptitudes: []
+        };
     }
     var service = {
-        character : character(),
-        "new" : function(){
-        	this.character = character();
+        character: character(),
+        "new": function() {
+            this.character = character();
         }
     };
     return service;
 });
 
 //Specialties service. Stored loaded specialty definitions and the state of the currently selected one.
-app.factory("specialties", function($resource) {
+app.factory("specialties", function($resource, $q) {
     var specialties = $resource("Character/Specialties.json").query();
     var specialtiesNameToIndex = {};
-    for(var i = 0; i < specialties.length; i++){
-    	specialtiesNameToIndex[specialties[i]].name = specialties[i];
-    }
+
     var service = {
-        specialtyNames: function(){return Object.keys(specialtiesNameToIndex)},
+        specialtyNames: function() {
+            var d = $q.defer();
+            specialties.$promise.then(function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    specialtiesNameToIndex[data[i].name] = i;
+                }
+                specialtyNames = Object.keys(specialtiesNameToIndex);
+                d.resolve(specialtyNames);
+            });
+            return d.promise;
+        },
         selected: null,
         requiredOptionSelections: [],
-        dirty : false,
+        dirty: false,
         selectSpecialty: function(specialtyName) {
-            service.selected = Object.clone(specialties[specialtiesNameToIndex[specialtyName]]);
-            this.requiredOptionSelections = specialty['optional modifiers'];
+            this.selected = Object.clone(specialties[specialtiesNameToIndex[specialtyName]]);
+            this.requiredOptionSelections = this.selected['optional modifiers'];
         }
     };
     return service;
@@ -201,14 +216,14 @@ app.factory("selection", function() {
                                 break;
                         };
                     };
-                    if(chosen[i].value === 'object'){
-                    	for(var prop in chosen[i].value){
-                    		if(chosen[i].value.hasOwnProperty(prop)){
-                    			fixedModifier[prop] = chosen[i].value[prop];
-                    		}
-                    	}
+                    if (chosen[i].value === 'object') {
+                        for (var prop in chosen[i].value) {
+                            if (chosen[i].value.hasOwnProperty(prop)) {
+                                fixedModifier[prop] = chosen[i].value[prop];
+                            }
+                        }
                     } else {
-                    	fixedModifier.push(chosen[i].value);
+                        fixedModifier.push(chosen[i].value);
                     };
                 }
             };
