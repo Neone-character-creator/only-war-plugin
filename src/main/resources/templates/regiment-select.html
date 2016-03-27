@@ -1,3 +1,4 @@
+<script src="js/regiment-select.js" type="text/javascript"></script>
 <div>
     <div class="container">
         <div class="row">
@@ -7,7 +8,7 @@
                         Select Regiment<span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" id="regiment-list">
-                        <li ng-repeat="regiment in regiments"><a ng-click="selectRegiment($index)">{{regiment.name}}</a>
+                        <li ng-repeat="regiment in regimentNames"><a ng-click="selectRegiment(regiment)">{{regiment}}</a>
                         </li>
                     </ul>
                 </div>
