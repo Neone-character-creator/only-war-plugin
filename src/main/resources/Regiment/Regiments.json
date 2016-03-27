@@ -77,28 +77,36 @@
         "selections": 1,
         "selection time": "character",
         "options": [
-          {
-            "property": "talents",
-            "value": "Combat Formation"
-          },
-          {
-            "property": "talents",
-            "value": "Double Team"
-          }
+          [
+            {
+              "property": "talents",
+              "value": "Combat Formation"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Double Team"
+            }
+          ]
         ]
       },
       {
         "selections": 1,
         "selection time": "character",
         "options": [
-          {
-            "property": "talents",
-            "value": "Nerves of Steel"
-          },
-          {
-            "property": "talents",
-            "value": "Sprint"
-          }
+          [
+            {
+              "property": "talents",
+              "value": "Nerves of Steel"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Sprint"
+            }
+          ]
         ]
       }
     ]
@@ -182,11 +190,15 @@
             {
               "property": "talents",
               "value": "Lightning Reflexes"
-            },
+            }
+          ],
+          [
             {
               "property": "talents",
               "value": "Light Sleeper"
-            },
+            }
+          ],
+          [
             {
               "property": "talents",
               "value": "Resistance (Poison)"
@@ -403,27 +415,50 @@
         "Plasma Gun"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Combat Formation",
-            "Double Team"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Combat Formation"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Double Team"
+            }
           ]
-        },
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Nerves of Steel",
-            "Orthoproxy",
-            "Unshakeable Faith"
+        ]
+      },
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Nerves of Steel"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Orthoproxy"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Unshakeable Faith"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Mordian 12th Armored Regiment",
@@ -747,26 +782,44 @@
         "Bolt Pistol"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Ambush",
-            "Skilled Rider"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Ambush"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Skilled Rider"
+            }
           ]
-        },
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Champion",
-            "Double Team"
+        ]
+      },
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Champion"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Double Team"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "5th Brontian Longknives",
@@ -834,9 +887,24 @@
           "selections": 1,
           "selection time": "character",
           "options": [
-            "Heightened Senses (Hearing)",
-            "Paranoia",
-            "Unremarkable"
+            [
+              {
+                "property": "talents",
+                "value": "Heightened Senses (Hearing)"
+              }
+            ],
+            [
+              {
+                "property": "talents",
+                "value": "Paranoia"
+              }
+            ],
+            [
+              {
+                "property": "talents",
+                "value": "Unremarkable"
+              }
+            ]
           ]
         }
       ]
@@ -913,19 +981,26 @@
         "Hunting Lance"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Nerves of Steel",
-            "Orthoproxy",
-            "Unshakeable Faith"
-          ]
-        }
-      ]
-    }
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          {
+            "property": "talents",
+            "value": "Nerves of Steel"
+          },
+          {
+            "property": "talents",
+            "value": "Orthoproxy"
+          },
+          {
+            "property": "talents",
+            "value": "Unshakeable Faith"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Kasrkin",
@@ -998,18 +1073,22 @@
         "Plasma Gun"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Nerves of Steel",
-            "Sprint"
-          ]
-        }
-      ]
-    }
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          {
+            "property": "talents",
+            "value": "Nerves of Steel"
+          },
+          {
+            "property": "talents",
+            "value": "Sprint"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "13th Penal Legion",
@@ -1071,36 +1150,74 @@
         "Sniper Rifle"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Berserk Charge",
-            "Cold Hearted",
-            "Frenzy",
-            "Paranoia"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Berserk Charge"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Cold Hearted"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Frenzy"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Paranoia"
+            }
           ]
-        },
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Combat Master",
-            "Double Team"
+        ]
+      },
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Combat Master"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Double Team"
+            }
           ]
-        },
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Peer (Underworld)",
-            "Street Fighting"
+        ]
+      },
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Peer (Underworld)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Street Fighting"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Scintillan Fusiliers 17th \"Spireborn\"",
@@ -1167,18 +1284,26 @@
         "Power Sword"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Air of Authority",
-            "Peer (Nobility)"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Air of Authority"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Peer (Nobility)"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Tanith First-And-Only",
@@ -1250,18 +1375,26 @@
         "Missile Tube"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Combat Sense",
-            "Quick Draw"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Combat Sense"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Quick Draw"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "442nd Valhallan Ice Warriors",
@@ -1327,18 +1460,31 @@
         "Mortar"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Nerves of Steel",
-            "Orthoproxy",
-            "Unshakeable Faith"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Nerves of Steel"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Orthoproxy"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Unshakeable Faith"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   }
 ]
