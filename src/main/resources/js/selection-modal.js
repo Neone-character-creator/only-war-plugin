@@ -17,13 +17,13 @@ app.controller("SelectionModalController", function($scope, $uibModalInstance, s
     };
 
     $scope.ok = function() {
-        var choices = [];
+        var selectedIndices = [];
         for (var i = 0; i < $scope.choices.options.length; i++) {
             if ($scope.choices.selectedStates[i] === true) {
-                choices.push($scope.choices.options[i]);
+                selectedIndices.push(i);
             }
         }
-        selection.choose(choices);
+        selection.choose(selectedIndices);
         $uibModalInstance.close('complete');
     };
 });

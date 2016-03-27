@@ -1,4 +1,4 @@
-app.config(function($stateProvider, $urlRouterProvider) {
+angular.module("OnlyWar").config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state("sheet", {
             url: "/",
             templateUrl: "templates/sheet.html",
