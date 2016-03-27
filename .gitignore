@@ -55,4 +55,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
+
 # Created by .ignore support plugin (hsz.mobi)
+/src/main/resources/libs
