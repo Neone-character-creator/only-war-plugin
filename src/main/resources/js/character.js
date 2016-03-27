@@ -51,10 +51,6 @@ var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap"])
         return filter;
     });
 
-app.config(function($logProvider) {
-    $logProvider.debugEnabled(true);
-});
-
 //Character service.
 app.factory("character", function() {
     var character = {
@@ -210,94 +206,6 @@ app.factory("selection", function() {
         }
     };
 })
-
-app.controller("NavController", function($scope, character) {
-    $scope.character = character.character;
-});
-
-app.controller("SheetController", function($scope, character, regiments, specialties, characteristics) {
-    $scope.character = character.character;
-    $scope.selectedRegiment = regiments.selected;
-    $scope.selectedSpecialty = specialties.selected;
-    var characteristics = characteristics.query();
-    $scope.characteristics = characteristics;
-});
-
-app.controller("RegimentCreationController", function($scope) {
-
-});
-
-app.controller("SpecialtySelectController", function($scope, $state, specialties, character, selection, $uibModal) {
-    $scope.specialties = specialties.specialties;
-    $scope.character = character.character;
-    $scope.selectedSpecialty = specialties.selected;
-
-    var suppressDialog = false;
-
-    $scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams) {
-        if (fromState = "specialty" && toState !== fromState && specialties.requiredOptionSelections.length !== 0) {
-            var resultHandler = function(result) {
-                if (result) {
-                    suppressDialog = true;
-                    $state.go(toState);
-                }
-            };
-            if (!suppressDialog) {
-                e.preventDefault();
-                confirm = $uibModal.open({
-                    controller: "NavigationConfirmationController",
-                    templateUrl: "templates/confirm-modal.html"
-                }).result.then(resultHandler);
-            }
-        }
-    });
-
-    $scope.selectSpecialty = function(index) {
-        specialties.selectSpecialty(specialties.specialties[index]);
-        $scope.selectedSpecialty = specialties.selected;
-    };
-
-    $scope.openSelectionModal = function(properties, index) {
-        selection.target = specialties.selected;
-        selection.propertyChain = properties;
-        selection.index = index;
-        selection.associatedService = specialties;
-        $uibModal.open({
-            controller: "SelectionModalController",
-            templateUrl: 'templates/selection-modal.html',
-        })
-    };
-});
-
-app.controller("SelectionModalController", function($scope, $uibModalInstance, selection) {
-    $scope.choices = {
-        selectionCount: selection.selectionObject.selections,
-        //The options
-        options: [],
-        //If the option in options at the same index is selected
-        selectedStates: []
-    };
-
-    $.each(selection.selectionObject.options, function(index, option) {
-        $scope.choices.options[index] = option;
-        $scope.choices.selectedStates[index] = false;
-    });
-
-    $scope.close = function() {
-        $uibModalInstance.dismiss('cancel');
-    };
-
-    $scope.ok = function() {
-        var choices = [];
-        for (var i = 0; i < $scope.choices.options.length; i++) {
-            if ($scope.choices.selectedStates[i] === true) {
-                choices.push($scope.choices.options[i]);
-            }
-        }
-        selection.choose(choices);
-        $uibModalInstance.close('complete');
-    };
-});
 
 app.controller("NavigationConfirmationController", function($scope, $uibModalInstance) {
     $scope.ok = function() {
