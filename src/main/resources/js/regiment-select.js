@@ -34,8 +34,8 @@ angular.module("OnlyWar").controller("RegimentSelectionController", function($sc
     $scope.selectedRegiment = regiments.selected;
     var suppressDialog = false;
 
-    $scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams) {
-        if (fromState = "regiment" && toState !== fromState && regiments.requiredOptionSelections.length !== 0) {
+    $scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
+        if (fromState.name === "regiment" && toState.name !== fromState.name && regiments.requiredOptionSelections.length !== 0) {
             var resultHandler = function(result) {
                 if (result) {
                     suppressDialog = true;
