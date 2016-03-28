@@ -1,5 +1,11 @@
 Implement finalize page.
 
-Add confirmation modal to characteristics and finalize pages.
+Add confirmation modal to finalize page.
 
-Standardize data format between all character and regiment options.
+Refactor out duplicated modal checking code in specialty and regiment selection controllers.
+
+Add confirmation to specialty page that choices will be discarded when changing selected specialty.
+
+Think about using single page for specialty and regiment selection
+
+Look into requirejs for organizing scripts.
