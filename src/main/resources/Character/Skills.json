@@ -2,148 +2,148 @@
 {
 	"name": "Acrobatics",
 	"characteristic": "Agility",
-	"aptitudes": ["Agility", "General"]
+	"matching aptitudes": ["Agility", "General"]
 },
 {
 	"name": "Athletics",
 	"characteristic": "Strength",
-	"aptitudes": ["Strength", "General"]
+	"matching aptitudes": ["Strength", "General"]
 },
 {
 	"name": "Awareness",
 	"characteristic": "Perception",
-	"aptitudes": ["Perception", "Fieldcraft"]
+	"matching aptitudes": ["Perception", "Fieldcraft"]
 },
 {
 	"name": "Charm",
 	"characteristic": "Fellowship",
-	"aptitudes": ["Fellowship", "Social"]
+	"matching aptitudes": ["Fellowship", "Social"]
 },
 {
 	"name": "Command",
 	"characteristic": "Fellowship",
-	"aptitudes": ["Fellowship", "Leadership"]
+	"matching aptitudes": ["Fellowship", "Leadership"]
 },
 {
 	"name": "Commerce",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "General"]
+	"matching aptitudes": ["Intelligence", "General"]
 },
 {
 	"name": "Common Lore",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "General"],
+	"matching aptitudes": ["Intelligence", "General"],
 	"specializations" : true
 },
 {
 	"name": "Deceive",
 	"characteristic": "Fellowship",
-	"aptitudes": ["Fellowship", "Social"]
+	"matching aptitudes": ["Fellowship", "Social"]
 },
 {
 	"name": "Dodge",
 	"characteristic": "Agility",
-	"aptitudes": ["Agility", "Defense"]
+	"matching aptitudes": ["Agility", "Defense"]
 },
 {
 	"name": "Forbidden Lore",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "Knowledge"],
+	"matching aptitudes": ["Intelligence", "Knowledge"],
 	"specializations" : true
 },
 {
 	"name": "Inquiry",
 	"characteristic": "Fellowship",
-	"aptitudes": ["Fellowship", "Social"]
+	"matching aptitudes": ["Fellowship", "Social"]
 },
 {
 	"name": "Interrogation",
 	"characteristic": "Willpower",
-	"aptitudes": ["Willpower", "Social"]
+	"matching aptitudes": ["Willpower", "Social"]
 },
 {
 	"name": "Intimidate",
 	"characteristic": "Strength",
-	"aptitudes": ["Strength", "Social"]
+	"matching aptitudes": ["Strength", "Social"]
 },
 {
 	"name": "Linguistics",
 	"characteristic": "Fellowship",
-	"aptitudes": ["Intelligence", "General"],
+	"matching aptitudes": ["Intelligence", "General"],
 	"specializations" : true
 },
 {
 	"name": "Logic",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "Knowledge"]
+	"matching aptitudes": ["Intelligence", "Knowledge"]
 },
 {
 	"name": "Medicae",
 	"characteristic": "Inteligence",
-	"aptitudes": ["Intelligence", "Fieldcraft"]
+	"matching aptitudes": ["Intelligence", "Fieldcraft"]
 },
 {
 	"name": "Navigate",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "Fieldcraft"],
+	"matching aptitudes": ["Intelligence", "Fieldcraft"],
 	"specializations" : true
 },
 {
 	"name": "Operate",
 	"characteristic": "Agility",
-	"aptitudes": ["Agility", "Fieldcraft"],
+	"matching aptitudes": ["Agility", "Fieldcraft"],
 	"specializations" : true
 },
 {
 	"name": "Parry",
 	"characteristic": "Weapon Skill",
-	"aptitudes": ["Weapon Skill", "Defense"]
+	"matching aptitudes": ["Weapon Skill", "Defense"]
 },
 {
 	"name": "Psyniscience",
 	"characteristic": "Perception",
-	"aptitudes": ["Perception", "Psyker"]
+	"matching aptitudes": ["Perception", "Psyker"]
 },
 {
 	"name": "Scholastic Lore",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "Knowledge"],
+	"matching aptitudes": ["Intelligence", "Knowledge"],
 	"specializations" : true
 },
 {
 	"name": "Scrutiny",
 	"characteristic": "Perception",
-	"aptitudes": ["Perception", "General"]
+	"matching aptitudes": ["Perception", "General"]
 },
 {
 	"name": "Security",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "Tech"]
+	"matching aptitudes": ["Intelligence", "Tech"]
 },
 {
 	"name": "Sleight of Hand",
 	"characteristic": "Agility",
-	"aptitudes": ["Agility", "Knowledge"]
+	"matching aptitudes": ["Agility", "Knowledge"]
 },
 {
 	"name": "Stealth",
 	"characteristic": "Agility",
-	"aptitudes": ["Agility", "Fieldcraft"]
+	"matching aptitudes": ["Agility", "Fieldcraft"]
 },
 {
 	"name": "Survival",
 	"characteristic": "Perception",
-	"aptitudes": ["Perception", "Fieldcraft"]
+	"matching aptitudes": ["Perception", "Fieldcraft"]
 },
 {
 	"name": "Tech-Use",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "Tech"]
+	"matching aptitudes": ["Intelligence", "Tech"]
 },
 {
 	"name": "Trade",
 	"characteristic": "Intelligence",
-	"aptitudes": ["Intelligence", "General"],
+	"matching aptitudes": ["Intelligence", "General"],
 	"specializations" : true
 }
 ]
