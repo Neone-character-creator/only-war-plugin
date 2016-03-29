@@ -12,14 +12,14 @@
       "aptitudes": [
         "Willpower"
       ],
-      "skills": [
-        "Command",
-        "Common Lore (Imperial Guard)",
-        "Common Lore (Imperium)",
-        "Common Lore (War)",
-        "Linguistics (Low Gothic)",
-        "Operate (Surface)"
-      ],
+      "skills": {
+        "Command":1,
+        "Common Lore (Imperial Guard)":1,
+        "Common Lore (Imperium)":1,
+        "Common Lore (War)":1,
+        "Linguistics (Low Gothic)":1,
+        "Operate (Surface)":1
+      },
       "talents": [
         "Hatred (Servants of Chaos)",
         "Rapid Reload"
@@ -122,10 +122,10 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": [
-        "Survival",
-        "Navigate (Surface)"
-      ],
+      "skills": {
+        "Survival":1,
+        "Navigate (Surface)":1
+      },
       "talents": [
         "Resistance (Fear)",
         "Sprint"
@@ -221,15 +221,15 @@
         "Toughness",
         "Willpower"
       ],
-      "skills": [
-        "Common Lore (Ecclesiarchy)",
-        "Common Lore (Imperial Creed)",
-        "Common Lore (Imperial Guard)",
-        "Common Lore (War)",
-        "Intimidate",
-        "Linguistics (Low Gothic)",
-        "Tech-Use"
-      ],
+      "skills": {
+        "Common Lore (Ecclesiarchy)":1,
+        "Common Lore (Imperial Creed)":1,
+        "Common Lore (Imperial Guard)":1,
+        "Common Lore (War)":1,
+        "Intimidate":1,
+        "Linguistics (Low Gothic)":1,
+        "Tech-Use":1
+      },
       "talents": [
         "Nerves of Steel"
       ],
@@ -294,12 +294,12 @@
       "aptitudes": [
         "Willpower"
       ],
-      "skills": [
-        "Common Lore (Imperial Creed)",
-        "Common Lore (Imperium)",
-        "Linguistics (Low Gothic)",
-        "Operate (Aeronautica)"
-      ],
+      "skills": {
+        "Common Lore (Imperial Creed)":1,
+        "Common Lore (Imperium)":1,
+        "Linguistics (Low Gothic)":1,
+        "Operate (Aeronautica)":1
+      },
       "talents": [
         "Catfall",
         "Die Hard",
@@ -364,13 +364,13 @@
         "Weapon Skill": 2,
         "Willpower": 3
       },
-      "skills": [
-        "Athletics",
-        "Common Lore (Ecclesiarchy)",
-        "Common Lore (Imperial Creed)",
-        "Intimidate",
-        "Linguistics (Low Gothic)"
-      ],
+      "skills": {
+        "Athletics":1,
+        "Common Lore (Ecclesiarchy)":1,
+        "Common Lore (Imperial Creed)":1,
+        "Intimidate":1,
+        "Linguistics (Low Gothic)":1
+      },
       "talents": [
         "Paranoia",
         "Rapid Reload",
@@ -470,14 +470,14 @@
         "Perception": 3,
         "Weapon Skill": -3
       },
-      "skills": [
-        "Common Lore (Imperial Guard)",
-        "Common Lore (Imperium)",
-        "Common Lore (War)",
-        "Deceive",
-        "Linguistics (Low Gothic)",
-        "Operate (Surface)"
-      ],
+      "skills": {
+        "Common Lore (Imperial Guard)":1,
+        "Common Lore (Imperium)":1,
+        "Common Lore (War)":1,
+        "Deceive":1,
+        "Linguistics (Low Gothic)":1,
+        "Operate (Surface)":1
+      },
       "talents": [
         "Technical Knock"
       ],
@@ -533,10 +533,10 @@
       "aptitudes": [
         "Ballistic Skill"
       ],
-      "skills": [
-        "Survival",
-        "Navigate (Surface)"
-      ],
+      "skills": {
+        "Survival":1,
+        "Navigate (Surface)":1
+      },
       "talents": [
         "Deadeye Shot",
         "Foresight",
@@ -598,12 +598,12 @@
       "aptitudes": [
         "Ballistic Skill"
       ],
-      "skills": [
-        "Athletics",
-        "Common Lore (Imperial Creed",
-        "Common Lore (Imperium)",
-        "Linguistics (Low Gothic)"
-      ],
+      "skills": {
+        "Athletics":1,
+        "Common Lore (Imperial Creed":1,
+        "Common Lore (Imperium)":1,
+        "Linguistics (Low Gothic)":1
+      },
       "talents": [
         "Deadeye Shot",
         "Hatred (Mutants)",
@@ -659,13 +659,13 @@
         "Agility": 3,
         "Fellowship": 3
       },
-      "skills": [
-        "Common Lore (Imperium)",
-        "Deceive",
-        "Forbidden Lore (Orks)",
-        "Linguistics (Low Gothic)",
-        "Operate (Surface)"
-      ],
+      "skills": {
+        "Common Lore (Imperium)":1,
+        "Deceive":1,
+        "Forbidden Lore (Orks)":1,
+        "Linguistics (Low Gothic)":1,
+        "Operate (Surface)":1
+      },
       "talents": [
         "Hatred (Orks)",
         "Rapid Reload",
@@ -725,11 +725,11 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": [
-        "Athletics",
-        "Common Lore (War)",
-        "Survival"
-      ],
+      "skills": {
+        "Athletics":1,
+        "Common Lore (War)":1,
+        "Survival":1
+      },
       "talents": [
         "Catfall",
         "Die Hard",
@@ -832,11 +832,11 @@
         "Weapon Skill": 2,
         "Strength": 3
       },
-      "skills": [
-        "Athletics",
-        "Common Lore (Imperium)",
-        "Deceive"
-      ],
+      "skills": {
+        "Athletics":1,
+        "Common Lore (Imperium)":1,
+        "Deceive":1
+      },
       "talents": [
         "Die Hard",
         "Rapid Reload",
@@ -924,15 +924,15 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": [
-        "Common Lore (Ecclesiarchy)",
-        "Common Lore (Imperial Creed)",
-        "Common Lore (Imperial Guard)",
-        "Common Lore (War)",
-        "Intimidate",
-        "Linguistics (Low Gothic)",
-        "Survival"
-      ],
+      "skills": {
+        "Common Lore (Ecclesiarchy)":1,
+        "Common Lore (Imperial Creed)":1,
+        "Common Lore (Imperial Guard)":1,
+        "Common Lore (War)":1,
+        "Intimidate":1,
+        "Linguistics (Low Gothic)":1,
+        "Survival":1
+      },
       "talents": [
         "Catfall",
         "Unstoppable Charge"
@@ -1015,14 +1015,14 @@
       "aptitudes": [
         "Willpower"
       ],
-      "skills": [
-        "Command",
-        "Common Lore (War)",
-        "Common Lore (Imperium)",
-        "Common Lore (Imperial Guard)",
-        "Linguistics (Low Gothic)",
-        "Tech-Use"
-      ],
+      "skills": {
+        "Command":1,
+        "Common Lore (War)":1,
+        "Common Lore (Imperium)":1,
+        "Common Lore (Imperial Guard)":1,
+        "Linguistics (Low Gothic)":1,
+        "Tech-Use":1
+      },
       "talents": [
         "Bombardier",
         "Hatred (Servants of Chaos)"
@@ -1098,11 +1098,11 @@
         "Agility": 3,
         "Strength": 3
       },
-      "skills": [
-        "Intimidate",
-        "Linguistics (Low Gothic)",
-        "Stealth +10"
-      ],
+      "skills": {
+        "Intimidate":1,
+        "Linguistics (Low Gothic)":1,
+        "Stealth":2
+      },
       "talents": [
         "Ambush",
         "Blind Fighting",
@@ -1227,13 +1227,13 @@
         "Fellowship": 3,
         "Intelligence": 3
       },
-      "skills": [
-        "Command",
-        "Common Lored (Administratum)",
-        "Inquiry",
-        "Linguistics (High Gothic)",
-        "Operate (Surface)"
-      ],
+      "skills": {
+        "Command":1,
+        "Common Lored (Administratum)":1,
+        "Inquiry":1,
+        "Linguistics (High Gothic)":1,
+        "Operate (Surface)":1
+      },
       "talents": [
         "Technical Knock"
       ],
@@ -1318,13 +1318,13 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": [
-        "Awareness",
-        "Linguistics (Low Gothic)",
-        "Navigate (Surface)",
-        "Survival",
-        "Stealth"
-      ],
+      "skills": {
+        "Awareness":1,
+        "Linguistics (Low Gothic)":1,
+        "Navigate (Surface)":1,
+        "Survival":1,
+        "Stealth":1
+      },
       "talents": [
         "Ambush",
         "Hated (Servants of Chaos)",
@@ -1409,14 +1409,14 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": [
-        "Awareness",
-        "Common Lore (Ecclesiarchy)",
-        "Common Lore (Imperial Creed)",
-        "Linguistics (Low Gothic)",
-        "Forbidden Lore (Orks)",
-        "Intimidate"
-      ],
+      "skills": {
+        "Awareness":1,
+        "Common Lore (Ecclesiarchy)":1,
+        "Common Lore (Imperial Creed)":1,
+        "Linguistics (Low Gothic)":1,
+        "Forbidden Lore (Orks)":1,
+        "Intimidate":1
+      },
       "talents": [
         "Air of Authority",
         "Hatred (Orks)",
