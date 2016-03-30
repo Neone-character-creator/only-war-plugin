@@ -1,14 +1,7 @@
-var roll = function(diceCount, dieMin, dieMax, modifier) {
-    var result = modifier;
-    for (var i = 0; i < diceCount; i++) {
-        result += Math.floor(Math.random() * (dieMax - dieMin + 1)) + 1;
-    }
-    return result;
-}
-
-angular.module("OnlyWar").controller("CharacteristicsController", function($scope, characteristics, character, $uibModal, $state) {
+define(['app/services/characteristics', 'app/services/character'], function(characteristics, character){
+	return function($scope, $uibModal, $state) {
     var characteristicNames;
-    characteristics.query().$promise.then(function(result) {
+    characteristics.characteristics().$promise.then(function(result) {
         characteristicNames = result;
         $scope.characteristicNames = characteristicNames;
 
@@ -62,4 +55,4 @@ angular.module("OnlyWar").controller("CharacteristicsController", function($scop
             }
         }
     });
-});
+}});

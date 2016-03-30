@@ -1,4 +1,5 @@
-app.controller("SpecialtySelectController", function($scope, $state, specialties, character, selection, $uibModal) {
+define(function(){
+	return function($scope, $state, specialties, character, selection, $uibModal) {
     specialties.specialtyNames().then(function(names){
     	$scope.specialties = names;
     });
@@ -40,4 +41,4 @@ app.controller("SpecialtySelectController", function($scope, $state, specialties
 			templateUrl: 'templates/selection-modal.html',
 		});
     };
-});
+}});

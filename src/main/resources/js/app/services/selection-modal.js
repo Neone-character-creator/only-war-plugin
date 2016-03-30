@@ -1,4 +1,5 @@
-app.controller("SelectionModalController", function($scope, $uibModalInstance, selection) {
+define(['angular', 'angular-ui', 'app/services/selection'], function(angular, angularui, selection){
+	return function($scope, $uibModalInstance) {
         $scope.selectionsNeeded = selection.selectionObject.selections;
         //The options
         $scope.options = [];
@@ -16,7 +17,7 @@ app.controller("SelectionModalController", function($scope, $uibModalInstance, s
 
     $scope.ok = function() {
         var selectedIndices = [];
-        for (var i = 0; i < $scope.choices.options.length; i++) {
+        for (var i = 0; i < $scope.options.length; i++) {
             if ($scope.selected[i] === true) {
                 selectedIndices.push(i);
             }
@@ -24,4 +25,4 @@ app.controller("SelectionModalController", function($scope, $uibModalInstance, s
         selection.choose(selectedIndices);
         $uibModalInstance.close('complete');
     };
-});
+}});
