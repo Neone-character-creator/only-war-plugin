@@ -9,3 +9,11 @@ Add confirmation to specialty page that choices will be discarded when changing 
 Think about using single page for specialty and regiment selection
 
 Look into requirejs for organizing scripts.
+
+Add calculating xp based on character type.
+
+Implement applying regiment and specialty modifiers to character and removing them when they change, bonus xp for duplicate talents and bonus aptitudes for duplicate aptitudes.
+
+Implement spending xp.
+
+Organize all exactly how the services should all work.
