@@ -1,45 +1,33 @@
-define(['app/services/characteristics', 'app/services/character'], function(characteristics, character){
-	return function($scope, $uibModal, $state) {
-    var characteristicNames;
-    characteristics.characteristics().$promise.then(function(result) {
-        characteristicNames = result;
-        $scope.characteristicNames = characteristicNames;
+define(function(){
+	return function($scope, $uibModal, $state, characteroptions, character, dice) {
+        characteroptions.characteristics().then(function(result){
+        	$scope.characteristicNames = result.map(function(characteristic){
+        		return characteristic.name;
+        	});
+        });
 
-    });
-    $scope.character = character.character;
-    $scope.generatedValues = [];
-    $scope.characteristicValues = character.character.characteristics;
-    $scope.generate = function(index) {
-        if (index === undefined) {
-            for (var i = 0; i < characteristicNames.length; i++) {
-                $scope.generatedValues[i] = roll(2, 1, 10, 20);
-                $scope.characteristicValues[characteristicNames[i].toLowerCase()] = null;
-            }
-        } else {
-            $scope.generatedValues[index] = roll(2, 1, 10, 20);
-        }
-    };
+    	$scope.character = character.character;
+    	$scope.generatedValues = [];
+	    	$scope.characteristics = character.character().characteristics().all();
+	    $scope.generate = function(index) {
+	        if (index === undefined) {
+	            for (var i = 0; i < $scope.characteristicNames.length; i++) {
+	                $scope.generatedValues[i] = dice.roll(1, 10, 2) + 20;
+	                $scope.characteristics[$scope.characteristicNames[i].toLowerCase()].rolled = 0;
+	            }
+	        } else {
+	            $scope.generatedValues[index] = dice.roll(1, 10, 2) + 20;
+	        }
+	    };
 
-    $scope.valueButtonClick = function(index) {
-        $scope.generate(index);
-    }
+	    $scope.valueButtonClick = function(index) {
+	        $scope.generate(index);
+	    }
 
-    $scope.onDrop = function(result) {
-        dirty = true;
-    }
     var suppressDialog = false;
-    var valuesAreDirty = function() {
-        var numValuesAssigned = 0;
-        for (var characteristic in $scope.characteristicValues) {
-            if ($scope.characteristicValues[characteristic] !== null) {
-                numValuesAssigned++;
-            };
-        };
-        return numValuesAssigned !== characteristicNames.length
-    };
 
     $scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
-        if (fromState.name === "characteristics" && toState.name !== fromState.name && valuesAreDirty()) {
+        if (fromState.name === "characteristics" && toState.name !== fromState.name && !character.character().characteristics().complete()) {
             var resultHandler = function(result) {
                 if (result) {
                     suppressDialog = true;

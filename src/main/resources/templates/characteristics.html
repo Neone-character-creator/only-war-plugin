@@ -5,14 +5,13 @@
         </div>
     </div>
     <div class="row text-center" ng-show="generatedValues.length > 0">
-        Click to reroll, click and drag to assign.
+        Click to reroll, click and drag to assign, drag onto assigned value to swap.
         <ul class="list-inline">
             <li ng-repeat="number in generatedValues track by $index">
                 <div ng-click="valueButtonClick($index)">
                     <div class="btn btn-primary"
                          jqyoui-draggable="{index:$index, animate:true}"
-                         data-jqyoui-options="{revert:'invalid'}" data-drag="true" ng-model="generatedValues"
-                    >
+                         data-jqyoui-options="{revert:'invalid'}" data-drag="true" ng-model="generatedValues">
                         {{number}}
                     </div>
                 </div>
@@ -23,13 +22,13 @@
         <div class="col-md-12">
             <table style="width:100%" class="text-center">
                 <tr>
-                    <td ng-repeat="characteristic in characteristicNames"><p class="text-center">{{characteristic}}</p>
+                    <td ng-repeat="characteristic in characteristics"><p class="text-center">{{characteristic.name}}</p>
                     </td>
                 </tr>
                 <tr>
                     <td ng-repeat="characteristic in characteristicNames" class="text-center">
-                        <input type="text" ng-model="characteristicValues[characteristic.toLowerCase()]"
-                               style="width:50px" jqyoui-droppable="{onDrop:'onDrop'}" data-drop=true readonly />
+                        <input type="number" ng-model="characteristics[characteristic.toLowerCase()].rolled"
+                               style="width:50px;text-align:center" jqyoui-droppable="{onDrop:'onDrop'}" data-drop=true />
                     </td>
                 </tr>
             </table>
