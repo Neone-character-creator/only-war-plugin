@@ -31,18 +31,16 @@ require.config({
     	},
     	"angular-ui" : {
     		deps : ['angular']
-    	},
-    	"mootools-core" : {
     	}
     }
 });
 
 define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
-"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/services/selection-modal", "app/sheet/sheet-controller",
-"app/services/selection", "app/services/regiments","app/services/specialties", "app/services/character", "app/services/characteristics"],
+"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller",
+"app/services/selection", "app/services/regiments","app/services/specialties", "app/services/character", "app/services/characteroptions", "app/services/dice"],
 	function(angular, uirouter, resource, angularui, dragdrop,
-	regimentController, characteristicsController, specialtyController, selectionModalController, sheetController,
-	selectionService, regimentService, specialtyService, characterService, characteristicsService) {
+	regimentController, characteristicsController, specialtyController, selectionModalController, sheetController, confirmationController, finalizeController,
+	selectionService, regimentService, specialtyService, characterService, characterOptions, diceService) {
     var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop"]);
 
 	//Register services
@@ -50,11 +48,13 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
     app.factory("selection", selectionService);
     app.factory("specialties", specialtyService);
     app.factory("character", characterService);
-    app.factory("characteristics", characteristicsService)
+    app.factory("characteroptions", characterOptions);
+    app.factory("dice", diceService);
 
 	//Register additional controllers not used by the main pages below
 	app.controller("SelectionModalController", selectionModalController);
 	app.controller("SheetController", sheetController);
+	app.controller("ConfirmationController", confirmationController);
 
     app.config(function($stateProvider){
         $stateProvider.state("sheet", {
@@ -75,7 +75,8 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
 			controller : specialtyController
 		}).state("finalize", {
 			url: "/finalize",
-			templateUrl: "templates/finalize.html"
+			templateUrl: "templates/finalize.html",
+			controller : finalizeController
 		});
     });
 
@@ -128,6 +129,15 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                             elements.push(element.value);
                             break;
                     }
+                } else {
+                	switch(element.property[0]){
+                		case "character kit" :
+                			for(var item in element.value){
+                				if(element.value.hasOwnProperty(item)){
+                					elements.push(element.value[item] + " x " + item);
+                				}
+                			}
+                	}
                 }
             });
             return elements.join(", ");
