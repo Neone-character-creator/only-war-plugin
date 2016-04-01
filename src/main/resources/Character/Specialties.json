@@ -15,11 +15,11 @@
         "Perception",
         "Toughness"
       ],
-      "skills": [
-        "Common Lore (Imperial Guard)",
-        "Common Lore (War)",
-        "Intimidate"
-      ],
+      "skills": {
+        "Common Lore (Imperial Guard)": 1,
+        "Common Lore (War)": 1,
+        "Intimidate": 1
+      },
       "talents": [
         "Iron Jaw"
       ],
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "selections": 1,
+        "selections": 3,
         "options": [
           [
             {
@@ -102,13 +102,13 @@
           [
             {
               "property": "skills",
-              "value": "Athletics"
+              "value": {"Athletics":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Survival"
+              "value": {"Survival":1}
             }
           ]
         ]
@@ -178,10 +178,10 @@
         "Perception",
         "Willpower"
       ],
-      "skills": [
-        "Medicae",
-        "Scholastic Lore (Chymistry)"
-      ],
+      "skills": {
+        "Medicae": 1,
+        "Scholastic Lore (Chymistry)": 1
+      },
       "talents": [
         "Weapon Training (Low-Tech)"
       ],
@@ -201,13 +201,13 @@
           [
             {
               "property": "skills",
-              "value": "Scrutiny"
+              "value": {"Scrutiny":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Trade (Chymisty)"
+              "value": {"Trade (Chymisty)":1}
             }
           ]
         ]
@@ -264,10 +264,10 @@
         "Intelligence",
         "Tech"
       ],
-      "skills": [
-        "Operate (Surface)",
-        "Tech-Use"
-      ],
+      "skills": {
+        "Operate (Surface)": 1,
+        "Tech-Use": 1
+      },
       "talents": [
         "Weapon Training (Low-Tech)",
         "Technical Knock"
@@ -290,13 +290,13 @@
           [
             {
               "property": "skills",
-              "value": "Common Lore (Tech)"
+              "value": {"Common Lore (Tech)":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Navigate (Surface)"
+              "value": {"Navigate (Surface)":1}
             }
           ]
         ]
@@ -337,9 +337,9 @@
         "Toughness",
         "Weapon Skill"
       ],
-      "skills": [
-        "Command"
-      ],
+      "skills": {
+        "Command": 1
+      },
       "talents": [
         "Weapon Training (Low-Tech)",
         "Weapon Training (Chain)"
@@ -359,13 +359,13 @@
           [
             {
               "property": "skills",
-              "value": "Navitage (Surface)"
+              "value": {"Navitage (Surface)":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Scholastic Lore (Tactica Imperialis)"
+              "value": {"Scholastic Lore (Tactica Imperialis)":1}
             }
           ]
         ]
@@ -419,11 +419,11 @@
         "Finesse",
         "Weapon Skill"
       ],
-      "skills": [
-        "Navigate (Surface)",
-        "Common Lore(Imperial Guard)",
-        "Common Lore (War)"
-      ],
+      "skills": {
+        "Navigate (Surface)": 1,
+        "Common Lore(Imperial Guard)": 1,
+        "Common Lore (War)": 1
+      },
       "wounds": 8
     },
     "optional modifiers": [
@@ -453,11 +453,11 @@
         "options": [
           {
             "property": "skills",
-            "value": "Athletics"
+            "value": {"Athletics":1}
           },
           {
             "property": "skills",
-            "value": "Survival"
+            "value": {"Survival":1}
           }
         ]
       },
@@ -616,10 +616,10 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": [
-        "Common Lore (Imperial Guard)",
-        "Scholastic Lore (Tactica Imperialis)"
-      ],
+      "skills": {
+        "Common Lore (Imperial Guard)": 1,
+        "Scholastic Lore (Tactica Imperialis)": 1
+      },
       "talents": [
         "Air of Authority",
         "Weapon Training (Bolt)",
@@ -725,11 +725,11 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": [
-        "Common Lore (Ecclesiarchy)",
-        "Forbidden Lore (Heresy)",
-        "Scholastic Lore (Imperial Creed)"
-      ],
+      "skills": {
+        "Common Lore (Ecclesiarchy)": 1,
+        "Forbidden Lore (Heresy)": 1,
+        "Scholastic Lore (Imperial Creed)": 1
+      },
       "talents": [
         "Hatred",
         "Unshakeable Faith",
@@ -773,13 +773,13 @@
           [
             {
               "property": "skills",
-              "value": "Charm"
+              "value": {"Charm":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Inquiry"
+              "value": {"Inquiry":1}
             }
           ]
         ]
@@ -826,13 +826,13 @@
           [
             {
               "property": "skills",
-              "value": "Intimidate"
+              "value": {"Intimidate":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Survival"
+              "value": {"Survival":1}
             }
           ]
         ]
@@ -875,10 +875,10 @@
         "Perception",
         "Social"
       ],
-      "skills": [
-        "Deceive",
-        "Trade (Cook)"
-      ],
+      "skills": {
+        "Deceive": 1,
+        "Trade (Cook)": 1
+      },
       "talents": [
         "Deadeye Shot",
         "Weapon Training (Las)",
@@ -899,13 +899,13 @@
           [
             {
               "property": "skills",
-              "value": "Awareness"
+              "value": {"Awareness":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Stealth"
+              "value": {"Stealth":1}
             }
           ]
         ]
@@ -983,12 +983,12 @@
         "Strength",
         "Willpower"
       ],
-      "skills": [
-        "Common Lore (Adeptus Astra Telepathica)",
-        "Forbidden Lore (Psykers)",
-        "Psyniscience",
-        "Scholastic Lore (Cryptology)"
-      ],
+      "skills": {
+        "Common Lore (Adeptus Astra Telepathica)": 1,
+        "Forbidden Lore (Psykers)": 1,
+        "Psyniscience": 1,
+        "Scholastic Lore (Cryptology)": 1
+      },
       "talents": [
         "Heightened Senses (Hearing)",
         "Weapon Training (Low-Tech)",
@@ -1041,11 +1041,11 @@
         "Offence",
         "Toughness"
       ],
-      "skills": [
-        "Awareness",
-        "Scholastic Lore (Tactica Imperialis)",
-        "Stealth"
-      ],
+      "skills": {
+        "Awareness": 1,
+        "Scholastic Lore (Tactica Imperialis)": 1,
+        "Stealth": 1
+      },
       "talents": [
         "Takedown",
         "Weapon Training (Low-Tech)"
@@ -1067,13 +1067,13 @@
           [
             {
               "property": "skills",
-              "value": "Dodge"
+              "value": {"Dodge":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Parry"
+              "value": {"Parry":1}
             }
           ]
         ]
@@ -1084,13 +1084,13 @@
           [
             {
               "property": "skills",
-              "value": "Intimidate"
+              "value": {"Intimidate":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Security"
+              "value": {"Security":1}
             }
           ]
         ]
@@ -1149,11 +1149,11 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": [
-        "Common Lore (Adeptus Mechanicus)",
-        "Forbidden Lore (Adeptus Mechanicus)",
-        "Tech-Use"
-      ],
+      "skills": {
+        "Common Lore (Adeptus Mechanicus)": 1,
+        "Forbidden Lore (Adeptus Mechanicus)": 1,
+        "Tech-Use": 1
+      },
       "talents": [
         "Mechadendrite Use (Weapon)",
         "Mechadendrite Use (Utility)",
@@ -1231,13 +1231,13 @@
           [
             {
               "property": "skills",
-              "value": "Forbidden Lore (Archeotech)"
+              "value": {"Forbidden Lore (Archeotech)":1}
             }
           ],
           [
             {
               "property": "skills",
-              "value": "Logic"
+              "value": {"Logic":1}
             }
           ]
         ]
