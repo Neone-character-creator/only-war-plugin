@@ -1,5 +1,5 @@
-require(['app'], function(app){
-	app.controller("ConfirmationController", function($scope, $uibModalInstance) {
+define(function(){
+	return function($scope, $uibModalInstance) {
 	    $scope.ok = function() {
 	        $uibModalInstance.close('ok');
 	    };
@@ -7,5 +7,5 @@ require(['app'], function(app){
 	    $scope.cancel = function() {
 	        $uibModalInstance.dismiss('cancel');
 	    };
-	});
+	};
 })
