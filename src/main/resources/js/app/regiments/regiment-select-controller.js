@@ -1,14 +1,14 @@
 define(function() {
-	return function($scope, $uibModal, $state, $stateParams, $uibModal, selection, regiments) {
+	return function($scope, $uibModal, $state, $stateParams, $uibModal, selection, regiments, character) {
 		regiments.regiments().then(function(result) {
 			$scope.regiments = result;
 		});
 
-		$scope.selectedRegiment = regiments.selected;
+		$scope.selectedRegiment = regiments.selected();
 		var suppressDialog = false;
 
 		$scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
-			if (fromState.name === "regiment" && toState.name !== fromState.name && regiments.selectionsRemaining.length !== 0) {
+			if (fromState.name === "regiment" && toState.name !== fromState.name && !regiments.complete()) {
 				var resultHandler = function(result) {
 					if (result) {
 						suppressDialog = true;
@@ -30,9 +30,10 @@ define(function() {
 			var proceed = function() {
 				regiments.selectRegiment(regiment);
 				$scope.selectedRegiment = regiments.selected();
-				$scope.requiredSelections = regiments.selectionsRemaining();
+				$scope.requiredSelections = regiments.remainingSelections();
+				character.character().regiment(regiment);
 			}
-			if (regiments.dirty === true) {
+			if (regiments.selected() && !regiments.selectionComplete) {
 				confirm = $uibModal.open({
 					controller: "ConfirmationController",
 					templateUrl: "templates/confirm-discard-changes-modal.html"
