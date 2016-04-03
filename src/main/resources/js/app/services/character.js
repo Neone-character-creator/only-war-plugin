@@ -100,7 +100,6 @@ define(function() {
 				}
 			};
 			var _fatePoints = {
-				rolled: 0,
 				total: 0
 			};
 			var _equipment = {
@@ -291,11 +290,12 @@ define(function() {
 				},
 				fatePoints: function() {
 					return {
-						rolled: function() {
-							return _fatePoints.rolled;
-						},
-						total: function() {
-							return _fatePoints.total;
+						total: function(value) {
+							if(value !== undefined){
+								_fatePoints.total = value;
+							} else {
+									return _fatePoints.total;
+							}
 						}
 					}
 				},
