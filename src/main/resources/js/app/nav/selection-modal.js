@@ -1,5 +1,5 @@
-define(['angular', 'angular-ui', 'app/services/selection'], function(angular, angularui, selection){
-	return function($scope, $uibModalInstance) {
+define(function(){
+	return function($scope, $uibModalInstance, selection) {
         $scope.selectionsNeeded = selection.selectionObject.selections;
         //The options
         $scope.options = [];
