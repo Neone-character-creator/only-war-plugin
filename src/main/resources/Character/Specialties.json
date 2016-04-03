@@ -451,27 +451,27 @@
       {
         "selections": 1,
         "options": [
-          {
+          [{
             "property": "skills",
             "value": {"Athletics":1}
-          },
-          {
+          }],
+          [{
             "property": "skills",
             "value": {"Survival":1}
-          }
+          }]
         ]
       },
       {
         "selections": 1,
-        "options": [
+        "options": [[
           {
             "property": "talents",
             "value": "Lasgun Barrage"
-          },
-          {
+          }],
+          [{
             "property": "talents",
             "value": "Rapid Reload"
-          }
+          }]
         ]
       },
       {
@@ -642,19 +642,14 @@
         "options": [
           [
             {
-              "property": [
-                "character kit",
-                "other weapons"
-              ],
+              "property":
+                "talents",
               "value": "Weapon Training (Las)"
             }
           ],
           [
             {
-              "property": [
-                "character kit",
-                "other weapons"
-              ],
+              "property": "talents",
               "value": "Weapon Training (Solid Projectile)"
             }
           ]
@@ -665,19 +660,13 @@
         "options": [
           [
             {
-              "property": [
-                "character kit",
-                "other weapons"
-              ],
+              "property": "talents",
               "value": "Cold Hearted"
             }
           ],
           [
             {
-              "property": [
-                "character kit",
-                "other weapons"
-              ],
+              "property": "talents",
               "value": "Unshakeable Faith"
             }
           ]
@@ -688,20 +677,14 @@
         "options": [
           [
             {
-              "property": [
-                "character kit",
-                "other weapons"
-              ],
-              "value": "Command"
+              "property": "skills",
+              "value": {"Command":1}
             }
           ],
           [
             {
-              "property": [
-                "character kit",
-                "other weapons"
-              ],
-              "value": "Intimidate"
+              "property": "skills",
+              "value": {"Intimidate":1}
             }
           ]
         ]
@@ -913,7 +896,6 @@
       {
         "selections": 1,
         "options": [
-          [
             [
               {
                 "property": "talents",
@@ -931,11 +913,13 @@
                 "property": "talents",
                 "value": "Heightened Senses (Taste)"
               }
+            ],
+            [
+              {
+                "property": "talents",
+                "value": "Light Sleeper"
+              }
             ]
-          ],
-          [
-            "Light Sleeper"
-          ]
         ]
       },
       {
@@ -1018,7 +1002,7 @@
           [
             {
               "property": "talents",
-              "value": "Weapon Training (Solid Projectile"
+              "value": "Weapon Training (Solid Projectile)"
             }
           ]
         ]
@@ -1062,7 +1046,7 @@
     },
     "optional modifiers": [
       {
-        "selection": 1,
+        "selections": 1,
         "options": [
           [
             {
@@ -1079,7 +1063,7 @@
         ]
       },
       {
-        "selection": 1,
+        "selections": 1,
         "options": [
           [
             {
@@ -1176,17 +1160,13 @@
           [
             {
               "property": "talents",
-              "value": {
-                "Utility Mechadendrite": 1
-              }
+              "value": "Utility Mechadendrite"
             }
           ],
           [
             {
               "property": "talents",
-              "value": {
-                "Ballistic Mechadendrite": 1
-              }
+              "value": "Ballistic Mechadendrite"
             }
           ]
         ]
@@ -1220,13 +1200,13 @@
           [
             {
               "property": "talents",
-              "value": "Weapon Training (Solid Projectile"
+              "value": "Weapon Training (Solid Projectile)"
             }
           ]
         ]
       },
       {
-        "selection": 1,
+        "selections": 1,
         "options": [
           [
             {
