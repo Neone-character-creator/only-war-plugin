@@ -1,65 +1,65 @@
 [
   {
     "name": "Weapon Skill",
-    "matching aptitudes": [
-      "weapon skill",
-      "offence"
+    "aptitudes": [
+      "Weapon Skill",
+      "Offence"
     ]
   },
   {
     "name": "Ballistic Skill",
-    "matching aptitudes": [
-      "ballistic skill",
-      "finesse"
+    "aptitudes": [
+      "Ballistic Skill",
+      "Finesse"
     ]
   },
   {
     "name": "Strength",
-    "matching aptitudes": [
-      "strength",
-      "offence"
+    "aptitudes": [
+      "Strength",
+      "Offence"
     ]
   },
   {
     "name": "Toughness",
-    "matching aptitudes": [
-      "toughness",
-      "defence"
+    "aptitudes": [
+      "Toughness",
+      "Defence"
     ]
   },
   {
     "name": "Agility",
-    "matching aptitudes": [
-      "agility",
-      "finesse"
+    "aptitudes": [
+      "Agility",
+      "Finesse"
     ]
   },
   {
     "name": "Intelligence",
-    "matching aptitudes": [
-      "intelligence",
-      "knowledge"
+    "aptitudes": [
+      "Intelligence",
+      "Knowledge"
     ]
   },
   {
     "name": "Perception",
-    "matching aptitudes": [
-      "perception",
-      "fieldcraft"
+    "aptitudes": [
+      "Perception",
+      "FieldCraft"
     ]
   },
   {
     "name": "Willpower",
-    "matching aptitudes": [
-      "willpower",
-      "psyker"
+    "aptitudes": [
+      "Willpower",
+      "Psyker"
     ]
   },
   {
     "name": "Fellowship",
-    "matching aptitudes": [
-      "fellowship",
-      "social"
+    "aptitudes": [
+      "Fellowship",
+      "Social"
     ]
   }
 ]
