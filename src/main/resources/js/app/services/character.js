@@ -112,6 +112,7 @@ define(function() {
 				available: 0,
 				advancementsBought: []
 			};
+			var _aptitudes = ["General"];
 
 			var _character = {
 				name: "",
@@ -359,14 +360,22 @@ define(function() {
 								return _experience.available;
 							} else {
 								_experience.available = xp;
-							}
+								_experience.total += xp - _experience.available;
+							};
 						},
 						addAdvancement: function(advancement) {
+							_experience.advancements.push(advancement);
 							_experience.available -= advancement.cost;
 						}
 					}
 				},
-				aptitudes: [],
+				aptitudes: function(){
+					return {
+						all : function(){
+							return _aptitudes
+						}
+					}
+				},
 			};
 
 			var addModifier = function(modifier, type) {
@@ -403,12 +412,25 @@ define(function() {
 									_character.talents().add(incomingTalents[i]);
 								}
 								break;
+							case "aptitudes":
+								var incomingAptitudes = modifier['fixed modifiers']['aptitudes'];
+								_aptitudes = _aptitudes.concat(incomingAptitudes);
+								break;
 						}
+					}
+				}
+				if(type === "Specialty"){
+					if(modifier['type'] === "Guardsman"){
+						_character.experience().available(600);
+					} else if (modifier['type'] === "Support"){
+						_character.experience().available(300);
+					} else {
+						throw "Specialty type must be 'Guardsman' or 'Support' but was " + type + "."
 					}
 				}
 			};
 			var removeModifier = function(modifier, type) {
-            				for (var property in modifier['fixed modifiers']) {
+				for (var property in modifier['fixed modifiers']) {
             					if (modifier['fixed modifiers'].hasOwnProperty(property)) {
             						switch (property) {
             							case "characteristics":
@@ -427,9 +449,9 @@ define(function() {
             							case "skills":
             								var incomingSkills = modifier['fixed modifiers']['skills'];
             								for (var skill in incomingSkills) {
-            									var existingSkill = _skillsMap[incomingSkills[skill]];
-            									if(existingSkill && existingSkill.advancements() === incomingSkills[i].advancements()){
-            										_skillsMap.delete(skill);
+            									var existingSkill = _skillsMap[skill];
+            									if(existingSkill && existingSkill.advancements() === incomingSkills[skill]){
+            										delete _skillsMap[skill];
             									} else {
             										existingSkill.advancements(existingSkill.advancements() - incomingSkills[i].advancements());
             									}
@@ -438,13 +460,22 @@ define(function() {
             							case "talents":
             								var incomingTalents = modifier['fixed modifiers']['talents'];
             								for (var i = 0; i < incomingTalents.length; i++) {
-            									_talents.splice(indexOf(incomingTalents[i]), 1);
+            									_talents.splice(_talents.indexOf(incomingTalents[i]), 1);
             								}
             								break;
             						}
             					}
             				}
-            			};
+            	if (type === "Specialty"){
+            		if(modifier['type'] === "Guardsman"){
+            			_character.experience().available(-600);
+            		} else if (modifier['type'] === "Support"){
+            			_character.experience().available(-300);
+            		} else {
+            			throw "Specialty type must be 'Guardsman' or 'Support' but was " + type + "."
+            		}
+            	}
+			};
 			return _character;
 		}
 		var _character = character();
