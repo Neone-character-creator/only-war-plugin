@@ -10,7 +10,13 @@ define(function(){
 	        	});
 	        },
 	        selected: function(){return selected;},
-	        remainingSelections: function(){return selected['optional modifiers']},
+	        remainingSelections: function(){
+	        	if(selected){
+	        		return selected['optional modifiers']
+	        	} else {
+	        		return [];
+	        	};
+	        },
 	        complete: false,
 	        selectSpecialty: function(specialty) {
 	            selected = Object.clone(specialty);
