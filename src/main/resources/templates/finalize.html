@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <h3>Wounds</h3>
+            Regiment Modifier: {{selectedRegiment['fixed modifiers'].wounds}} <br/>
+            Specialty Modifier: {{selectedSpecialty['fixed modifiers'].wounds}} <br/>
+            Roll: <input ng-model="rolledWounds"/>
+            <button class="btn btn-standard" ng-click="rollWounds()">Roll</button>
+            <br/>
+            <input type="text" ng-model="woundsTotal">
+
+        </div>
+        <div class="row">
+            <div class="row">
+                <h3>Fate Points</h3>
+            </div>
+            <div class="row">
+                Roll : {{fpRoll}}
+                <button class="btn btn-standard" ng-click="rollFP()">Roll</button>
+                <br/>
+            </div>
+            Fate Points : <input type="number" ng-model="character.fatePoints().total"
+                                 ng-model-options="{ getterSetter: true }"/>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Spend Experience</h3>
+                <div class="row">
+                    XP available: {{availableXp}}
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <select ng-model="selectedCategory" ng-change="toggleDisplayedCategory()"
+                                ng-options="category.value for category in categories track by category.id">
+                        </select>
+                    </div>
+                    <div class="col-md-9" ng-show="selectedCategory">
+                        <div class="row">
+                            <select ng-model="displayedOption" ng-options="option.name for option in options"
+                                    ng-change="displayXpCost()">
+
+                            </select>
+                        </div>
+                        <div ng-show="displayedOption">
+                            <div class="row">
+                                <table class="table bordered-table">
+                                    <tr>
+                                        <th colspan="2">Needed Aptitudes</th>
+                                    </tr>
+                                    <tr>
+                                        <td ng-repeat="aptitude in displayedOption.aptitudes"
+                                            ng-style="{'background-color': character.aptitudes().all().indexOf(aptitude) !== -1 ? 'green' : 'red'}">
+                                            {{aptitude}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="row text-center">
+                                <button class="btn btn-default" ng-click="buyAdvancement()" ng-disabled="optionXpCost > availableXp">Buy for {{optionXpCost}} XP</button>
+                            </div>
+                            {{bought}}
+                        </div>
+                    </div>
+                    <!--Drop down where user selects whether they want to buy characteristics, skills, talents or psychic powers-->
+                    <!--Another dropdown that lists the options from the above selected category:-->
+                    <!-- Characteristics category shows all available advances -->
+                    <!-- Skills shows all available skills -->
+                    <!-- Talents list all talents-->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!--Shows details of the selected advancement-->
+                <!--Show related aptitudes, highlight green if the character has it, highlight red if they don't-->
+                <!--Show final xp cost-->
+            </div>
+        </div>
+    </div>
+</div>
