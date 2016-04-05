@@ -6,7 +6,7 @@ refresh() replaces the current character with a new one.
 */
 define(function() {
 	return function($q) {
-		function Characteristic(name) {
+		Characteristic = function(name) {
 			var _perAdvancementBonus = 5;
 			return {
 				name: name,
@@ -21,7 +21,7 @@ define(function() {
 			}
 		};
 
-		function Skill(name, rating) {
+		Skill = function(name, rating) {
 			var _name = name;
 			var _advancements = rating | 0;
 			return {
@@ -39,7 +39,7 @@ define(function() {
 			}
 		}
 
-		function Advancement(cost, property, value) {
+		Advancement = function(cost, property, value) {
 			return {
 				cost: cost,
 				property: property,
@@ -113,6 +113,7 @@ define(function() {
 				advancementsBought: []
 			};
 			var _aptitudes = ["General"];
+			var _powers = [];
 
 			var _character = {
 				name: "",
@@ -364,8 +365,22 @@ define(function() {
 							};
 						},
 						addAdvancement: function(advancement) {
-							_experience.advancements.push(advancement);
+							_experience.advancementsBought.push(advancement);
 							_experience.available -= advancement.cost;
+							switch(advancement.property[0]){
+								case "Characteristics":
+								_characteristicMap[advancement.property[1].toLowerCase()].advancements = advancement.value;
+								break;
+								case "Skills":
+								_skillsMap[advancement.property[1]].advancements(advancement.value);
+								break;
+								case "Talents":
+								_talents.push(advancement.value);
+								break;
+								case "Psychic Powers":
+								_powers.push(advancement.value);
+								break;
+							}
 						}
 					}
 				},
