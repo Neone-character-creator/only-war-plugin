@@ -70,6 +70,12 @@
                         </ul>
                     </div>
                     <div class="row">
+                        <h3>Aptitudes</h3>
+                        <ul>
+                            <li ng-repeat="aptitude in selectedRegiment['fixed modifiers']['aptitudes']">{{aptitude}}</li>
+                        </ul>
+                    </div>
+                    <div class="row">
                         <h3>Favored Weapons</h3>
                         {{selectedRegiment['fixed modifiers']['favored weapons'].join(', ')}}
                     </div>

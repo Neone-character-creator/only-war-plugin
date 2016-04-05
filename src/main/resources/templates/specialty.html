@@ -46,6 +46,12 @@
                         </ul>
                     </div>
                     <div class="row">
+                        <h3>Aptitudes</h3>
+                        <ul>
+                            <li ng-repeat="aptitude in selectedSpecialty['fixed modifiers']['aptitudes']">{{aptitude}}</li>
+                        </ul>
+                    </div>
+                    <div class="row">
                         <h3>Additional Gear</h3>
                         <ul>
                             <li ng-repeat="(name, count) in selectedSpecialty['fixed modifiers']['character kit']['main weapon']">
