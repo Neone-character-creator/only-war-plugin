@@ -5,6 +5,7 @@ define(function(){
     });
     $scope.character = character.character;
     $scope.selectedSpecialty = specialties.selected();
+    $scope.requiredSelections = specialties.remainingSelections();
 
     var suppressDialog = false;
 
