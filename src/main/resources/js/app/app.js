@@ -8,7 +8,7 @@ require.config({
         "jquery": "libs/jquery/dist/jquery.min",
         "jquery-ui": "libs/jquery-ui/jquery-ui",
         "mootools-core": "libs/mootools/dist/mootools-core",
-        "angular-ui" : "app/ui-bootstrap-tpls-1.2.5",
+        "angular-ui" : "libs/angular-bootstrap/ui-bootstrap-tpls",
     },
     shim : {
     	"jquery" : {
@@ -35,12 +35,12 @@ require.config({
     }
 });
 
-define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
-"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller",
-"app/services/selection", "app/services/regiments","app/services/specialties", "app/services/character", "app/services/characteroptions", "app/services/dice"],
+require(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
+"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller",
+"app/services/selection", "app/services/regiments","app/services/specialties", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service"],
 	function(angular, uirouter, resource, angularui, dragdrop,
-	regimentController, characteristicsController, specialtyController, selectionModalController, sheetController, confirmationController, finalizeController,
-	selectionService, regimentService, specialtyService, characterService, characterOptions, diceService) {
+	regimentController, characteristicsController, specialtyController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController,
+	selectionService, regimentService, specialtyService, characterService, characterOptions, diceService, characteristicTooltipService) {
     var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop"]);
 
 	//Register services
@@ -50,11 +50,13 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
     app.factory("character", characterService);
     app.factory("characteroptions", characterOptions);
     app.factory("dice", diceService);
+    app.factory("characteristicTooltipService", characteristicTooltipService);
 
 	//Register additional controllers not used by the main pages below
 	app.controller("SelectionModalController", selectionModalController);
 	app.controller("SheetController", sheetController);
 	app.controller("ConfirmationController", confirmationController);
+	app.controller("CharacteristicToolTipController", characteristicTooltipController);
 
     app.config(function($stateProvider){
         $stateProvider.state("sheet", {
@@ -91,12 +93,18 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                         for (var op = 0; op < option.length; op++) {
                             switch (option[op].property) {
                                 case 'characteristics':
-                                    {
+                                	for(var characteristic in option[op].value){
+                                		optionElements.push(characteristic + " +" + option[op].value[characteristic])
+                                	}
                                         break;
-                                    }
+
                                 case 'talents':
+                                	optionElements.push(option[op].value);
+                                	break;
                                 case 'skills':
-                                    optionElements.push(option[op].value);
+                                	for(var skill in option[op].value){
+                                		optionElements.push(skill + " + " + (option[op].value[skill] - 1) * 10 );
+                                	}
                                     break;
                             }
                             if (Array.isArray(option[op].property)) {
