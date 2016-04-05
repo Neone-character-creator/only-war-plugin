@@ -1,9 +1,27 @@
 define(function() {
-	return function($scope, character, regiments, specialties, characteroptions) {
+	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService) {
 		$scope.character = character.character();
 		characteroptions.characteristics().then(function(result){
 			$scope.characteristics = result;
 		});
+
+		$scope.characteristicTooltip = function(characteristic){
+			characteristicTooltipService.displayed(characteristic);
+		}
+
+		$scope.talents = character.character().talents().all();
+		$scope.newTalent;
+
+		$scope.addTalent = function(){
+			if($scope.newTalent){
+				$scope.talents.push($scope.newTalent);
+				$scope.newTalent = null;
+			}
+		}
+
+		$scope.removeTalent = function(index){
+			$scope.talents.splice(index, 1);
+		}
 
 		$scope.criticalInjuries = character.character().wounds().criticalDamage();
 		$scope.newCriticalInjury;
@@ -34,9 +52,8 @@ define(function() {
 		};
 
 		$scope.malignancies = character.character().corruption().malignancies();
-		$scope.mutations = character.character().corruption().mutations();
 		$scope.newMalignancy;
-		$scope.newMutation;
+
 		$scope.addMalignancy = function() {
 			if ($scope.newMalignancy) {
 				$scope.malignancies.push($scope.newMalignancy);
@@ -44,19 +61,22 @@ define(function() {
 			}
 		};
 
-		$scope.newMalignancy = function(index) {
+		$scope.removeMalignancy = function(index) {
 			$scope.malignancies.splice(index, 1);
 		};
 
+		$scope.mutations = character.character().corruption().mutations();
+		$scope.newMutation;
+
 		$scope.addMutation = function() {
 			if ($scope.newMutation) {
-				$scope.malignancies.push($scope.newMutation);
+				$scope.mutations.push($scope.newMutation);
 				$scope.newMutation = null;
 			}
 		};
 
-		$scope.newMutation = function(index) {
-			$scope.malignancies.splice(index, 1);
+		$scope.removeMutation = function(index) {
+			$scope.mutations.splice(index, 1);
 		};
 	}
 });
