@@ -10,7 +10,7 @@
                         </div>
                         <div class="row">
                             <label for="regiment-name">Regiment</label>
-                            <input id="regiment-name" type="text" readonly style="width:90%" ng-value="selectedRegiment.name"/>
+                            <input id="regiment-name" type="text" readonly style="width:90%" ng-value="character.regiment().name"/>
                         </div>
                         <div class="row">
                             <label for="demeanor">Demeanor</label>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="row">
                             <label>Specialty</label>
-                            <input type="text" readonly style="width:90%" ng-value="selectedSpecialty.name"/>
+                            <input type="text" readonly style="width:90%" ng-value="character.specialty().name"/>
                         </div>
                         <div class="row">
                             <label for="description">Description</label>
@@ -40,15 +40,20 @@
         </div>
     </div>
     <hr/>
+    <span>Tooltip</span>
     <div class="row">
         <div class="col-md-12">
             <table style="width:100%" class="text-center table-bordered">
                 <tr>
-                    <td ng-repeat="characteristic in characteristics"><span class="text-center">{{characteristic.name}}</span>
+                    <td ng-repeat="characteristic in characteristics" ng-mouseenter="characteristicTooltip(characteristic)"
+                        uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true" tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
+                        tooltip-popup-delay="500">
+                        <span class="text-center">{{characteristic.name}}</span>
                     </td>
                 </tr>
                 <tr>
-                    <td ng-repeat="characteristic in characteristics" class="text-center">
+                    <td ng-repeat="characteristic in characteristics" class="text-center" uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true" tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
+                    tooltip-popup-delay="500">
                         {{character.characteristics().byName(characteristic.name.toLowerCase()).total()}}
                     </td>
                 </tr>
