@@ -4,12 +4,13 @@
             <h3>Wounds</h3>
             Regiment Modifier: {{selectedRegiment['fixed modifiers'].wounds}} <br/>
             Specialty Modifier: {{selectedSpecialty['fixed modifiers'].wounds}} <br/>
-            Roll: <input ng-model="rolledWounds"/>
+            Roll: <input type="number" ng-model="rolledWounds" ng-model-options="{getterSetter:true}"/>
             <button class="btn btn-standard" ng-click="rollWounds()">Roll</button>
             <br/>
-            <input type="text" ng-model="woundsTotal">
+            Total: <input type="number" ng-model="woundsTotal" ng-model-options="{getterSetter:true}" readonly>
 
         </div>
+        <hr/>
         <div class="row">
             <div class="row">
                 <h3>Fate Points</h3>
@@ -22,8 +23,22 @@
             Fate Points : <input type="number" ng-model="character.fatePoints().total"
                                  ng-model-options="{ getterSetter: true }"/>
         </div>
+        <hr/>
+        <div class="row" ng-show="numBonusAptitudes">
+            <div class="row">
+                You have {{numBonusAptitudes}} duplicate aptitudes. This lets you select bonus aptitudes.
+            </div>
+            <div class="row">
+                Choose {{numBonusAptitudes}}:
+                <select multiple ng-model="chosenBonusAptitudes">
+                    <option ng-repeat="aptitude in availableAptitudes" value="{{$index}}">{{aptitude}}</option>
+                </select>
+            </div>
+            <button class="btn btn-standard" ng-disabled="chosenBonusAptitudes.length !== numBonusAptitudes" ng-click="addBonusAptitudes()">Add These Aptitudes</button>
+        </div>
+        <hr/>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h3>Spend Experience</h3>
                 <div class="row">
                     XP available: {{availableXp}}
@@ -38,10 +53,9 @@
                         <div class="row">
                             <select ng-model="displayedOption" ng-options="option.name for option in options"
                                     ng-change="displayXpCost()">
-
                             </select>
                         </div>
-                        <div ng-show="displayedOption">
+                        <div ng-show="displayedOption && selectedCategory.value !== 'Psychic Powers'">
                             <div class="row">
                                 <table class="table bordered-table">
                                     <tr>
@@ -56,22 +70,24 @@
                                 </table>
                             </div>
                             <div class="row text-center">
-                                <button class="btn btn-default" ng-click="buyAdvancement()" ng-disabled="optionXpCost > availableXp">Buy for {{optionXpCost}} XP</button>
+                                <button class="btn btn-default" ng-click="buyAdvancement()"
+                                        ng-disabled="optionXpCost > availableXp">Buy for {{optionXpCost}} XP
+                                </button>
                             </div>
                             {{bought}}
                         </div>
+                        <div ng-show="displayedOption && selectedCategory.value === 'Psychic Powers'">
+                            <div class="row">
+                                <h4>{{displayedOption.name}}</h4>
+                            </div>
+                            <div class="row text-center">
+                                <button class="btn btn-default" ng-click="buyAdvancement()"
+                                        ng-disabled="optionXpCost > availableXp">Buy for {{optionXpCost}} XP
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <!--Drop down where user selects whether they want to buy characteristics, skills, talents or psychic powers-->
-                    <!--Another dropdown that lists the options from the above selected category:-->
-                    <!-- Characteristics category shows all available advances -->
-                    <!-- Skills shows all available skills -->
-                    <!-- Talents list all talents-->
                 </div>
-            </div>
-            <div class="col-md-6">
-                <!--Shows details of the selected advancement-->
-                <!--Show related aptitudes, highlight green if the character has it, highlight red if they don't-->
-                <!--Show final xp cost-->
             </div>
         </div>
     </div>
