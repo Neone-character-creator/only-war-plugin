@@ -801,7 +801,7 @@
     "value": 200,
     "prerequisites": [
       {
-        "property": "characteristics",
+        "property": "characteristic",
         "name ": "Willpower",
         "value": {
           "comparison": "at least",
