@@ -4,6 +4,6 @@ define(function(){
 	$scope.base = characteristic.rolled;
 	$scope.regiment = characteristic.regiment;
 	$scope.specialty = characteristic.specialty;
-	$scope.advancements = characteristic.advancements;
+	$scope.advancements = characteristic.advancements * 5;
 	}
 });
