@@ -987,7 +987,9 @@
           "Psy Focus": 1
         }
       },
-      "wounds": 8
+      "wounds": 8,
+      "psy rating" : 2,
+      "starting power experience" : 400
     },
     "optional modifiers": [
       {
