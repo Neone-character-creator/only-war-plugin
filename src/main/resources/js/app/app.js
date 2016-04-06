@@ -97,7 +97,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                                 	for(var characteristic in option[op].value){
                                 		optionElements.push(characteristic + " +" + option[op].value[characteristic])
                                 	}
-                                        break;
+                                	break;
 
                                 case 'talents':
                                 	optionElements.push(option[op].value);
@@ -117,7 +117,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
 
                             }
                         }
-                        options.push(optionElements.join(", "))
+                        options.push(optionElements.join(", "));
                     });
                     out += options.join(" or ");
                     return out;
@@ -131,12 +131,23 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
         function filter(inVal) {
             var elements = [];
             $.each(inVal, function(index, element) {
+            	var optionElements = [];
                 if (!Array.isArray(element.property)) {
                     switch (element.property) {
-                        case "skills":
                         case "talents":
                             elements.push(element.value);
                             break;
+                        case "skills":
+                        for(var skill in element.value){
+                        	var rating = (element.value[skill]-1);
+                        	optionElements.push(skill + (rating? "+ " + rating * 10:''))
+                        };
+                        break;
+                        case "characteristics" :
+                        for(var characteristic in element.value){
+                        	optionElements.push(characteristic + " +" + element.value[characteristic])
+                        };
+                        break;
                     }
                 } else {
                 	switch(element.property[0]){
@@ -148,6 +159,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                 			}
                 	}
                 }
+                elements.push(optionElements.join(", "));
             });
             return elements.join(", ");
         }
