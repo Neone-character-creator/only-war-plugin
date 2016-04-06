@@ -35,11 +35,11 @@ require.config({
     }
 });
 
-require(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
-"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller",
+define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
+"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller",
 "app/services/selection", "app/services/regiments","app/services/specialties", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service"],
 	function(angular, uirouter, resource, angularui, dragdrop,
-	regimentController, characteristicsController, specialtyController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController,
+	regimentController, characteristicsController, specialtyController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController,
 	selectionService, regimentService, specialtyService, characterService, characterOptions, diceService, characteristicTooltipService) {
     var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop"]);
 
@@ -57,6 +57,7 @@ require(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
 	app.controller("SheetController", sheetController);
 	app.controller("ConfirmationController", confirmationController);
 	app.controller("CharacteristicToolTipController", characteristicTooltipController);
+	app.controller("StartingPowersController", startingPowersController);
 
     app.config(function($stateProvider){
         $stateProvider.state("sheet", {
