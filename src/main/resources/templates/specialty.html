@@ -45,6 +45,15 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="row" ng-show="character.powers().all().length">
+                        <h3>Starting Powers</h3>
+                        <ul>
+                            <li ng-repeat="power in character.powers().all()">
+                                {{power.name}}
+                            </li>
+                        </ul>
+                        <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
+                    </div>
                     <div class="row">
                         <h3>Aptitudes</h3>
                         <ul>
@@ -78,13 +87,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length > 0">
+            <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length || character.powers().bonusXp()">
                 This Specialty provides the following optional benefits:
                 <ul>
                     <li ng-repeat="selection in requiredSelections">
                         <button class='btn btn-link' ng-click="openSelectionModal(selection)">{{selection
                             | option_summary}}
                         </button>
+                    </li>
+                    <li ng-show="character.powers().bonusXp()">
+                        <button class="btn btn-link" ng-click="openStartingPowersModal()">Up to {{character.powers().bonusXp()}} XP in Psychic Powers</button>
                     </li>
                 </ul>
             </div>
