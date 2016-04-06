@@ -34,6 +34,7 @@ define(function() {
 									case 'other weapons':
 									case 'armor':
 									case 'other gear':
+									case 'characteristics':
 										fixedModifier[properties[p]] = {};
 										break;
 								};
