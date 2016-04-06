@@ -113,7 +113,11 @@ define(function() {
 				advancementsBought: []
 			};
 			var _aptitudes = ["General"];
-			var _powers = [];
+			var _powers = {
+				bonusXp : 0,
+				powers: [],
+				psyRating : 0
+			};
 
 			var _character = {
 				name: "",
@@ -386,11 +390,52 @@ define(function() {
 				},
 				aptitudes: function(){
 					return {
-						all : function(){
-							return _aptitudes
+						all : function(value){
+							if(value){
+								_aptitudes = value;
+							} else {
+								return _aptitudes
+							}
 						}
 					}
 				},
+				powers : function(){
+					return {
+						addPower: function(power, isBonus){
+							if (_powers.powers.indexOf(powers) !== -1){
+								throw "Tried to add power " + power + " which the character already had."
+							}
+							if (isBonus){
+								power.bonus = true;
+								_power.bonusXp -= power.value;
+							}
+							_powers.powers.push(power);
+						},
+						removePower: function(power){
+							_powers.powers.splice(_powers.powers.indexOf(power));
+							if (power.bonus){
+								_powers.bonusXp += power.value;
+							}
+						},
+						all : function(){
+							return _power.powers.slice();
+						},
+						bonusXp : function(value){
+							if(value){
+								_powers.bonusXp = value;
+							} else {
+								return _powers.bonusXp;
+							}
+						},
+						psyRating : function(value){
+							if(value){
+								_powers.psyRating = value;
+							} else {
+								return _powers.psyRating;
+							}
+						}
+					}
+				}
 			};
 
 			var addModifier = function(modifier, type) {
@@ -430,6 +475,9 @@ define(function() {
 							case "aptitudes":
 								var incomingAptitudes = modifier['fixed modifiers']['aptitudes'];
 								_aptitudes = _aptitudes.concat(incomingAptitudes);
+								break;
+							case "starting power experience" :
+								_powers.bonusXp = modifier['fixed modifiers']['starting power experience'];
 								break;
 						}
 					}
