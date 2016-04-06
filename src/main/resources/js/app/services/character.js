@@ -185,7 +185,7 @@ define(function() {
 							return _skills;
 						},
 						byName: function(name) {
-							return _skillsMap[name];
+							return {name :_skillsMap[name]};
 						}
 					}
 				},
@@ -402,23 +402,23 @@ define(function() {
 				powers : function(){
 					return {
 						addPower: function(power, isBonus){
-							if (_powers.powers.indexOf(powers) !== -1){
+							if (_powers.powers.indexOf(power) !== -1){
 								throw "Tried to add power " + power + " which the character already had."
 							}
 							if (isBonus){
 								power.bonus = true;
-								_power.bonusXp -= power.value;
+								_powers.bonusXp -= power.value;
 							}
 							_powers.powers.push(power);
 						},
 						removePower: function(power){
-							_powers.powers.splice(_powers.powers.indexOf(power));
+							_powers.powers.splice(_powers.powers.indexOf(power), 1);
 							if (power.bonus){
 								_powers.bonusXp += power.value;
 							}
 						},
 						all : function(){
-							return _power.powers.slice();
+							return _powers.powers.slice();
 						},
 						bonusXp : function(value){
 							if(value){
@@ -479,6 +479,9 @@ define(function() {
 							case "starting power experience" :
 								_powers.bonusXp = modifier['fixed modifiers']['starting power experience'];
 								break;
+							case "psy rating" :
+								_powers.psyRating = modifier['fixed modifiers']['psy rating'];
+								break;
 						}
 					}
 				}
@@ -525,6 +528,16 @@ define(function() {
             								for (var i = 0; i < incomingTalents.length; i++) {
             									_talents.splice(_talents.indexOf(incomingTalents[i]), 1);
             								}
+            								break;
+            							case "starting power experience" :
+            								_powers.bonusXp -= modifier['fixed modifiers']['starting power experience'];
+            								_powers.powers = _powers.powers.filter(function(element){
+            									_powers.bonusXp += element.value;
+            									return !element.hasOwnProperty('bonus');
+            								})
+            								break;
+            							case "psy rating" :
+            								_powers.psyRating -= modifier['fixed modifiers']['psy rating'];
             								break;
             						}
             					}
