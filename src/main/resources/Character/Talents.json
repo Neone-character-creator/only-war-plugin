@@ -172,7 +172,7 @@
     "description": "May parry while Frenzied and may re-roll a failed roll to end or resist Frenzy."
   },
   {
-    "name": "Bezerk Charge",
+    "name": "Berzerk Charge",
     "tier": 1,
     "aptitudes": [
       "Strength",
