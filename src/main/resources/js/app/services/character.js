@@ -234,7 +234,9 @@ define(function() {
 
 						},
 						total: function() {
-							return this.fromRoll() + this.fromSpecialty() + this.fromRegiment();
+							var specialty = _specialty ? _specialty['fixed modifiers'].wounds : 0;
+							var regiment = _regiment? _regiment['fixed modifiers'].wounds : 0;
+							return _wounds.rolled + specialty + regiment;
 						},
 						criticalDamage : function(){
 							return _criticalDamage;
