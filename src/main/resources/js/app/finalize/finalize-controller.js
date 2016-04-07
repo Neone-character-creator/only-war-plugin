@@ -3,8 +3,8 @@ define(function() {
 		$scope.character = character.character();
 		$scope.selectedSpecialty = specialties.selected();
 		$scope.selectedRegiment = regiments.selected();
-		$scope.rolledWounds = character.character().wounds().fromRoll();
-		$scope.woundsTotal = character.character().wounds().total();
+		$scope.rolledWounds = character.character().wounds().fromRoll;
+		$scope.woundsTotal = character.character().wounds().total;
 
 		$scope.rollWounds = function() {
 			character.character().wounds().fromRoll(dice.roll(1, 5));
@@ -62,10 +62,13 @@ define(function() {
 		$scope.displayXpCost = function() {
 			if ($scope.displayedOption) {
 				characteroptions.xpCosts().then(function(result) {
+
 					var matchingAptitudes = 0;
-					for (var a = 0; a < $scope.displayedOption.aptitudes.length; a++) {
-						if (character.character().aptitudes().all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
-							matchingAptitudes++;
+					if ($scope.selectedCategory.value !== 'Psychic Powers'){
+						for (var a = 0; a < $scope.displayedOption.aptitudes.length; a++) {
+							if (character.character().aptitudes().all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+								matchingAptitudes++;
+							}
 						}
 					}
 					switch ($scope.selectedCategory.value) {
@@ -88,6 +91,7 @@ define(function() {
 							});
 							break;
 						case "Psychic Powers":
+							$scope.optionXpCost = $scope.displayedOption.value;
 							break;
 					};
 				});
@@ -112,5 +116,39 @@ define(function() {
 			character.character().experience().addAdvancement(advancement);
 			$scope.availableXp = character.character().experience().available();
 		};
+
+		$scope.numBonusAptitudes = character.character().aptitudes().all().reduce(function(previous, current, index, array){
+			if(array.slice(index+1).indexOf(current) !== -1){
+				previous++;
+			}
+			return previous;
+		}, 0);
+
+		characteroptions.characteristics().then(function(result){
+			$scope.availableAptitudes = result.filter(function(element, index, array){
+				var possessedAptitudes = character.character().aptitudes().all();
+				return possessedAptitudes.indexOf(element.name) === -1;
+			}).map(function(element){
+				return element.name;
+			});
+		});
+
+		$scope.chosenBonusAptitudes = [];
+		$scope.addBonusAptitudes = function(){
+			var filteredAptitudes = character.character().aptitudes().all().filter(function(element, index,array){
+				return array.slice(index+1).indexOf(element) === -1;
+			});
+			for(var i = 0; i < $scope.chosenBonusAptitudes.length; i++){
+				filteredAptitudes.push($scope.availableAptitudes[Number(i)]);
+			}
+			character.character().aptitudes().all(filteredAptitudes);
+			$scope.numBonusAptitudes = character.character().aptitudes().all().reduce(function(previous, current, index, array){
+            			if(array.slice(index+1).indexOf(current) !== -1){
+            				previous++;
+            			}
+            			return previous;
+            		}, 0);
+		}
+
 	};
 });
