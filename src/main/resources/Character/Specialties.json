@@ -102,13 +102,17 @@
           [
             {
               "property": "skills",
-              "value": {"Athletics":1}
+              "value": {
+                "Athletics": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Survival":1}
+              "value": {
+                "Survival": 1
+              }
             }
           ]
         ]
@@ -123,7 +127,10 @@
                 "other weapons"
               ],
               "value": {
-                "Missile Launcher": 1
+                "item": {
+                  "name": "Missile Launcher"
+                },
+                "count": 1
               }
             },
             {
@@ -201,13 +208,17 @@
           [
             {
               "property": "skills",
-              "value": {"Scrutiny":1}
+              "value": {
+                "Scrutiny": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Trade (Chymisty)":1}
+              "value": {
+                "Trade (Chymisty)": 1
+              }
             }
           ]
         ]
@@ -290,13 +301,17 @@
           [
             {
               "property": "skills",
-              "value": {"Common Lore (Tech)":1}
+              "value": {
+                "Common Lore (Tech)": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Navigate (Surface)":1}
+              "value": {
+                "Navigate (Surface)": 1
+              }
             }
           ]
         ]
@@ -359,13 +374,17 @@
           [
             {
               "property": "skills",
-              "value": {"Navitage (Surface)":1}
+              "value": {
+                "Navitage (Surface)": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Scholastic Lore (Tactica Imperialis)":1}
+              "value": {
+                "Scholastic Lore (Tactica Imperialis)": 1
+              }
             }
           ]
         ]
@@ -451,27 +470,39 @@
       {
         "selections": 1,
         "options": [
-          [{
-            "property": "skills",
-            "value": {"Athletics":1}
-          }],
-          [{
-            "property": "skills",
-            "value": {"Survival":1}
-          }]
+          [
+            {
+              "property": "skills",
+              "value": {
+                "Athletics": 1
+              }
+            }
+          ],
+          [
+            {
+              "property": "skills",
+              "value": {
+                "Survival": 1
+              }
+            }
+          ]
         ]
       },
       {
         "selections": 1,
-        "options": [[
-          {
-            "property": "talents",
-            "value": "Lasgun Barrage"
-          }],
-          [{
-            "property": "talents",
-            "value": "Rapid Reload"
-          }]
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Lasgun Barrage"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Rapid Reload"
+            }
+          ]
         ]
       },
       {
@@ -531,7 +562,10 @@
                 "other weapons"
               ],
               "value": {
-                "Krak Grenades": 4
+                "item": {
+                  "name": "Krak Grenades"
+                },
+                "count": 4
               }
             }
           ],
@@ -542,7 +576,10 @@
                 "other weapons"
               ],
               "value": {
-                "Frag Grenades": 4
+                "item": {
+                  "name": "Frag Grenades"
+                },
+                "count": 4
               }
             }
           ]
@@ -558,7 +595,11 @@
                 "other weapons"
               ],
               "value": {
-                "Good Craftsmanship Lasgun": 1
+                "item": {
+                  "name": "Lasgun",
+                  "craftsmanship": "Good"
+                },
+                "count": 1
               }
             }
           ],
@@ -569,7 +610,10 @@
                 "other weapons"
               ],
               "value": {
-                "Flamer": 1
+                "item": {
+                  "name": "Flamer"
+                },
+                "count": 1
               }
             }
           ],
@@ -580,7 +624,10 @@
                 "other weapons"
               ],
               "value": {
-                "Shotgun": 1
+                "item": {
+                  "name": "Shotgun"
+                },
+                "count": 1
               }
             }
           ],
@@ -591,7 +638,10 @@
                 "other weapons"
               ],
               "value": {
-                "Regimental Favored Basic Weapon": 1
+                "item": {
+                  "name": "Regimental Favored Basic Weapon"
+                },
+                "count": 1
               }
             }
           ]
@@ -626,13 +676,28 @@
         "Weapon Training (Chain)"
       ],
       "character kit": {
-        "other weapons": {
-          "Good Craftsmanship Chainsword": 1,
-          "Good Craftsmanship Bolt Pistol": 1
-        },
-        "other gear": {
-          "Commissar's Uniform": 1
-        }
+        "other weapons": [
+          {
+            "item": {
+              "name": "Good Craftsmanship Chainsword"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Good Craftsmanship Bolt Pistol"
+            },
+            "count": 1
+          }
+        ],
+        "other gear": [
+          {
+            "item": {
+              "name": "Commissar's Uniform"
+            },
+            "count": 1
+          }
+        ]
       },
       "wounds": 10
     },
@@ -642,8 +707,7 @@
         "options": [
           [
             {
-              "property":
-                "talents",
+              "property": "talents",
               "value": "Weapon Training (Las)"
             }
           ],
@@ -678,13 +742,17 @@
           [
             {
               "property": "skills",
-              "value": {"Command":1}
+              "value": {
+                "Command": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Intimidate":1}
+              "value": {
+                "Intimidate": 1
+              }
             }
           ]
         ]
@@ -721,14 +789,34 @@
         "Weapon Training (Low-Tech)"
       ],
       "character kit": {
-        "other weapons": {
-          "Flamer": 1,
-          "Chainsword": 1
-        },
-        "other gear": {
-          "Ecclesiarchy Robes": 1,
-          "Book of Scripture": 1
-        }
+        "other weapons": [
+          {
+            "item": {
+              "name": "Flamer"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Chainsword"
+            },
+            "count": 1
+          }
+        ],
+        "other gear": [
+          {
+            "item": {
+              "name": "Ecclesiarchy Robes"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Book of Scripture"
+            },
+            "count": 1
+          }
+        ]
       },
       "wounds": 9
     },
@@ -756,13 +844,17 @@
           [
             {
               "property": "skills",
-              "value": {"Charm":1}
+              "value": {
+                "Charm": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Inquiry":1}
+              "value": {
+                "Inquiry": 1
+              }
             }
           ]
         ]
@@ -793,14 +885,24 @@
         "Weapon Training (Solid Projectile)"
       ],
       "character kit": {
-        "other weapons": {
-          "Ripper Gun": 1
-        },
-        "other gear": {
-          "Frag Grenade": "1d5"
-        }
-      },
-      "wounds": 25
+        "other weapons": [
+          {
+            "item": {
+              "name": "Ripper Gun"
+            },
+            "count": 1
+          }
+        ],
+        "other gear": [
+          {
+            "item": {
+              "name": "Frag Grenade"
+            },
+            "count": "1d5"
+          }
+        ],
+        "wounds": 25
+      }
     },
     "optional modifiers": [
       {
@@ -809,13 +911,17 @@
           [
             {
               "property": "skills",
-              "value": {"Intimidate":1}
+              "value": {
+                "Intimidate": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Survival":1}
+              "value": {
+                "Survival": 1
+              }
             }
           ]
         ]
@@ -869,9 +975,9 @@
         "Size (Weedy)"
       ],
       "character kit": {
-        "other gear": {
-          "Chameleoline Cloak": 1
-        }
+        "other gear": [
+          {"item":{"name":"Chameleoline Cloak"}, "count":1}
+        ]
       },
       "wounds": 9
     },
@@ -882,13 +988,17 @@
           [
             {
               "property": "skills",
-              "value": {"Awareness":1}
+              "value": {
+                "Awareness": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Stealth":1}
+              "value": {
+                "Stealth": 1
+              }
             }
           ]
         ]
@@ -896,30 +1006,30 @@
       {
         "selections": 1,
         "options": [
-            [
-              {
-                "property": "talents",
-                "value": "Heightened Senses (Sight)"
-              }
-            ],
-            [
-              {
-                "property": "talents",
-                "value": "Heightened Senses (Smell)"
-              }
-            ],
-            [
-              {
-                "property": "talents",
-                "value": "Heightened Senses (Taste)"
-              }
-            ],
-            [
-              {
-                "property": "talents",
-                "value": "Light Sleeper"
-              }
-            ]
+          [
+            {
+              "property": "talents",
+              "value": "Heightened Senses (Sight)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Heightened Senses (Smell)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Heightened Senses (Taste)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Light Sleeper"
+            }
+          ]
         ]
       },
       {
@@ -931,9 +1041,9 @@
                 "character kit",
                 "other weapons"
               ],
-              "value": {
-                "Good Craftsmanship Long-Las": 1
-              }
+              "value": 
+                {"item":{"name":"Good Craftsmanship Long-Las"}, "count":1}
+              
             }
           ],
           [
@@ -942,9 +1052,8 @@
                 "character kit",
                 "other weapons"
               ],
-              "value": {
-                "Good Craftsmanship Sniper Rifle w/ Telescopic Sight": 1
-              }
+              "value":
+                {"item":{"name":"Good Craftsmanship Sniper Rifle w/ Telescopic Sight"}, "count":1}
             }
           ]
         ]
@@ -979,17 +1088,17 @@
         "Psyker"
       ],
       "character kit": {
-        "other weapons": {
-          "Best Craftsmanship Staff": 1
-        },
-        "other gear": {
-          "Data-slate": 1,
-          "Psy Focus": 1
-        }
+        "other weapons": [
+          {"item":{"name":"Best Craftsmanship Staff"}, "count":1}
+        ],
+        "other gear": [
+          {"item":{"name":"Data-slate"}, "count":1},
+          {"item":{"name":"Psy Focus"}, "count":1}
+        ]
       },
       "wounds": 8,
-      "psy rating" : 2,
-      "starting power experience" : 400
+      "psy rating": 2,
+      "starting power experience": 400
     },
     "optional modifiers": [
       {
@@ -1037,12 +1146,12 @@
         "Weapon Training (Low-Tech)"
       ],
       "character kit": {
-        "other weapons": {
-          "Good Craftsmanship Hot-Shot Lasgun": 1
-        },
-        "armor": {
-          "Storm Trooper Carapace Armor": 1
-        }
+        "other weapons": [
+          {"item":{"name":"Hot-Shot Lasgun", "craftsmanship":"Good"}, "count":1}
+        ],
+        "armor": [
+          {"item":{"name":"Storm Trooper Carapace Armor"}, "count":1}
+        ]
       },
       "wounds": 12
     },
@@ -1053,13 +1162,17 @@
           [
             {
               "property": "skills",
-              "value": {"Dodge":1}
+              "value": {
+                "Dodge": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Parry":1}
+              "value": {
+                "Parry": 1
+              }
             }
           ]
         ]
@@ -1070,13 +1183,17 @@
           [
             {
               "property": "skills",
-              "value": {"Intimidate":1}
+              "value": {
+                "Intimidate": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Security":1}
+              "value": {
+                "Security": 1
+              }
             }
           ]
         ]
@@ -1147,11 +1264,11 @@
         "Mechanicus Implants"
       ],
       "character kit": {
-        "other gear": {
-          "Sacred Ungents": 1,
-          "Dataslate": 1,
-          "Combi-tool": 1
-        }
+        "other gear": [
+          {"item":{"name":"Sacred Ungents"}, "count":1},
+          {"item":{"name":"Dataslate"}, "count":1},
+          {"item":{"name":"Combi-tool"}, "count":1}
+        ]
       },
       "wounds": 8
     },
@@ -1213,13 +1330,17 @@
           [
             {
               "property": "skills",
-              "value": {"Forbidden Lore (Archeotech)":1}
+              "value": {
+                "Forbidden Lore (Archeotech)": 1
+              }
             }
           ],
           [
             {
               "property": "skills",
-              "value": {"Logic":1}
+              "value": {
+                "Logic": 1
+              }
             }
           ]
         ]
