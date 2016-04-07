@@ -462,7 +462,7 @@ define(function() {
 								for (var skill in incomingSkills) {
 									var existingSkill = _skillsMap[skill];
 									if (existingSkill) {
-										existingSkill.advancements(existingSkill.advancements() + incomingSkills[i].advancements());
+										existingSkill.advancements(existingSkill.advancements() + incomingSkills[skill]);
 									} else {
 										_character.skills().add(skill, incomingSkills[skill]);
 									}
@@ -521,7 +521,7 @@ define(function() {
             									if(existingSkill && existingSkill.advancements() === incomingSkills[skill]){
             										delete _skillsMap[skill];
             									} else {
-            										existingSkill.advancements(existingSkill.advancements() - incomingSkills[i].advancements());
+            										existingSkill.advancements(existingSkill.advancements() - incomingSkills[skill]);
             									}
             								}
             								break;
