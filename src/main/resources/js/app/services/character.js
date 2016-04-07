@@ -484,6 +484,25 @@ define(function() {
 							case "psy rating" :
 								_powers.psyRating = modifier['fixed modifiers']['psy rating'];
 								break;
+							case "character kit":
+								for(var category in modifier['fixed modifiers']['character kit']){
+									switch(category){
+										case "main weapon":
+										case "other weapons":
+										var weapons = modifier['fixed modifiers']['character kit'][category];
+										for(var weapon in weapons){
+											var newWeapon = {};
+											newWeapon[weapon] = weapons[weapon];
+											_character.equipment.weapons().add(newWeapon);
+										}
+										break;
+										case "armor":
+										break;
+										case "other gear":
+										break;
+									}
+								}
+								break;
 						}
 					}
 				}
