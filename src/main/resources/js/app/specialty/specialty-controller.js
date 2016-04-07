@@ -10,7 +10,7 @@ define(function() {
 		var suppressDialog = false;
 
 		$scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams) {
-			if (fromState = "specialty" && toState !== fromState && specialties.requiredOptionSelections.length !== 0) {
+			if (fromState = "specialty" && toState !== fromState && specialties.remainingSelections().length !== 0) {
 				var resultHandler = function(result) {
 					if (result) {
 						suppressDialog = true;
