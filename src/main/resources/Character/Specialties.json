@@ -193,11 +193,26 @@
         "Weapon Training (Low-Tech)"
       ],
       "character kit": {
-        "other gear": {
-          "Diagnostor": 1,
-          "Injector": 1,
-          "Medkit": 1
-        }
+        "other gear": [
+          {
+            "item": {
+              "name": "Diagnostor"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Injector"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Medi-kit"
+            },
+            "count": 1
+          }
+        ]
       },
       "wounds": 8
     },
@@ -284,13 +299,38 @@
         "Technical Knock"
       ],
       "character kit": {
-        "other gear": {
-          "Auspex": 1,
-          "Mind Inpulse Unit": 1,
-          "Combi-Tool": 1,
-          "Data-Slate": 1,
-          "Lascutter": 1
-        }
+        "other gear": [
+          {
+            "item": {
+              "name": "Auspex"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Mind Impulse Unit"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Combi-Tool"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Data-Slate"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Lascutter"
+            },
+            "count": 1
+          }
+        ]
       },
       "wounds": 6
     },
@@ -360,10 +400,20 @@
         "Weapon Training (Chain)"
       ],
       "character kit": {
-        "other weapons": {
-          "Las Pistol": 1,
-          "Chainsword": 1
-        }
+        "other weapons": [
+          {
+            "item": {
+              "name": "Laspistol"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Chainsword"
+            },
+            "count": 1
+          }
+        ]
       },
       "wounds": 10
     },
@@ -679,13 +729,15 @@
         "other weapons": [
           {
             "item": {
-              "name": "Good Craftsmanship Chainsword"
+              "name": "Chainsword",
+              "craftsmanship" : "Good"
             },
             "count": 1
           },
           {
             "item": {
-              "name": "Good Craftsmanship Bolt Pistol"
+              "name": "Bolt Pistol",
+              "craftsmanship" : "Good"
             },
             "count": 1
           }
@@ -891,18 +943,16 @@
               "name": "Ripper Gun"
             },
             "count": 1
-          }
-        ],
-        "other gear": [
+          },
           {
             "item": {
               "name": "Frag Grenade"
             },
             "count": "1d5"
           }
-        ],
-        "wounds": 25
-      }
+        ]
+      },
+      "wounds": 25
     },
     "optional modifiers": [
       {
@@ -976,7 +1026,12 @@
       ],
       "character kit": {
         "other gear": [
-          {"item":{"name":"Chameleoline Cloak"}, "count":1}
+          {
+            "item": {
+              "name": "Chameleoline Cloak"
+            },
+            "count": 1
+          }
         ]
       },
       "wounds": 9
@@ -1041,9 +1096,12 @@
                 "character kit",
                 "other weapons"
               ],
-              "value": 
-                {"item":{"name":"Good Craftsmanship Long-Las"}, "count":1}
-              
+              "value": {
+                "item": {
+                  "name": "Good Craftsmanship Long-Las"
+                },
+                "count": 1
+              }
             }
           ],
           [
@@ -1052,8 +1110,12 @@
                 "character kit",
                 "other weapons"
               ],
-              "value":
-                {"item":{"name":"Good Craftsmanship Sniper Rifle w/ Telescopic Sight"}, "count":1}
+              "value": {
+                "item": {
+                  "name": "Good Craftsmanship Sniper Rifle w/ Telescopic Sight"
+                },
+                "count": 1
+              }
             }
           ]
         ]
@@ -1089,11 +1151,26 @@
       ],
       "character kit": {
         "other weapons": [
-          {"item":{"name":"Best Craftsmanship Staff"}, "count":1}
+          {
+            "item": {
+              "name": "Best Craftsmanship Staff"
+            },
+            "count": 1
+          }
         ],
         "other gear": [
-          {"item":{"name":"Data-slate"}, "count":1},
-          {"item":{"name":"Psy Focus"}, "count":1}
+          {
+            "item": {
+              "name": "Data-slate"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Psy Focus"
+            },
+            "count": 1
+          }
         ]
       },
       "wounds": 8,
@@ -1147,10 +1224,21 @@
       ],
       "character kit": {
         "other weapons": [
-          {"item":{"name":"Hot-Shot Lasgun", "craftsmanship":"Good"}, "count":1}
+          {
+            "item": {
+              "name": "Hot-Shot Lasgun",
+              "craftsmanship": "Good"
+            },
+            "count": 1
+          }
         ],
         "armor": [
-          {"item":{"name":"Storm Trooper Carapace Armor"}, "count":1}
+          {
+            "item": {
+              "name": "Storm Trooper Carapace Armor"
+            },
+            "count": 1
+          }
         ]
       },
       "wounds": 12
@@ -1265,9 +1353,24 @@
       ],
       "character kit": {
         "other gear": [
-          {"item":{"name":"Sacred Ungents"}, "count":1},
-          {"item":{"name":"Dataslate"}, "count":1},
-          {"item":{"name":"Combi-tool"}, "count":1}
+          {
+            "item": {
+              "name": "Sacred Ungents"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Dataslate"
+            },
+            "count": 1
+          },
+          {
+            "item": {
+              "name": "Combi-tool"
+            },
+            "count": 1
+          }
         ]
       },
       "wounds": 8
