@@ -1,10 +1,11 @@
 define(function() {
-	return function($scope, $uibModal, $state, $stateParams, $uibModal, selection, regiments, character) {
-		regiments.regiments().then(function(result) {
+	return function($scope, $uibModal, $state, $stateParams, $uibModal, selection, regiments, characteroptions, character) {
+		characteroptions.regiments().then(function(result){
 			$scope.regiments = result;
 		});
 
 		$scope.selectedRegiment = regiments.selected();
+		$scope.requiredSelections = regiments.remainingSelections();
 		var suppressDialog = false;
 
 		$scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
