@@ -34,7 +34,7 @@ define(function() {
 		return prerequisite;
 	};
 
-	function transform(element) {
+	function createPrerequisites(element) {
 		if (element.prerequisites) {
 			element.prerequisites = element.prerequisites.map(function(element) {
 				return new Prerequisite(element.property, element.name, element.value);
@@ -42,14 +42,15 @@ define(function() {
 		};
 		return element;
 	};
+
 	return function($resource, $q) {
 		var characteristics = $resource("Character/characteristics.json").query();
 		var talents = $resource("Character/Talents.json").query().$promise.then(function(result) {
-			return $q.resolve(result.map(transform));
+			return $q.resolve(result.map(createPrerequisites));
 		});
 		var skills = $resource("Character/Skills.json").query();
 		var powers = $resource("Character/Psychic Powers.json").query().$promise.then(function(result) {
-			return $q.resolve(result.map(transform));
+			return $q.resolve(result.map(createPrerequisites));
 		});
 		var fatePointRolls = $resource("Character/fatepoints.json").get();
 		var xpCosts = $resource("Character/advancementcosts.json").get();
