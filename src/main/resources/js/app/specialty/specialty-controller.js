@@ -1,6 +1,6 @@
 define(function() {
-	return function($scope, $state, specialties, character, selection, $uibModal) {
-		specialties.specialties().then(function(names) {
+	return function($scope, $state, specialties, character, selection, $uibModal, characteroptions) {
+		characteroptions.specialties().then(function(names) {
 			$scope.specialties = names;
 		});
 		$scope.character = character.character();
