@@ -5,7 +5,7 @@ character() returns the current character.
 refresh() replaces the current character with a new one.
 */
 define(function() {
-	return function($q) {
+	return function($q, characteroptions) {
 		Characteristic = function(name) {
 			var _perAdvancementBonus = 5;
 			return {
@@ -320,7 +320,7 @@ define(function() {
 								}
 							},
 							all: function() {
-								return Object.clone(_equipment.weapons);
+								return _equipment.weapons.slice();
 							}
 						}
 					},
@@ -336,7 +336,7 @@ define(function() {
 								}
 							},
 							all: function() {
-								return Object.clone(_equipment.armor);
+								return _equipment.armor.slice();
 							}
 						}
 					},
@@ -352,7 +352,7 @@ define(function() {
 								}
 							},
 							all: function() {
-								return Object.clone(_equipment.otherGear);
+								return _equipment.otherGear.slice();
 							}
 						}
 					}
@@ -490,11 +490,9 @@ define(function() {
 										case "main weapon":
 										case "other weapons":
 										var weapons = modifier['fixed modifiers']['character kit'][category];
-										for(var weapon in weapons){
-											var newWeapon = {};
-											newWeapon[weapon] = weapons[weapon];
-											_character.equipment.weapons().add(newWeapon);
-										}
+										$.each(weapons, function(index, element){
+											_character.equipment.weapons().add(element);
+										});
 										break;
 										case "armor":
 										break;
@@ -560,6 +558,23 @@ define(function() {
             							case "psy rating" :
             								_powers.psyRating -= modifier['fixed modifiers']['psy rating'];
             								break;
+            							case "character kit":
+            								for(var category in modifier['fixed modifiers']['character kit']){
+            									switch(category){
+            										case "main weapon":
+            										case "other weapons":
+            											var weapons = modifier['fixed modifiers']['character kit'][category];
+            											$.each(weapons, function(index, element){
+            												_character.equipment.weapons().remove(element);
+            											});
+            										break;
+            										case "armor":
+            										break;
+            										case "other gear":
+            										break;
+                                            									}
+                                            								}
+                                            								break;
             						}
             					}
             				}
