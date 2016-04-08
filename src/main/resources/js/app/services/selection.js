@@ -37,6 +37,9 @@ define(function() {
 									case 'characteristics':
 										fixedModifier[properties[p]] = {};
 										break;
+									case "talents":
+										fixedModifier[properties[p]] = [];
+										break;
 								};
 							}
 							fixedModifier = fixedModifier[properties[p]];
