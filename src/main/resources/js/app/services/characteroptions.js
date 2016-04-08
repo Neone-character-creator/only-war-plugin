@@ -56,13 +56,84 @@ define(function() {
 		var weapons = $resource("Character/Weapons.json").query();
 		var armor = $resource("Character/Armor.json").query();
 		var items = $resource("Character/Items.json").query();
+		var specialties = $resource("Character/Specialties.json").query().$promise.then(function(result) {
+			function convertEquipment(items, type) {
+        					return items.map(function(element) {
+        						var item;
+        						switch (type) {
+        							case "weapon":
+        								item = characteroptions.weapons().filter(function(weapon) {
+        									return element.item.name === weapon.name;
+        								})[0];
+        								break;
+        							case "armor":
+        								item = characteroptions.armor().filter(function(weapon) {
+        									return element.item.name === weapon.name;
+        								})[0];
+        								break;
+        							case "item":
+        								item = characteroptions.items().filter(function(weapon) {
+        									return element.item.name === weapon.name;
+        								})[0];
+        								break;
+        						}
+        						if (!item) {
+        							console.log("Tried to load item " + element.item.name + " but it wasn't found!");
+        							item = element;
+        						}
+        						item.craftsmanship = element.item.craftsmanship ? element.item.craftsmanship : "Common";
+        						item.upgrades = element.item.upgrades ? element.item.upgraded : [];
+        						return item;
+        					});
+        				};
+        	for (var i = 0; i < result.length; i++) {
+        					var equipment = result[i]['fixed modifiers']['character kit'];
+        					if (equipment) {
+        						for (var category in equipment) {
+        							var type;
+        							switch (category) {
+        								case "main weapon":
+        								case "other weapons":
+        									type = "weapon";
+        									break;
+        								case "other gear":
+        									type = "item";
+        									break;
+        								case "armor":
+        									type = "armor";
+        							}
+        							result[i]['fixed modifiers']['character kit'][category] = convertEquipment(equipment[category], type);
+        						}
+        					};
+        					$.each(result[i]['optional modifiers'], function(index, selection) {
+        						$.each(selection.options, function(index, option) {
+        							if (Array.isArray(option.property) && option.property[0] === "character kit") {
+        								var type;
+        								switch (element.options[o].property[1]) {
+        									case "main weapon":
+        									case "other weapons":
+        										type = "weapon";
+        										break;
+        									case "other gear":
+        										type = "item";
+        										break;
+        									case "armor":
+        										type = "armor";
+        								}
+        								option.value = con;
+        							}
+        						})
+        					});
+        				};
+        	return result;
+        });
+        var regiments = $resource("Regiment/regiments.json").query();
 
 		return {
 			talents: function() {
-				if (talents.$promise.resolved)
-					return talents.then(function(result) {
-						return result.slice();
-					});
+				return talents.then(function(result) {
+					return result.slice();
+				});
 			},
 			skills: function() {
 				return skills.$promise.then(function(result) {
@@ -102,6 +173,9 @@ define(function() {
 			},
 			items: function() {
 				return items.slice();
+			},
+			regiments : function(){
+				return regiments.slice();
 			}
 		}
 	};
