@@ -67,7 +67,7 @@
         ],
         "armor": [
           {
-            "weapon": {
+            "item": {
               "name": "Imperial Guard Flak Armor"
             },
             "count": 1
