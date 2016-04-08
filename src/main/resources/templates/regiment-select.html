@@ -47,25 +47,25 @@
                     <div class="row">
                         <h3>Standard Regimental Kit</h3>
                         <ul>
-                            <li ng-repeat="(name, count) in selectedRegiment['fixed modifiers']['character kit']['main weapon']">
-                                {{count
-                                + " x " + name}}
+                            <li ng-repeat="item in selectedRegiment['fixed modifiers']['character kit']['main weapon']">
+                                {{item.count
+                                + " x " + item.item.name}}
                             </li>
-                            <li ng-repeat="(name, count) in selectedRegiment['fixed modifiers']['character kit']['other weapons']">
-                                {{count
-                                + " x " + name}}
+                            <li ng-repeat="item in selectedRegiment['fixed modifiers']['character kit']['other weapons']">
+                                {{item.count
+                                + " x " + item.item.name}}
                             </li>
-                            <li ng-repeat="(name, count) in selectedRegiment['fixed modifiers']['character kit']['armor']">
-                                {{count
-                                + " x " + name}}
+                            <li ng-repeat="item in selectedRegiment['fixed modifiers']['character kit']['armor']">
+                                {{item.count
+                                + " x " + item.item.name}}
                             </li>
-                            <li ng-repeat="(name, count) in selectedRegiment['fixed modifiers']['character kit']['other gear']">
-                                {{count
-                                + " x " + name}}
+                            <li ng-repeat="item in selectedRegiment['fixed modifiers']['character kit']['other gear']">
+                                {{item.count
+                                + " x " + item.item.name}}
                             </li>
-                            <li ng-repeat="(name, count) in selectedRegiment['fixed modifiers']['character kit']['squad kit']">
-                                {{count
-                                + " x " + name}} (Squad)
+                            <li ng-repeat="item in selectedRegiment['fixed modifiers']['character kit']['squad kit']">
+                                {{item.count
+                                + " x " + item.item.name}} (Squad)
                             </li>
                         </ul>
                     </div>
