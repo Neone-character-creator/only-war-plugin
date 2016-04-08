@@ -1,39 +1,34 @@
-define(function() {
-	function Prerequisite(property, name, value) {
-		var _property = property;
-		var _name = name;
+/**
+Represents a requirement that a character must meet. Property is an array of property names that represents the
+properties of the character that will be traversed.
+
+Value represents the comparison to make to determine if the tested character meets the prerequisite.
+*/
+function Prerequisite(properties, value) {
+		var _properties = properties;
 		var _value = value;
 		var prerequisite = {
-			property: property,
-			name: name,
+			properties: _properties,
 			value: value,
 			check: function(character) {
-				var testValue;
-				switch (_property) {
-					case "characteristic":
-						switch (value.comparison) {
-							case "at least":
-								return character.characteristics().byName(_name.toLowerCase()) >= value.value;
-						};
-						break;
-					case "power":
-						return character.powers().all().filter(function(element) {
-							return element.name === _value;
-						}).length > 0;
-						break;
-					case "skill":
-						return character.skills().byName(_name);
-						break;
-					case "talent":
-						return character.talents().byName(_name);
-						break;
-				};
+				var testValue = character;
+				$.each(_properties, function(index, property){
+					testValue = testValue[property];
+				});
+				switch(value.comparison){
+					case "at least":
+					 	return testValue >= _value;
+					break;
+					default:
+						return testValue === _value;
+				}
 			}
 		};
 		Object.freeze(prerequisite);
 		return prerequisite;
 	};
 
+define(function() {
 	function createPrerequisites(element) {
 		if (element.prerequisites) {
 			element.prerequisites = element.prerequisites.map(function(element) {
@@ -63,17 +58,17 @@ define(function() {
         						var item;
         						switch (type) {
         							case "weapon":
-        								item = characteroptions.weapons().filter(function(weapon) {
+        								item = weapons.filter(function(weapon) {
         									return element.item.name === weapon.name;
         								})[0];
         								break;
         							case "armor":
-        								item = characteroptions.armor().filter(function(weapon) {
+        								item = armor.filter(function(weapon) {
         									return element.item.name === weapon.name;
         								})[0];
         								break;
         							case "item":
-        								item = characteroptions.items().filter(function(weapon) {
+        								item = items.filter(function(weapon) {
         									return element.item.name === weapon.name;
         								})[0];
         								break;
@@ -167,16 +162,24 @@ define(function() {
 				})
 			},
 			weapons: function() {
-				return weapons.slice();
+				return weapons.$promise.then(function(result){
+					return result.slice();
+				});
 			},
 			armor: function() {
-				return armor.slice();
+				return armor.$promise.then(function(result){
+					return result.slice();
+				});
 			},
 			items: function() {
-				return items.slice();
+				return items.$promise.then(function(result){
+					return result.slice();
+				});
 			},
 			regiments : function(){
-				return regiments.slice();
+				return regiments.$promise.then(function(result){
+					return result.slice();
+				});
 			}
 		}
 	};
