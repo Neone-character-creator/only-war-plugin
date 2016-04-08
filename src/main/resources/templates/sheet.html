@@ -180,33 +180,33 @@
     <div class="row">
         <div class="col-md-6">
             <table class="table table-bordered">
-                <tbody ng-repeat="weapon in character.equipment.weapons">
+                <tbody ng-repeat="weapon in character.equipment.weapons().all()">
                 <tr colspan="8">Weapon</tr>
                 <tr>
                     <td colspan="1">Name</td>
-                    <td colspan="7"><input type="text"/></td>
+                    <td colspan="7"><input type="text" ng-model="weapon.item.name"/></td>
                 </tr>
                 <tr>
                     <td>Class</td>
-                    <td><input type="text" value="weapon.name" readonly></td>
+                    <td><input type="text" ng-model="weapon.item.class"/></td>
                     <td>Damage</td>
-                    <td><input type="text"/></td>
+                    <td><input type="text" ng-model="weapon.item.damage"/></td>
                     <td>Type</td>
-                    <td><input type="text"/></td>
+                    <td><input type="text" ng-model="weapon.item.type"/></td>
                     <td>Pen</td>
-                    <td><input type="number"/></td>
+                    <td><input type="number" ng-model="weapon.item.pen"/></td>
                 </tr>
                 <tr>
                     <td>Range</td>
-                    <td><input type="text"/></td>
+                    <td><input type="text" ng-model="weapon.item.range"/></td>
                     <td>Damage</td>
-                    <td><input type="text"/></td>
+                    <td><input type="text" ng-model="weapon.item.damage"/></td>
                     <td>ROF</td>
-                    <td><input type="text"/></td>
+                    <td><input type="text" ng-model="weapon.item.rof"/></td>
                     <td>Clip</td>
-                    <td><input type="text"/></td>
+                    <td><input type="text" ng-model="weapon.item.clip"/></td>
                     <td>Reload</td>
-                    <td><input type="text"/></td>
+                    <td><input type="text" ng-model="weapon.item.reload"/></td>
                 </tr>
                 </tbody>
             </table>
