@@ -150,7 +150,7 @@
 		"availability" : "Common"
 	},
 	{
-		"name" : "Auspex/Scanner",
+		"name" : "Auspex",
 		"weight" : 0.5,
 		"description" : "",
 		"availability" : "Scarce"
@@ -174,7 +174,7 @@
 		"availability" : "Rare"
 	},
 	{
-		"name" : "Data-slate",
+		"name" : "Data-Slate",
 		"weight" : 0.5,
 		"description" : "",
 		"availability" : "Common"
@@ -628,5 +628,8 @@
 	},
 	{
 		"name" : "Grapnel"
+	},
+	{
+		"name" : "Mind Impulse Unit"
 	}
 ]
