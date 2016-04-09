@@ -69,11 +69,11 @@ define(function() {
 					replacementTalents = replacementTalents.map(function(element) {
 						var specialization = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
 						element = element.substring(0, specialization ? element.indexOf("(") : element.length).trim();
-						element = result.filter(function(talent) {
+						element = Object.clone(result.filter(function(talent) {
 							return element === talent.name;
-						})[0];
+						})[0]);
 						if (specialization) {
-							result.name += " (" + specialization + ")";
+							element.name += " (" + specialization + ")";
 						}
 						return element;
 					});
@@ -132,20 +132,25 @@ define(function() {
 			//Optional Modifiers
 			$q.all([talents,skills,weapons,armor,items]).then(function(result){
 				$.each(optionalModifiers, function(index, element){
-					$.each(element.options, function(index, option){
+					$.each(element.options, function(index, elementOption){
+						$.each(elementOption, function(index, option){
 						switch(option.property){
 							case "talents":
-							var name = option.value;
-							option.value = result[0].filter(function(element){
-								return element.name === option.value;
-							})[0];
+							var specialization = option.value.indexOf("(") < 0 ? null : option.value.substring(option.value.indexOf("(") + 1, option.value.indexOf(")"));
+							option.value= option.value.substring(0, specialization ? option.value.indexOf("(") : option.value.length).trim();
+                            option.value= Object.clone(result[0].filter(function(talent) {
+                            	return option.value === talent.name;
+                            	})[0]);
+                            	if (specialization) {
+                            		element.name += " (" + specialization + ")";
+                            	}
 							if(!option.value){
 								throw "Tried to replace talent " + name + " in " + modifier.name + " but no talent by that name was found."
 							}
 							break;
 							case "skills":
 							break;
-						}
+						};});
 					});
 				});
 			});
