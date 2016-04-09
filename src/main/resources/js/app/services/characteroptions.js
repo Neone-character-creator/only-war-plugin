@@ -67,11 +67,15 @@ define(function() {
 				if (replacementTalents) {
 					replacementTalents = replacementTalents.slice();
 					replacementTalents = replacementTalents.map(function(element) {
+						var name = element;
 						var specialization = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
 						element = element.substring(0, specialization ? element.indexOf("(") : element.length).trim();
 						element = Object.clone(result.filter(function(talent) {
 							return element === talent.name;
 						})[0]);
+						if(!element.name){
+							throw "Tried to get a talent name " + name + " but couldn't find it."
+						}
 						if (specialization) {
 							element.name += " (" + specialization + ")";
 						}
@@ -80,6 +84,32 @@ define(function() {
 				}
 				modifierTalents.resolve(replacementTalents);
 			});
+			
+			var modifierTraits = $q.defer();
+			traits.$promise.then(function(result){
+				var replacementTraits = fixedModifiers.traits;
+					if (replacementTraits) {
+						replacementTraits = replacementTraits.slice();
+						replacementTraits = replacementTraits.map(function(element) {
+						var name = element;
+						var rating = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
+						element = element.substring(0, rating ? element.indexOf("(") : element.length).trim();
+						element = Object.clone(result.filter(function(talent) {
+            				return element === talent.name;
+            			})[0]);
+            			if(!element.name){
+            				throw "Tried to get a trait name " + name + " but couldn't find it."
+            			}
+            			if (rating) {
+            				element.name += " (" + rating + ")";
+            				element.rating = rating;
+            			}
+            			return element;
+            			});
+            				}
+            		modifierTraits.resolve(replacementTraits);
+			});
+			
 			var modifierEquipment = $q.defer();
 			function replace(name, source) {
 				return source.filter(function(element) {
@@ -136,14 +166,20 @@ define(function() {
 						$.each(elementOption, function(index, option){
 						switch(option.property){
 							case "talents":
+							case "traits":
+							var name = option.value;
 							var specialization = option.value.indexOf("(") < 0 ? null : option.value.substring(option.value.indexOf("(") + 1, option.value.indexOf(")"));
 							option.value= option.value.substring(0, specialization ? option.value.indexOf("(") : option.value.length).trim();
                             option.value= Object.clone(result[0].filter(function(talent) {
                             	return option.value === talent.name;
-                            	})[0]);
-                            	if (specialization) {
-                            		option.value.name += " (" + specialization + ")";
-                            	}
+                           	})[0]);
+                           	if(!option.value.name){
+                           		throw "Tried to get a talent name " + name + " but couldn't find it."
+                           	}
+                           	if (specialization) {
+                           		
+                           		option.value.name += " (" + specialization + ")";
+                           	}
 							if(!option.value){
 								throw "Tried to replace talent " + name + " in " + modifier.name + " but no talent by that name was found."
 							}
@@ -194,6 +230,7 @@ define(function() {
 			return $q.all(result.map(transformPlaceholders));
 		});
 		var vehicles = $resource("Character/Vehicles.json").query();
+		var traits = $resource("Character/Traits.json").query();
 
 		return {
 			talents: function() {
