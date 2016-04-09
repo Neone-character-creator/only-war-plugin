@@ -1,15 +1,16 @@
 define(function() {
-	return function($scope, $uibModal, $state, $stateParams, $uibModal, selection, regiments, characteroptions, character) {
-		characteroptions.regiments().then(function(result){
-			$scope.regiments = result;
+	return function($scope, $state, regiments, character, selection, $uibModal, characteroptions) {
+		characteroptions.regiments().then(function(names) {
+			$scope.available = names;
 		});
-
-		$scope.selectedRegiment = regiments.selected();
+		$scope.character = character.character();
+		$scope.selected = regiments.selected();
 		$scope.requiredSelections = regiments.remainingSelections();
+
 		var suppressDialog = false;
 
-		$scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
-			if (fromState.name === "regiment" && toState.name !== fromState.name && !regiments.complete()) {
+		$scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams) {
+			if (fromState = "regiment" && toState !== fromState && regiments.remainingSelections().length !== 0) {
 				var resultHandler = function(result) {
 					if (result) {
 						suppressDialog = true;
@@ -26,13 +27,13 @@ define(function() {
 			}
 		});
 
-		$scope.selectRegiment = function(regiment) {
+		$scope.select = function(regiment) {
 			var confirm;
 			var proceed = function() {
 				regiments.selectRegiment(regiment);
-				$scope.selectedRegiment = regiments.selected();
 				$scope.requiredSelections = regiments.remainingSelections();
 				character.character().regiment(regiment);
+				$scope.selected = regiments.selected();
 			}
 			if (regiments.selected() && !regiments.selectionComplete) {
 				confirm = $uibModal.open({
@@ -44,6 +45,7 @@ define(function() {
 			} else {
 				proceed();
 			}
+
 		};
 
 		$scope.openSelectionModal = function(selectedObject) {
@@ -53,9 +55,16 @@ define(function() {
 			$uibModal.open({
 				controller: "SelectionModalController",
 				templateUrl: 'templates/selection-modal.html',
-			}).result.then(function(){
-				$scope.selectedRegiment = regiments.selected();
+			}).result.then(function() {
+				$scope.selected = regiments.sselected();
 			});
 		};
-	};
-})
+
+		$scope.openStartingPowersModal = function() {
+			$uibModal.open({
+				controller: "StartingPowersController",
+				templateUrl: 'templates/starting-powers-modal.html'
+			});
+		}
+	}
+});

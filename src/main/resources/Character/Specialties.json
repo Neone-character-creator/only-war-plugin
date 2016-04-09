@@ -139,7 +139,10 @@
                 "other gear"
               ],
               "value": {
-                "Frag Missile": 5
+                "item": {
+                  "name": "Frag Missile"
+                },
+                "count": 5
               }
             }
           ],
@@ -150,7 +153,10 @@
                 "other weapons"
               ],
               "value": {
-                "Heavy Stubber": 1
+                "item": {
+                  "name": "Heavy Stubber"
+                },
+                "count": 1
               }
             }
           ],
@@ -161,7 +167,10 @@
                 "other gear"
               ],
               "value": {
-                "Regimental Favored Heavy Weapon": 1
+                "item": {
+                  "name": "Regimental Favored Heavy Weapon"
+                },
+                "count": 1
               }
             }
           ]
@@ -1235,7 +1244,7 @@
         "armor": [
           {
             "item": {
-              "name": "Storm Trooper Carapace Armor"
+              "name": "Storm Trooper Carapace"
             },
             "count": 1
           }
