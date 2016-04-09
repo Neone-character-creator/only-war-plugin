@@ -88,12 +88,6 @@
           },
           {
             "item": {
-              "name": "Knife"
-            },
-            "count": 1
-          },
-          {
-            "item": {
               "name": "Uniform"
             },
             "count": 1
@@ -472,7 +466,8 @@
         "other weapons": [
           {
             "item": {
-              "name": "Knife with Mono"
+              "name": "Knife ",
+              "upgrades" : ["Mono"]
             },
             "count": 1
           },
@@ -1177,7 +1172,8 @@
         "other weapons": [
           {
             "item": {
-              "name": "Knife with Mono"
+              "name": "Knife",
+              "upgrades" : ["Mono"]
             },
             "count": 1
           },
@@ -2299,7 +2295,7 @@
         "other weapons": [
           {
             "item": {
-              "name": "Combat Knife"
+              "name": "Knife"
             },
             "count": 1
           },
@@ -2736,7 +2732,7 @@
       },
       "skills": {
         "Command": 1,
-        "Common Lored (Administratum)": 1,
+        "Common Lore (Administratum)": 1,
         "Inquiry": 1,
         "Linguistics (High Gothic)": 1,
         "Operate (Surface)": 1
