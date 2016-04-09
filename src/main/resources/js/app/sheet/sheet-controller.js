@@ -10,11 +10,24 @@ define(function() {
 		}
 
 		$scope.talents = character.character().talents().all();
+		var availableTalents = characteroptions.talents().the
+
+		function updateAvailableTalents(){
+			characteroptions.talents().then(function(result){
+				$scope.availableTalents = result.filter(function(element){
+					return character.character().talents().all().indexOf(element) === -1;
+				});
+			});
+		}
+		updateAvailableTalents();
+		$scope.$watch('character.talents().all().length', function(newVal, oldVal){
+			updateAvailableTalents();
+		});
 		$scope.newTalent;
 
 		$scope.addTalent = function(){
 			if($scope.newTalent){
-				$scope.talents.push($scope.newTalent);
+				$scope.talents.push($scope.availableTalents[$scope.newTalent]);
 				$scope.newTalent = null;
 			}
 		}
