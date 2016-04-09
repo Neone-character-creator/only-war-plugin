@@ -73,7 +73,7 @@ define(function() {
 						element = Object.clone(result.filter(function(talent) {
 							return element === talent.name;
 						})[0]);
-						if(!element.name){
+						if (!element.name) {
 							throw "Tried to get a talent name " + name + " but couldn't find it."
 						}
 						if (specialization) {
@@ -84,38 +84,41 @@ define(function() {
 				}
 				modifierTalents.resolve(replacementTalents);
 			});
-			
+
 			var modifierTraits = $q.defer();
-			traits.$promise.then(function(result){
+			traits.$promise.then(function(result) {
 				var replacementTraits = fixedModifiers.traits;
-					if (replacementTraits) {
-						replacementTraits = replacementTraits.slice();
-						replacementTraits = replacementTraits.map(function(element) {
+				if (replacementTraits) {
+					replacementTraits = replacementTraits.slice();
+					replacementTraits = replacementTraits.map(function(element) {
 						var name = element;
 						var rating = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
 						element = element.substring(0, rating ? element.indexOf("(") : element.length).trim();
 						element = Object.clone(result.filter(function(talent) {
-            				return element === talent.name;
-            			})[0]);
-            			if(!element.name){
-            				throw "Tried to get a trait name " + name + " but couldn't find it."
-            			}
-            			if (rating) {
-            				element.name += " (" + rating + ")";
-            				element.rating = rating;
-            			}
-            			return element;
-            			});
-            				}
-            		modifierTraits.resolve(replacementTraits);
+							return element === talent.name;
+						})[0]);
+						if (!element.name) {
+							throw "Tried to get a trait name " + name + " but couldn't find it."
+						}
+						if (rating) {
+							element.name += " (" + rating + ")";
+							element.rating = rating;
+						}
+						return element;
+					});
+				}
+				modifierTraits.resolve(replacementTraits);
 			});
-			
+
 			var modifierEquipment = $q.defer();
+
 			function replace(name, source) {
 				var result = source.filter(function(element) {
 					return element.name === name;
 				})[0];
-				return result ? result : {"name" : name};
+				return result ? result : {
+					"name": name
+				};
 			};
 			$q.all([weapons, armor, items, vehicles]).then(function(results) {
 				var characterKit = fixedModifiers['character kit'];
@@ -137,7 +140,7 @@ define(function() {
 						});
 					}
 					if (characterKit['armor']) {
-						 replacementArmor = characterKit['armor'].slice();
+						replacementArmor = characterKit['armor'].slice();
 						replacementArmor = replacementArmor.map(function(armor) {
 							armor.item = replace(armor.item.name, results[1]);
 							return armor;
@@ -161,50 +164,51 @@ define(function() {
 				}
 			});
 			//Optional Modifiers
-			$q.all([talents,skills,weapons,armor,items]).then(function(result){
-				$.each(optionalModifiers, function(index, element){
-					$.each(element.options, function(index, elementOption){
-						$.each(elementOption, function(index, option){
-						switch(option.property){
-							case "talents":
-							case "traits":
-							var name = option.value;
-							var specialization = option.value.indexOf("(") < 0 ? null : option.value.substring(option.value.indexOf("(") + 1, option.value.indexOf(")"));
-							option.value= option.value.substring(0, specialization ? option.value.indexOf("(") : option.value.length).trim();
-                            option.value= Object.clone(result[0].filter(function(talent) {
-                            	return option.value === talent.name;
-                           	})[0]);
-                           	if(!option.value.name){
-                           		throw "Tried to get a talent name " + name + " but couldn't find it."
-                           	}
-                           	if (specialization) {
-                           		
-                           		option.value.name += " (" + specialization + ")";
-                           	}
-							if(!option.value){
-								throw "Tried to replace talent " + name + " in " + modifier.name + " but no talent by that name was found."
-							}
-							break;
-							case "skills":
-							break;
-						};});
+			$q.all([talents, skills, weapons, armor, items]).then(function(result) {
+				$.each(optionalModifiers, function(index, element) {
+					$.each(element.options, function(index, elementOption) {
+						$.each(elementOption, function(index, option) {
+							switch (option.property) {
+								case "talents":
+								case "traits":
+									var name = option.value;
+									var specialization = option.value.indexOf("(") < 0 ? null : option.value.substring(option.value.indexOf("(") + 1, option.value.indexOf(")"));
+									option.value = option.value.substring(0, specialization ? option.value.indexOf("(") : option.value.length).trim();
+									option.value = Object.clone(result[0].filter(function(talent) {
+										return option.value === talent.name;
+									})[0]);
+									if (!option.value.name) {
+										throw "Tried to get a talent name " + name + " but couldn't find it."
+									}
+									if (specialization) {
+
+										option.value.name += " (" + specialization + ")";
+									}
+									if (!option.value) {
+										throw "Tried to replace talent " + name + " in " + modifier.name + " but no talent by that name was found."
+									}
+									break;
+								case "skills":
+									break;
+							};
+						});
 					});
 				});
 			});
 
 			return $q.all([modifierSkills, modifierTalents, modifierEquipment]).then(function(results) {
 				results[0].promise.then(function(result) {
-					if(result){
+					if (result) {
 						fixedModifiers['skills'] = result;
 					}
 				});
 				results[1].promise.then(function(result) {
-					if(result){
+					if (result) {
 						fixedModifiers['talents'] = result;
 					}
 				});
 				results[2].promise.then(function(result) {
-					if(result){
+					if (result) {
 						fixedModifiers['character kit'] = result;
 					}
 				});
