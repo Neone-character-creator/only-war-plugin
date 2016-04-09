@@ -168,7 +168,33 @@ define(function() {
 				$.each(optionalModifiers, function(index, element) {
 					$.each(element.options, function(index, elementOption) {
 						$.each(elementOption, function(index, option) {
-							switch (option.property) {
+							if(Array.isArray(option.property)){
+								switch(option.property[0]){
+									case "character kit" :
+									var name = option.value.item.name;
+									var specialization = option.value.item.name.indexOf("(") < 0 ? null : option.value.item.name.substring(option.value.indexOf("(") + 1, option.value.item.name.indexOf(")"));
+									option.value.item = option.value.item.name.substring(0, specialization ? option.value.item.name.indexOf("(") : option.value.item.name.length).trim();
+									switch(option.property[1]){
+										case "main weapon":
+										case "other weapons":
+										option.value.item = Object.clone(result[2].filter(function(talent) {
+											return option.value.item === talent.name;
+										})[0]);
+										break;
+										case "armor":
+										option.value.item = Object.clone(result[3].filter(function(talent) {
+											return option.value.item === talent.name;
+										})[0]);
+										break;
+										case "other gear":
+										option.value.item = Object.clone(result[4].filter(function(talent) {
+											return option.value.item === talent.name;
+										})[0]);
+										break;
+									}
+								}
+							} else {
+								switch (option.property) {
 								case "talents":
 								case "traits":
 									var name = option.value;
@@ -191,12 +217,13 @@ define(function() {
 								case "skills":
 									break;
 							};
+							}
 						});
 					});
 				});
 			});
 
-			return $q.all([modifierSkills, modifierTalents, modifierEquipment]).then(function(results) {
+			return $q.all([modifierSkills, modifierTalents, modifierEquipment, modifierTraits]).then(function(results) {
 				results[0].promise.then(function(result) {
 					if (result) {
 						fixedModifiers['skills'] = result;
@@ -212,6 +239,11 @@ define(function() {
 						fixedModifiers['character kit'] = result;
 					}
 				});
+				results[3].promise.then(function(result){
+					if(result){
+						fixedModifiers['traits'] = result;
+					}
+				})
 				return modifier;
 			});
 		};
