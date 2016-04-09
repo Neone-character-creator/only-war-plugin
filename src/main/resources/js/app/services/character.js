@@ -64,8 +64,7 @@ define(function() {
 				previous[current.name] = current;
 				return previous;
 			}, {})
-			var _skills = [];
-			var _skillsMap = {};
+			var _skills = {};
 			var _talents = [];
 			var _wounds = {
 				rolled: 0
@@ -165,12 +164,11 @@ define(function() {
 				skills: function() {
 					return {
 						add: function(name, rating) {
-							if (_skillsMap[name] !== undefined) {
+							if (_skills[name] !== undefined) {
 								throw "Tried to add a skill named " + name + " but " + this.name + " already has that skill."
 							}
 							var newSkill = new Skill(name, rating);
-							_skills.push(newSkill);
-							_skillsMap[name] = newSkill;
+							_skills[name] = newSkill;
 						},
 						remove: function(name) {
 							for (var i = 0; i < _skills.length; i++) {
@@ -179,13 +177,13 @@ define(function() {
 									break;
 								}
 							};
-							delete _skillsMap[name];
+							delete _skills[name];
 						},
 						all: function() {
 							return _skills;
 						},
 						byName: function(name) {
-							return {name :_skillsMap[name]};
+							return {name :_skills[name]};
 						}
 					}
 				},
@@ -378,7 +376,7 @@ define(function() {
 								_characteristicMap[advancement.property[1].toLowerCase()].advancements = advancement.value;
 								break;
 								case "Skills":
-								_skillsMap[advancement.property[1]].advancements(advancement.value);
+								_skills[advancement.property[1]].advancements(advancement.value);
 								break;
 								case "Talents":
 								_talents.push(advancement.value);
@@ -460,7 +458,7 @@ define(function() {
 							case "skills":
 								var incomingSkills = modifier['fixed modifiers']['skills'];
 								for (var skill in incomingSkills) {
-									var existingSkill = _skillsMap[skill];
+									var existingSkill = _skills[skill];
 									if (existingSkill) {
 										existingSkill.advancements(existingSkill.advancements() + incomingSkills[skill]);
 									} else {
@@ -510,7 +508,7 @@ define(function() {
 					} else if (modifier['type'] === "Support"){
 						_character.experience().available(300);
 					} else {
-						throw "Specialty type must be 'Guardsman' or 'Support' but was " + type + "."
+						throw new Error("Specialty type must be 'Guardsman' or 'Support' but was " + type + ".");
 					}
 				}
 			};
@@ -534,9 +532,9 @@ define(function() {
             							case "skills":
             								var incomingSkills = modifier['fixed modifiers']['skills'];
             								for (var skill in incomingSkills) {
-            									var existingSkill = _skillsMap[skill];
+            									var existingSkill = _skills[skill];
             									if(existingSkill && existingSkill.advancements() === incomingSkills[skill]){
-            										delete _skillsMap[skill];
+            										delete _skills[skill];
             									} else {
             										existingSkill.advancements(existingSkill.advancements() - incomingSkills[skill]);
             									}
