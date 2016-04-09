@@ -1,22 +1,22 @@
 define(function() {
 	return function($resource, $q, characteroptions) {
-	var selected;
+	var _selected;
 
 	return {
 		selected: function() {
-			return selected;
+			return _selected;
 		},
 		remainingSelections: function() {
-			if (selected) {
-				return selected['optional modifiers']
+			if (_selected) {
+				return _selected['optional modifiers']
 			} else {
 				return [];
 			};
 		},
 		complete: false,
 		selectSpecialty: function(specialty) {
-			selected = Object.clone(specialty);
-			this.requiredOptionSelections = selected['optional modifiers'];
+			_selected = Object.clone(specialty);
+			this.requiredOptionSelections = _selected['optional modifiers'];
 		}
 	};
 }

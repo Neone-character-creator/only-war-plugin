@@ -15,7 +15,7 @@ define(function(){
             	return _selected && _remainingSelections.length === 0;
             },
 	            selectRegiment : function(regiment) {
-	                _selected = regiment;
+	                _selected = Object.clone(regiment);
 	                _remainingSelections = _selected['optional modifiers'];
 	            }
 	        };
