@@ -56,7 +56,7 @@ define(function() {
 				controller: "SelectionModalController",
 				templateUrl: 'templates/selection-modal.html',
 			}).result.then(function() {
-				$scope.selected = regiments.sselected();
+				$scope.selected = regiments.selected();
 			});
 		};
 
