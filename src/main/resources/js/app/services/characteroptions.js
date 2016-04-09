@@ -142,7 +142,7 @@ define(function() {
                             	return option.value === talent.name;
                             	})[0]);
                             	if (specialization) {
-                            		element.name += " (" + specialization + ")";
+                            		option.value.name += " (" + specialization + ")";
                             	}
 							if(!option.value){
 								throw "Tried to replace talent " + name + " in " + modifier.name + " but no talent by that name was found."
