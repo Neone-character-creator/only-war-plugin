@@ -10,7 +10,8 @@
                         </div>
                         <div class="row">
                             <label for="regiment-name">Regiment</label>
-                            <input id="regiment-name" type="text" readonly style="width:90%" ng-value="character.regiment().name"/>
+                            <input id="regiment-name" type="text" readonly style="width:90%"
+                                   ng-value="character.regiment().name"/>
                         </div>
                         <div class="row">
                             <label for="demeanor">Demeanor</label>
@@ -45,15 +46,19 @@
         <div class="col-md-12">
             <table style="width:100%" class="text-center table-bordered">
                 <tr>
-                    <td ng-repeat="characteristic in characteristics" ng-mouseenter="characteristicTooltip(characteristic)"
-                        uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true" tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
-                        tooltip-popup-delay="500">
+                    <td ng-repeat="characteristic in characteristics"
+                        ng-mouseenter="characteristicTooltip(characteristic)"
+                        uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
+                        tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
+                        tooltip-popup-delay="500" tooltip-placement="bottom">
                         <span class="text-center">{{characteristic.name}}</span>
                     </td>
                 </tr>
                 <tr>
-                    <td ng-repeat="characteristic in characteristics" class="text-center" uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true" tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
-                    tooltip-popup-delay="500">
+                    <td ng-repeat="characteristic in characteristics" class="text-center"
+                        uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
+                        tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
+                        tooltip-popup-delay="500" tooltip-placement="bottom">
                         {{character.characteristics().byName(characteristic.name.toLowerCase()).total()}}
                     </td>
                 </tr>
@@ -73,7 +78,7 @@
                 </tr>
                 <tr ng-repeat="skill in character.skills().all()" class="text-center">
                     <td>{{skill.name()}}</td>
-                    <td ng-repeat="i in [1,2,3,4]"><input ng-value="skill.advancements()" type="radio"
+                    <td ng-repeat="i in [1,2,3,4]"><input ng-view="skill.advancements()" type="radio"
                                                           ng-checked="skill.advancements() >= i"
                                                           ng-click="skill.advancements(i)"/></td>
                 </tr>
@@ -81,7 +86,12 @@
         </div>
         Talents & Traits
         <ul>
-            <li ng-repeat="talent in character.talents().all()">{{talent}}</li>
+            <li ng-repeat="talent in character.talents().all()">{{talent.name}}</li>
+            <li><select ng-model="newTalent">
+                <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</option>
+            </select>
+                <button ng-click="addTalent()">Add</button>
+            </li>
         </ul>
 
     </div>
@@ -108,7 +118,8 @@
                 <div class="col-md-3">
                     <div class="row text-center">
                         <label class="pull-left" for="total-wounds">Total</label>
-                        <input class="pull-right" type="text" id="total-wounds" readonly ng-value="character.wounds().total()"
+                        <input class="pull-right" type="text" id="total-wounds" readonly
+                               ng-value="character.wounds().total()"
                                style="width:90%"/>
                     </div>
                     <div class="row text-center">
@@ -184,29 +195,31 @@
                 <tr colspan="8">Weapon</tr>
                 <tr>
                     <td colspan="1">Name</td>
-                    <td colspan="7"><input type="text" ng-model="weapon.item.name"/></td>
+                    <td colspan="7"><input type="text" ng-model="weapon.item.name" readonly/></td>
                 </tr>
                 <tr>
                     <td>Class</td>
-                    <td><input type="text" ng-model="weapon.item.class"/></td>
+                    <td><input type="text" ng-model="weapon.item.class" readonly style="width:50px"/></td>
                     <td>Damage</td>
-                    <td><input type="text" ng-model="weapon.item.damage"/></td>
+                    <td><input type="text" ng-model="weapon.item.damage" readonly style="width:75px"/></td>
                     <td>Type</td>
-                    <td><input type="text" ng-model="weapon.item.type"/></td>
+                    <td><input type="text" ng-model="weapon.item.type" readonly style="width:75px"/></td>
                     <td>Pen</td>
-                    <td><input type="number" ng-model="weapon.item.pen"/></td>
+                    <td><input type="text" ng-model="weapon.item.pen" readonly style="width:75px"/></td>
                 </tr>
                 <tr>
                     <td>Range</td>
-                    <td><input type="text" ng-model="weapon.item.range"/></td>
+                    <td><input type="text" ng-model="weapon.item.range" readonly style="width:75px"/></td>
                     <td>Damage</td>
-                    <td><input type="text" ng-model="weapon.item.damage"/></td>
-                    <td>ROF</td>
-                    <td><input type="text" ng-model="weapon.item.rof"/></td>
+                    <td><input type="text" ng-model="weapon.item.rof" readonly style="width:75px"/></td>
                     <td>Clip</td>
-                    <td><input type="text" ng-model="weapon.item.clip"/></td>
+                    <td><input type="text" ng-model="weapon.item.clip" readonly style="width:75px"/></td>
                     <td>Reload</td>
-                    <td><input type="text" ng-model="weapon.item.reload"/></td>
+                    <td><input type="text" ng-model="weapon.item.reload" readonly style="width:75px"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Special Rules</td>
+                    <td colspan="6"></td>
                 </tr>
                 </tbody>
             </table>
@@ -243,33 +256,70 @@
         <div class="col-md-6">
             <div class="row">
                 <div class="row">
-                    <div class="col-md-2 col-md-offset-5">
+                    <div class="col-md-2 col-md-offset-5"
+                         ng-mouseenter="armorTooltip('head')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.head.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
                         Head (1-10)
-                        <input type="text" id="armor-head"/>
+                        <div>
+                            {{armor.head.rating}}
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 col-md-offset-1">
+                    <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.rightArm.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
                         Right Arm (11-20)
-                        <input type="text" id="armor-right-arm"/>
+                        <div>
+                            {{armor.rightArm.rating}}
+                        </div>
                     </div>
-                    <div class="col-md-2 col-md-offset-2">
+                    <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.body.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
                         Body (31-70)
-                        <input type="text" id="armor-body"/>
+                        <div>
+                            {{armor.body.rating}}
+                        </div>
                     </div>
-                    <div class="col-md-2 col-md-offset-2">
+                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.leftArm.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
                         Left Arm (21-30)
-                        <input type="text" id="armor-left-arm"/>
+                        <div>
+                            {{armor.leftArm.rating}}
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 col-md-offset-3">
+                    <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.rightLeg.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
                         Right Leg (71-85)
-                        <input type="text" id="armor-right-leg"/>
+                        <div>
+                            {{armor.rightLeg.rating}}
+                        </div>
                     </div>
-                    <div class="col-md-2 col-md-offset-2">
+                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.leftLeg.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
                         Left Leg (86-100)
-                        <input type="text" id="armor-left-leg"/>
+                        <div>
+                            {{armor.leftLeg.rating}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -283,22 +333,23 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                Experience
-            </div>
-            <div class="row">
-                XP to Spend <input type="number" ng-value="character.xp-available"/>
-            </div>
-            <div class="row">
-                Total XP Spent <input type="number" ng-value="character.xp-total"/>
-            </div>
-            <div class="row">
-                Aptitudes
-                <ul>
-                    <li ng-repeat="aptitude in character.aptitudes">{{aptitude}}</li>
-                </ul>
-            </div>
         </div>
     </div>
+    <div class="row">
+        Experience
+    </div>
+    <div class="row">
+        XP to Spend <input type="number" ng-value="character.xp-available"/>
+    </div>
+    <div class="row">
+        Total XP Spent <input type="number" ng-value="character.xp-total"/>
+    </div>
+    <div class="row">
+        Aptitudes
+        <ul>
+            <li ng-repeat="aptitude in character.aptitudes">{{aptitude}}</li>
+        </ul>
+    </div>
+</div>
 </div>
 </div>

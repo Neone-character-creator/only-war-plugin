@@ -1,5 +1,5 @@
 define(function() {
-	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService) {
+	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService) {
 		$scope.character = character.character();
 		characteroptions.characteristics().then(function(result){
 			$scope.characteristics = result;
@@ -91,5 +91,49 @@ define(function() {
 		$scope.removeMutation = function(index) {
 			$scope.mutations.splice(index, 1);
 		};
+
+		$scope.armor = {
+			head:{rating:0, providers:[]},
+			body:{rating:0, providers:[]},
+			leftArm:{rating:0, providers:[]},
+			rightArm:{rating:0, providers:[]},
+			leftLeg:{rating:0, providers:[]},
+			rightLeg:{rating:0, providers:[]}
+		};
+		$.each(character.character().equipment.armor().all().map(function(element){return element.item}), function(index, armor){
+			$.each(armor.locations, function(index, location){
+				switch(location){
+					case "Left Arm":
+						$scope.armor.leftArm.rating += armor.ap
+						$scope.armor.leftArm.providers.push(armor);
+						break;
+					case "Right Arm":
+						$scope.armor.rightArm.rating += armor.ap
+						$scope.armor.rightArm.providers.push(armor);
+						break;
+					case "Head":
+						$scope.armor.head.rating += armor.ap
+						$scope.armor.head.providers.push(armor);
+						break;
+					case "Body":
+						$scope.armor.body.rating += armor.ap
+						$scope.armor.body.providers.push(armor);
+						break;
+					case "Left Leg":
+						$scope.armor.leftLeg.rating += armor.ap
+						$scope.armor.leftLeg.providers.push(armor);
+						break;
+					case "Right Leg":
+						$scope.armor.rightLeg.rating += armor.ap
+						$scope.armor.rightLeg.providers.push(armor);
+						break;
+				}
+			});
+		});
+
+		$scope.armorTooltip = function(location){
+			armorTooltipService.location(location);
+			armorTooltipService.modifiers($scope.armor[location].providers);
+		}
 	}
 });
