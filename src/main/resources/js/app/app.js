@@ -66,7 +66,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
             controller : sheetController
 		}).state("regiment", {
 			url: "/regiment",
-			templateUrl: "templates/regiment-select.html",
+			templateUrl: "templates/regiment-specialty-page.html",
 			controller : regimentController
 		}).state("characteristics", {
 			url: "/characteristics",
@@ -74,7 +74,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
 			controller : characteristicsController
 		}).state("specialty", {
 			url: "/specialty",
-			templateUrl: "templates/specialty.html",
+			templateUrl: "templates/regiment-specialty-page.html",
 			controller : specialtyController
 		}).state("finalize", {
 			url: "/finalize",
@@ -109,12 +109,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                                     break;
                             }
                             if (Array.isArray(option[op].property)) {
-                                for (var name in option[op].value) {
-                                    if (option[op].value.hasOwnProperty(name) && name.substring(1) !== "$") {
-                                        optionElements.push(option[op].value[name] + " x " + name);
-                                    }
-                                }
-
+                                optionElements.push(option[op].value.count + " x " + option[op].value.item.name);
                             }
                         }
                         options.push(optionElements.join(", "));
@@ -135,7 +130,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                 if (!Array.isArray(element.property)) {
                     switch (element.property) {
                         case "talents":
-                            elements.push(element.value);
+                            optionElements.push(element.value);
                             break;
                         case "skills":
                         for(var skill in element.value){
@@ -153,9 +148,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                 	switch(element.property[0]){
                 		case "character kit" :
                 			for(var item in element.value){
-                				if(element.value.hasOwnProperty(item)){
-                					elements.push(element.value[item] + " x " + item);
-                				}
+                				elements.push(element.value.count + " x " + element.value.item.name);
                 			}
                 	}
                 }
@@ -169,3 +162,6 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
     angular.bootstrap(document, ['OnlyWar']);
     return app;
 });
+
+var character = function(){
+}

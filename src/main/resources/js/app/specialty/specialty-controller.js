@@ -1,10 +1,10 @@
 define(function() {
 	return function($scope, $state, specialties, character, selection, $uibModal, characteroptions) {
 		characteroptions.specialties().then(function(names) {
-			$scope.specialties = names;
+			$scope.available = names;
 		});
 		$scope.character = character.character();
-		$scope.selectedSpecialty = specialties.selected();
+		$scope.selected = specialties.selected();
 		$scope.requiredSelections = specialties.remainingSelections();
 
 		var suppressDialog = false;
@@ -27,13 +27,13 @@ define(function() {
 			}
 		});
 
-		$scope.selectSpecialty = function(specialty) {
+		$scope.select = function(specialty) {
 			var confirm;
 			var proceed = function() {
 				specialties.selectSpecialty(specialty);
-				$scope.selectedSpecialty = specialties.selected();
 				$scope.requiredSelections = specialties.remainingSelections();
 				character.character().specialty(specialty);
+				$scope.selected = specialties.selected();
 			}
 			if (specialties.selected() && !specialties.selectionComplete) {
 				confirm = $uibModal.open({
@@ -56,7 +56,7 @@ define(function() {
 				controller: "SelectionModalController",
 				templateUrl: 'templates/selection-modal.html',
 			}).result.then(function() {
-				$scope.selectedSpecialty = specialties.selected();
+				$scope.selected = specialties.selected();
 			});
 		};
 
