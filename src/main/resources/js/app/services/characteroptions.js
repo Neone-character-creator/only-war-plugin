@@ -112,9 +112,10 @@ define(function() {
 			
 			var modifierEquipment = $q.defer();
 			function replace(name, source) {
-				return source.filter(function(element) {
+				var result = source.filter(function(element) {
 					return element.name === name;
 				})[0];
+				return result ? result : {"name" : name};
 			};
 			$q.all([weapons, armor, items, vehicles]).then(function(results) {
 				var characterKit = fixedModifiers['character kit'];
