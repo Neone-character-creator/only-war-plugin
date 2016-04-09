@@ -16,7 +16,6 @@
         </div>
         <div class="row" ng-show="selected" class="text-center">
             <div class="col-md-6">
-                <div class="container-fluid">
                     <div class="row">
                         <h3>{{selected.name}}</h3>
                     </div>
@@ -39,9 +38,11 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <h3>Starting Talents</h3>
+                        <h3>Starting Talents and Traits</h3>
                         <ul>
                             <li ng-repeat="talent in selected['fixed modifiers'].talents">{{talent.name}}
+                            </li>
+                            <li ng-repeat="trait in selected['fixed modifiers'].traits">{{trait.name}}
                             </li>
                         </ul>
                     </div>
