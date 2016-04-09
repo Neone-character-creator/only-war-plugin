@@ -100,7 +100,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                                 	break;
 
                                 case 'talents':
-                                	optionElements.push(option[op].value);
+                                	optionElements.push(option[op].value.name);
                                 	break;
                                 case 'skills':
                                 	for(var skill in option[op].value){
