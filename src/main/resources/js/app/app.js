@@ -130,7 +130,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
                 if (!Array.isArray(element.property)) {
                     switch (element.property) {
                         case "talents":
-                            optionElements.push(element.value);
+                            optionElements.push(element.value.name);
                             break;
                         case "skills":
                         for(var skill in element.value){
