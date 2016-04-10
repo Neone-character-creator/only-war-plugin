@@ -34,7 +34,11 @@ define(function() {
 		}, {
 			id: 4,
 			value: "Psychic Powers"
-		}];
+		}].filter(function(element){
+			return element.value !== "Psychic Powers" || character.character().traits().all().find(function(trait){
+				return trait.name === "Psyker";
+			});
+		});
 		$scope.selectedCategory;
 		$scope.options;
 		$scope.displayedOption;
