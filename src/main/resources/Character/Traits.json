@@ -121,5 +121,13 @@
   {
     "name" : "Sonar Sense",
     "description" : "A creature with this Trait perceives its surroundings by emitting a frequency noise, allowing the creature to locate the position of any solid object within 30 meters. Other creatures within this 30 meter range, which succeed on an Awareness Skill Test at -10, may detect the curious keening."
+  },
+  {
+    "name" : "But It Dark in Dere!",
+    "description" : "Despite their fearsome and fearless nature, Ogryns are extremely claustrophobic. They will not enter caves, basements, ruins, infantry fighting vehicles like the Chimera, or even smaller than average buildings, of their own free will. Officers and Commissars can order them into such places, but suffer a –10 penalty to any Command Skill Tests to do so, and Ogryns suffer a –10 to all Skill Tests when so confined."
+  },
+  {
+    "name" : "Clumsy",
+    "description" : "Ogryn’s hands are not only much larger than those of a normal human, but also far stronger, and most Ogryn have a  hard time using them to perform delicate, or even normal, tasks. Because of this, Ogryn cannot use most weapons made for humans, as they tend to break them when they try. Any weapon which doesn’t have the Ogryn-Proof Trait cannot be used by a character with the Clumsy Trait."
   }
 ]
