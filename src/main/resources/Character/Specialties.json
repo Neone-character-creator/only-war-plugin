@@ -1166,7 +1166,6 @@
       "traits" : [
         "Psyker"
       ],
-      "psy rating" : 2,
       "corruption" : "1d5",
       "character kit": {
         "other weapons": [
@@ -1391,6 +1390,13 @@
               "name": "Combi-tool"
             },
             "count": 1
+          },
+          {
+            "item" : {
+              "name" : "Mind Impulse Unit",
+              "craftsmanship" : "Good"
+            },
+            "count" : 1
           }
         ]
       },
@@ -1468,6 +1474,100 @@
             }
           ]
         ]
+      },
+      {"selections" : 2,
+      "options" : [
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Augur Array", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Autosanguine", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Baleful Eye", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Ballistic Mechadendrite", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Bionic Arm", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Bionic Legs", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Bionic Respiratory System", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Bionic Heart", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Calculus Logi Upgrade", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Cerebral Implants", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Cranial Armor", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Cybernetic Senses", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Ferric Lure Implants", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Interface Port", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Internal Reservoir", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Locator Matrix", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Lumen Capacitor", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Maglev Coils", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Manipulator Mechadendrite", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Medicae Mechadendrite", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Memorance Implant", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Mind Impulse Unit", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "MIU Weapon Interface", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Optical Mechadendrite", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Respiratory Filter Implant", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Subskin Armor", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Synthmuscle", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Utility Mechadendrite", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Vocal Implant", "craftsmanship" : "Good"}, "count" : 1}
+        }],
+        [{"property" : ["character kit", "other gear"],
+          "value" : {"item" : {"name" : "Volitor Implant", "craftsmanship" : "Good"}, "count" : 1}
+        }]
+      ]
       }
     ]
   }
