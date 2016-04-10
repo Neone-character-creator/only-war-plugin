@@ -66,6 +66,7 @@ define(function() {
 			}, {})
 			var _skills = {};
 			var _talents = [];
+			var _traits = [];
 			var _wounds = {
 				rolled: 0
 			};
@@ -113,9 +114,9 @@ define(function() {
 			};
 			var _aptitudes = ["General"];
 			var _powers = {
-				bonusXp : 0,
+				bonusXp: 0,
 				powers: [],
-				psyRating : 0
+				psyRating: 0
 			};
 
 			var _character = {
@@ -125,7 +126,7 @@ define(function() {
 					if (regiment === undefined) {
 						return _regiment;
 					} else {
-						if(_regiment){
+						if (_regiment) {
 							removeModifier(_regiment, "Regiment");
 						}
 						_regiment = regiment;
@@ -136,7 +137,7 @@ define(function() {
 					if (specialty === undefined) {
 						return _specialty;
 					} else {
-						if(_specialty){
+						if (_specialty) {
 							removeModifier(_specialty, "Specialty");
 						}
 						_specialty = specialty;
@@ -183,7 +184,9 @@ define(function() {
 							return _skills;
 						},
 						byName: function(name) {
-							return {name :_skills[name]};
+							return {
+								name: _skills[name]
+							};
 						}
 					}
 				},
@@ -209,16 +212,38 @@ define(function() {
 						}
 					}
 				},
+				traits: function() {
+					return {
+						add: function(trait) {
+							if (_traits.indexOf(trait) !== -1) {
+								throw "Tried to add trait " + trait + " but " + this.name + " already has that trait."
+							}
+							_traits.push(trait);
+						},
+						remove: function(trait) {
+							var index = _traits.indexOf(trait);
+							if (index >= 0) {
+								_traits.splice(index, 1);
+							}
+						},
+						all: function() {
+							return _traits;
+						},
+						byName: function(name) {
+							return _traitsMap[name];
+						}
+					}
+				},
 				wounds: function() {
 					return {
 						fromSpecialty: function() {
-							if(_specialty){
+							if (_specialty) {
 								return _specialty['fixed modifiers'].wounds;
 							}
 							return 0;
 						},
 						fromRegiment: function() {
-							if(_regiment){
+							if (_regiment) {
 								return _regiment['fixed modifiers'].wounds;
 							}
 							return 0;
@@ -233,10 +258,10 @@ define(function() {
 						},
 						total: function() {
 							var specialty = _specialty ? _specialty['fixed modifiers'].wounds : 0;
-							var regiment = _regiment? _regiment['fixed modifiers'].wounds : 0;
+							var regiment = _regiment ? _regiment['fixed modifiers'].wounds : 0;
 							return _wounds.rolled + specialty + regiment;
 						},
-						criticalDamage : function(){
+						criticalDamage: function() {
 							return _criticalDamage;
 						}
 					}
@@ -297,10 +322,10 @@ define(function() {
 				fatePoints: function() {
 					return {
 						total: function(value) {
-							if(value !== undefined){
+							if (value !== undefined) {
 								_fatePoints.total = value;
 							} else {
-									return _fatePoints.total;
+								return _fatePoints.total;
 							}
 						}
 					}
@@ -341,16 +366,16 @@ define(function() {
 					otherGear: function() {
 						return {
 							add: function(weapon) {
-								_equipment.otherGear.push(weapon);
+								_equipment['other gear'].push(weapon);
 							},
 							remove: function(weapon) {
-								var index = _equipment.otherGear.indexOf(weapon);
+								var index = _equipment['other gear'].indexOf(weapon);
 								if (index >= 0) {
 									_equipment.otherGear.splice(index, 1);
 								}
 							},
 							all: function() {
-								return _equipment.otherGear.slice();
+								return _equipment['other gear'].slice();
 							}
 						}
 					}
@@ -371,27 +396,27 @@ define(function() {
 						addAdvancement: function(advancement) {
 							_experience.advancementsBought.push(advancement);
 							_experience.available -= advancement.cost;
-							switch(advancement.property[0]){
+							switch (advancement.property[0]) {
 								case "Characteristics":
-								_characteristicMap[advancement.property[1].toLowerCase()].advancements = advancement.value;
-								break;
+									_characteristicMap[advancement.property[1].toLowerCase()].advancements = advancement.value;
+									break;
 								case "Skills":
-								_skills[advancement.property[1]].advancements(advancement.value);
-								break;
+									_skills[advancement.property[1]].advancements(advancement.value);
+									break;
 								case "Talents":
-								_talents.push(advancement.value);
-								break;
+									_talents.push(advancement.value);
+									break;
 								case "Psychic Powers":
-								_powers.push(advancement.value);
-								break;
+									_powers.push(advancement.value);
+									break;
 							}
 						}
 					}
 				},
-				aptitudes: function(){
+				aptitudes: function() {
 					return {
-						all : function(value){
-							if(value){
+						all: function(value) {
+							if (value) {
 								_aptitudes = value;
 							} else {
 								return _aptitudes
@@ -399,36 +424,36 @@ define(function() {
 						}
 					}
 				},
-				powers : function(){
+				powers: function() {
 					return {
-						addPower: function(power, isBonus){
-							if (_powers.powers.indexOf(power) !== -1){
+						addPower: function(power, isBonus) {
+							if (_powers.powers.indexOf(power) !== -1) {
 								throw "Tried to add power " + power + " which the character already had."
 							}
-							if (isBonus){
+							if (isBonus) {
 								power.bonus = true;
 								_powers.bonusXp -= power.value;
 							}
 							_powers.powers.push(power);
 						},
-						removePower: function(power){
+						removePower: function(power) {
 							_powers.powers.splice(_powers.powers.indexOf(power), 1);
-							if (power.bonus){
+							if (power.bonus) {
 								_powers.bonusXp += power.value;
 							}
 						},
-						all : function(){
+						all: function() {
 							return _powers.powers.slice();
 						},
-						bonusXp : function(value){
-							if(value){
+						bonusXp: function(value) {
+							if (value) {
 								_powers.bonusXp = value;
 							} else {
 								return _powers.bonusXp;
 							}
 						},
-						psyRating : function(value){
-							if(value){
+						psyRating: function(value) {
+							if (value) {
 								_powers.psyRating = value;
 							} else {
 								return _powers.psyRating;
@@ -472,40 +497,51 @@ define(function() {
 									_character.talents().add(incomingTalents[i]);
 								}
 								break;
+							case "traits":
+								var incomingTraits = modifier['fixed modifiers']['traits'];
+								for (var i = 0; i < incomingTraits.length; i++) {
+									_character.traits().add(incomingTraits[i]);
+								}
+								break;
 							case "aptitudes":
 								var incomingAptitudes = modifier['fixed modifiers']['aptitudes'];
 								_aptitudes = _aptitudes.concat(incomingAptitudes);
 								break;
-							case "starting power experience" :
+							case "starting power experience":
 								_powers.bonusXp = modifier['fixed modifiers']['starting power experience'];
 								break;
-							case "psy rating" :
+							case "psy rating":
 								_powers.psyRating = modifier['fixed modifiers']['psy rating'];
 								break;
 							case "character kit":
-								for(var category in modifier['fixed modifiers']['character kit']){
-									switch(category){
+								for (var category in modifier['fixed modifiers']['character kit']) {
+									switch (category) {
 										case "main weapon":
 										case "other weapons":
-										var weapons = modifier['fixed modifiers']['character kit'][category];
-										$.each(weapons, function(index, element){
-											_character.equipment.weapons().add(element);
-										});
-										break;
+											$.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
+												_character.equipment.weapons().add(element);
+											});
+											break;
 										case "armor":
-										break;
+											$.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
+												_character.equipment.armor().add(element);
+											});
+											break;
 										case "other gear":
-										break;
+											$.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
+												_character.equipment.otherGear().add(element);
+											});
+											break;
 									}
 								}
 								break;
 						}
 					}
 				}
-				if(type === "Specialty"){
-					if(modifier['type'] === "Guardsman"){
+				if (type === "Specialty") {
+					if (modifier['type'] === "Guardsman") {
 						_character.experience().available(600);
-					} else if (modifier['type'] === "Support"){
+					} else if (modifier['type'] === "Support") {
 						_character.experience().available(300);
 					} else {
 						throw new Error("Specialty type must be 'Guardsman' or 'Support' but was " + type + ".");
@@ -514,77 +550,83 @@ define(function() {
 			};
 			var removeModifier = function(modifier, type) {
 				for (var property in modifier['fixed modifiers']) {
-            					if (modifier['fixed modifiers'].hasOwnProperty(property)) {
-            						switch (property) {
-            							case "characteristics":
-            								{
-            									if (type === "Regiment") {
-            										for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
-            											_characteristicMap[characteristic.toLowerCase()].regiment = 0;
-            										};
-            									} else if (type === "Specialty") {
-            										for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
-            											_characteristicMap[characteristic.toLowerCase()].specialty = 0;
-            										};
-            									}
-            								}
-            								break;
-            							case "skills":
-            								var incomingSkills = modifier['fixed modifiers']['skills'];
-            								for (var skill in incomingSkills) {
-            									var existingSkill = _skills[skill];
-            									if(existingSkill && existingSkill.advancements() === incomingSkills[skill]){
-            										delete _skills[skill];
-            									} else {
-            										existingSkill.advancements(existingSkill.advancements() - incomingSkills[skill]);
-            									}
-            								}
-            								break;
-            							case "talents":
-            								var incomingTalents = modifier['fixed modifiers']['talents'];
-            								for (var i = 0; i < incomingTalents.length; i++) {
-            									_talents.splice(_talents.indexOf(incomingTalents[i]), 1);
-            								}
-            								break;
-            							case "starting power experience" :
-            								_powers.bonusXp -= modifier['fixed modifiers']['starting power experience'];
-            								_powers.powers = _powers.powers.filter(function(element){
-            									_powers.bonusXp += element.value;
-            									return !element.hasOwnProperty('bonus');
-            								})
-            								break;
-            							case "psy rating" :
-            								_powers.psyRating -= modifier['fixed modifiers']['psy rating'];
-            								break;
-            							case "character kit":
-            								for(var category in modifier['fixed modifiers']['character kit']){
-            									switch(category){
-            										case "main weapon":
-            										case "other weapons":
-            											var weapons = modifier['fixed modifiers']['character kit'][category];
-            											$.each(weapons, function(index, element){
-            												_character.equipment.weapons().remove(element);
-            											});
-            										break;
-            										case "armor":
-            										break;
-            										case "other gear":
-            										break;
-                                            									}
-                                            								}
-                                            								break;
-            						}
-            					}
-            				}
-            	if (type === "Specialty"){
-            		if(modifier['type'] === "Guardsman"){
-            			_character.experience().available(-600);
-            		} else if (modifier['type'] === "Support"){
-            			_character.experience().available(-300);
-            		} else {
-            			throw "Specialty type must be 'Guardsman' or 'Support' but was " + type + "."
-            		}
-            	}
+					if (modifier['fixed modifiers'].hasOwnProperty(property)) {
+						switch (property) {
+							case "characteristics":
+								{
+									if (type === "Regiment") {
+										for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
+											_characteristicMap[characteristic.toLowerCase()].regiment = 0;
+										};
+									} else if (type === "Specialty") {
+										for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
+											_characteristicMap[characteristic.toLowerCase()].specialty = 0;
+										};
+									}
+								}
+								break;
+							case "skills":
+								var incomingSkills = modifier['fixed modifiers']['skills'];
+								for (var skill in incomingSkills) {
+									var existingSkill = _skills[skill];
+									if (existingSkill && existingSkill.advancements() === incomingSkills[skill]) {
+										delete _skills[skill];
+									} else {
+										existingSkill.advancements(existingSkill.advancements() - incomingSkills[skill]);
+									}
+								}
+								break;
+							case "talents":
+								var incomingTalents = modifier['fixed modifiers']['talents'];
+								for (var i = 0; i < incomingTalents.length; i++) {
+									_talents.splice(_talents.indexOf(incomingTalents[i]), 1);
+								}
+								break;
+							case "traits":
+								var incomingTraits = modifier['fixed modifiers']['traits'];
+								for (var i = 0; i < incomingTraits.length; i++) {
+									_traits.splice(_traits.indexOf(incomingTraits[i]), 1);
+								}
+								break;
+							case "starting power experience":
+								_powers.bonusXp -= modifier['fixed modifiers']['starting power experience'];
+								_powers.powers = _powers.powers.filter(function(element) {
+									_powers.bonusXp += element.value;
+									return !element.hasOwnProperty('bonus');
+								})
+								break;
+							case "psy rating":
+								_powers.psyRating -= modifier['fixed modifiers']['psy rating'];
+								break;
+							case "character kit":
+								for (var category in modifier['fixed modifiers']['character kit']) {
+									switch (category) {
+										case "main weapon":
+										case "other weapons":
+											var weapons = modifier['fixed modifiers']['character kit'][category];
+											$.each(weapons, function(index, element) {
+												_character.equipment.weapons().remove(element);
+											});
+											break;
+										case "armor":
+											break;
+										case "other gear":
+											break;
+									}
+								}
+								break;
+						}
+					}
+				}
+				if (type === "Specialty") {
+					if (modifier['type'] === "Guardsman") {
+						_character.experience().available(-600);
+					} else if (modifier['type'] === "Support") {
+						_character.experience().available(-300);
+					} else {
+						throw "Specialty type must be 'Guardsman' or 'Support' but was " + type + "."
+					}
+				}
 			};
 			return _character;
 		}
