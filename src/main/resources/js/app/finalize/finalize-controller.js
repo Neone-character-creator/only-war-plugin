@@ -50,16 +50,33 @@ define(function() {
 		$scope.toggleDisplayedCategory = function() {
 			switch ($scope.selectedCategory.value) {
 				case "Skills":
-					characteroptions.skills().then(setDisplayedOptions);
+					characteroptions.skills().then(function(result){
+						return result.filter(function(skill){
+							var characterSkill= character.character().skills().byName(skill.name);
+								return !characterSkill || characterSkill.advancements() < 4;
+						});
+					}).then(setDisplayedOptions);
 					break;
 				case "Talents":
-					characteroptions.talents().then(setDisplayedOptions);
+					characteroptions.talents().then(function(result){
+						return result.filter(function(talent){
+							return character.character().talents().all().indexOf(result) === -1;
+						});
+					}).then(setDisplayedOptions);
 					break;
 				case "Psychic Powers":
-					characteroptions.powers().then(setDisplayedOptions);
+					characteroptions.powers().then(function(result){
+						return result.filter(function(power){
+							return character.character().powers().all().indexOf(power) === -1;
+						})
+					}).then(setDisplayedOptions);
 					break;
 				case "Characteristics":
-					characteroptions.characteristics().then(setDisplayedOptions);
+					characteroptions.characteristics().then(function(result){
+						return result.filter(function(characteristic){
+							return character.character().characteristics().byName(characteristic.name.toLowerCase()).advancements < 4;
+						})
+					}).then(setDisplayedOptions);
 			};
 		}
 
