@@ -8,7 +8,7 @@ define(function(){
 
     	$scope.character = character.character;
     	$scope.generatedValues = [];
-	    	$scope.characteristics = character.character().characteristics().all();
+    	$scope.characteristics = character.character().characteristics().all();
 	    $scope.generate = function(index) {
 	        if (index === undefined) {
 	            for (var i = 0; i < $scope.characteristicNames.length; i++) {
