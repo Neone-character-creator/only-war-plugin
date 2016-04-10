@@ -184,9 +184,7 @@ define(function() {
 							return _skills;
 						},
 						byName: function(name) {
-							return {
-								name: _skills[name]
-							};
+							return _skills[name];
 						}
 					}
 				},
