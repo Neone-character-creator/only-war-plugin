@@ -1,15 +1,17 @@
-Implement finalize page.
-
-Add confirmation modal to finalize page.
-
 Refactor out duplicated modal checking code in specialty and regiment selection controllers.
 
 Add confirmation to specialty page that choices will be discarded when changing selected specialty.
 
-Think about using single page for specialty and regiment selection
-
-Implement applying regiment and specialty modifiers to character and removing them when they change, bonus xp for duplicate talents and bonus aptitudes for duplicate aptitudes.
-
-Implement spending xp.
+Implement bonus xp for duplicate talents and bonus aptitudes for duplicate aptitudes.
 
 Finish second page of sheet.
+
+Style lists as bootstrap list groups?
+
+Validate rolled wounds field to limit it between 1 and 5.
+
+Implement regiment creation.
+
+Finish Trait data file.
+
+Make fields for spending xp or adding things filterable so that only options that the character qualifies for can be taken.
