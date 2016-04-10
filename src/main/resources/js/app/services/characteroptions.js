@@ -47,20 +47,6 @@ define(function() {
 			var optionalModifiers = modifier['optional modifiers'];
 			var modifierSkills = $q.defer();
 			//Fixed Modifiers
-			skills.$promise.then(function(result) {
-				var replacementSkills = {};
-				for (skill in fixedModifiers.skills) {
-					var specialization = skill.indexOf("(") < 0 ? null : skill.substring(skill.indexOf("(") + 1, skill.indexOf(")"));
-					var baseName = skill.substring(0, skill.indexOf("(") < 0 ? skill.length : skill.indexOf("(")).trim();
-					replacementSkills[skill] = result.filter(function(element) {
-						return element.name === baseName;
-					})[0];
-					if (specialization) {
-						replacementSkills[skill].specialization = specialization;
-					}
-				};
-				modifierSkills.resolve(replacementSkills);
-			});
 			var modifierTalents = $q.defer();
 			talents.then(function(result) {
 				var replacementTalents = fixedModifiers.talents;
