@@ -631,5 +631,155 @@
 	},
 	{
 		"name" : "Mind Impulse Unit"
+	},
+	{
+		"name" : "Augur Array",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Autosanguine",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Baleful Eye",
+		"weight" : 0,
+		"availability" : "Near Unique"
+	},
+	{
+		"name" : "Ballistic Mechadendrite",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Bionic Arm",
+		"weight" : 0,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Bionic Legs",
+		"weight" : 0,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Bionic Respiratory System",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Bionic Heart",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Calculus Logi Upgrade",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Cerebral Implants",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Cranial Armor",
+		"weight" : 0,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Cybernetic Senses",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Ferric Lure Implants",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Interface Port",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Internal Reservoir",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Locator Matrix",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Lumen Capacitor",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Maglev Coils",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Manipulator Mechadendrite",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Medicae Mechadendrite",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Memorance Implant",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Mind Impulse Unit",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "MIU Weapon Interface",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Optical Mechadendrite",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Respirator Filter Implant",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Subskin Armor",
+		"weight" : 0,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Synthmuscle",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Utility Mechadendrite",
+		"weight" : 0,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Vocal Implant",
+		"weight" : 0,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Volitor Implant",
+		"weight" : 0,
+		"availability" : "Rare"
 	}
 ]
