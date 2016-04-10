@@ -945,6 +945,10 @@
         "Weapon Training (Heavy)",
         "Weapon Training (Solid Projectile)"
       ],
+      "traits" : [
+        "But It Dark in Dere!",
+        "Clumsy"
+      ],
       "character kit": {
         "other weapons": [
           {
@@ -1162,6 +1166,8 @@
       "traits" : [
         "Psyker"
       ],
+      "psy rating" : 2,
+      "corruption" : "1d5",
       "character kit": {
         "other weapons": [
           {
