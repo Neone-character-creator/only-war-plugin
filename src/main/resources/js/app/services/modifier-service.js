@@ -9,13 +9,13 @@ define(function(){
             	return _selected;
             },
             remainingSelections : function(){
-            	return _remainingSelections;
+            	return _remainingSelections ? _remainingSelections : [];
             },
             complete : function(){
             	return _selected && _remainingSelections.length === 0;
             },
-	            selectRegiment : function(regiment) {
-	                _selected = Object.clone(regiment);
+	            select : function(modifier) {
+	                _selected = angular.copy(modifier);
 	                _remainingSelections = _selected['optional modifiers'];
 	            }
 	        };
