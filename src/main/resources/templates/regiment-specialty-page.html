@@ -16,72 +16,74 @@
         </div>
         <div class="row" ng-show="selected" class="text-center">
             <div class="col-md-6">
-                    <div class="row">
-                        <h3>{{selected.name}}</h3>
-                    </div>
-                    <div class="row">
-                        <h3>Characteristic Modifiers</h3>
-                        <ul>
-                            <li ng-repeat="(name, value) in selected['fixed modifiers'].characteristics">
-                                {{name}} :
-                                {{value > 0 ?
-                                '+' +
-                                value :
-                                value}}
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <h3>Starting Skills</h3>
-                        <ul>
-                            <li ng-repeat="(skill,rating) in selected['fixed modifiers'].skills">{{skill}}{{rating > 1 ? + (rating * 10) : ""}}</li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <h3>Starting Talents and Traits</h3>
-                        <ul>
-                            <li ng-repeat="talent in selected['fixed modifiers'].talents">{{talent.name}}
-                            </li>
-                            <li ng-repeat="trait in selected['fixed modifiers'].traits">{{trait.name}}
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row" ng-show="character.powers().all().length">
-                        <h3>Starting Powers</h3>
-                        <ul>
-                            <li ng-repeat="power in character.powers().all()">
-                                {{power.name}}
-                            </li>
-                        </ul>
-                        <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
-                    </div>
-                    <div class="row">
-                        <h3>Aptitudes</h3>
-                        <ul>
-                            <li ng-repeat="aptitude in selected['fixed modifiers']['aptitudes']">{{aptitude}}</li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <h3>Starting Gear</h3>
-                        <ul>
-                            <li ng-repeat="item in selected['fixed modifiers']['character kit']['main weapon']">
-                                {{item.count + " x " + item.item.name}}
-                            </li>
-                            <li ng-repeat="item in selected['fixed modifiers']['character kit']['other weapons']">
-                                {{item.count + " x " + item.item.name}}
-                            </li>
-                            <li ng-repeat="item in selected['fixed modifiers']['character kit']['armor']">
-                                {{item.count + " x " + item.item.name}}
-                            </li>
-                            <li ng-repeat="item in selected['fixed modifiers']['character kit']['other gear']">
-                                {{item.count + " x " + item.item.name}}
-                            </li>
-                            <li ng-repeat="item in selected['fixed modifiers']['character kit']['squad kit']">
-                                {{item.count + " x " + item.item.name}} (Squad)
-                            </li>
-                        </ul>
-                    </div>
+                <div class="row">
+                    <h3>{{selected.name}}</h3>
                 </div>
+                <div class="row">
+                    <h3>Characteristic Modifiers</h3>
+                    <ul>
+                        <li ng-repeat="(name, value) in selected['fixed modifiers'].characteristics">
+                            {{name}} :
+                            {{value > 0 ?
+                            '+' +
+                            value :
+                            value}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Starting Skills</h3>
+                    <ul>
+                        <li ng-repeat="(skill,rating) in selected['fixed modifiers'].skills">{{skill}}{{rating > 1 ? +
+                            (rating * 10) : ""}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Starting Talents and Traits</h3>
+                    <ul>
+                        <li ng-repeat="talent in selected['fixed modifiers'].talents">{{talent.name}}
+                        </li>
+                        <li ng-repeat="trait in selected['fixed modifiers'].traits">{{trait.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="row" ng-show="character.powers().all().length">
+                    <h3>Starting Powers</h3>
+                    <ul>
+                        <li ng-repeat="power in character.powers().all()">
+                            {{power.name}}
+                        </li>
+                    </ul>
+                    <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
+                </div>
+                <div class="row">
+                    <h3>Aptitudes</h3>
+                    <ul>
+                        <li ng-repeat="aptitude in selected['fixed modifiers']['aptitudes']">{{aptitude}}</li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h3>Starting Gear</h3>
+                    <ul>
+                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['main weapon']">
+                            {{item.count + " x " + item.item.name}}
+                        </li>
+                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['other weapons']">
+                            {{item.count + " x " + item.item.name}}
+                        </li>
+                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['armor']">
+                            {{item.count + " x " + item.item.name}}
+                        </li>
+                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['other gear']">
+                            {{item.count + " x " + item.item.name}}
+                        </li>
+                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['squad kit']">
+                            {{item.count + " x " + item.item.name}} (Squad)
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="row" ng-show="selectedRegiment['fixed modifiers']['favored weapons']">
                     <h3>Favored Weapons</h3>
                     {{selectedRegiment['fixed modifiers']['favored weapons'].join(', ')}}
@@ -96,7 +98,9 @@
                         </button>
                     </li>
                     <li ng-show="character.powers().bonusXp()">
-                        <button class="btn btn-link" ng-click="openStartingPowersModal()">Up to {{character.powers().bonusXp()}} XP in Psychic Powers</button>
+                        <button class="btn btn-link" ng-click="openStartingPowersModal()">Up to
+                            {{character.powers().bonusXp()}} XP in Psychic Powers
+                        </button>
                     </li>
                 </ul>
             </div>

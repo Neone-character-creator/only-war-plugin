@@ -8,7 +8,7 @@ define(function(){
 
     	$scope.character = character.character;
     	$scope.generatedValues = [];
-    	$scope.characteristics = character.character().characteristics().all();
+    	$scope.characteristics = character.character.characteristics;
 	    $scope.generate = function(index) {
 	        if (index === undefined) {
 	            for (var i = 0; i < $scope.characteristicNames.length; i++) {
@@ -25,9 +25,17 @@ define(function(){
 	    }
 
     var suppressDialog = false;
+    var isComplete = function(){
+		for(var characteristic in character.character.characteristics){
+			if(character.character.characteristics[characteristic[characteristic]].rolled === 0){
+				return false;
+			}
+		}
+		return true;
+    }
 
     $scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
-        if (fromState.name === "characteristics" && toState.name !== fromState.name && !character.character().characteristics().complete()) {
+        if (fromState.name === "characteristics" && toState.name !== fromState.name && isComplete()) {
             var resultHandler = function(result) {
                 if (result) {
                     suppressDialog = true;

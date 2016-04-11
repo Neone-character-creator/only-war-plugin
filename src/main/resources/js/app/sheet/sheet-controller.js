@@ -1,26 +1,26 @@
 define(function() {
 	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService) {
-		$scope.character = character.character();
+		$scope.character = character.character;
 		characteroptions.characteristics().then(function(result){
-			$scope.characteristics = result;
+			$scope.characteristics = result.map(function(element){return element.name});
 		});
 
 		$scope.characteristicTooltip = function(characteristic){
-			characteristicTooltipService.displayed(characteristic);
+			characteristicTooltipService.displayed = characteristic;
 		}
 
-		$scope.talents = character.character().talents().all();
-		var availableTalents = characteroptions.talents().the
+		$scope.talents = character.character.talents.all;
+		var availableTalents = characteroptions.talents.the
 
 		function updateAvailableTalents(){
 			characteroptions.talents().then(function(result){
 				$scope.availableTalents = result.filter(function(element){
-					return character.character().talents().all().indexOf(element) === -1;
+					return character.character.talents.indexOf(element) === -1;
 				});
 			});
-		}
+		};
 		updateAvailableTalents();
-		$scope.$watch('character.talents().all().length', function(newVal, oldVal){
+		$scope.$watch('character.talents.all().length', function(newVal, oldVal){
 			updateAvailableTalents();
 		});
 		$scope.newTalent;
@@ -36,7 +36,7 @@ define(function() {
 			$scope.talents.splice(index, 1);
 		}
 
-		$scope.criticalInjuries = character.character().wounds().criticalDamage();
+		$scope.criticalInjuries = character.character.wounds.criticalInjuries;
 		$scope.newCriticalInjury;
 
 		$scope.addCriticalInjury = function() {
@@ -50,7 +50,7 @@ define(function() {
 			$scope.criticalInjuries.splice(index, 1);
 		};
 
-		$scope.mentalDisorders = character.character().insanity().disorders();
+		$scope.mentalDisorders = character.character.insanity.disorders;
 		$scope.newMentalDisorder;
 
 		$scope.addMentalDisorder = function() {
@@ -64,7 +64,7 @@ define(function() {
 			$scope.mentalDisorders.splice(index, 1);
 		};
 
-		$scope.malignancies = character.character().corruption().malignancies();
+		$scope.malignancies = character.character.corruption.malignancies;
 		$scope.newMalignancy;
 
 		$scope.addMalignancy = function() {
@@ -78,7 +78,7 @@ define(function() {
 			$scope.malignancies.splice(index, 1);
 		};
 
-		$scope.mutations = character.character().corruption().mutations();
+		$scope.mutations = character.character.corruption.mutations;
 		$scope.newMutation;
 
 		$scope.addMutation = function() {
@@ -100,7 +100,7 @@ define(function() {
 			leftLeg:{rating:0, providers:[]},
 			rightLeg:{rating:0, providers:[]}
 		};
-		$.each(character.character().equipment.armor().all().map(function(element){return element.item}), function(index, armor){
+		$.each(character.character.equipment.armor.map(function(element){return element.item}), function(index, armor){
 			$.each(armor.locations, function(index, location){
 				switch(location){
 					case "Left Arm":

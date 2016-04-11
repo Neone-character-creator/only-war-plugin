@@ -11,7 +11,7 @@
                         <div class="row">
                             <label for="regiment-name">Regiment</label>
                             <input id="regiment-name" type="text" readonly style="width:90%"
-                                   ng-value="character.regiment().name"/>
+                                   ng-value="character.regiment.name"/>
                         </div>
                         <div class="row">
                             <label for="demeanor">Demeanor</label>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="row">
                             <label>Specialty</label>
-                            <input type="text" readonly style="width:90%" ng-value="character.specialty().name"/>
+                            <input type="text" readonly style="width:90%" ng-value="character.specialty.name"/>
                         </div>
                         <div class="row">
                             <label for="description">Description</label>
@@ -41,7 +41,6 @@
         </div>
     </div>
     <hr/>
-    <span>Tooltip</span>
     <div class="row">
         <div class="col-md-12">
             <table style="width:100%" class="text-center table-bordered">
@@ -49,17 +48,17 @@
                     <td ng-repeat="characteristic in characteristics"
                         ng-mouseenter="characteristicTooltip(characteristic)"
                         uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
-                        tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
+                        tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
                         tooltip-popup-delay="500" tooltip-placement="bottom">
-                        <span class="text-center">{{characteristic.name}}</span>
+                        <span class="text-center">{{characteristic}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td ng-repeat="characteristic in characteristics" class="text-center"
                         uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
-                        tooltip-enable="character.characteristics().byName(characteristic.name.toLowerCase()).total()"
+                        tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
                         tooltip-popup-delay="500" tooltip-placement="bottom">
-                        {{character.characteristics().byName(characteristic.name.toLowerCase()).total()}}
+                        {{character.characteristics[characteristic.toLowerCase()].total()}}
                     </td>
                 </tr>
             </table>
@@ -76,17 +75,17 @@
                     <th>+20</th>
                     <th>+30</th>
                 </tr>
-                <tr ng-repeat="skill in character.skills().all()" class="text-center">
-                    <td>{{skill.name()}}</td>
-                    <td ng-repeat="i in [1,2,3,4]"><input ng-view="skill.advancements()" type="radio"
-                                                          ng-checked="skill.advancements() >= i"
-                                                          ng-click="skill.advancements(i)"/></td>
+                <tr ng-repeat="(skill,rating) in character.skills" class="text-center">
+                    <td>{{skill}}</td>
+                    <td ng-repeat="i in [1,2,3,4]"><input type="radio"
+                                                          ng-checked="rating >= i"
+                                                          ng-click="character.skills[skill]= i"/></td>
                 </tr>
             </table>
         </div>
         Talents & Traits
         <ul>
-            <li ng-repeat="talent in character.talents().all()">{{talent.name}}</li>
+            <li ng-repeat="talent in character.talents">{{talent.name}}</li>
             <li><select ng-model="newTalent">
                 <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</option>
             </select>
@@ -119,7 +118,7 @@
                     <div class="row text-center">
                         <label class="pull-left" for="total-wounds">Total</label>
                         <input class="pull-right" type="text" id="total-wounds" readonly
-                               ng-value="character.wounds().total()"
+                               ng-value="character.wounds.total"
                                style="width:90%"/>
                     </div>
                     <div class="row text-center">
@@ -191,7 +190,7 @@
     <div class="row">
         <div class="col-md-6">
             <table class="table table-bordered">
-                <tbody ng-repeat="weapon in character.equipment.weapons().all()">
+                <tbody ng-repeat="weapon in character.equipment.weapons">
                 <tr colspan="8">Weapon</tr>
                 <tr>
                     <td colspan="1">Name</td>
@@ -223,115 +222,120 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="col-md-6">
             <div class="row">
-                <div class="col-md-6">
-                    Psy Rating <input type="number" id="psy-rating" ngValue="character.psy-rating"/>
-                    <ul>
-                        <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
-                    </ul>
+                <div class="col-md-2 col-md-offset-5"
+                     ng-mouseenter="armorTooltip('head')"
+                     uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                     tooltip-enable="armor.head.rating"
+                     tooltip-popup-delay="500" tooltip-placement="bottom"
+                >
+                    Head (1-10)
+                    <div>
+                        {{armor.head.rating}}
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        Comrade
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
+                     uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                     tooltip-enable="armor.rightArm.rating"
+                     tooltip-popup-delay="500" tooltip-placement="bottom"
+                >
+                    Right Arm (11-20)
+                    <div>
+                        {{armor.rightArm.rating}}
                     </div>
-                    <div class="row">
-                        Name<input type="text" id="comrade-name"/>
+                </div>
+                <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
+                     uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                     tooltip-enable="armor.body.rating"
+                     tooltip-popup-delay="500" tooltip-placement="bottom"
+                >
+                    Body (31-70)
+                    <div>
+                        {{armor.body.rating}}
                     </div>
-                    <div class="row">
-                        Status<input type="text" id="comrade-status">
+                </div>
+                <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
+                     uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                     tooltip-enable="armor.leftArm.rating"
+                     tooltip-popup-delay="500" tooltip-placement="bottom"
+                >
+                    Left Arm (21-30)
+                    <div>
+                        {{armor.leftArm.rating}}
                     </div>
-                    <div class="row">
-                        Special Abilities
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
+                     uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                     tooltip-enable="armor.rightLeg.rating"
+                     tooltip-popup-delay="500" tooltip-placement="bottom"
+                >
+                    Right Leg (71-85)
+                    <div>
+                        {{armor.rightLeg.rating}}
                     </div>
-                    <div class="row">
-                        <ul>
-                            <li ng-repeat="ability in character.comrade.special-abilities">
-                                {{ability.name}}
-                            </li>
-                        </ul>
+                </div>
+                <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
+                     uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                     tooltip-enable="armor.leftLeg.rating"
+                     tooltip-popup-delay="500" tooltip-placement="bottom"
+                >
+                    Left Leg (86-100)
+                    <div>
+                        {{armor.leftLeg.rating}}
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Psy Rating <input type="number" id="psy-rating" ngValue="character.psy-rating"/>
+            <ul>
+                <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
+            </ul>
+        </div>
         <div class="col-md-6">
             <div class="row">
-                <div class="row">
-                    <div class="col-md-2 col-md-offset-5"
-                         ng-mouseenter="armorTooltip('head')"
-                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                         tooltip-enable="armor.head.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Head (1-10)
-                        <div>
-                            {{armor.head.rating}}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
-                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                         tooltip-enable="armor.rightArm.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Right Arm (11-20)
-                        <div>
-                            {{armor.rightArm.rating}}
-                        </div>
-                    </div>
-                    <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
-                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                         tooltip-enable="armor.body.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Body (31-70)
-                        <div>
-                            {{armor.body.rating}}
-                        </div>
-                    </div>
-                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
-                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                         tooltip-enable="armor.leftArm.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Left Arm (21-30)
-                        <div>
-                            {{armor.leftArm.rating}}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
-                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                         tooltip-enable="armor.rightLeg.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Right Leg (71-85)
-                        <div>
-                            {{armor.rightLeg.rating}}
-                        </div>
-                    </div>
-                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
-                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                         tooltip-enable="armor.leftLeg.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Left Leg (86-100)
-                        <div>
-                            {{armor.leftLeg.rating}}
-                        </div>
-                    </div>
-                </div>
+                Comrade
             </div>
             <div class="row">
-                <div class="row">
-                    Gear
-                </div>
-                <div class="row">
-                    <ul>
-                        <li ng-repeat="item in character.equipment.items"></li>
-                    </ul>
-                </div>
+                Name<input type="text" id="comrade-name"/>
+            </div>
+            <div class="row">
+                Status<input type="text" id="comrade-status">
+            </div>
+            <div class="row">
+                Special Abilities
+            </div>
+            <div class="row">
+                <ul>
+                    <li ng-repeat="ability in character.comrade.special-abilities">
+                        {{ability.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="row">
+                Gear
+            </div>
+            <div class="row">
+                <ul>
+                    <li ng-repeat="item in character.equipment.otherGear.all">{{item.count + " x " +
+                        item.item.name}}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -339,17 +343,15 @@
         Experience
     </div>
     <div class="row">
-        XP to Spend <input type="number" ng-value="character.xp-available"/>
+        XP to Spend <input type="number" ng-value="character.experience.available"/>
     </div>
     <div class="row">
-        Total XP Spent <input type="number" ng-value="character.xp-total"/>
+        Total XP Spent <input type="number" ng-value="character.experience.total"/>
     </div>
     <div class="row">
         Aptitudes
         <ul>
-            <li ng-repeat="aptitude in character.aptitudes">{{aptitude}}</li>
+            <li ng-repeat="aptitude in character.aptitudes.all">{{aptitude}}</li>
         </ul>
     </div>
-</div>
-</div>
 </div>
