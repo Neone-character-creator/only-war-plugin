@@ -56,10 +56,10 @@ define(function() {
 						var name = element;
 						var specialization = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
 						element = element.substring(0, specialization ? element.indexOf("(") : element.length).trim();
-						element = Object.clone(result.filter(function(talent) {
+						element = angular.copy(result.filter(function(talent) {
 							return element === talent.name;
 						})[0]);
-						if (!element.name) {
+						if (!element) {
 							throw "Tried to get a talent name " + name + " but couldn't find it."
 						}
 						if (specialization) {
@@ -80,7 +80,7 @@ define(function() {
 						var name = element;
 						var rating = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
 						element = element.substring(0, rating ? element.indexOf("(") : element.length).trim();
-						element = Object.clone(result.filter(function(talent) {
+						element = angular.copy(result.filter(function(talent) {
 							return element === talent.name;
 						})[0]);
 						if (!element.name) {
@@ -163,17 +163,17 @@ define(function() {
 									switch(option.property[1]){
 										case "main weapon":
 										case "other weapons":
-										option.value.item = Object.clone(result[2].filter(function(talent) {
+										option.value.item = angular.copy(result[2].filter(function(talent) {
 											return option.value.item === talent.name;
 										})[0]);
 										break;
 										case "armor":
-										option.value.item = Object.clone(result[3].filter(function(talent) {
+										option.value.item = angular.copy(result[3].filter(function(talent) {
 											return option.value.item === talent.name;
 										})[0]);
 										break;
 										case "other gear":
-										option.value.item = Object.clone(result[4].filter(function(talent) {
+										option.value.item = angular.copy(result[4].filter(function(talent) {
 											return option.value.item === talent.name;
 										})[0]);
 										break;
@@ -186,10 +186,10 @@ define(function() {
 									var name = option.value;
 									var specialization = option.value.indexOf("(") < 0 ? null : option.value.substring(option.value.indexOf("(") + 1, option.value.indexOf(")"));
 									option.value = option.value.substring(0, specialization ? option.value.indexOf("(") : option.value.length).trim();
-									option.value = Object.clone(result[0].filter(function(talent) {
+									option.value = angular.copy(result[0].filter(function(talent) {
 										return option.value === talent.name;
 									})[0]);
-									if (!option.value.name) {
+									if (!option.value) {
 										throw "Tried to get a talent name " + name + " but couldn't find it."
 									}
 									if (specialization) {
