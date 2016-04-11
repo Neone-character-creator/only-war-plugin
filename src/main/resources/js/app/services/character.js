@@ -252,8 +252,12 @@ define(function() {
 				talents: [],
 				traits: [],
 				wounds: {
-					total: 0,
-					modifiers: [],
+					get total(){
+						this.modifiers.reduce(function(previous,next){
+							return previous.modifier + next.modifier;
+						}, 0);
+					},
+					modifiers: [{"name" : "rolled", "modifier" : 0}],
 					criticalInjuries: []
 				},
 				insanity: {
