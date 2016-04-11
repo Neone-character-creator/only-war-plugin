@@ -20,7 +20,7 @@
                 <button class="btn btn-standard" ng-click="rollFP()">Roll</button>
                 <br/>
             </div>
-            Fate Points : <input type="number" ng-model="character.fatePoints().total"
+            Fate Points : <input type="number" ng-model="character.fatePoints.total"
                                  ng-model-options="{ getterSetter: true }"/>
         </div>
         <hr/>
@@ -63,7 +63,7 @@
                                     </tr>
                                     <tr>
                                         <td ng-repeat="aptitude in displayedOption.aptitudes"
-                                            ng-style="{'background-color': character.aptitudes().all().indexOf(aptitude) !== -1 ? 'green' : 'red'}">
+                                            ng-style="{'background-color': character.aptitudes.all.indexOf(aptitude) !== -1 ? 'green' : 'red'}">
                                             {{aptitude}}
                                         </td>
                                     </tr>
