@@ -1,16 +1,19 @@
 define(function() {
-	return function($scope, $state, specialties, character, selection, $uibModal, characteroptions) {
-		characteroptions.specialties().then(function(names) {
+	return function(associatedServiceName){
+	var associatedServiceName = associatedServiceName;
+		return function($scope, $state, $injector ,character, selection, $uibModal, characteroptions) {
+		characteroptions.regiments().then(function(names) {
 			$scope.available = names;
 		});
-		$scope.character = character.character();
-		$scope.selected = specialties.selected();
-		$scope.requiredSelections = specialties.remainingSelections();
+		$scope.character = character.character;
+		var modifierService = $injector.get(associatedServiceName);
+		$scope.selected = modifierService.selected();
+		$scope.requiredSelections = modifierService.remainingSelections();
 
 		var suppressDialog = false;
 
 		$scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams) {
-			if (fromState = "specialty" && toState !== fromState && specialties.remainingSelections().length !== 0) {
+			if (toState !== fromState && modifierService.remainingSelections().length !== 0) {
 				var resultHandler = function(result) {
 					if (result) {
 						suppressDialog = true;
@@ -27,15 +30,15 @@ define(function() {
 			}
 		});
 
-		$scope.select = function(specialty) {
+		$scope.select = function(regiment) {
 			var confirm;
 			var proceed = function() {
-				specialties.selectSpecialty(specialty);
-				$scope.requiredSelections = specialties.remainingSelections();
-				character.character().specialty(specialty);
-				$scope.selected = specialties.selected();
+				modifierService.select(regiment);
+				$scope.requiredSelections = modifierService.remainingSelections();
+				character.character.regiment = regiment;
+				$scope.selected = modifierService.selected();
 			}
-			if (specialties.selected() && !specialties.selectionComplete) {
+			if (modifierService.selected() && !modifierService.selectionComplete) {
 				confirm = $uibModal.open({
 					controller: "ConfirmationController",
 					templateUrl: "templates/confirm-discard-changes-modal.html"
@@ -49,14 +52,15 @@ define(function() {
 		};
 
 		$scope.openSelectionModal = function(selectedObject) {
-			selection.target = specialties.selected();
-			selection.associatedService = specialties;
+			selection.target = modifierService.selected();
+			selection.associatedService = modifierService;
 			selection.selectionObject = selectedObject;
 			$uibModal.open({
 				controller: "SelectionModalController",
 				templateUrl: 'templates/selection-modal.html',
 			}).result.then(function() {
-				$scope.selected = specialties.selected();
+				$scope.selected = modifierService.selected();
+				character.character.regiment = $scope.selected;
 			});
 		};
 
@@ -67,4 +71,4 @@ define(function() {
 			});
 		}
 	}
-});
+}});
