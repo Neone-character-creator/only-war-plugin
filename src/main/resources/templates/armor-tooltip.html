@@ -1,3 +1,5 @@
 <div ng-controller="ArmorTooltipController">
-    <span ng-repeat="armor in providers">{{armor.name + ":" + armor.ap}}</span>
+    <div class="text-center" ng-repeat="armor in providers">
+        {{armor.name + ": " + armor.ap}}
+    </div>
 </div>
