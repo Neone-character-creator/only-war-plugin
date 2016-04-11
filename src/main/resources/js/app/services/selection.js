@@ -31,28 +31,24 @@ define(function() {
 							if (fixedModifier[properties[p]] === undefined) {
 								switch (properties[p]) {
 									case 'character kit':
-									case 'other weapons':
-									case 'armor':
-									case 'other gear':
 									case 'characteristics':
 										fixedModifier[properties[p]] = {};
 										break;
 									case "talents":
+									case 'other weapons':
+									case 'armor':
+									case 'other gear':
 										fixedModifier[properties[p]] = [];
 										break;
 								};
 							}
 							fixedModifier = fixedModifier[properties[p]];
 						};
-						if (typeof chosen[sub].value === 'object') {
-							for (var prop in chosen[sub].value) {
-								if (chosen[sub].value.hasOwnProperty(prop)) {
-									fixedModifier[prop] = chosen[sub].value[prop];
-								}
-							}
-						} else {
+						if (Array.isArray(fixedModifier)) {
 							fixedModifier.push(chosen[sub].value);
-						};
+						} else {
+							fixedModifier[chosen[sub].value.item.name] =chosen[sub].value.item;
+						}
 					}
 				})
 				associatedService.remainingSelections().splice(associatedService.remainingSelections().indexOf(selectionObject), 1);
