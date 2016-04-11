@@ -24,7 +24,7 @@
 		"availability" : "Common"
 	},
 	{
-		"name" : "Photo-Visors/Contacts",
+		"name" : "Photo-Visors",
 		"weight" : 0.5,
 		"description" : "",
 		"availability" : "Scarce"
@@ -753,14 +753,9 @@
 		"availability" : "Very Rare"
 	},
 	{
-		"name" : "Respirator Filter Implant",
+		"name" : "Respiratory Filter Implant",
 		"weight" : 0,
 		"availability" : "Rare"
-	},
-	{
-		"name" : "Subskin Armor",
-		"weight" : 0,
-		"availability" : "Very Rare"
 	},
 	{
 		"name" : "Synthmuscle",

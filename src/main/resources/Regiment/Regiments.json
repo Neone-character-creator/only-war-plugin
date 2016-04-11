@@ -768,7 +768,7 @@
           },
           {
             "item": {
-              "name": "Photo-visor"
+              "name": "Photo-Visor"
             },
             "count": 1
           }
@@ -920,7 +920,7 @@
           },
           {
             "item": {
-              "name": "Photo-visor"
+              "name": "Photo-Visor"
             },
             "count": 1
           },
@@ -1696,13 +1696,13 @@
         "armor": [
           {
             "item": {
-              "name": "Flak Jacket"
+              "name": "Flak Vest"
             },
             "count": 1
           },
           {
             "item": {
-              "name": "Flak Helm"
+              "name": "Flak Helmet"
             },
             "count": 1
           }
@@ -1918,7 +1918,7 @@
         "armor": [
           {
             "item": {
-              "name": "Flak Armor"
+              "name": "Imperial Guard Flak Armor"
             },
             "count": 1
           }
@@ -2004,7 +2004,7 @@
           },
           {
             "item": {
-              "name": "Photo-visor"
+              "name": "Photo-Visor"
             },
             "count": 1
           }
@@ -2116,7 +2116,7 @@
         "armor": [
           {
             "item": {
-              "name": "Flak Jacket"
+              "name": "Flak Vest"
             },
             "count": 1
           },
@@ -2315,16 +2315,7 @@
         "armor": [
           {
             "item": {
-              "name": "Carapace Armor",
-              "upgrades": [
-                "Environmentally Sealed"
-              ]
-            },
-            "count": 1
-          },
-          {
-            "item": {
-              "name": "Carapace Helmet",
+              "name": "Storm Trooper Carapace",
               "upgrades": [
                 "Environmentally Sealed"
               ]
@@ -2404,15 +2395,6 @@
               "name": "Weeks' Rations"
             },
             "count": 4
-          },
-          {
-            "item": {
-              "name": "Helmet",
-              "upgrades": [
-                "Micro-bead"
-              ]
-            },
-            "count": 1
           },
           {
             "item": {
@@ -2804,18 +2786,6 @@
           },
           {
             "item": {
-              "name": "Flak Vest"
-            },
-            "count": 1
-          },
-          {
-            "item": {
-              "name": "Flak Helmet"
-            },
-            "count": 1
-          },
-          {
-            "item": {
               "name": "Inhaler"
             },
             "count": 1
@@ -3010,7 +2980,7 @@
         "armor": [
           {
             "item": {
-              "name": "Flak Jacket"
+              "name": "Flak Vest"
             },
             "count": 1
           },
@@ -3186,7 +3156,7 @@
         "main weapon": [
           {
             "item": {
-              "name": "M36 Lasun"
+              "name": "M36 Lasgun"
             },
             "count": 1
           }
@@ -3214,7 +3184,7 @@
         "armor": [
           {
             "item": {
-              "name": "Flak Greatcoat",
+              "name": "Flak Coat",
               "upgrades": [
                 "Thermal Insulated"
               ]

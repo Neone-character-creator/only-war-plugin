@@ -1179,7 +1179,7 @@
         "other gear": [
           {
             "item": {
-              "name": "Data-slate"
+              "name": "Data-Slate"
             },
             "count": 1
           },
@@ -1381,13 +1381,13 @@
           },
           {
             "item": {
-              "name": "Dataslate"
+              "name": "Data-Slate"
             },
             "count": 1
           },
           {
             "item": {
-              "name": "Combi-tool"
+              "name": "Combi-Tool"
             },
             "count": 1
           },
@@ -1507,7 +1507,7 @@
         [{"property" : ["character kit", "other gear"],
           "value" : {"item" : {"name" : "Cerebral Implants", "craftsmanship" : "Good"}, "count" : 1}
         }],
-        [{"property" : ["character kit", "other gear"],
+        [{"property" : ["character kit", "armor"],
           "value" : {"item" : {"name" : "Cranial Armor", "craftsmanship" : "Good"}, "count" : 1}
         }],
         [{"property" : ["character kit", "other gear"],
@@ -1552,7 +1552,7 @@
         [{"property" : ["character kit", "other gear"],
           "value" : {"item" : {"name" : "Respiratory Filter Implant", "craftsmanship" : "Good"}, "count" : 1}
         }],
-        [{"property" : ["character kit", "other gear"],
+        [{"property" : ["character kit", "armor"],
           "value" : {"item" : {"name" : "Subskin Armor", "craftsmanship" : "Good"}, "count" : 1}
         }],
         [{"property" : ["character kit", "other gear"],
