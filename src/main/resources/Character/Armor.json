@@ -168,5 +168,19 @@
 		"ap" : 6,
 		"weight" : 15,
 		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Subskin Armor",
+		"weight" : 0,
+		"locations" : ["Right Arm", "Left Arm", "Body", "Right Leg", "Left Leg"],
+		"ap" : 3,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Cranial Armor",
+		"weight" : 0,
+		"locations" : ["Head"],
+		"ap" : 1,
+		"availability" : "Very Rare"
 	}
 ]
