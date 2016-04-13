@@ -22,12 +22,7 @@ define(function() {
 						var fixedModifier = target['fixed modifiers'];
 						var properties;
 						if (Array.isArray(chosen[sub]["property"])) {
-							properties = chosen[sub]["property"];
-						} else {
-							properties = [chosen[sub]["property"]];
-						};
-
-						for (var p = 0; p < properties.length; p++) {
+							for (var p = 0; p < properties.length; p++) {
 							if (fixedModifier[properties[p]] === undefined) {
 								switch (properties[p]) {
 									case 'character kit':
@@ -44,10 +39,13 @@ define(function() {
 							}
 							fixedModifier = fixedModifier[properties[p]];
 						};
-						if (Array.isArray(fixedModifier)) {
-							fixedModifier.push(chosen[sub].value);
 						} else {
-							fixedModifier[chosen[sub].value.item.name] =chosen[sub].value.item;
+							fixedModifier = fixedModifier[chosen[sub]['property']];
+							if(Array.isArray(fixedModifier)){
+								fixedModifier.push(chosen[sub].value);
+							} else if(typeof fixedModifier === 'object') {
+								fixedModifier[chosen[sub].property] = chosen[sub].value;
+							}
 						}
 					}
 				})
