@@ -33,7 +33,7 @@
 	"name": "Common Lore",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "General"],
-	"specializations" : true
+	"specialization" : true
 },
 {
 	"name": "Deceive",
@@ -49,7 +49,7 @@
 	"name": "Forbidden Lore",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "Knowledge"],
-	"specializations" : true
+	"specialization" : true
 },
 {
 	"name": "Inquiry",
@@ -70,7 +70,7 @@
 	"name": "Linguistics",
 	"characteristic": "Fellowship",
 	"aptitudes": ["Intelligence", "General"],
-	"specializations" : true
+	"specialization" : true
 },
 {
 	"name": "Logic",
@@ -86,13 +86,13 @@
 	"name": "Navigate",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "Fieldcraft"],
-	"specializations" : true
+	"specialization" : true
 },
 {
 	"name": "Operate",
 	"characteristic": "Agility",
 	"aptitudes": ["Agility", "Fieldcraft"],
-	"specializations" : true
+	"specialization" : true
 },
 {
 	"name": "Parry",
@@ -108,7 +108,7 @@
 	"name": "Scholastic Lore",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "Knowledge"],
-	"specializations" : true
+	"specialization" : true
 },
 {
 	"name": "Scrutiny",
@@ -144,6 +144,6 @@
 	"name": "Trade",
 	"characteristic": "Intelligence",
 	"aptitudes": ["Intelligence", "General"],
-	"specializations" : true
+	"specialization" : true
 }
 ]

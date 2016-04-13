@@ -528,7 +528,7 @@
       "General",
       "Offense"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "You are despised and possibly hunted by a particular group or organization. Suffer a -10 Fellowship penalty to Fellowship Tests when dealing with that group."
   },
   {
@@ -539,7 +539,7 @@
       "General",
       "Offense"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "You suffer no untrained penalty with an Exotic Weapon."
   },
   {
@@ -763,7 +763,7 @@
       "Weapon Skill",
       "Social"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "When you fight opponents of the subject of your hatred in close combat, gain a +10 bonus to all Weapon Skill Tests and must make a Willpower Test to retreat or surrender to them."
   },
   {
@@ -774,7 +774,7 @@
       "Perception",
       "Fieldcraft"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "Gain a +10 bonus to any Tests specifically involving the selected sense."
   },
   {
@@ -1266,7 +1266,7 @@
       "Fellowship",
       "Leadership"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "Placeholder"
   },
   {
@@ -1417,7 +1417,7 @@
       "Toughness",
       "Defence"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "You gain a +10 bonus to all Fellowship Tests to interact with the chosen group."
   },
   {
@@ -1600,7 +1600,7 @@
       "Agility",
       "Offence"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "You gain a +10 bonus to resist effects of the chosen type."
   },
   {
@@ -2197,7 +2197,7 @@
       "General",
       "Finesse"
     ],
-    "specializations": true,
+    "specialization": true,
     "description": "You suffer no penalty to Weapon Skill or Ballistic Skill tests with the chosen weapons."
   },
   {
@@ -3061,7 +3061,7 @@
     "name": "Ranged Weapon Expert",
     "source": "hammer of the emperor",
     "tier": 3,
-    "specializations" : "true",
+    "specialization" : true,
     "prerequisites": [
       {
         "property": "skill",
