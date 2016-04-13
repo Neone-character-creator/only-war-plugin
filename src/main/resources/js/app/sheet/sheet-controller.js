@@ -9,8 +9,7 @@ define(function() {
 			characteristicTooltipService.displayed = characteristic;
 		}
 
-		$scope.talents = character.character.talents.all;
-		var availableTalents = characteroptions.talents.the
+		$scope.talents = character.character.talents;
 
 		function updateAvailableTalents(){
 			characteroptions.talents().then(function(result){
@@ -27,8 +26,19 @@ define(function() {
 
 		$scope.addTalent = function(){
 			if($scope.newTalent){
-				$scope.talents.push($scope.availableTalents[$scope.newTalent]);
-				$scope.newTalent = null;
+				var newTalent = $scope.availableTalents[$scope.newTalent];
+				var matchingAptitudes = 0;
+				var xpCost;
+				for (var a = 0; a < newTalent.aptitudes; a++) {
+					if (character.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+						matchingAptitudes++;
+					}
+				}
+				characteroptions.xpCosts().then(function(result) {
+					xpCost = new Number(result.talents.advances[newTalent.tier - 1]['cost by aptitudes'][matchingAptitudes]);
+					character.character.experience.addAdvancement(xpCost, "talents", newTalent);
+					$scope.newTalent = null;
+				});
 			}
 		}
 

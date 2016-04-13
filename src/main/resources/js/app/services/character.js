@@ -208,7 +208,7 @@ define(function() {
 		};
 
 		function character(original) {
-			return {
+			var character = {
 				name: "",
 				player: "",
 				_regiment: null,
@@ -289,8 +289,31 @@ define(function() {
 				},
 				experience: {
 					total: 0,
-					available: 0,
-					advancementsBought: []
+					_available : 0,
+					_advancementsBought: [],
+					get available(){
+						return this._available;
+					},
+					set available(value){
+						this.total += value - this._available;
+						this._available = value;
+					},
+					addAdvancement(xp, propertyModified, value){
+						this._advancementsBought.push(new Advancement(xp, propertyModified, value));
+						this.available -= xp;
+						if(typeof propertyModified === "string"){
+							switch(propertyModified){
+								case "talents":
+									character.talents.push(value);
+								break;
+								case "skills":
+								break;
+							}
+						}
+					},
+					removeAdvancement(index){
+
+					}
 				},
 				aptitudes: {
 					base: ["General"],
@@ -308,7 +331,7 @@ define(function() {
 				fatigue: 0,
 			};
 
-			return _character;
+			return character;
 		}
 		var _character = new character();
 		var service = {
