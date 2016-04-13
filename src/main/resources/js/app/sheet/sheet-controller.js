@@ -67,7 +67,43 @@ define(function() {
 				character.character.experience.addAdvancement($scope.newSkillXpCost, "skills", newSkill);
 				$scope.newSkill = null;
 			}
+		};
+
+		$scope.setSkillLevel = function(skillName, newRating){
+			if(skillName && newRating && character.character.skills[skillName] !== newRating){
+				//If the new rating is an increase, determine how many new levels are needed.
+				if(newRating - character.character.skills[skillName] > 0){
+					if(skillName.indexOf("(") !== -1){
+						skillName = skillName.substring(0, skillName.indexOf("(")).trim();
+					};
+					var matchingAptitudes = 0;
+					characteroptions.skills().then(function(result){
+						for(var i = character.character.skills[skillName]+1; i <= newRating; i++){
+							$.each(result, function(index, element){
+								if(element.name === skillName){
+									var newRating = i;
+									for (var a = 0; a < element.aptitudes; a++) {
+										if (character.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+											matchingAptitudes++;
+										};
+									};
+									characteroptions.xpCosts().then(function(result) {
+										var xpCost = new Number(result.skills.advances[newRating - 1]['cost by aptitudes'][matchingAptitudes]);
+										var newSkill = {};
+										if($scope.newSkillSpecialization){
+											skillName += " (" + $scope.newSkillSpecialization + ")";
+										};
+										newSkill[skillName] = newRating;
+										character.character.experience.addAdvancement(xpCost, "skills", newSkill);
+									});
+									return false;
+								};
+							});
+						}
+				});
+			}
 		}
+	}
 
 
 		$scope.newTalent;

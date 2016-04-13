@@ -79,7 +79,7 @@
                     <td>{{skill}}</td>
                     <td ng-repeat="i in [1,2,3,4]"><input type="radio"
                                                           ng-checked="rating >= i"
-                                                          ng-click="character.skills[skill] = i"/></td>
+                                                          ng-click="setSkillLevel(skill, i)"/></td>
                 </tr>
             </table>
             <select ng-model="newSkill">
