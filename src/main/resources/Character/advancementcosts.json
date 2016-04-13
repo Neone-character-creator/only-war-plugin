@@ -63,9 +63,9 @@
         "name": "Experienced",
         "modifier": 10,
         "cost by aptitudes": {
-          "0": 300,
-          "1": 200,
-          "2": 100
+          "0": 900,
+          "1": 600,
+          "2": 300
         }
       },
       {
