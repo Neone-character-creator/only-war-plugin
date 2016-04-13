@@ -89,7 +89,7 @@
             <li><select ng-model="newTalent">
                 <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</option>
             </select>
-                <button ng-click="addTalent()">Add</button>
+                <button ng-click="addTalent()">Add Talent</button>
             </li>
         </ul>
 
@@ -343,10 +343,12 @@
         Experience
     </div>
     <div class="row">
-        XP to Spend <input type="number" ng-value="character.experience.available"/>
+        Available Xp <input type="number" ng-model="character.experience.available"
+    uib-tooltip="Set the amount of available xp here."/>
+        {{character.experience.available}}
     </div>
     <div class="row">
-        Total XP Spent <input type="number" ng-value="character.experience.total"/>
+        Total XP <input type="number" ng-value="character.experience.total" readonly/>
     </div>
     <div class="row">
         Aptitudes
