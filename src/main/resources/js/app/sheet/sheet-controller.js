@@ -55,6 +55,22 @@ define(function() {
 				});
 			}
 		});
+		$scope.$watch('newTalent', function(newVal){
+			if(newVal){
+				var newTalent = angular.copy($scope.availableTalents[$scope.newTalent]);
+				var matchingAptitudes = 0;
+				for (var a = 0; a < newTalent.aptitudes; a++) {
+					if (character.character.aptitudes.all().indexOf(newTalent.aptitudes[a]) !== -1) {
+						matchingAptitudes++;
+					}
+				}
+
+				characteroptions.xpCosts().then(function(result) {
+					$scope.newTalentXpCost = new Number(result.talents.advances[newTalent.tier-1]['cost by aptitudes'][matchingAptitudes]);
+				});
+			}
+		});
+
 		$scope.addSkill = function(){
 			if($scope.newSkill){
 				var selectedSkill = $scope.availableSkills[$scope.newSkill];
@@ -154,6 +170,7 @@ define(function() {
 						matchingAptitudes++;
 					}
 				}
+				newTalent.boughtAsAdvancement = true;
 				characteroptions.xpCosts().then(function(result) {
 					xpCost = new Number(result.talents.advances[newTalent.tier - 1]['cost by aptitudes'][matchingAptitudes]);
 					character.character.experience.addAdvancement(xpCost, "talents", newTalent);
@@ -163,7 +180,8 @@ define(function() {
 		}
 
 		$scope.removeTalent = function(index){
-			$scope.talents.splice(index, 1);
+			var talent = $scope.availableTalents[index];
+			character.character.experience.removeAdvancement(character.character.experience._advancementsBought)
 		}
 
 		$scope.criticalInjuries = character.character.wounds.criticalInjuries;

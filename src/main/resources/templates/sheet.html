@@ -76,7 +76,10 @@
                     <th>+30</th>
                 </tr>
                 <tr ng-repeat="(skill,rating) in character.skills" class="text-center">
-                    <td>{{skill}}<button ng-click="removeSkill(skill)" uib-tooltip="Click to remove all skill advancements"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    <td>{{skill}}
+                        <button ng-click="removeSkill(skill)" uib-tooltip="Click to remove all skill advancements"><span
+                                class="glyphicon glyphicon-remove"></span></button>
+                    </td>
                     <td ng-repeat="i in [1,2,3,4]"><input type="radio"
                                                           ng-checked="rating >= i"
                                                           ng-click="setSkillLevel(skill, i)"/></td>
@@ -85,7 +88,10 @@
             <select ng-model="newSkill">
                 <option ng-repeat="skill in availableSkills" value="{{$index}}">{{skill.name}}</option>
             </select>
-            <button class="btn btn-standard" ng-click="addSkill()" ng-disabled="!newSkill || (availableSkills[newSkill].specialization && !newSkillSpecialization)">Add New Skill {{newSkillXpCost ? "("+newSkillXpCost+" xp )" : ""}}</button>
+            <button class="btn btn-standard" ng-click="addSkill()"
+                    ng-disabled="!newSkill || (availableSkills[newSkill].specialization && !newSkillSpecialization)">Add
+                New Skill {{newSkillXpCost ? "("+newSkillXpCost+" xp )" : ""}}
+            </button>
             <div ng-show="availableSkills[newSkill].specialization">
 
                 Specialization:<input type="text" ng-model="newSkillSpecialization"/>
@@ -93,11 +99,16 @@
         </div>
         <h4>Talents & Traits</h4>
         <ul>
-            <li ng-repeat="talent in character.talents">{{talent.name}}</li>
+            <li ng-repeat="talent in character.talents">{{talent.name}}
+                <button ng-click="removeTalent($index)" uib-tooltip="Click to remove this talent advancement"
+                        ng-show="talent.boughtAsAdvancement">
+                    <span class="glyphicon glyphicon-remove"></span>
+            </li>
             <li><select ng-model="newTalent">
-                <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</option>
+                <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</button>
+                </option>
             </select>
-                <button ng-click="addTalent()">Add Talent</button>
+                <button class="btn btn-standard" ng-click="addTalent()" ng-disabled="!newTalent">Add Talent {{newTalentXpCost ? " (" + newTalentXpCost + " xp)" : ""}}</button>
             </li>
         </ul>
 
