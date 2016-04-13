@@ -79,11 +79,19 @@
                     <td>{{skill}}</td>
                     <td ng-repeat="i in [1,2,3,4]"><input type="radio"
                                                           ng-checked="rating >= i"
-                                                          ng-click="character.skills[skill]= i"/></td>
+                                                          ng-click="character.skills[skill] = i"/></td>
                 </tr>
             </table>
+            <select ng-model="newSkill">
+                <option ng-repeat="skill in availableSkills" value="{{$index}}">{{skill.name}}</option>
+            </select>
+            <button class="btn btn-standard" ng-click="addSkill()" ng-disabled="!newSkill || (availableSkills[newSkill].specialization && !newSkillSpecialization)">Add New Skill {{newSkillXpCost ? "("+newSkillXpCost+" xp )" : ""}}</button>
+            <div ng-show="availableSkills[newSkill].specialization">
+
+                Specialization:<input type="text" ng-model="newSkillSpecialization"/>
+            </div>
         </div>
-        Talents & Traits
+        <h4>Talents & Traits</h4>
         <ul>
             <li ng-repeat="talent in character.talents">{{talent.name}}</li>
             <li><select ng-model="newTalent">
@@ -344,7 +352,7 @@
     </div>
     <div class="row">
         Available Xp <input type="number" ng-model="character.experience.available"
-    uib-tooltip="Set the amount of available xp here."/>
+                            uib-tooltip="Set the amount of available xp here."/>
         {{character.experience.available}}
     </div>
     <div class="row">

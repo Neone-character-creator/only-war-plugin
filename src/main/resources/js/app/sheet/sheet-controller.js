@@ -9,7 +9,19 @@ define(function() {
 			characteristicTooltipService.displayed = characteristic;
 		}
 
-		$scope.talents = character.character.talents;
+		function updateAvailableSkills(){
+			characteroptions.skills().then(function(result){
+				$scope.availableSkills = result.filter(function(element){
+					for(var skill in character.character.skills){
+						if(skill === element.name){
+							return false;
+						}
+					}
+					return true;
+				});
+			});
+		};
+		updateAvailableSkills();
 
 		function updateAvailableTalents(){
 			characteroptions.talents().then(function(result){
@@ -19,9 +31,45 @@ define(function() {
 			});
 		};
 		updateAvailableTalents();
+		$scope.newSkillSpecialization;
+
+		$scope.$watch('character.skills', function(){
+			updateAvailableTalents();
+		});
+
 		$scope.$watch('character.talents.all().length', function(newVal, oldVal){
 			updateAvailableTalents();
 		});
+
+		$scope.$watch('newSkill', function(newVal, oldVal){
+			if(newVal){
+				var newSkill = angular.copy($scope.availableSkills[$scope.newSkill]);
+				var matchingAptitudes = 0;
+				for (var a = 0; a < newSkill.aptitudes; a++) {
+					if (character.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+						matchingAptitudes++;
+					}
+				}
+				characteroptions.xpCosts().then(function(result) {
+					$scope.newSkillXpCost = new Number(result.skills.advances[0]['cost by aptitudes'][matchingAptitudes]);
+				});
+			}
+		});
+		$scope.addSkill = function(){
+			if($scope.newSkill){
+				var selectedSkill = $scope.availableSkills[$scope.newSkill];
+				var name = selectedSkill.name;
+				var newSkill = {};
+				if($scope.newSkillSpecialization){
+					name += " (" + $scope.newSkillSpecialization + ")";
+				}
+				newSkill[name] = 1;
+				character.character.experience.addAdvancement($scope.newSkillXpCost, "skills", newSkill);
+				$scope.newSkill = null;
+			}
+		}
+
+
 		$scope.newTalent;
 
 		$scope.addTalent = function(){
