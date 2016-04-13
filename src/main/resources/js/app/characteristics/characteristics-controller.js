@@ -27,7 +27,7 @@ define(function(){
     var suppressDialog = false;
     var isComplete = function(){
 		for(var characteristic in character.character.characteristics){
-			if(character.character.characteristics[characteristic[characteristic]].rolled === 0){
+			if(character.character.characteristics[characteristic].rolled === 0){
 				return false;
 			}
 		}
