@@ -68,6 +68,7 @@ define(function() {
 				};
 				character.character.experience.addAdvancement($scope.newSkillXpCost, "skills", newSkill);
 				$scope.newSkill = null;
+				updateAvailableSkills();
 			}
 		};
 
@@ -125,7 +126,21 @@ define(function() {
 			}
 		}
 	}
-
+		$scope.removeSkill = function(skillName){
+			var indexesToRemove = [];
+			$.each(character.character.experience._advancementsBought, function(index, element){
+				if(element.property === "skills" && element.value.name == skillName){
+					indexesToRemove.push(index);
+				}
+			});
+			indexesToRemove = indexesToRemove.sort(function(a, b){
+				return b-a;
+			});
+			$.each(indexesToRemove, function(index, indexToRemove){
+				character.character.experience.removeAdvancement(indexToRemove);
+			});
+			updateAvailableSkills();
+		}
 
 		$scope.newTalent;
 
