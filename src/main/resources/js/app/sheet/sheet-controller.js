@@ -59,18 +59,20 @@ define(function() {
 			if($scope.newSkill){
 				var selectedSkill = $scope.availableSkills[$scope.newSkill];
 				var name = selectedSkill.name;
-				var newSkill = {};
 				if($scope.newSkillSpecialization){
 					name += " (" + $scope.newSkillSpecialization + ")";
 				}
-				newSkill[name] = 1;
+				var newSkill = {
+					name : name,
+					rating : 1
+				};
 				character.character.experience.addAdvancement($scope.newSkillXpCost, "skills", newSkill);
 				$scope.newSkill = null;
 			}
 		};
 
 		$scope.setSkillLevel = function(skillName, newRating){
-			if(skillName && newRating && character.character.skills[skillName] !== newRating){
+			if(skillName && newRating){
 				//If the new rating is an increase, determine how many new levels are needed.
 				if(newRating - character.character.skills[skillName] > 0){
 					if(skillName.indexOf("(") !== -1){
@@ -89,11 +91,13 @@ define(function() {
 									};
 									characteroptions.xpCosts().then(function(result) {
 										var xpCost = new Number(result.skills.advances[newRating - 1]['cost by aptitudes'][matchingAptitudes]);
-										var newSkill = {};
 										if($scope.newSkillSpecialization){
 											skillName += " (" + $scope.newSkillSpecialization + ")";
 										};
-										newSkill[skillName] = newRating;
+										var newSkill = {
+											name : skillName,
+											rating : newRating
+										};
 										character.character.experience.addAdvancement(xpCost, "skills", newSkill);
 									});
 									return false;
@@ -101,6 +105,23 @@ define(function() {
 							});
 						}
 				});
+			} else if(newRating - character.character.skills[skillName] < 0){
+				for(var i = character.character.skills[skillName]; i >= newRating; i--){
+					//Look for any advancements that increased the skill between the current rating and the new one
+					var indexesToRemove =[];
+					$.each(character.character.experience._advancementsBought, function(index, element){
+						if(element.property === "skills" && element.value.rating > newRating){
+							indexesToRemove.push(index);
+						}
+					});
+					//Sort and reverse the array. Removing elements backwards means that each change to the array  won't affect the index of the next item to remove.
+					indexesToRemove = indexesToRemove.sort(function(a, b){
+						return b-a;
+					})
+					$.each(indexesToRemove, function(loopIndex, indexToRemove){
+						character.character.experience.removeAdvancement(indexToRemove);
+					})
+				}
 			}
 		}
 	}
