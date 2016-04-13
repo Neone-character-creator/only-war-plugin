@@ -158,13 +158,11 @@ define(function() {
 								switch(option.property[0]){
 									case "character kit" :
 									var name = option.value.item.name;
-									var specialization = option.value.item.name.indexOf("(") < 0 ? null : option.value.item.name.substring(option.value.indexOf("(") + 1, option.value.item.name.indexOf(")"));
-									option.value.item = option.value.item.name.substring(0, specialization ? option.value.item.name.indexOf("(") : option.value.item.name.length).trim();
 									switch(option.property[1]){
 										case "main weapon":
 										case "other weapons":
 										option.value.item = angular.copy(result[2].filter(function(talent) {
-											return option.value.item === talent.name;
+											return option.value.item.name === talent.name;
 										})[0]);
 										break;
 										case "armor":
