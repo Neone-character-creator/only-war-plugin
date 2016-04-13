@@ -2,11 +2,19 @@ define(function() {
 	return function(associatedServiceName){
 	var associatedServiceName = associatedServiceName;
 		return function($scope, $state, $injector ,character, selection, $uibModal, characteroptions) {
-		characteroptions.regiments().then(function(names) {
-			$scope.available = names;
-		});
+		switch(associatedServiceName){
+			case "regiments":
+			characteroptions.regiments().then(function(names) {
+				$scope.available = names;
+			});
+			case "specialties":
+			characteroptions.specialties().then(function(names) {
+				$scope.available = names;
+			});
+		}
 		$scope.character = character.character;
 		var modifierService = $injector.get(associatedServiceName);
+
 		$scope.selected = modifierService.selected();
 		$scope.requiredSelections = modifierService.remainingSelections();
 
