@@ -73,7 +73,7 @@ define(function() {
 							_character.psychicPowers.bonusXp = modifier['fixed modifiers']['starting power experience'];
 							break;
 						case "psy rating":
-							_chracter.psychicPowers.psyRating = modifier['fixed modifiers']['psy rating'];
+							_character.psychicPowers.psyRating = modifier['fixed modifiers']['psy rating'];
 							break;
 						case "character kit":
 							for (var category in modifier['fixed modifiers']['character kit']) {
@@ -299,20 +299,36 @@ define(function() {
 						this._available = value;
 					},
 					addAdvancement(xp, propertyModified, value){
-						this._advancementsBought.push(new Advancement(xp, propertyModified, value));
-						this.available -= xp;
 						if(typeof propertyModified === "string"){
 							switch(propertyModified){
 								case "talents":
 									character.talents.push(value);
 								break;
 								case "skills":
+									character.skills[value.name] = value.rating;
 								break;
 							}
-						}
+						};
+						this._advancementsBought.push(new Advancement(xp, propertyModified, value));
+						this._available -= xp;
 					},
 					removeAdvancement(index){
-
+						var removedAdvancement = this._advancementsBought.splice(index, 1)[0];
+						if(typeof removedAdvancement.property === "string"){
+							switch(removedAdvancement.property){
+								case "talents":
+									character.talents.splice(character.talents.indexOf(removedAdvancement.value), 1);
+								break;
+								case "skills":
+									if(removedAdvancement.value.rating == 1){
+										delete character.skills[removedAdvancement.value.name];
+									} else {
+										character.skills[removedAdvancement.value.name] = removedAdvancement.value.rating -1;
+									}
+								break;
+							}
+						};
+						this._available += removedAdvancement.cost;
 					}
 				},
 				aptitudes: {
