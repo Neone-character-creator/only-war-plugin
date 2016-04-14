@@ -98,12 +98,18 @@ define(function() {
 
 			var modifierEquipment = $q.defer();
 
-			function replace(name, source) {
-				var result = source.filter(function(element) {
-					return element.name === name;
-				})[0];
+			function replace(placeholder, source) {
+				var result = source.find(function(element) {
+					return element.name === placeholder.name;
+				});
+				if(placeholder.craftsmanship){
+					result.craftsmanship = placeholder.craftsmanship;
+				}
+				if(placeholder.upgrades){
+					result.upgrades = placeholder.upgrades;
+				}
 				return result ? result : {
-					"name": name
+					"name": placeholder.name
 				};
 			};
 			$q.all([weapons, armor, items, vehicles]).then(function(results) {
@@ -115,27 +121,27 @@ define(function() {
 				if (characterKit) {
 					if (characterKit['main weapon']) {
 						replacementMainWeapons = characterKit['main weapon'].slice().map(function(weapon) {
-							weapon.item = replace(weapon.item.name, results[0]);
+							weapon.item = replace(weapon.item, results[0]);
 							return weapon;
 						});
 					}
 					if (characterKit['other weapon']) {
 						replacementOtherWeapons = characterKit['other weapons'].slice().map(function(weapon) {
-							weapon.item = replace(weapon.item.name, results[0]);
+							weapon.item = replace(weapon.item, results[0]);
 							return weapon;
 						});
 					}
 					if (characterKit['armor']) {
 						replacementArmor = characterKit['armor'].slice();
 						replacementArmor = replacementArmor.map(function(armor) {
-							armor.item = replace(armor.item.name, results[1]);
+							armor.item = replace(armor.item, results[1]);
 							return armor;
 						});
 					}
 					if (characterKit['other gear']) {
 						replacementOtherItems = characterKit['other gear'].slice();
 						replacementOtherItems = replacementOtherItems.map(function(item) {
-							item.item = replace(item.item.name, results[2].concat(results[3]));
+							item.item = replace(item.item, results[2].concat(results[3]));
 							return item;
 						});
 					}
@@ -161,19 +167,13 @@ define(function() {
 									switch(option.property[1]){
 										case "main weapon":
 										case "other weapons":
-										option.value.item = angular.copy(result[2].filter(function(talent) {
-											return option.value.item.name === talent.name;
-										})[0]);
+										option.value.item = replace(option.value.item, result[2]);
 										break;
 										case "armor":
-										option.value.item = angular.copy(result[3].filter(function(talent) {
-											return option.value.item === talent.name;
-										})[0]);
+										option.value.item = replace(option.value.item, result[3]);
 										break;
 										case "other gear":
-										option.value.item = angular.copy(result[4].filter(function(talent) {
-											return option.value.item === talent.name;
-										})[0]);
+										option.value.item = replace(option.value.item, result[4]);
 										break;
 									}
 								}
