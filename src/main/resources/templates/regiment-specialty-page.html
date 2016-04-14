@@ -84,9 +84,9 @@
                     </ul>
                 </div>
 
-                <div class="row" ng-show="selectedRegiment['fixed modifiers']['favored weapons']">
+                <div class="row" ng-show="selected['fixed modifiers']['favored weapons']">
                     <h3>Favored Weapons</h3>
-                    {{selectedRegiment['fixed modifiers']['favored weapons'].join(', ')}}
+                    {{selected['fixed modifiers']['favored weapons'].join(', ')}}
                 </div>
             </div>
             <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length || character.powers().bonusXp()">
