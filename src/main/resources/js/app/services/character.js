@@ -81,6 +81,9 @@ define(function() {
 									case "main weapon":
 									case "other weapons":
 										$.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
+											if(element.item.name.indexOf("Regimental Favored") !== -1){
+												element.favored = true;
+											}
 											_character.equipment.weapons.push(element);
 										});
 										break;
@@ -100,7 +103,7 @@ define(function() {
 					}
 				}
 			}
-			if (type === "Specialty") {
+			if (type === "specialty") {
 				if (modifier['type'] === "Guardsman") {
 					_character.experience.available += 600;
 				} else if (modifier['type'] === "Support") {
@@ -108,6 +111,25 @@ define(function() {
 				} else {
 					throw new Error("Specialty type must be 'Guardsman' or 'Support' but was " + type + ".");
 				}
+			} else if (type === "regiment"){
+				characteroptions.weapons().then(function(weapons){
+					var favoredWeapons = _character._regiment['fixed modifiers']['favored weapons'].map(function(name){
+						return weapons.find(function(weapon){
+							return weapon.name === name;
+						});
+					});
+
+					_character.equipment.weapons = _character.equipment.weapons.map(function(weapon){
+						if(weapon.favored){
+							var type = weapon.item.name.substring("Regimental Favored".length, weapon.item.name.indexOf("Weapon")).trim();
+							weapon.item = favoredWeapons.find(function(favoredWeapon){
+								return favoredWeapon.class === type;
+							});
+						} else {
+							return weapon;
+						}
+	            	});
+				})
 			}
 		};
 		var removeModifier = function(modifier, type) {
@@ -189,14 +211,14 @@ define(function() {
 							_character._aptitudes = ["General"];
 							//Re-add the aptitudes from the other modifier
 							if (type === "Regiment" && _character._specialty) {
-								_character._aptitudes.base = _specialty['fixed modifiers'].aptitudes;
+								_character._aptitudes.base = _character._specialty['fixed modifiers'].aptitudes;
 							} else if (type === "Specialty" && _character._regiment) {
-								_character._aptitudes.base = _regiment['fixed modifiers'].aptitudes;
+								_character._aptitudes.base = _character._regiment['fixed modifiers'].aptitudes;
 							}
 					}
 				}
 			}
-			if (type === "Specialty") {
+			if (type === "specialty") {
 				if (modifier['type'] === "Guardsman") {
 					_character.experience.available-= 600;
 				} else if (modifier['type'] === "Support") {
@@ -218,9 +240,9 @@ define(function() {
 				},
 				set specialty(specialty) {
 					if(this._specialty){
-						removeModifier(specialty, "Specialty");
+						removeModifier(specialty, "specialty");
 					}
-					addModifier(specialty, "Specialty");
+					addModifier(specialty, "specialty");
 					this._specialty = specialty;
 				},
 				get regiment() {
@@ -228,7 +250,7 @@ define(function() {
 				},
 				set regiment(regiment) {
 					if(this._regiment){
-						removeModifier(regiment, "Regiment");
+						removeModifier(regiment, "regiment");
 					}
 					addModifier(regiment, "regiment");
 					this._regiment = regiment;
