@@ -31,11 +31,11 @@ define(function() {
 					switch (property) {
 						case "characteristics":
 							{
-								if (type === "Regiment") {
+								if (type === "regiment") {
 									for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
 										_character.characteristics[characteristic.toLowerCase()].regiment = modifier['fixed modifiers'][property][characteristic];
 									};
-								} else if (type === "Specialty") {
+								} else if (type === "specialty") {
 									for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
 										_character.characteristics[characteristic.toLowerCase()].specialty = modifier['fixed modifiers'][property][characteristic];
 									};
@@ -189,9 +189,9 @@ define(function() {
 							_character._aptitudes = ["General"];
 							//Re-add the aptitudes from the other modifier
 							if (type === "Regiment" && _character._specialty) {
-								_aptitudes.base = _specialty['fixed modifiers'].aptitudes;
+								_character._aptitudes.base = _specialty['fixed modifiers'].aptitudes;
 							} else if (type === "Specialty" && _character._regiment) {
-								_aptitudes.base = _regiment['fixed modifiers'].aptitudes;
+								_character._aptitudes.base = _regiment['fixed modifiers'].aptitudes;
 							}
 					}
 				}
