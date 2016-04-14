@@ -343,8 +343,14 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            Psy Rating <input type="number" id="psy-rating" ngValue="character.psy-rating"/>
-            <ul>
+            <div ng-form name="psyRating">
+                Psy Rating <input name="rating"
+                    id="psyRating" type="number" id="psy-rating"
+                                  ng-change="updatePsyrating()"
+                                  ng-model="character.psychicPowers.psyRating"
+                                  ng-disabled="!character.psychicPowers.psyRating"
+                                  min="2" max="10" integer/>
+            </div>
                 <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
             </ul>
         </div>
@@ -371,9 +377,6 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="row">
-
-        </div>
         <div class="row">
             <div class="row">
                 Gear

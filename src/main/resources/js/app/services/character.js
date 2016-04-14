@@ -307,6 +307,9 @@ define(function() {
 								case "skills":
 									character.skills[value.name] = value.rating;
 								break;
+								case "psy rating":
+									character.psychicPowers.psyRating = value;
+								break;
 							}
 						};
 						this._advancementsBought.push(new Advancement(xp, propertyModified, value));
@@ -325,6 +328,9 @@ define(function() {
 									} else {
 										character.skills[removedAdvancement.value.name] = removedAdvancement.value.rating -1;
 									}
+								break;
+								case "psy rating":
+									character.psychicPowers.psyRating = removedAdvancement.value-1;
 								break;
 							}
 						};

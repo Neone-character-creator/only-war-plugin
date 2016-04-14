@@ -287,5 +287,24 @@ define(function() {
 			armorTooltipService.location(location);
 			armorTooltipService.modifiers($scope.armor[location].providers);
 		}
+
+		$scope.$watch('character.psychicPowers.psyRating', function(newVal, oldVal){
+			if(newVal > oldVal){
+				for(var i = oldVal+1; i <= newVal; i++){
+					character.character.experience.addAdvancement(i*200, "psy rating", i);
+				}
+			} else if(newVal < oldVal){
+				var indexesToRemove = [];
+				$.each(character.character.experience._advancementsBought, function(index, element){
+					if(element.property === "psy rating" && element.value > newVal){
+						indexesToRemove.push(index);
+					};
+				});
+				indexesToRemove = indexesToRemove.sort(function(a,b){return b-a;})
+				$.each(indexesToRemove, function(index, element){
+					character.character.experience.removeAdvancement(element);
+				});
+			}
+		});
 	}
 });
