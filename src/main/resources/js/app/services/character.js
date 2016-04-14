@@ -125,9 +125,8 @@ define(function() {
 							weapon.item = favoredWeapons.find(function(favoredWeapon) {
 								return favoredWeapon.class === type;
 							});
-						} else {
-							return weapon;
 						}
+						return weapon;
 					});
 				})
 			}
@@ -161,6 +160,7 @@ define(function() {
 							break;
 						case "talents":
 							var incomingTalents = modifier['fixed modifiers']['talents'];
+							var indexesToRemove = [];
 							for (var i = 0; i < incomingTalents.length; i++) {
 								indexesToRemove.push(_character.talents.indexOf(incomingTalents[i]));
 							};
@@ -210,9 +210,7 @@ define(function() {
 										var weapons = modifier['fixed modifiers']['character kit'][category];
 										var indexesToRemove = []
 										$.each(weapons, function(i, element) {
-											var index = _character.equipment.weapons.map(function(element){
-												return element.item
-											}).indexOf(element);
+											var index = _character.equipment.weapons.indexOf(element);
 											if (index !== -1) {
 												indexesToRemove.push(index);
 											}
