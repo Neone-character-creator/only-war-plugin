@@ -7,10 +7,12 @@ define(function() {
 			characteroptions.regiments().then(function(names) {
 				$scope.available = names;
 			});
+			break;
 			case "specialties":
 			characteroptions.specialties().then(function(names) {
 				$scope.available = names;
 			});
+			break;
 		}
 		$scope.character = character.character;
 		var modifierService = $injector.get(associatedServiceName);
