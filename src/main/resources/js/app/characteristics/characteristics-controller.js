@@ -35,7 +35,7 @@ define(function(){
     }
 
     $scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
-        if (fromState.name === "characteristics" && toState.name !== fromState.name && isComplete()) {
+        if (toState.name !== fromState.name && !isComplete()) {
             var resultHandler = function(result) {
                 if (result) {
                     suppressDialog = true;
