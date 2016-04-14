@@ -97,56 +97,64 @@
                 Specialization:<input type="text" ng-model="newSkillSpecialization"/>
             </div>
         </div>
-        <h4>Talents & Traits</h4>
-        <ul>
-            <li ng-repeat="talent in character.talents">{{talent.name}}
-                <button ng-click="removeTalent($index)" uib-tooltip="Click to remove this talent advancement"
-                        ng-show="talent.boughtAsAdvancement">
-                    <span class="glyphicon glyphicon-remove"></span>
-            </li>
-            <li><select ng-model="newTalent">
-                <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</button>
-                </option>
-            </select>
-                <button class="btn btn-standard" ng-click="addTalent()" ng-disabled="!newTalent">Add Talent {{newTalentXpCost ? " (" + newTalentXpCost + " xp)" : ""}}</button>
-            </li>
-        </ul>
-
+        <div class="col-md-4">
+            <h4>Talents & Traits</h4>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="talent in character.talents">{{talent.name}}
+                    <button ng-click="removeTalent($index)" uib-tooltip="Click to remove this talent advancement"
+                            ng-show="talent.boughtAsAdvancement">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </li>
+                <li class="list-group-item"><select ng-model="newTalent">
+                    <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</button>
+                    </option>
+                </select>
+                    <button class="btn btn-standard" ng-click="addTalent()" ng-disabled="!newTalent">Add Talent
+                        {{newTalentXpCost ? " (" + newTalentXpCost + " xp)" : ""}}
+                    </button>
+                </li>
+            </ul>
+        </div>
     </div>
     <hr/>
     <div class="row">
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="row">
-                        <h3>Wounds</h3>
-                    </div>
-                    <div class="row">
-                        <h4>Critical Damage</h4>
-                        <ul>
-                            <li ng-repeat="critical in criticalInjuries">{{critical}}
-                                <button class="btn pull-right" ng-click="removeCriticalInjury($index)">Remove</button>
-                            </li>
-                            <li><input ng-model="newCriticalInjury" style="width:75%">
-                                <button class="btn pull-right" ng-click="addCriticalInjury()">Add</button>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3>Wounds</h3>
+                    <h4>Critical Damage</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="critical in criticalInjuries">
+                            <span style="display:inline-block;overflow:hidden;width:90%">{{critical}}</span>
+                            <button class="btn pull-right" ng-click="removeCriticalInjury($index)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </li>
+                        <li class="list-group-item">
+                            <input style="overflow:hidden" ng-model="newCriticalInjury">
+                            <button class="btn btn-standard pull-right"
+                                    ng-click="addCriticalInjury()"
+                                    ng-disabled="!newCriticalInjury">
+                                Add
+                            </button>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-md-3">
                     <div class="row text-center">
-                        <label class="pull-left" for="total-wounds">Total</label>
-                        <input class="pull-right" type="text" id="total-wounds" readonly
+                        <label for="total-wounds">Total</label>
+                        <input type="text" id="total-wounds" readonly
                                ng-value="character.wounds.total"
                                style="width:90%"/>
                     </div>
                     <div class="row text-center">
-                        <label class="pull-left" for="current-wounds">Current</label>
-                        <input class="pull-right" type="number" id="current-wounds" style="width:90%"/>
+                        <label for="current-wounds">Current</label>
+                        <input type="number" id="current-wounds" style="width:90%"/>
                     </div>
                     <div class="row text-center">
-                        <label class="pull-left" for="fatigue">Fatigue</label>
-                        <input class="pull-right" type="text" id="fatigue" style="width:90%"/>
+                        <label for="fatigue">Fatigue</label>
+                        <input type="number" id="fatigue" style="width:90%"/>
                     </div>
                 </div>
             </div>
@@ -159,19 +167,26 @@
                     </div>
                     <div class="row">
                         <h4>Mental Disorders</h4>
-                        <ul>
-                            <li ng-repeat="disorder in mentalDisorders">{{disorder}}
-                                <button class="btn pull-right" ng-click="removeMentalDisorder($index)">Remove</button>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="disorder in mentalDisorders">
+                                <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
+                                <button class="btn pull-right" ng-click="removeMentalDisorder($index)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
                             </li>
-                            <li><input ng-model="newMentalDisorder" style="width:75%">
-                                <button class="btn pull-right" ng-click="addMentalDisorder()">Add</button>
+                            <li class="list-group-item">
+                                <input style="overflow:hidden" ng-model="newMentalDisorder"/>
+                                <button class="btn btn-standard pull-right"
+                                        ng-click="addMentalDisorder()">
+                                    Add
+                                </button>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 text-center">
-                    <h4>Points</h4>
-                    <input type="number" style="width:90%"/>
+                <div class="col-md-3">
+                    <label for="insanity-points">Points</label>
+                    <input id="insanity-points" type="number" style="width:90%"/>
                 </div>
             </div>
         </div>
@@ -180,21 +195,35 @@
                 <div class="col-md-9">
                     <h3>Corruption</h3>
                     <h4>Mutations</h4>
-                    <ul>
-                        <li ng-repeat="mutation in mutations track by $index">{{mutation}}
-                            <button class="btn pull-right" ng-click="removeMutation($index)">Remove</button>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="mutation in mutations track by index">
+                            <span style="display:inline-block;overflow:hidden;width:90%">{{mutation}}</span>
+                            <button class="btn pull-right" ng-click="removeMutation($index)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
                         </li>
-                        <li><input ng-model="newMutation" style="width:75%">
-                            <button class="btn pull-right" ng-click="addMutation()">Add</button>
+                        <li class="list-group-item">
+                            <input style="overflow:hidden" ng-model="newMutation"/>
+                            <button class="btn btn-standard pull-right"
+                                    ng-click="addMutation()">
+                                Add
+                            </button>
                         </li>
                     </ul>
                     <h4>Malignancies</h4>
-                    <ul>
-                        <li ng-repeat="malignancy in malignancies track by $index">{{malignancy}}
-                            <button class="btn pull-right" ng-click="removeMalignancy($index)">Remove</button>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="malignancy in malignancies">
+                            <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
+                            <button class="btn pull-right" ng-click="removeMalignancy($index)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
                         </li>
-                        <li><input ng-model="newMalignancy" style="width:75%">
-                            <button class="btn pull-right" ng-click="addMalignancy()">Add</button>
+                        <li class="list-group-item">
+                            <input style="overflow:hidden" ng-model="newMalignancy"/>
+                            <button class="btn btn-standard pull-right"
+                                    ng-click="addMalignancy()">
+                                Add
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -363,16 +392,20 @@
     </div>
     <div class="row">
         Available Xp <input type="number" ng-model="character.experience.available"
-                            uib-tooltip="Set the amount of available xp here."/>
+                            uib-tooltip="Set the amount of available xp here."
+                            tooltip-popup-delay="500"/>
         {{character.experience.available}}
     </div>
     <div class="row">
-        Total XP <input type="number" ng-value="character.experience.total" readonly/>
+        Total XP <input type="number" ng-value="character.experience.total"
+                        uib-tooltip="All your experience, both available and spent." tooltip-popup-delay="500"
+                        readonly/>
     </div>
     <div class="row">
         Aptitudes
         <ul>
-            <li ng-repeat="aptitude in character.aptitudes.all">{{aptitude}}</li>
+            <li ng-repeat="aptitude in character.aptitudes.all | unique">{{aptitude}}</li>
         </ul>
     </div>
+</div>
 </div>
