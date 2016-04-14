@@ -7,8 +7,8 @@ require.config({
         "dragdrop": "libs/angular-dragdrop/src/angular-dragdrop",
         "jquery": "libs/jquery/dist/jquery.min",
         "jquery-ui": "libs/jquery-ui/jquery-ui",
-        "mootools-core": "libs/mootools/dist/mootools-core",
         "angular-ui" : "libs/angular-bootstrap/ui-bootstrap-tpls",
+        "angular-filter" : "libs/angular-filter/dist/angular-filter"
     },
     shim : {
     	"jquery" : {
@@ -31,17 +31,20 @@ require.config({
     	},
     	"angular-ui" : {
     		deps : ['angular']
+    	},
+    	"angular-filter" : {
+    		deps : ['angular']
     	}
     }
 });
 
-define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
+define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter",
 "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller",
 "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service"],
-	function(angular, uirouter, resource, angularui, dragdrop,
+	function(angular, uirouter, resource, angularui, dragdrop, angularFilter,
 	modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController,
 	selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService) {
-    var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop"]);
+    var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop","angular.filter"]);
 
 	//Register services
     app.factory("regiments", modifierService)
