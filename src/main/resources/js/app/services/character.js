@@ -112,7 +112,9 @@ define(function() {
 					throw new Error("Specialty type must be 'Guardsman' or 'Support' but was " + type + ".");
 				}
 			} else if (type === "regiment") {
-				characteroptions.weapons().then(function(weapons) {
+				
+			}
+			characteroptions.weapons().then(function(weapons) {
 					var favoredWeapons = _character._regiment['fixed modifiers']['favored weapons'].map(function(name) {
 						return weapons.find(function(weapon) {
 							return weapon.name === name;
@@ -129,7 +131,6 @@ define(function() {
 						return weapon;
 					});
 				})
-			}
 		};
 		var removeModifier = function(modifier, type) {
 			for (var property in modifier['fixed modifiers']) {
