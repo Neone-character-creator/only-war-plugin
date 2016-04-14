@@ -307,5 +307,27 @@ define(function() {
 				});
 			}
 		});
-	}
+
+		updateAvailableWeapons = function(){
+			characteroptions.weapons().then(function(result){
+				$scope.availableWeapons = result.filter(function(element){
+					var weapons = character.character.equipment.weapons.map(function(weapon){
+						return weapon.item;
+					});
+					return weapons.indexOf(element) === -1;
+				});
+			});
+		};
+		updateAvailableWeapons();
+
+		$scope.addNewWeapon = function(){
+			character.character.equipment.weapons.push({item : $scope.availableWeapons[$scope.newWeapon],count : 1});
+			updateAvailableWeapons();
+		};
+		$scope.removeWeapon = function(index){
+			character.character.equipment.weapons.splice(index);
+			$scope.newWeapon = null;
+			updateAvailableWeapons();
+		}
+	};
 });

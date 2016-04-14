@@ -243,7 +243,7 @@
                 <tr colspan="8">Weapon</tr>
                 <tr>
                     <td colspan="1">Name</td>
-                    <td colspan="7"><input type="text" ng-model="weapon.item.name" readonly/></td>
+                    <td colspan="7">{{weapon.item.name}} <button class="btn btn-standard" ng-click="removeWeapon($index)"><span class="glyphicon glyphicon-remove"></span></button></td>
                 </tr>
                 <tr>
                     <td>Class</td>
@@ -271,6 +271,10 @@
                 </tr>
                 </tbody>
             </table>
+            <select ng-model="newWeapon">
+                <option ng-repeat="weapon in availableWeapons" ng-value="{{$index}}">{{weapon.name}}</option>
+            </select>
+            <button ng-click="addNewWeapon()">Add</button>
         </div>
         <div class="col-md-6">
             <div class="row">
