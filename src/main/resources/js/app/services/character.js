@@ -198,9 +198,9 @@ define(function() {
 			}
 			if (type === "Specialty") {
 				if (modifier['type'] === "Guardsman") {
-					_character.experience().available(-600);
+					_character.experience.available-= 600;
 				} else if (modifier['type'] === "Support") {
-					_character.experience().available(-300);
+					_character.experience.available-=300;
 				} else {
 					throw "Specialty type must be 'Guardsman' or 'Support' but was " + type + "."
 				}
