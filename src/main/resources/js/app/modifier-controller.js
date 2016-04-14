@@ -77,7 +77,14 @@ define(function() {
 				templateUrl: 'templates/selection-modal.html',
 			}).result.then(function() {
 				$scope.selected = modifierService.selected();
-				character.character.regiment = $scope.selected;
+				switch(associatedServiceName){
+                					case "regiments":
+                						character.character.regiment = $scope.selected;
+                					break;
+                					case "specialties":
+                						character.character.specialty = $scope.selected;
+                					break;
+                				}
 			});
 		};
 
