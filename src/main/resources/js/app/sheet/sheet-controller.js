@@ -53,6 +53,8 @@ define(function() {
 				characteroptions.xpCosts().then(function(result) {
 					$scope.newSkillXpCost = new Number(result.skills.advances[0]['cost by aptitudes'][matchingAptitudes]);
 				});
+			} else {
+				$scope.newSkillXpCost = undefined;
 			}
 		});
 		$scope.$watch('newTalent', function(newVal){
@@ -68,6 +70,8 @@ define(function() {
 				characteroptions.xpCosts().then(function(result) {
 					$scope.newTalentXpCost = new Number(result.talents.advances[newTalent.tier-1]['cost by aptitudes'][matchingAptitudes]);
 				});
+			} else {
+				$scope.newTalentXpCost = undefined;
 			}
 		});
 
