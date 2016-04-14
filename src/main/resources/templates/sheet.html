@@ -151,7 +151,7 @@
                     </div>
                     <div class="row text-center">
                         <label for="current-wounds">Current</label>
-                        <input type="number" id="current-wounds" style="width:90%" min="0" />
+                        <input type="number" id="current-wounds" style="width:90%" min="0"/>
                     </div>
                     <div class="row text-center">
                         <label for="fatigue">Fatigue</label>
@@ -187,7 +187,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="insanity-points">Points</label>
-                    <input id="insanity-points" type="number" style="width:90%" min="0" />
+                    <input id="insanity-points" type="number" style="width:90%" min="0"/>
                 </div>
             </div>
         </div>
@@ -230,7 +230,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="corruption-points">Points</label>
-                    <input type="number" id="corruption-points" style="width:90%" min="0" />
+                    <input type="number" id="corruption-points" style="width:90%" min="0"/>
                 </div>
             </div>
         </div>
@@ -243,7 +243,10 @@
                 <tr colspan="8">Weapon</tr>
                 <tr>
                     <td colspan="1">Name</td>
-                    <td colspan="7">{{weapon.item.name}} <button class="btn btn-standard" ng-click="removeWeapon($index)"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    <td colspan="7">{{weapon.item.name}}
+                        <button class="btn btn-standard" ng-click="removeWeapon($index)"><span
+                                class="glyphicon glyphicon-remove"></span></button>
+                    </td>
                 </tr>
                 <tr>
                     <td>Class</td>
@@ -350,13 +353,13 @@
         <div class="col-md-6">
             <div ng-form name="psyRating">
                 Psy Rating <input name="rating"
-                    id="psyRating" type="number" id="psy-rating"
+                                  id="psyRating" type="number" id="psy-rating"
                                   ng-change="updatePsyrating()"
                                   ng-model="character.psychicPowers.psyRating"
                                   ng-disabled="!character.psychicPowers.psyRating"
                                   min="2" max="10" integer/>
             </div>
-                <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
+            <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
             </ul>
         </div>
         <div class="col-md-6">
@@ -389,8 +392,14 @@
             </div>
             <div class="row">
                 <ul>
-                    <li ng-repeat="item in character.equipment.otherGear.all">{{item.count + " x " +
-                        item.item.name}}
+                    <li ng-repeat="item in character.equipment['other gear']">
+                        <div class="row">
+                            <div class="btn-group-vertical">
+                                <button class="btn btn-standard btn-sm" ng-click="item.count=item.count+1">+</button>
+                                <button class="btn btn-standard" ng-click="item.count=item.count-1">-</button>
+                            </div>
+                            {{item.count + " x " + item.item.name}}
+                        </div>
                     </li>
                 </ul>
             </div>
