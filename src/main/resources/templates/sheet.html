@@ -55,6 +55,7 @@
                 </tr>
                 <tr>
                     <td ng-repeat="characteristic in characteristics" class="text-center"
+                        ng-mouseenter="characteristicTooltip(characteristic)"
                         uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
                         tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
                         tooltip-popup-delay="500" tooltip-placement="bottom">
@@ -355,14 +356,15 @@
             </ul>
         </div>
         <div class="col-md-6">
+            {{character.comrade}}
             <div class="row">
                 Comrade
             </div>
             <div class="row">
-                Name<input type="text" id="comrade-name"/>
+                Name<input type="text" ng-model="character.comrade.name"/>
             </div>
             <div class="row">
-                Status<input type="text" id="comrade-status">
+                Status<input type="text" ng-model="character.comrade.status">
             </div>
             <div class="row">
                 Special Abilities
