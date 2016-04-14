@@ -96,13 +96,14 @@ define(function() {
 			if(skillName && newRating){
 				//If the new rating is an increase, determine how many new levels are needed.
 				if(newRating - character.character.skills[skillName] > 0){
-					if(skillName.indexOf("(") !== -1){
-						skillName = skillName.substring(0, skillName.indexOf("(")).trim();
-					};
 					var matchingAptitudes = 0;
 					characteroptions.skills().then(function(result){
+						var originalSkillName = skillName;
 						for(var i = character.character.skills[skillName]+1; i <= newRating; i++){
 							$.each(result, function(index, element){
+								if(skillName.indexOf("(") !== -1){
+									skillName = skillName.substring(0, skillName.indexOf("(")).trim();
+								}
 								if(element.name === skillName){
 									var newRating = i;
 									for (var a = 0; a < element.aptitudes; a++) {
@@ -116,7 +117,7 @@ define(function() {
 											skillName += " (" + $scope.newSkillSpecialization + ")";
 										};
 										var newSkill = {
-											name : skillName,
+											name : originalSkillName,
 											rating : newRating
 										};
 										character.character.experience.addAdvancement(xpCost, "skills", newSkill);
