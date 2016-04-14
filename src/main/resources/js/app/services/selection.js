@@ -20,7 +20,7 @@ define(function() {
 
 					for (var sub = 0; sub < chosen.length; sub++) {
 						var fixedModifier = target['fixed modifiers'];
-						var properties;
+						var properties = chosen[sub]["property"];
 						if (Array.isArray(chosen[sub]["property"])) {
 							for (var p = 0; p < properties.length; p++) {
 							if (fixedModifier[properties[p]] === undefined) {
@@ -41,13 +41,13 @@ define(function() {
 						};
 						} else {
 							fixedModifier = fixedModifier[chosen[sub]['property']];
+						}
 							if(Array.isArray(fixedModifier)){
 								fixedModifier.push(chosen[sub].value);
 							} else if(typeof fixedModifier === 'object') {
 								fixedModifier[chosen[sub].property] = chosen[sub].value;
 							}
 						}
-					}
 				})
 				associatedService.remainingSelections().splice(associatedService.remainingSelections().indexOf(selectionObject), 1);
 				this.associatedService.dirty = true;
