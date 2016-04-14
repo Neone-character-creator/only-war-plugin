@@ -40,12 +40,19 @@ define(function() {
 			}
 		});
 
-		$scope.select = function(regiment) {
+		$scope.select = function(selected) {
 			var confirm;
 			var proceed = function() {
-				modifierService.select(regiment);
+				modifierService.select(selected);
 				$scope.requiredSelections = modifierService.remainingSelections();
-				character.character.regiment = regiment;
+				switch(associatedServiceName){
+					case "regiments":
+						character.character.regiment = selected;
+					break;
+					case "specialties":
+						character.character.specialty = selected;
+					break;
+				}
 				$scope.selected = modifierService.selected();
 			}
 			if (modifierService.selected() && !modifierService.selectionComplete) {
