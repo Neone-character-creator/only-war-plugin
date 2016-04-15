@@ -247,7 +247,7 @@ define(function() {
 		var specialties = $resource("Character/Specialties.json").query().$promise.then(function(result) {
 			return $q.all(result.map(transformPlaceholders));
 		});
-		var regiments = $resource("Regiment/regiments.json").query().$promise.then(function(result) {
+		var regiments = $resource("Regiment/Regiments.json").query().$promise.then(function(result) {
 			return $q.all(result.map(transformPlaceholders));
 		});
 		var vehicles = $resource("Character/Vehicles.json").query();
