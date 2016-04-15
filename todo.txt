@@ -1,17 +1,29 @@
 Refactor out duplicated modal checking code in specialty and regiment selection controllers.
 
-Add confirmation to specialty page that choices will be discarded when changing selected specialty.
+Put modal opening into ui router configuration.
 
 Implement bonus xp for duplicate talents and bonus aptitudes for duplicate aptitudes.
 
 Finish second page of sheet.
-
-Style lists as bootstrap list groups?
-
-Validate rolled wounds field to limit it between 1 and 5.
 
 Implement regiment creation.
 
 Finish Trait data file.
 
 Make fields for spending xp or adding things filterable so that only options that the character qualifies for can be taken.
+
+Implement prerequisites for stuff.
+
+Add Orders.
+
+Add tags to cybernetic and cybernetic limb items.
+
+Add Advanced Specialties from Hammer of the Emperor
+
+Add something to handle the steps of character creation.
+
+Implement replacing Regimental Favored weapons with the actual weapon in Specialties.
+
+Add comrade advances.
+
+Implement a walkthrough.
