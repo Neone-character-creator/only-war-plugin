@@ -8,7 +8,7 @@
                             <label for="character-name">Character Name</label>
                             <input type="text" id="character-name" style="width:100%" ng-model="character.name"/>
                         </div>
-                        <div class="row">
+                        <div class="row" uib-tooltip="Click the Regiment button at the top of the screen to choose your Regiment." tooltip-popup-delay="150">
                             <label for="regiment-name">Regiment</label>
                             <input id="regiment-name" type="text" readonly style="width:100%"
                                    ng-value="character.regiment.name"/>
@@ -27,7 +27,7 @@
                             <label for="player-name">Player Name</label>
                             <input type="text" id="player-name" style="width:100%"/>
                         </div>
-                        <div class="row">
+                        <div class="row" tooltip-popup-delay="150" uib-tooltip="Click the Specialty button at the top of the screen to choose your Specialty.">
                             <label>Specialty</label>
                             <input type="text" readonly style="width:100%" ng-value="character.specialty.name"/>
                         </div>
