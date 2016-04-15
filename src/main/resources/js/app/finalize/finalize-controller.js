@@ -52,8 +52,8 @@ define(function() {
 				case "Skills":
 					characteroptions.skills().then(function(result){
 						return result.filter(function(skill){
-							var characterSkill= character.character.skills().byName(skill.name);
-								return !characterSkill || characterSkill.advancements() < 4;
+							var characterSkill= character.character.skills[skill.name];
+								return !characterSkill || characterSkill.advancements < 4;
 						});
 					}).then(setDisplayedOptions);
 					break;
@@ -74,7 +74,7 @@ define(function() {
 				case "Characteristics":
 					characteroptions.characteristics().then(function(result){
 						return result.filter(function(characteristic){
-							return character.character.characteristics().byName(characteristic.name.toLowerCase()).advancements < 4;
+							return character.character.characteristics[characteristic.name.toLowerCase()].advancements < 4;
 						})
 					}).then(setDisplayedOptions);
 			};
@@ -87,20 +87,20 @@ define(function() {
 					var matchingAptitudes = 0;
 					if ($scope.selectedCategory.value !== 'Psychic Powers'){
 						for (var a = 0; a < $scope.displayedOption.aptitudes.length; a++) {
-							if (character.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+							if (character.character.aptitudes.all.indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
 								matchingAptitudes++;
 							}
 						}
 					}
 					switch ($scope.selectedCategory.value) {
 						case "Characteristics":
-							var currentAdvancements = character.character.characteristics().byName($scope.displayedOption.name.toLowerCase()).advancements;
+							var currentAdvancements = character.character.characteristics[$scope.displayedOption.name.toLowerCase()].advancements;
 							characteroptions.xpCosts().then(function(result) {
 								$scope.optionXpCost = new Number(result.characteristics.advances[currentAdvancements + 1]['cost by aptitudes'][matchingAptitudes]);
 							});
 							break;
 						case "Skills":
-							var currentAdvancements = character.character.skills().byName($scope.displayedOption.name.toLowerCase()) | -1;
+							var currentAdvancements = character.character.skills[$scope.displayedOption.name.toLowerCase()] | -1;
 							characteroptions.xpCosts().then(function(result) {
 								$scope.optionXpCost = new Number(result.skills.advances[currentAdvancements + 1]['cost by aptitudes'][matchingAptitudes]);
 							});
