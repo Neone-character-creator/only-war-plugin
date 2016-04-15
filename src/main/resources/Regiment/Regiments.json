@@ -1843,7 +1843,7 @@
           [
             {
               "property": "talents",
-              "value": "Champion"
+              "value": "Duelist"
             }
           ],
           [
@@ -1875,7 +1875,7 @@
       "talents": [
         "Die Hard",
         "Rapid Reload",
-        "Street Fighter"
+        "Street Fighting"
       ],
       "special abilities": [
         "Accustomed to Crowds",
@@ -2435,10 +2435,6 @@
               "count": 1
             }
           }
-        ],
-        "favored weapons": [
-          "Grenade Launcher",
-          "Plasma Gun"
         ]
       },
       "optional modifiers": [
@@ -2456,6 +2452,10 @@
             }
           ]
         }
+      ],
+      "favored weapons": [
+        "Grenade Launcher",
+        "Plasma Gun"
       ]
     }
   },
@@ -2931,7 +2931,7 @@
       },
       "talents": [
         "Ambush",
-        "Hated (Servants of Chaos)",
+        "Hatred (Servants of Chaos)",
         "Resistance (Fear)"
       ],
       "special abilities": [
