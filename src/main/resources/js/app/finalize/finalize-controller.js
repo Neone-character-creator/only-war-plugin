@@ -3,13 +3,13 @@ define(function() {
 		$scope.character = character.character;
 		$scope.selectedSpecialty = specialties.selected;
 		$scope.selectedRegiment = regiments.selected;
-		$scope.rolledWounds = character.character.wounds.modifiers.filter(function(modifier){
-			return modifier.name === "Rolled";
-		})[0];
+		$scope.rolledWounds = character.character.wounds.modifiers.find(function(modifier){
+			return modifier.name === "rolled";
+		});
 		$scope.woundsTotal = character.character.wounds.total;
 
 		$scope.rollWounds = function() {
-			$scope.rolledWounds = character.character.wounds().fromRoll(dice.roll(1, 5));
+			$scope.rolledWounds.modifier=dice.roll(1, 5);
 		};
 
 		$scope.rollFP = function() {

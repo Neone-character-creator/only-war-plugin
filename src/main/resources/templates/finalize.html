@@ -4,11 +4,10 @@
             <h3>Wounds</h3>
             Regiment Modifier: {{selectedRegiment['fixed modifiers'].wounds}} <br/>
             Specialty Modifier: {{selectedSpecialty['fixed modifiers'].wounds}} <br/>
-            Roll: <input type="number" ng-model="rolledWounds" ng-model-options="{getterSetter:true}"/>
+            Roll: <input type="number" ng-model="rolledWounds.modifier" ng-model-options="{getterSetter:true}"/>
             <button class="btn btn-standard" ng-click="rollWounds()">Roll</button>
             <br/>
-            Total: <input type="number" ng-model="woundsTotal" ng-model-options="{getterSetter:true}" readonly>
-
+            Total: <input type="number" ng-value="character.wounds.total" ng-model-options="{getterSetter:true}" readonly>
         </div>
         <hr/>
         <div class="row">
