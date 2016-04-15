@@ -48,10 +48,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="row" ng-show="character.powers().all().length">
+                <div class="row" ng-show="character.psychicPowers.powers.length">
                     <h3>Starting Powers</h3>
                     <ul>
-                        <li ng-repeat="power in character.powers().all()">
+                        <li ng-repeat="power in character.psychicPowers.powers">
                             {{power.name}}
                         </li>
                     </ul>
@@ -97,9 +97,9 @@
                             | option_summary}}
                         </button>
                     </li>
-                    <li ng-show="character.powers().bonusXp()">
+                    <li ng-show="character.psychicPowers.bonusXp">
                         <button class="btn btn-link" ng-click="openStartingPowersModal()">Up to
-                            {{character.powers().bonusXp()}} XP in Psychic Powers
+                            {{character.psychicPowers.bonusXp}} XP in Psychic Powers
                         </button>
                     </li>
                 </ul>
