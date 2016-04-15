@@ -467,7 +467,9 @@
           {
             "item": {
               "name": "Knife ",
-              "upgrades" : ["Mono"]
+              "upgrades": [
+                "Mono"
+              ]
             },
             "count": 1
           },
@@ -1173,7 +1175,9 @@
           {
             "item": {
               "name": "Knife",
-              "upgrades" : ["Mono"]
+              "upgrades": [
+                "Mono"
+              ]
             },
             "count": 1
           },
@@ -2881,33 +2885,33 @@
             },
             "count": 1
           }
-        ],
-        "favored weapons": [
-          "Bolt Pistol",
-          "Power Sword"
         ]
       },
-      "optional modifiers": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            [
-              {
-                "property": "talents",
-                "value": "Air of Authority"
-              }
-            ],
-            [
-              {
-                "property": "talents",
-                "value": "Peer (Nobility)"
-              }
-            ]
-          ]
-        }
+      "favored weapons": [
+        "Bolt Pistol",
+        "Power Sword"
       ]
-    }
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Air of Authority"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Peer (Nobility)"
+            }
+          ]
+        ]
+      }
+    ]
   },
   {
     "name": "Tanith First-And-Only",
