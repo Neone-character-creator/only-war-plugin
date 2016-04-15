@@ -60,7 +60,7 @@ define(function() {
 							return element === talent.name;
 						})[0]);
 						if (!element) {
-							throw "Tried to get a talent name " + name + " but couldn't find it."
+							throw "Tried to get a talent named " + name + " but couldn't find it."
 						}
 						if (specialization) {
 							element.name += " (" + specialization + ")";
