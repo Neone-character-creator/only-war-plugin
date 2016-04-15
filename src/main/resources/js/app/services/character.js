@@ -115,6 +115,7 @@ define(function() {
 				
 			}
 			characteroptions.weapons().then(function(weapons) {
+				if(_character._regiment){
 					var favoredWeapons = _character._regiment['fixed modifiers']['favored weapons'].map(function(name) {
 						return weapons.find(function(weapon) {
 							return weapon.name === name;
@@ -130,7 +131,7 @@ define(function() {
 						}
 						return weapon;
 					});
-				})
+				}})
 		};
 		var removeModifier = function(modifier, type) {
 			for (var property in modifier['fixed modifiers']) {
@@ -335,8 +336,8 @@ define(function() {
 				traits: [],
 				wounds: {
 					get total() {
-						this.modifiers.reduce(function(previous, next) {
-							return previous.modifier + next.modifier;
+						return this.modifiers.reduce(function(previous, next) {
+							return previous + next.modifier;
 						}, 0);
 					},
 					modifiers: [{
