@@ -704,7 +704,7 @@
         },
         {
           "name": "Fealty",
-          "description": "The majority of feudal world troopers are brought up in a society with a very clear separation between nobles and the commoners. These societies have strict rules of etiquette surrounding how the aristocracy interacts with their inferiors and vice versa. Regiments raised from feudal worlds are led by officers drawn from the local nobility and the common men and women in the enlisted ranks tend to revere their officers as not just their leaders but as their betters. Nobles and their chosen favourites often reinforce this belief with impressive skills in single combat, while most enlisted warriors hone their ability to fight in groups, spurred on by the prowess of their lords. Feudal world characters gain the Champion or Double Team Talent."
+          "description": "The majority of feudal world troopers are brought up in a society with a very clear separation between nobles and the commoners. These societies have strict rules of etiquette surrounding how the aristocracy interacts with their inferiors and vice versa. Regiments raised from feudal worlds are led by officers drawn from the local nobility and the common men and women in the enlisted ranks tend to revere their officers as not just their leaders but as their betters. Nobles and their chosen favourites often reinforce this belief with impressive skills in single combat, while most enlisted warriors hone their ability to fight in groups, spurred on by the prowess of their lords. Feudal world characters gain the Duelist or Double Team Talent."
         },
         {
           "name": "Suspicious of Machine Spirits",
@@ -736,7 +736,7 @@
           "selections": 1,
           "selection time": "character",
           "options": [
-            "Champion",
+            "Duelist",
             "Double Team"
           ]
         }
