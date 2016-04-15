@@ -45,7 +45,9 @@ define(function() {
 							if(Array.isArray(fixedModifier)){
 								fixedModifier.push(chosen[sub].value);
 							} else if(typeof fixedModifier === 'object') {
-								fixedModifier[chosen[sub].property] = chosen[sub].value;
+								for(var property in chosen[sub].value){
+									fixedModifier[property] = chosen[sub].value[property];
+								}
 							}
 						}
 				})
