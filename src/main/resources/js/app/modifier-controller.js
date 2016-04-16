@@ -6,11 +6,13 @@ define(function() {
 			case "regiments":
 			characteroptions.regiments().then(function(names) {
 				$scope.available = names;
+				$scope.selectionType = associatedServiceName;
 			});
 			break;
 			case "specialties":
 			characteroptions.specialties().then(function(names) {
 				$scope.available = names;
+				$scope.selectionType = associatedServiceName;
 			});
 			break;
 		}
