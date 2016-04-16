@@ -1,5 +1,8 @@
 define(function() {
-	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService) {
+	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal) {
+		$uibModal.open({
+			templateUrl : "templates/instructions-modal.html"
+		});
 		$scope.character = character.character;
 		characteroptions.characteristics().then(function(result){
 			$scope.characteristics = result.map(function(element){return element.name});
