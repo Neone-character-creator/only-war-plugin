@@ -8,7 +8,7 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -27,7 +27,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -46,7 +46,7 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 30
+          "rating": 30
         }
       },
       {
@@ -79,14 +79,14 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -112,7 +112,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -138,7 +138,7 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -156,7 +156,7 @@
       },
       {
         "property": "psy rating",
-         "rating" : 1
+        "rating": 1
       }
     ],
     "aptitudes": [
@@ -201,7 +201,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 30
+          "rating": 30
         }
       },
       {
@@ -226,7 +226,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -252,7 +252,7 @@
         "property": "characteristic",
         "value": {
           "name": "Perception",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -271,7 +271,7 @@
         "property": "characteristic",
         "value": {
           "name": "Strength",
-           "rating" : 45
+          "rating": 45
         }
       }
     ],
@@ -290,7 +290,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -319,7 +319,7 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -330,6 +330,20 @@
     "description": "All squad members add +1 to their Initiative Rolls. Squad members may use your Intelligence bonus in place of their own Agility bonus on Initiative rolls."
   },
   {
+    "name": "Combat Master",
+    "source": "core",
+    "tier": 2,
+    "prerequisites": [
+      {
+        "property": "characteristic",
+        "value": {
+          "name": "Weapon Skill",
+          "rating": 30
+        }
+      }
+    ]
+  },
+  {
     "name": "Combat Sense",
     "source": "core",
     "tier": 1,
@@ -338,7 +352,7 @@
         "property": "characteristic",
         "value": {
           "name": "Perception",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -357,7 +371,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -376,7 +390,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -395,7 +409,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -414,7 +428,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -433,7 +447,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -452,7 +466,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -471,7 +485,7 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -490,7 +504,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -551,7 +565,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -570,7 +584,7 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 35
+          "rating": 35
         }
       }
     ],
@@ -634,7 +648,7 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -663,7 +677,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 35
+          "rating": 35
         }
       }
     ],
@@ -682,7 +696,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -726,7 +740,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -745,7 +759,7 @@
         "property": "characteristic",
         "value": {
           "name": "Toughness",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -786,14 +800,14 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -812,7 +826,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       },
       "skill,Operate"
@@ -832,7 +846,7 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 40
+          "rating": 40
         }
       },
       "skill,Lore"
@@ -852,7 +866,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -889,7 +903,7 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
@@ -914,7 +928,7 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -933,7 +947,7 @@
         "property": "characteristic",
         "value": {
           "name": "Toughness",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -970,7 +984,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -989,7 +1003,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -1015,7 +1029,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1034,7 +1048,7 @@
         "property": "characteristic",
         "value": {
           "name": "Perception",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1288,7 +1302,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -1337,14 +1351,14 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Toughness",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -1363,14 +1377,14 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Toughness",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -1409,7 +1423,7 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1429,14 +1443,14 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1455,7 +1469,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -1480,14 +1494,14 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -1553,7 +1567,7 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -1572,7 +1586,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -1612,7 +1626,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -1635,14 +1649,14 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
@@ -1695,7 +1709,7 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 30
+          "rating": 30
         }
       },
       {
@@ -1721,7 +1735,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       },
       "skill,Dodge || skill Parry"
@@ -1741,7 +1755,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 45
+          "rating": 45
         }
       },
       {
@@ -1828,7 +1842,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1847,7 +1861,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1866,7 +1880,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1895,7 +1909,7 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -1912,10 +1926,9 @@
     "prerequisites": [
       {
         "property": "characteristic",
-
         "value": {
           "name": "Intelligence",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1934,7 +1947,7 @@
         "property": "characteristic",
         "value": {
           "name": "Strength",
-           "rating" : 50
+          "rating": 50
         }
       }
     ],
@@ -1953,7 +1966,7 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -1972,7 +1985,7 @@
         "property": "characteristic",
         "value": {
           "name": "Toughness",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -2002,13 +2015,13 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
         "property": "talent",
         "value": {
-          "name" :"Unarmed Warrior"
+          "name": "Unarmed Warrior"
         }
       }
     ],
@@ -2027,7 +2040,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 35
+          "rating": 35
         }
       },
       {
@@ -2035,7 +2048,7 @@
         "name": "Agility",
         "value": {
           "comparison": "at least",
-           "rating" : 35
+          "rating": 35
         }
       }
     ],
@@ -2064,7 +2077,7 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 35
+          "rating": 35
         }
       }
     ],
@@ -2080,20 +2093,20 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : "psy rating",
-         "rating" : 1
+        "property": "psy rating",
+        "rating": 1
       },
       {
         "property": "characteristic",
         "value": {
-          "name" : "Willpower",
-           "rating" : 50
+          "name": "Willpower",
+          "rating": 50
         }
       },
       {
         "property": "talent",
         "value": {
-          "name" : "Strong Minded"
+          "name": "Strong Minded"
         }
       }
     ],
@@ -2109,20 +2122,20 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : "psy rating",
-         "rating" : 1
+        "property": "psy rating",
+        "rating": 1
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
         "property": "talent",
-        "value":{
-          "name" : "Strong Minded"
+        "value": {
+          "name": "Strong Minded"
         }
       }
     ],
@@ -2138,21 +2151,21 @@
     "tier": 1,
     "prerequisites": [
       {
-        "property" : "psy rating",
-         "rating" : 1
+        "property": "psy rating",
+        "rating": 1
       },
       {
         "property": "characteristic",
         "value": {
           "name": "Perception",
-           "rating" : 30
+          "rating": 30
         }
       },
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Psyniscience",
-           "rating" : 1
+        "property": "skill",
+        "value": {
+          "name": "Psyniscience",
+          "rating": 1
         }
       }
     ],
@@ -2172,14 +2185,14 @@
         "name": "Intelligence",
         "value": {
           "comparison": "at least",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Tech-Use",
-           "rating" : 1
+        "property": "skill",
+        "value": {
+          "name": "Tech-Use",
+          "rating": 1
         }
       }
     ],
@@ -2209,7 +2222,7 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -2228,7 +2241,7 @@
         "property": "characteristic",
         "value": {
           "name": "Toughness",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -2247,7 +2260,7 @@
         "property": "skill",
         "value": {
           "name": "Operate",
-           "rating" : 2
+          "rating": 2
         }
       }
     ],
@@ -2266,7 +2279,7 @@
         "property": "skill",
         "value": {
           "name": "Stealth",
-           "rating" : 2
+          "rating": 2
         }
       }
     ],
@@ -2285,21 +2298,21 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
         "property": "skill",
         "value": {
           "name": "Tech-Use",
-           "rating" : 1
+          "rating": 1
         }
       },
       {
         "property": "talent",
         "value": {
-          "name" : "Weapon Training",
-          "specialization" : "launcher"
+          "name": "Weapon Training",
+          "specialization": "launcher"
         }
       }
     ],
@@ -2318,7 +2331,7 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 35
+          "rating": 35
         }
       }
     ],
@@ -2337,14 +2350,14 @@
         "property": "characteristic",
         "value": {
           "name": "Weapon Skill",
-           "rating" : 35
+          "rating": 35
         }
       },
       {
         "property": "talent",
         "value": {
-          "name" : "Weapon Training",
-          "specialization" : "Chain"
+          "name": "Weapon Training",
+          "specialization": "Chain"
         }
       }
     ],
@@ -2363,14 +2376,14 @@
         "property": "characteristic",
         "value": {
           "name": "Willpower",
-           "rating" : 35
+          "rating": 35
         }
       },
       {
         "property": "talent",
         "value": {
-          "name" : "Weapon Training",
-          "specialization" : "Flame"
+          "name": "Weapon Training",
+          "specialization": "Flame"
         }
       }
     ],
@@ -2388,7 +2401,7 @@
       {
         "property": "talent",
         "value": {
-          "name" : "Street Fighting"
+          "name": "Street Fighting"
         }
       }
     ],
@@ -2411,15 +2424,17 @@
         "value": {
           "value": {
             "count": 2,
-            "tags" : ["Cybernetic"]
+            "tags": [
+              "Cybernetic"
+            ]
           }
         }
       },
       {
         "property": "skills",
-        "value" : {
-          "name" : "Tech-Use",
-           "rating" : 1
+        "value": {
+          "name": "Tech-Use",
+          "rating": 1
         }
       }
     ],
@@ -2438,7 +2453,7 @@
         "property": "skills",
         "value": {
           "name": "Tech-Use",
-           "rating" : 2
+          "rating": 2
         }
       }
     ],
@@ -2457,19 +2472,19 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Deadeye Shot"
+        "property": "talent",
+        "value": {
+          "name": "Deadeye Shot"
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Sharpshooter"
+        "property": "talent",
+        "value": {
+          "name": "Sharpshooter"
         }
       }
     ],
@@ -2488,19 +2503,19 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Master Chirurgeon"
+        "property": "talent",
+        "value": {
+          "name": "Master Chirurgeon"
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Methodical Care"
+        "property": "talent",
+        "value": {
+          "name": "Methodical Care"
         }
       }
     ],
@@ -2519,7 +2534,7 @@
         "property": "skill",
         "value": {
           "name": "Operate",
-          "specialty" : "Aeronautica"
+          "specialty": "Aeronautica"
         }
       }
     ],
@@ -2541,9 +2556,9 @@
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Sure Strike"
+        "property": "talent",
+        "value": {
+          "name": "Sure Strike"
         }
       }
     ],
@@ -2562,8 +2577,8 @@
         "property": "skill",
         "value": {
           "name": "Trade",
-          "specialization" : "Cook",
-          "rating" : 1
+          "specialization": "Cook",
+          "rating": 1
         }
       }
     ],
@@ -2582,7 +2597,7 @@
         "property": "characteristic",
         "value": {
           "name": "Strength",
-           "rating" : 45
+          "rating": 45
         }
       }
     ],
@@ -2601,19 +2616,19 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 45
+          "rating": 45
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Air of Authority"
+        "property": "talent",
+        "value": {
+          "name": "Air of Authority"
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Deadeye Shot"
+        "property": "talent",
+        "value": {
+          "name": "Deadeye Shot"
         }
       }
     ],
@@ -2632,7 +2647,7 @@
         "property": "characteristic",
         "value": {
           "name": "Agility",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -2651,13 +2666,13 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 35
+          "rating": 35
         }
       },
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Command"
+        "property": "skill",
+        "value": {
+          "name": "Command"
         }
       }
     ],
@@ -2676,14 +2691,14 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 30
+          "rating": 30
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Weapon Training",
-          "specialization" : "Las"
+        "property": "talent",
+        "value": {
+          "name": "Weapon Training",
+          "specialization": "Las"
         }
       }
     ],
@@ -2702,13 +2717,13 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 35
+          "rating": 35
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Lasgun Volley"
+        "property": "talent",
+        "value": {
+          "name": "Lasgun Volley"
         }
       }
     ],
@@ -2727,13 +2742,13 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 45
+          "rating": 45
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Las Weapon Expertise"
+        "property": "talent",
+        "value": {
+          "name": "Las Weapon Expertise"
         }
       }
     ],
@@ -2752,13 +2767,13 @@
         "property": "characteristic",
         "value": {
           "name": "Perception",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Vigilant"
+        "property": "talent",
+        "value": {
+          "name": "Vigilant"
         }
       }
     ],
@@ -2777,14 +2792,14 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Weapon Training",
-          "specialization" : "Melta"
+        "property": "talent",
+        "value": {
+          "name": "Weapon Training",
+          "specialization": "Melta"
         }
       }
     ],
@@ -2803,13 +2818,13 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Melta Weapon Expertise"
+        "property": "talent",
+        "value": {
+          "name": "Melta Weapon Expertise"
         }
       }
     ],
@@ -2828,13 +2843,13 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 35
+          "rating": 35
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Strong Minded"
+        "property": "talent",
+        "value": {
+          "name": "Strong Minded"
         }
       }
     ],
@@ -2853,13 +2868,13 @@
         "property": "characteristic",
         "value": {
           "name": "Intelligence",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Swift Suture"
+        "property": "talent",
+        "value": {
+          "name": "Swift Suture"
         }
       }
     ],
@@ -2878,7 +2893,7 @@
         "property": "skill",
         "value": {
           "name": "Tech-Use",
-           "rating" : 40
+          "rating": 40
         }
       }
     ],
@@ -2897,13 +2912,13 @@
         "property": "characteristic",
         "value": {
           "name": "Perception",
-           "rating" : 45
+          "rating": 45
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Bulging Biceps"
+        "property": "talent",
+        "value": {
+          "name": "Bulging Biceps"
         }
       }
     ],
@@ -2922,13 +2937,13 @@
         "property": "characteristic",
         "value": {
           "name": "Fellowship",
-           "rating" : 45
+          "rating": 45
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Charm"
+        "property": "talent",
+        "value": {
+          "name": "Charm"
         }
       }
     ],
@@ -2947,14 +2962,14 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 40
+          "rating": 40
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Weapon Training",
-          "specialization" : "Plasma"
+        "property": "talent",
+        "value": {
+          "name": "Weapon Training",
+          "specialization": "Plasma"
         }
       }
     ],
@@ -2973,13 +2988,13 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Plasma Weapon Expertise"
+        "property": "talent",
+        "value": {
+          "name": "Plasma Weapon Expertise"
         }
       }
     ],
@@ -2998,13 +3013,13 @@
         "property": "characteristic",
         "value": {
           "name": "Ballistic Skill",
-           "rating" : 50
+          "rating": 50
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Plasma Weapon Expertise"
+        "property": "talent",
+        "value": {
+          "name": "Plasma Weapon Expertise"
         }
       }
     ],
@@ -3023,7 +3038,7 @@
         "property": "characteristic",
         "value": {
           "name": "Strength",
-           "rating" : 30
+          "rating": 30
         }
       }
     ],
@@ -3045,9 +3060,9 @@
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Technical Knock"
+        "property": "talent",
+        "value": {
+          "name": "Technical Knock"
         }
       }
     ],
@@ -3061,7 +3076,7 @@
     "name": "Ranged Weapon Expert",
     "source": "hammer of the emperor",
     "tier": 3,
-    "specialization" : true,
+    "specialization": true,
     "prerequisites": [
       {
         "property": "skill",
@@ -3070,9 +3085,9 @@
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Technical Knock"
+        "property": "talent",
+        "value": {
+          "name": "Technical Knock"
         }
       }
     ],
@@ -3088,27 +3103,27 @@
     "tier": 3,
     "prerequisites": [
       {
-        "match" : "any",
-        "prerequisites" : [
+        "match": "any",
+        "prerequisites": [
           {
-            "property" : "characteristic",
-            "value" : {
-              "name" : "Ballistic Skill",
-               "rating" : 45
+            "property": "characteristic",
+            "value": {
+              "name": "Ballistic Skill",
+              "rating": 45
             }
           },
           {
-            "property" : "characteristic",
-            "value" : {
-              "name" : "Weapon Skill",
-               "rating" : 45
+            "property": "characteristic",
+            "value": {
+              "name": "Weapon Skill",
+              "rating": 45
             }
           },
           {
-            "property" : "characteristic",
-            "value" : {
-              "name" : "Willpower",
-               "rating" : 45
+            "property": "characteristic",
+            "value": {
+              "name": "Willpower",
+              "rating": 45
             }
           }
         ]
@@ -3126,16 +3141,28 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Tech-Use",
-          "rating" : 2
+        "property": "skill",
+        "value": {
+          "name": "Tech-Use",
+          "rating": 2
         }
       },
       {
-        "property" : [["character kit", "other gear"],["character kit", "weapons"]],
-        "value" : {
-          "tags" : ["Cybernetic", "Limb"]
+        "property": [
+          [
+            "character kit",
+            "other gear"
+          ],
+          [
+            "character kit",
+            "weapons"
+          ]
+        ],
+        "value": {
+          "tags": [
+            "Cybernetic",
+            "Limb"
+          ]
         }
       }
     ],
@@ -3151,10 +3178,10 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Willpower",
-          "rating" : 40
+        "property": "characteristic",
+        "value": {
+          "name": "Willpower",
+          "rating": 40
         }
       }
     ],
@@ -3170,10 +3197,10 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Survival",
-          "rating" : 2
+        "property": "skill",
+        "value": {
+          "name": "Survival",
+          "rating": 2
         }
       }
     ],
@@ -3189,17 +3216,17 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Ballistic Skill",
-          "rating" : 35
+        "property": "characteristic",
+        "value": {
+          "name": "Ballistic Skill",
+          "rating": 35
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Weapon Training",
-          "specialization" : "Solid Projectile"
+        "property": "talent",
+        "value": {
+          "name": "Weapon Training",
+          "specialization": "Solid Projectile"
         }
       }
     ],
@@ -3215,16 +3242,16 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Ballistic Skill",
-          "rating" : 45
+        "property": "characteristic",
+        "value": {
+          "name": "Ballistic Skill",
+          "rating": 45
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Solid Projectile Weapon Expertise"
+        "property": "talent",
+        "value": {
+          "name": "Solid Projectile Weapon Expertise"
         }
       }
     ],
@@ -3240,10 +3267,10 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Stealth",
-          "rating" : 2
+        "property": "skill",
+        "value": {
+          "name": "Stealth",
+          "rating": 2
         }
       }
     ],
@@ -3259,16 +3286,16 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Fellowship",
-          "rating" : 45
+        "property": "characteristic",
+        "value": {
+          "name": "Fellowship",
+          "rating": 45
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Heroic Inspiration"
+        "property": "talent",
+        "value": {
+          "name": "Heroic Inspiration"
         }
       }
     ],
@@ -3284,10 +3311,10 @@
     "tier": 1,
     "prerequisites": [
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Medicae",
-          "rating" : 1
+        "property": "skill",
+        "value": {
+          "name": "Medicae",
+          "rating": 1
         }
       }
     ],
@@ -3303,10 +3330,10 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Ballistic Skill",
-          "rating" : 40
+        "property": "characteristic",
+        "value": {
+          "name": "Ballistic Skill",
+          "rating": 40
         }
       }
     ],
@@ -3322,16 +3349,31 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : [["character kit", "other gear"], ["character kit", "weapons"], ["character kit", "armor"]],
-        "value" : {
-          "tags" : ["Cybernetics"]
+        "property": [
+          [
+            "character kit",
+            "other gear"
+          ],
+          [
+            "character kit",
+            "weapons"
+          ],
+          [
+            "character kit",
+            "armor"
+          ]
+        ],
+        "value": {
+          "tags": [
+            "Cybernetics"
+          ]
         }
       },
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Tech-Use",
-          "rating" : 2
+        "property": "skill",
+        "value": {
+          "name": "Tech-Use",
+          "rating": 2
         }
       }
     ],
@@ -3347,17 +3389,17 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Toughness",
-          "rating" : 40
+        "property": "characteristic",
+        "value": {
+          "name": "Toughness",
+          "rating": 40
         }
       },
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Willpower",
-          "rating" : 35
+        "property": "characteristic",
+        "value": {
+          "name": "Willpower",
+          "rating": 35
         }
       }
     ],
@@ -3373,17 +3415,17 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Fellowship",
-          "rating" : 40
+        "property": "characteristic",
+        "value": {
+          "name": "Fellowship",
+          "rating": 40
         }
       },
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Command",
-          "rating" : 2
+        "property": "skill",
+        "value": {
+          "name": "Command",
+          "rating": 2
         }
       }
     ],
@@ -3399,17 +3441,17 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Weapon Skill",
-          "rating" : 40
+        "property": "characteristic",
+        "value": {
+          "name": "Weapon Skill",
+          "rating": 40
         }
       },
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Survival",
-          "rating" : 2
+        "property": "skill",
+        "value": {
+          "name": "Survival",
+          "rating": 2
         }
       }
     ],
@@ -3425,15 +3467,15 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Sharpshooter"
+        "property": "talent",
+        "value": {
+          "name": "Sharpshooter"
         }
       },
       {
-        "property" : "talent",
-        "value" : {
-          "name" : "Target Selection"
+        "property": "talent",
+        "value": {
+          "name": "Target Selection"
         }
       }
     ],
@@ -3449,9 +3491,12 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property" : ["specialty", " type"],
-        "value" : {
-          "name" : "Guardsman"
+        "property": [
+          "specialty",
+          " type"
+        ],
+        "value": {
+          "name": "Guardsman"
         }
       }
     ],
@@ -3467,10 +3512,10 @@
     "tier": 1,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Perception",
-          "rating" : 35
+        "property": "characteristic",
+        "value": {
+          "name": "Perception",
+          "rating": 35
         }
       }
     ],
@@ -3486,17 +3531,17 @@
     "tier": 1,
     "prerequisites": [
       {
-        "property" : "characteristic",
-        "value" : {
-          "name" : "Strength",
-          "rating" : 30
+        "property": "characteristic",
+        "value": {
+          "name": "Strength",
+          "rating": 30
         }
       },
       {
-        "property" : "skill",
-        "value" : {
-          "name" : "Athletics",
-          "rating" : 1
+        "property": "skill",
+        "value": {
+          "name": "Athletics",
+          "rating": 1
         }
       }
     ],
