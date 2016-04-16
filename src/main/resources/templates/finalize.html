@@ -67,7 +67,7 @@
                                     <th class="text-center" colspan="2">Needed Aptitudes</th>
                                 </tr>
                                 <tr>
-                                    <td class="text-center" ng-repeat="aptitude in displayedOption.aptitudes"
+                                    <td style="width:50%" class="text-center" ng-repeat="aptitude in displayedOption.aptitudes"
                                         ng-style="{'background-color': character.aptitudes.all.indexOf(aptitude) !== -1 ? 'green' : 'red'}"
                                         uib-tooltip="If this turns green, it means you have a matching aptitude, making your chosen advancement cheaper."
                                     tooltip-append-to-body="true" tooltip-popup-delay="1000">
