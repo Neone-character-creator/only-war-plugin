@@ -181,7 +181,7 @@ define(function() {
 							});
 						case "starting power experience":
 							_character.psychicPowers.bonusXp -= modifier['fixed modifiers']['starting power experience'];
-							_character.psychicPowers.powers = _powers.powers.filter(function(element) {
+							_character.psychicPowers.powers = _character.psychicPowers.powers.filter(function(element) {
 								_powers.bonusXp += element.value;
 								return !element.hasOwnProperty('bonus');
 							});
