@@ -1,109 +1,119 @@
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        Select<span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="option in available"><a
-                                ng-click="select(option)">{{option.name}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<div class="container">
+    <div class="row">
+        <div ng-show="selectionType === 'regiments'">
+            Click the select button and choose a regiment from the list.<br/>
+            Check the right side or bottom of the page to see if your regiment has any additional options you have to pick; Click on the links to make your choice.<br/>
+            After choosing all your optional bonuses, click Determine Characteristics at the top.
         </div>
-        <div class="row" ng-show="selected" class="text-center">
-            <div class="col-md-6">
-                <div class="row">
-                    <h3>{{selected.name}}</h3>
-                </div>
-                <div class="row">
-                    <h3>Characteristic Modifiers</h3>
-                    <ul>
-                        <li ng-repeat="(name, value) in selected['fixed modifiers'].characteristics">
-                            {{name}} :
-                            {{value > 0 ?
-                            '+' +
-                            value :
-                            value}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <h3>Starting Skills</h3>
-                    <ul>
-                        <li ng-repeat="(skill,rating) in selected['fixed modifiers'].skills">{{skill}}{{rating > 1 ? +
-                            (rating * 10) : ""}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <h3>Starting Talents and Traits</h3>
-                    <ul>
-                        <li ng-repeat="talent in selected['fixed modifiers'].talents">{{talent.name}}
-                        </li>
-                        <li ng-repeat="trait in selected['fixed modifiers'].traits">{{trait.name}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="row" ng-show="character.psychicPowers.powers.length">
-                    <h3>Starting Powers</h3>
-                    <ul>
-                        <li ng-repeat="power in character.psychicPowers.powers">
-                            {{power.name}}
-                        </li>
-                    </ul>
-                    <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
-                </div>
-                <div class="row">
-                    <h3>Aptitudes</h3>
-                    <ul>
-                        <li ng-repeat="aptitude in selected['fixed modifiers']['aptitudes']">{{aptitude}}</li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <h3>Starting Gear</h3>
-                    <ul>
-                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['main weapon']">
-                            {{item.count + " x " + item.item.name}}
-                        </li>
-                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['other weapons']">
-                            {{item.count + " x " + item.item.name}}
-                        </li>
-                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['armor']">
-                            {{item.count + " x " + item.item.name}}
-                        </li>
-                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['other gear']">
-                            {{item.count + " x " + item.item.name}}
-                        </li>
-                        <li ng-repeat="item in selected['fixed modifiers']['character kit']['squad kit']">
-                            {{item.count + " x " + item.item.name}} (Squad)
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="row" ng-show="selected['fixed modifiers']['favored weapons']">
-                    <h3>Favored Weapons</h3>
-                    {{selected['fixed modifiers']['favored weapons'].join(', ')}}
-                </div>
-            </div>
-            <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length || character.powers().bonusXp()">
-                You also choose from the following optional benefits:
-                <ul>
-                    <li ng-repeat="selection in requiredSelections">
-                        <button class='btn btn-link' ng-click="openSelectionModal(selection)">{{selection
-                            | option_summary}}
-                        </button>
-                    </li>
-                    <li ng-show="character.psychicPowers.bonusXp">
-                        <button class="btn btn-link" ng-click="openStartingPowersModal()">Up to
-                            {{character.psychicPowers.bonusXp}} XP in Psychic Powers
-                        </button>
+        <div ng-show="selectionType === 'specialties'">
+            Click the select button and choose a specialty from the list.<br/>
+            Check the right side or bottom of the page to see if your specialty has any additional options you have to pick; Click on the links to make your choice.<br/>
+            After choosing all your optional bonuses, click Finish Character at the top.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Select<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="option in available"><a
+                            ng-click="select(option)">{{option.name}}</a>
                     </li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="row" ng-show="selected" class="text-center">
+        <div class="col-md-6">
+            <div class="row">
+                <h3>{{selected.name}}</h3>
+            </div>
+            <div class="row">
+                <h3>Characteristic Modifiers</h3>
+                <ul>
+                    <li ng-repeat="(name, value) in selected['fixed modifiers'].characteristics">
+                        {{name}} :
+                        {{value > 0 ?
+                        '+' +
+                        value :
+                        value}}
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <h3>Starting Skills</h3>
+                <ul>
+                    <li ng-repeat="(skill,rating) in selected['fixed modifiers'].skills">{{skill}}{{rating > 1 ? +
+                        (rating * 10) : ""}}
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <h3>Starting Talents and Traits</h3>
+                <ul>
+                    <li ng-repeat="talent in selected['fixed modifiers'].talents">{{talent.name}}
+                    </li>
+                    <li ng-repeat="trait in selected['fixed modifiers'].traits">{{trait.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="row" ng-show="character.psychicPowers.powers.length">
+                <h3>Starting Powers</h3>
+                <ul>
+                    <li ng-repeat="power in character.psychicPowers.powers">
+                        {{power.name}}
+                    </li>
+                </ul>
+                <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
+            </div>
+            <div class="row">
+                <h3>Aptitudes</h3>
+                <ul>
+                    <li ng-repeat="aptitude in selected['fixed modifiers']['aptitudes']">{{aptitude}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <h3>Starting Gear</h3>
+                <ul>
+                    <li ng-repeat="item in selected['fixed modifiers']['character kit']['main weapon']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in selected['fixed modifiers']['character kit']['other weapons']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in selected['fixed modifiers']['character kit']['armor']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in selected['fixed modifiers']['character kit']['other gear']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in selected['fixed modifiers']['character kit']['squad kit']">
+                        {{item.count + " x " + item.item.name}} (Squad)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row" ng-show="selected['fixed modifiers']['favored weapons']">
+                <h3>Favored Weapons</h3>
+                {{selected['fixed modifiers']['favored weapons'].join(', ')}}
+            </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length || character.powers().bonusXp()">
+            You also choose from the following optional benefits:
+            <ul>
+                <li ng-repeat="selection in requiredSelections">
+                    <button class='btn btn-link' ng-click="openSelectionModal(selection)">{{selection
+                        | option_summary}}
+                    </button>
+                </li>
+                <li ng-show="character.psychicPowers.bonusXp">
+                    <button class="btn btn-link" ng-click="openStartingPowersModal()">Up to
+                        {{character.psychicPowers.bonusXp}} XP in Psychic Powers
+                    </button>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
