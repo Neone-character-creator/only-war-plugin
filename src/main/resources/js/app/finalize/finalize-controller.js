@@ -15,7 +15,7 @@ define(function() {
 		$scope.rollFP = function() {
 			$scope.fpRoll = dice.roll(1, 10);
 			characteroptions.fatePointRolls().then(function(result) {
-				character.character.fatePoints().total(result.forRoll($scope.fpRoll));
+				character.character.fatePoints=result.forRoll($scope.fpRoll);
 			});
 
 			$scope.character = character.character;
