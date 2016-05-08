@@ -1,31 +1,102 @@
 {
-	"source": "Standard Kit",
-	"cost" : 0,
-	"main weapons":
-	{
-		"Laspistol": 1
-	},
-	"melee weapons":
-	{
-		"Knife": 1
-	},
-	"armor":
-	{
-		"Flak Vest" : 1
-	},
-	"other gear":
-	{
-		"Uniform" : 1,
-		"Poor Weather Gear": 1,
-		"Charge Pack (Pistol)": 2,
-		"Rucksack": 1,
-		"Basic Tools": 1,
-		"Mess Kit and Water Canteen": 1,
-		"Blanket and Sleep Bag": 1,
-		"Rechargeable Lamp Pack": 1,
-		"Grooming Kit": 1,
-		"Identification": 1,
-		"Handbook": 1,
-		"Weeks' Rations": 4
-	}
+  "source": "Standard Kit",
+  "cost": 0,
+  "main weapons": [
+    {
+      "item": {
+        "name": "Laspistol"
+      },
+      "count": 1
+    }
+  ],
+  "other weapons": [
+    {
+      "item": {
+        "name": "Knife"
+      },
+      "count": 1
+    }
+  ],
+  "armor": [
+    {
+      "item": {
+        "name": "Flak Vest"
+      },
+      "count": 1
+    }
+  ],
+  "other gear": [
+    {
+      "item": {
+        "name": "Uniform"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Poor Weather Gear"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Charge Pack (Pistol)"
+      },
+      "count": 2
+    },
+    {
+      "item": {
+        "name": "Rucksack"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Basic Tools"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Mess Kit and Water Canteen"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Blanket and Sleep Bag"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Rechargeable Lamp Pack"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Grooming Kit"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Identification"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Handbook"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Week's Rations"
+      },
+      "count": 4
+    }
+  ]
 }
