@@ -1030,8 +1030,10 @@
       "talents": [
         "Deadeye Shot",
         "Weapon Training (Las)",
-        "Weapon Training (Solid Projectile)",
-        "Size (Weedy)"
+        "Weapon Training (Solid Projectile)"
+      ],
+      "traits" : [
+        "Size (3)"
       ],
       "character kit": {
         "other gear": [
@@ -1155,7 +1157,9 @@
       },
       "talents": [
         "Heightened Senses (Hearing)",
-        "Weapon Training (Low-Tech)",
+        "Weapon Training (Low-Tech)"
+      ],
+      "traits" : [
         "Psyker"
       ],
       "character kit": {
@@ -1357,7 +1361,9 @@
       "talents": [
         "Mechadendrite Use (Weapon)",
         "Mechadendrite Use (Utility)",
-        "Weapon Training (Power)",
+        "Weapon Training (Power)"
+      ],
+      "traits" : [
         "Mechanicus Implants"
       ],
       "character kit": {

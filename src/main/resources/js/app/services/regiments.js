@@ -1,7 +1,7 @@
 define(function(){
 	return function($resource, $q){
 		var _selected = null;
-		var _remainingSelections;
+		var _remainingSelections = [];
 		var _selectionComplete = false;
 
 		var service = {
@@ -15,7 +15,7 @@ define(function(){
             	return _selected && _remainingSelections.length === 0;
             },
 	            selectRegiment : function(regiment) {
-	                _selected = Object.clone(regiment);
+	                _selected = angular.copy(regiment);
 	                _remainingSelections = _selected['optional modifiers'];
 	            }
 	        };

@@ -13,3 +13,7 @@ Implement applying regiment and specialty modifiers to character and removing th
 Implement spending xp.
 
 Finish second page of sheet.
+
+Implement gear replacement for regiment creation elements.
+
+Implement adding certain items only when they already exist for regiment creation elements.

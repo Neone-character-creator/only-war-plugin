@@ -8,7 +8,7 @@ require.config({
         "jquery": "libs/jquery/dist/jquery.min",
         "jquery-ui": "libs/jquery-ui/jquery-ui",
         "mootools-core": "libs/mootools/dist/mootools-core",
-        "angular-ui" : "libs/angular-bootstrap/ui-bootstrap-tpls",
+        "angular-ui" : "app/ui-bootstrap-tpls-1.2.5",
     },
     shim : {
     	"jquery" : {
@@ -36,11 +36,11 @@ require.config({
 });
 
 define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
-"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller",
-"app/services/selection", "app/services/regiments","app/services/specialties", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service"],
+"app/regiments/regiment-select-controller", "app/characteristics/characteristics-controller", "app/specialty/specialty-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller","app/regiments/regiment-creation-controller",
+"app/services/selection", "app/services/regiments","app/services/specialties", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/regimentoptions", "app/services/armor-tooltip-service"],
 	function(angular, uirouter, resource, angularui, dragdrop,
-	regimentController, characteristicsController, specialtyController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController,
-	selectionService, regimentService, specialtyService, characterService, characterOptions, diceService, characteristicTooltipService) {
+	regimentController, characteristicsController, specialtyController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, regimentCreationController,
+	selectionService, regimentService, specialtyService, characterService, characterOptions, diceService, characteristicTooltipService, regimentoptions, armorTooltipService) {
     var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop"]);
 
 	//Register services
@@ -51,6 +51,8 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
     app.factory("characteroptions", characterOptions);
     app.factory("dice", diceService);
     app.factory("characteristicTooltipService", characteristicTooltipService);
+    app.factory("regimentOptions", regimentoptions);
+    app.factory("armorTooltipService", armorTooltipService);
 
 	//Register additional controllers not used by the main pages below
 	app.controller("SelectionModalController", selectionModalController);
@@ -58,6 +60,7 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop",
 	app.controller("ConfirmationController", confirmationController);
 	app.controller("CharacteristicToolTipController", characteristicTooltipController);
 	app.controller("StartingPowersController", startingPowersController);
+	app.controller("RegimentCreationController", regimentCreationController);
 
     app.config(function($stateProvider){
         $stateProvider.state("sheet", {

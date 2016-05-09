@@ -165,7 +165,7 @@ define(function() {
 					return {
 						add: function(name, rating) {
 							if (_skills[name] !== undefined) {
-								throw "Tried to add a skill named " + name + " but " + this.name + " already has that skill."
+								console.log("Tried to add a skill named " + name + " but " + this.name + " already has that skill.")
 							}
 							var newSkill = new Skill(name, rating);
 							_skills[name] = newSkill;
@@ -191,7 +191,7 @@ define(function() {
 					return {
 						add: function(talent) {
 							if (_talents.indexOf(talent) !== -1) {
-								throw "Tried to add talent " + talent + " but " + this.name + " already has that talent."
+								console.log("Tried to add talent " + talent + " but " + this.name + " already has that talent.")
 							}
 							_talents.push(talent);
 						},
@@ -403,7 +403,7 @@ define(function() {
 					return {
 						addPower: function(power, isBonus){
 							if (_powers.powers.indexOf(power) !== -1){
-								throw "Tried to add power " + power + " which the character already had."
+								console.log("Tried to add power " + power + " which the character already had.")
 							}
 							if (isBonus){
 								power.bonus = true;

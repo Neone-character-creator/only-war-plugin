@@ -52,9 +52,9 @@ define(function() {
 				for (skill in fixedModifiers.skills) {
 					var specialization = skill.indexOf("(") < 0 ? null : skill.substring(skill.indexOf("(") + 1, skill.indexOf(")"));
 					var baseName = skill.substring(0, skill.indexOf("(") < 0 ? skill.length : skill.indexOf("(")).trim();
-					replacementSkills[skill] = result.filter(function(element) {
+					replacementSkills[skill] = angular.copy(result.filter(function(element) {
 						return element.name === baseName;
-					})[0];
+					})[0]);
 					if (specialization) {
 						replacementSkills[skill].specialization = specialization;
 					}
@@ -70,11 +70,11 @@ define(function() {
 						var name = element;
 						var specialization = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
 						element = element.substring(0, specialization ? element.indexOf("(") : element.length).trim();
-						element = Object.clone(result.filter(function(talent) {
+						element = angular.copy(result.filter(function(talent) {
 							return element === talent.name;
 						})[0]);
-						if(!element.name){
-							throw "Tried to get a talent name " + name + " but couldn't find it."
+						if(!element){
+							console.log("Tried to get a talent name " + name + " but couldn't find it.");
 						}
 						if (specialization) {
 							element.name += " (" + specialization + ")";
@@ -94,11 +94,11 @@ define(function() {
 						var name = element;
 						var rating = element.indexOf("(") < 0 ? null : element.substring(element.indexOf("(") + 1, element.indexOf(")"));
 						element = element.substring(0, rating ? element.indexOf("(") : element.length).trim();
-						element = Object.clone(result.filter(function(talent) {
+						element = angular.copy(result.filter(function(talent) {
             				return element === talent.name;
             			})[0]);
             			if(!element.name){
-            				throw "Tried to get a trait name " + name + " but couldn't find it."
+            				console.log("Tried to get a trait name " + name + " but couldn't find it.")
             			}
             			if (rating) {
             				element.name += " (" + rating + ")";
@@ -171,18 +171,18 @@ define(function() {
 							var name = option.value;
 							var specialization = option.value.indexOf("(") < 0 ? null : option.value.substring(option.value.indexOf("(") + 1, option.value.indexOf(")"));
 							option.value= option.value.substring(0, specialization ? option.value.indexOf("(") : option.value.length).trim();
-                            option.value= Object.clone(result[0].filter(function(talent) {
+                            option.value= angular.copy(result[0].filter(function(talent) {
                             	return option.value === talent.name;
                            	})[0]);
-                           	if(!option.value.name){
-                           		throw "Tried to get a talent name " + name + " but couldn't find it."
+                           	if(!option.value){
+                           		console.log("Tried to get a talent name " + name + " but couldn't find it.")
                            	}
                            	if (specialization) {
                            		
                            		option.value.name += " (" + specialization + ")";
                            	}
 							if(!option.value){
-								throw "Tried to replace talent " + name + " in " + modifier.name + " but no talent by that name was found."
+								console.log("Tried to replace talent " + name + " in " + modifier.name + " but no talent by that name was found.")
 							}
 							break;
 							case "skills":
@@ -293,7 +293,17 @@ define(function() {
 				return specialties.then(function(result) {
 					return result.slice();
 				});
-			}
+			},
+			traits: function() {
+			    return traits.$promise.then(function(result) {
+			        return result.slice();
+			    });
+            },
+            vehicles : function(){
+                return vehicles.$promise.then(function(result) {
+			        return result.slice();
+			    });
+            }
 		}
 	};
 });

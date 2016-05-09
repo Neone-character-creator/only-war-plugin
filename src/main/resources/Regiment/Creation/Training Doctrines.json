@@ -43,9 +43,9 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": [
-        "Forbidden Lore"
-      ],
+      "skills": {
+        "Forbidden Lore" : 1
+      },
       "talents": [
         "Hatred"
       ]
@@ -243,9 +243,9 @@
     "source": "hammer of the emperor",
     "cost": 4,
     "fixed modifiers": {
-      "skills": [
-        "Stealth"
-      ],
+      "skills": {
+        "Stealth" : 1
+      },
       "special abilities": [
         {
           "name": "Infiltrators",

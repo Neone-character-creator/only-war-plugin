@@ -6,6 +6,7 @@ define(function() {
 		$scope.character = character.character();
 		$scope.selected = regiments.selected();
 		$scope.requiredSelections = regiments.remainingSelections();
+		$scope.selectionType = "regiment";
 
 		var suppressDialog = false;
 
@@ -58,6 +59,15 @@ define(function() {
 			}).result.then(function() {
 				$scope.selected = regiments.selected();
 			});
+		};
+
+		$scope.createNewRegiment = function(){
+		    $uibModal.open({
+		        controller : "RegimentCreationController",
+		        templateUrl : "templates/regiment-creation.html"
+		    }).result.then(function(){
+		        $scope.selected = regimen
+		    })
 		};
 
 		$scope.openStartingPowersModal = function() {

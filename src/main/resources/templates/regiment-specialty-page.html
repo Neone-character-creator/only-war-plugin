@@ -10,6 +10,11 @@
                         <li ng-repeat="option in available"><a
                                 ng-click="select(option)">{{option.name}}</a>
                         </li>
+                        <li ng-show="selectionType === 'regiment'">
+                            <a ng-click="createNewRegiment()">
+                            Create New Regiment
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -100,18 +100,48 @@
         "Catfall"
       ],
       "character kit": {
-        "main weapon": {
-          "Lascarbine": 1
-        },
-        "armor": {
-          "Imperial Guard Flak Armor": 1
-        },
-        "other gear": {
-          "Charge Pack (Basic)": 4,
-          "Grav Chute": 1,
-          "Frag Grenade": 2,
-          "Smoke Grenade": 2
-        }
+        "main weapon": [
+          {
+            "item" : {
+              "name" : "Lascarbine"
+            },
+            "count" : 1
+          }
+        ],
+        "armor": [
+          {
+            "item" : {
+              "name" : "Imperial Guard Flak Armor"
+            },
+            "count" : 1
+          }
+        ],
+        "other gear": [
+          {
+            "item" : {
+              "name" : "Charge Pack (Basic"
+            },
+            "count" : 4
+          },
+          {
+            "item" : {
+              "name" : "Grav Chute"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Frag Grenade"
+            },
+            "count" : 2
+          },
+          {
+            "item" : {
+              "name" : "Smoke Grenade"
+            },
+            "count" : 2
+          }
+        ]
       }
     }
   },
@@ -218,7 +248,7 @@
         "Intelligence": -3
       },
       "skills": {
-        "Athletics)": 1
+        "Athletics": 1
       },
       "talents": [
         "Rapid Reload"

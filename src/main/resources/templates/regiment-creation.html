@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="container" ng-controller="RegimentCreationController">
+    <div class="panel">
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Homeworld/Origin</button>
+        <ul class="dropdown-menu">
+            <li ng-repeat="origin in origins"><a ng-click="selectHomeworld(origin)">{{origin.name}}</a></li>
+        </ul>
+        <div ng-show="homeworld">
+            <h4>Your Chosen Origin Will Give The Following Modifiers:</h4>
+            <div>
+                <div ng-show="homeworld['fixed modifiers'].characteristics" class="row">
+                    <h4>Characteristics</h4>
+                    <ul>
+                        <li ng-repeat="(name, value) in homeworld['fixed modifiers'].characteristics">{{name}} {{value >
+                            0 ? '+' + value : value}}
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="homeworld['fixed modifiers'].skills" class="row">
+                    <h4>Skills</h4>
+                    <ul>
+                        <li ng-repeat="skill in homeworld['fixed modifiers'].skills">{{!skill.specialization ? skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' + (skill.advancements-1) * 10}}</li>
+                    </ul>
+                </div>
+                <div ng-show="homeworld['fixed modifiers'].talents" class="row">
+                    <h4>Talents</h4>
+                    <ul>
+                        <li ng-repeat="talent in homeworld['fixed modifiers'].talents">{{talent.name}}</li>
+                    </ul>
+                </div>
+                <div ng-show="homeworld['fixed modifiers'].traits" class="row">
+                    <h4>Traits</h4>
+                    <ul>
+                        <li ng-repeat="trait in homeworld['fixed modifiers'].traits">{{trait.name}}</li>
+                    </ul>
+                </div>
+                <div ng-show="homeworld['fixed modifiers']['special abilities']" class="row collapse"
+                     data-toggle="collapse" data-target="#homeworld" id="homeworld">
+                    <h4>Regiment Special Abilities</h4>
+                    <ul>
+                        <li>
+                        <span ng-repeat-start="ability in homeworld['fixed modifiers']['special abilities']">
+                            <strong>{{ability.name}}</strong>
+                        </span>
+                        <span ng-repeat-end>
+                            {{ability.description}}
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{regiment | json}}
+            <div ng-show="regiment['optional modifiers']">
+                Also choose from the following additional modifiers:
+                            <span ng-repeat="option in origin['optional modifiers']"
+                                  ng-click="openSelectionModal(option)">option | option_summary</span>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

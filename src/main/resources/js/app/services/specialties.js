@@ -15,7 +15,7 @@ define(function() {
 		},
 		complete: false,
 		selectSpecialty: function(specialty) {
-			_selected = Object.clone(specialty);
+			_selected = angular.copy(specialty);
 			this.requiredOptionSelections = _selected['optional modifiers'];
 		}
 	};
