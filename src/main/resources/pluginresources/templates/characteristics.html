@@ -1,0 +1,39 @@
+<!doctype HTML>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            Click to generate new characteristics.<br/>
+            <button class="btn btn-standard" ng-click="generate()">Generate</button>
+        </div>
+    </div>
+    <div class="row text-center" ng-show="generatedValues.length > 0">
+        Double click to reroll, click and drag onto the fields below to assign, drag onto assigned value to swap.
+        <ul class="list-inline">
+            <li ng-repeat="number in generatedValues track by $index">
+                <div ng-dblclick="valueButtonClick($index)">
+                    <div class="btn btn-primary"
+                         jqyoui-draggable="{index:$index, animate:true}"
+                         data-jqyoui-options="{revert:'invalid'}" data-drag="true" ng-model="generatedValues">
+                        {{number}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered" style="width:100%">
+                <tr>
+                    <td class="text-center" ng-repeat="characteristic in characteristics"><span class="text-center">{{characteristic.name}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat="characteristic in characteristicNames" class="text-center">
+                        <input type="number" ng-model="characteristics[characteristic.toLowerCase()].rolled"
+                               style="width:50px;text-align:center;height:50px" jqyoui-droppable="{}" data-drop=true />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

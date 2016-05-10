@@ -1,0 +1,102 @@
+{
+  "source": "Standard Kit",
+  "cost": 0,
+  "main weapons": [
+    {
+      "item": {
+        "name": "Laspistol"
+      },
+      "count": 1
+    }
+  ],
+  "other weapons": [
+    {
+      "item": {
+        "name": "Knife"
+      },
+      "count": 1
+    }
+  ],
+  "armor": [
+    {
+      "item": {
+        "name": "Flak Vest"
+      },
+      "count": 1
+    }
+  ],
+  "other gear": [
+    {
+      "item": {
+        "name": "Uniform"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Poor Weather Gear"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Charge Pack (Pistol)"
+      },
+      "count": 2
+    },
+    {
+      "item": {
+        "name": "Rucksack"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Basic Tools"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Mess Kit and Water Canteen"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Blanket and Sleep Bag"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Rechargeable Lamp Pack"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Grooming Kit"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Identification"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Handbook"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "name": "Week's Rations"
+      },
+      "count": 4
+    }
+  ]
+}

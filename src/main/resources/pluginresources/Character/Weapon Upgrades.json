@@ -1,0 +1,11 @@
+[
+	{
+		"name" : "Auxiliary Grenade Launcher",
+		"description" : "",
+		"weight" : "+2.5",
+		"availibility" : "Rare",
+		"upgrades" : [
+			"Basic Las", "Basic Solid Projectile", "Basic Bolt"
+		]
+	}
+]

@@ -1,0 +1,186 @@
+[
+	{
+		"name" : "Heavy Leathers",
+		"type" : "Primitive",
+		"locations" : [
+			"Left Arm", "Right Arm", "Body"
+		],
+		"ap" : 1,
+		"weight" : 5,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Chainmail Suit",
+		"type" : "Primitive",
+		"locations" : [
+			"Left Arm", "Right Arm", "Body", "Left Leg", "Right Leg"
+		],
+		"ap" : 3,
+		"weight" : 15,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Feudal World Plate",
+		"type" : "Primitive",
+		"locations" : [
+			"Left Arm", "Right Arm", "Body", "Left Leg", "Right Leg", "Head"
+		],
+		"ap" : 5,
+		"weight" : 30,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Death World Beast Hide Vest",
+		"type" : "Primitive",
+		"locations" : [
+			"Body"
+		],
+		"ap" : 6,
+		"weight" : 20,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Flak Helmet",
+		"type" : "Flak",
+		"locations" : [
+			"Head"
+		],
+		"ap" : 2,
+		"weight" : 2,
+		"availability" : "Average"
+	},
+	{
+		"name" : "Flak Gauntlets",
+		"type" : "Primitive",
+		"locations" : [
+			"Left Arm", "Right Arm"
+		],
+		"ap" : 2,
+		"weight" : 1,
+		"availability" : "Average"
+	},
+	{
+		"name" : "Light Flak Cloak",
+		"type" : "Flak",
+		"locations" : [
+			"Left Arm", "Right Arm", "Body", "Right Leg", "Left Leg"
+		],
+		"ap" : 2,
+		"weight" : 4,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Flak Vest",
+		"type" : "Flak",
+		"locations" : [
+			"Body"
+		],
+		"ap" : 3,
+		"weight" : 5,
+		"availability" : "Average"
+	},
+	{
+		"name" : "Flak Cloak",
+		"type" : "Flak",
+		"locations" : [
+			"Left Arm", "Right Arm", "Body", "Right Leg", "Left Leg"
+		],
+		"ap" : 3,
+		"weight" : 8,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Flak Coat",
+		"type" : "Flak",
+		"locations" : [
+			"Left Arm", "Right Arm", "Body"
+		],
+		"ap" : 3,
+		"weight" : 5,
+		"availability" : "Average"
+	},
+	{
+		"name" : "Imperial Guard Flak Armor",
+		"type" : "Flak",
+		"locations" : [
+			"Left Arm", "Right Arm", "Body", "Right Leg", "Left Leg"
+		],
+		"ap" : 3,
+		"weight" : 8,
+		"availability" : "Scarce"
+	},
+	{
+		"name" : "Carapace Helm",
+		"type" : "Carapace",
+		"locations" : [
+			"Head"
+		],
+		"ap" : 4,
+		"weight" : 2,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Carapace Gauntlets",
+		"type" : "Carapace",
+		"locations" : [
+			"Left Arm", "Right Arm"
+		],
+		"ap" : 5,
+		"weight" : 2,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Carapace Greaves",
+		"type" : "Carapace",
+		"locations" : [
+			"Right Leg", "Left Leg"
+		],
+		"ap" : 4,
+		"weight" : 3,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Light Carapace",
+		"type" : "Carapace",
+		"locations" : [
+			"Right Arm", "Left Arm","Right Leg", "Left Leg","Body", "Head"
+		],
+		"ap" : 5,
+		"weight" : 15,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Carapace Breastplate",
+		"type" : "Carapace",
+		"locations" : [
+			"Body"
+		],
+		"ap" : 6,
+		"weight" : 7,
+		"availability" : "Rare"
+	},
+	{
+		"name" : "Storm Trooper Carapace",
+		"type" : "Carapace",
+		"locations" : [
+			"Right Arm", "Left Arm","Right Leg", "Left Leg","Body", "Head"
+		],
+		"ap" : 6,
+		"weight" : 15,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Subskin Armor",
+		"weight" : 0,
+		"locations" : ["Right Arm", "Left Arm", "Body", "Right Leg", "Left Leg"],
+		"ap" : 3,
+		"availability" : "Very Rare"
+	},
+	{
+		"name" : "Cranial Armor",
+		"weight" : 0,
+		"locations" : ["Head"],
+		"ap" : 1,
+		"availability" : "Very Rare"
+	}
+]

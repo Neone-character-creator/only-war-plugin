@@ -1,0 +1,37 @@
+[
+	{
+		"name" : "Refractor Field",
+		"weight" : 2,
+		"availability" : "Very Rare",
+		"description" : "",
+		"protection rating" : 30
+	},
+	{
+		"name" : "Refractor Conversion ",
+		"weight" : 1,
+		"availability" : "Extremely Rare",
+		"description" : "",
+		"protection rating" : 50
+	},
+	{
+		"name" : "Displacer Field",
+		"weight" : 2,
+		"availability" : "Near Unique",
+		"description" : "",
+		"protection rating" : 55
+	},
+	{
+		"name" : "Power Field (Personal)",
+		"weight" : 50,
+		"availability" : "Near Unique",
+		"description" : "",
+		"protection rating" : 80
+	},
+	{
+		"name" : "Power Field (Personal)",
+		"weight" : 500,
+		"availability" : "Very Rare",
+		"description" : "",
+		"protection rating" : 80
+	}
+]

@@ -1,0 +1,74 @@
+//TODO reorganize to use new format
+[
+  {
+    "name": "Cloud of Suspicion",
+    "source": "hammer of the emperor",
+    "cost": -3,
+    "fixed modifiers": {
+      "talents": [
+        "Paranoia"
+      ],
+      "special abilities": [
+        {
+          "name": "Untimely Inquiries",
+          "description": "Whenever this regiment fails in an operation or the Squad fails to complete a mission or achieve a critical objective, the power with a worrisome interest in the regiment rears its ugly head, at the Game Master’s discretion. When such an investigation takes place, even on a regimental level, every member of the regiment suffers a –5 penalty to Willpower Tests until the interference concludes due to the stress that it causes."
+        }
+      ]
+    },
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talents",
+              "value": "Enemy (Adeptus Arbites)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Enemy (Inquisition)"
+            }
+          ],
+          [
+            {
+              "property": "talents",
+              "value": "Enemy (Other)"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cloud of Suspicion",
+    "source": "hammer of the emperor",
+    "cost": -3,
+    "fixed modifiers": {
+      "talents": [
+        "Paranoia"
+      ],
+      "special abilities": [
+        {
+          "name": "Untimely Inquiries",
+          "description": "Whenever this regiment fails in an operation or the Squad fails to complete a mission or achieve a critical objective, the power with a worrisome interest in the regiment rears its ugly head, at the Game Master’s discretion. When such an investigation takes place, even on a regimental level, every member of the regiment suffers a –5 penalty to Willpower Tests until the interference concludes due to the stress that it causes."
+        }
+      ]
+    },
+    "optional modifiers": {
+      "talents": [
+        {
+          "selections": 1,
+          "selection time": "character",
+          "options": [
+            "Enemy (Adeptus Arbites)",
+            "Enemy (Inquisition)",
+            "Enemy (Other)"
+          ]
+        }
+      ]
+    }
+  }
+]
