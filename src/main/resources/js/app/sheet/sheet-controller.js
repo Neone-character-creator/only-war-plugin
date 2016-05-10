@@ -1,8 +1,11 @@
 define(function() {
-	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal) {
-		$uibModal.open({
-			templateUrl : "templates/instructions-modal.html"
-		});
+	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, $cookies) {
+		if(!$cookies.get("only-war-instructions")){
+			$uibModal.open({
+				templateUrl : "/pluginresource/templates/instructions-modal.html"
+			});
+			$cookies.put("only-war-instructions", true);
+		};
 		$scope.character = character.character;
 		characteroptions.characteristics().then(function(result){
 			$scope.characteristics = result.map(function(element){return element.name});

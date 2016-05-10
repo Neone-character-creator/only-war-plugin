@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: "js/",
+    baseUrl: "/pluginresource/js/",
     "paths": {
         "angular": "libs/angular/angular",
         "angular-resource": "libs/angular-resource/angular-resource",
@@ -8,7 +8,8 @@ require.config({
         "jquery": "libs/jquery/dist/jquery.min",
         "jquery-ui": "libs/jquery-ui/jquery-ui",
         "angular-ui" : "libs/angular-bootstrap/ui-bootstrap-tpls",
-        "angular-filter" : "libs/angular-filter/dist/angular-filter"
+        "angular-filter" : "libs/angular-filter/dist/angular-filter",
+        "angular-cookies" : "libs/angular-cookies/angular-cookies"
     },
     shim : {
     	"jquery" : {
@@ -34,17 +35,20 @@ require.config({
     	},
     	"angular-filter" : {
     		deps : ['angular']
+    	},
+    	"angular-cookies" : {
+    		deps : ['angular']
     	}
     }
 });
 
-define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter",
+define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "angular-cookies",
 "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller",
 "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service"],
-	function(angular, uirouter, resource, angularui, dragdrop, angularFilter,
+	function(angular, uirouter, resource, angularui, dragdrop, angularFilter, angularCookies,
 	modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController,
 	selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService) {
-    var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop","angular.filter"]);
+    var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop","angular.filter", "ngCookies"]);
 
 	//Register services
     app.factory("regiments", modifierService)
@@ -66,24 +70,24 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "a
 
     app.config(function($stateProvider){
         $stateProvider.state("sheet", {
-        	url: "/",
-            templateUrl: "templates/sheet.html",
+        	url: "",
+            templateUrl: "/pluginresource/templates/sheet.html",
             controller : sheetController
 		}).state("regiment", {
 			url: "/regiment",
-			templateUrl: "templates/regiment-specialty-page.html",
+			templateUrl: "/pluginresource/templates/regiment-specialty-page.html",
 			controller : modifierControllerFactory("regiments")
 		}).state("characteristics", {
 			url: "/characteristics",
-			templateUrl: "templates/characteristics.html",
+			templateUrl: "/pluginresource/templates/characteristics.html",
 			controller : characteristicsController
 		}).state("specialty", {
 			url: "/specialty",
-			templateUrl: "templates/regiment-specialty-page.html",
+			templateUrl: "/pluginresource/templates/regiment-specialty-page.html",
 			controller : modifierControllerFactory("specialties")
 		}).state("finalize", {
 			url: "/finalize",
-			templateUrl: "templates/finalize.html",
+			templateUrl: "/pluginresource/templates/finalize.html",
 			controller : finalizeController
 		});
     });
@@ -163,8 +167,58 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "a
     });
 
     angular.bootstrap(document, ['OnlyWar']);
+
+
+	character = function(value){
+		var characterService = angular.element(document.body).injector().get("character");
+	   	if(value){
+	   		characterService.character = value;
+	   		angular.element(document.body).injector().get("$state").reload();
+	   	} else {
+	   		var characterService = angular.element(document.body).injector().get("character");
+	   		return characterService.character;
+	   	}
+	};
+
+	exportCharacter = function(){
+		var toExport = {};
+		var characterService = angular.element(document.body).injector().get("character");
+		var character = angular.copy(characterService.character);
+		toExport.name = character.name;
+		toExport.player =character.player;
+		toExport.regiment = character.regiment;
+		toExport.specialty = character.specialty;
+		toExport.demeanor = character.demeanor;
+		toExport.description = character.description;
+		toExport.characteristics = character.characteristics;
+		Object.keys(toExport.characteristics).map(function(value, index){
+			toExport.characteristics[value] = toExport.characteristics[value].total()
+		});
+		toExport.skills = character.skills;
+		toExport.talents = character.talent;
+		toExport.traits = character.traits;
+		toExport.wounds = {
+			total : character.wounds.total,
+			criticalInjuries : character.wounds.criticalInjuries
+		};
+		toExport.insanity = character.insanity;
+		toExport.corruption = character.corruption;
+		toExport.speed = {
+			half : character.speed.half,
+			full : character.speed.full,
+			charge : character.speed.charge,
+			run : character.speed.run
+		};
+		toExport.fatePoints = character.fatePoints;
+		toExport.equipment = character.equipment;
+		toExport.experience = {
+			total : character.experience.total,
+			available : character.experience.available
+		};
+		toExport.aptitudes = character.aptitudes.all;
+		toExport.psychicPowers = character.psychicPowers;
+		toExport.fatigue = character.fatigue;
+		return toExport;
+	}
     return app;
 });
-
-var character = function(){
-}

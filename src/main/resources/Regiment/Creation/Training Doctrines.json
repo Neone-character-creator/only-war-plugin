@@ -1,21 +1,32 @@
-//TODO reorganize to use new format
 [
   {
     "name": "Close Order Drill",
     "source": "core",
     "cost": 2,
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Combat Formation",
-            "Double Team"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            [
+              {
+                "property": "talents",
+                "value": "Combat Formation"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "property": "talents",
+                "value": "Double Team"
+              }
+            ]
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Die-Hards",
@@ -32,9 +43,9 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": [
-        "Forbidden Lore"
-      ],
+      "skills": {
+        "Forbidden Lore" : 1
+      },
       "talents": [
         "Hatred"
       ]
@@ -145,30 +156,68 @@
         }
       ],
       "character kit": {
-        "main weapon": {
-          "Lascarbine w/ Compact": 1
-        },
-        "armor": {
-          "Light Carapace Armor": 1
-        },
-        "other gear": {
-          "Knife w/ Mono": 1,
-          "Charge Pack (Basic)": 4
-        }
+        "main weapon": [
+          {
+            "item": {
+              "name": "Lascarbine",
+              "upgrades": [
+                "Compact"
+              ]
+            },
+            "count" : 1
+          }
+        ],
+        "armor": [
+          {
+            "item" : {
+              "name" : "Light Carapace Armor"
+            },
+            "count" : 1
+          }
+        ],
+        "other gear": [
+          {
+            "item" : {
+              "name" : "Knife",
+              "upgrades" : [
+                "Mono"
+              ]
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Charge Pack (Basic)"
+            },
+            "count" : 1
+          }
+        ]
       }
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Double Team",
-            "Combat Master"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            [
+              {
+                "property": "Double Team",
+                "value": "Double Team"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "property": "Combat Master",
+                "value": "Combat Master"
+              }
+            ]
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Heavy Lancers",
@@ -194,9 +243,9 @@
     "source": "hammer of the emperor",
     "cost": 4,
     "fixed modifiers": {
-      "skills": [
-        "Stealth"
-      ],
+      "skills": {
+        "Stealth" : 1
+      },
       "special abilities": [
         {
           "name": "Infiltrators",
@@ -226,18 +275,30 @@
         "Blind Fighting"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Skilled Rider",
-            "Ambush"
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            [
+              {
+                "property": "talents",
+                "value": "Skilled Rider"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "property": "talents",
+                "value": "Ambush"
+              }
+            ]
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "Cavalry Mounts",
@@ -245,13 +306,38 @@
     "cost": 5,
     "fixed modifiers": {
       "character kit": {
-        "other gear": {
-          "Riding Beast": 1,
-          "Saddle": 1,
-          "Bit and Bridle": 1,
-          "Saddlebag": 2,
-          "Mount Rations (Week)": 2
-        }
+        "other gear": [
+          {
+            "item" : {
+              "name" : "Riding Beast"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Saddle"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Bit and Bridle"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Saddlebag"
+            },
+            "count" : 2
+          },
+          {
+            "item" : {
+              "name" : "Mount Rations (Week)"
+            },
+            "count" : 1
+          }
+        ]
       }
     }
   },
@@ -261,10 +347,20 @@
     "cost": 5,
     "fixed modifiers": {
       "character kit": {
-        "other gear": {
-          "Synskin": 1,
-          "Preysense Goggles": 1
-        }
+        "other gear": [
+          {
+            "item" : {
+              "name" : "Synskin"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Preysense Goggles"
+            },
+            "count" : 1
+          }
+        ]
       },
       "special abilities": [
         {
@@ -280,25 +376,60 @@
     "cost": 4,
     "fixed modifiers": {
       "character kit": {
-        "other gear": {
-          "Data-Slate": 1,
-          "Micro-bead": 1,
-          "Anointed Electronics Kit": 1
-        },
-        "squad kit": {
-          "Auspex/Scanner": 2,
-          "Static Generator": 2,
-          "Vox-Caster": 1,
-          "Signal Jammer": 1
+        "other gear": [
+          {
+            "item" : {
+              "name" : "Dataslate"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Micro-bead"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Anointed Electronics Kit"
+            },
+            "count" : 1
+          }
+        ],
+        "squad kit": [
+          {
+            "item" : {
+              "name" : "Auspex"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Static Generator"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Vox Caster"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Signal Jammer"
+            },
+            "count" : 1
+          }
+        ]
+      },
+      "special abilities": [
+        {
+          "name": "Covert Strike",
+          "description": "Members of this regiment gain a +10 bonus to all Logistics Tests made to acquire chameleoline cloaks or armour, clip/drop harnesses, rebreathers, survival suits, auspex/scanners, demolitions charges, grav chutes, multikeys, multicompasses, stummers, static generators, and any other such equipment designed for stealth and infiltration. The Logistics bonus also covers the following stealth weapons: needle rifles, needle pistols, and sniper rifles, as well as the Silencer and Tox Dispenser upgrades."
         }
-      }
-    },
-    "special abilities": [
-      {
-        "name": "Covert Strike",
-        "description": "Members of this regiment gain a +10 bonus to all Logistics Tests made to acquire chameleoline cloaks or armour, clip/drop harnesses, rebreathers, survival suits, auspex/scanners, demolitions charges, grav chutes, multikeys, multicompasses, stummers, static generators, and any other such equipment designed for stealth and infiltration. The Logistics bonus also covers the following stealth weapons: needle rifles, needle pistols, and sniper rifles, as well as the Silencer and Tox Dispenser upgrades."
-      }
-    ]
+      ]
+    }
   },
   {
     "name": "Forward Observation",
@@ -306,14 +437,34 @@
     "cost": 4,
     "fixed modifiers": {
       "character kit": {
-        "other gear": {
-          "Magnoculars": 1,
-          "Cameleoline Cloack": 1,
-          "Hand-held Targeter": 1
-        },
-        "squad kit": {
-          "Pict Recorder": 2
-        }
+        "other gear": [
+          {
+            "item" : {
+              "name" : "Magnoculars"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Chameleoline Cloak"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Hand-held Targeter"
+            },
+            "count" : 1
+          }
+        ],
+        "squad kit": [
+          {
+            "item" : {
+              "name" : "Pict Recorder"
+            },
+            "count" : 2
+          }
+        ]
       }
     }
   },
@@ -323,45 +474,114 @@
     "cost": 6,
     "fixed modifiers": {
       "character kit": {
-        "other gear": {
-          "Combi-tool": 1,
-          "Data-Slate": 1,
-          "Entrenching Tool": 1,
-          "Anointed Toolkit" : 1
-        },
-        "squad kit": {
-          "Lascutter": 1,
-          "Demolitions Charge": 6,
-          "Siege Auspex": 1,
-          "Chimera Armored Transport w/ Turret-Mounted Autocannon, Hull-Mounted Heavy Flamer, Pintle-Mounted Heavy Stubber, Dozer Blade, Camouflage Netting": 1
-        }
+        "other gear": [
+          {
+            "item" : {
+              "name" : "Combi-tool"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Data-slate"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Entrenching Tool"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Anointed Toolkit"
+            },
+            "count" : 1
+          }
+        ],
+        "squad kit": [
+          {
+            "item" : {
+              "name" : "Lascutter"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Demolitions Charge"
+            },
+            "count" : 6
+          },
+          {
+            "item" : {
+              "name" : "Siege Auspex"
+            },
+            "count" : 1
+          },
+          {
+            "item" : {
+              "name" : "Chimera Armored Transport",
+              "upgrades" : [
+                "Turret-Mounted Autocannon",
+                "Hull-Mounted Heavy Flamer",
+                "Pintle-Mounted Heavy Stubber",
+                "Dozer Blade",
+                "Camouflage Netting"
+              ]
+            },
+            "count" : 1
+          }
+        ]
       }
     },
-    "optional modifiers": {
-      "character kit": [
-        {
-          "selections": 1,
-          "selection time": "regiment",
-          "options": [
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "regiment",
+        "options": [
+          [
             {
-              "main weapon": {
+              "property": [
+                "character kit",
+                "other weapons"
+              ],
+              "value": {
                 "Combat Shotgun": 1
-              },
-              "other gear" : {
-                "Clip": 4
               }
             },
             {
-              "main weapon": {
+              "property": [
+                "character kit",
+                "other Gear"
+              ],
+              "value": {
+                "Clip": 4
+              }
+            }
+          ],
+          [
+            {
+              "property": [
+                "character kit",
+                "main weapon"
+              ],
+              "value": {
                 "Lascarbine": 1
-              },
-              "other gear" : {
-                "Charge Pack (Basic)":4
+              }
+            },
+            {
+              "property": [
+                "character kit",
+                "other gear"
+              ],
+              "value": {
+                "Charge Pack (Basic)": 4
               }
             }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   }
 ]

@@ -36,10 +36,10 @@ angular.module("OnlyWar").factory("skills", function($resource, $q){
 
 	var service = {
 		skills : function(){
-			return Object.clone(skills);
+			return angular.copy(skills);
 		},
 		skillRatings : function(){
-			return Object.clone(skillRatings);
+			return angular.copy(skillRatings);
 		}
 	}
 

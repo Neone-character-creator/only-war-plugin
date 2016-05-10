@@ -36,7 +36,7 @@ define(function() {
 					e.preventDefault();
 					confirm = $uibModal.open({
 						controller: "ConfirmationController",
-						templateUrl: "templates/confirm-navigation-modal.html"
+						templateUrl: "/pluginresource/templates/confirm-navigation-modal.html"
 					}).result.then(resultHandler);
 				}
 			}
@@ -60,7 +60,7 @@ define(function() {
 			if (modifierService.selected() && !modifierService.selectionComplete) {
 				confirm = $uibModal.open({
 					controller: "ConfirmationController",
-					templateUrl: "templates/confirm-discard-changes-modal.html"
+					templateUrl: "/pluginresource/templates/confirm-discard-changes-modal.html"
 				}).result.then(function() {
 					proceed();
 				});
@@ -76,7 +76,7 @@ define(function() {
 			selection.selectionObject = selectedObject;
 			$uibModal.open({
 				controller: "SelectionModalController",
-				templateUrl: 'templates/selection-modal.html',
+				templateUrl: '/pluginresource/templates/selection-modal.html',
 			}).result.then(function() {
 				$scope.selected = modifierService.selected();
 				switch(associatedServiceName){
@@ -93,7 +93,7 @@ define(function() {
 		$scope.openStartingPowersModal = function() {
 			$uibModal.open({
 				controller: "StartingPowersController",
-				templateUrl: 'templates/starting-powers-modal.html'
+				templateUrl: '/pluginresource/templates/starting-powers-modal.html'
 			});
 		}
 	}

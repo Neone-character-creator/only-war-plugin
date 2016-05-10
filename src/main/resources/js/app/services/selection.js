@@ -20,13 +20,13 @@ define(function() {
 
 					for (var sub = 0; sub < chosen.length; sub++) {
 						var fixedModifier = target['fixed modifiers'];
-						var properties = chosen[sub]["property"];
-						if (Array.isArray(chosen[sub]["property"])) {
+						var properties = Array.isArray(chosen[sub]["property"]) ? chosen[sub]["property"] : [chosen[sub]["property"]];
 							for (var p = 0; p < properties.length; p++) {
 							if (fixedModifier[properties[p]] === undefined) {
 								switch (properties[p]) {
 									case 'character kit':
 									case 'characteristics':
+									case "skills":
 										fixedModifier[properties[p]] = {};
 										break;
 									case "talents":
@@ -39,14 +39,24 @@ define(function() {
 							}
 							fixedModifier = fixedModifier[properties[p]];
 						};
-						} else {
-							fixedModifier = fixedModifier[chosen[sub]['property']];
-						}
 							if(Array.isArray(fixedModifier)){
 								fixedModifier.push(chosen[sub].value);
 							} else if(typeof fixedModifier === 'object') {
-								for(var property in chosen[sub].value){
-									fixedModifier[property] = chosen[sub].value[property];
+								switch(properties[properties.length-1]){
+									case "skills":
+									for(var property in chosen[sub].value){
+										if(!fixedModifier[property]){
+											fixedModifier[property] = chosen[sub].value[property];
+										} else {
+											if(typeof fixedModifier[property] === 'number'){
+												fixedModifier[property] += chosen[sub].value[property];
+											} else {
+												throw "Not implemented"
+											}
+										}
+									}
+									break;
+									default:
 								}
 							}
 						}

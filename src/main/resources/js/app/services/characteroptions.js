@@ -47,6 +47,20 @@ define(function() {
 			var optionalModifiers = modifier['optional modifiers'];
 			var modifierSkills = $q.defer();
 			//Fixed Modifiers
+			skills.$promise.then(function(result) {
+				var replacementSkills = {};
+				for (skill in fixedModifiers.skills) {
+					var specialization = skill.indexOf("(") < 0 ? null : skill.substring(skill.indexOf("(") + 1, skill.indexOf(")"));
+					var baseName = skill.substring(0, skill.indexOf("(") < 0 ? skill.length : skill.indexOf("(")).trim();
+					replacementSkills[skill] = angular.copy(result.filter(function(element) {
+						return element.name === baseName;
+					})[0]);
+					if (specialization) {
+						replacementSkills[skill].specialization = specialization;
+					}
+				};
+				modifierSkills.resolve(replacementSkills);
+			});
 			var modifierTalents = $q.defer();
 			talents.then(function(result) {
 				var replacementTalents = fixedModifiers.talents;
@@ -72,7 +86,7 @@ define(function() {
 			});
 
 			var modifierTraits = $q.defer();
-			traits.$promise.then(function(result) {
+			traits.$promise.then(function(result){
 				var replacementTraits = fixedModifiers.traits;
 				if (replacementTraits) {
 					replacementTraits = replacementTraits.slice();
@@ -83,7 +97,7 @@ define(function() {
 						element = angular.copy(result.filter(function(talent) {
 							return element === talent.name;
 						})[0]);
-						if (!element.name) {
+						if (!element) {
 							throw "Tried to get a trait name " + name + " but couldn't find it."
 						}
 						if (rating) {
@@ -231,27 +245,27 @@ define(function() {
 				return modifier;
 			});
 		};
-		var characteristics = $resource("Character/characteristics.json").query();
-		var talents = $resource("Character/Talents.json").query().$promise.then(function(result) {
+		var characteristics = $resource("/pluginresource/Character/characteristics.json").query().$promise;
+		var talents = $resource("/pluginresource/Character/Talents.json").query().$promise.then(function(result) {
 			return $q.resolve(result.map(createPrerequisites));
 		});
-		var skills = $resource("Character/Skills.json").query();
-		var powers = $resource("Character/Psychic Powers.json").query().$promise.then(function(result) {
+		var skills = $resource("/pluginresource/Character/Skills.json").query().$promise;
+		var powers = $resource("/pluginresource/Character/Powers.json").query().$promise.then(function(result) {
 			return $q.resolve(result.map(createPrerequisites));
 		});
-		var fatePointRolls = $resource("Character/fatepoints.json").get();
-		var xpCosts = $resource("Character/advancementcosts.json").get();
-		var weapons = $resource("Character/Weapons.json").query();
-		var armor = $resource("Character/Armor.json").query();
-		var items = $resource("Character/Items.json").query();
-		var specialties = $resource("Character/Specialties.json").query().$promise.then(function(result) {
+		var fatePointRolls = $resource("/pluginresource/Character/fatepoints.json").get().$promise;
+		var xpCosts = $resource("/pluginresource/Character/advancementcosts.json").get().$promise;
+		var weapons = $resource("/pluginresource/Character/Weapons.json").query().$promise;
+		var armor = $resource("/pluginresource/Character/Armor.json").query().$promise;
+		var items = $resource("/pluginresource/Character/Items.json").query().$promise;
+		var specialties = $resource("/pluginresource/Character/Specialties.json").query().$promise.then(function(result) {
 			return $q.all(result.map(transformPlaceholders));
 		});
-		var regiments = $resource("Regiment/Regiments.json").query().$promise.then(function(result) {
+		var regiments = $resource("/pluginresource/Regiment/Regiments.json").query().$promise.then(function(result) {
 			return $q.all(result.map(transformPlaceholders));
 		});
-		var vehicles = $resource("Character/Vehicles.json").query();
-		var traits = $resource("Character/Traits.json").query();
+		var vehicles = $resource("/pluginresource/Character/Vehicles.json").query().$promise;
+		var traits = $resource("/pluginresource/Character/Traits.json").query().$promise;
 
 		return {
 			talents: function() {
@@ -260,7 +274,7 @@ define(function() {
 				});
 			},
 			skills: function() {
-				return skills.$promise.then(function(result) {
+				return skills.then(function(result) {
 					return result.slice();
 				});
 			},
@@ -270,12 +284,12 @@ define(function() {
 				});
 			},
 			characteristics: function() {
-				return characteristics.$promise.then(function(result) {
+				return characteristics.then(function(result) {
 					return result.slice();
 				});
 			},
 			fatePointRolls: function() {
-				return fatePointRolls.$promise.then(function(result) {
+				return fatePointRolls.then(function(result) {
 					return {
 						forRoll: function(roll) {
 							return result[roll];
@@ -285,22 +299,22 @@ define(function() {
 				});
 			},
 			xpCosts: function() {
-				return xpCosts.$promise.then(function(result) {
+				return xpCosts.then(function(result) {
 					return result;
 				})
 			},
 			weapons: function() {
-				return weapons.$promise.then(function(result) {
+				return weapons.then(function(result) {
 					return result.slice();
 				});
 			},
 			armor: function() {
-				return armor.$promise.then(function(result) {
+				return armor.then(function(result) {
 					return result.slice();
 				});
 			},
 			items: function() {
-				return items.$promise.then(function(result) {
+				return items.then(function(result) {
 					return result.slice();
 				});
 			},
@@ -313,7 +327,17 @@ define(function() {
 				return specialties.then(function(result) {
 					return result.slice();
 				});
-			}
+			},
+			traits: function() {
+			    return traits.$promise.then(function(result) {
+			        return result.slice();
+			    });
+            },
+            vehicles : function(){
+                return vehicles.$promise.then(function(result) {
+			        return result.slice();
+			    });
+            }
 		}
 	};
 });

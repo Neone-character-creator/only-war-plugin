@@ -1,7 +1,7 @@
 define(function(){
 	return function($resource, $q){
 		var _selected = null;
-		var _remainingSelections;
+		var _remainingSelections = [];
 		var _selectionComplete = false;
 
 		var service = {
@@ -9,7 +9,7 @@ define(function(){
             	return _selected;
             },
             remainingSelections : function(){
-            	return _remainingSelections ? _remainingSelections : [];
+            	return _remainingSelections;
             },
             complete : function(){
             	return _selected && _remainingSelections.length === 0;

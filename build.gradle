@@ -1,14 +1,26 @@
 group 'io.github.thisisnozaku.charactercreator'
 version '1.0'
 
-apply plugin: 'java'
-apply plugin: 'scala'
+buildscript {
+    dependencies {
+        classpath 'be.jlr-home.gradle:scrPlugin:0.1.+'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
 
-sourceCompatibility = 1.5
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'scr'
+apply plugin: 'osgi'
+
+sourceCompatibility = 1.8
 
 repositories {
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
@@ -16,4 +28,15 @@ dependencies {
     compile "io.github.thisisnozaku.charactercreator:neone-plugin-api:1.0"
     compile "org.scala-lang:scala-library:2.11.7"
     compile "com.typesafe.play:play_2.11:2.5.0"
+    compile 'org.apache.felix:org.apache.felix.scr.annotations:1.9.12'
+}
+
+jar {
+    manifest {
+        instruction 'Bundle-Category', 'plugin'
+        instruction 'Bundle-Description', 'Only War Plugin.'
+        instructionReplace 'Private-Package', 'io.github.thisisnozaku.*'
+        instructionReplace 'Export-Package', '!*'
+        instruction 'Import-Package', 'io.github.thisisnozaku.charactercreator.plugins; version=1.0.0'
+    }
 }

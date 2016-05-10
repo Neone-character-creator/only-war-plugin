@@ -30,9 +30,9 @@
     "name": "Fixed",
     "cost": "1",
     "fixed modifiers": {
-      "skills": [
-        "Command"
-      ]
+      "skills": {
+        "Command" : 1
+      }
     }
   },
   {
@@ -57,10 +57,10 @@
     "name": "Phlegmatic",
     "cost": "1",
     "fixed modifiers": {
-      "skills": [
-        "Common Lore (Imperial Guard)",
-        "Common Lore (War)"
-      ]
+      "skills": {
+        "Common Lore (Imperial Guard)" : 1,
+        "Common Lore (War)" : 1
+      }
     }
   },
   {
@@ -76,10 +76,10 @@
     "name": "Supine",
     "cost": "1",
     "fixed modifiers": {
-      "skills": [
-        "Common Lore (Ecclesiarchy)",
-        "Common Lore (Imperial Creed)"
-      ]
+      "skills": {
+        "Common Lore (Ecclesiarchy)" : 1,
+        "Common Lore (Imperial Creed)" : 1
+      }
     }
   }
 ]

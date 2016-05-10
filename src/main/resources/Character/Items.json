@@ -776,5 +776,55 @@
 		"name" : "Volitor Implant",
 		"weight" : 0,
 		"availability" : "Rare"
+	},
+	{
+		"name" : "Arrow",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Quarrel",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Shot",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Bullet",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Cartridge",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Backpack Ammo Pack",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Backpack Power Pack",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Charge Cell",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "Charge Pack",
+		"weight" : 0,
+		"availability" : "Common"
+	},
+	{
+		"name" : "",
+		"weight" : 0,
+		"availability" : "Common"
 	}
 ]

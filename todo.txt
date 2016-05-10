@@ -6,6 +6,10 @@ Implement bonus xp for duplicate talents and bonus aptitudes for duplicate aptit
 
 Finish second page of sheet.
 
+Implement gear replacement for regiment creation elements.
+
+Implement adding certain items only when they already exist for regiment creation elements.
+
 Implement regiment creation.
 
 Finish Trait data file.
