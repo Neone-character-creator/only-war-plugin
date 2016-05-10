@@ -40,3 +40,13 @@ jar {
         instruction 'Import-Package', 'io.github.thisisnozaku.charactercreator.plugins; version=1.0.0'
     }
 }
+
+sourceSets {
+    main {
+        output.resourcesDir "$buildDir/resources"
+        resources {
+            srcDirs = ['src/main/resources/pluginresources']
+        }
+    }
+}
+println sourceSets['main'].resources.srcDirs
