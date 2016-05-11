@@ -694,7 +694,7 @@ define(function() {
 				});
 			}
 		};
-
+}
 		function OnlyWarCharacter(original) {
 			var character = {
 				name: "",

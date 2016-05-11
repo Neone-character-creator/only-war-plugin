@@ -2,7 +2,7 @@ define(function() {
 	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, $cookies) {
 		if(!$cookies.get("only-war-instructions")){
 			$uibModal.open({
-				templateUrl : "/pluginresource/templates/instructions-modal.html"
+				templateUrl : "pluginresource/templates/instructions-modal.html"
 			});
 			$cookies.put("only-war-instructions", true);
 		};

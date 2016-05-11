@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: "/pluginresource/js/",
+    baseUrl: "pluginresource/js/",
     "paths": {
         "angular": "libs/angular/angular",
         "angular-resource": "libs/angular-resource/angular-resource",
@@ -71,23 +71,23 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "a
     app.config(function($stateProvider){
         $stateProvider.state("sheet", {
         	url: "",
-            templateUrl: "/pluginresource/templates/sheet.html",
+            templateUrl: "pluginresource/templates/sheet.html",
             controller : sheetController
 		}).state("regiment", {
 			url: "/regiment",
-			templateUrl: "/pluginresource/templates/regiment-specialty-page.html",
+			templateUrl: "pluginresource/templates/regiment-specialty-page.html",
 			controller : modifierControllerFactory("regiments")
 		}).state("characteristics", {
 			url: "/characteristics",
-			templateUrl: "/pluginresource/templates/characteristics.html",
+			templateUrl: "pluginresource/templates/characteristics.html",
 			controller : characteristicsController
 		}).state("specialty", {
 			url: "/specialty",
-			templateUrl: "/pluginresource/templates/regiment-specialty-page.html",
+			templateUrl: "pluginresource/templates/regiment-specialty-page.html",
 			controller : modifierControllerFactory("specialties")
 		}).state("finalize", {
 			url: "/finalize",
-			templateUrl: "/pluginresource/templates/finalize.html",
+			templateUrl: "pluginresource/templates/finalize.html",
 			controller : finalizeController
 		});
     });

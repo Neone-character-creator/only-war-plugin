@@ -46,7 +46,7 @@ define(function(){
                 e.preventDefault();
                 confirm = $uibModal.open({
                     controller: "ConfirmationController",
-                    templateUrl: "/pluginresource/templates/confirm-navigation-modal.html"
+                    templateUrl: "pluginresource/templates/confirm-navigation-modal.html"
                 }).result.then(resultHandler);
             }
         }

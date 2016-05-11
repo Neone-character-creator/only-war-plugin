@@ -14,7 +14,7 @@ define(function() {
             $scope.training = results["training"];
         });
 
-        regiments.selected = {
+        $scope.regiment = {
             fixedModifiers: {},
             optionalModifiers: [],
             addModifier: function(modifier, type) {
@@ -149,7 +149,6 @@ define(function() {
                 }
             }
         };
-        $scope.regiment = regiments.selected;
 
         $scope.openSelectionModal = function(selectedObject) {
             selection.target = regiments.selected();
@@ -168,11 +167,31 @@ define(function() {
                 regiments.selected.removeModifier($scope.homeworld);
             }
             $scope.homeworld = homeworld;
-            regiments.selected.addModifier(homeworld);
+            $scope.regiment.addModifier(homeworld);
         }
 
-        $scope.complete = function() {
-
+        $scope.selectCommander = function(commander) {
+        	if($scope.commander){
+        		regiments.selected.removeModifier($scope.commander);
+        	}
+        	$scope.commander = commander;
+        	$scope.regiment.addModifier(commander)
         }
-    }
+
+        $scope.selectRegimentType = function(type) {
+                	if($scope.type){
+                		$scope.regiment.removeModifier($scope.type);
+                	}
+                	$scope.type = type;
+                	$scope.regiment.addModifier(type)
+                }
+
+        $scope.setDoctrine = function(doctrine, index){
+        	if($scope.doctrines[index]){
+        		$scope.regiment.removeModifier($scope.doctrines[index]);
+        	}
+            $scope.doctrines[index] = doctrine;
+            $scope.regiment.addModifier(doctrine);
+        }
+	}
 })
