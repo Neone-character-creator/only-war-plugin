@@ -8,6 +8,14 @@ define(function() {
 				$scope.available = names;
 				$scope.selectionType = associatedServiceName;
 			});
+			$scope.createNewRegiment = function(){
+				$uibModal.open({
+					controller : "RegimentCreationController",
+					templateUrl : 'pluginresource/templates/regiment-creation.html'
+				}).result.then(function(result){
+
+				});
+			}
 			break;
 			case "specialties":
 			characteroptions.specialties().then(function(names) {

@@ -1,60 +1,640 @@
 <!DOCTYPE html>
 <html lang="en">
 <div class="container" ng-controller="RegimentCreationController">
-    <div class="panel">
-        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Homeworld/Origin</button>
-        <ul class="dropdown-menu">
-            <li ng-repeat="origin in origins"><a ng-click="selectHomeworld(origin)">{{origin.name}}</a></li>
-        </ul>
-        <div ng-show="homeworld">
-            <h4>Your Chosen Origin Will Give The Following Modifiers:</h4>
-            <div>
-                <div ng-show="homeworld['fixed modifiers'].characteristics" class="row">
-                    <h4>Characteristics</h4>
-                    <ul>
-                        <li ng-repeat="(name, value) in homeworld['fixed modifiers'].characteristics">{{name}} {{value >
-                            0 ? '+' + value : value}}
-                        </li>
-                    </ul>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <h4>Remaining Regiment Creation Points: <span
+                            ng-style="{color:remainingRegimentPoints < 0 ? 'red;' : 'black;'}">{{regiment.remainingRegimentPoints}}</span>
+                    </h4>
                 </div>
-                <div ng-show="homeworld['fixed modifiers'].skills" class="row">
-                    <h4>Skills</h4>
-                    <ul>
-                        <li ng-repeat="skill in homeworld['fixed modifiers'].skills">{{!skill.specialization ? skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' + (skill.advancements-1) * 10}}</li>
-                    </ul>
+                <div class="row" id="homeworld">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Homeworld/Origin
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="origin in origins"><a ng-click="selecthomeworld(origin)">{{origin.name}}
+                                        {{"
+                                        (" +
+                                        origin.cost +" pts)"}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div ng-show="homeworld">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <h2>{{homeworld.name}}</h2>
+                                        {{homeworld.description}}
+                                    </div>
+                                    <div ng-show="homeworld['fixed modifiers'].characteristics" class="row">
+                                        <h4>Characteristics</h4>
+                                        <ul>
+                                            <li ng-repeat="(name, value) in homeworld['fixed modifiers'].characteristics">
+                                                {{name}}
+                                                {{value >
+                                                0 ? '+' + value : value}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="homeworld['fixed modifiers'].skills" class="row">
+                                        <h4>Skills</h4>
+                                        <ul>
+                                            <li ng-repeat="skill in homeworld['fixed modifiers'].skills">
+                                                {{!skill.specialization
+                                                ?
+                                                skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' +
+                                                (skill.advancements-1)
+                                                * 10}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="homeworld['fixed modifiers'].talents" class="row">
+                                        <h4>Talents</h4>
+                                        <ul>
+                                            <li ng-repeat="talent in homeworld['fixed modifiers'].talents">
+                                                {{talent.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="homeworld['fixed modifiers'].traits" class="row">
+                                        <h4>Traits</h4>
+                                        <ul>
+                                            <li ng-repeat="trait in homeworld['fixed modifiers'].traits">
+                                                {{trait.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="homeworld['fixed modifiers']['special abilities']" class="row">
+                                        <h4>Regiment Special Abilities</h4>
+                                        <ul>
+                                            <li ng-repeat="ability in homeworld['fixed modifiers']['special abilities']">
+                                                <span><strong>{{ability.name}}</strong></span>
+                                                <span ng-repeat-end>{{ability.description}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="homeworld['fixed modifiers'].aptitudes" class="row">
+                                        <h4>Aptitudes</h4>
+                                        <ul>
+                                            <li ng-repeat="aptitude in homeworld['fixed modifiers'].aptitudes">
+                                                {{aptitude}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="homeworld['fixed modifiers'].wounds" class="row">
+                                        <h4>Wounds</h4>
+                                        {{homeworld['fixed modifiers'].wounds > 0 ? "+" + homeworld['fixed
+                                        modifiers'].wounds : homeworld['fixed modifiers'].wounds}}
+                                    </div>
+                                    <div class="row">
+                                        <h3>Starting Gear</h3>
+                                        <ul>
+                                            <li ng-repeat="item in homeworld['fixed modifiers']['character kit']['main weapon']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in homeworld['fixed modifiers']['character kit']['other weapons']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in homeworld['fixed modifiers']['character kit']['armor']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in homeworld['fixed modifiers']['character kit']['other gear']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in homeworld['fixed modifiers']['character kit']['squad kit']">
+                                                {{item.count + " x " + item.item.name}} (Squad)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="homeworld['optional modifiers']">
+                                Choose from these modifiers for your regiment:
+                                <ul>
+                                    <li ng-repeat="option in homeworld['optional modifiers'] | filter : {'selection time' : 'regiment'}">
+                                        <button class="btn btn-link" ng-click="openSelectionModal(option, homeworld)">
+                                            {{option |
+                                            option_summary}}
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                Characters from this regiment will also choose from the following benefits at character
+                                creation:
+                                <ul>
+                                    <li ng-repeat="option in homeworld['optional modifiers'] | filter : {'selection time' : 'character'}">
+                                        {{option |
+                                        option_summary}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div ng-show="homeworld['fixed modifiers'].talents" class="row">
-                    <h4>Talents</h4>
-                    <ul>
-                        <li ng-repeat="talent in homeworld['fixed modifiers'].talents">{{talent.name}}</li>
-                    </ul>
+                <div class="row" id="commander">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Commander
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="commander in commanders"><a ng-click="selectcommander(commander)">{{commander.name}}
+                                        {{"
+                                        (" +
+                                        commander.cost +" pts)"}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div ng-show="commander">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <h2>{{commander.name}}</h2>
+                                        {{commander.description}}
+                                    </div>
+                                    <div ng-show="commander['fixed modifiers'].characteristics" class="row">
+                                        <h4>Characteristics</h4>
+                                        <ul>
+                                            <li ng-repeat="(name, value) in commander['fixed modifiers'].characteristics">
+                                                {{name}}
+                                                {{value >
+                                                0 ? '+' + value : value}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="commander['fixed modifiers'].skills" class="row">
+                                        <h4>Skills</h4>
+                                        <ul>
+                                            <li ng-repeat="skill in commander['fixed modifiers'].skills">
+                                                {{!skill.specialization
+                                                ?
+                                                skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' +
+                                                (skill.advancements-1)
+                                                * 10}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="commander['fixed modifiers'].talents" class="row">
+                                        <h4>Talents</h4>
+                                        <ul>
+                                            <li ng-repeat="talent in commander['fixed modifiers'].talents">
+                                                {{talent.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="commander['fixed modifiers'].traits" class="row">
+                                        <h4>Traits</h4>
+                                        <ul>
+                                            <li ng-repeat="trait in commander['fixed modifiers'].traits">
+                                                {{trait.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="commander['fixed modifiers']['special abilities']" class="row">
+                                        <h4>Regiment Special Abilities</h4>
+                                        <ul>
+                                            <li ng-repeat="ability in commander['fixed modifiers']['special abilities']">
+                                                <span><strong>{{ability.name}}</strong></span>
+                                                <span ng-repeat-end>{{ability.description}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="commander['fixed modifiers'].aptitudes" class="row">
+                                        <h4>Aptitudes</h4>
+                                        <ul>
+                                            <li ng-repeat="aptitude in commander['fixed modifiers'].aptitudes">
+                                                {{aptitude}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="commander['fixed modifiers'].wounds" class="row">
+                                        <h4>Wounds</h4>
+                                        {{commander['fixed modifiers'].wounds > 0 ? "+" + commander['fixed
+                                        modifiers'].wounds : commander['fixed modifiers'].wounds}}
+                                    </div>
+                                    <div class="row">
+                                        <h3>Starting Gear</h3>
+                                        <ul>
+                                            <li ng-repeat="item in commander['fixed modifiers']['character kit']['main weapon']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in commander['fixed modifiers']['character kit']['other weapons']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in commander['fixed modifiers']['character kit']['armor']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in commander['fixed modifiers']['character kit']['other gear']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in commander['fixed modifiers']['character kit']['squad kit']">
+                                                {{item.count + " x " + item.item.name}} (Squad)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="commander['optional modifiers']">
+                                Choose from these modifiers for your regiment:
+                                <ul>
+                                    <li ng-repeat="option in commander['optional modifiers'] | filter : {'selection time' : 'regiment'}">
+                                        <button class="btn btn-link" ng-click="openSelectionModal(option, commander)">
+                                            {{option |
+                                            option_summary}}
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                Characters from this regiment will also choose from the following benefits at character
+                                creation:
+                                <ul>
+                                    <li ng-repeat="option in commander['optional modifiers'] | filter : {'selection time' : 'character'}">
+                                        {{option |
+                                        option_summary}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div ng-show="homeworld['fixed modifiers'].traits" class="row">
-                    <h4>Traits</h4>
-                    <ul>
-                        <li ng-repeat="trait in homeworld['fixed modifiers'].traits">{{trait.name}}</li>
-                    </ul>
+                <div class="row" id="type">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Regiment Type
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="type in regimentTypes"><a ng-click="selecttype(type)">{{type.name}}
+                                        {{"
+                                        (" +
+                                        type.cost +" pts)"}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div ng-show="type">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <h2>{{type.name}}</h2>
+                                        {{type.description}}
+                                    </div>
+                                    <div ng-show="type['fixed modifiers'].characteristics" class="row">
+                                        <h4>Characteristics</h4>
+                                        <ul>
+                                            <li ng-repeat="(name, value) in type['fixed modifiers'].characteristics">
+                                                {{name}}
+                                                {{value >
+                                                0 ? '+' + value : value}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="type['fixed modifiers'].skills" class="row">
+                                        <h4>Skills</h4>
+                                        <ul>
+                                            <li ng-repeat="skill in type['fixed modifiers'].skills">
+                                                {{!skill.specialization
+                                                ?
+                                                skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' +
+                                                (skill.advancements-1)
+                                                * 10}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="type['fixed modifiers'].talents" class="row">
+                                        <h4>Talents</h4>
+                                        <ul>
+                                            <li ng-repeat="talent in type['fixed modifiers'].talents">
+                                                {{talent.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="type['fixed modifiers'].traits" class="row">
+                                        <h4>Traits</h4>
+                                        <ul>
+                                            <li ng-repeat="trait in type['fixed modifiers'].traits">
+                                                {{trait.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="type['fixed modifiers']['special abilities']" class="row">
+                                        <h4>Regiment Special Abilities</h4>
+                                        <ul>
+                                            <li ng-repeat="ability in type['fixed modifiers']['special abilities']">
+                                                <span><strong>{{ability.name}}</strong></span>
+                                                <span ng-repeat-end>{{ability.description}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="type['fixed modifiers'].aptitudes" class="row">
+                                        <h4>Aptitudes</h4>
+                                        <ul>
+                                            <li ng-repeat="aptitude in type['fixed modifiers'].aptitudes">
+                                                {{aptitude}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="type['fixed modifiers'].wounds" class="row">
+                                        <h4>Wounds</h4>
+                                        {{type['fixed modifiers'].wounds > 0 ? "+" + type['fixed modifiers'].wounds :
+                                        type['fixed modifiers'].wounds}}
+                                    </div>
+                                    <div class="row">
+                                        <h3>Starting Gear</h3>
+                                        <ul>
+                                            <li ng-repeat="item in type['fixed modifiers']['character kit']['main weapon']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in type['fixed modifiers']['character kit']['other weapons']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in type['fixed modifiers']['character kit']['armor']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in type['fixed modifiers']['character kit']['other gear']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in type['fixed modifiers']['character kit']['squad kit']">
+                                                {{item.count + " x " + item.item.name}} (Squad)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="type['optional modifiers']">
+                                Choose from these modifiers for your regiment:
+                                <ul>
+                                    <li ng-repeat="option in type['optional modifiers'] | filter : {'selection time' : 'regiment'}">
+                                        <button class="btn btn-link" ng-click="openSelectionModal(option, type)">
+                                            {{option |
+                                            option_summary}}
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                Characters from this regiment will also choose from the following benefits at character
+                                creation:
+                                <ul>
+                                    <li ng-repeat="option in type['optional modifiers'] | filter : {'selection time' : 'character'}">
+                                        {{option |
+                                        option_summary}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div ng-show="homeworld['fixed modifiers']['special abilities']" class="row collapse"
-                     data-toggle="collapse" data-target="#homeworld" id="homeworld">
-                    <h4>Regiment Special Abilities</h4>
-                    <ul>
-                        <li>
-                        <span ng-repeat-start="ability in homeworld['fixed modifiers']['special abilities']">
-                            <strong>{{ability.name}}</strong>
-                        </span>
-                        <span ng-repeat-end>
-                            {{ability.description}}
-                        </span>
-                        </li>
-                    </ul>
+                <div class="row" id="doctrine[index]" ng-repeat="index in [0,1]">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Special Equipment / Training Doctrine
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="doctrine in equipment.concat(training)"><a
+                                            ng-click="selectdoctrine(doctrine, index)">{{doctrine.name}}
+                                        {{"
+                                        (" +
+                                        doctrine.cost +" pts)"}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div ng-show="doctrines[index]">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <h2>{{doctrines[index].name}}</h2>
+                                        {{doctrines[index].description}}
+                                    </div>
+                                    <div ng-show="doctrines[index]['fixed modifiers'].characteristics" class="row">
+                                        <h4>Characteristics</h4>
+                                        <ul>
+                                            <li ng-repeat="(name, value) in doctrines[index]['fixed modifiers'].characteristics">
+                                                {{name}}
+                                                {{value >
+                                                0 ? '+' + value : value}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="doctrines[index]['fixed modifiers'].skills" class="row">
+                                        <h4>Skills</h4>
+                                        <ul>
+                                            <li ng-repeat="skill in doctrines[index]['fixed modifiers'].skills">
+                                                {{!skill.specialization
+                                                ?
+                                                skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' +
+                                                (skill.advancements-1)
+                                                * 10}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="doctrines[index]['fixed modifiers'].talents" class="row">
+                                        <h4>Talents</h4>
+                                        <ul>
+                                            <li ng-repeat="talent in doctrines[index]['fixed modifiers'].talents">
+                                                {{talent.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="doctrines[index]['fixed modifiers'].traits" class="row">
+                                        <h4>Traits</h4>
+                                        <ul>
+                                            <li ng-repeat="trait in doctrines[index]['fixed modifiers'].traits">
+                                                {{trait.name}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="doctrines[index]['fixed modifiers']['special abilities']" class="row">
+                                        <h4>Regiment Special Abilities</h4>
+                                        <ul>
+                                            <li ng-repeat="ability in doctrines[index]['fixed modifiers']['special abilities']">
+                                                <span><strong>{{ability.name}}</strong></span>
+                                                <span ng-repeat-end>{{ability.description}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="doctrines[index]['fixed modifiers'].aptitudes" class="row">
+                                        <h4>Aptitudes</h4>
+                                        <ul>
+                                            <li ng-repeat="aptitude in doctrines[index]['fixed modifiers'].aptitudes">
+                                                {{aptitude}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div ng-show="doctrines[index]['fixed modifiers'].wounds" class="row">
+                                        <h4>Wounds</h4>
+                                        {{doctrines[index]['fixed modifiers'].wounds > 0 ? "+" + doctrines[index]['fixed
+                                        modifiers'].wounds : doctrines[index]['fixed modifiers'].wounds}}
+                                    </div>
+                                    <div class="row" ng-show="doctrines[index]['fixed modifiers']['character kit']">
+                                        <h3>Starting Gear</h3>
+                                        <ul>
+                                            <li ng-repeat="item in doctrines[index]['fixed modifiers']['character kit']['main weapon']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in doctrines[index]['fixed modifiers']['character kit']['other weapons']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in doctrines[index]['fixed modifiers']['character kit']['armor']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in doctrines[index]['fixed modifiers']['character kit']['other gear']">
+                                                {{item.count + " x " + item.item.name}}
+                                            </li>
+                                            <li ng-repeat="item in doctrines[index]['fixed modifiers']['character kit']['squad kit']">
+                                                {{item.count + " x " + item.item.name}} (Squad)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="doctrines[index]['optional modifiers']">
+                                Choose from these modifiers for your regiment:
+                                <ul>
+                                    <li ng-repeat="option in doctrines[index]['optional modifiers'] | filter : {'selection time' : 'regiment'}">
+                                        <button class="btn btn-link"
+                                                ng-click="openSelectionModal(option, doctrines[index])">
+                                            {{option |
+                                            option_summary}}
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                Characters from this regiment will also choose from the following benefits at character
+                                creation:
+                                <ul>
+                                    <li ng-repeat="option in doctrines[index]['optional modifiers'] | filter : {'selection time' : 'character'}">
+                                        {{option | option_summary}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {{regiment | json}}
-            <div ng-show="regiment['optional modifiers']">
-                Also choose from the following additional modifiers:
-                            <span ng-repeat="option in origin['optional modifiers']"
-                                  ng-click="openSelectionModal(option)">option | option_summary</span>
+            <button ng-click="finish()">Complete</button>
+        </div>
+    </div>
+    <div class="col-md-6">
+        Regiment Name
+        <input type="text" ng-model="regiment.name"/>
+        <div class="row" ng-show="regiment" class="text-center">
+            <div class="row">
+                <h3>{{regiment.name}}</h3>
+            </div>
+            <div class="row">
+                <h3>Characteristic Modifiers</h3>
+                <ul>
+                    <li ng-repeat="(name, value) in regiment['fixed modifiers'].characteristics">
+                        {{name}} :
+                        {{value > 0 ?
+                        '+' +
+                        value :
+                        value}}
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <h3>Starting Skills</h3>
+                <ul>
+                    <li ng-repeat="(skill,rating) in regiment['fixed modifiers'].skills">{{skill}}{{rating > 1 ? +
+                        (rating * 10) : ""}}
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <h3>Starting Talents and Traits</h3>
+                <ul>
+                    <li ng-repeat="talent in regiment['fixed modifiers'].talents">{{talent.name}}
+                    </li>
+                    <li ng-repeat="trait in regiment['fixed modifiers'].traits">{{trait.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="row" ng-show="character.psychicPowers.powers.length">
+                <h3>Starting Powers</h3>
+                <ul>
+                    <li ng-repeat="power in character.psychicPowers.powers">
+                        {{power.name}}
+                    </li>
+                </ul>
+                <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
+            </div>
+            <div class="row">
+                <h3>Aptitudes</h3>
+                <ul>
+                    <li ng-repeat="aptitude in regiment['fixed modifiers']['aptitudes']">{{aptitude}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <h3>Starting Gear</h3>
+                {{regiment['fixed modifiers']['character kit']}}
+                <ul>
+                    <li ng-repeat="item in regiment['fixed modifiers']['character kit']['main weapon']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in regiment['fixed modifiers']['character kit']['other weapons']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in regiment['fixed modifiers']['character kit']['armor']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in regiment['fixed modifiers']['character kit']['other gear']">
+                        {{item.count + " x " + item.item.name}}
+                    </li>
+                    <li ng-repeat="item in regiment['fixed modifiers']['character kit']['squad kit']">
+                        {{item.count + " x " + item.item.name}} (Squad)
+                    </li>
+                </ul>
+            </div>
+            <div class="row" ng-show="regiment['fixed modifiers']['favored weapons']">
+                <h3>Favored Weapons</h3>
+                {{regiment['fixed modifiers']['favored weapons'].join(', ')}}
+            </div>
+            <div class="row">
+                <h4>Regimental Kit</h4>
+                <h4>Main Weapon</h4>
+                <ul>
+                    <li ng-repeat="weapon in regimentKit['main weapon']">
+                        {{weapon.count + "x " + weapon.item.name}}
+                    </li>
+                </ul>
+                <h4>Other Weapons</h4>
+                <ul>
+                    <li ng-repeat="weapon in regimentKit['other weapons']">{{weapon.count + "x " + weapon.item.name}}
+                    </li>
+                </ul>
+                <h4>Armor</h4>
+                <ul>
+                    <li ng-repeat="armor in regimentKit['armor']">{{armor.count + "x " + armor.item.name}}</li>
+                </ul>
+                <h4>Other Gear</h4>
+                <ul>
+                    <li ng-repeat="item in regimentKit['other gear']">{{item.count + "x " + item.item.name}}</li>
+                </ul>
+                <div>
+                    <h4>Regimental Kit Options</h4>
+                    Select from the following to customize your regimental starting gear.
+                    Remaining Kit Points: {{regiment['fixed modifiers']['regiment kit points']}}
+                    <ul>
+                        <li ng-repeat="choice in kitChoices">
+                            <button class="btn btn-link" ng-cliok="modifyKit(choice)">{{choice.description + " (" + choice.cost + ")"}}</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -538,9 +538,13 @@
             "count" :1
           }
         ],
-        "other weapons": {
-          "Grenade Launcher": 2
-        }
+        "other weapons": [
+          {
+            "item" : {"name" : "Grenade Launcher"},
+            "count" : 2
+          }
+
+        ]
       }
     }
   },
@@ -558,7 +562,7 @@
         "Tech-Use": 1
       },
       "talents": [
-        "Push the Limit",
+        "Push The Limit",
         "Tank Hunter"
       ],
       "character kit": {

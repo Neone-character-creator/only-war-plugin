@@ -44,7 +44,7 @@
     "cost": 3,
     "fixed modifiers": {
       "skills": {
-        "Forbidden Lore" : 1
+        "Forbidden Lore": 1
       },
       "talents": [
         "Hatred"
@@ -164,32 +164,34 @@
                 "Compact"
               ]
             },
-            "count" : 1
+            "count": 1
+          }
+        ],
+        "other weapons": [
+          {
+            "item": {
+              "name": "Knife",
+              "upgrades": [
+                "Mono"
+              ]
+            },
+            "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {
-              "name" : "Light Carapace Armor"
+            "item": {
+              "name": "Light Carapace Armor"
             },
-            "count" : 1
+            "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {
-              "name" : "Knife",
-              "upgrades" : [
-                "Mono"
-              ]
+            "item": {
+              "name": "Charge Pack (Basic)"
             },
-            "count" : 1
-          },
-          {
-            "item" : {
-              "name" : "Charge Pack (Basic)"
-            },
-            "count" : 1
+            "count": 1
           }
         ]
       }
@@ -244,7 +246,7 @@
     "cost": 4,
     "fixed modifiers": {
       "skills": {
-        "Stealth" : 1
+        "Stealth": 1
       },
       "special abilities": [
         {
@@ -308,34 +310,34 @@
       "character kit": {
         "other gear": [
           {
-            "item" : {
-              "name" : "Riding Beast"
+            "item": {
+              "name": "Riding Beast"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Saddle"
+            "item": {
+              "name": "Saddle"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Bit and Bridle"
+            "item": {
+              "name": "Bit and Bridle"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Saddlebag"
+            "item": {
+              "name": "Saddlebag"
             },
-            "count" : 2
+            "count": 2
           },
           {
-            "item" : {
-              "name" : "Mount Rations (Week)"
+            "item": {
+              "name": "Mount Rations (Week)"
             },
-            "count" : 1
+            "count": 1
           }
         ]
       }
@@ -349,16 +351,16 @@
       "character kit": {
         "other gear": [
           {
-            "item" : {
-              "name" : "Synskin"
+            "item": {
+              "name": "Synskin"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Preysense Goggles"
+            "item": {
+              "name": "Preysense Goggles"
             },
-            "count" : 1
+            "count": 1
           }
         ]
       },
@@ -378,48 +380,48 @@
       "character kit": {
         "other gear": [
           {
-            "item" : {
-              "name" : "Dataslate"
+            "item": {
+              "name": "Dataslate"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Micro-bead"
+            "item": {
+              "name": "Micro-bead"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Anointed Electronics Kit"
+            "item": {
+              "name": "Anointed Electronics Kit"
             },
-            "count" : 1
+            "count": 1
           }
         ],
         "squad kit": [
           {
-            "item" : {
-              "name" : "Auspex"
+            "item": {
+              "name": "Auspex"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Static Generator"
+            "item": {
+              "name": "Static Generator"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Vox Caster"
+            "item": {
+              "name": "Vox Caster"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Signal Jammer"
+            "item": {
+              "name": "Signal Jammer"
             },
-            "count" : 1
+            "count": 1
           }
         ]
       },
@@ -439,30 +441,30 @@
       "character kit": {
         "other gear": [
           {
-            "item" : {
-              "name" : "Magnoculars"
+            "item": {
+              "name": "Magnoculars"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Chameleoline Cloak"
+            "item": {
+              "name": "Chameleoline Cloak"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Hand-held Targeter"
+            "item": {
+              "name": "Hand-held Targeter"
             },
-            "count" : 1
+            "count": 1
           }
         ],
         "squad kit": [
           {
-            "item" : {
-              "name" : "Pict Recorder"
+            "item": {
+              "name": "Pict Recorder"
             },
-            "count" : 2
+            "count": 2
           }
         ]
       }
@@ -476,53 +478,53 @@
       "character kit": {
         "other gear": [
           {
-            "item" : {
-              "name" : "Combi-tool"
+            "item": {
+              "name": "Combi-tool"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Data-slate"
+            "item": {
+              "name": "Data-slate"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Entrenching Tool"
+            "item": {
+              "name": "Entrenching Tool"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Anointed Toolkit"
+            "item": {
+              "name": "Anointed Toolkit"
             },
-            "count" : 1
+            "count": 1
           }
         ],
         "squad kit": [
           {
-            "item" : {
-              "name" : "Lascutter"
+            "item": {
+              "name": "Lascutter"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Demolitions Charge"
+            "item": {
+              "name": "Demolitions Charge"
             },
-            "count" : 6
+            "count": 6
           },
           {
-            "item" : {
-              "name" : "Siege Auspex"
+            "item": {
+              "name": "Siege Auspex"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Chimera Armored Transport",
-              "upgrades" : [
+            "item": {
+              "name": "Chimera Armored Transport",
+              "upgrades": [
                 "Turret-Mounted Autocannon",
                 "Hull-Mounted Heavy Flamer",
                 "Pintle-Mounted Heavy Stubber",
@@ -530,7 +532,7 @@
                 "Camouflage Netting"
               ]
             },
-            "count" : 1
+            "count": 1
           }
         ]
       }

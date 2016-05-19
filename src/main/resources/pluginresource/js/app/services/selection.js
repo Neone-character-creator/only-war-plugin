@@ -44,27 +44,28 @@ define(function() {
 							} else if(typeof fixedModifier === 'object') {
 								switch(properties[properties.length-1]){
 									case "skills":
-									for(var property in chosen[sub].value){
+									case "characteristics":
+										for(var property in chosen[sub].value){
 										if(!fixedModifier[property]){
 											fixedModifier[property] = chosen[sub].value[property];
 										} else {
 											if(typeof fixedModifier[property] === 'number'){
 												fixedModifier[property] += chosen[sub].value[property];
 											} else {
-												throw "Not implemented"
+												throw "Tried to use a skill or characteristic rating that wasn't a number."
 											}
 										}
 									}
 									break;
 									default:
+										throw "Not implemented"
 								}
 							}
 						}
-				})
+				});
 				associatedService.remainingSelections().splice(associatedService.remainingSelections().indexOf(selectionObject), 1);
 				this.associatedService.dirty = true;
 			}
-
 		}
 	}
 });

@@ -262,7 +262,8 @@
         "other weapons": [
           {
             "item": {
-              "name": "Best Craftsmanship Sword"
+              "name": "Sword",
+              "craftsmanship" : "Best"
             },
             "count": 1
           },
@@ -277,6 +278,12 @@
               "name": "Smoke Grenade"
             },
             "count": 2
+          },
+          {
+            "item": {
+              "name": "Knife"
+            },
+            "count": 1
           }
         ],
         "armor": [
@@ -305,12 +312,6 @@
               "name": "Clip"
             },
             "count": 2
-          },
-          {
-            "item": {
-              "name": "Knife"
-            },
-            "count": 1
           },
           {
             "item": {
@@ -466,7 +467,7 @@
         "other weapons": [
           {
             "item": {
-              "name": "Knife ",
+              "name": "Knife",
               "upgrades": [
                 "Mono"
               ]
@@ -3101,7 +3102,7 @@
         ]
       },
       "favored weapons": [
-        "Long-las",
+        "Long Las",
         "Missile Tube"
       ]
     },

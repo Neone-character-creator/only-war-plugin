@@ -622,7 +622,7 @@
               ],
               "value": {
                 "item": {
-                  "name": "Krak Grenades"
+                  "name": "Krak Grenade"
                 },
                 "count": 4
               }
@@ -636,7 +636,7 @@
               ],
               "value": {
                 "item": {
-                  "name": "Frag Grenades"
+                  "name": "Frag Grenade"
                 },
                 "count": 4
               }
@@ -1113,7 +1113,8 @@
               ],
               "value": {
                 "item": {
-                  "name": "Good Craftsmanship Long-Las"
+                  "name": "Long Las",
+                  "craftsmanship" : "Good"
                 },
                 "count": 1
               }
@@ -1127,7 +1128,9 @@
               ],
               "value": {
                 "item": {
-                  "name": "Good Craftsmanship Sniper Rifle w/ Telescopic Sight"
+                  "name": "Sniper Rifle",
+                  "craftsmanship" : "Good",
+                  "upgrades" : ["Telescopic Sight"]
                 },
                 "count": 1
               }
@@ -1171,7 +1174,8 @@
         "other weapons": [
           {
             "item": {
-              "name": "Best Craftsmanship Staff"
+              "name": "Staff",
+              "craftsmanship" : "Best"
             },
             "count": 1
           }

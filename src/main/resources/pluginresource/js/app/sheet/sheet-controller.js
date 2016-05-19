@@ -32,7 +32,7 @@ define(function() {
 		function updateAvailableTalents(){
 			characteroptions.talents().then(function(result){
 				$scope.availableTalents = result.filter(function(element){
-					return character.character.talents.indexOf(element) === -1;
+					return character && character.character && character.character.talents &&character.character.talents.indexOf(element) === -1;
 				});
 			});
 		};
@@ -195,7 +195,7 @@ define(function() {
 			character.character.experience.removeAdvancement(character.character.experience._advancementsBought)
 		}
 
-		$scope.criticalInjuries = character.character.wounds.criticalInjuries;
+		$scope.criticalInjuries = character.character.wounds ? character.character.wounds.criticalInjuries : [];
 		$scope.newCriticalInjury;
 
 		$scope.addCriticalInjury = function() {
@@ -209,7 +209,7 @@ define(function() {
 			$scope.criticalInjuries.splice(index, 1);
 		};
 
-		$scope.mentalDisorders = character.character.insanity.disorders;
+		$scope.mentalDisorders = character.character.insanity ? character.character.insanity.disorders : [];
 		$scope.newMentalDisorder;
 
 		$scope.addMentalDisorder = function() {
@@ -223,6 +223,12 @@ define(function() {
 			$scope.mentalDisorders.splice(index, 1);
 		};
 
+		if(!character.character.corruption){
+			character.character.corruption = {};
+		}
+		if(!character.character.corruption.malignancies){
+			character.character.corruption.malignancies = [];
+		}
 		$scope.malignancies = character.character.corruption.malignancies;
 		$scope.newMalignancy;
 
@@ -328,7 +334,7 @@ define(function() {
 
 		$scope.addNewWeapon = function(){
 			character.character.equipment.weapons.push({item : $scope.availableWeapons[$scope.newWeapon],count : 1});
-			updateAvailableWeapons();
+			updateAvailableweapons;
 		};
 		$scope.removeWeapon = function(index){
 			character.character.equipment.weapons.splice(index);

@@ -116,15 +116,16 @@ define(function() {
 				var result = source.find(function(element) {
 					return element.name === placeholder.name;
 				});
+				if(!result){
+					result = {"name": placeholder.name}
+				}
 				if(placeholder.craftsmanship){
 					result.craftsmanship = placeholder.craftsmanship;
 				}
 				if(placeholder.upgrades){
 					result.upgrades = placeholder.upgrades;
 				}
-				return result ? result : {
-					"name": placeholder.name
-				};
+				return result;
 			};
 			$q.all([weapons, armor, items, vehicles]).then(function(results) {
 				var characterKit = fixedModifiers['character kit'];
@@ -132,6 +133,7 @@ define(function() {
 				var replacementOtherWeapons;
 				var replacementArmor;
 				var replacementOtherItems;
+				var replacementSquadKit;
 				if (characterKit) {
 					if (characterKit['main weapon']) {
 						replacementMainWeapons = characterKit['main weapon'].slice().map(function(weapon) {
@@ -139,7 +141,7 @@ define(function() {
 							return weapon;
 						});
 					}
-					if (characterKit['other weapon']) {
+					if (characterKit['other weapons']) {
 						replacementOtherWeapons = characterKit['other weapons'].slice().map(function(weapon) {
 							weapon.item = replace(weapon.item, results[0]);
 							return weapon;
@@ -159,11 +161,19 @@ define(function() {
 							return item;
 						});
 					}
+					if(characterKit['squad kit']){
+						replacementSquadKit = characterKit['squad kit'].slice();
+						replacementSquadKit = replacementSquadKit.map(function(item) {
+							item.item = replace(item.item, results[2].concat(results[3]));
+							return item;
+						});
+					}
 					modifierEquipment.resolve({
 						'main weapon': replacementMainWeapons,
 						'other weapons': replacementOtherWeapons,
 						'armor': replacementArmor,
-						'other gear': replacementOtherItems
+						'other gear': replacementOtherItems,
+						'squad kit' : replacementSquadKit
 					});
 				} else {
 					modifierEquipment.resolve(undefined);
@@ -329,12 +339,12 @@ define(function() {
 				});
 			},
 			traits: function() {
-			    return traits.$promise.then(function(result) {
+			    return traits.then(function(result) {
 			        return result.slice();
 			    });
             },
             vehicles : function(){
-                return vehicles.$promise.then(function(result) {
+                return vehicles.then(function(result) {
 			        return result.slice();
 			    });
             }

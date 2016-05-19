@@ -2,6 +2,7 @@ require.config({
     baseUrl: "pluginresource/js/",
     "paths": {
         "angular": "libs/angular/angular",
+        "bootstrap" : "libs/bootstrap/dist/js/bootstrap",
         "angular-resource": "libs/angular-resource/angular-resource",
         "ui-router": "libs/angular-ui-router/release/angular-ui-router",
         "dragdrop": "libs/angular-dragdrop/src/angular-dragdrop",
@@ -38,35 +39,20 @@ require.config({
     	},
     	"angular-cookies" : {
     		deps : ['angular']
+    	},
+    	"bootstrap" : {
+    		deps : ['jquery']
     	}
     }
 });
 
-define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "angular-cookies",
-"app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller",
-"app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service"],
-	function(angular, uirouter, resource, angularui, dragdrop, angularFilter, angularCookies,
-	modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController,
-	selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService) {
+define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "angular-cookies",
+"app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
+"app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions"],
+	function(angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, angularCookies,
+	modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
+	selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService, regimentOptions) {
     var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop","angular.filter", "ngCookies"]);
-
-	//Register services
-    app.factory("regiments", modifierService)
-    app.factory("selection", selectionService);
-    app.factory("specialties", modifierService);
-    app.factory("character", characterService);
-    app.factory("characteroptions", characterOptions);
-    app.factory("dice", diceService);
-    app.factory("characteristicTooltipService", characteristicTooltipService);
-    app.factory("armorTooltipService", armorTooltipService);
-
-	//Register additional controllers not used by the main pages below
-	app.controller("SelectionModalController", selectionModalController);
-	app.controller("SheetController", sheetController);
-	app.controller("ConfirmationController", confirmationController);
-	app.controller("CharacteristicToolTipController", characteristicTooltipController);
-	app.controller("StartingPowersController", startingPowersController);
-	app.controller("ArmorTooltipController", armorTooltipController);
 
     app.config(function($stateProvider){
         $stateProvider.state("sheet", {
@@ -89,7 +75,41 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "a
 			url: "/finalize",
 			templateUrl: "pluginresource/templates/finalize.html",
 			controller : finalizeController
+		}).state("createRegiment", {
+			url: "/regiment/create",
+			templateUrl: "pluginresource/templates/regiment-creation.html",
+			controller: regimentCreationController
 		});
+    });
+
+	//Register services
+    app.factory("regiments", modifierService)
+    app.factory("selection", selectionService);
+    app.factory("specialties", modifierService);
+    app.factory("character", characterService);
+    app.factory("characteroptions", characterOptions);
+    app.factory("dice", diceService);
+    app.factory("characteristicTooltipService", characteristicTooltipService);
+    app.factory("armorTooltipService", armorTooltipService);
+    app.factory("regimentOptions", regimentOptions);
+
+	//Register additional controllers not used by the main pages below
+	app.controller("SelectionModalController", selectionModalController);
+	app.controller("SheetController", sheetController);
+	app.controller("ConfirmationController", confirmationController);
+	app.controller("CharacteristicToolTipController", characteristicTooltipController);
+	app.controller("StartingPowersController", startingPowersController);
+	app.controller("ArmorTooltipController", armorTooltipController);
+	app.controller("RegimentCreationController", regimentCreationController);
+
+    app.run(function($rootScope, $state){
+    	$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams){
+	    		$state.previous = fromState;
+	    		$state.previousParams = fromParams;
+    	});
+    	$rootScope.$on("$stateChangeError", function(event){
+    		console.log(event);
+    	})
     });
 
     //Filter for formatting a clickable summary for a selection.
@@ -167,7 +187,6 @@ define(["angular", "ui-router", "angular-resource", "angular-ui", "dragdrop", "a
     });
 
     angular.bootstrap(document, ['OnlyWar']);
-
 
 	character = function(value){
 		var characterService = angular.element(document.body).injector().get("character");

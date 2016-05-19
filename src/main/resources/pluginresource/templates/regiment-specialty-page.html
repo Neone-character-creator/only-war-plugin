@@ -15,13 +15,15 @@
         <div class="col-md-10">
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                    Select<span class="caret"></span>
+                    Select Regiment<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
                     <li ng-repeat="option in available"><a
                             ng-click="select(option)">{{option.name}}</a>
                     </li>
                 </ul>
+                Or
+                <a class="btn btn-primary" ui-sref="createRegiment" ui-sref-opts="{reload:true}">Create New Regiment</a>
             </div>
         </div>
     </div>
