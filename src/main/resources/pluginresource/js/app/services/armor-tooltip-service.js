@@ -1,21 +1,24 @@
+/**
+* Service for populating the tooltip that shows the armor on a hit location.
+*/
 define(function(){
 	return function(){
+		//The hit location being displayed
 		var _location = null;
+		//The values modifying the protection in the hit location.
 		var _modifiers = [];
 		return {
-			location : function(value){
-				if(value){
-					_location = value;
-				} else {
-					return _location;
-				}
+			get location : function(){
+				return _location;
 			},
-			modifiers : function(value){
-				if(value){
-					_modifiers = value;
-				} else {
-					return _modifiers.slice();
-				}
+			set location : function(value){
+				_location = value;
+			},
+			get modifiers : function(){
+				return _modifiers.slice();
+			},
+			set modifiers : function(value){
+				_modifiers = value;
 			}
 		}
 	};
