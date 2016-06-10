@@ -2,7 +2,7 @@ define(function(){
 	return function($scope, $uibModalInstance, selection) {
         $scope.selectionsNeeded = selection.selectionObject.selections;
         //The options
-        $scope.options = [];
+        $scope.options = selection.selectionObject.options;
         //If the option in options at the same index is selected
         $scope.selected= []
 
