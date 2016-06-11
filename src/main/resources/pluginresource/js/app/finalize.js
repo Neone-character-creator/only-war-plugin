@@ -1,23 +1,23 @@
-angular.module("OnlyWar").controller("FinalizeController", function($scope, character){
+angular.module("OnlyWar").controller("FinalizeController", function($scope, characterService){
 });
 
-angular.module("OnlyWar").controller("WoundsController", function($scope, character, dice){
-	$scope.regimentWounds = character.regiment ? character.regiment.wounds : 0;
-	$scope.specialtyWounds= character.specialty ? character.specialty.wounds : 0;
+angular.module("OnlyWar").controller("WoundsController", function($scope, characterService, dice){
+	$scope.regimentWounds = characterService.regiment ? characterService.regiment.wounds : 0;
+	$scope.specialtyWounds= characterService.specialty ? characterService.specialty.wounds : 0;
 	$scope.woundsRoll = dice.roll(1, 1, 5);
 });
 
-angular.module("OnlyWar").controller("FatePointsController", function($scope, character, fatePointRollResults, dice){
+angular.module("OnlyWar").controller("FatePointsController", function($scope, characterService, fatePointRollResults, dice){
 	fatePointRollResults.then(function(result){
 		var roll = dice.roll(1, 1, 5);
-			character.character.fatePoints.total =  result[roll];
+			characterService.character.fatePoints.total =  result[roll];
 			$scope.fpRoll = roll;
-			$scope.fp = character.character.fatePoints.total;
+			$scope.fp = characterService.character.fatePoints.total;
 	})
 });
 
-angular.module("OnlyWar").controller("ExperienceController", function($scope, character, fatePointRollResults, dice, skills, characteristics, aptitudes){
-	$scope.availablexp = character.character.experience.available;
+angular.module("OnlyWar").controller("ExperienceController", function($scope, characterService, fatePointRollResults, dice, skills, characteristics, aptitudes){
+	$scope.availablexp = characterService.character.experience.available;
 	characteristics.then(function(result){
 		$scope.characteristicNames = result.map(function(c){return c.name});
 	});

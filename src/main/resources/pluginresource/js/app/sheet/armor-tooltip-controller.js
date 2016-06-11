@@ -1,5 +1,5 @@
 define(function(){
-	return function($scope, character, armorTooltipService){
+	return function($scope, characterService, armorTooltipService){
 		$scope.providers = armorTooltipService.modifiers();
 	}
 });

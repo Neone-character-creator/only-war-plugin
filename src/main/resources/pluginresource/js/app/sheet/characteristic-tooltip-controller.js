@@ -1,6 +1,6 @@
 define(function(){
-	return function($scope, character, characteristicTooltipService){
-	var characteristic = character.character.characteristics[characteristicTooltipService.displayed.toLowerCase()];
+	return function($scope, characterService, characteristicTooltipService){
+	var characteristic = characterService.character.characteristics[characteristicTooltipService.displayed.toLowerCase()];
 	$scope.base = characteristic.rolled;
 	$scope.regiment = characteristic.regiment;
 	$scope.specialty = characteristic.specialty;

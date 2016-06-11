@@ -48,10 +48,10 @@ require.config({
 
 define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "angular-cookies",
 "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
-"app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions"],
+"app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection"],
 	function(angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, angularCookies,
 	modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
-	selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService, regimentOptions) {
+	selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection) {
     var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop","angular.filter", "ngCookies"]);
 
     app.config(function($stateProvider){
@@ -85,8 +85,9 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
 	//Register services
     app.factory("regiments", modifierService)
     app.factory("selection", selectionService);
+    app.factory("optionselection", optionSelection);
     app.factory("specialties", modifierService);
-    app.factory("character", characterService);
+    app.factory("characterService", characterService);
     app.factory("characteroptions", characterOptions);
     app.factory("dice", diceService);
     app.factory("characteristicTooltipService", characteristicTooltipService);
@@ -153,8 +154,9 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
         //Filter for formatting an selectable option in a modal.
     app.filter('modal_option', function() {
         function filter(inVal) {
-            var elements = [];
-            $.each(inVal, function(index, element) {
+        	if(Array.isArray(inVal)){
+            	var elements = [];
+            	$.each(inVal, function(index, element) {
             	var optionElements = [];
                 if (!Array.isArray(element.property)) {
                     switch (element.property) {
@@ -181,7 +183,16 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
                 }
                 elements.push(optionElements.join(", "));
             });
-            return elements.join(", ");
+            	return elements.join(", ");
+            } else {
+            	var description = inVal.value.item.craftsmanship + " Craftsmanship";
+            	description += " " + inVal.value.item.name;
+            	if(inVal.upgrades){
+            		description += " w/ ";
+            		description += inVal.value.upgrades.join(", ");
+            	}
+            	return description;
+            }
         }
         return filter;
     });

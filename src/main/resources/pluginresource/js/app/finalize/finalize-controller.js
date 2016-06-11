@@ -1,12 +1,12 @@
 define(function() {
-	return function($scope, character, characteroptions, regiments, specialties, dice) {
-		$scope.character = character.character;
+	return function($scope, characterService, characteroptions, regiments, specialties, dice) {
+		$scope.character = characterService.character;
 		$scope.selectedSpecialty = specialties.selected;
 		$scope.selectedRegiment = regiments.selected;
-		$scope.rolledWounds = character.character.wounds.modifiers.find(function(modifier){
+		$scope.rolledWounds = characterService.character.wounds.modifiers.find(function(modifier){
 			return modifier.name === "rolled";
 		});
-		$scope.woundsTotal = character.character.wounds.total;
+		$scope.woundsTotal = characterService.character.wounds.total;
 
 		$scope.rollWounds = function() {
 			$scope.rolledWounds.modifier=dice.roll(1, 5);
@@ -15,13 +15,13 @@ define(function() {
 		$scope.rollFP = function() {
 			$scope.fpRoll = dice.roll(1, 10);
 			characteroptions.fatePointRolls().then(function(result) {
-				character.character.fatePoints=result.forRoll($scope.fpRoll);
+				characterService.character.fatePoints=result.forRoll($scope.fpRoll);
 			});
 
-			$scope.character = character.character;
+			$scope.character = characterService.character;
 		};
 
-		$scope.availableXp = character.character.experience.available;
+		$scope.availableXp = characterService.character.experience.available;
 		$scope.categories = [{
 			id: 1,
 			value: "Characteristics"
@@ -35,7 +35,7 @@ define(function() {
 			id: 4,
 			value: "Psychic Powers"
 		}].filter(function(element){
-			return element.value !== "Psychic Powers" || character.character.traits.find(function(trait){
+			return element.value !== "Psychic Powers" || characterService.character.traits.find(function(trait){
 				return trait.name === "Psyker";
 			});
 		});
@@ -52,7 +52,7 @@ define(function() {
 				case "Skills":
 					characteroptions.skills().then(function(result){
 						return result.filter(function(skill){
-							var characterSkill= character.character.skills[skill.name];
+							var characterSkill= characterService.character.skills[skill.name];
 								return !characterSkill || characterSkill.advancements < 4;
 						});
 					}).then(setDisplayedOptions);
@@ -60,21 +60,21 @@ define(function() {
 				case "Talents":
 					characteroptions.talents().then(function(result){
 						return result.filter(function(talent){
-							return character.character.talents().all().indexOf(result) === -1;
+							return characterService.character.talents().all().indexOf(result) === -1;
 						});
 					}).then(setDisplayedOptions);
 					break;
 				case "Psychic Powers":
 					characteroptions.powers().then(function(result){
 						return result.filter(function(power){
-							return character.character.powers().all().indexOf(power) === -1;
+							return characterService.character.powers().all().indexOf(power) === -1;
 						})
 					}).then(setDisplayedOptions);
 					break;
 				case "Characteristics":
 					characteroptions.characteristics().then(function(result){
 						return result.filter(function(characteristic){
-							return character.character.characteristics[characteristic.name.toLowerCase()].advancements < 4;
+							return characterService.character.characteristics[characteristic.name.toLowerCase()].advancements < 4;
 						})
 					}).then(setDisplayedOptions);
 			};
@@ -87,20 +87,20 @@ define(function() {
 					var matchingAptitudes = 0;
 					if ($scope.selectedCategory.value !== 'Psychic Powers'){
 						for (var a = 0; a < $scope.displayedOption.aptitudes.length; a++) {
-							if (character.character.aptitudes.all.indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+							if (characterService.character.aptitudes.all.indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
 								matchingAptitudes++;
 							}
 						}
 					}
 					switch ($scope.selectedCategory.value) {
 						case "Characteristics":
-							var currentAdvancements = character.character.characteristics[$scope.displayedOption.name.toLowerCase()].advancements;
+							var currentAdvancements = characterService.character.characteristics[$scope.displayedOption.name.toLowerCase()].advancements;
 							characteroptions.xpCosts().then(function(result) {
 								$scope.optionXpCost = new Number(result.characteristics.advances[currentAdvancements + 1]['cost by aptitudes'][matchingAptitudes]);
 							});
 							break;
 						case "Skills":
-							var currentAdvancements = character.character.skills[$scope.displayedOption.name.toLowerCase()] | -1;
+							var currentAdvancements = characterService.character.skills[$scope.displayedOption.name.toLowerCase()] | -1;
 							characteroptions.xpCosts().then(function(result) {
 								$scope.optionXpCost = new Number(result.skills.advances[currentAdvancements + 1]['cost by aptitudes'][matchingAptitudes]);
 							});
@@ -125,20 +125,20 @@ define(function() {
 			switch ($scope.selectedCategory.value) {
 				case "Characteristics":
 					property.push($scope.displayedOption.name);
-					value = character.character.characteristics().byName($scope.displayedOption.name.toLowerCase()).advancements + 1;
+					value = characterService.character.characteristics().byName($scope.displayedOption.name.toLowerCase()).advancements + 1;
 					break;
 				case "Skills":
-					value = (character.character.skills().byName($scope.displayedOption.name.toLowerCase()) | -1) + 1;
+					value = (characterService.character.skills().byName($scope.displayedOption.name.toLowerCase()) | -1) + 1;
 					break;
 				case "Talents":
 					value = $scope.displayedOption.name;
 			};
 			var advancement = new Advancement($scope.optionXpCost, property, value);
-			character.character.experience().addAdvancement(advancement);
-			$scope.availableXp = character.character.experience().available();
+			characterService.character.experience().addAdvancement(advancement);
+			$scope.availableXp = characterService.character.experience().available();
 		};
 
-		$scope.numBonusAptitudes = character.character.aptitudes.base.reduce(function(previous, current, index, array){
+		$scope.numBonusAptitudes = characterService.character.aptitudes.base.reduce(function(previous, current, index, array){
 			if(array.slice(index+1).indexOf(current) !== -1){
 				previous++;
 			}
@@ -147,7 +147,7 @@ define(function() {
 
 		characteroptions.characteristics().then(function(result){
 			$scope.availableAptitudes = result.filter(function(element, index, array){
-				var possessedAptitudes = character.character.aptitudes.all;
+				var possessedAptitudes = characterService.character.aptitudes.all;
 				return possessedAptitudes.indexOf(element.name) === -1;
 			}).map(function(element){
 				return element.name;
@@ -156,14 +156,14 @@ define(function() {
 
 		$scope.chosenBonusAptitudes = [];
 		$scope.addBonusAptitudes = function(){
-			var filteredAptitudes = character.character.aptitudes().all().filter(function(element, index,array){
+			var filteredAptitudes = characterService.character.aptitudes().all().filter(function(element, index,array){
 				return array.slice(index+1).indexOf(element) === -1;
 			});
 			for(var i = 0; i < $scope.chosenBonusAptitudes.length; i++){
 				filteredAptitudes.push($scope.availableAptitudes[Number(i)]);
 			}
-			character.character.aptitudes().all(filteredAptitudes);
-			$scope.numBonusAptitudes = character.character.aptitudes().all().reduce(function(previous, current, index, array){
+			characterService.character.aptitudes().all(filteredAptitudes);
+			$scope.numBonusAptitudes = characterService.character.aptitudes().all().reduce(function(previous, current, index, array){
             			if(array.slice(index+1).indexOf(current) !== -1){
             				previous++;
             			}
