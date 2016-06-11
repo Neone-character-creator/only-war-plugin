@@ -1,1524 +1,1678 @@
 [
-	{
-		"name" : "Laspistol",
-		"class" : "Pistol",
-		"type" : "Las",
-		"range" : "30m",
-		"rof" : "S/2/-",
-		"damage" : "1d10+2 E",
-		"pen" : "0",
-		"clip" : 30,
-		"reload" : "Half",
-		"special qualities" : [
-			"Reliable"
-		],
-		"weight" : 1.5,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Lascarbine",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "75m",
-		"rof" : "S/2/-",
-		"damage" : "1d10+3 E",
-		"pen" : "0",
-		"clip" : 60,
-		"reload" : "Half",
-		"special qualities" : [
-			"Reliable"
-		],
-		"weight" : 2.5,
-		"availability" : "Common"
-	},
-	{
-		"name" : "M36 Lasgun",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "100m",
-		"rof" : "S/3/-",
-		"damage" : "1d10+3 E",
-		"pen" : "0",
-		"clip" : 30,
-		"reload" : "Full",
-		"special qualities" : [
-			"Reliable"
-		],
-		"weight" : 4,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Laslock",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "70m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+4 E",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "Half",
-		"special qualities" : [
-			"Unreliable"
-		],
-		"weight" : 4,
-		"availability" : "Plentiful"
-	},
-	{
-		"name" : "Long Las",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "150m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+3 E",
-		"pen" : "1",
-		"clip" : 40,
-		"reload" : "Full",
-		"special qualities" : [
-			"Accurate", "Reliable", "Felling (4)"
-		],
-		"weight" : 4.5,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Triplex Pattern Lasgun (Standard)",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "100m",
-		"rof" : "S/3/-",
-		"damage" : "1d10+3 E",
-		"pen" : "0",
-		"clip" : 30,
-		"reload" : "Full",
-		"special qualities" : [
-			"Reliable"
-		],
-		"weight" : 4.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Triplex Pattern Lasgun (Precision)",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "150m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+3 E",
-		"pen" : "0",
-		"clip" : 30,
-		"reload" : "Full",
-		"special qualities" : [
-			"Reliable", "Accurate"
-		],
-		"weight" : 4.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Triplex Pattern Lasgun (Incineration)",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "50m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+3 E",
-		"pen" : "0",
-		"clip" : 30,
-		"reload" : "Full",
-		"special qualities" : [
-			"Reliable", "Proven (5)", "Felling (4)"
-		],
-		"weight" : 4.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Bullpup Lasgun",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "90m",
-		"rof" : "S/2/-",
-		"damage" : "1d10+3 E",
-		"pen" : "0",
-		"clip" : 60,
-		"reload" : "Full",
-		"special qualities" : [
-			"Reliable", "Proven (5)", "Felling (4)"
-		],
-		"weight" : 3.5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Hot-Shot Laspistol",
-		"class" : "Pistol",
-		"type" : "Las",
-		"range" : "20m",
-		"rof" : "S/2/-",
-		"damage" : "1d10+4 E",
-		"pen" : "7",
-		"clip" : 40,
-		"reload" : "2 Full",
-		"special qualities" : [
-			
-		],
-		"weight" :4,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Hot-Shot Lasgun",
-		"class" : "Basic",
-		"type" : "Las",
-		"range" : "60m",
-		"rof" : "S/3/-",
-		"damage" : "1d10+4 E",
-		"pen" : "7",
-		"clip" : 30,
-		"reload" : "2 Full",
-		"special qualities" : [
-			
-		],
-		"weight" :6,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Lascannon",
-		"class" : "Heavy",
-		"type" : "Las",
-		"range" : "300m",
-		"rof" : "S/-/-",
-		"damage" : "5d10+10 E",
-		"pen" : "10",
-		"clip" : 5,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Proven (3)"
-		],
-		"weight" :55,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "M41 Multilaser",
-		"class" : "Heavy",
-		"type" : "Las",
-		"range" : "150m",
-		"rof" : "-/-/5",
-		"damage" : "2d10+4 E",
-		"pen" : "7",
-		"clip" : 40,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Proven (3)"
-		],
-		"weight" :25,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Autopistol",
-		"class" : "Pistol",
-		"type" : "Solid Projectile",
-		"range" : "30m",
-		"rof" : "S/-/6",
-		"damage" : "1d10+2 I",
-		"pen" : "0",
-		"clip" : 18,
-		"reload" : "Full",
-		"special qualities" : [
-			
-		],
-		"weight" :1.5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Stub Automatic",
-		"class" : "Pistol",
-		"type" : "Solid Projectile",
-		"range" : "30m",
-		"rof" : "S/3/-",
-		"damage" : "1d10+3 I",
-		"pen" : "0",
-		"clip" : 9,
-		"reload" : "Full",
-		"special qualities" : [
-			
-		],
-		"weight" :1.5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Stub Revolver",
-		"class" : "Pistol",
-		"type" : "Solid Projectile",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+3 I",
-		"pen" : "0",
-		"clip" : 6,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Reliable"
-		],
-		"weight" :1.5,
-		"availability" : "Plentiful"
-	},
-	{
-		"name" : "Hand Cannon",
-		"class" : "Pistol",
-		"type" : "Solid Projectile",
-		"range" : "35m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+4 I",
-		"pen" : "2",
-		"clip" : 5,
-		"reload" : "2 Full",
-		"special qualities" : [
-			
-		],
-		"weight" :3,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Sniper Rifle",
-		"class" : "Basic",
-		"type" : "Solid Projectile",
-		"range" : "200m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+4 I",
-		"pen" : "3",
-		"clip" : 20,
-		"reload" : "Full",
-		"special qualities" : [
-			"Accurate", "Reliable"
-		],
-		"weight" :5,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Autogun",
-		"class" : "Basic",
-		"type" : "Solid Projectile",
-		"range" : "100m",
-		"rof" : "S/3/10",
-		"damage" : "1d10+3 I",
-		"pen" : "0",
-		"clip" : 30,
-		"reload" : "Full",
-		"special qualities" : [
-			
-		],
-		"weight" :5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Shotgun (Pump Action)",
-		"class" : "Basic",
-		"type" : "Solid Projectile",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+3 I",
-		"pen" : "0",
-		"clip" : 12,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Scatter"
-		],
-		"weight" :5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Shotgun",
-		"class" : "Basic",
-		"type" : "Solid Projectile",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+4 I",
-		"pen" : "0",
-		"clip" : 8,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Scatter"
-		],
-		"weight" :5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Combat Shotgun",
-		"class" : "Basic",
-		"type" : "Solid Projectile",
-		"range" : "30m",
-		"rof" : "S/3/-",
-		"damage" : "1d10+4 I",
-		"pen" : "0",
-		"clip" : 18,
-		"reload" : "Full",
-		"special qualities" : [
-			"Scatter"
-		],
-		"weight" :6.5,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Ripper Gun",
-		"class" : "Heavy",
-		"type" : "Solid Projectile",
-		"range" : "30m",
-		"rof" : "S/-/6",
-		"damage" : "1d10+8 I",
-		"pen" : "0",
-		"clip" : 48,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Ogryn-Proof", "Scatter"
-		],
-		"weight" :35,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Heavy Stubber",
-		"class" : "Heavy",
-		"type" : "Solid Projectile",
-		"range" : "100m",
-		"rof" : "-/-/8",
-		"damage" : "1d10+4 I",
-		"pen" : "3",
-		"clip" : 75,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Ogryn-Proof"
-		],
-		"weight" :30,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Autocannon",
-		"class" : "Heavy",
-		"type" : "Solid Projectile",
-		"range" : "300m",
-		"rof" : "S/3/-",
-		"damage" : "3d10+8 I",
-		"pen" : "6",
-		"clip" : 20,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Ogryn-Proof", "Reliable"
-		],
-		"weight" :40,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Battle Cannon",
-		"class" : "Vehicle",
-		"type" : "Solid Projectile",
-		"range" : "750m",
-		"rof" : "S/-/-",
-		"damage" : "3d10+10 X",
-		"pen" : "8",
-		"clip" : 12,
-		"reload" : "3 Full",
-		"special qualities" : [
-			"Blast (10)", "Concussive (3)", "Reliable"
-		],
-		"weight" :350,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Demolisher Cannon",
-		"class" : "Vehicle",
-		"type" : "Solid Projectile",
-		"range" : "50m",
-		"rof" : "S/-/-",
-		"damage" : "4d10+20 X",
-		"pen" : "10",
-		"clip" : 2,
-		"reload" : "Full",
-		"special qualities" : [
-			"Blast (10)", "Concussive (3)"
-		],
-		"weight" :400,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Vanquisher Battle Cannon",
-		"class" : "Vehicle",
-		"type" : "Solid Projectile",
-		"range" : "900m",
-		"rof" : "S/-/-",
-		"damage" : "3d10+10 X",
-		"pen" : "16",
-		"clip" : 6,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Accurate"
-		],
-		"weight" :400,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Earthshaker Cannon",
-		"class" : "Vehicle",
-		"type" : "Solid Projectile",
-		"range" : "3500m",
-		"rof" : "S/-/-",
-		"damage" : "4d10+10 X",
-		"pen" : "8",
-		"clip" : 1,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Accurate"
-		],
-		"weight" :800,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Bolt Pistol",
-		"class" : "Pistol",
-		"type" : "Bolt",
-		"range" : "30m",
-		"rof" : "S/2/-",
-		"damage" : "1d10+5 X",
-		"pen" : "4",
-		"clip" : 8,
-		"reload" : "Full",
-		"special qualities" : [
-			"Tearing"
-		],
-		"weight" :3.5,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Boltgun",
-		"class" : "Basic",
-		"type" : "Bolt",
-		"range" : "100m",
-		"rof" : "S/3/-",
-		"damage" : "1d10+5 X",
-		"pen" : "4",
-		"clip" : 24,
-		"reload" : "Full",
-		"special qualities" : [
-			"Tearing"
-		],
-		"weight" : 7,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Storm Bolter",
-		"class" : "Basic",
-		"type" : "Bolt",
-		"range" : "100m",
-		"rof" : "S/2/4",
-		"damage" : "1d10+5 X",
-		"pen" : "4",
-		"clip" : 60,
-		"reload" : "Full",
-		"special qualities" : [
-			"Storm", "Tearing"
-		],
-		"weight" :9,
-		"availability" : "Extremely Rare"
-	},
-	{
-		"name" : "Heavy Bolter",
-		"class" : "Heavy",
-		"type" : "Bolt",
-		"range" : "150m",
-		"rof" : "-/-/6",
-		"damage" : "1d10+8 X",
-		"pen" : "5",
-		"clip" : 60,
-		"reload" : "Full",
-		"special qualities" : [
-			"Tearing"
-		],
-		"weight" :40,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Inferno Pistol",
-		"class" : "Pistol",
-		"type" : "Melta",
-		"range" : "10m",
-		"rof" : "S/-/-",
-		"damage" : "2d10+10 E",
-		"pen" : "12",
-		"clip" : 3,
-		"reload" : "Full",
-		"special qualities" : [
-			"Melta"
-		],
-		"weight" :3,
-		"availability" : "Near Unique"
-	},
-	{
-		"name" : "Meltagun",
-		"class" : "Basic",
-		"type" : "Melta",
-		"range" : "20m",
-		"rof" : "S/-/-",
-		"damage" : "2d10+10 E",
-		"pen" : "12",
-		"clip" : 5,
-		"reload" : "Full",
-		"special qualities" : [
-			"Melta"
-		],
-		"weight" :15,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Multi-Melta",
-		"class" : "Heavy",
-		"type" : "Melta",
-		"range" : "60m",
-		"rof" : "S/-/-",
-		"damage" : "2d10+16 E",
-		"pen" : "12",
-		"clip" : 12,
-		"reload" : "Full",
-		"special qualities" : [
-			"Melta", "Blast (1)"
-		],
-		"weight" :40,
-		"availability" : "Extremely Rare"
-	},
-	{
-		"name" : "Plasma Pistol",
-		"class" : "Pistol",
-		"type" : "Plasma",
-		"range" : "30m",
-		"rof" : "S/2/-",
-		"damage" : "1d10+6 E",
-		"pen" : "6",
-		"clip" : 10,
-		"reload" : "3 Full",
-		"special qualities" : [
-			"Maximal", "Overheat"
-		],
-		"weight" :4,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Plasma Gun",
-		"class" : "Basic",
-		"type" : "Plasma",
-		"range" : "90m",
-		"rof" : "S/2/-",
-		"damage" : "1d10+7 E",
-		"pen" : "6",
-		"clip" : 40,
-		"reload" : "5 Full",
-		"special qualities" : [
-			"Maximal", "Overheat"
-		],
-		"weight" :18,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Plasma Cannon",
-		"class" : "Heavy",
-		"type" : "Plasma",
-		"range" : "120m",
-		"rof" : "S/-/-",
-		"damage" : "2d10+10 E",
-		"pen" : "8",
-		"clip" : 16,
-		"reload" : "5 Full",
-		"special qualities" : [
-			"Blast (1)", "Maximal", "Overheat"
-		],
-		"weight" :40,
-		"availability" : "Extremely Rare"
-	},
-	{
-		"name" : "Hand Flamer",
-		"class" : "Pistol",
-		"type" : "Flame",
-		"range" : "10m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+4 E",
-		"pen" : "2",
-		"clip" : 2,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Flame", "Spray"
-		],
-		"weight" : 3.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Flamer",
-		"class" : "Basic",
-		"type" : "Flame",
-		"range" : "20m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+4 E",
-		"pen" : "2",
-		"clip" : 6,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Flame", "Spray"
-		],
-		"weight" : 6,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Heavy Flamer",
-		"class" : "Heavy",
-		"type" : "Flame",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+5 E",
-		"pen" : "4",
-		"clip" : 10,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Flame", "Spray"
-		],
-		"weight" : 45,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Inferno Cannon",
-		"class" : "Heavy",
-		"type" : "Flame",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+5 E",
-		"pen" : "4",
-		"clip" : 10,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Flame", "Spray"
-		],
-		"weight" : 600,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Bolas",
-		"class" : "Thrown",
-		"type" : "Low-Tech",
-		"range" : "10m",
-		"rof" : "S/-/-",
-		"damage" : "-",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "-",
-		"special qualities" : [
-			"Primitive (1)", "Snare (1)", "Innacurate"
-		],
-		"weight" : 1.5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Hand Bow",
-		"class" : "Pistol",
-		"type" : "Low-Tech",
-		"range" : "15m",
-		"rof" : "S/-/-",
-		"damage" : "1d10 R",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "Full",
-		"special qualities" : [
-			"Primitive (5)"
-		],
-		"weight" : 1,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Flintlock Pistol",
-		"class" : "Pistol",
-		"type" : "Low-Tech",
-		"range" : "15m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+2 I",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "3 Full",
-		"special qualities" : [
-			"Primitive (8)", "Innacurate", "Unreliable"
-		],
-		"weight" : 3,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Flintlock Musket",
-		"class" : "Basic",
-		"type" : "Low-Tech",
-		"range" : "15m",
-		"rof" : "S/-/-",
-		"damage" : "1d10+3 I",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "5 Full",
-		"special qualities" : [
-			"Primitive (8)", "Innacurate", "Unreliable"
-		],
-		"weight" : 7,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Bow",
-		"class" : "Basic",
-		"type" : "Low-Tech",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10 R",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "Half",
-		"special qualities" : [
-			"Primitive (8)", "Innacurate", "Unreliable"
-		],
-		"weight" : 7,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Sling",
-		"class" : "Basic",
-		"type" : "Low-Tech",
-		"range" : "15m",
-		"rof" : "S/-/-",
-		"damage" : "1d10-2 I",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "Half",
-		"special qualities" : [
-			"Primitive (5)"
-		],
-		"weight" : 0.5,
-		"availability" : "Plentiful"
-	},
-	{
-		"name" : "Crossbow",
-		"class" : "Basic",
-		"type" : "Low-Tech",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10 R",
-		"pen" : "0",
-		"clip" : 1,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Primitive (7)"
-		],
-		"weight" : 3,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Grenade Launcher",
-		"class" : "Basic",
-		"type" : "Launcher",
-		"range" : "60m",
-		"rof" : "S/-/-",
-		"damage" : "By Ammunition",
-		"pen" : " By Ammunition",
-		"clip" : 6,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"By Ammunition"
-		],
-		"weight" : 12,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Hellstrike Missiles",
-		"class" : "Vehicle",
-		"type" : "Launcher",
-		"range" : "300m",
-		"rof" : "S/-/-",
-		"damage" : "3d10+7 X",
-		"pen" : "7",
-		"clip" : 1,
-		"reload" : "N/A",
-		"special qualities" : [
-			"Blast (5)"
-		],
-		"Weight" : 85,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Hunter-Killer Missile",
-		"class" : "Heavy",
-		"type" : "Launcher",
-		"range" : "350m",
-		"rof" : "S/-/-",
-		"damage" : "3d10+6 X",
-		"pen" : "6",
-		"clip" : 6,
-		"reload" : "2 Full",
-		"special qualities" : [
-			
-		],
-		"weight" : 64,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Missile Launcher",
-		"class" : "Heavy",
-		"type" : "Launcher",
-		"range" : "300m",
-		"rof" : "S/-/-",
-		"damage" : "By Ammunition",
-		"pen" : " By Ammunition",
-		"clip" : 6,
-		"reload" : "Full",
-		"special qualities" : [
-			"By Ammunition"
-		],
-		"weight" : 64,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Mortar",
-		"class" : "Heavy",
-		"type" : "Launcher",
-		"range" : "50-300m",
-		"rof" : "S/-/-",
-		"damage" : "By Ammunition",
-		"pen" : "By Ammunition",
-		"clip" : 6,
-		"reload" : "Full",
-		"special qualities" : [
-			"Innacurate", "Indirect (2)", "By Ammunition"
-		],
-		"weight" : 64,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Anti-Plant Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "3d10 E (Only Flora)",
-		"pen" : 0,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (3)"
-		],
-		"weight" : 0.5,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Blind Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "2d10 E",
-		"pen" : 0,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Smoke (3)"
-		],
-		"weight" : 0.5,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Fire Bomb Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "1d10+3 E",
-		"pen" : 6,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (3)", "Flame"
-		],
-		"weight" : 0.5,
-		"availability" : "Plentiful"
-	},
-	{
-		"name" : "Frag Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "2d10 X",
-		"pen" : 0,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (3)", "Ogryn Proof"
-		],
-		"weight" : 0.5,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Hallucinogen Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "-",
-		"pen" : 0,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (6)", "Hallucinogenic (2)"
-		],
-		"weight" : 0.5,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Krak Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "2d10+4 E",
-		"pen" : 6,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Concussive (0)"
-		],
-		"weight" : 0.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Photon Flash Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "-",
-		"pen" : 6,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (10)"
-		],
-		"weight" : 0.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Smoke Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "2d10+4 E",
-		"pen" : 6,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Smoke (6) (Vision Only)"
-		],
-		"weight" : 0.5,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Stun Grenade",
-		"class" : "Thrown",
-		"type" : "Grenade",
-		"range" : "SBx3",
-		"rof" : "S/-/-",
-		"damage" : "2d10+4 E",
-		"pen" : 6,
-		"clip" : 1,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (2)","Concussive (2)"
-		],
-		"weight" : 0.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Frag Missile",
-		"class" : "-",
-		"type" : "Missile",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "2d10+2 X",
-		"pen" : 2,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (5)"
-		],
-		"weight" : 0.5,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Krak Missile",
-		"class" : "-",
-		"type" : "Missile",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "3d10+8 X",
-		"pen" : 8,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Concussive (3)", "Proven (2)"
-		],
-		"weight" : 0.5,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Minefield Missile",
-		"class" : "-",
-		"type" : "Missile",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "2d10 X",
-		"pen" : 1,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (1)"
-		],
-		"weight" : 0.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Scatter Missile",
-		"class" : "-",
-		"type" : "Missile",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "2d10 X",
-		"pen" : 0,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (10)"
-		],
-		"weight" : 0.5,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Anti-Plant Round",
-		"class" : "-",
-		"type" : "Round",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "3d10 E",
-		"pen" : 0,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (1)"
-		],
-		"weight" : 1,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Blind Round",
-		"class" : "-",
-		"type" : "Round",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "2d10 E",
-		"pen" : 0,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Smoke (6)"
-		],
-		"weight" : 1,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Frag Round",
-		"class" : "-",
-		"type" : "Round",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "2d10 X",
-		"pen" : 3,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (5)"
-		],
-		"weight" : 1,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Minefield Round",
-		"class" : "-",
-		"type" : "Round",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "2d10 X",
-		"pen" : 1,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (1)"
-		],
-		"weight" : 1,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Photon Flash Round",
-		"class" : "-",
-		"type" : "Round",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "-",
-		"pen" : 1,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (12)"
-		],
-		"weight" : 1,
-		"availability" : "Rare"
-	},
-	{
-		"name" : "Scatter Round",
-		"class" : "-",
-		"type" : "Round",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "1d10+3 X",
-		"pen" : 1,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Blast (7)"
-		],
-		"weight" : 1,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Smoke Round",
-		"class" : "-",
-		"type" : "Round",
-		"range" : "-",
-		"rof" : "-",
-		"damage" : "-",
-		"pen" : 0,
-		"clip" : 0,
-		"reload" : "",
-		"special qualities" : [
-			"Smoke (9) (Vision Only)"
-		],
-		"weight" : 1,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Mole Mortar",
-		"class" : "Heavy",
-		"type" : "Exotic",
-		"range" : "50-200m",
-		"rof" : "S/-/-",
-		"damage" : "2d10+2 X",
-		"pen" : 2,
-		"clip" : 1,
-		"reload" : "Full",
-		"special qualities" : [
-			"Inaccurate", "Indirect (2)", "Shocking", "Blast (4)"
-		],
-		"weight" : 50,
-		"availability" : "Extremely Rare"
-	},
-	{
-		"name" : "Needle Pistol",
-		"class" : "Pistol",
-		"type" : "Exotic",
-		"range" : "30m",
-		"rof" : "S/-/-",
-		"damage" : "1d10 R",
-		"pen" : 0,
-		"clip" : 6,
-		"reload" : "Full",
-		"special qualities" : [
-			"Accurate", "Toxic (5)", "Felling (1)"
-		],
-		"weight" : 1.5,
-		"availability" : "Extremely Rare"
-	},
-	{
-		"name" : "Needle Rifle",
-		"class" : "Basic",
-		"type" : "Exotic",
-		"range" : "180m",
-		"rof" : "S/-/-",
-		"damage" : "1d10 R",
-		"pen" : 0,
-		"clip" : 6,
-		"reload" : "2 Full",
-		"special qualities" : [
-			"Accurate", "Toxic (5)", "Felling (1)"
-		],
-		"weight" : 2,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Chainsword",
-		"class" : "Melee",
-		"type" : "Chain",
-		"range" : "-",
-		"damage" : "1d10+2 R",
-		"pen" : 2,
-		"special qualities" : [
-			"Tearing", "Balanced"
-		],
-		"weight" : 6,
-		"availability" : "Average"
-	},
-	{
-		"name" : "Evicerator",
-		"class" : "Melee",
-		"type" : "Chain",
-		"range" : "-",
-		"damage" : "2d10 R",
-		"pen" : 9,
-		"special qualities" : [
-			"Razor Sharp", "Tearing", "Unwieldy"
-		],
-		"weight" : 15,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Power Fist",
-		"class" : "Melee",
-		"type" : "Power",
-		"range" : "-",
-		"rof" : "",
-		"damage" : "2d10+2xSB E",
-		"pen" : 9,
-		"special qualities" : [
-			"Power Field", "Unwieldy"
-		],
-		"weight" : 13,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Power Sword",
-		"class" : "Melee",
-		"type" : "Power",
-		"range" : "-",
-		"damage" : "1d10+5 E",
-		"pen" : 5,
-		"special qualities" : [
-			"Power Field", "Balanced"
-		],
-		"weight" : 6,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Power Axe",
-		"class" : "Melee",
-		"type" : "Power",
-		"range" : "-",
-		"damage" : "1d10+7 E",
-		"pen" : 7,
-		"special qualities" : [
-			"Power Field", "Unbalanced"
-		],
-		"weight" : 13,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Power Maul (High)",
-		"class" : "Melee",
-		"type" : "Power",
-		"range" : "-",
-		"damage" : "1d10+5 E",
-		"pen" : 4,
-		"special qualities" : [
-			"Power Field", "Shocking"
-		],
-		"weight" : 3.5,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Power Maul (Low)",
-		"class" : "Melee",
-		"type" : "Power",
-		"range" : "-",
-		"damage" : "1d10+1 E",
-		"pen" : 2,
-		"special qualities" : [
-			"Shocking"
-		],
-		"weight" : 3.5,
-		"availability" : "Very Rare"
-	},
-	{
-		"name" : "Omnissian Axe",
-		"class" : "Melee",
-		"type" : "Power",
-		"range" : "-",
-		"damage" : "1d10+4 E",
-		"pen" : 6,
-		"special qualities" : [
-			"Power Field", "Unbalanced"
-		],
-		"weight" : 8,
-		"availability" : "Extremely Rare"
-	},
-	{
-		"name" : "Force Sword",
-		"class" : "Melee",
-		"type" : "Force",
-		"range" : "-",
-		"damage" : "1d10+1 R",
-		"pen" : 2,
-		"special qualities" : [
-			"Balanced", "Force"
-		],
-		"weight" : 5,
-		"availability" : "Near Unique"
-	},
-	{
-		"name" : "Force Staff",
-		"class" : "Melee",
-		"type" : "Force",
-		"range" : "-",
-		"damage" : "1d10 I",
-		"pen" : 2,
-		"special qualities" : [
-			"Force"
-		],
-		"weight" : 2,
-		"availability" : "Extremely Rare"
-	},
-	{
-		"name" : "Great Weapon",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "2d10 R",
-		"pen" : 0,
-		"special qualities" : [
-			"Ogryn-Proof", "Unbalanced"
-		],
-		"weight" : 7,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Groxwhip",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "3m",
-		"damage" : "1d10+3 R",
-		"pen" : 0,
-		"special qualities" : [
-			"Flexing", "Tearing", "Primitive (6)"
-		],
-		"weight" : 4,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Hunting Lance",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "2d10+3 X",
-		"pen" : 7,
-		"special qualities" : [
-			"Concussive"
-		],
-		"weight" : 4,
-		"availability" : "Scarce"
-	},
-	{
-		"name" : "Improvised",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "1d10-2 I",
-		"pen" : 0,
-		"special qualities" : [
-			"Ogryn-Proof", "Primitive (7)", "Unbalanced"
-		],
-		"weight" : 0,
-		"availability" : "-"
-	},
-	{
-		"name" : "Knife",
-		"class" : "Melee/Thrown",
-		"type" : "Low-Tech",
-		"range" : "5m",
-		"damage" : "1d5 R",
-		"pen" : 0,
-		"special qualities" : [
-			
-		],
-		"weight" : 1,
-		"availability" : "Plentiful"
-	},
-	{
-		"name" : "Shields",
-		"class" : "Melee/Thrown",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "1d5 I",
-		"pen" : 0,
-		"special qualities" : [
-			"Defensive", "Primitive (6)"
-		],
-		"weight" : 3,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Spear",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "1d10 R",
-		"pen" : 0,
-		"special qualities" : [
-			"Primitive (8)"
-		],
-		"weight" : 3,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Staff",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "1d10 I",
-		"pen" : 0,
-		"special qualities" : [
-			"Balanced", "Primitive (7)"
-		],
-		"weight" : 3,
-		"availability" : "Plentiful"
-	},
-	{
-		"name" : "Sword",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "1d10 R",
-		"pen" : 0,
-		"special qualities" : [
-			"Balanced"
-		],
-		"weight" : 3,
-		"availability" : "Common"
-	},
-	{
-		"name" : "Truncheon",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "1d10 I",
-		"pen" : 0,
-		"special qualities" : [
-			"Ogryn-Proof", "Primitive (7)"
-		],
-		"weight" : 2,
-		"availability" : "Plentiful"
-	},
-	{
-		"name" : "Warhammer",
-		"class" : "Melee",
-		"type" : "Low-Tech",
-		"range" : "-",
-		"damage" : "1d10+2 I",
-		"pen" : 1,
-		"special qualities" : [
-			"Ogryn-Proof", "Primitive (8)"
-		],
-		"weight" : 4.5,
-		"availability" : "Scarce"
-	}
+  {
+    "name": "Laspistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Las",
+    "range": "30m",
+    "rof": "S/2/-",
+    "damage": "1d10+2 E",
+    "pen": "0",
+    "clip": 30,
+    "reload": "Half",
+    "special qualities": [
+      "Reliable"
+    ],
+    "weight": 1.5,
+    "availability": "Common"
+  },
+  {
+    "name": "Lascarbine",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "75m",
+    "rof": "S/2/-",
+    "damage": "1d10+3 E",
+    "pen": "0",
+    "clip": 60,
+    "reload": "Half",
+    "special qualities": [
+      "Reliable"
+    ],
+    "weight": 2.5,
+    "availability": "Common"
+  },
+  {
+    "name": "M36 Lasgun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "100m",
+    "rof": "S/3/-",
+    "damage": "1d10+3 E",
+    "pen": "0",
+    "clip": 30,
+    "reload": "Full",
+    "special qualities": [
+      "Reliable"
+    ],
+    "weight": 4,
+    "availability": "Common"
+  },
+  {
+    "name": "Laslock",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "70m",
+    "rof": "S/-/-",
+    "damage": "1d10+4 E",
+    "pen": "0",
+    "clip": 1,
+    "reload": "Half",
+    "special qualities": [
+      "Unreliable"
+    ],
+    "weight": 4,
+    "availability": "Plentiful"
+  },
+  {
+    "name": "Long Las",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "150m",
+    "rof": "S/-/-",
+    "damage": "1d10+3 E",
+    "pen": "1",
+    "clip": 40,
+    "reload": "Full",
+    "special qualities": [
+      "Accurate",
+      "Reliable",
+      "Felling (4)"
+    ],
+    "weight": 4.5,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Triplex Pattern Lasgun (Standard)",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "100m",
+    "rof": "S/3/-",
+    "damage": "1d10+3 E",
+    "pen": "0",
+    "clip": 30,
+    "reload": "Full",
+    "special qualities": [
+      "Reliable"
+    ],
+    "weight": 4.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Triplex Pattern Lasgun (Precision)",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "150m",
+    "rof": "S/-/-",
+    "damage": "1d10+3 E",
+    "pen": "0",
+    "clip": 30,
+    "reload": "Full",
+    "special qualities": [
+      "Reliable",
+      "Accurate"
+    ],
+    "weight": 4.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Triplex Pattern Lasgun (Incineration)",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "50m",
+    "rof": "S/-/-",
+    "damage": "1d10+3 E",
+    "pen": "0",
+    "clip": 30,
+    "reload": "Full",
+    "special qualities": [
+      "Reliable",
+      "Proven (5)",
+      "Felling (4)"
+    ],
+    "weight": 4.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Bullpup Lasgun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "90m",
+    "rof": "S/2/-",
+    "damage": "1d10+3 E",
+    "pen": "0",
+    "clip": 60,
+    "reload": "Full",
+    "special qualities": [
+      "Reliable",
+      "Proven (5)",
+      "Felling (4)"
+    ],
+    "weight": 3.5,
+    "availability": "Average"
+  },
+  {
+    "name": "Hot-Shot Laspistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Las",
+    "range": "20m",
+    "rof": "S/2/-",
+    "damage": "1d10+4 E",
+    "pen": "7",
+    "clip": 40,
+    "reload": "2 Full",
+    "special qualities": [
+    ],
+    "weight": 4,
+    "availability": "Rare"
+  },
+  {
+    "name": "Hot-Shot Lasgun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Las",
+    "range": "60m",
+    "rof": "S/3/-",
+    "damage": "1d10+4 E",
+    "pen": "7",
+    "clip": 30,
+    "reload": "2 Full",
+    "special qualities": [
+    ],
+    "weight": 6,
+    "availability": "Rare"
+  },
+  {
+    "name": "Lascannon",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Las",
+    "range": "300m",
+    "rof": "S/-/-",
+    "damage": "5d10+10 E",
+    "pen": "10",
+    "clip": 5,
+    "reload": "2 Full",
+    "special qualities": [
+      "Proven (3)"
+    ],
+    "weight": 55,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "M41 Multilaser",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Las",
+    "range": "150m",
+    "rof": "-/-/5",
+    "damage": "2d10+4 E",
+    "pen": "7",
+    "clip": 40,
+    "reload": "2 Full",
+    "special qualities": [
+      "Proven (3)"
+    ],
+    "weight": 25,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Autopistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Solid Projectile",
+    "range": "30m",
+    "rof": "S/-/6",
+    "damage": "1d10+2 I",
+    "pen": "0",
+    "clip": 18,
+    "reload": "Full",
+    "special qualities": [
+    ],
+    "weight": 1.5,
+    "availability": "Average"
+  },
+  {
+    "name": "Stub Automatic",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Solid Projectile",
+    "range": "30m",
+    "rof": "S/3/-",
+    "damage": "1d10+3 I",
+    "pen": "0",
+    "clip": 9,
+    "reload": "Full",
+    "special qualities": [
+    ],
+    "weight": 1.5,
+    "availability": "Average"
+  },
+  {
+    "name": "Stub Revolver",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Solid Projectile",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10+3 I",
+    "pen": "0",
+    "clip": 6,
+    "reload": "2 Full",
+    "special qualities": [
+      "Reliable"
+    ],
+    "weight": 1.5,
+    "availability": "Plentiful"
+  },
+  {
+    "name": "Hand Cannon",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Solid Projectile",
+    "range": "35m",
+    "rof": "S/-/-",
+    "damage": "1d10+4 I",
+    "pen": "2",
+    "clip": 5,
+    "reload": "2 Full",
+    "special qualities": [
+    ],
+    "weight": 3,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Sniper Rifle",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Solid Projectile",
+    "range": "200m",
+    "rof": "S/-/-",
+    "damage": "1d10+4 I",
+    "pen": "3",
+    "clip": 20,
+    "reload": "Full",
+    "special qualities": [
+      "Accurate",
+      "Reliable"
+    ],
+    "weight": 5,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Autogun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Solid Projectile",
+    "range": "100m",
+    "rof": "S/3/10",
+    "damage": "1d10+3 I",
+    "pen": "0",
+    "clip": 30,
+    "reload": "Full",
+    "special qualities": [
+    ],
+    "weight": 5,
+    "availability": "Average"
+  },
+  {
+    "name": "Shotgun (Pump Action)",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Solid Projectile",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10+3 I",
+    "pen": "0",
+    "clip": 12,
+    "reload": "2 Full",
+    "special qualities": [
+      "Scatter"
+    ],
+    "weight": 5,
+    "availability": "Average"
+  },
+  {
+    "name": "Shotgun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Solid Projectile",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10+4 I",
+    "pen": "0",
+    "clip": 8,
+    "reload": "2 Full",
+    "special qualities": [
+      "Scatter"
+    ],
+    "weight": 5,
+    "availability": "Average"
+  },
+  {
+    "name": "Combat Shotgun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Solid Projectile",
+    "range": "30m",
+    "rof": "S/3/-",
+    "damage": "1d10+4 I",
+    "pen": "0",
+    "clip": 18,
+    "reload": "Full",
+    "special qualities": [
+      "Scatter"
+    ],
+    "weight": 6.5,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Ripper Gun",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Solid Projectile",
+    "range": "30m",
+    "rof": "S/-/6",
+    "damage": "1d10+8 I",
+    "pen": "0",
+    "clip": 48,
+    "reload": "2 Full",
+    "special qualities": [
+      "Ogryn-Proof",
+      "Scatter"
+    ],
+    "weight": 35,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Heavy Stubber",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Solid Projectile",
+    "range": "100m",
+    "rof": "-/-/8",
+    "damage": "1d10+4 I",
+    "pen": "3",
+    "clip": 75,
+    "reload": "2 Full",
+    "special qualities": [
+      "Ogryn-Proof"
+    ],
+    "weight": 30,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Autocannon",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Solid Projectile",
+    "range": "300m",
+    "rof": "S/3/-",
+    "damage": "3d10+8 I",
+    "pen": "6",
+    "clip": 20,
+    "reload": "2 Full",
+    "special qualities": [
+      "Ogryn-Proof",
+      "Reliable"
+    ],
+    "weight": 40,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Battle Cannon",
+    "craftsmanship": "Common",
+    "class": "Vehicle",
+    "type": "Solid Projectile",
+    "range": "750m",
+    "rof": "S/-/-",
+    "damage": "3d10+10 X",
+    "pen": "8",
+    "clip": 12,
+    "reload": "3 Full",
+    "special qualities": [
+      "Blast (10)",
+      "Concussive (3)",
+      "Reliable"
+    ],
+    "weight": 350,
+    "availability": "Average"
+  },
+  {
+    "name": "Demolisher Cannon",
+    "craftsmanship": "Common",
+    "class": "Vehicle",
+    "type": "Solid Projectile",
+    "range": "50m",
+    "rof": "S/-/-",
+    "damage": "4d10+20 X",
+    "pen": "10",
+    "clip": 2,
+    "reload": "Full",
+    "special qualities": [
+      "Blast (10)",
+      "Concussive (3)"
+    ],
+    "weight": 400,
+    "availability": "Rare"
+  },
+  {
+    "name": "Vanquisher Battle Cannon",
+    "craftsmanship": "Common",
+    "class": "Vehicle",
+    "type": "Solid Projectile",
+    "range": "900m",
+    "rof": "S/-/-",
+    "damage": "3d10+10 X",
+    "pen": "16",
+    "clip": 6,
+    "reload": "2 Full",
+    "special qualities": [
+      "Accurate"
+    ],
+    "weight": 400,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Earthshaker Cannon",
+    "craftsmanship": "Common",
+    "class": "Vehicle",
+    "type": "Solid Projectile",
+    "range": "3500m",
+    "rof": "S/-/-",
+    "damage": "4d10+10 X",
+    "pen": "8",
+    "clip": 1,
+    "reload": "2 Full",
+    "special qualities": [
+      "Accurate"
+    ],
+    "weight": 800,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Bolt Pistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Bolt",
+    "range": "30m",
+    "rof": "S/2/-",
+    "damage": "1d10+5 X",
+    "pen": "4",
+    "clip": 8,
+    "reload": "Full",
+    "special qualities": [
+      "Tearing"
+    ],
+    "weight": 3.5,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Boltgun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Bolt",
+    "range": "100m",
+    "rof": "S/3/-",
+    "damage": "1d10+5 X",
+    "pen": "4",
+    "clip": 24,
+    "reload": "Full",
+    "special qualities": [
+      "Tearing"
+    ],
+    "weight": 7,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Storm Bolter",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Bolt",
+    "range": "100m",
+    "rof": "S/2/4",
+    "damage": "1d10+5 X",
+    "pen": "4",
+    "clip": 60,
+    "reload": "Full",
+    "special qualities": [
+      "Storm",
+      "Tearing"
+    ],
+    "weight": 9,
+    "availability": "Extremely Rare"
+  },
+  {
+    "name": "Heavy Bolter",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Bolt",
+    "range": "150m",
+    "rof": "-/-/6",
+    "damage": "1d10+8 X",
+    "pen": "5",
+    "clip": 60,
+    "reload": "Full",
+    "special qualities": [
+      "Tearing"
+    ],
+    "weight": 40,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Inferno Pistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Melta",
+    "range": "10m",
+    "rof": "S/-/-",
+    "damage": "2d10+10 E",
+    "pen": "12",
+    "clip": 3,
+    "reload": "Full",
+    "special qualities": [
+      "Melta"
+    ],
+    "weight": 3,
+    "availability": "Near Unique"
+  },
+  {
+    "name": "Meltagun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Melta",
+    "range": "20m",
+    "rof": "S/-/-",
+    "damage": "2d10+10 E",
+    "pen": "12",
+    "clip": 5,
+    "reload": "Full",
+    "special qualities": [
+      "Melta"
+    ],
+    "weight": 15,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Multi-Melta",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Melta",
+    "range": "60m",
+    "rof": "S/-/-",
+    "damage": "2d10+16 E",
+    "pen": "12",
+    "clip": 12,
+    "reload": "Full",
+    "special qualities": [
+      "Melta",
+      "Blast (1)"
+    ],
+    "weight": 40,
+    "availability": "Extremely Rare"
+  },
+  {
+    "name": "Plasma Pistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Plasma",
+    "range": "30m",
+    "rof": "S/2/-",
+    "damage": "1d10+6 E",
+    "pen": "6",
+    "clip": 10,
+    "reload": "3 Full",
+    "special qualities": [
+      "Maximal",
+      "Overheat"
+    ],
+    "weight": 4,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Plasma Gun",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Plasma",
+    "range": "90m",
+    "rof": "S/2/-",
+    "damage": "1d10+7 E",
+    "pen": "6",
+    "clip": 40,
+    "reload": "5 Full",
+    "special qualities": [
+      "Maximal",
+      "Overheat"
+    ],
+    "weight": 18,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Plasma Cannon",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Plasma",
+    "range": "120m",
+    "rof": "S/-/-",
+    "damage": "2d10+10 E",
+    "pen": "8",
+    "clip": 16,
+    "reload": "5 Full",
+    "special qualities": [
+      "Blast (1)",
+      "Maximal",
+      "Overheat"
+    ],
+    "weight": 40,
+    "availability": "Extremely Rare"
+  },
+  {
+    "name": "Hand Flamer",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Flame",
+    "range": "10m",
+    "rof": "S/-/-",
+    "damage": "1d10+4 E",
+    "pen": "2",
+    "clip": 2,
+    "reload": "2 Full",
+    "special qualities": [
+      "Flame",
+      "Spray"
+    ],
+    "weight": 3.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Flamer",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Flame",
+    "range": "20m",
+    "rof": "S/-/-",
+    "damage": "1d10+4 E",
+    "pen": "2",
+    "clip": 6,
+    "reload": "2 Full",
+    "special qualities": [
+      "Flame",
+      "Spray"
+    ],
+    "weight": 6,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Heavy Flamer",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Flame",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10+5 E",
+    "pen": "4",
+    "clip": 10,
+    "reload": "2 Full",
+    "special qualities": [
+      "Flame",
+      "Spray"
+    ],
+    "weight": 45,
+    "availability": "Rare"
+  },
+  {
+    "name": "Inferno Cannon",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Flame",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10+5 E",
+    "pen": "4",
+    "clip": 10,
+    "reload": "2 Full",
+    "special qualities": [
+      "Flame",
+      "Spray"
+    ],
+    "weight": 600,
+    "availability": "Rare"
+  },
+  {
+    "name": "Bolas",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Low-Tech",
+    "range": "10m",
+    "rof": "S/-/-",
+    "damage": "-",
+    "pen": "0",
+    "clip": 1,
+    "reload": "-",
+    "special qualities": [
+      "Primitive (1)",
+      "Snare (1)",
+      "Innacurate"
+    ],
+    "weight": 1.5,
+    "availability": "Average"
+  },
+  {
+    "name": "Hand Bow",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Low-Tech",
+    "range": "15m",
+    "rof": "S/-/-",
+    "damage": "1d10 R",
+    "pen": "0",
+    "clip": 1,
+    "reload": "Full",
+    "special qualities": [
+      "Primitive (5)"
+    ],
+    "weight": 1,
+    "availability": "Rare"
+  },
+  {
+    "name": "Flintlock Pistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Low-Tech",
+    "range": "15m",
+    "rof": "S/-/-",
+    "damage": "1d10+2 I",
+    "pen": "0",
+    "clip": 1,
+    "reload": "3 Full",
+    "special qualities": [
+      "Primitive (8)",
+      "Innacurate",
+      "Unreliable"
+    ],
+    "weight": 3,
+    "availability": "Common"
+  },
+  {
+    "name": "Flintlock Musket",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Low-Tech",
+    "range": "15m",
+    "rof": "S/-/-",
+    "damage": "1d10+3 I",
+    "pen": "0",
+    "clip": 1,
+    "reload": "5 Full",
+    "special qualities": [
+      "Primitive (8)",
+      "Innacurate",
+      "Unreliable"
+    ],
+    "weight": 7,
+    "availability": "Common"
+  },
+  {
+    "name": "Bow",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Low-Tech",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10 R",
+    "pen": "0",
+    "clip": 1,
+    "reload": "Half",
+    "special qualities": [
+      "Primitive (8)",
+      "Innacurate",
+      "Unreliable"
+    ],
+    "weight": 7,
+    "availability": "Common"
+  },
+  {
+    "name": "Sling",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Low-Tech",
+    "range": "15m",
+    "rof": "S/-/-",
+    "damage": "1d10-2 I",
+    "pen": "0",
+    "clip": 1,
+    "reload": "Half",
+    "special qualities": [
+      "Primitive (5)"
+    ],
+    "weight": 0.5,
+    "availability": "Plentiful"
+  },
+  {
+    "name": "Crossbow",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Low-Tech",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10 R",
+    "pen": "0",
+    "clip": 1,
+    "reload": "2 Full",
+    "special qualities": [
+      "Primitive (7)"
+    ],
+    "weight": 3,
+    "availability": "Common"
+  },
+  {
+    "name": "Grenade Launcher",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Launcher",
+    "range": "60m",
+    "rof": "S/-/-",
+    "damage": "By Ammunition",
+    "pen": " By Ammunition",
+    "clip": 6,
+    "reload": "2 Full",
+    "special qualities": [
+      "By Ammunition"
+    ],
+    "weight": 12,
+    "availability": "Average"
+  },
+  {
+    "name": "Hellstrike Missiles",
+    "craftsmanship": "Common",
+    "class": "Vehicle",
+    "type": "Launcher",
+    "range": "300m",
+    "rof": "S/-/-",
+    "damage": "3d10+7 X",
+    "pen": "7",
+    "clip": 1,
+    "reload": "N/A",
+    "special qualities": [
+      "Blast (5)"
+    ],
+    "Weight": 85,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Hunter-Killer Missile",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Launcher",
+    "range": "350m",
+    "rof": "S/-/-",
+    "damage": "3d10+6 X",
+    "pen": "6",
+    "clip": 6,
+    "reload": "2 Full",
+    "special qualities": [
+    ],
+    "weight": 64,
+    "availability": "Average"
+  },
+  {
+    "name": "Missile Launcher",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Launcher",
+    "range": "300m",
+    "rof": "S/-/-",
+    "damage": "By Ammunition",
+    "pen": " By Ammunition",
+    "clip": 6,
+    "reload": "Full",
+    "special qualities": [
+      "By Ammunition"
+    ],
+    "weight": 64,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Mortar",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Launcher",
+    "range": "50-300m",
+    "rof": "S/-/-",
+    "damage": "By Ammunition",
+    "pen": "By Ammunition",
+    "clip": 6,
+    "reload": "Full",
+    "special qualities": [
+      "Innacurate",
+      "Indirect (2)",
+      "By Ammunition"
+    ],
+    "weight": 64,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Anti-Plant Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "3d10 E (Only Flora)",
+    "pen": 0,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Blast (3)"
+    ],
+    "weight": 0.5,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Blind Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "2d10 E",
+    "pen": 0,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Smoke (3)"
+    ],
+    "weight": 0.5,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Fire Bomb Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "1d10+3 E",
+    "pen": 6,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Blast (3)",
+      "Flame"
+    ],
+    "weight": 0.5,
+    "availability": "Plentiful"
+  },
+  {
+    "name": "Frag Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "2d10 X",
+    "pen": 0,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Blast (3)",
+      "Ogryn Proof"
+    ],
+    "weight": 0.5,
+    "availability": "Common"
+  },
+  {
+    "name": "Hallucinogen Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "-",
+    "pen": 0,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Blast (6)",
+      "Hallucinogenic (2)"
+    ],
+    "weight": 0.5,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Krak Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "2d10+4 E",
+    "pen": 6,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Concussive (0)"
+    ],
+    "weight": 0.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Photon Flash Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "-",
+    "pen": 6,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Blast (10)"
+    ],
+    "weight": 0.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Smoke Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "2d10+4 E",
+    "pen": 6,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Smoke (6) (Vision Only)"
+    ],
+    "weight": 0.5,
+    "availability": "Common"
+  },
+  {
+    "name": "Stun Grenade",
+    "craftsmanship": "Common",
+    "class": "Thrown",
+    "type": "Grenade",
+    "range": "SBx3",
+    "rof": "S/-/-",
+    "damage": "2d10+4 E",
+    "pen": 6,
+    "clip": 1,
+    "reload": "",
+    "special qualities": [
+      "Blast (2)",
+      "Concussive (2)"
+    ],
+    "weight": 0.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Frag Missile",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Missile",
+    "range": "-",
+    "rof": "-",
+    "damage": "2d10+2 X",
+    "pen": 2,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (5)"
+    ],
+    "weight": 0.5,
+    "availability": "Average"
+  },
+  {
+    "name": "Krak Missile",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Missile",
+    "range": "-",
+    "rof": "-",
+    "damage": "3d10+8 X",
+    "pen": 8,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Concussive (3)",
+      "Proven (2)"
+    ],
+    "weight": 0.5,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Minefield Missile",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Missile",
+    "range": "-",
+    "rof": "-",
+    "damage": "2d10 X",
+    "pen": 1,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (1)"
+    ],
+    "weight": 0.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Scatter Missile",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Missile",
+    "range": "-",
+    "rof": "-",
+    "damage": "2d10 X",
+    "pen": 0,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (10)"
+    ],
+    "weight": 0.5,
+    "availability": "Rare"
+  },
+  {
+    "name": "Anti-Plant Round",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Round",
+    "range": "-",
+    "rof": "-",
+    "damage": "3d10 E",
+    "pen": 0,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (1)"
+    ],
+    "weight": 1,
+    "availability": "Rare"
+  },
+  {
+    "name": "Blind Round",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Round",
+    "range": "-",
+    "rof": "-",
+    "damage": "2d10 E",
+    "pen": 0,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Smoke (6)"
+    ],
+    "weight": 1,
+    "availability": "Rare"
+  },
+  {
+    "name": "Frag Round",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Round",
+    "range": "-",
+    "rof": "-",
+    "damage": "2d10 X",
+    "pen": 3,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (5)"
+    ],
+    "weight": 1,
+    "availability": "Common"
+  },
+  {
+    "name": "Minefield Round",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Round",
+    "range": "-",
+    "rof": "-",
+    "damage": "2d10 X",
+    "pen": 1,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (1)"
+    ],
+    "weight": 1,
+    "availability": "Rare"
+  },
+  {
+    "name": "Photon Flash Round",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Round",
+    "range": "-",
+    "rof": "-",
+    "damage": "-",
+    "pen": 1,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (12)"
+    ],
+    "weight": 1,
+    "availability": "Rare"
+  },
+  {
+    "name": "Scatter Round",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Round",
+    "range": "-",
+    "rof": "-",
+    "damage": "1d10+3 X",
+    "pen": 1,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Blast (7)"
+    ],
+    "weight": 1,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Smoke Round",
+    "craftsmanship": "Common",
+    "class": "-",
+    "type": "Round",
+    "range": "-",
+    "rof": "-",
+    "damage": "-",
+    "pen": 0,
+    "clip": 0,
+    "reload": "",
+    "special qualities": [
+      "Smoke (9) (Vision Only)"
+    ],
+    "weight": 1,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Mole Mortar",
+    "craftsmanship": "Common",
+    "class": "Heavy",
+    "type": "Exotic",
+    "range": "50-200m",
+    "rof": "S/-/-",
+    "damage": "2d10+2 X",
+    "pen": 2,
+    "clip": 1,
+    "reload": "Full",
+    "special qualities": [
+      "Inaccurate",
+      "Indirect (2)",
+      "Shocking",
+      "Blast (4)"
+    ],
+    "weight": 50,
+    "availability": "Extremely Rare"
+  },
+  {
+    "name": "Needle Pistol",
+    "craftsmanship": "Common",
+    "class": "Pistol",
+    "type": "Exotic",
+    "range": "30m",
+    "rof": "S/-/-",
+    "damage": "1d10 R",
+    "pen": 0,
+    "clip": 6,
+    "reload": "Full",
+    "special qualities": [
+      "Accurate",
+      "Toxic (5)",
+      "Felling (1)"
+    ],
+    "weight": 1.5,
+    "availability": "Extremely Rare"
+  },
+  {
+    "name": "Needle Rifle",
+    "craftsmanship": "Common",
+    "class": "Basic",
+    "type": "Exotic",
+    "range": "180m",
+    "rof": "S/-/-",
+    "damage": "1d10 R",
+    "pen": 0,
+    "clip": 6,
+    "reload": "2 Full",
+    "special qualities": [
+      "Accurate",
+      "Toxic (5)",
+      "Felling (1)"
+    ],
+    "weight": 2,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Chainsword",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Chain",
+    "range": "-",
+    "damage": "1d10+2 R",
+    "pen": 2,
+    "special qualities": [
+      "Tearing",
+      "Balanced"
+    ],
+    "weight": 6,
+    "availability": "Average"
+  },
+  {
+    "name": "Evicerator",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Chain",
+    "range": "-",
+    "damage": "2d10 R",
+    "pen": 9,
+    "special qualities": [
+      "Razor Sharp",
+      "Tearing",
+      "Unwieldy"
+    ],
+    "weight": 15,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Power Fist",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Power",
+    "range": "-",
+    "rof": "",
+    "damage": "2d10+2xSB E",
+    "pen": 9,
+    "special qualities": [
+      "Power Field",
+      "Unwieldy"
+    ],
+    "weight": 13,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Power Sword",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Power",
+    "range": "-",
+    "damage": "1d10+5 E",
+    "pen": 5,
+    "special qualities": [
+      "Power Field",
+      "Balanced"
+    ],
+    "weight": 6,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Power Axe",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Power",
+    "range": "-",
+    "damage": "1d10+7 E",
+    "pen": 7,
+    "special qualities": [
+      "Power Field",
+      "Unbalanced"
+    ],
+    "weight": 13,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Power Maul (High)",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Power",
+    "range": "-",
+    "damage": "1d10+5 E",
+    "pen": 4,
+    "special qualities": [
+      "Power Field",
+      "Shocking"
+    ],
+    "weight": 3.5,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Power Maul (Low)",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Power",
+    "range": "-",
+    "damage": "1d10+1 E",
+    "pen": 2,
+    "special qualities": [
+      "Shocking"
+    ],
+    "weight": 3.5,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Omnissian Axe",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Power",
+    "range": "-",
+    "damage": "1d10+4 E",
+    "pen": 6,
+    "special qualities": [
+      "Power Field",
+      "Unbalanced"
+    ],
+    "weight": 8,
+    "availability": "Extremely Rare"
+  },
+  {
+    "name": "Force Sword",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Force",
+    "range": "-",
+    "damage": "1d10+1 R",
+    "pen": 2,
+    "special qualities": [
+      "Balanced",
+      "Force"
+    ],
+    "weight": 5,
+    "availability": "Near Unique"
+  },
+  {
+    "name": "Force Staff",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Force",
+    "range": "-",
+    "damage": "1d10 I",
+    "pen": 2,
+    "special qualities": [
+      "Force"
+    ],
+    "weight": 2,
+    "availability": "Extremely Rare"
+  },
+  {
+    "name": "Great Weapon",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "2d10 R",
+    "pen": 0,
+    "special qualities": [
+      "Ogryn-Proof",
+      "Unbalanced"
+    ],
+    "weight": 7,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Groxwhip",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "3m",
+    "damage": "1d10+3 R",
+    "pen": 0,
+    "special qualities": [
+      "Flexing",
+      "Tearing",
+      "Primitive (6)"
+    ],
+    "weight": 4,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Hunting Lance",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "2d10+3 X",
+    "pen": 7,
+    "special qualities": [
+      "Concussive"
+    ],
+    "weight": 4,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Improvised",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "1d10-2 I",
+    "pen": 0,
+    "special qualities": [
+      "Ogryn-Proof",
+      "Primitive (7)",
+      "Unbalanced"
+    ],
+    "weight": 0,
+    "availability": "-"
+  },
+  {
+    "name": "Knife",
+    "craftsmanship": "Common",
+    "class": "Melee/Thrown",
+    "type": "Low-Tech",
+    "range": "5m",
+    "damage": "1d5 R",
+    "pen": 0,
+    "special qualities": [
+    ],
+    "weight": 1,
+    "availability": "Plentiful"
+  },
+  {
+    "name": "Shields",
+    "craftsmanship": "Common",
+    "class": "Melee/Thrown",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "1d5 I",
+    "pen": 0,
+    "special qualities": [
+      "Defensive",
+      "Primitive (6)"
+    ],
+    "weight": 3,
+    "availability": "Common"
+  },
+  {
+    "name": "Spear",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "1d10 R",
+    "pen": 0,
+    "special qualities": [
+      "Primitive (8)"
+    ],
+    "weight": 3,
+    "availability": "Common"
+  },
+  {
+    "name": "Staff",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "1d10 I",
+    "pen": 0,
+    "special qualities": [
+      "Balanced",
+      "Primitive (7)"
+    ],
+    "weight": 3,
+    "availability": "Plentiful"
+  },
+  {
+    "name": "Sword",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "1d10 R",
+    "pen": 0,
+    "special qualities": [
+      "Balanced"
+    ],
+    "weight": 3,
+    "availability": "Common"
+  },
+  {
+    "name": "Truncheon",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "1d10 I",
+    "pen": 0,
+    "special qualities": [
+      "Ogryn-Proof",
+      "Primitive (7)"
+    ],
+    "weight": 2,
+    "availability": "Plentiful"
+  },
+  {
+    "name": "Warhammer",
+    "craftsmanship": "Common",
+    "class": "Melee",
+    "type": "Low-Tech",
+    "range": "-",
+    "damage": "1d10+2 I",
+    "pen": 1,
+    "special qualities": [
+      "Ogryn-Proof",
+      "Primitive (8)"
+    ],
+    "weight": 4.5,
+    "availability": "Scarce"
+  }
 ]
