@@ -345,7 +345,7 @@ define(function() {
                             }
                         },
                         get all() {
-                            return this._psychicPowers.slice();
+                            return _powers.powers.slice();
                         },
                         get bonusXp() {
                             return _powers.bonusXp;
@@ -370,11 +370,11 @@ define(function() {
                                 {
                                     if (type === "Regiment") {
                                         for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
-                                            _characteristicMap[characteristic.toLowerCase()].regiment = modifier['fixed modifiers'][property][characteristic];
+                                            _characteristics[characteristic.toLowerCase()].regiment = modifier['fixed modifiers'][property][characteristic];
                                         };
                                     } else if (type === "Specialty") {
                                         for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
-                                            _characteristicMap[characteristic.toLowerCase()].specialty = modifier['fixed modifiers'][property][characteristic];
+                                            _characteristics[characteristic.toLowerCase()].specialty = modifier['fixed modifiers'][property][characteristic];
                                         };
                                     }
                                 }
@@ -384,16 +384,16 @@ define(function() {
                                 for (var skill in incomingSkills) {
                                     var existingSkill = _skills.skills[skill];
                                     if (existingSkill) {
-                                        existingSkill.advancements(existingSkill.advancements() + incomingSkills[skill]);
+                                        existingSkill.advancements += incomingSkills[skill];
                                     } else {
-                                        _skills.skills.add(skill, incomingSkills[skill]);
+                                        _skills.add(skill, incomingSkills[skill]);
                                     }
                                 }
                                 break;
                             case "talents":
                                 var incomingTalents = modifier['fixed modifiers']['talents'];
                                 for (var i = 0; i < incomingTalents.length; i++) {
-                                    _character.talents().add(incomingTalents[i]);
+                                    _talents.push(incomingTalents[i]);
                                 }
                                 break;
                             case "aptitudes":
@@ -413,17 +413,17 @@ define(function() {
                                         case "other weapons":
                                             var weapons = modifier['fixed modifiers']['character kit'][category];
                                             $.each(weapons, function(index, element) {
-                                                _character.equipment.weapons().add(element);
+                                                _equipment.weapons.push(element);
                                             });
                                             break;
                                         case "armor":
                                             $.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
-                                                _character.equipment.armor.push(element);
+                                                _equipment.armor.push(element);
                                             });
                                             break;
                                         case "other gear":
                                             $.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
-                                                _character.equipment['other gear'].push(element);
+                                                _equipment['other gear'].push(element);
                                             });
                                             break;
                                     }
@@ -450,7 +450,7 @@ define(function() {
                                 });
                             });
 
-                            _character.equipment.weapons = _character.equipment.weapons.map(function(weapon) {
+                            _equipment.weapons = _equipment.weapons.map(function(weapon) {
                                 if (weapon.favored) {
                                     var type = weapon.item.name.substring("Regimental Favored".length, weapon.item.name.indexOf("Weapon")).trim();
                                     weapon.item = favoredWeapons.find(function(favoredWeapon) {
@@ -546,7 +546,7 @@ define(function() {
                                             var weapons = modifier['fixed modifiers']['character kit'][category];
                                             var indexesToRemove = []
                                             $.each(weapons, function(i, element) {
-                                                var index = _character.equipment.weapons.indexOf(element);
+                                                var index = _equipment.weapons.indexOf(element);
                                                 if (index !== -1) {
                                                     indexesToRemove.push(index);
                                                 }
@@ -555,13 +555,13 @@ define(function() {
                                                 return b - a;
                                             });
                                             $.each(indexesToRemove, function(i, indexToRemove) {
-                                                _character.equipment.weapons.splice(indexToRemove);
+                                                _equipment.weapons.splice(indexToRemove);
                                             });
                                             break;
                                         case "armor":
                                             var armor = modifier['fixed modifiers']['character kit'][category];
                                             $.each(armor, function(i, element) {
-                                                var index = _character.equipment.weapons.indexOf(element);
+                                                var index = _equipment.weapons.indexOf(element);
                                                 if (index !== -1) {
                                                     indexesToRemove.push(index);
                                                 }
@@ -570,13 +570,13 @@ define(function() {
                                                 return b - a;
                                             });
                                             $.each(indexesToRemove, function(i, indexToRemove) {
-                                                _character.equipment.armor.splice(indexToRemove);
+                                                _equipment.armor.splice(indexToRemove);
                                             });
                                             break;
                                         case "other gear":
                                             var gear = modifier['fixed modifiers']['character kit'][category];
                                             $.each(gear, function(i, element) {
-                                                var index = _character.equipment.weapons.indexOf(element);
+                                                var index = _equipment.weapons.indexOf(element);
                                                 if (index !== -1) {
                                                     indexesToRemove.push(index);
                                                 }
@@ -585,7 +585,7 @@ define(function() {
                                                 return b - a;
                                             });
                                             $.each(indexesToRemove, function(i, indexToRemove) {
-                                                _character.equipment['other gear'].splice(indexToRemove);
+                                                _equipment['other gear'].splice(indexToRemove);
                                             });
                                             break;
                                     }
@@ -612,7 +612,7 @@ define(function() {
                         throw "Specialty type must be 'Guardsman' or 'Support' but was " + type + "."
                     }
                 } else if (type === "regiment") {
-                    _character.equipment.weapons = _character.equipment.weapons.map(function(weapon) {
+                    _equipment.weapons = _equipment.weapons.map(function(weapon) {
                         if (weapon.favored) {
                             weapon.item = {
                                 name: "Regimental Favored " + weapon.type + " Weapon"
