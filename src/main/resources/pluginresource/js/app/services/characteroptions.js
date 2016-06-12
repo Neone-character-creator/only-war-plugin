@@ -118,9 +118,13 @@ define(function() {
 				});
 				if(!result){
 					result = {"name": placeholder.name}
+				} else {
+					result = angular.copy(result);
 				}
 				if(placeholder.craftsmanship){
 					result.craftsmanship = placeholder.craftsmanship;
+				} else {
+					result.craftsmanship = "Common";
 				}
 				if(placeholder.upgrades){
 					result.upgrades = placeholder.upgrades;
