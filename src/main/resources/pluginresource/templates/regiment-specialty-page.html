@@ -13,7 +13,7 @@
     </div>
     <div class="row">
         <div class="col-md-10">
-            <div class="dropdown">
+            <div class="dropdown" ng-if="selectionType === 'regiments'">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                     Select Regiment<span class="caret"></span>
                 </button>
@@ -24,6 +24,16 @@
                 </ul>
                 Or
                 <a class="btn btn-primary" ui-sref="createRegiment" ui-sref-opts="{reload:true}">Create New Regiment</a>
+            </div>
+            <div class="dropdown" ng-if="selectionType === 'specialties'">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Select Specialty<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="option in available"><a
+                            ng-click="select(option)">{{option.name}}</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -61,10 +71,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="row" ng-show="character.psychicPowers.powers.length">
+            <div class="row" ng-show="character.powers.all.length">
                 <h3>Starting Powers</h3>
                 <ul>
-                    <li ng-repeat="power in character.psychicPowers.powers">
+                    <li ng-repeat="power in character.powers.all">
                         {{power.name}}
                     </li>
                 </ul>
@@ -102,7 +112,7 @@
                 {{selected['fixed modifiers']['favored weapons'].join(', ')}}
             </div>
         </div>
-        <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length || character.powers().bonusXp()">
+        <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length || character.powers.bonusXp">
             You also choose from the following optional benefits:
             <ul>
                 <li ng-repeat="selection in requiredSelections">
