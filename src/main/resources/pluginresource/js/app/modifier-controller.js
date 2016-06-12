@@ -1,7 +1,7 @@
 define(function() {
 	return function(associatedServiceName){
 	var associatedServiceName = associatedServiceName;
-		return function($scope, $state, $injector ,character, selection, $uibModal, characteroptions) {
+		return function($scope, $state, $injector ,characterService, selection, optionselection, $uibModal, characteroptions) {
 		switch(associatedServiceName){
 			case "regiments":
 			characteroptions.regiments().then(function(names) {
@@ -24,7 +24,7 @@ define(function() {
 			});
 			break;
 		}
-		$scope.character = character.character;
+		$scope.character = characterService.character;
 		var modifierService = $injector.get(associatedServiceName);
 
 		$scope.selected = modifierService.selected();
@@ -57,10 +57,10 @@ define(function() {
 				$scope.requiredSelections = modifierService.remainingSelections();
 				switch(associatedServiceName){
 					case "regiments":
-						character.character.regiment = selected;
+						characterService.character.regiment = selected;
 					break;
 					case "specialties":
-						character.character.specialty = selected;
+						characterService.character.specialty = selected;
 					break;
 				}
 				$scope.selected = modifierService.selected();
@@ -89,12 +89,17 @@ define(function() {
 				$scope.selected = modifierService.selected();
 				switch(associatedServiceName){
                 					case "regiments":
-                						character.character.regiment = $scope.selected;
+                						characterService.character.regiment = $scope.selected;
                 					break;
                 					case "specialties":
-                						character.character.specialty = $scope.selected;
+                						characterService.character.specialty = $scope.selected;
                 					break;
                 				}
+                optionselection.target = $scope.selected;
+                optionselection.selectionObject = selectedObject;
+                optionselection.selected = selection.selected;
+                optionselection.associatedService = modifierService;
+                optionselection.applySelection();
 			});
 		};
 
