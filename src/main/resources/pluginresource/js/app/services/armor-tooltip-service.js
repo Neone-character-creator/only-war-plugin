@@ -8,16 +8,16 @@ define(function(){
 		//The values modifying the protection in the hit location.
 		var _modifiers = [];
 		return {
-			get location : function(){
+			get location(){
 				return _location;
 			},
-			set location : function(value){
+			set location(value){
 				_location = value;
 			},
-			get modifiers : function(){
+			get modifiers (){
 				return _modifiers.slice();
 			},
-			set modifiers : function(value){
+			set modifiers(value){
 				_modifiers = value;
 			}
 		}
