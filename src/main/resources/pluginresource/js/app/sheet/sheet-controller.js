@@ -1,12 +1,12 @@
 define(function() {
-	return function($scope, character, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, $cookies) {
+	return function($scope, characterService, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, $cookies) {
 		if(!$cookies.get("only-war-instructions")){
 			$uibModal.open({
 				templateUrl : "pluginresource/templates/instructions-modal.html"
 			});
 			$cookies.put("only-war-instructions", true);
 		};
-		$scope.character = character.character;
+		$scope.character = characterService.character;
 		characteroptions.characteristics().then(function(result){
 			$scope.characteristics = result.map(function(element){return element.name});
 		});
@@ -18,7 +18,7 @@ define(function() {
 		function updateAvailableSkills(){
 			characteroptions.skills().then(function(result){
 				$scope.availableSkills = result.filter(function(element){
-					for(var skill in character.character.skills){
+					for(var skill in characterService.character.skills){
 						if(skill === element.name){
 							return false;
 						}
@@ -32,7 +32,7 @@ define(function() {
 		function updateAvailableTalents(){
 			characteroptions.talents().then(function(result){
 				$scope.availableTalents = result.filter(function(element){
-					return character && character.character && character.character.talents &&character.character.talents.indexOf(element) === -1;
+					return character && characterService.character && characterService.character.talents &&characterService.character.talents.indexOf(element) === -1;
 				});
 			});
 		};
@@ -52,12 +52,12 @@ define(function() {
 				var newSkill = angular.copy($scope.availableSkills[$scope.newSkill]);
 				var matchingAptitudes = 0;
 				for (var a = 0; a < newSkill.aptitudes; a++) {
-					if (character.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+					if (characterService.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
 						matchingAptitudes++;
 					}
 				}
 				characteroptions.xpCosts().then(function(result) {
-					$scope.newSkillXpCost = new Number(result.skills.advances[0]['cost by aptitudes'][matchingAptitudes]);
+					$scope.newSkillXpCost = parseInt(result.skills.advances[0]['cost by aptitudes'][matchingAptitudes]);
 				});
 			} else {
 				$scope.newSkillXpCost = undefined;
@@ -68,7 +68,7 @@ define(function() {
 				var newTalent = angular.copy($scope.availableTalents[$scope.newTalent]);
 				var matchingAptitudes = 0;
 				for (var a = 0; a < newTalent.aptitudes; a++) {
-					if (character.character.aptitudes.all().indexOf(newTalent.aptitudes[a]) !== -1) {
+					if (characterService.character.aptitudes.all().indexOf(newTalent.aptitudes[a]) !== -1) {
 						matchingAptitudes++;
 					}
 				}
@@ -92,7 +92,7 @@ define(function() {
 					name : name,
 					rating : 1
 				};
-				character.character.experience.addAdvancement($scope.newSkillXpCost, "skills", newSkill);
+				characterService.character.experience.addAdvancement($scope.newSkillXpCost, "skills", newSkill);
 				$scope.newSkill = null;
 				updateAvailableSkills();
 			}
@@ -101,11 +101,11 @@ define(function() {
 		$scope.setSkillLevel = function(skillName, newRating){
 			if(skillName && newRating){
 				//If the new rating is an increase, determine how many new levels are needed.
-				if(newRating - character.character.skills[skillName] > 0){
+				if((newRating - characterService.character.skills[skillName].advancements) > 0){
 					var matchingAptitudes = 0;
 					characteroptions.skills().then(function(result){
 						var originalSkillName = skillName;
-						for(var i = character.character.skills[skillName]+1; i <= newRating; i++){
+						for(var i = characterService.character.skills[skillName].advancements+1; i <= newRating; i++){
 							$.each(result, function(index, element){
 								if(skillName.indexOf("(") !== -1){
 									skillName = skillName.substring(0, skillName.indexOf("(")).trim();
@@ -113,7 +113,7 @@ define(function() {
 								if(element.name === skillName){
 									var newRating = i;
 									for (var a = 0; a < element.aptitudes; a++) {
-										if (character.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+										if (characterService.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
 											matchingAptitudes++;
 										};
 									};
@@ -126,18 +126,18 @@ define(function() {
 											name : originalSkillName,
 											rating : newRating
 										};
-										character.character.experience.addAdvancement(xpCost, "skills", newSkill);
+										characterService.character.experience.addAdvancement(xpCost, "skills", newSkill);
 									});
 									return false;
 								};
 							});
 						}
 				});
-			} else if(newRating - character.character.skills[skillName] < 0){
-				for(var i = character.character.skills[skillName]; i >= newRating; i--){
+			} else if((newRating - characterService.character.skills[skillName].advancements) < 0){
+				for(var i = characterService.character.skills[skillName].advancements; i >= newRating; i--){
 					//Look for any advancements that increased the skill between the current rating and the new one
 					var indexesToRemove =[];
-					$.each(character.character.experience._advancementsBought, function(index, element){
+					$.each(characterService.character.experience.advancements, function(index, element){
 						if(element.property === "skills" && element.value.rating > newRating){
 							indexesToRemove.push(index);
 						}
@@ -147,7 +147,7 @@ define(function() {
 						return b-a;
 					})
 					$.each(indexesToRemove, function(loopIndex, indexToRemove){
-						character.character.experience.removeAdvancement(indexToRemove);
+						characterService.character.experience.removeAdvancement(indexToRemove);
 					})
 				}
 			}
@@ -155,7 +155,7 @@ define(function() {
 	}
 		$scope.removeSkill = function(skillName){
 			var indexesToRemove = [];
-			$.each(character.character.experience._advancementsBought, function(index, element){
+			$.each(characterService.character.experience._advancementsBought, function(index, element){
 				if(element.property === "skills" && element.value.name == skillName){
 					indexesToRemove.push(index);
 				}
@@ -164,7 +164,7 @@ define(function() {
 				return b-a;
 			});
 			$.each(indexesToRemove, function(index, indexToRemove){
-				character.character.experience.removeAdvancement(indexToRemove);
+				characterService.character.experience.removeAdvancement(indexToRemove);
 			});
 			updateAvailableSkills();
 		}
@@ -177,14 +177,14 @@ define(function() {
 				var matchingAptitudes = 0;
 				var xpCost;
 				for (var a = 0; a < newTalent.aptitudes; a++) {
-					if (character.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
+					if (characterService.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
 						matchingAptitudes++;
 					}
 				}
 				newTalent.boughtAsAdvancement = true;
 				characteroptions.xpCosts().then(function(result) {
 					xpCost = new Number(result.talents.advances[newTalent.tier - 1]['cost by aptitudes'][matchingAptitudes]);
-					character.character.experience.addAdvancement(xpCost, "talents", newTalent);
+					characterService.character.experience.addAdvancement(xpCost, "talents", newTalent);
 					$scope.newTalent = null;
 				});
 			}
@@ -192,10 +192,10 @@ define(function() {
 
 		$scope.removeTalent = function(index){
 			var talent = $scope.availableTalents[index];
-			character.character.experience.removeAdvancement(character.character.experience._advancementsBought)
+			characterService.character.experience.removeAdvancement(characterService.character.experience._advancementsBought)
 		}
 
-		$scope.criticalInjuries = character.character.wounds ? character.character.wounds.criticalInjuries : [];
+		$scope.criticalInjuries = characterService.character.wounds ? characterService.character.wounds.criticalInjuries : [];
 		$scope.newCriticalInjury;
 
 		$scope.addCriticalInjury = function() {
@@ -209,7 +209,7 @@ define(function() {
 			$scope.criticalInjuries.splice(index, 1);
 		};
 
-		$scope.mentalDisorders = character.character.insanity ? character.character.insanity.disorders : [];
+		$scope.mentalDisorders = characterService.character.insanity ? characterService.character.insanity.disorders : [];
 		$scope.newMentalDisorder;
 
 		$scope.addMentalDisorder = function() {
@@ -223,13 +223,13 @@ define(function() {
 			$scope.mentalDisorders.splice(index, 1);
 		};
 
-		if(!character.character.corruption){
-			character.character.corruption = {};
+		if(!characterService.character.corruption){
+			characterService.character.corruption = {};
 		}
-		if(!character.character.corruption.malignancies){
-			character.character.corruption.malignancies = [];
+		if(!characterService.character.corruption.malignancies){
+			characterService.character.corruption.malignancies = [];
 		}
-		$scope.malignancies = character.character.corruption.malignancies;
+		$scope.malignancies = characterService.character.corruption.malignancies;
 		$scope.newMalignancy;
 
 		$scope.addMalignancy = function() {
@@ -243,7 +243,7 @@ define(function() {
 			$scope.malignancies.splice(index, 1);
 		};
 
-		$scope.mutations = character.character.corruption.mutations;
+		$scope.mutations = characterService.character.corruption.mutations;
 		$scope.newMutation;
 
 		$scope.addMutation = function() {
@@ -265,7 +265,7 @@ define(function() {
 			leftLeg:{rating:0, providers:[]},
 			rightLeg:{rating:0, providers:[]}
 		};
-		$.each(character.character.equipment.armor.map(function(element){return element.item}), function(index, armor){
+		$.each(characterService.character.equipment.armor.map(function(element){return element.item}), function(index, armor){
 			$.each(armor.locations, function(index, location){
 				switch(location){
 					case "Left Arm":
@@ -297,25 +297,25 @@ define(function() {
 		});
 
 		$scope.armorTooltip = function(location){
-			armorTooltipService.location(location);
+			armorTooltipService.location =location;
 			armorTooltipService.modifiers($scope.armor[location].providers);
 		}
 
 		$scope.$watch('character.psychicPowers.psyRating', function(newVal, oldVal){
 			if(newVal > oldVal){
 				for(var i = oldVal+1; i <= newVal; i++){
-					character.character.experience.addAdvancement(i*200, "psy rating", i);
+					characterService.character.experience.addAdvancement(i*200, "psy rating", i);
 				}
 			} else if(newVal < oldVal){
 				var indexesToRemove = [];
-				$.each(character.character.experience._advancementsBought, function(index, element){
+				$.each(characterService.character.experience._advancementsBought, function(index, element){
 					if(element.property === "psy rating" && element.value > newVal){
 						indexesToRemove.push(index);
 					};
 				});
 				indexesToRemove = indexesToRemove.sort(function(a,b){return b-a;})
 				$.each(indexesToRemove, function(index, element){
-					character.character.experience.removeAdvancement(element);
+					characterService.character.experience.removeAdvancement(element);
 				});
 			}
 		});
@@ -323,7 +323,7 @@ define(function() {
 		updateAvailableWeapons = function(){
 			characteroptions.weapons().then(function(result){
 				$scope.availableWeapons = result.filter(function(element){
-					var weapons = character.character.equipment.weapons.map(function(weapon){
+					var weapons = characterService.character.equipment.weapons.map(function(weapon){
 						return weapon.item;
 					});
 					return weapons.indexOf(element) === -1;
@@ -333,11 +333,11 @@ define(function() {
 		updateAvailableWeapons();
 
 		$scope.addNewWeapon = function(){
-			character.character.equipment.weapons.push({item : $scope.availableWeapons[$scope.newWeapon],count : 1});
+			characterService.character.equipment.weapons.push({item : $scope.availableWeapons[$scope.newWeapon],count : 1});
 			updateAvailableweapons;
 		};
 		$scope.removeWeapon = function(index){
-			character.character.equipment.weapons.splice(index);
+			characterService.character.equipment.weapons.splice(index);
 			$scope.newWeapon = null;
 			updateAvailableWeapons();
 		}
