@@ -1,95 +1,105 @@
 <div class="container">
-    <div class="row text-center">
+    <div class="col-md-10">
+        <div class="row text-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <label for="character-name">Character Name</label>
+                                <input type="text" id="character-name" style="width:100%" ng-model="character.name"/>
+                            </div>
+                            <div class="row"
+                                 uib-tooltip="Click the Select Regiment button at the top of the screen to choose your Regiment."
+                                 tooltip-popup-delay="150">
+                                <label for="regiment-name">Regiment</label>
+                                <input id="regiment-name" type="text" readonly style="width:100%"
+                                       ng-value="character.regiment.name"/>
+                            </div>
+                            <div class="row">
+                                <label for="demeanor">Demeanor</label>
+                                <input type="text" id="demeanor" style="width:100%" ng-model="character.demeanor"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <label for="player-name">Player Name</label>
+                                <input type="text" id="player-name" style="width:100%"/>
+                            </div>
+                            <div class="row" tooltip-popup-delay="150"
+                                 uib-tooltip="Click the Select Specialty button at the top of the screen to choose your Specialty.">
+                                <label>Specialty</label>
+                                <input type="text" readonly style="width:100%" ng-value="character.specialty.name"/>
+                            </div>
+                            <div class="row">
+                                <label for="description">Description</label>
+                                <input type="text" id="description" style="width:100%"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
         <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <label for="character-name">Character Name</label>
-                            <input type="text" id="character-name" style="width:100%" ng-model="character.name"/>
-                        </div>
-                        <div class="row"
-                             uib-tooltip="Click the Select Regiment button at the top of the screen to choose your Regiment."
-                             tooltip-popup-delay="150">
-                            <label for="regiment-name">Regiment</label>
-                            <input id="regiment-name" type="text" readonly style="width:100%"
-                                   ng-value="character.regiment.name"/>
-                        </div>
-                        <div class="row">
-                            <label for="demeanor">Demeanor</label>
-                            <input type="text" id="demeanor" style="width:100%" ng-model="character.demeanor"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <label for="player-name">Player Name</label>
-                            <input type="text" id="player-name" style="width:100%"/>
-                        </div>
-                        <div class="row" tooltip-popup-delay="150"
-                             uib-tooltip="Click the Select Specialty button at the top of the screen to choose your Specialty.">
-                            <label>Specialty</label>
-                            <input type="text" readonly style="width:100%" ng-value="character.specialty.name"/>
-                        </div>
-                        <div class="row">
-                            <label for="description">Description</label>
-                            <input type="text" id="description" style="width:100%"/>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-12">
+                <button class="btn btn-info img-circle"
+                        uib-tooltip="Click on Determine Characteristics at the top to set your characteristics">
+                    ?
+                </button>
+                <table style="width:100%" class="text-center table-bordered">
+                    <tr>
+                        <td ng-repeat="characteristic in characteristics"
+                            ng-mouseenter="characteristicTooltip(characteristic)"
+                            uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
+                            tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
+                            tooltip-popup-delay="500" tooltip-placement="bottom">
+                            <span class="text-center">{{characteristic}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td ng-repeat="characteristic in characteristics" class="text-center"
+                            ng-mouseenter="characteristicTooltip(characteristic)"
+                            uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
+                            tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
+                            tooltip-popup-delay="500" tooltip-placement="bottom">
+                            {{character.characteristics[characteristic.toLowerCase()].total()}}
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-12">
-            <table style="width:100%" class="text-center table-bordered">
-                <tr>
-                    <td ng-repeat="characteristic in characteristics"
-                        ng-mouseenter="characteristicTooltip(characteristic)"
-                        uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
-                        tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
-                        tooltip-popup-delay="500" tooltip-placement="bottom">
-                        <span class="text-center">{{characteristic}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td ng-repeat="characteristic in characteristics" class="text-center"
-                        ng-mouseenter="characteristicTooltip(characteristic)"
-                        uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
-                        tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
-                        tooltip-popup-delay="500" tooltip-placement="bottom">
-                        {{character.characteristics[characteristic.toLowerCase()].total()}}
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-8">
-            <table id="skill-div" class="table table-bordered pull-left">
-                <tr>
-                    <th class="col-md-8"></th>
-                    <th>Trained</th>
-                    <th>+10</th>
-                    <th>+20</th>
-                    <th>+30</th>
-                </tr>
-                <tr ng-repeat="(skillName, skill) in character.skills" class="text-center">
-                    <td>{{skillName}}
-                        <button ng-click="removeSkill(skill)" uib-tooltip="Click to remove all skill advancements"><span
-                                class="glyphicon glyphicon-remove"></span></button>
-                    </td>
-                    <td ng-repeat="i in [1,2,3,4]"><input type="radio"
-                                                          ng-checked="skill.advancements >= i"
-                                                          ng-click="setSkillLevel(skillName, i)"/></td>
-                </tr>
-            </table>
-            <span uib-tooltip="Click the dropdown box to select a new skill and then the button to add it to the character."
+        <hr/>
+        <div class="row">
+            <div class="col-md-8">
+                <button class="btn btn-info img-circle"
+                        uib-tooltip="Click on the dropdown below to add a new skill. Click the x button next to the skill name to remove it and the radio buttons to set the rating.">
+                    ?
+                </button>
+                <table id="skill-div" class="table table-bordered pull-left">
+                    <tr>
+                        <th class="col-md-8"></th>
+                        <th>Trained</th>
+                        <th>+10</th>
+                        <th>+20</th>
+                        <th>+30</th>
+                    </tr>
+                    <tr ng-repeat="(skillName, skill) in character.skills" class="text-center">
+                        <td>{{skillName}}
+                            <button ng-click="removeSkill(skill)"
+                                    uib-tooltip="Click to remove all skill advancements"><span
+                                    class="glyphicon glyphicon-remove"></span></button>
+                        </td>
+                        <td ng-repeat="i in [1,2,3,4]"><input type="radio"
+                                                              ng-checked="skill.advancements >= i"
+                                                              ng-click="setSkillLevel(skillName, i)"/></td>
+                    </tr>
+                </table>
+            <span uib-tooltip="Click the dropdown box to select a new skill."
                   tooltip-popup-delay="150"
                   tooltip-append-to-body="true">
                 <select ng-model="newSkill">
@@ -105,334 +115,335 @@
                   uib-tooltip="This skill requires a specialization.">
                 Specialization:<input type="text" ng-model="newSkillSpecialization"/>
             </span>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <h4>Talents & Traits</h4>
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="talent in character.talents">{{talent.name}}
-                <button ng-click="removeTalent($index)" uib-tooltip="Click to remove this talent advancement"
-                        ng-show="talent.boughtAsAdvancement">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
-            </li>
-            <li class="list-group-item"><select ng-model="newTalent">
-                <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</button>
-                </option>
-            </select>
-                <button class="btn btn-standard" ng-click="addTalent()" ng-disabled="!newTalent">Add Talent
-                    {{newTalentXpCost ? " (" + newTalentXpCost + " xp)" : ""}}
-                </button>
-            </li>
-        </ul>
-    </div>
-</div>
-<hr/>
-<div class="row">
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-9">
-                <h3>Wounds</h3>
-                <h4>Critical Damage</h4>
+            </div>
+            <div class="col-md-4">
+                <h4>Talents & Traits</h4>
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="critical in criticalInjuries">
-                        <span style="display:inline-block;overflow:hidden;width:90%">{{critical}}</span>
-                        <button class="btn pull-right" ng-click="removeCriticalInjury($index)">
+                    <li class="list-group-item" ng-repeat="talent in character.talents track by $index">{{talent.name}}
+                        <button ng-click="removeTalent(talent)" uib-tooltip="Click to remove this talent advancement"
+                                ng-show="talent.boughtAsAdvancement">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <input style="overflow:hidden" ng-model="newCriticalInjury">
-                        <button class="btn btn-standard pull-right"
-                                ng-click="addCriticalInjury()"
-                                ng-disabled="!newCriticalInjury">
-                            Add
+                        <select ng-model="newTalent">
+                            <option ng-repeat="talent in availableTalents" value="{{$index}}">{{talent.name}}</button>
+                            </option>
+                        </select>
+                        <button class="btn btn-standard" ng-click="addTalent()" ng-disabled="!newTalent">Add Talent
+                            {{newTalentXpCost ? " (" + newTalentXpCost + " xp)" : ""}}
                         </button>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-3">
-                <div class="row text-center">
-                    <label for="total-wounds">Total</label>
-                    <input type="text" id="total-wounds" readonly
-                           ng-value="character.wounds.total"
-                           style="width:90%"/>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h3>Wounds</h3>
+                        <h4>Critical Damage</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="critical in criticalInjuries">
+                                <span style="display:inline-block;overflow:hidden;width:90%">{{critical}}</span>
+                                <button class="btn pull-right" ng-click="removeCriticalInjury($index)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </li>
+                            <li class="list-group-item">
+                                <input style="overflow:hidden" ng-model="newCriticalInjury">
+                                <button class="btn btn-standard pull-right"
+                                        ng-click="addCriticalInjury()"
+                                        ng-disabled="!newCriticalInjury">
+                                    Add
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row text-center">
+                            <label for="total-wounds">Total</label>
+                            <input type="text" id="total-wounds" readonly
+                                   ng-value="character.wounds.total"
+                                   style="width:90%"/>
+                        </div>
+                        <div class="row text-center">
+                            <label for="current-wounds">Current</label>
+                            <input type="number" id="current-wounds" style="width:90%" min="0"/>
+                        </div>
+                        <div class="row text-center">
+                            <label for="fatigue">Fatigue</label>
+                            <input type="number" id="fatigue" style="width:90%" min="0"/>
+                        </div>
+                    </div>
                 </div>
-                <div class="row text-center">
-                    <label for="current-wounds">Current</label>
-                    <input type="number" id="current-wounds" style="width:90%" min="0"/>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h3>Insanity</h3>
+                        </div>
+                        <div class="row">
+                            <h4>Mental Disorders</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="disorder in mentalDisorders">
+                                    <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
+                                    <button class="btn pull-right" ng-click="removeMentalDisorder($index)">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </li>
+                                <li class="list-group-item">
+                                    <input style="overflow:hidden" ng-model="newMentalDisorder"/>
+                                    <button class="btn btn-standard pull-right"
+                                            ng-click="addMentalDisorder()">
+                                        Add
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="insanity-points">Points</label>
+                        <input id="insanity-points" type="number" style="width:90%" min="0"/>
+                    </div>
                 </div>
-                <div class="row text-center">
-                    <label for="fatigue">Fatigue</label>
-                    <input type="number" id="fatigue" style="width:90%" min="0"/>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h3>Corruption</h3>
+                        <h4>Mutations</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="mutation in mutations track by index">
+                                <span style="display:inline-block;overflow:hidden;width:90%">{{mutation}}</span>
+                                <button class="btn pull-right" ng-click="removeMutation($index)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </li>
+                            <li class="list-group-item">
+                                <input style="overflow:hidden" ng-model="newMutation"/>
+                                <button class="btn btn-standard pull-right"
+                                        ng-click="addMutation()">
+                                    Add
+                                </button>
+                            </li>
+                        </ul>
+                        <h4>Malignancies</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="malignancy in malignancies">
+                                <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
+                                <button class="btn pull-right" ng-click="removeMalignancy($index)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </li>
+                            <li class="list-group-item">
+                                <input style="overflow:hidden" ng-model="newMalignancy"/>
+                                <button class="btn btn-standard pull-right"
+                                        ng-click="addMalignancy()">
+                                    Add
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="corruption-points">Points</label>
+                        <input type="number" id="corruption-points" style="width:90%" min="0"/>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
+        <hr/>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <tbody ng-repeat="weapon in character.equipment.weapons">
+                    <tr colspan="8">Weapon</tr>
+                    <tr>
+                        <td colspan="1">Name</td>
+                        <td colspan="7">{{weapon.item.name}}
+                            <button class="btn btn-standard" ng-click="removeWeapon($index)"><span
+                                    class="glyphicon glyphicon-remove"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Class</td>
+                        <td><input type="text" ng-model="weapon.item.class" readonly style="width:50px"/></td>
+                        <td>Damage</td>
+                        <td><input type="text" ng-model="weapon.item.damage" readonly style="width:75px"/></td>
+                        <td>Type</td>
+                        <td><input type="text" ng-model="weapon.item.type" readonly style="width:75px"/></td>
+                        <td>Pen</td>
+                        <td><input type="text" ng-model="weapon.item.pen" readonly style="width:75px"/></td>
+                    </tr>
+                    <tr>
+                        <td>Range</td>
+                        <td><input type="text" ng-model="weapon.item.range" readonly style="width:75px"/></td>
+                        <td>Damage</td>
+                        <td><input type="text" ng-model="weapon.item.rof" readonly style="width:75px"/></td>
+                        <td>Clip</td>
+                        <td><input type="text" ng-model="weapon.item.clip" readonly style="width:75px"/></td>
+                        <td>Reload</td>
+                        <td><input type="text" ng-model="weapon.item.reload" readonly style="width:75px"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Special Rules</td>
+                        <td colspan="6"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <select ng-model="newWeapon">
+                    <option ng-repeat="weapon in availableWeapons" ng-value="{{$index}}">{{weapon.name}}</option>
+                </select>
+                <button ng-click="addNewWeapon()">Add</button>
+            </div>
+            <div class="col-md-6">
                 <div class="row">
-                    <h3>Insanity</h3>
+                    <div class="col-md-2 col-md-offset-5"
+                         ng-mouseenter="armorTooltip('head')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.head.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
+                        Head (1-10)
+                        <div>
+                            {{armor.head.rating}}
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <h4>Mental Disorders</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="disorder in mentalDisorders">
-                            <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
-                            <button class="btn pull-right" ng-click="removeMentalDisorder($index)">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                        </li>
-                        <li class="list-group-item">
-                            <input style="overflow:hidden" ng-model="newMentalDisorder"/>
-                            <button class="btn btn-standard pull-right"
-                                    ng-click="addMentalDisorder()">
-                                Add
-                            </button>
+                    <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.rightArm.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
+                        Right Arm (11-20)
+                        <div>
+                            {{armor.rightArm.rating}}
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.body.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
+                        Body (31-70)
+                        <div>
+                            {{armor.body.rating}}
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.leftArm.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
+                        Left Arm (21-30)
+                        <div>
+                            {{armor.leftArm.rating}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.rightLeg.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
+                        Right Leg (71-85)
+                        <div>
+                            {{armor.rightLeg.rating}}
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
+                         uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
+                         tooltip-enable="armor.leftLeg.rating"
+                         tooltip-popup-delay="500" tooltip-placement="bottom"
+                    >
+                        Left Leg (86-100)
+                        <div>
+                            {{armor.leftLeg.rating}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div ng-form name="psyRating">
+                    Psy Rating <input name="rating"
+                                      id="psyRating" type="number" id="psy-rating"
+                                      ng-change="updatePsyrating()"
+                                      ng-model="character.psychicPowers.psyRating"
+                                      ng-disabled="!character.psychicPowers.psyRating"
+                                      min="2" max="10" integer/>
+                </div>
+                <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                {{character.comrade}}
+                <div class="row">
+                    Comrade
+                </div>
+                <div class="row">
+                    Name<input type="text" ng-model="character.comrade.name"/>
+                </div>
+                <div class="row">
+                    Status<input type="text" ng-model="character.comrade.status">
+                </div>
+                <div class="row">
+                    Special Abilities
+                </div>
+                <div class="row">
+                    <ul>
+                        <li ng-repeat="ability in character.comrade.special-abilities">
+                            {{ability.name}}
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3">
-                <label for="insanity-points">Points</label>
-                <input id="insanity-points" type="number" style="width:90%" min="0"/>
-            </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-9">
-                <h3>Corruption</h3>
-                <h4>Mutations</h4>
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="mutation in mutations track by index">
-                        <span style="display:inline-block;overflow:hidden;width:90%">{{mutation}}</span>
-                        <button class="btn pull-right" ng-click="removeMutation($index)">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    </li>
-                    <li class="list-group-item">
-                        <input style="overflow:hidden" ng-model="newMutation"/>
-                        <button class="btn btn-standard pull-right"
-                                ng-click="addMutation()">
-                            Add
-                        </button>
-                    </li>
-                </ul>
-                <h4>Malignancies</h4>
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="malignancy in malignancies">
-                        <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
-                        <button class="btn pull-right" ng-click="removeMalignancy($index)">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    </li>
-                    <li class="list-group-item">
-                        <input style="overflow:hidden" ng-model="newMalignancy"/>
-                        <button class="btn btn-standard pull-right"
-                                ng-click="addMalignancy()">
-                            Add
-                        </button>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <label for="corruption-points">Points</label>
-                <input type="number" id="corruption-points" style="width:90%" min="0"/>
-            </div>
-        </div>
-    </div>
-</div>
-<hr/>
-<div class="row">
-    <div class="col-md-6">
-        <table class="table table-bordered">
-            <tbody ng-repeat="weapon in character.equipment.weapons">
-            <tr colspan="8">Weapon</tr>
-            <tr>
-                <td colspan="1">Name</td>
-                <td colspan="7">{{weapon.item.name}}
-                    <button class="btn btn-standard" ng-click="removeWeapon($index)"><span
-                            class="glyphicon glyphicon-remove"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Class</td>
-                <td><input type="text" ng-model="weapon.item.class" readonly style="width:50px"/></td>
-                <td>Damage</td>
-                <td><input type="text" ng-model="weapon.item.damage" readonly style="width:75px"/></td>
-                <td>Type</td>
-                <td><input type="text" ng-model="weapon.item.type" readonly style="width:75px"/></td>
-                <td>Pen</td>
-                <td><input type="text" ng-model="weapon.item.pen" readonly style="width:75px"/></td>
-            </tr>
-            <tr>
-                <td>Range</td>
-                <td><input type="text" ng-model="weapon.item.range" readonly style="width:75px"/></td>
-                <td>Damage</td>
-                <td><input type="text" ng-model="weapon.item.rof" readonly style="width:75px"/></td>
-                <td>Clip</td>
-                <td><input type="text" ng-model="weapon.item.clip" readonly style="width:75px"/></td>
-                <td>Reload</td>
-                <td><input type="text" ng-model="weapon.item.reload" readonly style="width:75px"/></td>
-            </tr>
-            <tr>
-                <td colspan="2">Special Rules</td>
-                <td colspan="6"></td>
-            </tr>
-            </tbody>
-        </table>
-        <select ng-model="newWeapon">
-            <option ng-repeat="weapon in availableWeapons" ng-value="{{$index}}">{{weapon.name}}</option>
-        </select>
-        <button ng-click="addNewWeapon()">Add</button>
-    </div>
-    <div class="col-md-6">
-        <div class="row">
-            <div class="col-md-2 col-md-offset-5"
-                 ng-mouseenter="armorTooltip('head')"
-                 uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                 tooltip-enable="armor.head.rating"
-                 tooltip-popup-delay="500" tooltip-placement="bottom"
-            >
-                Head (1-10)
-                <div>
-                    {{armor.head.rating}}
+        <div class="col-md-6">
+            <div class="row">
+                <div class="row">
+                    Gear
+                </div>
+                <div class="row">
+                    <ul>
+                        <li ng-repeat="item in character.equipment['other gear']">
+                            <div class="row">
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-standard btn-sm" ng-click="item.count=item.count+1">+
+                                    </button>
+                                    <button class="btn btn-standard" ng-click="item.count=item.count-1">-</button>
+                                </div>
+                                {{item.count + " x " + item.item.name}}
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
-                 uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                 tooltip-enable="armor.rightArm.rating"
-                 tooltip-popup-delay="500" tooltip-placement="bottom"
-            >
-                Right Arm (11-20)
-                <div>
-                    {{armor.rightArm.rating}}
-                </div>
-            </div>
-            <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
-                 uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                 tooltip-enable="armor.body.rating"
-                 tooltip-popup-delay="500" tooltip-placement="bottom"
-            >
-                Body (31-70)
-                <div>
-                    {{armor.body.rating}}
-                </div>
-            </div>
-            <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
-                 uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                 tooltip-enable="armor.leftArm.rating"
-                 tooltip-popup-delay="500" tooltip-placement="bottom"
-            >
-                Left Arm (21-30)
-                <div>
-                    {{armor.leftArm.rating}}
-                </div>
-            </div>
+            Experience
         </div>
         <div class="row">
-            <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
-                 uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                 tooltip-enable="armor.rightLeg.rating"
-                 tooltip-popup-delay="500" tooltip-placement="bottom"
-            >
-                Right Leg (71-85)
-                <div>
-                    {{armor.rightLeg.rating}}
-                </div>
-            </div>
-            <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
-                 uib-tooltip-template="'templates/armor-tooltip.html'" tooltip-append-to-body="true"
-                 tooltip-enable="armor.leftLeg.rating"
-                 tooltip-popup-delay="500" tooltip-placement="bottom"
-            >
-                Left Leg (86-100)
-                <div>
-                    {{armor.leftLeg.rating}}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div ng-form name="psyRating">
-            Psy Rating <input name="rating"
-                              id="psyRating" type="number" id="psy-rating"
-                              ng-change="updatePsyrating()"
-                              ng-model="character.psychicPowers.psyRating"
-                              ng-disabled="!character.psychicPowers.psyRating"
-                              min="2" max="10" integer/>
-        </div>
-        <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
-        </ul>
-    </div>
-    <div class="col-md-6">
-        {{character.comrade}}
-        <div class="row">
-            Comrade
+            Available Xp <input type="number" ng-model="character.experience.available"
+                                uib-tooltip="Set the amount of available xp here."
+                                tooltip-popup-delay="500"/>
+            {{character.experience.available}}
         </div>
         <div class="row">
-            Name<input type="text" ng-model="character.comrade.name"/>
+            Total XP <input type="number" ng-value="character.experience.total"
+                            uib-tooltip="All your experience, both available and spent." tooltip-popup-delay="500"
+                            readonly/>
         </div>
         <div class="row">
-            Status<input type="text" ng-model="character.comrade.status">
-        </div>
-        <div class="row">
-            Special Abilities
-        </div>
-        <div class="row">
+            Aptitudes
             <ul>
-                <li ng-repeat="ability in character.comrade.special-abilities">
-                    {{ability.name}}
-                </li>
+                <li ng-repeat="aptitude in character.aptitudes.all | unique">{{aptitude}}</li>
             </ul>
         </div>
     </div>
-</div>
-<div class="col-md-6">
-    <div class="row">
-        <div class="row">
-            Gear
-        </div>
-        <div class="row">
-            <ul>
-                <li ng-repeat="item in character.equipment['other gear']">
-                    <div class="row">
-                        <div class="btn-group-vertical">
-                            <button class="btn btn-standard btn-sm" ng-click="item.count=item.count+1">+</button>
-                            <button class="btn btn-standard" ng-click="item.count=item.count-1">-</button>
-                        </div>
-                        {{item.count + " x " + item.item.name}}
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="row">
-    Experience
-</div>
-<div class="row">
-    Available Xp <input type="number" ng-model="character.experience.available"
-                        uib-tooltip="Set the amount of available xp here."
-                        tooltip-popup-delay="500"/>
-    {{character.experience.available}}
-</div>
-<div class="row">
-    Total XP <input type="number" ng-value="character.experience.total"
-                    uib-tooltip="All your experience, both available and spent." tooltip-popup-delay="500"
-                    readonly/>
-</div>
-<div class="row">
-    Aptitudes
-    <ul>
-        <li ng-repeat="aptitude in character.aptitudes.all | unique">{{aptitude}}</li>
-    </ul>
-</div>
-</div>
 </div>

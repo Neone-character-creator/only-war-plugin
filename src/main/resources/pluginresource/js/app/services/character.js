@@ -298,8 +298,8 @@ define(function() {
                                     break;
                             }
                         },
-                        removeAdvancement : function(index){
-                        	var advancement = _experience.advancementsBought.splice(index, 1)[0];
+                        removeAdvancement : function(advancement){
+                        	var advancement = _experience.advancementsBought.splice(_experience.advancementsBought.indexOf(advancement), 1)[0];
                         	switch (advancement.property.toLowerCase()) {
                                 case "characteristics":
                                 	if(_characteristicMap[advancement.value.name.toLowerCase()].advancements >= advancement.value.rating){
@@ -312,7 +312,7 @@ define(function() {
                                     }
                                     break;
                                 case "talents":
-                                    _talents.push(advancement.value);
+                                    _talents.splice(_talents.indexOf(advancement.value), 1);
                                     break;
                                     powers.push(advancement.value);
                                     break;

@@ -184,9 +184,11 @@ define(function() {
 			}
 		}
 
-		$scope.removeTalent = function(index){
-			var talent = $scope.availableTalents[index];
-			characterService.character.experience.removeAdvancement(characterService.character.experience._advancementsBought)
+		$scope.removeTalent = function(talent){
+			var talentAdvancement = characterService.character.experience.advancements.find(function(advancement){
+				return advancement.property == "talents" && advancement.value == talent;
+			});
+			characterService.character.experience.removeAdvancement(talentAdvancement);
 		}
 
 		$scope.criticalInjuries = characterService.character.wounds ? characterService.character.wounds.criticalInjuries : [];
@@ -292,7 +294,7 @@ define(function() {
 
 		$scope.armorTooltip = function(location){
 			armorTooltipService.location =location;
-			armorTooltipService.modifiers($scope.armor[location].providers);
+			armorTooltipService.modifiers = $scope.armor[location].providers;
 		}
 
 		$scope.$watch('character.psychicPowers.psyRating', function(newVal, oldVal){
