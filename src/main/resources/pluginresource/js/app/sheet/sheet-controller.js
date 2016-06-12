@@ -1,11 +1,5 @@
 define(function() {
-	return function($scope, characterService, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, $cookies) {
-		if(!$cookies.get("only-war-instructions")){
-			$uibModal.open({
-				templateUrl : "pluginresource/templates/instructions-modal.html"
-			});
-			$cookies.put("only-war-instructions", true);
-		};
+	return function($scope, characterService, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal) {
 		$scope.character = characterService.character;
 		characteroptions.characteristics().then(function(result){
 			$scope.characteristics = result.map(function(element){return element.name});

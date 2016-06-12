@@ -10,7 +10,7 @@ require.config({
         "jquery-ui": "libs/jquery-ui/jquery-ui",
         "angular-ui": "libs/angular-bootstrap/ui-bootstrap-tpls",
         "angular-filter": "libs/angular-filter/dist/angular-filter",
-        "angular-cookies": "libs/angular-cookies/angular-cookies"
+        "cookies": "libs/js-cookie/src/js.cookie"
     },
     shim: {
         "jquery": {
@@ -47,14 +47,14 @@ require.config({
     }
 });
 
-define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "angular-cookies",
+define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
         "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
         "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection"
     ],
-    function(angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, angularCookies,
+    function(angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, cookies,
         modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
         selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection) {
-        var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter", "ngCookies"]);
+        var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function($stateProvider) {
             $stateProvider.state("sheet", {
