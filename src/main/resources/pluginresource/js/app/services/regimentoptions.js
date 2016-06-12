@@ -93,15 +93,26 @@ define(function() {
 
 				var modifierEquipment = $q.defer();
 
-				function replace(name, source) {
-					var result = source.filter(function(element) {
-						return element.name === name;
-					})[0];
-					return result ? result : {
-						"name": name
-					};
+				function replace(placeholder, source) {
+					var result = source.find(function(element) {
+						return element.name === placeholder.name;
+					});
+					if(!result){
+						result = {"name": placeholder.name}
+					} else {
+						result = angular.copy(result);
+					}
+					if(placeholder.craftsmanship){
+						result.craftsmanship = placeholder.craftsmanship;
+					} else {
+						result.craftsmanship = "Common";
+					}
+					if(placeholder.upgrades){
+						result.upgrades = placeholder.upgrades;
+					}
+					return result;
 				};
-				$q.all([characteroptions.weapons(), characteroptions.armor(), characteroptions.items(), characteroptions.vehicles()]).then(function(results) {
+				 $q.all({"weapons" : characteroptions.weapons(), "armor" : characteroptions.armor(), "items" : characteroptions.items(), "vehicles" : characteroptions.vehicles()}).then(function(results) {
 					var characterKit = fixedModifiers['character kit'];
 					var replacementMainWeapons;
 					var replacementOtherWeapons;
@@ -111,34 +122,37 @@ define(function() {
 					if (characterKit) {
 						if (characterKit['main weapon']) {
 							replacementMainWeapons = characterKit['main weapon'].slice().map(function(weapon) {
-								weapon.item = replace(weapon.item.name, results[0]);
+								weapon.item = replace(weapon.item, results.weapons);
+								if(!weapon.item.craftsmanship){
+									weapon.item.craftsmanship = "Common";
+								}
 								return weapon;
 							});
 						}
 						if (characterKit['other weapons']) {
 							replacementOtherWeapons = characterKit['other weapons'].slice().map(function(weapon) {
-								weapon.item = replace(weapon.item.name, results[0]);
+								weapon.item = replace(weapon.item, results.weapons);
 								return weapon;
 							});
 						}
 						if (characterKit['armor']) {
 							replacementArmor = characterKit['armor'].slice();
 							replacementArmor = replacementArmor.map(function(armor) {
-								armor.item = replace(armor.item.name, results[1]);
+								armor.item = replace(armor.item, results.armor);
 								return armor;
 							});
 						}
 						if (characterKit['other gear']) {
 							replacementOtherItems = characterKit['other gear'].slice();
 							replacementOtherItems = replacementOtherItems.map(function(item) {
-								item.item = replace(item.item.name, results[2].concat(results[3]));
+								item.item = replace(item.item, results.items.concat(results.vehicles));
 								return item;
 							});
 						};
 						if (characterKit['squad kit']) {
 							replacementSquadKit = characterKit['squad kit'].slice();
 							replacementSquadKit = replacementSquadKit.map(function(item) {
-								item.item = replace(item.item.name, results[0].concat(results[1]).concat(results[2]).concat(results[3]));
+								item.item = replace(item.item, results.weapons.concat(results.armor).concat(results.items).concat(results.vehicles));
 								return item;
 							});
 						};
