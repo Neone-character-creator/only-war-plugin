@@ -13,7 +13,7 @@
         "other gear": [
           {
             "item": {
-              "name" : "Anointed Maintenance Toolkit"
+              "name": "Anointed Maintenance Toolkit"
             },
             "count": 1
           }
@@ -21,7 +21,7 @@
         "squad kit": [
           {
             "item": {
-              "name" : "Leman Russ Battle Tank"
+              "name": "Leman Russ Battle Tank"
             },
             "count": 1
           }
@@ -47,7 +47,7 @@
         "other gear": [
           {
             "item": {
-              "name" : "Magnoculars"
+              "name": "Magnoculars"
             },
             "count": 1
           }
@@ -66,7 +66,10 @@
                 "other gear"
               ],
               "value": {
-                "Sentinel Scout Walker": 1
+                "item": {
+                  "name": "Sentinel Scout Walker"
+                },
+                "count": 1
               }
             }
           ],
@@ -77,7 +80,10 @@
                 "other gear"
               ],
               "value": {
-                "Chimera Armored Transport": 1
+                "item": {
+                  "name": "Chimera Armored Transport"
+                },
+                "count": 1
               }
             }
           ]
@@ -102,44 +108,44 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {
-              "name" : "Lascarbine"
+            "item": {
+              "name": "Lascarbine"
             },
-            "count" : 1
+            "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {
-              "name" : "Imperial Guard Flak Armor"
+            "item": {
+              "name": "Imperial Guard Flak Armor"
             },
-            "count" : 1
+            "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {
-              "name" : "Charge Pack (Basic"
+            "item": {
+              "name": "Charge Pack (Basic"
             },
-            "count" : 4
+            "count": 4
           },
           {
-            "item" : {
-              "name" : "Grav Chute"
+            "item": {
+              "name": "Grav Chute"
             },
-            "count" : 1
+            "count": 1
           },
           {
-            "item" : {
-              "name" : "Frag Grenade"
+            "item": {
+              "name": "Frag Grenade"
             },
-            "count" : 2
+            "count": 2
           },
           {
-            "item" : {
-              "name" : "Smoke Grenade"
+            "item": {
+              "name": "Smoke Grenade"
             },
-            "count" : 2
+            "count": 2
           }
         ]
       }
@@ -172,7 +178,10 @@
                 "other gear"
               ],
               "value": {
-                "Sentinel Scout Walker": 1
+                "item": {
+                  "name": "Sentinel Scout Walker"
+                },
+                "count": 1
               }
             }
           ],
@@ -183,7 +192,10 @@
                 "other gear"
               ],
               "value": {
-                "Hellhound Support Tank": 1
+                "item": {
+                  "name": "Hellhound Support Tank"
+                },
+                "count": 1
               }
             }
           ]
@@ -208,31 +220,43 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {"name" : "Las Carbine"},
+            "item": {
+              "name": "Lascarbine"
+            },
             "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {"name" : "Flak Vest"},
+            "item": {
+              "name": "Flak Vest"
+            },
             "count": 1
           },
           {
-            "item" : {"name" : "Flak Helmet"},
+            "item": {
+              "name": "Flak Helmet"
+            },
             "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Charge Pack (Basic)"},
+            "item": {
+              "name": "Charge Pack (Basic)"
+            },
             "count": 4
           },
           {
-            "item" : {"name" : "Frag Grenade"},
+            "item": {
+              "name": "Frag Grenade"
+            },
             "count": 2
           },
           {
-            "item" : {"name" : "Smoke Grenade"},
+            "item": {
+              "name": "Smoke Grenade"
+            },
             "count": 2
           }
         ]
@@ -256,27 +280,37 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {"name" : "M36 Lasgun"},
+            "item": {
+              "name": "M36 Lasgun"
+            },
             "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {"name" : "Imperial Guard Flak Armor"},
+            "item": {
+              "name": "Imperial Guard Flak Armor"
+            },
             "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Charge Pack (Basic)"},
+            "item": {
+              "name": "Charge Pack (Basic)"
+            },
             "count": 4
           },
           {
-            "item" : {"name" : "Frag Grenade"},
+            "item": {
+              "name": "Frag Grenade"
+            },
             "count": 2
           },
           {
-            "item" : {"name" : "Smoke Grenade"},
+            "item": {
+              "name": "Smoke Grenade"
+            },
             "count": 2
           }
         ]
@@ -300,27 +334,37 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {"name" : "M36 Lasgun"},
+            "item": {
+              "name": "M36 Lasgun"
+            },
             "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {"name" : "Imperial Guard Flak Armor"},
+            "item": {
+              "name": "Imperial Guard Flak Armor"
+            },
             "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Charge Pack (Basic)"},
+            "item": {
+              "name": "Charge Pack (Basic)"
+            },
             "count": 4
           },
           {
-            "item" : {"name" : "Frag Grenade"},
+            "item": {
+              "name": "Frag Grenade"
+            },
             "count": 2
           },
           {
-            "item" : {"name" : "Smoke Grenade"},
+            "item": {
+              "name": "Smoke Grenade"
+            },
             "count": 2
           }
         ]
@@ -347,27 +391,37 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {"name" : "M36 Lasgun"},
+            "item": {
+              "name": "M36 Lasgun"
+            },
             "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {"name" : "Imperial Guard Flak Armor"},
+            "item": {
+              "name": "Imperial Guard Flak Armor"
+            },
             "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Charge Pack (Basic)"},
+            "item": {
+              "name": "Charge Pack (Basic)"
+            },
             "count": 6
           },
           {
-            "item" : {"name" : "Frag Grenade"},
+            "item": {
+              "name": "Frag Grenade"
+            },
             "count": 2
           },
           {
-            "item" : {"name" : "Photon Flash Grenade"},
+            "item": {
+              "name": "Photon Flash Grenade"
+            },
             "count": 2
           }
         ]
@@ -398,30 +452,40 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {"name" : "Lascarbine"},
-            "count" :1
+            "item": {
+              "name": "Lascarbine"
+            },
+            "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {"name" : "Imperial Guard Flak Armor"},
-            "count" :1
+            "item": {
+              "name": "Imperial Guard Flak Armor"
+            },
+            "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Charge Pack (Basic)"},
-            "count" :4
+            "item": {
+              "name": "Charge Pack (Basic)"
+            },
+            "count": 4
           },
           {
-            "item" : {"name" : "Magnoculars"},
-            "count" :1
+            "item": {
+              "name": "Magnoculars"
+            },
+            "count": 1
           }
         ],
         "squad kit": [
           {
-            "item" : {"name" : "Vox-Caster"},
-            "count" :1
+            "item": {
+              "name": "Vox-Caster"
+            },
+            "count": 1
           }
         ]
       }
@@ -472,26 +536,36 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {"name" : "Lascarbine"},
-            "count" :1
+            "item": {
+              "name": "Lascarbine"
+            },
+            "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Carge Pack (Basic)"},
-            "count" :4
+            "item": {
+              "name": "Carge Pack (Basic)"
+            },
+            "count": 4
           },
           {
-            "item" : {"name" : "Blind Grenade"},
-            "count" :2
+            "item": {
+              "name": "Blind Grenade"
+            },
+            "count": 2
           },
           {
-            "item" : {"name" : "Stun Grenade"},
-            "count" :2
+            "item": {
+              "name": "Stun Grenade"
+            },
+            "count": 2
           },
           {
-            "item" : {"name" : "Frag Grenade"},
-            "count" :1
+            "item": {
+              "name": "Frag Grenade"
+            },
+            "count": 1
           }
         ]
       }
@@ -516,34 +590,45 @@
       "character kit": {
         "armor": [
           {
-            "item" : {"name" : "Light Carapace Armor"},
-            "count" :1
+            "item": {
+              "name": "Light Carapace Armor"
+            },
+            "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Charge Pack (Basic)"},
-            "count" :6
+            "item": {
+              "name": "Charge Pack (Basic)"
+            },
+            "count": 6
           },
           {
-            "item" : {"name" : "Frag Grenade"},
-            "count" :1
+            "item": {
+              "name": "Frag Grenade"
+            },
+            "count": 1
           },
           {
-            "item" : {"name" : "Krak Grenade"},
-            "count" :1
+            "item": {
+              "name": "Krak Grenade"
+            },
+            "count": 1
           },
           {
-            "item" : {"name" : "Deadspace Earpiece"},
-            "count" :1
+            "item": {
+              "name": "Deadspace Earpiece"
+            },
+            "count": 1
           }
         ],
         "other weapons": [
           {
-            "item" : {"name" : "Grenade Launcher"},
-            "count" : 2
+            "item": {
+              "name": "Grenade Launcher"
+            },
+            "count": 2
           }
-
         ]
       }
     }
@@ -568,12 +653,16 @@
       "character kit": {
         "other gear": [
           {
-            "item" : {"name" : "Sentinel Scout Walker"},
-            "count" :1
+            "item": {
+              "name": "Sentinel Scout Walker"
+            },
+            "count": 1
           },
           {
-            "item" : {"name" : "Magnoculars"},
-            "count" :1
+            "item": {
+              "name": "Magnoculars"
+            },
+            "count": 1
           }
         ]
       }
@@ -597,52 +686,74 @@
       "character kit": {
         "main weapon": [
           {
-            "item" : {"name" : "Hunting Lance"},
-            "count" :1
+            "item": {
+              "name": "Hunting Lance"
+            },
+            "count": 1
           }
         ],
         "armor": [
           {
-            "item" : {"name" : "Flak Jacket"},
-            "count" :1
+            "item": {
+              "name": "Flak Jacket"
+            },
+            "count": 1
           },
           {
-            "item" : {"name" : "Flak Helmet"},
-            "count" :1
+            "item": {
+              "name": "Flak Helmet"
+            },
+            "count": 1
           }
         ],
         "other gear": [
           {
-            "item" : {"name" : "Laspistol"},
-            "count" :1
+            "item": {
+              "name": "Laspistol"
+            },
+            "count": 1
           },
           {
-            "item" : {"name" : "Charge Pack (Pistol)"},
-            "count" :2
+            "item": {
+              "name": "Charge Pack (Pistol)"
+            },
+            "count": 2
           },
           {
-            "item" : {"name" : "Frag Grenade"},
-            "count" :2
+            "item": {
+              "name": "Frag Grenade"
+            },
+            "count": 2
           },
           {
-            "item" : {"name" : "Photon Flash Grenade"},
-            "count" :2
+            "item": {
+              "name": "Photon Flash Grenade"
+            },
+            "count": 2
           },
           {
-            "item" : {"name" : "Riding Beast"},
-            "count" :1
+            "item": {
+              "name": "Riding Beast"
+            },
+            "count": 1
           },
           {
-            "item" : {"name" : "Saddle"},
-            "count" :1
+            "item": {
+              "name": "Saddle"
+            },
+            "count": 1
           },
           {
-            "item" : {"name" : "Saddlebag"},
-            "count" :2
+            "item": {
+              "name": "Saddlebag"
+            },
+            "count": 2
           },
           {
-            "item" : {"name" : "Riding Tack"},
-            "count" :1
+            "item": {
+              "name": "Riding Tack"
+            },
+            "count": 1
           }
         ]
       }
