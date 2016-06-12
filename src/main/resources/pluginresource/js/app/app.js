@@ -98,7 +98,6 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
 
         //Register additional controllers not used by the main pages below
         app.controller("SelectionModalController", selectionModalController);
-        app.controller("SheetController", sheetController);
         app.controller("ConfirmationController", confirmationController);
         app.controller("CharacteristicToolTipController", characteristicTooltipController);
         app.controller("StartingPowersController", startingPowersController);
