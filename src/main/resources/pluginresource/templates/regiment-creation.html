@@ -111,6 +111,12 @@
                                         regimentElements[category].selected['fixed modifiers'].wounds :
                                         regimentElements[category].selected['fixed modifiers'].wounds}}
                                     </div>
+                                    <div ng-show="regimentElements[category].selected['fixed modifiers']['regiment kit points']"
+                                         class="row">
+                                        <h4>Additional Regimenal Equipment Points</h4>
+                                        You gain {{regimentElements[category].selected['fixed modifiers']['regiment kit
+                                        points']}} points to modify the regiment equipment.
+                                    </div>
                                     <div class="row"
                                          ng-show="regimentElements[category].selected['fixed modifiers']['character kit']">
                                         <h3>Starting Gear</h3>
@@ -135,7 +141,7 @@
                                 </div>
                             </div>
                             <div ng-show="regimentElements[category].selected['optional modifiers']">
-                                Choose from these modifiers for your regiment:
+                                <h4>Choose from the following bonuses for your regiment now:</h4>
                                 <ul>
                                     <li ng-repeat="option in regimentElements[category].selected['optional modifiers'] | filter : {'selection time' : 'regiment'}">
                                         <button class="btn btn-link"
@@ -289,33 +295,41 @@
                             </ul>
 
                         </div>
-                        <div ng-show="readyToSelectEquipment && regiment['fixed modifiers']['favored weapons'][0] && regiment['fixed modifiers']['favored weapons'][1]">
-                            <div class="row">
-                                <h4>Regimental Kit Options</h4>
-                                Select from the following options to customize your regimental starting gear.
-                                Remaining Kit Points: {{regiment.remainingKitPoints}}
-                                <ul>
-                                    <li ng-repeat="choice in kitChoices">
-                                        <button class="btn btn-link" ng-click="applyKitModifier(choice)"
-                                                style="white-space: normal;"
-                                        >{{choice.description}}
-                                            {{"
-                                            (" +
-                                            choice.cost +" pts)"}}
-                                        </button>
-                                    </li>
-                                </ul>
+                        <div class="row">
+                            <h4>Regimental Kit Options</h4>
+                            <div ng-show="readyToSelectEquipment && regiment['fixed modifiers']['favored weapons'][0] && regiment['fixed modifiers']['favored weapons'][1]">
+                                <div class="row">
+
+                                    Select from the following options to customize your regimental starting gear.
+                                    Remaining Kit Points: {{regiment.remainingKitPoints}}
+                                    <ul>
+                                        <li ng-repeat="choice in kitChoices">
+                                            <button class="btn btn-link" ng-click="applyKitModifier(choice)"
+                                                    style="white-space: normal;"
+                                            >{{choice.description}}
+                                                {{"
+                                                (" +
+                                                choice.cost +" pts)"}}
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row" ng-show="chosenKitModifiers.length">
+                                    <h4>Chosen Kit Modifiers</h4>
+                                    Click to undo chosen modifiers
+                                    <ul>
+                                        <li ng-repeat="chosen in chosenKitModifiers">
+                                            <button class="btn btn-link" ng-click="removeKitModifier(chosen)">
+                                                {{chosen.description}}
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="row" ng-show="chosenKitModifiers.length">
-                                <h4>Chosen Kit Modifiers</h4>
-                                Click to undo chosen modifiers
-                                <ul>
-                                    <li ng-repeat="chosen in chosenKitModifiers">
-                                        <button class="btn btn-link" ng-click="removeKitModifier(chosen)">
-                                            {{chosen.description}}
-                                        </button>
-                                    </li>
-                                </ul>
+
+                            <div ng-show="!(readyToSelectEquipment && regiment['fixed modifiers']['favored weapons'][0] && regiment['fixed modifiers']['favored weapons'][1])">
+                                After you've chosen your Homeworld, Regiment Type, Commanding Officer and Favored
+                                Weapons, you can modify your regiments equipment.
                             </div>
                         </div>
                     </div>
@@ -324,4 +338,5 @@
         </div>
     </div>
 </div>
+
 </html>
