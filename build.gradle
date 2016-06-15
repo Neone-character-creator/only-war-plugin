@@ -45,8 +45,28 @@ sourceSets {
     main {
         output.resourcesDir "$buildDir/resources"
         resources {
-            srcDirs = ['src/main/resources/pluginresources']
+            srcDirs = ['src/main/resources/pluginresource']
         }
     }
 }
-println sourceSets['main'].resources.srcDirs
+
+processResources {
+    outputs.upToDateWhen {
+        file("$buildDir/resources/templates/character.html").exists()
+    }
+}
+
+/*
+* Move character.html, which is kept in the root of the resources directory
+* for ease of testing due to relative urls, into the resources/templates
+* build directory.
+ */
+processResources << {
+    println "Copying"
+    String source = "src/main/resources/character.html"
+    String dest = "$buildDir/resources/templates/"
+    copy {
+        from source
+        into dest
+    }
+}
