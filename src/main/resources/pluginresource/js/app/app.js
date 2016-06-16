@@ -57,9 +57,14 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
         var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function($stateProvider) {
-            $stateProvider.state("sheet", {
-                url: "",
-                templateUrl: "pluginresource/templates/sheet.html",
+            $stateProvider.state("default",{
+            	url: "",
+            	onEnter : function($state){
+            		$state.go("sheet");
+            	}
+            }).state("sheet", {
+                url: "/",
+                templateUrl: "./pluginresource/templates/sheet.html",
                 controller: sheetController
             }).state("regiment", {
                 url: "/regiment",
