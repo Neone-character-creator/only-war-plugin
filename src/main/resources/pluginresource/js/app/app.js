@@ -49,11 +49,11 @@ require.config({
 
 define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
         "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
-        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection"
+        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection", "app/services/tutorials"
     ],
     function(angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, cookies,
         modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
-        selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection) {
+        selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials) {
         var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function($stateProvider) {
@@ -64,7 +64,7 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             	}
             }).state("sheet", {
                 url: "/",
-                templateUrl: "./pluginresource/templates/sheet.html",
+                templateUrl: "pluginresource/templates/sheet.html",
                 controller: sheetController
             }).state("regiment", {
                 url: "/regiment",
@@ -86,8 +86,25 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
                 url: "/regiment/create",
                 templateUrl: "pluginresource/templates/regiment-creation.html",
                 controller: regimentCreationController
+            })
+            .state("modal", {
+            	abstract:true,
+//            	views:{
+//            		"modal":{
+//            			templateUrl : "pluginresource/templates/modal.html"
+//            		}
+//            	}
+            })
+            .state("modal.tutorial", {
+            	onEnter: function($state, $uibModal){
+            		$uibModal.open({
+            			templateUrl : "pluginresource/templates/tutorial.html"
+            		})
+            	}
             });
         });
+
+        $()
 
         //Register services
         app.factory("regiments", modifierService)
@@ -100,6 +117,8 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
         app.factory("characteristicTooltipService", characteristicTooltipService);
         app.factory("armorTooltipService", armorTooltipService);
         app.factory("regimentOptions", regimentOptions);
+        app.factory("cookies", function(){return cookies});
+        app.factory("tutorials", tutorials);
 
         //Register additional controllers not used by the main pages below
         app.controller("SelectionModalController", selectionModalController);
@@ -116,7 +135,10 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             });
             $rootScope.$on("$stateChangeError", function(event) {
                 console.log(event);
-            })
+            });
+            $("modal-container").on("hidden.bs.modal", function(e){
+
+            });
         });
 
         //Filter for formatting a clickable summary for a selection.
