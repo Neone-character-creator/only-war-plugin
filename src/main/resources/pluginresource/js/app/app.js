@@ -86,25 +86,35 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
                 url: "/regiment/create",
                 templateUrl: "pluginresource/templates/regiment-creation.html",
                 controller: regimentCreationController
-            })
-            .state("modal", {
-            	abstract:true,
-//            	views:{
-//            		"modal":{
-//            			templateUrl : "pluginresource/templates/modal.html"
-//            		}
-//            	}
-            })
-            .state("modal.tutorial", {
+            }).state("modal", {
+            	abstract:true
+            }).state("modal.tutorial", {
             	onEnter: function($state, $uibModal){
             		$uibModal.open({
             			templateUrl : "pluginresource/templates/tutorial.html"
             		})
             	}
+            }).state("modal.selection", {
+            	abstract:true
+            }).state("modal.selection.modifier", {
+            	onEnter: function($state, $uibModal, $stateParams, optionselection, selection){
+            		console.log("modal.selection.modifier");
+            		var modal = $uibModal.open({
+            			templateUrl : "pluginresource/templates/selection-modal.html",
+            			controller : selectionModalController
+            		});
+            		modal.result.then(function(result){
+            			optionselection.selected = selection.selected;
+		                optionselection.applySelection();
+		                $stateParams['on-completion-callback']();
+		                $state.go($state.previous.name);
+            		});
+            	},
+            	params : {
+            		"on-completion-callback" : {value:function(){}}
+            	}
             });
         });
-
-        $()
 
         //Register services
         app.factory("regiments", modifierService)
@@ -139,6 +149,7 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             $("modal-container").on("hidden.bs.modal", function(e){
 
             });
+            $state.topLevelStates = ["regiment", "sheet", "characteristics", "specialty", "finalize"];
         });
 
         //Filter for formatting a clickable summary for a selection.
