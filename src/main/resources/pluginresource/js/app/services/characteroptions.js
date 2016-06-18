@@ -309,7 +309,6 @@ define(function() {
 							return result[roll];
 						}
 					}
-					return result.slice();
 				});
 			},
 			xpCosts: function() {
