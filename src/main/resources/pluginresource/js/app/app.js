@@ -65,23 +65,35 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             }).state("sheet", {
                 url: "/",
                 templateUrl: "pluginresource/templates/sheet.html",
-                controller: sheetController
+                controller: sheetController,
             }).state("regiment", {
                 url: "/regiment",
                 templateUrl: "pluginresource/templates/regiment-specialty-page.html",
-                controller: modifierControllerFactory("regiments")
+                controller: modifierControllerFactory("regiments"),
+                data : {
+                	complete : false
+                }
             }).state("characteristics", {
                 url: "/characteristics",
                 templateUrl: "pluginresource/templates/characteristics.html",
-                controller: characteristicsController
+                controller: characteristicsController,
+                data : {
+                	complete : false
+                }
             }).state("specialty", {
                 url: "/specialty",
                 templateUrl: "pluginresource/templates/regiment-specialty-page.html",
-                controller: modifierControllerFactory("specialties")
+                controller: modifierControllerFactory("specialties"),
+                data : {
+                	complete : false
+                }
             }).state("finalize", {
                 url: "/finalize",
                 templateUrl: "pluginresource/templates/finalize.html",
-                controller: finalizeController
+                controller: finalizeController,
+                data : {
+                	complete : false
+                }
             }).state("createRegiment", {
                 url: "/regiment/create",
                 templateUrl: "pluginresource/templates/regiment-creation.html",
@@ -138,7 +150,8 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
         app.controller("ArmorTooltipController", armorTooltipController);
         app.controller("RegimentCreationController", regimentCreationController);
 
-        app.run(function($rootScope, $state) {
+        app.run(function($rootScope, $state, $uibModal) {
+        	var suppressDialog = false;
             $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {
                 $state.previous = fromState;
                 $state.previousParams = fromParams;
@@ -146,6 +159,23 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             $rootScope.$on("$stateChangeError", function(event) {
                 console.log(event);
             });
+            $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+            	//If transitioning from a top level state to a different toplevel state, the current state is not finished and not suppressing warning dialog
+            	if (toState !== fromState && $state.topLevelStates.indexOf(toState.name) !== -1 && $state.topLevelStates.indexOf(fromState.name) !== -1 && fromState.data && !fromState.data.complete && !suppressDialog) {
+            		var resultHandler = function(result) {
+            			if (result) {
+            				suppressDialog = true;
+            				$state.go(toState);
+            			}
+            		};
+	            		e.preventDefault();
+	            		confirm = $uibModal.open({
+	            			controller: "ConfirmationController",
+	            			templateUrl: "pluginresource/templates/confirm-navigation-modal.html"
+	            		}).result.then(resultHandler);
+            	}
+            	suppressDialog = false;
+           });
             $("modal-container").on("hidden.bs.modal", function(e){
 
             });
