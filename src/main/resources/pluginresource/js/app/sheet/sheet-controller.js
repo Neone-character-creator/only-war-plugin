@@ -1,5 +1,5 @@
 define(function() {
-	return function($scope, characterService, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal) {
+	return function($scope, characterService, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, cookies, $state, tutorials) {
 		$scope.character = characterService.character;
 		characteroptions.characteristics().then(function(result){
 			$scope.characteristics = result.map(function(element){return element.name});
@@ -336,6 +336,12 @@ define(function() {
 			characterService.character.equipment.weapons.splice(index);
 			$scope.newWeapon = null;
 			updateAvailableWeapons();
+		}
+
+		var tutorialShown = cookies.get("tutorial-shown");
+		if(!tutorials.introduction){
+			tutorials.show('introduction');
+			$state.go("modal.tutorial");
 		}
 	};
 });
