@@ -6,12 +6,14 @@
     <script src="pluginresource/js/libs/requirejs/require.js" data-main="pluginresource/js/app/app"
             type="text/javascript"></script>
     <link rel="stylesheet" href="pluginresource/css/character.css" type="text/css"/>
+    <!--<script src="pluginresource/js/libs/bootstrap/dis/js/bootstrap.min.js" type="text/javascript"></script>-->
     <link rel="stylesheet" href="pluginresource/js/libs/bootstrap/dist/css/bootstrap.css" type="text/css"/>
 </head>
 <body>
 <div class="container">
-    <ul class="nav nav-pills">
-        <li role="presentation"><a ui-sref="sheet" ui-sref-active="active" data-toggle="tab" data-target="#">Character
+    <ul class="nav nav-pills nav-justified">
+        <li role="presentation" class="active"><a ui-sref="sheet" ui-sref-active="active" data-toggle="tab"
+                                                  data-target="#">Character
             Sheet</a></li>
         <li role="presentation"><a ui-sref="regiment" ui-sref-active="active" data-toggle="tab" data-target="#">Select
             Regiment</a></li>
@@ -27,7 +29,10 @@
 <html lang="en">
 <div class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content" ui-view="modal">
+        <div class="modal-content">
+            <div class="modal-body" ui-view="modal">
+                This is the modal content.
+            </div>
         </div>
     </div>
 </div>
