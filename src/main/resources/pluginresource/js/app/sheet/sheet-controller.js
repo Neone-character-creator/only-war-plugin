@@ -191,7 +191,7 @@ define(function() {
 			characterService.character.experience.removeAdvancement(talentAdvancement);
 		}
 
-		$scope.criticalInjuries = characterService.character.wounds ? characterService.character.wounds.criticalInjuries : [];
+		$scope.criticalInjuries = characterService.character.wounds.criticalDamage;
 		$scope.newCriticalInjury;
 
 		$scope.addCriticalInjury = function() {
@@ -205,7 +205,7 @@ define(function() {
 			$scope.criticalInjuries.splice(index, 1);
 		};
 
-		$scope.mentalDisorders = characterService.character.insanity ? characterService.character.insanity.disorders : [];
+		$scope.mentalDisorders = characterService.character.insanity.disorders;
 		$scope.newMentalDisorder;
 
 		$scope.addMentalDisorder = function() {
@@ -330,7 +330,7 @@ define(function() {
 
 		$scope.addNewWeapon = function(){
 			characterService.character.equipment.weapons.push({item : $scope.availableWeapons[$scope.newWeapon],count : 1});
-			updateAvailableweapons;
+			updateAvailableWeapons;
 		};
 		$scope.removeWeapon = function(index){
 			characterService.character.equipment.weapons.splice(index);

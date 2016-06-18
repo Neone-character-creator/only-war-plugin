@@ -200,7 +200,7 @@ define(function() {
                             var regiment = _regiment ? _regiment['fixed modifiers'].wounds : 0;
                             return _wounds.rolled + specialty + regiment;
                         },
-                        criticalDamage: function() {
+                        get criticalDamage() {
                             return _criticalDamage;
                         }
                     }
@@ -215,7 +215,7 @@ define(function() {
                                 return _insanity.points;
                             }
                         },
-                        disorders: function() {
+                        get disorders() {
                             return _insanity.disorders;
                         }
                     }
@@ -229,10 +229,10 @@ define(function() {
                                 return _insanity.points;
                             }
                         },
-                        malignancies: function() {
+                        get malignancies() {
                             return _corruption.malignancies;
                         },
-                        mutations: function() {
+                        get mutations() {
                             return _corruption.mutations;
                         }
 
