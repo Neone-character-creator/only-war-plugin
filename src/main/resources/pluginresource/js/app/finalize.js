@@ -2,8 +2,8 @@ angular.module("OnlyWar").controller("FinalizeController", function($scope, char
 });
 
 angular.module("OnlyWar").controller("WoundsController", function($scope, characterService, dice){
-	$scope.regimentWounds = characterService.regiment ? characterService.regiment.wounds : 0;
-	$scope.specialtyWounds= characterService.specialty ? characterService.specialty.wounds : 0;
+	$scope.regimentWounds = characterService.character.regiment ? characterService.regiment.wounds : 0;
+	$scope.specialtyWounds= characterService.character.specialty ? characterService.specialty.wounds : 0;
 	$scope.woundsRoll = dice.roll(1, 1, 5);
 });
 
