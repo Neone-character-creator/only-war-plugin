@@ -29,32 +29,33 @@ define(function(){
 	        $scope.generate(index);
 	    }
 
-    var suppressDialog = false;
-    //Checks if all of the characters characteristics have a value assigned.
-    var isComplete = function(){
-		for(var characteristic in characterService.character.characteristics){
-			if(characterService.character.characteristics[characteristic].rolled === 0){
-				return false;
+    	var suppressDialog = false;
+    	//Checks if all of the characters characteristics have a value assigned.
+    	var isComplete = function(){
+			for(var characteristic in characterService.character.characteristics){
+				if(characterService.character.characteristics[characteristic].rolled === 0){
+					return false;
+				}
 			}
-		}
-		return true;
-    }
+			return true;
+    	}
 
-    $scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
-        if (toState.name !== fromState.name && !isComplete()) {
-            var resultHandler = function(result) {
-                if (result) {
-                    suppressDialog = true;
-                    $state.go(toState);
-                }
-            };
-            if (!suppressDialog) {
-                e.preventDefault();
-                confirm = $uibModal.open({
-                    controller: "ConfirmationController",
-                    templateUrl: "pluginresource/templates/confirm-navigation-modal.html"
-                }).result.then(resultHandler);
-            }
-        }
-    });
-}});
+    	$scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
+	        if (toState.name !== fromState.name && !isComplete()) {
+	            var resultHandler = function(result) {
+	                if (result) {
+	                    suppressDialog = true;
+	                    $state.go(toState);
+	                }
+	            };
+	            if (!suppressDialog) {
+	                e.preventDefault();
+	                confirm = $uibModal.open({
+	                    controller: "ConfirmationController",
+	                    templateUrl: "pluginresource/templates/confirm-navigation-modal.html"
+	                }).result.then(resultHandler);
+	            }
+	        }
+	    });
+	}
+});
