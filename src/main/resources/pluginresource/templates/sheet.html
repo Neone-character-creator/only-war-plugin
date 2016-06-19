@@ -1,11 +1,11 @@
 <div class="container">
     <div class="col-md-10">
         <div class="row text-center">
+            <button class="btn btn-info img-circle"
+                    uib-tooltip="Set your player name and character name, demeanor and description. Your regiment and specialty are set by clicking Select Regiment and Select Specialty above."
+                    tooltip-placement="right">?
+            </button>
             <div class="row">
-                <button class="btn btn-info img-circle"
-                        uib-tooltip="Set your player name and character name, demeanor and description. Your regiment and specialty are set by clicking Select Regiment and Select Specialty above."
-                        tooltip-placement="right">?
-                </button>
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
@@ -187,15 +187,13 @@
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-info img-circle"
-                                uib-tooltip="Your total wounds are determined by your regiment, specialty and other modifiers. Current is how many wounds you have right now and fatigue is your number of fatigue levels."
-                                tooltip-placement="right">?
-                        </button>
                         <div class="row text-right">
                             <label for="total-wounds">Total</label>
+                        <span uib-tooltip="Your total wounds are determined by rolling, your regiment and specialty and other miscellaneous modifiers.">
                             <input type="text" id="total-wounds" readonly
                                    ng-value="character.wounds.total"
                                    style="width:90%"/>
+                        </span>
                         </div>
                         <div class="row text-right">
                             <label for="current-wounds">Current</label>
@@ -207,44 +205,36 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-9">
                         <div class="row">
                             <h3 style="display:inline">Insanity</h3>
                         </div>
-                        <div class="row">
-                            <h4 style="display:inline">Mental Disorders</h4>
-                            <button class="btn btn-info img-circle"
-                                    uib-tooltip="Enter new insanities the last text field. Click the x to remove an existing one."
-                                    tooltip-placement="right">?
-                            </button>
-                            <ul class="list-group">
-                                <li class="list-group-item" ng-repeat="disorder in mentalDisorders track by $index">
-                                    <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
-                                    <button class="btn pull-right" ng-click="removeMentalDisorder($index)">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </button>
-                                </li>
-                                <li class="list-group-item">
-                                    <input style="overflow:hidden" ng-model="newMentalDisorder"/>
-                                    <button class="btn btn-standard pull-right"
-                                            ng-click="addMentalDisorder()">
-                                        Add
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <div class="col-md-3">
                         <label style="display:inline" for="insanity-points">Points</label>
-                        <button class="btn btn-info img-circle"
-                                uib-tooltip="Set your number of insanity points here."
-                                tooltip-placement="right">?
-                        </button>
                         <input id="insanity-points" type="number" style="width:90%" min="0"/>
                     </div>
+                    <h4 style="display:inline">Mental Disorders</h4>
+                    <button class="btn btn-info img-circle"
+                            uib-tooltip="Enter new insanities the last text field. Click the x to remove an existing one."
+                            tooltip-placement="right">?
+                    </button>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="disorder in mentalDisorders track by $index">
+                            <span style="display:inline-block;overflow:hidden;width:90%">{{disorder}}</span>
+                            <button class="btn pull-right" ng-click="removeMentalDisorder($index)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </li>
+                        <li class="list-group-item">
+                            <input style="overflow:hidden" ng-model="newMentalDisorder"/>
+                            <button class="btn btn-standard pull-right"
+                                    ng-click="addMentalDisorder()">
+                                Add
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-4">
@@ -295,6 +285,29 @@
                     <div class="col-md-3">
                         <label for="corruption-points">Points</label>
                         <input type="number" id="corruption-points" style="width:90%" min="0"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>Movement</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span style="display:inline">Half</span>
+                        <input ng-model="character.movement.half" style="width:30%"/>
+                    </div>
+                    <div class="col-md-6">
+                        <span style="display:inline">Charge</span>
+                        <input ng-model="character.movement.charge" style="width:30%"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span style="display:inline">Full</span>
+                        <input ng-model="character.movement.full" style="width:30%"/>
+                    </div>
+                    <div class="col-md-6">
+                        <span style="display:inline">Run</span>
+                        <input ng-model="character.movement.run" style="width:30%"/>
                     </div>
                 </div>
             </div>
@@ -439,111 +452,127 @@
                         <button ng-disabled="!newArmor" ng-click="addNewArmor()">Add</button>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <table class="table table-bordered">
-                    <tbody ng-repeat="armor in character.equipment.armor">
-                    <tr>
-                        <td colspan="1">Name:</td>
-                        <td colspan="7">{{armor.item.name}}
-                            <button class="btn btn-standard" ng-click="removeArmor($index)"><span
-                                    class="glyphicon glyphicon-remove"></span></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Type:</td>
-                        <td>{{armor.item.type}}</td>
-                        <td>Locations:</td>
-                        <td>{{armor.item.locations.join(',')}}</td>
-                        <td>Protection:</td>
-                        <td>{{armor.item.ap}} AP</td>
-                        <td>Weight:</td>
-                        <td>{{armor.item.weight}}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Special Rules</td>
-                        <td colspan="6"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div ng-form name="psyRating">
-                    Psy Rating <input name="rating"
-                                      id="psyRating" type="number" id="psy-rating"
-                                      ng-change="updatePsyrating()"
-                                      ng-model="character.psychicPowers.psyRating"
-                                      ng-disabled="!character.psychicPowers.psyRating"
-                                      min="2" max="10" integer/>
-                </div>
-                <li ng-repeat="power in character.psychic-powers">{{power.name}}</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                {{character.comrade}}
                 <div class="row">
-                    Comrade
+                    <table class="table table-bordered">
+                        <tbody ng-repeat="armor in character.equipment.armor">
+                        <tr>
+                            <td colspan="1">Name:</td>
+                            <td colspan="7">{{armor.item.name}}
+                                <button class="btn btn-standard" ng-click="removeArmor($index)"><span
+                                        class="glyphicon glyphicon-remove"></span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Type:</td>
+                            <td>{{armor.item.type}}</td>
+                            <td>Locations:</td>
+                            <td>{{armor.item.locations.join(',')}}</td>
+                            <td>Protection:</td>
+                            <td>{{armor.item.ap}} AP</td>
+                            <td>Weight:</td>
+                            <td>{{armor.item.weight}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Special Rules</td>
+                            <td colspan="6"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="row">
-                    Name<input type="text" ng-model="character.comrade.name"/>
-                </div>
-                <div class="row">
-                    Status<input type="text" ng-model="character.comrade.status">
-                </div>
-                <div class="row">
-                    Special Abilities
-                </div>
-                <div class="row">
-                    <ul>
-                        <li ng-repeat="ability in character.comrade.special-abilities">
-                            {{ability.name}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="row">
-                    Gear
-                </div>
-                <div class="row">
-                    <ul>
-                        <li ng-repeat="item in character.equipment['other gear']">
-                            <div class="row">
-                                <div class="btn-group-vertical">
-                                    <button class="btn btn-standard btn-sm" ng-click="item.count=item.count+1">+
-                                    </button>
-                                    <button class="btn btn-standard" ng-click="item.count=item.count-1">-</button>
+                    <div class="row">
+                        Gear
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li ng-repeat="item in character.equipment['other gear']">
+                                <div class="row">
+                                    <div class="btn-group-vertical">
+                                        <button class="btn btn-standard btn-sm" ng-click="item.count=item.count+1">+
+                                        </button>
+                                        <button class="btn btn-standard" ng-click="item.count=item.count-1">-</button>
+                                    </div>
+                                    {{item.count + " x " + item.item.name}}
                                 </div>
-                                {{item.count + " x " + item.item.name}}
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        <hr/>
         <div class="row">
-            Experience
-        </div>
-        <div class="row">
-            Available Xp <input type="number" ng-model="character.experience.available"
-                                uib-tooltip="Set the amount of available xp here."
-                                tooltip-popup-delay="500"/>
-            {{character.experience.available}}
-        </div>
-        <div class="row">
-            Total XP <input type="number" ng-value="character.experience.total"
-                            uib-tooltip="All your experience, both available and spent." tooltip-popup-delay="500"
-                            readonly/>
-        </div>
-        <div class="row">
-            Aptitudes
-            <ul>
-                <li ng-repeat="aptitude in character.aptitudes.all | unique">{{aptitude}}</li>
-            </ul>
+            <div class="col-md-6">
+                <div class="col-md-6">
+                    <div class="row" ng-show="character.powers.psyrating">
+                        <h4 style="display:inline">Psychic Powers</h4>
+                        <button class="btn btn-info img-circle"
+                                uib-tooltip=""
+                                tooltip-placement="right">?
+                        </button>
+                        <div ng-form name="psyRating">
+                            Psy Rating <input name="rating"
+                                              id="psyRating" type="number" id="psy-rating"
+                                              ng-change="updatePsyrating()"
+                                              ng-model="character.powers.psyRating"
+                                              ng-enable="character.powers.psyrating"
+                                              min="2" max="10" integer/>
+                        </div>
+                        <ul>
+                            <li ng-repeat="power in character.powers.all">{{power.name}}</li>
+                        </ul>
+                        <div class="row">
+                            <select ng-model="newPower">
+                                <option ng-repeat="power in availablePowers" value="{{$index}}">{{power.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {{character.comrade}}
+                    <div class="row">
+                        Comrade
+                    </div>
+                    <div class="row">
+                        Name<input type="text" ng-model="character.comrade.name"/>
+                    </div>
+                    <div class="row">
+                        Status<input type="text" ng-model="character.comrade.status">
+                    </div>
+                    <div class="row">
+                        Special Abilities
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li ng-repeat="ability in character.comrade.special-abilities">
+                                {{ability.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row text-center">
+                    <h4 style="display:inline">Experience</h4>
+                </div>
+                <div class="row">
+                    Available Xp <input type="number" ng-model="character.experience.available"
+                                        uib-tooltip="Set the amount of available xp here."
+                                        tooltip-popup-delay="500"/>
+                </div>
+                <div class="row">
+                    Total XP <input type="number" ng-value="character.experience.total"
+                                    uib-tooltip="All your experience, both available and spent."
+                                    tooltip-popup-delay="500"
+                                    readonly/>
+                </div>
+                <div class="row">
+                    Aptitudes
+                    <ul>
+                        <li ng-repeat="aptitude in character.aptitudes | unique">{{aptitude}}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
