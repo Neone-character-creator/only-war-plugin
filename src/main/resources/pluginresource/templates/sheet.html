@@ -348,92 +348,124 @@
                 <button ng-disabled="!newWeapon" ng-click="addNewWeapon()">Add</button>
             </div>
             <div class="col-md-4">
-                <div class="row text-center">
-                    <h4 style="display:inline">Armor</h4>
-                    <button class="btn btn-info img-circle"
-                            uib-tooltip="Hover over a location to see the pieces that contribute to the protection in that location."
-                            tooltip-placement="right">?
-                    </button>
-                </div>
                 <div class="row">
-                    <div class="col-md-2 col-md-offset-5"
-                         ng-mouseenter="armorTooltip('head')"
-                         uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
-                         tooltip-append-to-body="true"
-                         tooltip-enable="armor.head.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Head (1-10)
-                        <div style="outline:1px solid black">
-                            {{armor.locations.head.rating}}
+                    <div class="row text-center">
+                        <h4 style="display:inline">Armor</h4>
+                        <button class="btn btn-info img-circle"
+                                uib-tooltip="Hover over a location to see the pieces that contribute to the protection in that location.
+
+                                Remember that you only get the protection from your best armor to each location.
+                                "
+                                tooltip-placement="right">?
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-5"
+                             ng-mouseenter="armorTooltip('head')"
+                             uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
+                             tooltip-append-to-body="true"
+                             tooltip-enable="armor.head.rating"
+                             tooltip-popup-delay="500" tooltip-placement="bottom"
+                        >
+                            Head (1-10)
+                            <div style="outline:1px solid black">
+                                {{armor.locations.head.rating}}
+                            </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
+                             uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
+                             tooltip-append-to-body="true"
+                             tooltip-enable="armor.locations.rightArm.rating"
+                             tooltip-popup-delay="500" tooltip-placement="bottom"
+                        >
+                            Right Arm (11-20)
+                            <div style="outline:1px solid black">
+                                {{armor.locations.rightArm.rating}}
+                            </div>
+                        </div>
+                        <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
+                             uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
+                             tooltip-append-to-body="true"
+                             tooltip-enable="armor.locations.body.rating"
+                             tooltip-popup-delay="500" tooltip-placement="bottom"
+                        >
+                            Body (31-70)
+                            <div style="outline:1px solid black">
+                                {{armor.locations.body.rating}}
+                            </div>
+                        </div>
+                        <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
+                             uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
+                             tooltip-append-to-body="true"
+                             tooltip-enable="armor.locations.leftArm.rating"
+                             tooltip-popup-delay="500" tooltip-placement="bottom"
+                        >
+                            Left Arm (21-30)
+                            <div style="outline:1px solid black">
+                                {{armor.locations.leftArm.rating}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
+                             uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
+                             tooltip-append-to-body="true"
+                             tooltip-enable="armor.locations.rightLeg.rating"
+                             tooltip-popup-delay="500" tooltip-placement="bottom"
+                        >
+                            Right Leg (71-85)
+                            <div style="outline:1px solid black">
+                                {{armor.locations.rightLeg.rating}}
+                            </div>
+                        </div>
+                        <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
+                             uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
+                             tooltip-append-to-body="true"
+                             tooltip-enable="armor.locations.leftLeg.rating"
+                             tooltip-popup-delay="500" tooltip-placement="bottom"
+                        >
+                            Left Leg (86-100)
+                            <div style="outline:1px solid black">
+                                {{armor.locations.leftLeg.rating}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <select ng-model="newArmor">
+                            <option ng-repeat="armor in availableArmor" ng-value="{{$index}}">{{armor.name}}</option>
+                        </select>
+                        <button ng-disabled="!newArmor" ng-click="addNewArmor()">Add</button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
-                         uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
-                         tooltip-append-to-body="true"
-                         tooltip-enable="armor.locations.rightArm.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Right Arm (11-20)
-                        <div style="outline:1px solid black">
-                            {{armor.locations.rightArm.rating}}
-                        </div>
-                    </div>
-                    <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
-                         uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
-                         tooltip-append-to-body="true"
-                         tooltip-enable="armor.locations.body.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Body (31-70)
-                        <div style="outline:1px solid black">
-                            {{armor.locations.body.rating}}
-                        </div>
-                    </div>
-                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
-                         uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
-                         tooltip-append-to-body="true"
-                         tooltip-enable="armor.locations.leftArm.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Left Arm (21-30)
-                        <div style="outline:1px solid black">
-                            {{armor.locations.leftArm.rating}}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
-                         uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
-                         tooltip-append-to-body="true"
-                         tooltip-enable="armor.locations.rightLeg.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Right Leg (71-85)
-                        <div style="outline:1px solid black">
-                            {{armor.locations.rightLeg.rating}}
-                        </div>
-                    </div>
-                    <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
-                         uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
-                         tooltip-append-to-body="true"
-                         tooltip-enable="armor.locations.leftLeg.rating"
-                         tooltip-popup-delay="500" tooltip-placement="bottom"
-                    >
-                        Left Leg (86-100)
-                        <div style="outline:1px solid black">
-                            {{armor.locations.leftLeg.rating}}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <select ng-model="newArmor">
-                        <option ng-repeat="armor in availableArmor" ng-value="{{$index}}">{{armor.name}}</option>
-                    </select>
-                    <button ng-disabled="!newArmor" ng-click="addNewArmor()">Add</button>
-                </div>
+            </div>
+            <div class="row">
+                <table class="table table-bordered">
+                    <tbody ng-repeat="armor in character.equipment.armor">
+                    <tr>
+                        <td colspan="1">Name:</td>
+                        <td colspan="7">{{armor.item.name}}
+                            <button class="btn btn-standard" ng-click="removeArmor($index)"><span
+                                    class="glyphicon glyphicon-remove"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Type:</td>
+                        <td>{{armor.item.type}}</td>
+                        <td>Locations:</td>
+                        <td>{{armor.item.locations.join(',')}}</td>
+                        <td>Protection:</td>
+                        <td>{{armor.item.ap}} AP</td>
+                        <td>Weight:</td>
+                        <td>{{armor.item.weight}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Special Rules</td>
+                        <td colspan="6"></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="row">
