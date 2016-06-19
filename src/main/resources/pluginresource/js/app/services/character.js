@@ -90,6 +90,7 @@ define(function() {
                 }
             };
             var _talents = [];
+            var _traits = [];
             var _wounds = {
                 rolled: 0
             };
@@ -190,10 +191,10 @@ define(function() {
                             return 0;
                         },
                         set fromRoll(rolledAmount) {
-                            return _wounds.rolled;
+                            _wounds.rolled = rolledAmount;
                         },
                         get fromRoll() {
-                            _wounds.rolled = rolledAmount;
+                            return _wounds.rolled;
                         },
                         get total() {
                             var specialty = _specialty ? _specialty['fixed modifiers'].wounds : 0;
@@ -322,6 +323,9 @@ define(function() {
                         	return _experience.advancementsBought;
                         }
                     }
+                },
+                get traits(){
+                	return _traits;
                 },
                 get aptitudes() {
                     return _aptitudes;
