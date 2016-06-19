@@ -2,37 +2,62 @@ define(function() {
     return function($scope, $state, regimentOptions, regiments, characterService, $q, optionselection, $uibModal, characteroptions, selection) {
         var kitChoices;
         $scope.regimentElements = {
-	        	homeworld : {
-	        		header : "Please Wait...",
-	        		_selected : null,
-	        		set selected(value){this._selected=angular.copy(value);$scope.reapplyModifiers()},
-	        		get selected(){return this._selected;}
-	        	},
-	        	commander : {
-	        		header : "Please Wait...",
-	        		_selected : null,
-	        		set selected(value){this._selected=angular.copy(value);$scope.reapplyModifiers()},
-	        		get selected(){return this._selected;}
-	        	},
-				type : {
-	        		header : "Please Wait...",
-	        		_selected : null,
-	        		set selected(value){this._selected=angular.copy(value);$scope.reapplyModifiers()},
-	        		get selected(){return this._selected;}
-	        	},
-				'doctrines[0]' : {
-	        		header : "Please Wait...",
-	        		_selected : null,
-	        		set selected(value){this._selected=angular.copy(value);$scope.reapplyModifiers()},
-	        		get selected(){return this._selected;}
-	        	},
-	        	'doctrines[1]' : {
-	        		header : "Please Wait...",
-	        		_selected : null,
-	        		set selected(value){this._selected=angular.copy(value);$scope.reapplyModifiers()},
-	        		get selected(){return this._selected;}
-	        	}
-	       }
+            homeworld: {
+                header: "Please Wait...",
+                _selected: null,
+                set selected(value) {
+                    this._selected = angular.copy(value);
+                    $scope.reapplyModifiers()
+                },
+                get selected() {
+                    return this._selected;
+                }
+            },
+            commander: {
+                header: "Please Wait...",
+                _selected: null,
+                set selected(value) {
+                    this._selected = angular.copy(value);
+                    $scope.reapplyModifiers()
+                },
+                get selected() {
+                    return this._selected;
+                }
+            },
+            type: {
+                header: "Please Wait...",
+                _selected: null,
+                set selected(value) {
+                    this._selected = angular.copy(value);
+                    $scope.reapplyModifiers()
+                },
+                get selected() {
+                    return this._selected;
+                }
+            },
+            'doctrines[0]': {
+                header: "Please Wait...",
+                _selected: null,
+                set selected(value) {
+                    this._selected = angular.copy(value);
+                    $scope.reapplyModifiers()
+                },
+                get selected() {
+                    return this._selected;
+                }
+            },
+            'doctrines[1]': {
+                header: "Please Wait...",
+                _selected: null,
+                set selected(value) {
+                    this._selected = angular.copy(value);
+                    $scope.reapplyModifiers()
+                },
+                get selected() {
+                    return this._selected;
+                }
+            }
+        }
         $q.all({
             "origins": regimentOptions.homeworlds(),
             "officers": regimentOptions.officers(),
@@ -47,35 +72,35 @@ define(function() {
                 "items": characteroptions.items()
             })
         }).then(function(results) {
-            $scope.basicWeapons = results['character options'].weapons.filter(function(weapon){
-            	var availability = false;
-            	switch(weapon.availability){
-            		case "Ubiquitous":
-            		case "Abundant":
-            		case "Plentiful":
-            		case "Common":
-            		case "Average":
-            		case "Scarce":
-            		case "Rare":
-            		case "Very Rare":
-            			availability = true;
-            	}
-            	return weapon.class == "Basic" && availability;
+            $scope.basicWeapons = results['character options'].weapons.filter(function(weapon) {
+                var availability = false;
+                switch (weapon.availability) {
+                    case "Ubiquitous":
+                    case "Abundant":
+                    case "Plentiful":
+                    case "Common":
+                    case "Average":
+                    case "Scarce":
+                    case "Rare":
+                    case "Very Rare":
+                        availability = true;
+                }
+                return weapon.class == "Basic" && availability;
             });
-            $scope.heavyWeapons = results['character options'].weapons.filter(function(weapon){
-            	var availability = false;
-            	switch(weapon.availability){
-            		case "Ubiquitous":
-            		case "Abundant":
-            		case "Plentiful":
-            		case "Common":
-            		case "Average":
-            		case "Scarce":
-            		case "Rare":
-            		case "Very Rare":
-            			availability = true;
-            	}
-            	return weapon.class == "Heavy" && availability;
+            $scope.heavyWeapons = results['character options'].weapons.filter(function(weapon) {
+                var availability = false;
+                switch (weapon.availability) {
+                    case "Ubiquitous":
+                    case "Abundant":
+                    case "Plentiful":
+                    case "Common":
+                    case "Average":
+                    case "Scarce":
+                    case "Rare":
+                    case "Very Rare":
+                        availability = true;
+                }
+                return weapon.class == "Heavy" && availability;
             });
             $scope.regimentKit = results['regiment kit']['fixed modifiers']['character kit'];
             kitChoices = angular.copy(results["additional kit choices"]);
@@ -118,27 +143,27 @@ define(function() {
             })
             $scope.regiment = new createdRegiment();
             updateAvailableKitChoices();
-            for(var section in $scope.regimentElements){
-            	switch(section){
-            		case "homeworld":
-            			$scope.regimentElements[section].options = results["origins"];
-            			$scope.regimentElements[section].header = "Homeworld/Origin"
-            		break;
-            		case "commander":
-            			$scope.regimentElements[section].options = results["officers"];
-            			$scope.regimentElements[section].header = "Commanding Officer"
-            		break;
-            		case "type":
-            			$scope.regimentElements[section].options = results["types"];
-            			$scope.regimentElements[section].header = "Regiment Type"
-            		break;
-            		case "doctrines[0]":
-            		case "doctrines[1]":
-            			$scope.regimentElements[section].options = results["equipment"].concat(results["training"]);
-            			$scope.regimentElements[section].header = "Special Equipment/Training Doctrine"
-            		break;
+            for (var section in $scope.regimentElements) {
+                switch (section) {
+                    case "homeworld":
+                        $scope.regimentElements[section].options = results["origins"];
+                        $scope.regimentElements[section].header = "Homeworld/Origin"
+                        break;
+                    case "commander":
+                        $scope.regimentElements[section].options = results["officers"];
+                        $scope.regimentElements[section].header = "Commanding Officer"
+                        break;
+                    case "type":
+                        $scope.regimentElements[section].options = results["types"];
+                        $scope.regimentElements[section].header = "Regiment Type"
+                        break;
+                    case "doctrines[0]":
+                    case "doctrines[1]":
+                        $scope.regimentElements[section].options = results["equipment"].concat(results["training"]);
+                        $scope.regimentElements[section].header = "Special Equipment/Training Doctrine"
+                        break;
 
-            	}
+                }
             };
             $scope.reapplyModifiers();
         });
@@ -179,31 +204,88 @@ define(function() {
         }
 
         $scope.chosenKitModifiers = [];
-        $scope.readyToSelectEquipment = false;
+        $scope.readyToSelectKitModifiers = false;
 
-        $scope.reapplyModifiers = function(){
+        $scope.reapplyModifiers = function() {
+        	var favoredWeapons = $scope.regiment['fixed modifiers']['favored weapons'];
             $scope.regiment = new createdRegiment();
-            for(var regimentModifierSection in $scope.regimentElements){
-            	if($scope.regimentElements[regimentModifierSection].selected){
-            		$scope.regiment.remainingRegimentPoints -= $scope.regimentElements[regimentModifierSection].selected.cost;
-            		$scope.regiment.addModifier($scope.regimentElements[regimentModifierSection].selected);
-            	}
-            	}
+            $scope.regiment['fixed modifiers']['favored weapons'] = favoredWeapons;
+            for (var regimentModifierSection in $scope.regimentElements) {
+                if ($scope.regimentElements[regimentModifierSection].selected) {
+                    $scope.regiment.remainingRegimentPoints -= $scope.regimentElements[regimentModifierSection].selected.cost;
+                    $scope.regiment.addModifier($scope.regimentElements[regimentModifierSection].selected);
+                }
+            }
             $scope.readyToSelectEquipment = $scope.regimentElements['homeworld'] &&
-            	$scope.regimentElements['commander'] &&
-            	$scope.regimentElements['type'];
+                $scope.regimentElements['commander'] &&
+                $scope.regimentElements['type'];
             $scope.regiment.remainingKitPoints = 30 + $scope.regiment.remainingRegimentPoints * 2;
+            checkReadyToSelectKitModifiers();
+        }
+
+        $scope.$watchCollection("regiment['fixed modifiers']['favored weapons']", function(newVal, oldVal){
+        	checkReadyToSelectKitModifiers();
+        	isRegimentCreationComplete();
+        });
+
+        $scope.$watchCollection("regimentElements.homeworld.selected['optional modifiers']", function(){
+        	isRegimentCreationComplete();
+        });
+        $scope.$watchCollection("regimentElements.commander.selected['optional modifiers']", function(){
+        	isRegimentCreationComplete();
+        });
+        $scope.$watchCollection("regimentElements.type.selected['optional modifiers']", function(){
+        	isRegimentCreationComplete();
+        });
+        $scope.$watch("regiment.name", function(){
+        	isRegimentCreationComplete();
+        });
+
+        $scope.$watchGroup(["regimentElements.homeworld.selected",
+        					"regimentElements.commander.selected",
+        					"regimentElements.type.selected"], function(){
+        	checkReadyToSelectKitModifiers();
+        	isRegimentCreationComplete();
+		})
+
+        function checkReadyToSelectKitModifiers(){
+        	if($scope.regiment){
+        		var ready = $scope.regimentElements.homeworld.selected !== null;
+        		ready = $scope.regimentElements.commander.selected  !== null && ready;
+        		ready = $scope.regimentElements.type.selected  !== null && ready;
+        		ready = $scope.regiment['fixed modifiers']['favored weapons'].length == 2 && ready;
+				$scope.readyToSelectKitModifiers = ready;
+			}
+        }
+
+        function isRegimentCreationComplete(){
+        	if($scope.regiment){
+        		//Regiment is finished if it has a selected homeworld, commander and type and each has no optional modifiers left and has selected favored weapons and name.
+        		var nameReady = $scope.regiment.name !== undefined;
+        		var homeworldReady = $scope.regimentElements.homeworld.selected !== null
+        			&& (!$scope.regimentElements.homeworld.selected['optional modifiers']
+        			|| $scope.regimentElements.homeworld.selected['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"}).length === 0);
+        		var commanderReady = $scope.regimentElements.commander.selected !== null
+        			&& (!$scope.regimentElements.commander.selected['optional modifiers']
+        			|| $scope.regimentElements.commander.selected['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"}).length === 0);
+        		var typeReady = $scope.regimentElements.type.selected !== null
+        			&& (!$scope.regimentElements.type.selected['optional modifiers']
+        			|| $scope.regimentElements.type.selected['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"}).length === 0);
+        		var favoredWeaponsReady = $scope.regiment['fixed modifiers']['favored weapons'].length === 2;
+        		$scope.isRegimentCreationComplete =  homeworldReady && commanderReady && typeReady && favoredWeaponsReady && nameReady;
+        	}
         }
 
         function createdRegiment() {
+        	this.isCustom = true;
             this['fixed modifiers'] = {
                 'character kit': angular.copy($scope.regimentKit),
-                'favored weapons' : []
+                'favored weapons': []
             };
             this['optional modifiers'] = [];
             this.addModifier = function(modifier) {
-            	//Needed for scoping issues
-            	var regiment = this;
+                //Needed for scoping issues
+                var regiment = this;
                 for (var property in modifier['fixed modifiers']) {
                     if (modifier['fixed modifiers'].hasOwnProperty(property)) {
                         switch (property) {
@@ -213,9 +295,9 @@ define(function() {
                                 }
                                 for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
                                     if (regiment['fixed modifiers'].characteristics.characteristic) {
-                                        regiment['fixed modifiers'].characteristics[characteristic.toLowerCase()] += modifier['fixed modifiers'][property][characteristic];
+                                        regiment['fixed modifiers'].characteristics[characteristic] += modifier['fixed modifiers'][property][characteristic];
                                     } else {
-                                        regiment['fixed modifiers'].characteristics[characteristic.toLowerCase()] = modifier['fixed modifiers'][property][characteristic];
+                                        regiment['fixed modifiers'].characteristics[characteristic] = modifier['fixed modifiers'][property][characteristic];
                                     }
                                 }
                                 break;
@@ -260,28 +342,28 @@ define(function() {
                                 regiment['fixed modifiers'][property] = modifier['fixed modifiers']['psy rating'];
                                 break;
                             case "special abilities":
-                            	if(regiment['fixed modifiers']['special abilities']){
-                            		regiment['fixed modifiers']['special abilities'] = regiment['fixed modifiers']['special abilities'].concat(modifier['fixed modifiers']['special abilities']);
-                            	} else {
-                            		regiment['fixed modifiers']['special abilities'] = modifier['fixed modifiers']['special abilities'];
-                            	}
-                            	break;
+                                if (regiment['fixed modifiers']['special abilities']) {
+                                    regiment['fixed modifiers']['special abilities'] = regiment['fixed modifiers']['special abilities'].concat(modifier['fixed modifiers']['special abilities']);
+                                } else {
+                                    regiment['fixed modifiers']['special abilities'] = modifier['fixed modifiers']['special abilities'];
+                                }
+                                break;
                             case "character kit":
                                 if (!regiment['fixed modifiers']['character kit']) {
                                     regiment['fixed modifiers']['character kit'] = {};
                                 }
                                 for (var category in modifier['fixed modifiers']['character kit']) {
-                                    if(!regiment['fixed modifiers']['character kit'][category]){
+                                    if (!regiment['fixed modifiers']['character kit'][category]) {
                                         regiment['fixed modifiers']['character kit'][category] = [];
                                     }
                                     $.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
-                                        var existingItem = regiment['fixed modifiers']['character kit'][category].find(function(item){
-                                        	return angular.equals(element.item, item);
+                                        var existingItem = regiment['fixed modifiers']['character kit'][category].find(function(item) {
+                                            return angular.equals(element.item, item);
                                         });
-                                        if(existingItem){
-                                        	element.count++;
+                                        if (existingItem) {
+                                            element.count++;
                                         } else {
-                                        	regiment['fixed modifiers']['character kit'][category].push(element);
+                                            regiment['fixed modifiers']['character kit'][category].push(element);
                                         }
                                     });
                                 }
@@ -292,53 +374,55 @@ define(function() {
                         }
                     }
                 }
-                for (var optionalModifier in modifier['optional modifiers']) {
-                    this['optional modifiers'].push(optionalModifier);
+                if(modifier['optional modifiers']){
+	                for (var optionalModifier in modifier['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"})) {
+	                    this['optional modifiers'].push(optionalModifier);
+					}
                 }
             };
             this.remainingRegimentPoints = 12;
             this.remainingKitPoints = this['fixed modifiers']['regiment kit points'] ? this['fixed modifiers']['regiment kit points'] : 0 + this.remainingRegimentPoints * 2;
-        }
+        };
 
         $scope.openSelectionModal = function(selectedObject, modifier) {
-        	selection.selectionObject = selectedObject;
+            selection.selectionObject = selectedObject;
             $uibModal.open({
                 controller: "SelectionModalController",
                 templateUrl: 'pluginresource/templates/selection-modal.html'
             }).result.then(function() {
-            	optionselection.target = modifier;
-            	optionselection.selected = selection.selected;
-            	optionselection.selectionObject = selectedObject;
-            	optionselection.associatedService = {
-                	selected: function() {
-	                    return modifier;
-	                },
-	                remainingSelections: function() {
-	                    return modifier['optional modifiers'];
-	                },
-	                complete: function() {
-	                    return modifier && _remainingSelections.length === 0;
-	                },
-	                select: function(modifier) {
-	                    _selected = angular.copy(modifier);
-	                }
-	            };
-	            optionselection.applySelection();
+                optionselection.target = modifier;
+                optionselection.selected = selection.selected;
+                optionselection.selectionObject = selectedObject;
+                optionselection.associatedService = {
+                    selected: function() {
+                        return modifier;
+                    },
+                    remainingSelections: function() {
+                        return modifier['optional modifiers'];
+                    },
+                    complete: function() {
+                        return modifier && _remainingSelections.length === 0;
+                    },
+                    select: function(modifier) {
+                        _selected = angular.copy(modifier);
+                    }
+                };
+                optionselection.applySelection();
                 $scope.reapplyModifiers();
             });
         };
 
         $scope.finish = function() {
             if ($scope.regiment.remainingRegimentPoints >= 0 &&
-            	$scope.regiment.remainingKitPoints >= 0 &&
-            	$scope.regimentElements['homeworld'].selected &&
-            	$scope.regimentElements['type'].selected &&
-            	$scope.regimentElements['commander'].selected
-            	) {
-                characterService.regiment = $scope.regiment;
+                $scope.regiment.remainingKitPoints >= 0 &&
+                $scope.regimentElements['homeworld'].selected &&
+                $scope.regimentElements['type'].selected &&
+                $scope.regimentElements['commander'].selected
+            ) {
+                regiments.selected = $scope.regiment;
                 $state.go("regiment");
             }
-        }
+        };
 
         $scope.applyKitModifier = function(choice) {
             //Iterate over each of the effects of the chosen modifier
@@ -418,10 +502,10 @@ define(function() {
                         break;
                         //Add a completely new item to the kit
                     case "Add":
-                        $.each(choice.effects, function(i, effect){
-                        	$.each(effect.results, function(i, result){
-                        		eligible.push(result);
-                        	});
+                        $.each(choice.effects, function(i, effect) {
+                            $.each(effect.results, function(i, result) {
+                                eligible.push(result);
+                            });
                         });
                         selection.selected = eligible;
                         break;
@@ -477,13 +561,13 @@ define(function() {
                                 break;
                             case "Upgrade":
                                 $.each(choiceEffect.results, function(i, effect) {
-                                	//Upgrade only upgrades a single instance of an item, if the selected item has multiples, move 1 into a separate item and modify the separate one.
-                                	var copy = selection.value;
-                                	if(copy.count > 1){
-                                		selection.value.count--;
-                                		copy = angular.copy(selection.value);
-                                		copy.count = 1;
-                                	}
+                                    //Upgrade only upgrades a single instance of an item, if the selected item has multiples, move 1 into a separate item and modify the separate one.
+                                    var copy = selection.value;
+                                    if (copy.count > 1) {
+                                        selection.value.count--;
+                                        copy = angular.copy(selection.value);
+                                        copy.count = 1;
+                                    }
                                     result.itemEffects.push({
                                         "original": angular.copy(copy),
                                         "effectType": choiceEffect.type,
@@ -497,37 +581,37 @@ define(function() {
                                 })
                                 break;
                             case "Add":
-                            	var existingItem = false;
-                            	$.each($scope.regiment['fixed modifiers']['character kit'][choiceEffect.target], function(i, item){
-                            		if(angular.equals(item.item,selection.item)){
-                            			item.count += selection.count;
-                            			existingItem = true;
-                            			return false;
-                            		}
-                           		});
-                            	if(!existingItem){
-                            		$scope.regiment['fixed modifiers']['character kit'][choiceEffect.target].push(selection);
-                            	}
+                                var existingItem = false;
+                                $.each($scope.regiment['fixed modifiers']['character kit'][choiceEffect.target], function(i, item) {
+                                    if (angular.equals(item.item, selection.item)) {
+                                        item.count += selection.count;
+                                        existingItem = true;
+                                        return false;
+                                    }
+                                });
+                                if (!existingItem) {
+                                    $scope.regiment['fixed modifiers']['character kit'][choiceEffect.target].push(selection);
+                                }
                                 break;
                         }
                     });
                     $scope.chosenKitModifiers.push(result);
                 }
-                switch(choiceEffect.type){
-                	case "Replace":
-                	case "Upgrade":
-                		$uibModal.open({
-                        	controller: "SelectionModalController",
-                        	templateUrl: "pluginresource/templates/selection-modal.html"
-                    	}).result.then(apply);
-                    break;
+                switch (choiceEffect.type) {
+                    case "Replace":
+                    case "Upgrade":
+                        $uibModal.open({
+                            controller: "SelectionModalController",
+                            templateUrl: "pluginresource/templates/selection-modal.html"
+                        }).result.then(apply);
+                        break;
                     default:
-                   		apply();
+                        apply();
                 }
             })
             $scope.regiment.remainingKitPoints -= choice.cost;
             updateAvailableKitChoices();
-        }
+        };
 
         $scope.removeKitModifier = function(modifier) {
             var mainWeapon = $scope.regiment['fixed modifiers']['character kit']['main weapon'];
@@ -563,6 +647,10 @@ define(function() {
                 };
             }
             return true;
+        };
+
+        $scope.costFilter = function(item) {
+            return item.cost <= $scope.regiment.remainingRegimentPoints;
         }
     }
 })
