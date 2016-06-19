@@ -1,33 +1,17 @@
-Refactor out duplicated modal checking code in specialty and regiment selection controllers.
-
-Put modal opening into ui router configuration.
-
+Miscellaneous:
 Implement bonus xp for duplicate talents and bonus aptitudes for duplicate aptitudes.
-
-Finish second page of sheet.
-
-Implement gear replacement for regiment creation elements.
-
-Implement adding certain items only when they already exist for regiment creation elements.
-
-Implement regiment creation.
-
 Finish Trait data file.
-
 Make fields for spending xp or adding things filterable so that only options that the character qualifies for can be taken.
-
-Implement prerequisites for stuff.
-
 Add Orders.
-
-Add tags to cybernetic and cybernetic limb items.
-
 Add Advanced Specialties from Hammer of the Emperor
-
-Add something to handle the steps of character creation.
-
-Implement replacing Regimental Favored weapons with the actual weapon in Specialties.
-
 Add comrade advances.
-
 Implement a walkthrough.
+Move tooltips into templates instead of hardcoded strings.
+Add tooltips to the skill rating radio buttons to show how much xp it will cost/refund to change the rating.
+Support weapons with multiple stat profiles (Triplex Lasgun, etc.)
+
+Regiment Creation:
+Implement regiment creation.
+Implement prerequisites for regiment creation options.
+Implement replacing Regimental Favored weapons with the actual weapon where needed.
+When creating a regiment, make sure all regiment creation time selections are made.
