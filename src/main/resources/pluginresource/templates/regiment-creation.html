@@ -20,7 +20,7 @@
                                     {{regimentElements[category].header}}
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li ng-repeat="option in regimentElements[category].options">
+                                    <li ng-repeat="option in regimentElements[category].options | filter : costFilter">
                                         <a ng-click="regimentElements[category].selected = option">{{option.name}}
                                             {{"
                                             (" +
@@ -170,15 +170,15 @@
                             <div class="row" id="favored_basic_weapon">
                                 Choose your Regimental Favored Basic Weapon
                                 <select ng-model="regiment['fixed modifiers']['favored weapons'][0]"
-                                        ng-options="weapon as weapon.name for weapon in basicWeapons">
-                                    {{weapon.name}}
+                                        ng-options="weapon.name as weapon.name for weapon in basicWeapons">
+                                    {{weapon}}
                                 </select>
                             </div>
                             <div class="row" id="favored_heavy_weapon">
                                 Choose your Regimental Favored Heavy Weapon
                                 <select ng-model="regiment['fixed modifiers']['favored weapons'][1]"
-                                        ng-options="weapon as weapon.name for weapon in heavyWeapons">
-                                    {{weapon.name}}
+                                        ng-options="weapon.name as weapon.name for weapon in heavyWeapons">
+                                    {{weapon}}
                                 </select>
                             </div>
                         </div>
@@ -187,11 +187,8 @@
             </div>
             <div class="row">
                 <div class="text-center">
-                    <button ng-disabled="!($scope.regiment.remainingRegimentPoints >= 0) &&
-            	!($scope.regiment.remainingKitPoints >= 0) &&
-            	!($scope.regimentElements['homeworld'].selected) &&
-            	!($scope.regimentElements['type'].selected) &&
-            	!($scope.regimentElements['commander'].selected)" ng-click="finish()" class="btn btn-standard">Complete
+                    <button ng-disabled="!isRegimentCreationComplete" class="btn btn-standard" ng-click="finish()">
+                        Complete
                     </button>
                 </div>
             </div>
@@ -297,7 +294,7 @@
                         </div>
                         <div class="row">
                             <h4>Regimental Kit Options</h4>
-                            <div ng-show="readyToSelectEquipment && regiment['fixed modifiers']['favored weapons'][0] && regiment['fixed modifiers']['favored weapons'][1]">
+                            <div ng-show="readyToSelectKitModifiers">
                                 <div class="row">
 
                                     Select from the following options to customize your regimental starting gear.
@@ -326,10 +323,9 @@
                                     </ul>
                                 </div>
                             </div>
-
-                            <div ng-show="!(readyToSelectEquipment && regiment['fixed modifiers']['favored weapons'][0] && regiment['fixed modifiers']['favored weapons'][1])">
+                            <div ng-show="!readyToSelectKitModifiers">
                                 After you've chosen your Homeworld, Regiment Type, Commanding Officer and Favored
-                                Weapons, you can modify your regiments equipment.
+                                Weapons, you can modify your regiments' equipment.
                             </div>
                         </div>
                     </div>
