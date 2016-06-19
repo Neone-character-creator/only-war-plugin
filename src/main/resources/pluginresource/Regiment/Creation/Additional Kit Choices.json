@@ -104,7 +104,9 @@
   {
     "description": "Add a laspistol and 2 charge packs as a sidearm.",
     "cost": 5,
-    "max": 1,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "Add",
@@ -129,7 +131,9 @@
   {
     "description": "Add an autopistol and 2 clips as a sidearm.",
     "cost": 8,
-    "max": 1,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "Add",
@@ -154,7 +158,9 @@
   {
     "description": "Add a stub automatic and 2 clips as a sidearm.",
     "cost": 8,
-    "max": 1,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "Add",
@@ -179,7 +185,9 @@
   {
     "description": "Add a stub revolver and 12 bullets as a sidearm.",
     "cost": 3,
-    "max": 1,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "Add",
@@ -203,7 +211,9 @@
   {
     "description": "Add an Additional frag grenade to standard kit.",
     "cost": 5,
-    "max": 2,
+    "limits": {
+      "max": 2
+    },
     "effects": [
       {
         "type": "Add",
@@ -222,7 +232,9 @@
   {
     "description": "Add an Additional smoke grenade to standard kit.",
     "cost": 5,
-    "max": 2,
+    "limits": {
+      "max": 2
+    },
     "effects": [
       {
         "type": "Add",
@@ -239,7 +251,9 @@
   {
     "description": "Add an Additional krak grenade to standard kit.",
     "cost": 15,
-    "max": 2,
+    "limits": {
+      "max": 2
+    },
     "effects": [
       {
         "type": "Add",
@@ -258,6 +272,16 @@
   {
     "description": "Replace a M36 lasgun with a combat shotgun and 4 clips.",
     "cost": 10,
+    "limits": {
+      "regiment": {
+        "type": [
+          "Line Infantry",
+          "Light Infantry",
+          "Siege Infantry",
+          "Drop Infantry"
+        ]
+      }
+    },
     "effects": [
       {
         "type": "Replace",
@@ -466,6 +490,13 @@
   {
     "description": "Add purity seals to standard kit.",
     "cost": 8,
+    "limits": {
+      "regiment": {
+        "type": [
+          "Penitent"
+        ]
+      }
+    },
     "effects": [
       {
         "type": "Add",
@@ -540,6 +571,9 @@
   {
     "description": "Add a single advanced medkit to the squad as standard kit.",
     "cost": 15,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "Add",
@@ -576,6 +610,13 @@
   {
     "description": "Add 1 dose of slaught to standard kit.",
     "cost": 10,
+    "limits": {
+      "regiment": {
+        "doctrine": [
+          "Combat Drugs"
+        ]
+      }
+    },
     "effects": [
       {
         "type": "Add",
@@ -594,6 +635,13 @@
   {
     "description": "Add dose of frenzon to standard kit.",
     "cost": 20,
+    "limits": {
+      "regiment": {
+        "doctrine": [
+          "Combat Drugs"
+        ]
+      }
+    },
     "effects": [
       {
         "type": "Add",
@@ -636,7 +684,9 @@
   {
     "description": "Add a single auspex to the squad as standard kit.",
     "cost": 10,
-    "limit": 1,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "Add",
@@ -763,6 +813,13 @@
   {
     "description": "Add a targeter to to standard kit.",
     "cost": 10,
+    "limits": {
+      "regiment": {
+        "doctrine": [
+          "Sharpshooters"
+        ]
+      }
+    },
     "effects": [
       {
         "type": "Add",
@@ -861,7 +918,9 @@
   {
     "description": "Add one Favored Basic Weapon.",
     "cost": 10,
-    "max": 1,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "AddFavored",
@@ -872,7 +931,9 @@
   {
     "description": "Add one Favoured Heavy Weapon.",
     "cost": 15,
-    "max": 1,
+    "limits": {
+      "max": 1
+    },
     "effects": [
       {
         "type": "AddFavored",
