@@ -169,45 +169,124 @@ define(function() {
         });
 
         function updateAvailableKitChoices() {
-            $scope.kitChoices = kitChoices.filter(function(choice) {
-                var isAvailable = (choice.cost <= $scope.regiment.remainingKitPoints);
-                if (isAvailable) {
-                    var mainWeapon = $scope.regiment['fixed modifiers']['character kit']['main weapon'];
-                    var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['other weapons'];
-                    var armor = $scope.regiment['fixed modifiers']['character kit']['armor'];
-                    var otherGear = $scope.regiment['fixed modifiers']['character kit']['other gear'];
-                    var combinedKit = mainWeapon.concat(otherWeapons).concat(armor).concat(otherGear);
+            $scope.kitChoices = angular.copy(kitChoices.map(function(choice) {
+                if (choice.cost > $scope.regiment.remainingKitPoints) {
+                    if (!choice.unavailableMessage) {
+                        choice.unavailableMessage = "";
+                    }
+                    choice.unavailableMessage += "\nRequires " + choice.cost + " points but only " + $scope.regiment.remainingKitPoints + " available."
+                }
+                if (choice.limits) {
+                    if (choice.limits.maxSelectCount && choice.limits.MaxSelectCount <= choice.timesSelected) {
+                        if (!choice.unavailableMessage) {
+                            choice.unavailableMessage = "";
+                        }
+                        choice.unavailableMessage += "\nAlready selected the maximum number of times."
+                    }
+                    if (choice.limits.regiment) {
+                        if (choice.limits.regiment.type) {
+                            if (!$scope.regimentElements.type.selected || $scope.regimentElements.type.selected.name !== choice.limits.regiment.type) {
+                                if (!choice.unavailableMessage) {
+                                    choice.unavailableMessage = "";
+                                }
+                                var requiredChoices = choice.limits.regiment.type.slice(0, choice.limits.regiment.type.length - 1).join(', ');
+                                requiredChoices += (" or " + choice.limits.regiment.type[choice.limits.regiment.type.length - 1]);
+                                choice.unavailableMessage += "\nRequires Regiment Type to be " + requiredChoices + ".";
+                            }
+                        }
+                        if (choice.limits.regiment.commander) {
+                            if (!$scope.regimentElements.commander.selected || $scope.regimentElements.commander.selected.name !== choice.limits.regiment.commander) {
+                                if (!choice.unavailableMessage) {
+                                    choice.unavailableMessage = "";
+                                }
+                                var requiredChoices = choice.limits.regiment.commander.slice(0, choice.limits.regiment.type.length).join(', ');
+                                requiredChoices += " or " + choice.limits.regiment.commander[choice.limits.regiment.commander.length];
+                                choice.unavailableMessage += "\nRequires Commander to be " + requiredChoices + " but is " + $scope.regimentElements.commander.selected.name + ".";
+                            }
+                        }
+                        if (choice.limits.regiment.homeworld) {
+                            if (!$scope.regimentElements.homeworld.selected || $scope.regimentElements.homeworld.selected.name !== choice.limits.regiment.homeworld) {
+                                if (!choice.unavailableMessage) {
+                                    choice.unavailableMessage = "";
+                                }
+                                var requiredChoices = choice.limits.regiment.homeworld.slice(0, choice.limits.regiment.type.length).join(', ');
+                                requiredChoices += " or " + choice.limits.regiment.homeworld[choice.limits.regiment.homeworld.length];
+                                choice.unavailableMessage += "\nRequires Homeworld/Origin to be " + requiredChoices + " but is " + $scope.regimentElements.homeworld.selected.name + ".";
+                            }
+                        }
+                        if (choice.limits.regiment.doctrine) {
+                            var combinedDoctrines = [$scope.regimentElements['doctrines[0]'].selected, $scope.regimentElements['doctrines[1]'].selected];
+                            if (combinedDoctrines.length == 0 || combinedDoctrines.find(function(doctrine) {
+                                    return doctrine != null && choice.limits.regiment.doctrine.indexOf(doctrine.name) !== -1;
+                                })) {
+                                if (!choice.unavailableMessage) {
+                                    choice.unavailableMessage = "";
+                                }
+                                var requiredChoices = choice.limits.regiment.doctrine.slice(0, choice.limits.regiment.doctrine.length).join(', ');
+                                requiredChoices += (" or " + choice.limits.regiment.doctrine[choice.limits.regiment.doctrine.length]);
+                                choice.unavailableMessage += "\nRequires Doctrine " + requiredChoices + ".";
+                            }
+                        }
+                    }
+                }
 
-                    //Iterate over the kit choices
-                    $.each(choice.effects, function(i, effect) {
-                        //Upgrade and Replace are only available if there is an item they can affect in the kit
-                        if (effect.type == "Upgrade" || effect.type == "Replace") {
-                            var targetExists = false;
-                            //Iterate over the effects to find possible target items
-                            $.each(effect.target, function(i, target) {
-                                //Test each item against the effect target.
-                                $.each(combinedKit, function(i, item) {
-                                    targetExists = testItemMatchesTarget(item.item, target);
-                                    //Continue iteration if no match found yet.
-                                    return !targetExists;
-                                });
-                                //Stop iterating if any of the effects can be applied
+                var mainWeapon = $scope.regiment['fixed modifiers']['character kit']['main weapon'];
+                var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['other weapons'];
+                var armor = $scope.regiment['fixed modifiers']['character kit']['armor'];
+                var otherGear = $scope.regiment['fixed modifiers']['character kit']['other gear'];
+                var combinedKit = mainWeapon.concat(otherWeapons).concat(armor).concat(otherGear);
+
+                //Iterate over the kit choices
+                var potentialMessage = "";
+                var atLeastOneTargetExists = false;
+                $.each(choice.effects, function(i, effect) {
+                    //Upgrade and Replace are only available if there is an item they can affect in the kit
+                    if (effect.type == "Upgrade" || effect.type == "Replace") {
+                        var targetExists = false;
+                        //Iterate to find possible target items
+                        $.each(effect.target, function(i, target) {
+                            //Test each item against the effect target.
+                            $.each(combinedKit, function(i, item) {
+                                targetExists = testItemMatchesTarget(item.item, target);
+                                //Continue iteration if no match found yet.
                                 return !targetExists;
                             });
-                            //Mark this choice as available if targets exist
-                            isAvailable = targetExists;
+                            //Stop iterating if any of the effects can be applied
+                            return !targetExists;
+                        });
+                        //If no targets were found, add to the possible error string.
+                        if (!targetExists) {
+                            var message;
+                            if (effect.target.length == 1) {
+                                message = effect.target[0].name;
+                            } else {
+                                message = effect.target.map(function(target) {
+                                    return target.name
+                                }).slice(0, effect.target.length - 1).join(', ') + " ";
+                                message += " or " + effect.target[effect.target.length - 1] + ".";
+                            }
+                            potentialMessage += "\nRequires " + message + ".";
+                        } else {
+                            atLeastOneTargetExists = true;
+                            return false;
                         }
-                    });
-                }
-                return isAvailable;
-            });
+                        if (!atLeastOneTargetExists) {
+                            if (!choice.unavailableMessage) {
+                                choice.unavailableMessage = ""
+                            }
+                            choice.unavailableMessage += "\n" + potentialMessage;
+                        }
+                    }
+                });
+                return choice;
+            }));
         }
 
         $scope.chosenKitModifiers = [];
         $scope.readyToSelectKitModifiers = false;
 
         $scope.reapplyModifiers = function() {
-        	var favoredWeapons = $scope.regiment['fixed modifiers']['favored weapons'];
+            var favoredWeapons = $scope.regiment['fixed modifiers']['favored weapons'];
             $scope.regiment = new createdRegiment();
             $scope.regiment['fixed modifiers']['favored weapons'] = favoredWeapons;
             for (var regimentModifierSection in $scope.regimentElements) {
@@ -223,61 +302,68 @@ define(function() {
             checkReadyToSelectKitModifiers();
         }
 
-        $scope.$watchCollection("regiment['fixed modifiers']['favored weapons']", function(newVal, oldVal){
-        	checkReadyToSelectKitModifiers();
-        	isRegimentCreationComplete();
+        $scope.$watchCollection("regiment['fixed modifiers']['favored weapons']", function(newVal, oldVal) {
+            checkReadyToSelectKitModifiers();
+            isRegimentCreationComplete();
         });
 
-        $scope.$watchCollection("regimentElements.homeworld.selected['optional modifiers']", function(){
-        	isRegimentCreationComplete();
+        $scope.$watchCollection("regimentElements.homeworld.selected['optional modifiers']", function() {
+            isRegimentCreationComplete();
         });
-        $scope.$watchCollection("regimentElements.commander.selected['optional modifiers']", function(){
-        	isRegimentCreationComplete();
+        $scope.$watchCollection("regimentElements.commander.selected['optional modifiers']", function() {
+            isRegimentCreationComplete();
         });
-        $scope.$watchCollection("regimentElements.type.selected['optional modifiers']", function(){
-        	isRegimentCreationComplete();
+        $scope.$watchCollection("regimentElements.type.selected['optional modifiers']", function() {
+            isRegimentCreationComplete();
         });
-        $scope.$watch("regiment.name", function(){
-        	isRegimentCreationComplete();
+        $scope.$watch("regiment.name", function() {
+            isRegimentCreationComplete();
         });
 
         $scope.$watchGroup(["regimentElements.homeworld.selected",
-        					"regimentElements.commander.selected",
-        					"regimentElements.type.selected"], function(){
-        	checkReadyToSelectKitModifiers();
-        	isRegimentCreationComplete();
-		})
+            "regimentElements.commander.selected",
+            "regimentElements.type.selected"
+        ], function() {
+            checkReadyToSelectKitModifiers();
+            isRegimentCreationComplete();
+        })
 
-        function checkReadyToSelectKitModifiers(){
-        	if($scope.regiment){
-        		var ready = $scope.regimentElements.homeworld.selected !== null;
-        		ready = $scope.regimentElements.commander.selected  !== null && ready;
-        		ready = $scope.regimentElements.type.selected  !== null && ready;
-        		ready = $scope.regiment['fixed modifiers']['favored weapons'].length == 2 && ready;
-				$scope.readyToSelectKitModifiers = ready;
-			}
+        function checkReadyToSelectKitModifiers() {
+            if ($scope.regiment) {
+                var ready = $scope.regimentElements.homeworld.selected !== null;
+                ready = $scope.regimentElements.commander.selected !== null && ready;
+                ready = $scope.regimentElements.type.selected !== null && ready;
+                ready = $scope.regiment['fixed modifiers']['favored weapons'].length == 2 && ready;
+                $scope.readyToSelectKitModifiers = ready;
+            }
         }
 
-        function isRegimentCreationComplete(){
-        	if($scope.regiment){
-        		//Regiment is finished if it has a selected homeworld, commander and type and each has no optional modifiers left and has selected favored weapons and name.
-        		var nameReady = $scope.regiment.name !== undefined;
-        		var homeworldReady = $scope.regimentElements.homeworld.selected !== null
-        			&& (!$scope.regimentElements.homeworld.selected['optional modifiers']
-        			|| $scope.regimentElements.homeworld.selected['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"}).length === 0);
-        		var commanderReady = $scope.regimentElements.commander.selected !== null
-        			&& (!$scope.regimentElements.commander.selected['optional modifiers']
-        			|| $scope.regimentElements.commander.selected['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"}).length === 0);
-        		var typeReady = $scope.regimentElements.type.selected !== null
-        			&& (!$scope.regimentElements.type.selected['optional modifiers']
-        			|| $scope.regimentElements.type.selected['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"}).length === 0);
-        		var favoredWeaponsReady = $scope.regiment['fixed modifiers']['favored weapons'].length === 2;
-        		$scope.isRegimentCreationComplete =  homeworldReady && commanderReady && typeReady && favoredWeaponsReady && nameReady;
-        	}
+        function isRegimentCreationComplete() {
+            if ($scope.regiment) {
+                //Regiment is finished if it has a selected homeworld, commander and type and each has no optional modifiers left and has selected favored weapons and name.
+                var nameReady = $scope.regiment.name !== undefined;
+                var homeworldReady = $scope.regimentElements.homeworld.selected !== null &&
+                    (!$scope.regimentElements.homeworld.selected['optional modifiers'] ||
+                        $scope.regimentElements.homeworld.selected['optional modifiers'].filter(function(e) {
+                            return e['selection time'] === "regiment"
+                        }).length === 0);
+                var commanderReady = $scope.regimentElements.commander.selected !== null &&
+                    (!$scope.regimentElements.commander.selected['optional modifiers'] ||
+                        $scope.regimentElements.commander.selected['optional modifiers'].filter(function(e) {
+                            return e['selection time'] === "regiment"
+                        }).length === 0);
+                var typeReady = $scope.regimentElements.type.selected !== null &&
+                    (!$scope.regimentElements.type.selected['optional modifiers'] ||
+                        $scope.regimentElements.type.selected['optional modifiers'].filter(function(e) {
+                            return e['selection time'] === "regiment"
+                        }).length === 0);
+                var favoredWeaponsReady = $scope.regiment['fixed modifiers']['favored weapons'].length === 2;
+                $scope.isRegimentCreationComplete = homeworldReady && commanderReady && typeReady && favoredWeaponsReady && nameReady;
+            }
         }
 
         function createdRegiment() {
-        	this.isCustom = true;
+            this.isCustom = true;
             this['fixed modifiers'] = {
                 'character kit': angular.copy($scope.regimentKit),
                 'favored weapons': []
@@ -374,10 +460,12 @@ define(function() {
                         }
                     }
                 }
-                if(modifier['optional modifiers']){
-	                for (var optionalModifier in modifier['optional modifiers'].filter(function(e){return e['selection time'] === "regiment"})) {
-	                    this['optional modifiers'].push(optionalModifier);
-					}
+                if (modifier['optional modifiers']) {
+                    for (var optionalModifier in modifier['optional modifiers'].filter(function(e) {
+                            return e['selection time'] === "regiment"
+                        })) {
+                        this['optional modifiers'].push(optionalModifier);
+                    }
                 }
             };
             this.remainingRegimentPoints = 12;
@@ -424,193 +512,142 @@ define(function() {
             }
         };
 
-        $scope.applyKitModifier = function(choice) {
-            //Iterate over each of the effects of the chosen modifier
-            $.each(choice.effects, function(index, choiceEffect) {
-                //Keep all of the items that this effect can apply to.
-                var eligible = [];
-                switch (choiceEffect.type) {
-                    //Replace an object with a completely new item
-                    case "Replace":
-                        //Change the properties of an item
-                    case "Upgrade":
-                        //Iterate over the items in each of the kit sections and if they match the target, add them to the array of eligible items
-                        var mainWeapon = $scope.regiment['fixed modifiers']['character kit']['main weapon'];
-                        for (var i = 0; i < mainWeapon.length; i++) {
-                            var meetsCondition = true;
-                            $.each(choiceEffect.target, function(index, target) {
-                                if (!testItemMatchesTarget(mainWeapon[i].item, target)) {
-                                    meetsCondition = false;
-                                }
-                            });
-                            if (meetsCondition) {
-                                eligible.push({
-                                    "section": "main weapon",
-                                    "value": mainWeapon[i]
-                                });
-                            };
-                        };
-                        var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['other weapons'];
-                        for (var i = 0; i < otherWeapons.length; i++) {
-                            var meetsCondition = true;
-                            $.each(choiceEffect.target, function(index, target) {
-                                if (!testItemMatchesTarget(otherWeapons[i].item, target)) {
-                                    meetsCondition = false;
-                                }
-                            });
-                            if (meetsCondition) {
-                                eligible.push({
-                                    "section": "other weapons",
-                                    "value": otherWeapons[i]
-                                });
-                            }
-                        }
-                        var armor = $scope.regiment['fixed modifiers']['character kit']['armor'];
-                        for (var i = 0; i < armor.length; i++) {
-                            var meetsCondition = true;
-                            $.each(choiceEffect.target, function(index, target) {
-                                if (!testItemMatchesTarget(armor[i].item, target)) {
-                                    meetsCondition = false;
-                                }
-                            });
-                            if (meetsCondition) {
-                                eligible.push({
-                                    "section": "armor",
-                                    "value": armor[i]
-                                });
-                            }
-                        }
-                        var otherGear = $scope.regiment['fixed modifiers']['character kit']['other gear'];
-                        for (var i = 0; i < otherGear.length; i++) {
-                            var meetsCondition = true;
-                            $.each(choiceEffect.target, function(index, target) {
-                                if (!testItemMatchesTarget(otherGear[i].item, target)) {
-                                    meetsCondition = false;
-                                }
-                            });
-                            if (meetsCondition) {
-                                eligible.push({
-                                    "section": "other gear",
-                                    "value": otherGear[i]
-                                });
-                            }
-                        }
-                        selection.selectionObject = {
-                            selections: 1,
-                            options: eligible
-                        };
-                        break;
-                        //Add a completely new item to the kit
-                    case "Add":
-                        $.each(choice.effects, function(i, effect) {
-                            $.each(effect.results, function(i, result) {
-                                eligible.push(result);
-                            });
+		//Apply the effects of the given kit modifier to the regimental kit.
+        $scope.applyKitModifier = function(modifier) {
+            $.each(modifier.effects, function(i, effect) {
+                switch (effect.type) {
+                    case "Replace": {
+                    	//Get all the items that will be removed
+                        var itemsToRemove = effect.affectedItems;
+                        //Find where each item is located and remove them
+                        $.each($scope.regiment['fixed modifiers']['character kit']['main weapon'], function(i, weapons){
+
                         });
-                        selection.selected = eligible;
                         break;
-                        //Add an item of a particular availability to the kit
-                    case "AddAvailability":
+                    }
+                    case "Upgrade": {
+                        //Find all the target items and apply the effects
+                        $.each(selection.selected, function(i, selected) {
+                            //Upgrade only upgrades a single instance of an item, if the selected item has more than one, move 1 into a separate item and modify the separate one.
+                            var copy = selected.value;
+                            if (copy.count > 1) {
+                                selection.value.count--;
+                                copy = angular.copy(selection.value);
+                                copy.count = 1;
+                            }
+                            //Apply the upgrades
+                            $.each(effect.effectsToApply, function(i, upgrade) {
+                                for (var property in upgrade) {
+                                    selected.value.item[property] = upgrade[property]
+                                }
+                            });
+                        })
                         break;
-                        //Add one of the regiments favored weapons to the kit
-                    case "AddFavored":
-                };
-                var apply = function() {
-                    choice.choiceCount = choice.choiceCount ? choice.choiceCount + 1 : 1;
-                    var result = {
-                        description: choice.description,
-                        itemEffects: []
-                    };
-                    //For each selected choice
-                    $.each(selection.selected, function(index, selection) {
-                        switch (choiceEffect.type) {
-                            case "Replace":
-                                var replacement = choiceEffect.results;
-                                //Find all the upgrades that have been applied to the selected item from other kit modifiers
-                                var upgradesToSelectedItem = $scope.chosenKitModifiers.reduce(function(previous, current, currentIndex, array) {
-                                    return previous.concat(current.itemEffects);
-                                }, []);
-                                upgradesToSelectedItem = upgradesToSelectedItem.filter(function(effect) {
-                                    return angular.equals(effect.affected, selection.value);
-                                });
-                                //Apply all the upgrades to the replacement item, in reverse order because they are stored in FILO order.
-                                $.each(upgradesToSelectedItem.reverse(), function(i, upgrade) {
-                                    for (var property in upgrade.upgrade) {
-                                        $.each(replacement, function(i, replacementItem) {
-                                            replacementItem.item[property] = upgrade.upgrade[property];
-                                        });
-                                    };
-                                    upgrade.original = angular.copy(replacement);
-                                    upgrade.affected = replacement;
-                                });
-                                //Remove the selected item and add the replacement item in its place
-                                switch (selection.section) {
-                                    case "main weapon":
-                                        mainWeapon.splice(mainWeapon.indexOf(selection.value), 1, replacement);
-                                        break;
-                                    case "other weapons":
-                                        otherWeapons.splice(mainWeapon.indexOf(selection.value), 1, replacement);
-                                        break;
-                                    case "armor":
-                                        armor.splice(mainWeapon.indexOf(selection.value), 1, replacement);
-                                        break;
-                                    case "other gear":
-                                        otherGear.splice(mainWeapon.indexOf(selection.value), 1, replacement);
-                                        break;
-                                }
-                                break;
-                            case "Upgrade":
-                                $.each(choiceEffect.results, function(i, effect) {
-                                    //Upgrade only upgrades a single instance of an item, if the selected item has multiples, move 1 into a separate item and modify the separate one.
-                                    var copy = selection.value;
-                                    if (copy.count > 1) {
-                                        selection.value.count--;
-                                        copy = angular.copy(selection.value);
-                                        copy.count = 1;
-                                    }
-                                    result.itemEffects.push({
-                                        "original": angular.copy(copy),
-                                        "effectType": choiceEffect.type,
-                                        "upgrade": effect,
-                                        "affected": copy
-                                    });
-                                    //Apply the upgrade
-                                    for (var property in effect) {
-                                        selection.value.item[property] = effect[property]
-                                    }
-                                })
-                                break;
-                            case "Add":
-                                var existingItem = false;
-                                $.each($scope.regiment['fixed modifiers']['character kit'][choiceEffect.target], function(i, item) {
-                                    if (angular.equals(item.item, selection.item)) {
-                                        item.count += selection.count;
-                                        existingItem = true;
-                                        return false;
-                                    }
-                                });
-                                if (!existingItem) {
-                                    $scope.regiment['fixed modifiers']['character kit'][choiceEffect.target].push(selection);
-                                }
-                                break;
                         }
-                    });
-                    $scope.chosenKitModifiers.push(result);
-                }
-                switch (choiceEffect.type) {
-                    case "Replace":
-                    case "Upgrade":
-                        $uibModal.open({
-                            controller: "SelectionModalController",
-                            templateUrl: "pluginresource/templates/selection-modal.html"
-                        }).result.then(apply);
+                    case "Add":
+                        var existingItem = false;
+                        $.each($scope.regiment['fixed modifiers']['character kit'][effect.target], function(i, item) {
+                            if (angular.equals(item.item, selection.item)) {
+                                item.count += selection.count;
+                                existingItem = true;
+                                return false;
+                            }
+                        });
+                        if (!existingItem) {
+                            $scope.regiment['fixed modifiers']['character kit'][effect.target].push(selection);
+                        }
                         break;
-                    default:
-                        apply();
                 }
+            });
+        }
+
+		//Make any selections for the given kit modifier and add it to the chosen modifiers.
+        $scope.addKitModifier = function(choice) {
+            //Keep track of all the effects that will be applied at the end
+            var effectsToApply = [];
+            var modals;
+            //Iterate over each of the effects of the chosen modifier
+            $.each(choice.effects, function(index, effect) {
+                    //Array containing all items that are eligible at targets for the effect.
+                    switch (effect.type) {
+                        //Replace an object with a completely new item
+                        case "Replace":
+                            //Replace the properties of an item with those contained in the effect
+                        case "Upgrade": {
+                            var eligibleItems = [];
+                            //Iterate over the items in each of the kit sections and if they match the effect target, add them to the eligible items
+                            var combinedItems = $scope.regiment['fixed modifiers']['character kit']['main weapon']
+                            	.concat($scope.regiment['fixed modifiers']['character kit']['other weapons'])
+                            	.concat($scope.regiment['fixed modifiers']['character kit']['armor'])
+                            	.concat($scope.regiment['fixed modifiers']['character kit']['other gear']);
+                            for (var i = 0; i < combinedItems.length; i++) {
+                                var meetsCondition = true;
+                                $.each(effect.target, function(index, target) {
+                                    if (!testItemMatchesTarget(combinedItems[i].item, target)) {
+                                        meetsCondition = false;
+                                    }
+                                });
+                                if (meetsCondition) {
+                                    eligibleItems.push({
+                                        "section": "main weapon",
+                                        "value": combinedItems[i]
+                                    });
+                                };
+                            };
+
+                            //Create the selection object with the eligible items
+                            selection.selectionObject = {
+                                selections: 1,
+                                options: eligibleItems
+                            };
+                            //Open the modal
+                            var currentModal = $uibModal.open({
+                                controller: "SelectionModalController",
+                                templateUrl: "pluginresource/templates/selection-modal.html"
+                            });
+                            //Chain all the modal results together. This allows waiting for all the modals to complete
+                            //successfully before applying any of their results, in case the user cancels in the middle.
+                            if (!modals) {
+                                modals = currentModal.result;
+                            } else {
+                                modals = modals.then(currentModal.result);
+                            }
+                            //After closing the current modal, add its effect to the effects to be applied at the end.
+                            currentModal.result.then(function() {
+                                effectsToApply.push({
+                                	//The items that will be modified/replaced
+                                    affectedItems: selection.selected,
+                                    //The replacement items/upgrades that will be applied
+                                    effectsToApply: effect.results,
+                                    type : effect.type
+                                });
+                            });
+                            break;
+                            }
+                            //Add one or more new items to the kit
+                        case "Add":
+                            //Get the selected targets from the selection service and save them to be applied later.
+                            effectsToApply.push({
+                                effectsToApply: effect,
+                                type : effect.type
+                            });
+                            break;
+                            //Add an item of a particular availability to the kit
+                        case "AddAvailability":
+                            break;
+                            //Add one of the regiments favored weapons to the kit
+                        case "AddFavored":
+                    };
+                })
+                //Application function
+            modals.then(function(result) {
+                choice.effects = effectsToApply;
+                $scope.chosenKitModifiers.push(choice);
+                $scope.applyKitModifier(choice);
+                choice.timesSelected++;
+                $scope.regiment.remainingKitPoints -= choice.cost;
+                updateAvailableKitChoices();
             })
-            $scope.regiment.remainingKitPoints -= choice.cost;
-            updateAvailableKitChoices();
         };
 
         $scope.removeKitModifier = function(modifier) {
@@ -649,8 +686,9 @@ define(function() {
             return true;
         };
 
+        //Filters creation options so that items with too high a cost are hidden
         $scope.costFilter = function(item) {
             return item.cost <= $scope.regiment.remainingRegimentPoints;
         }
     }
-})
+});
