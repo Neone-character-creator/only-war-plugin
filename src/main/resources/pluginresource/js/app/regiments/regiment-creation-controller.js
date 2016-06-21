@@ -156,6 +156,12 @@ define(function() {
 								.concat(results['character options']['items'])
 								.filter(function(item){
 									return item.availability === targetAvailability;
+								}).map(function(item){
+									return {
+										value : {
+											item : item
+										}
+									}
 								});
 							effect.target = options;
 						}
@@ -703,7 +709,7 @@ define(function() {
 							break;
 							//Add an item of a particular availability to the kit
 						case "AddAvailability":
-							selection.selectedObject = {
+							selection.selectionObject = {
 								selections: 1,
 								options: effect.target
 							};
