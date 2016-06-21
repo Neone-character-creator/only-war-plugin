@@ -151,19 +151,19 @@ define(function() {
 						}
 						case "AddAvailability":{
 							var targetAvailability = effect.target;
-							var options = results['character options']['weapons']
-								.concat(results['character options']['armor'])
-								.concat(results['character options']['items'])
+							var options = results['character options']['items']
 								.filter(function(item){
 									return item.availability === targetAvailability;
 								}).map(function(item){
 									return {
 										value : {
-											item : item
+											item : item,
+											count : 1
 										}
 									}
 								});
-							effect.target = options;
+							effect.target = "other gear";
+							effect.results = options;
 						}
 					}
 				})
@@ -591,7 +591,9 @@ define(function() {
 								}
 							});
 							if (!existingItem) {
-								$scope.regiment['fixed modifiers']['character kit'][effect.target].push(result);
+								$.each(effect.results, function(i, result){
+									$scope.regiment['fixed modifiers']['character kit'][effect.target].push(result.value);
+								})
 							}
 						});
 						break;
@@ -711,7 +713,7 @@ define(function() {
 						case "AddAvailability":
 							selection.selectionObject = {
 								selections: 1,
-								options: effect.target
+								options: effect.results
 							};
 							effect.type = "Add";
 							var currentModal = $uibModal.open({
