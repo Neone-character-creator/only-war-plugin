@@ -483,7 +483,7 @@ define(function() {
                                         regiment['fixed modifiers'][property] = [];
                                     }
                                     var incomingAptitudes = modifier['fixed modifiers']['aptitudes'];
-                                    regiment['fixed modifiers'].aptitudes.push(incomingAptitudes);
+                                    regiment['fixed modifiers'].aptitudes = regiment['fixed modifiers'].aptitudes.concat(incomingAptitudes);
                                     break;
                                 }
                             case "starting power experience":
