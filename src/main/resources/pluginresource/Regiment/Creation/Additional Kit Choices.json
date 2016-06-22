@@ -2,104 +2,94 @@
   {
     "description": "Improve a single item of standard kit wargear from Common Craftsmanship to Good Craftsmanship.",
     "cost": 5,
-    "effects": [
-      {
-        "type": "Upgrade",
-        "target": [
-          {
-            "craftsmanship": "Common"
-          }
-        ],
-        "results": [
-          {
-            "craftsmanship": "Good"
-          }
-        ]
-      }
-    ],
+    "effect": {
+      "type": "Upgrade",
+      "target": [
+        {
+          "craftsmanship": "Common"
+        }
+      ],
+      "results": [
+        {
+          "craftsmanship": "Good"
+        }
+      ]
+    },
     "results": "Good"
   },
   {
     "description": "Improve a single item of standard kit wargear from Common Craftsmanship to Best Craftsmanship.",
     "cost": 10,
-    "effects": [
-      {
-        "type": "Upgrade",
-        "target": [
-          {
-            "craftsmanship": "Common"
-          }
-        ],
-        "results": [
-          {
-            "craftsmanship": "Best"
-          }
-        ]
-      }
-    ],
+    "effect": {
+      "type": "Upgrade",
+      "target": [
+        {
+          "craftsmanship": "Common"
+        }
+      ],
+      "results": [
+        {
+          "craftsmanship": "Best"
+        }
+      ]
+    },
     "results": "Best"
   },
   {
     "description": "Replace laspistol with lascarbine.",
     "cost": 5,
-    "effects": [
-      {
-        "type": "Replace",
-        "target": [
-          {
-            "name": "Laspistol"
-          }
-        ],
-        "results": [
-          {
-            "item": {
-              "name": "Lascarbine"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Replace",
+      "target": [
+        {
+          "name": "Laspistol"
+        }
+      ],
+      "results": [
+        {
+          "item": {
+            "name": "Lascarbine"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Replace lascarbine with M36 lasgun.",
     "cost": 5,
-    "effects": [
-      {
-        "type": "Replace",
-        "target": [
-          {
-            "name": "Lascarbine"
-          }
-        ],
-        "results": [
-          {
-            "item": {
-              "name": "M36 Lasgun"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Replace",
+      "target": [
+        {
+          "name": "Lascarbine"
+        }
+      ],
+      "results": [
+        {
+          "item": {
+            "name": "M36 Lasgun"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add an additional knife.",
     "cost": 2,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": [
-          {
-            "item": {
-              "name": "Knife"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": [
+        {
+          "item": {
+            "name": "Knife"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a laspistol and 2 charge packs as a sidearm.",
@@ -107,26 +97,24 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": [
-          {
-            "item": {
-              "name": "Laspistol"
-            },
-            "count": 1
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": [
+        {
+          "item": {
+            "name": "Laspistol"
           },
-          {
-            "item": {
-              "name": "Charge Pack (Pistol)"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Pistol)"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add an autopistol and 2 clips as a sidearm.",
@@ -134,26 +122,24 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": [
-          {
-            "item": {
-              "name": "Autopistol"
-            },
-            "count": 1
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": [
+        {
+          "item": {
+            "name": "Autopistol"
           },
-          {
-            "item": {
-              "name": "Clip"
-            },
-            "count": 2
-          }
-        ]
-      }
-    ]
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Clip"
+          },
+          "count": 2
+        }
+      ]
+    }
   },
   {
     "description": "Add a stub automatic and 2 clips as a sidearm.",
@@ -161,26 +147,24 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": [
-          {
-            "item": {
-              "name": "Stub Automatic"
-            },
-            "count": 1
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": [
+        {
+          "item": {
+            "name": "Stub Automatic"
           },
-          {
-            "item": {
-              "name": "Clip"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Clip"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a stub revolver and 12 bullets as a sidearm.",
@@ -188,25 +172,23 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": [
-          {
-            "item": {
-              "name": "Stub Revolver"
-            },
-            "count": 1
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": [
+        {
+          "item": {
+            "name": "Stub Revolver"
           },
-          {
-            "item": {
-              "name": "Bullet"
-            }
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Bullet"
           }
-        ]
-      }
-    ]
+        }
+      ]
+    }
   },
   {
     "description": "Add an Additional frag grenade to standard kit.",
@@ -214,20 +196,18 @@
     "limits": {
       "maxSelectCount": 2
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": [
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": [
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add an Additional smoke grenade to standard kit.",
@@ -235,18 +215,16 @@
     "limits": {
       "maxSelectCount": 2
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": {
-          "item": {
-            "name": "Smoke Grenade"
-          },
-          "count": 1
-        }
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": {
+        "item": {
+          "name": "Smoke Grenade"
+        },
+        "count": 1
       }
-    ]
+    }
   },
   {
     "description": "Add an Additional krak grenade to standard kit.",
@@ -254,20 +232,18 @@
     "limits": {
       "maxSelectCount": 2
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other weapons",
-        "results": [
-          {
-            "item": {
-              "name": "Krak Grenade"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other weapons",
+      "results": [
+        {
+          "item": {
+            "name": "Krak Grenade"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Replace a M36 lasgun with a combat shotgun and 4 clips.",
@@ -282,125 +258,113 @@
         ]
       }
     },
-    "effects": [
-      {
-        "type": "Replace",
-        "target": [
-          {
-            "name": "M36 Lasgun"
-          }
-        ],
-        "results": [
-          {
-            "item": {
-              "name": "Combat Shotgun"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Replace",
+      "target": [
+        {
+          "name": "M36 Lasgun"
+        }
+      ],
+      "results": [
+        {
+          "item": {
+            "name": "Combat Shotgun"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Replace a Lascarbine with a combat shotgun and 4 clips.",
     "cost": 10,
-    "effects": [
-      {
-        "type": "Replace",
-        "target": [
-          {
-            "name": "Lascarbine"
-          }
-        ],
-        "results": [
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Replace",
+      "target": [
+        {
+          "name": "Lascarbine"
+        }
+      ],
+      "results": [
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a chrono to standard kit.",
     "cost": 2,
     "maxSelectCount": 1,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Chrono"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Chrono"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a clip/drop harness to standard kit.",
     "cost": 5,
     "maxSelectCount": 1,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "other gear": {
-              "name": "Clip/Drop Harness"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "other gear": {
+            "name": "Clip/Drop Harness"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add an Additional uniform for field use to standard kit.",
     "cost": 2,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Field Uniform"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Field Uniform"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add an Additional uniform for dress or parade use to standard kit.",
     "cost": 5,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Dress Uniform"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Dress Uniform"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add filtration plugs to standard kit.",
     "cost": 5,
-    "effects": [
+    "effect": [
       {
         "type": "Add",
         "target": "other gear",
@@ -418,74 +382,66 @@
   {
     "description": "Add the Munitorum Manual to standard kit.",
     "cost": 3,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Munitorum Manual"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Munitorum Manual"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a photo-visor to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Photo-Visor"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Photo-Visor"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a set of photo-contacts to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Photo-Contacts"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Photo-Contacts"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add preysense goggles to standard kit.",
     "cost": 15,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Preysense Goggles"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Preysense Goggles"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add purity seals to standard kit.",
@@ -497,76 +453,68 @@
         ]
       }
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": {
-          "item": {
-            "name": "Purity Seals"
-          },
-          "count": 1
-        }
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": {
+        "item": {
+          "name": "Purity Seals"
+        },
+        "count": 1
       }
-    ]
+    }
   },
   {
     "description": "Add respirator or gas mask to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": {
-          "item": {
-            "name": "Respirator/Gas Mask"
-          },
-          "count": 1
-        }
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": {
+        "item": {
+          "name": "Respirator/Gas Mask"
+        },
+        "count": 1
       }
-    ]
+    }
   },
   {
     "description": "Add survival suit to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Survival Suit"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Survival Suit"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add 1 dose of de-tox and an injector to standard kit.",
     "cost": 15,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "De-Tox"
-            },
-            "count": 1
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "De-Tox"
           },
-          {
-            "item": {
-              "name": "Injector"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Injector"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a single advanced medkit to the squad as standard kit.",
@@ -574,38 +522,34 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Advanced Medkit"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Advanced Medkit"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add 2 weeks' worth of Additional ration packs to standard kit.",
     "cost": 3,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Weeks' Rations"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Weeks' Rations"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add 1 dose of slaught to standard kit.",
@@ -617,20 +561,18 @@
         ]
       }
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Slaught"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Slaught"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add dose of frenzon to standard kit.",
@@ -642,44 +584,40 @@
         ]
       }
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Frenzon"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Frenzon"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add 1 dose of stimm and an injector to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Stimm"
-            },
-            "count": 1
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Stimm"
           },
-          {
-            "item": {
-              "name": "Injector"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Injector"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a single auspex to the squad as standard kit.",
@@ -687,128 +625,114 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Auspex"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Auspex"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a grapnel to standard kit.",
     "cost": 5,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Grapnel"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Grapnel"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add magnoculars to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Magnoculars"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Magnoculars"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a micro-bead to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Micro-Bead"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Micro-Bead"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a pict recorder to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Pict-Recorder"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Pict-Recorder"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a box of 6 Screamers to the squad standard kit.",
     "cost": 10,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Screamer"
-            },
-            "count": 6
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Screamer"
+          },
+          "count": 6
+        }
+      ]
+    }
   },
   {
     "description": "Add a single stummer to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Stummer"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Stummer"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add a targeter to to standard kit.",
@@ -820,100 +744,82 @@
         ]
       }
     },
-    "effects": [
-      {
-        "type": "Add",
-        "target": "other gear",
-        "results": [
-          {
-            "item": {
-              "name": "Targeter"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "target": "other gear",
+      "results": [
+        {
+          "item": {
+            "name": "Targeter"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add an Additional item of Ubiquitous availability to standard kit.",
     "cost": 1,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Ubiquitous"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Ubiquitous"
+    }
   },
   {
     "description": "Add an Additional item of Abundant availability to standard kit.",
     "cost": 2,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Abundant"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Abundant"
+    }
   },
   {
     "description": "Add an Additional item of Plentiful availability to standard kit.",
     "cost": 3,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Abundant"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Abundant"
+    }
   },
   {
     "description": "Add an Additional item of Common availability to standard kit.",
     "cost": 5,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Common"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Common"
+    }
   },
   {
     "description": "Add an Additional item of Average availability to standard kit.",
     "cost": 8,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Average"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Average"
+    }
   },
   {
     "description": "Add an Additional item of Scarce availability to standard kit.",
     "cost": 10,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Scarce"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Scarce"
+    }
   },
   {
     "description": "Add an Additional item of Rare availability to standard kit.",
     "cost": 15,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Rare"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Rare"
+    }
   },
   {
     "description": "Add an Additional item of Very Rare availability to standard kit.",
     "cost": 20,
-    "effects": [
-      {
-        "type": "AddAvailability",
-        "target": "Very Rare"
-      }
-    ]
+    "effect": {
+      "type": "AddAvailability",
+      "target": "Very Rare"
+    }
   },
   {
     "description": "Add one Favored Basic Weapon.",
@@ -921,12 +827,10 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "AddFavored",
-        "target": "Basic"
-      }
-    ]
+    "effect": {
+      "type": "AddFavored",
+      "target": "Basic"
+    }
   },
   {
     "description": "Add one Favoured Heavy Weapon.",
@@ -934,11 +838,9 @@
     "limits": {
       "maxSelectCount": 1
     },
-    "effects": [
-      {
-        "type": "AddFavored",
-        "target": "Heavy"
-      }
-    ]
+    "effect": {
+      "type": "AddFavored",
+      "target": "Heavy"
+    }
   }
 ]
