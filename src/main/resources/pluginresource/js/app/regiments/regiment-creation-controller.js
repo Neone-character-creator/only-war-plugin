@@ -166,8 +166,8 @@ define(function() {
 							effect.results = options;
 						}
 					}
-				})
-			})
+				});
+			});
 			$scope.regiment = new createdRegiment();
 			updateAvailableKitChoices();
 			for (var section in $scope.regimentElements) {
@@ -214,8 +214,14 @@ define(function() {
 					}
 					choice.unavailableMessage += "\nRequires " + choice.cost + " points but only " + $scope.regiment.remainingKitPoints + " available."
 				}
+				var timesSelected = 0;
+				if($scope.kitChoices){
+					timesSelected = $scope.chosenKitModifiers.filter(function(previousChoice){
+						return previousChoice.description === choice.description;
+					}).length;
+				}
 				if (choice.limits) {
-					if (choice.limits.maxSelectCount && choice.limits.MaxSelectCount <= choice.timesSelected) {
+					if (choice.limits.maxSelectCount && choice.limits.maxSelectCount <= timesSelected) {
 						if (!choice.unavailableMessage) {
 							choice.unavailableMessage = "";
 						}
@@ -597,6 +603,31 @@ define(function() {
 							}
 						});
 						break;
+					case "AddFavored":
+						var favoredWeapon;
+						switch(effect.target){
+							case "Basic":
+								favoredWeapon = $scope.regiment['fixed modifiers']['favored weapons'][0];
+								break;
+							case "Heavy":
+								favoredWeapon = $scope.regiment['fixed modifiers']['favored weapons'][1];
+								break;
+						}
+						var existingItem = $scope.regiment['fixed modifiers']['character kit']['main weapon']
+							.concat($scope.regiment['fixed modifiers']['character kit']['other weapons'])
+							.find(function(weapon){
+								return angular.equals(weapon, favoredWeapon);
+							});
+						if(existingItem){
+							existingItem.count += 1;
+						} else {
+							$scope.regiment['fixed modifiers']['character kit']['other weapons'].push(
+							{
+								item: favoredWeapon,
+								count : 1
+							});
+						}
+						break;
 				}
 			});
 			updateAvailableKitChoices();
@@ -732,14 +763,22 @@ define(function() {
 							break;
 							//Add one of the regiments favored weapons to the kit
 						case "AddFavored":
+							var deferred = $q.defer();
+							deferred.resolve();
+							if (!modals) {
+								modals = deferred.promise;
+							} else {
+								modals = modals.then(deferred.promise);
+							}
+							break;
 					};
 				})
 				//Application function
 			modals.then(function(result) {
 				$scope.chosenKitModifiers.push(choice);
-				$scope.applyKitModifier(choice);
 				choice.timesSelected++;
 				$scope.regiment.remainingKitPoints -= choice.cost;
+				$scope.applyKitModifier(choice);
 				updateAvailableKitChoices();
 			})
 		};
