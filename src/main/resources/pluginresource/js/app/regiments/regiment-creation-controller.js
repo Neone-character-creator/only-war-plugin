@@ -422,7 +422,7 @@ define(function() {
 				for (var property in modifier['fixed modifiers']) {
 					if (modifier['fixed modifiers'].hasOwnProperty(property)) {
 						switch (property) {
-							case "characteristics":
+							case "characteristics":{
 								if (!regiment['fixed modifiers'][property]) {
 									regiment['fixed modifiers'].characteristics = {}
 								}
@@ -434,8 +434,8 @@ define(function() {
 									}
 								}
 								break;
-
-							case "skills":
+							}
+							case "skills":{
 								if (!regiment['fixed modifiers'][property]) {
 									regiment['fixed modifiers'].skills = {};
 								}
@@ -449,7 +449,8 @@ define(function() {
 									}
 								}
 								break;
-							case "talents":
+							}
+							case "talents": {
 								if (!regiment['fixed modifiers'][property]) {
 									regiment['fixed modifiers'][property] = [];
 								}
@@ -458,13 +459,15 @@ define(function() {
 									regiment['fixed modifiers'].talents.push(incomingTalents[i]);
 								}
 								break;
-							case "aptitudes":
+							}
+							case "aptitudes":{
 								if (!regiment['fixed modifiers'][property]) {
 									regiment['fixed modifiers'][property] = [];
 								}
 								var incomingAptitudes = modifier['fixed modifiers']['aptitudes'];
 								regiment['fixed modifiers'].aptitudes.push(incomingAptitudes);
 								break;
+							}
 							case "starting power experience":
 								regiment['fixed modifiers'][property] += modifier['fixed modifiers']['starting power experience'];
 								break;
@@ -486,7 +489,7 @@ define(function() {
 									regiment['fixed modifiers']['character kit'] = {};
 								}
 								for (var category in modifier['fixed modifiers']['character kit']) {
-									if (!regiment['fixed modifiers']['character kit'][category]) {
+									if (category == "main weapon" || !regiment['fixed modifiers']['character kit'][category]) {
 										regiment['fixed modifiers']['character kit'][category] = [];
 									}
 									$.each(modifier['fixed modifiers']['character kit'][category], function(index, element) {
