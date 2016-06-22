@@ -105,7 +105,7 @@
     "description": "Add a laspistol and 2 charge packs as a sidearm.",
     "cost": 5,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
@@ -132,7 +132,7 @@
     "description": "Add an autopistol and 2 clips as a sidearm.",
     "cost": 8,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
@@ -159,7 +159,7 @@
     "description": "Add a stub automatic and 2 clips as a sidearm.",
     "cost": 8,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
@@ -186,7 +186,7 @@
     "description": "Add a stub revolver and 12 bullets as a sidearm.",
     "cost": 3,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
@@ -212,7 +212,7 @@
     "description": "Add an Additional frag grenade to standard kit.",
     "cost": 5,
     "limits": {
-      "max": 2
+      "maxSelectCount": 2
     },
     "effects": [
       {
@@ -233,7 +233,7 @@
     "description": "Add an Additional smoke grenade to standard kit.",
     "cost": 5,
     "limits": {
-      "max": 2
+      "maxSelectCount": 2
     },
     "effects": [
       {
@@ -252,7 +252,7 @@
     "description": "Add an Additional krak grenade to standard kit.",
     "cost": 15,
     "limits": {
-      "max": 2
+      "maxSelectCount": 2
     },
     "effects": [
       {
@@ -326,7 +326,7 @@
   {
     "description": "Add a chrono to standard kit.",
     "cost": 2,
-    "max": 1,
+    "maxSelectCount": 1,
     "effects": [
       {
         "type": "Add",
@@ -345,7 +345,7 @@
   {
     "description": "Add a clip/drop harness to standard kit.",
     "cost": 5,
-    "max": 1,
+    "maxSelectCount": 1,
     "effects": [
       {
         "type": "Add",
@@ -572,7 +572,7 @@
     "description": "Add a single advanced medkit to the squad as standard kit.",
     "cost": 15,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
@@ -685,7 +685,7 @@
     "description": "Add a single auspex to the squad as standard kit.",
     "cost": 10,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
@@ -919,7 +919,7 @@
     "description": "Add one Favored Basic Weapon.",
     "cost": 10,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
@@ -932,7 +932,7 @@
     "description": "Add one Favoured Heavy Weapon.",
     "cost": 15,
     "limits": {
-      "max": 1
+      "maxSelectCount": 1
     },
     "effects": [
       {
