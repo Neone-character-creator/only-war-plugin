@@ -170,15 +170,15 @@
                             <div class="row" id="favored_basic_weapon">
                                 Choose your Regimental Favored Basic Weapon
                                 <select ng-model="regiment['fixed modifiers']['favored weapons'][0]"
-                                        ng-options="weapon.name as weapon.name for weapon in basicWeapons">
-                                    {{weapon}}
+                                        ng-options="weapon as weapon.name for weapon in basicWeapons">
+                                    {{weapon.name}}
                                 </select>
                             </div>
                             <div class="row" id="favored_heavy_weapon">
                                 Choose your Regimental Favored Heavy Weapon
                                 <select ng-model="regiment['fixed modifiers']['favored weapons'][1]"
-                                        ng-options="weapon.name as weapon.name for weapon in heavyWeapons">
-                                    {{weapon}}
+                                        ng-options="weapon as weapon.name for weapon in heavyWeapons">
+                                    {{weapon.name}}
                                 </select>
                             </div>
                         </div>
@@ -301,12 +301,11 @@
                                     Remaining Kit Points: {{regiment.remainingKitPoints}}
                                     <ul>
                                         <li ng-repeat="choice in kitChoices">
-                                            <button class="btn btn-link" ng-click="applyKitModifier(choice)"
-                                                    style="white-space: normal;"
-                                            >{{choice.description}}
-                                                {{"
-                                                (" +
-                                                choice.cost +" pts)"}}
+                                            <button class="btn btn-link" ng-class="{disabled:choice.unavailableMessage}"
+                                                    ng-click="!choice.unavailableMessage ? addKitModifier(choice) : null"
+                                                    uib-tooltip="{{choice.unavailableMessage}}"
+                                                    style="white-space: normal;">
+                                                {{choice.description + " (" + choice.cost +" pts)"}}
                                             </button>
                                         </li>
                                     </ul>
