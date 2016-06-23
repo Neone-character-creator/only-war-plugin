@@ -54,7 +54,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].skills"
+                                    <div ng-show="Object.keys(regimentElements[category].selected['fixed modifiers'].skills).length"
                                          class="row">
                                         <h4>Skills</h4>
                                         <ul>
@@ -255,7 +255,9 @@
                         <div class="row">
                             <h3>Aptitudes</h3>
                             <ul>
-                                <li ng-repeat="aptitude in regiment['fixed modifiers']['aptitudes']">{{aptitude}}</li>
+                                <li ng-repeat="aptitude in regiment['fixed modifiers']['aptitudes'] track by $index">
+                                    {{aptitude}}
+                                </li>
                             </ul>
                         </div>
                         <div class="row">
@@ -294,13 +296,14 @@
                         </div>
                         <div class="row">
                             <h4>Regimental Kit Options</h4>
-                            <div ng-show="readyToSelectKitModifiers">
+                            <div>
+                                <!--<div ng-show="readyToSelectKitModifiers">-->
                                 <div class="row">
 
                                     Select from the following options to customize your regimental starting gear.
                                     Remaining Kit Points: {{regiment.remainingKitPoints}}
                                     <ul>
-                                        <li ng-repeat="choice in kitChoices">
+                                        <li ng-repeat="choice in kitChoices track by $index">
                                             <button class="btn btn-link" ng-class="{disabled:choice.unavailableMessage}"
                                                     ng-click="!choice.unavailableMessage ? addKitModifier(choice) : null"
                                                     uib-tooltip="{{choice.unavailableMessage}}"
@@ -333,5 +336,4 @@
         </div>
     </div>
 </div>
-
 </html>
