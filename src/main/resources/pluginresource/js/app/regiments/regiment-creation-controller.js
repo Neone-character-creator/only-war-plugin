@@ -117,7 +117,7 @@ define(function() {
                     case "Replace":
                         {
                             $.each(choice.effect.results, function(i, result) {
-                                var placeholder = result;
+                                var placeholder = angular.copy(result);
                                 result.item = results['character options'].weapons.find(function(item) {
                                     for (var property in placeholder.item) {
                                         if (item[property] !== placeholder.item[property]) {
