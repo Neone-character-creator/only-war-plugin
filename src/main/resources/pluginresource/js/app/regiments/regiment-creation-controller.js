@@ -442,7 +442,7 @@ define(function() {
                                         regiment['fixed modifiers'].characteristics = {}
                                     }
                                     for (var characteristic in modifier['fixed modifiers']["characteristics"]) {
-                                        if (regiment['fixed modifiers'].characteristics.characteristic) {
+                                        if (regiment['fixed modifiers'].characteristics[characteristic]) {
                                             regiment['fixed modifiers'].characteristics[characteristic] += modifier['fixed modifiers'][property][characteristic];
                                         } else {
                                             regiment['fixed modifiers'].characteristics[characteristic] = modifier['fixed modifiers'][property][characteristic];
@@ -597,16 +597,19 @@ define(function() {
             switch (modifier.effect.type) {
                 case "Replace":
                     {
-                        var targetIndex = target.section.indexOf(target.value);
-                        target.section.splice(targetIndex, 1);
-                        $.each(choice.effect.results, function(i, result) {
-                            target.section.push(result);
+                    	$.each(modifier.effect.target, function(i, target){
+                        	var targetIndex = target.section.indexOf(target.value);
+                        	target.section.splice(targetIndex, 1);
+                        	$.each(modifier.effect.results, function(i, result) {
+                        		target.section.push(result);
+                        	});
                         });
+
                         break;
                     }
                 case "Upgrade":
                     {
-                        $.each(choice.effect.results, function(i, result) {
+                        $.each(modifier.effect.results, function(i, result) {
                             for (var property in result) {
                                 target.value.item[property] = result[property];
                             }
@@ -614,7 +617,7 @@ define(function() {
                         break;
                     }
                 case "Add":
-                    var target = $scope.regiment['fixed modifiers']['character kit'][choice.effect.target];
+                    var target = $scope.regiment['fixed modifiers']['character kit'][modifier.effect.target];
                     var existingItem;
                     $.each(target, function(i, item) {
                         if (angular.equals(item.item, result.item)) {
@@ -624,14 +627,14 @@ define(function() {
                         }
                     });
                     if (!existingItem) {
-                        $.each(effect.results, function(i, result) {
-                            $scope.regiment['fixed modifiers']['character kit'][effect.target].push(result.value);
+                        $.each(modifier.effect.results, function(i, result) {
+                            $scope.regiment['fixed modifiers']['character kit'][modifier.effect.target].push(result.value);
                         })
                     }
                     break;
                 case "AddFavored":
                     var favoredWeapon;
-                    switch (effect.target) {
+                    switch (modifier.effect.target) {
                         case "Basic":
                             favoredWeapon = $scope.regiment['fixed modifiers']['favored weapons'][0];
                             break;
@@ -750,7 +753,7 @@ define(function() {
                         }
                         //After closing the current modal, add its effect to the effects to be applied at the end.
                         currentModal.result.then(function() {
-                            choice.effect.target = selection.selected;
+                            choice.effect.target = selection.selected
                         });
                         break;
                     }
