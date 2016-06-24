@@ -1,105 +1,100 @@
 {
   "source": "core",
   "fixed modifiers": {
-    "character kit": {
-      "main weapon": [
-        {
-          "item": {
-            "name": "Laspistol"
-          },
-          "count": 1
+    "character kit": [
+      {
+        "item": {
+          "name": "Laspistol"
         },
-        {
-          "item": {
-            "name": "Charge Pack (Pistol)"
-          },
-          "count": 2
-        }
-      ],
-      "other weapons": [
-        {
-          "item": {
-            "name": "Knife"
-          },
-          "count": 1
-        }
-      ],
-      "armor": [
-        {
-          "item": {
-            "name": "Flak Vest"
-          },
-          "count": 1
-        }
-      ],
-      "other gear": [
-        {
-          "item": {
-            "name": "Uniform"
-          },
-          "count": 1
+        "count": 1,
+        "main weapon": true
+      },
+      {
+        "item": {
+          "name": "Charge Pack (Pistol)"
         },
-        {
-          "item": {
-            "name": "Poor Weather Gear"
-          },
-          "count": 1
+        "count": 2,
+        "main weapon": true
+      },
+      {
+        "item": {
+          "name": "Knife"
         },
-        {
-          "item": {
-            "name": "Rucksack"
-          },
-          "count": 1
+        "count": 1,
+        "standard melee weapon": true
+      },
+      {
+        "item": {
+          "name": "Flak Vest"
         },
-        {
-          "item": {
-            "name": "Basic Tools"
-          },
-          "count": 1
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Uniform"
         },
-        {
-          "item": {
-            "name": "Mess Kit and Water Canteen"
-          },
-          "count": 1
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Poor Weather Gear"
         },
-        {
-          "item": {
-            "name": "Blanket and Sleep Bag"
-          },
-          "count": 1
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Rucksack"
         },
-        {
-          "item": {
-            "name": "Rechargeable Lamp Pack"
-          },
-          "count": 1
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Basic Tools"
         },
-        {
-          "item": {
-            "name": "Grooming Kit"
-          },
-          "count": 1
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Mess Kit and Water Canteen"
         },
-        {
-          "item": {
-            "name": "Identification"
-          },
-          "count": 1
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Blanket and Sleep Bag"
         },
-        {
-          "item": {
-            "name": "Handbook"
-          },
-          "count": 1
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Rechargeable Lamp Pack"
         },
-        {
-          "item": {
-            "name": "Week's Rations"
-          },
-          "count": 4
-        }
-      ]
-    }
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Grooming Kit"
+        },
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Identification"
+        },
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Handbook"
+        },
+        "count": 1
+      },
+      {
+        "item": {
+          "name": "Week's Rations"
+        },
+        "count": 4
+      }
+    ]
   }
 }
