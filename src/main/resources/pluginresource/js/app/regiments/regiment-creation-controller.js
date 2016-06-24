@@ -15,7 +15,43 @@ define(function() {
         		set selected(value) {
         			this._selected = angular.copy(value);
         			if(value.name === "Hardened Fighters"){
-
+        				selection.selectionObject = {
+        					selections : 1,
+        					options : [
+        						{
+        							"index" : 0,
+        							"description" : "Replace standard melee weapon with a Common Availability melee weapon"
+        						},
+        						{
+        							"index" : 1,
+        							"description" : "Upgrade standard melee weapon with the Mono upgrade"
+        						}
+        					]
+        				};
+        				$uibModal.open({
+        					controller : "SelectionModalController",
+        					templateUrl : "pluginresource/templates/selection-modal.html"
+        				}).result.then(function(){
+        					var result = selection.selected;
+        					switch(selected.index){
+        						case 0:
+        							selection.selectionObject = {
+        								selections: 1,
+        								options: characteroptions.weapons().filter(function(weapon){
+        									return weapon.class === "Melee" && weapon.availability === "Common"
+        								})
+        							};
+        							$uibModal.open({
+        								controller : "SelectionModalController",
+        								templateUrl : "pluginresource/templates/selection-modal.html"
+        							}).result.then(function(){
+        								value;
+        							});
+        							break;
+        						case 1:
+        							break;
+        					}
+        				});
         			}
         		reapplyModifiers()
         		},
@@ -242,7 +278,7 @@ define(function() {
                 }
 
                 var mainWeapon = $scope.regiment['fixed modifiers']['character kit']['main weapon'];
-                var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['other weapons'];
+                var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'];
                 var armor = $scope.regiment['fixed modifiers']['character kit']['armor'];
                 var otherGear = $scope.regiment['fixed modifiers']['character kit']['other gear'];
                 var combinedKit = mainWeapon.concat(otherWeapons).concat(armor).concat(otherGear);
@@ -610,14 +646,14 @@ define(function() {
                             break;
                     }
                     var existingItem = $scope.regiment['fixed modifiers']['character kit']['main weapon']
-                        .concat($scope.regiment['fixed modifiers']['character kit']['other weapons'])
+                        .concat($scope.regiment['fixed modifiers']['character kit']['standard melee weapon'])
                         .find(function(weapon) {
                             return angular.equals(weapon, favoredWeapon);
                         });
                     if (existingItem) {
                         existingItem.count += 1;
                     } else {
-                        $scope.regiment['fixed modifiers']['character kit']['other weapons'].push({
+                        $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'].push({
                             item: favoredWeapon,
                             count: 1
                         });
@@ -655,7 +691,7 @@ define(function() {
                                 });
                             };
                         };
-                        var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['other weapons'];
+                        var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'];
                         for (var i = 0; i < otherWeapons.length; i++) {
                             var meetsCondition = true;
                             $.each(choice.effect.target, function(index, target) {
@@ -665,7 +701,7 @@ define(function() {
                             });
                             if (meetsCondition) {
                                 eligibleItems.push({
-                                    "section": $scope.regiment['fixed modifiers']['character kit']['other weapons'],
+                                    "section": $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'],
                                     "value": otherWeapons[i]
                                 });
                             };
