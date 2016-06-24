@@ -223,45 +223,7 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             //Filter for formatting an selectable option in a modal.
         app.filter('modal_option', function() {
             function filter(inVal) {
-                if (Array.isArray(inVal)) {
-                    var elements = [];
-                    $.each(inVal, function(index, element) {
-                        var optionElements = [];
-                        if (!Array.isArray(element.property)) {
-                            switch (element.property) {
-                                case "talents":
-                                    optionElements.push(element.value.name);
-                                    break;
-                                case "skills":
-                                    for (var skill in element.value) {
-                                        var rating = (element.value[skill] - 1);
-                                        optionElements.push(skill + (rating ? "+ " + rating * 10 : ''))
-                                    };
-                                    break;
-                                case "characteristics":
-                                    for (var characteristic in element.value) {
-                                        optionElements.push(characteristic + " +" + element.value[characteristic])
-                                    };
-                                    break;
-                            }
-                        } else {
-                            switch (element.property[0]) {
-                                case "character kit":
-                                    optionElements.push(element.value.count + " x " + element.value.item.name);
-                            }
-                        }
-                        elements.push(optionElements.join(", "));
-                    });
-                    return elements.join(", ");
-                } else {
-                    var description = inVal.value.item.craftsmanship + " Craftsmanship";
-                    description += " " + inVal.value.item.name;
-                    if (inVal.upgrades) {
-                        description += " w/ ";
-                        description += inVal.value.upgrades.join(", ");
-                    }
-                    return description;
-                }
+               return inVal.description;
             }
             return filter;
         });
