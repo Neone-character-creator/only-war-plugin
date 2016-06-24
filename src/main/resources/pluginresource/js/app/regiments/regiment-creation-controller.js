@@ -20,7 +20,7 @@ define(function() {
         					options : [
         						{
         							"index" : 0,
-        							"description" : "Replace standard melee weapon with a Common Availability melee weapon"
+        							"description" : "Replace standard melee weapon with a Common or more Availability melee weapon"
         						},
         						{
         							"index" : 1,
@@ -32,13 +32,22 @@ define(function() {
         					controller : "SelectionModalController",
         					templateUrl : "pluginresource/templates/selection-modal.html"
         				}).result.then(function(){
-        					var result = selection.selected;
-        					switch(selected.index){
+        					var result = selection.selected[0];
+        					switch(result.index){
         						case 0:
         							selection.selectionObject = {
         								selections: 1,
-        								options: characteroptions.weapons().filter(function(weapon){
-        									return weapon.class === "Melee" && weapon.availability === "Common"
+        								options: $scope.weapons.filter(function(weapon){
+        									return weapon.class === "Melee"
+        										&& (weapon.availability === "Common"
+        											|| weapon.availability == "Plentiful"
+        											|| weapon.availability == "Abundant"
+        											|| weapon.availability == "Ubiquitous")
+        								}).map(function(weapon){
+        									return {
+        										weapon:weapon,
+        										description : weapon.name
+        									}
         								})
         							};
         							$uibModal.open({
@@ -49,6 +58,13 @@ define(function() {
         							});
         							break;
         						case 1:
+        							var standardMeleeWeapon = $scope.regiment['fixed modifiers']['character kit'].find(function(item){
+        								return item['standard melee weapon'];
+        							});
+        							if(!standardMeleeWeapon.item.upgrades){
+        								standardMeleeWeapon.item.upgrades = [];
+        							}
+        							standardMeleeWeapon.item.upgrades.push("Mono");
         							break;
         					}
         				});
@@ -81,6 +97,7 @@ define(function() {
                 "items": characteroptions.items()
             })
         }).then(function(results) {
+        	$scope.weapons = results['character options'].weapons;
             $scope.basicWeapons = results['character options'].weapons.filter(function(weapon) {
                 var availability = false;
                 switch (weapon.availability) {
@@ -277,11 +294,7 @@ define(function() {
                     }
                 }
 
-                var mainWeapon = $scope.regiment['fixed modifiers']['character kit']['main weapon'];
-                var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'];
-                var armor = $scope.regiment['fixed modifiers']['character kit']['armor'];
-                var otherGear = $scope.regiment['fixed modifiers']['character kit']['other gear'];
-                var combinedKit = mainWeapon.concat(otherWeapons).concat(armor).concat(otherGear);
+                var equipment = $scope.regiment['fixed modifiers']['character kit'];
 
                 //Iterate over the kit choices
                 var potentialMessage = "";
@@ -292,7 +305,7 @@ define(function() {
                     //Iterate to find possible target items
                     $.each(choice.effect.target, function(i, target) {
                         //Test each item against the effect target.
-                        $.each(combinedKit, function(i, item) {
+                        $.each(equipment, function(i, item) {
                             targetExists = testItemMatchesTarget(item.item, target);
                             //Continue iteration if no match found yet.
                             return !targetExists;
@@ -645,15 +658,14 @@ define(function() {
                             favoredWeapon = $scope.regiment['fixed modifiers']['favored weapons'][1];
                             break;
                     }
-                    var existingItem = $scope.regiment['fixed modifiers']['character kit']['main weapon']
-                        .concat($scope.regiment['fixed modifiers']['character kit']['standard melee weapon'])
+                    var existingItem = $scope.regiment['fixed modifiers']['character kit']
                         .find(function(weapon) {
                             return angular.equals(weapon, favoredWeapon);
                         });
                     if (existingItem) {
                         existingItem.count += 1;
                     } else {
-                        $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'].push({
+                        $scope.regiment['fixed modifiers']['character kit'].push({
                             item: favoredWeapon,
                             count: 1
                         });
@@ -676,63 +688,18 @@ define(function() {
                     {
                         var eligibleItems = [];
                         //Iterate over the items in each of the kit sections and if they match the effect target, add them to the eligible items
-                        var mainWeapon = $scope.regiment['fixed modifiers']['character kit']['main weapon'];
-                        for (var i = 0; i < mainWeapon.length; i++) {
+                        var equipment = $scope.regiment['fixed modifiers']['character kit'];
+                        for (var i = 0; i < equipment.length; i++) {
                             var meetsCondition = true;
                             $.each(choice.effect.target, function(index, target) {
-                                if (!testItemMatchesTarget(mainWeapon[i].item, target)) {
+                                if (!testItemMatchesTarget(equipment[i].item, target)) {
                                     meetsCondition = false;
                                 }
                             });
                             if (meetsCondition) {
                                 eligibleItems.push({
-                                    "section": $scope.regiment['fixed modifiers']['character kit']['main weapon'],
-                                    "value": mainWeapon[i]
-                                });
-                            };
-                        };
-                        var otherWeapons = $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'];
-                        for (var i = 0; i < otherWeapons.length; i++) {
-                            var meetsCondition = true;
-                            $.each(choice.effect.target, function(index, target) {
-                                if (!testItemMatchesTarget(otherWeapons[i].item, target)) {
-                                    meetsCondition = false;
-                                }
-                            });
-                            if (meetsCondition) {
-                                eligibleItems.push({
-                                    "section": $scope.regiment['fixed modifiers']['character kit']['standard melee weapon'],
-                                    "value": otherWeapons[i]
-                                });
-                            };
-                        };
-                        var armor = $scope.regiment['fixed modifiers']['character kit']['armor'];
-                        for (var i = 0; i < armor.length; i++) {
-                            var meetsCondition = true;
-                            $.each(choice.effect.target, function(index, target) {
-                                if (!testItemMatchesTarget(armor[i].item, target)) {
-                                    meetsCondition = false;
-                                }
-                            });
-                            if (meetsCondition) {
-                                eligibleItems.push({
-                                    "section": $scope.regiment['fixed modifiers']['character kit']['armor'],
-                                    "value": armor[i]
-                                });
-                            };
-                        };
-                        var otherItems = $scope.regiment['fixed modifiers']['character kit']['other gear'];
-                        for (var i = 0; i < otherItems.length; i++) {
-                            var meetsCondition = true;
-                            $.each(choice.effect.target, function(index, target) {
-                                if (!testItemMatchesTarget(otherItems[i].item, target)) {
-                                    meetsCondition = false;
-                                }
-                            });
-                            if (meetsCondition) {
-                                eligibleItems.push({
-                                    "section": $scope.regiment['fixed modifiers']['character kit']['other gear'],
-                                    "value": otherItems[i]
+                                    "section": $scope.regiment['fixed modifiers']['character kit'],
+                                    "value": equipment[i]
                                 });
                             };
                         };
