@@ -8,62 +8,28 @@ define(function() {
         The homeworld, commander, type and favored weapons are all required to be selected, and all optional items they
         define that must be determined at regiment creation time chosen, to complete the regiment.
         */
+        function regimentElementEntry(){
+        	this.header = "Please Wait...";
+        	this._selected = null;
+        	regimentElementEntry.prototype = {
+        		set selected(value) {
+        			this._selected = angular.copy(value);
+        			if(value.name === "Hardened Fighters"){
+
+        			}
+        		reapplyModifiers()
+        		},
+        		get selected() {
+        			return this._selected;
+        		}
+        	};
+        }
         $scope.regimentElements = {
-            homeworld: {
-                header: "Please Wait...",
-                _selected: null,
-                set selected(value) {
-                    this._selected = angular.copy(value);
-                    reapplyModifiers()
-                },
-                get selected() {
-                    return this._selected;
-                }
-            },
-            commander: {
-                header: "Please Wait...",
-                _selected: null,
-                set selected(value) {
-                    this._selected = angular.copy(value);
-                    reapplyModifiers()
-                },
-                get selected() {
-                    return this._selected;
-                }
-            },
-            type: {
-                header: "Please Wait...",
-                _selected: null,
-                set selected(value) {
-                    this._selected = angular.copy(value);
-                    reapplyModifiers()
-                },
-                get selected() {
-                    return this._selected;
-                }
-            },
-            'doctrines[0]': {
-                header: "Please Wait...",
-                _selected: null,
-                set selected(value) {
-                    this._selected = angular.copy(value);
-                    reapplyModifiers()
-                },
-                get selected() {
-                    return this._selected;
-                }
-            },
-            'doctrines[1]': {
-                header: "Please Wait...",
-                _selected: null,
-                set selected(value) {
-                    this._selected = angular.copy(value);
-                    reapplyModifiers()
-                },
-                get selected() {
-                    return this._selected;
-                }
-            }
+            homeworld: new regimentElementEntry(),
+            commander: new regimentElementEntry(),
+            type: new regimentElementEntry(),
+            doctrine1: new regimentElementEntry(),
+            doctrine2:new regimentElementEntry()
         }
         $q.all({
             "origins": regimentOptions.homeworlds(),
@@ -184,8 +150,8 @@ define(function() {
                         $scope.regimentElements[section].options = results["types"];
                         $scope.regimentElements[section].header = "Regiment Type"
                         break;
-                    case "doctrines[0]":
-                    case "doctrines[1]":
+                    case "doctrine1":
+                    case "doctrine2":
                         $scope.regimentElements[section].options = results["equipment"].concat(results["training"]);
                         $scope.regimentElements[section].header = "Special Equipment/Training Doctrine"
                         break;
@@ -194,6 +160,7 @@ define(function() {
             };
             reapplyModifiers();
         });
+
         /**
         Determines the availability of each of the regimental kit modifier choices, based on the current state of the
         regiment.
@@ -259,7 +226,7 @@ define(function() {
                             }
                         }
                         if (choice.limits.regiment.doctrine) {
-                            var combinedDoctrines = [$scope.regimentElements['doctrines[0]'].selected, $scope.regimentElements['doctrines[1]'].selected];
+                            var combinedDoctrines = [$scope.regimentElements.doctrine1.selected, $scope.regimentElements.doctrine2.selected];
                             if (combinedDoctrines.length == 0 || combinedDoctrines.find(function(doctrine) {
                                     return doctrine != null && choice.limits.regiment.doctrine.indexOf(doctrine.name) !== -1;
                                 })) {
@@ -378,8 +345,8 @@ define(function() {
         $scope.$watchGroup(["regimentElements.homeworld.selected",
             "regimentElements.commander.selected",
             "regimentElements.type.selected",
-            "regimentElements['doctrines[0]']",
-            "regimentElements['doctrines[1]']"
+            "regimentElements.doctrine1",
+            "regimentElements.doctrine2"
         ], function() {
             $scope.chosenKitModifiers = $scope.chosenKitModifiers.filter(function(choice) {
                 return choice.type !== "Replace" && choice.type !== "Upgrade";
@@ -403,17 +370,17 @@ define(function() {
             if ($scope.regiment) {
                 //Regiment is finished if it has a selected homeworld, commander and type, each has no optional modifiers left, and has selected favored weapons and name.
                 var nameReady = $scope.regiment.name !== undefined;
-                var homeworldReady = $scope.regimentElements.homeworld.selected !== null &&
+                var homeworldReady = $scope.regimentElements.homeworld.selected &&
                     (!$scope.regimentElements.homeworld.selected['optional modifiers'] ||
                         $scope.regimentElements.homeworld.selected['optional modifiers'].filter(function(e) {
                             return e['selection time'] === "regiment"
                         }).length === 0);
-                var commanderReady = $scope.regimentElements.commander.selected !== null &&
+                var commanderReady = $scope.regimentElements.commander.selected &&
                     (!$scope.regimentElements.commander.selected['optional modifiers'] ||
                         $scope.regimentElements.commander.selected['optional modifiers'].filter(function(e) {
                             return e['selection time'] === "regiment"
                         }).length === 0);
-                var typeReady = $scope.regimentElements.type.selected !== null &&
+                var typeReady = $scope.regimentElements.type.selected &&
                     (!$scope.regimentElements.type.selected['optional modifiers'] ||
                         $scope.regimentElements.type.selected['optional modifiers'].filter(function(e) {
                             return e['selection time'] === "regiment"

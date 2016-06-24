@@ -12,7 +12,7 @@
                     </h4>
                 </div>
                 <div class="row"
-                     ng-repeat="category in ['homeworld','commander','type', 'doctrines[0]', 'doctrines[1]']">
+                     ng-repeat="category in ['homeworld','commander','type', 'doctrine1', 'doctrine2']">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="btn-group">
@@ -21,7 +21,7 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li ng-repeat="option in regimentElements[category].options | filter : costFilter">
-                                        <a ng-click="regimentElements[category].selected = option">{{option.name}}
+                                        <a ng-click="addRegimentModifier(option, category)">{{option.name}}
                                             {{"
                                             (" +
                                             option.cost +" pts)"}}
