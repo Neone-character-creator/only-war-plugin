@@ -31,6 +31,7 @@
         "options": [
           [
             {
+              "description": "Perception +3",
               "property": "characteristics",
               "value": {
                 "Perception": 3
@@ -39,6 +40,7 @@
           ],
           [
             {
+              "description": "Strength +3",
               "property": "characteristics",
               "value": {
                 "Strength": 3
@@ -47,6 +49,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -61,18 +64,21 @@
         "options": [
           [
             {
+              "description": "Light Sleeper Talent",
               "property": "talents",
               "value": "Light Sleeper"
             }
           ],
           [
             {
+              "description": "Lightning Reflexes Talent",
               "property": "talents",
               "value": "Lightning Reflexes"
             }
           ],
           [
             {
+              "description": "Resistance (Poison) Talent",
               "property": "talents",
               "value": "Resistance (Poison)"
             }
@@ -114,6 +120,7 @@
         "options": [
           [
             {
+              "description": "Ballistic Skill +3",
               "property": "characteristics",
               "value": {
                 "Ballistic Skill": 3
@@ -122,6 +129,7 @@
           ],
           [
             {
+              "description": "Willpower +3",
               "property": "characteristics",
               "value": {
                 "Willpower": 3
@@ -130,6 +138,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -144,12 +153,14 @@
         "options": [
           [
             {
+              "description": "Nerves of Steel Talent",
               "property": "talents",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
+              "description": "Sprint Talent",
               "property": "talents",
               "value": "Sprint"
             }
@@ -200,6 +211,7 @@
         "options": [
           [
             {
+              "description": "Fellowship +3",
               "property": "characteristics",
               "value": {
                 "Fellowship": 3
@@ -208,6 +220,7 @@
           ],
           [
             {
+              "description": "Intelligence +3",
               "property": "characteristics",
               "value": {
                 "Intelligence": 3
@@ -216,6 +229,7 @@
           ],
           [
             {
+              "description": "Weapon Skill +3",
               "property": "characteristics",
               "value": {
                 "Weapon Skill": 3
@@ -230,12 +244,14 @@
         "options": [
           [
             {
+              "description": "Air of Authority Talent",
               "property": "talents",
               "value": "Air of Authority"
             }
           ],
           [
             {
+              "description": "Peer (Nobility) Talent",
               "property": "talents",
               "value": "Peer (Nobility)"
             }
@@ -278,6 +294,7 @@
         "options": [
           [
             {
+              "description": "Agility +3",
               "property": "characteristics",
               "value": {
                 "Agility": 3
@@ -286,6 +303,7 @@
           ],
           [
             {
+              "description": "Fellowship +3",
               "property": "characteristics",
               "value": {
                 "Fellowship": 3
@@ -294,6 +312,7 @@
           ],
           [
             {
+              "description": "Perception +3",
               "property": "characteristics",
               "value": {
                 "Perception": 3
@@ -308,12 +327,14 @@
         "options": [
           [
             {
+              "description": "Air of Authority Talent",
               "property": "talents",
               "value": "Air of Authority"
             }
           ],
           [
             {
+              "description": "Peer (Nobility) Talent",
               "property": "talents",
               "value": "Peer (Nobility)"
             }
@@ -357,6 +378,7 @@
         "options": [
           [
             {
+              "description": "Ballistic Skill +3",
               "property": "characteristics",
               "value": {
                 "Ballistic Skill": 3
@@ -365,6 +387,7 @@
           ],
           [
             {
+              "description": "Weapon Skill +3",
               "property": "characteristics",
               "value": {
                 "Weapon Skill": 3
@@ -373,6 +396,7 @@
           ],
           [
             {
+              "description": "Strength +3",
               "property": "characteristics",
               "value": {
                 "Strength": 3
@@ -381,6 +405,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -389,6 +414,7 @@
           ],
           [
             {
+              "description": "Agility +3",
               "property": "characteristics",
               "value": {
                 "Agility": 3
@@ -397,6 +423,7 @@
           ],
           [
             {
+              "description": "Intelligence +3",
               "property": "characteristics",
               "value": {
                 "Intelligence": 3
@@ -405,6 +432,7 @@
           ],
           [
             {
+              "description": "Fellowship +3",
               "property": "characteristics",
               "value": {
                 "Fellowship": 3
@@ -413,6 +441,7 @@
           ],
           [
             {
+              "description": "Perception +3",
               "property": "characteristics",
               "value": {
                 "Perception": 3
@@ -461,6 +490,7 @@
         "options": [
           [
             {
+              "description": "Agility +3",
               "property": "characteristics",
               "value": {
                 "Agility": 3
@@ -469,6 +499,7 @@
           ],
           [
             {
+              "description": "Strength +3",
               "property": "characteristics",
               "value": {
                 "Strength": 3
@@ -477,6 +508,7 @@
           ],
           [
             {
+              "description": "Toughess +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -491,12 +523,14 @@
         "options": [
           [
             {
+              "description": "Street Fighting Talent",
               "property": "talents",
               "value": "Street Fighting"
             }
           ],
           [
             {
+              "description": "Peer (Underworld) Talent",
               "property": "talents",
               "value": "Peer (Underworld)"
             }
@@ -540,6 +574,7 @@
         "options": [
           [
             {
+              "description": "Fellowship +3",
               "property": "characteristics",
               "value": {
                 "Fellowship": 3
@@ -548,6 +583,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -556,6 +592,7 @@
           ],
           [
             {
+              "description": "Willpower +3",
               "property": "characteristics",
               "value": {
                 "Willpower": 3
@@ -570,18 +607,21 @@
         "options": [
           [
             {
+              "description": "Nerves of Steel Talent",
               "property": "talents",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
+              "description": "Orthoproxy Talent",
               "property": "talents",
               "value": "Orthoproxy"
             }
           ],
           [
             {
+              "description": "Unshakeable Talent",
               "property": "talents",
               "value": "Unshakeable Faith"
             }
@@ -694,6 +734,7 @@
         "options": [
           [
             {
+              "description": "Fellowship +3",
               "property": "characteristics",
               "value": {
                 "Fellowship": 3
@@ -702,6 +743,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -710,6 +752,7 @@
           ],
           [
             {
+              "description": "Willpower +3",
               "property": "characteristics",
               "value": {
                 "Willpower": 3
@@ -724,18 +767,21 @@
         "options": [
           [
             {
+              "description": "Nerves of Steel Talent",
               "property": "talents",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
+              "description": "Orthoproxy Talent",
               "property": "talents",
               "value": "Orthoproxy"
             }
           ],
           [
             {
+              "description": "Unshakeable Faith Talent",
               "property": "talents",
               "value": "Unshakeable Faith"
             }
@@ -776,6 +822,7 @@
         "options": [
           [
             {
+              "description": "Perception +3",
               "property": "characteristics",
               "value": {
                 "Perception": 3
@@ -784,6 +831,7 @@
           ],
           [
             {
+              "description": "Strength +3",
               "property": "characteristics",
               "value": {
                 "Strength": 3
@@ -792,6 +840,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -806,18 +855,21 @@
         "options": [
           [
             {
+              "description": "Light Sleeper Talent",
               "property": "talents",
               "value": "Light Sleeper"
             }
           ],
           [
             {
+              "description": "Lightning Reflexes Talent",
               "property": "talents",
               "value": "Lightning Reflexes"
             }
           ],
           [
             {
+              "description": "Resistance (Poison) Talent",
               "property": "talents",
               "value": "Resistance (Poison)"
             }
@@ -855,6 +907,7 @@
         "options": [
           [
             {
+              "description": "Fellowship +3",
               "property": "characteristics",
               "value": {
                 "Fellowship": 3
@@ -863,6 +916,7 @@
           ],
           [
             {
+              "description": "Strength +3",
               "property": "characteristics",
               "value": {
                 "Strength": 3
@@ -871,6 +925,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness:": 3
@@ -913,6 +968,7 @@
         "options": [
           [
             {
+              "description": "Weapon Skill +3",
               "property": "characteristics",
               "value": {
                 "Weapon Skill": 3
@@ -921,6 +977,7 @@
           ],
           [
             {
+              "description": "Strength +3",
               "property": "characteristics",
               "value": {
                 "Strength": 3
@@ -929,6 +986,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -995,6 +1053,7 @@
         "options": [
           [
             {
+              "description": "Intelligence +3",
               "property": "characteristics",
               "value": {
                 "Intelligence": 3
@@ -1003,6 +1062,7 @@
           ],
           [
             {
+              "description": "Perception +3",
               "property": "characteristics",
               "value": {
                 "Perception": 3
@@ -1011,6 +1071,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -1025,12 +1086,14 @@
         "options": [
           [
             {
+              "description": "Technical Knock Talent",
               "property": "talents",
               "value": "Technical Knock"
             }
           ],
           [
             {
+              "description": "Weapon-Tech Talent",
               "property": "talents",
               "value": "Weapon-Tech"
             }
@@ -1072,6 +1135,7 @@
         "options": [
           [
             {
+              "description": "Agility +3",
               "property": "characteristics",
               "value": {
                 "Agility": 3
@@ -1080,6 +1144,7 @@
           ],
           [
             {
+              "description": "Ballistic Skill +3",
               "property": "characteristics",
               "value": {
                 "Ballistic Skill": 3
@@ -1088,6 +1153,7 @@
           ],
           [
             {
+              "description": "Perception +3",
               "property": "characteristics",
               "value": {
                 "Perception": 3
@@ -1102,12 +1168,14 @@
         "options": [
           [
             {
+              "description": "Combat Sense Talent",
               "property": "talents",
               "value": "Combat Sense"
             }
           ],
           [
             {
+              "description": "Quick Draw Talent",
               "property": "talents",
               "value": "Quick Draw"
             }
@@ -1150,6 +1218,7 @@
         "options": [
           [
             {
+              "description": "Agility +3",
               "property": "characteristics",
               "value": {
                 "Agility": 3
@@ -1158,6 +1227,7 @@
           ],
           [
             {
+              "description": "Toughness +3",
               "property": "characteristics",
               "value": {
                 "Toughness": 3
@@ -1166,6 +1236,7 @@
           ],
           [
             {
+              "description": "Perception +3",
               "property": "characteristics",
               "value": {
                 "Perception": 3
@@ -1180,24 +1251,28 @@
         "options": [
           [
             {
+              "description": "Heightened Senses (Hearing) Talent",
               "property": "talents",
               "value": "Heightened Senses (Hearing)"
             }
           ],
           [
             {
+              "description": "Resistance (Cold) Talent",
               "property": "talents",
               "value": "Resistance (Cold)"
             }
           ],
           [
             {
+              "description": "Resistance (Heat) Talent",
               "property": "talents",
               "value": "Resistance (Heat)"
             }
           ],
           [
             {
+              "description": "Resistance (Poison) Talent",
               "property": "talents",
               "value": "Resistance (Poisons)"
             }
