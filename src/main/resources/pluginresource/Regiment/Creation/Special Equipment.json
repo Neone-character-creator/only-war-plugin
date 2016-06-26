@@ -15,16 +15,14 @@
     "name": "Chameleoline",
     "cost": 3,
     "fixed modifiers": {
-      "character kit": {
-        "other gear": [
-          {
-            "item" : {
-              "name" : "Chameleoline Cloak"
-            },
-            "count" : 1
-          }
-        ]
-      }
+      "character kit": [
+        {
+          "item": {
+            "name": "Chameleoline Cloak"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -110,7 +108,7 @@
     "cost": 3,
     "fixed modifiers": {
       "skills": {
-        "Parry" : 1
+        "Parry": 1
       }
     },
     "special abilities": [
