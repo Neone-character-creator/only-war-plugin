@@ -300,8 +300,12 @@ define(function() {
                                 if (!choice.unavailableMessage) {
                                     choice.unavailableMessage = "";
                                 }
-                                var requiredChoices = choice.limits.regiment.type.slice(0, choice.limits.regiment.type.length - 1).join(', ');
-                                requiredChoices += (" or " + choice.limits.regiment.type[choice.limits.regiment.type.length - 1]);
+                                if(choice.limits.regiment.type.length > 1){
+                                	var requiredChoices = choice.limits.regiment.type.slice(0, choice.limits.regiment.type.length - 1).join(', ');
+                                	requiredChoices += (" or " + choice.limits.regiment.type[choice.limits.regiment.type.length - 1]);
+                                } else {
+                                	var requiredChoices = choice.limits.regiment.type[0];
+                                }
                                 choice.unavailableMessage += "\nRequires Regiment Type to be " + requiredChoices + ".";
                             }
                         }
@@ -362,16 +366,13 @@ define(function() {
                     });
                     //If no targets were found, add to the possible error string.
                     if (!targetExists) {
-                        var message;
-                        if (choice.effect.target.length == 1) {
-                            message = choice.effect.target[0].name;
-                        } else {
-                            message = choice.effect.target.map(function(target) {
-                                return target.name
-                            }).slice(0, choice.effect.target.length - 1).join(', ') + " ";
-                            message += " or " + choice.effect.target[effect.target.length - 1] + ".";
-                        }
-                        potentialMessage += "\nRequires " + message + ".";
+                        var message = "item with ";
+                        $.each(choice.effect.target, function(i, target){
+                        	for(var property in target){
+                        		message += property +": " + target[property] + ". ";
+                        	}
+                        });
+                        potentialMessage += "\nRequires " + message;
                     } else {
                         atLeastOneTargetExists = true;
                     }
