@@ -223,7 +223,20 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             //Filter for formatting an selectable option in a modal.
         app.filter('modal_option', function() {
             function filter(inVal) {
-               return inVal.description;
+            	if(Array.isArray(inVal)){
+            		if(inVal.length == 1){
+            			return inVal[0].description;
+            		} else {
+            			var descriptionElements = [];
+            			inVal.slice(0, inVal.length-1).forEach(function(e){
+	            			descriptionElements.push(e);
+	            		});
+	            		var description = descriptionElements.join(", ") + " and " + inVal[inVal.length-1].description;
+	            		return description;
+	            	}
+            	} else {
+            		return inVal.description;
+            	}
             }
             return filter;
         });
