@@ -145,8 +145,8 @@ define(function() {
 							return weapon;
 						});
 					}
-					if (characterKit['other weapons']) {
-						replacementOtherWeapons = characterKit['other weapons'].slice().map(function(weapon) {
+					if (characterKit['standard melee weapon']) {
+						replacementOtherWeapons = characterKit['standard melee weapon'].slice().map(function(weapon) {
 							weapon.item = replace(weapon.item, results[0]);
 							return weapon;
 						});
@@ -174,7 +174,7 @@ define(function() {
 					}
 					modifierEquipment.resolve({
 						'main weapon': replacementMainWeapons,
-						'other weapons': replacementOtherWeapons,
+						'standard melee weapon': replacementOtherWeapons,
 						'armor': replacementArmor,
 						'other gear': replacementOtherItems,
 						'squad kit' : replacementSquadKit
@@ -194,7 +194,7 @@ define(function() {
 									var name = option.value.item.name;
 									switch(option.property[1]){
 										case "main weapon":
-										case "other weapons":
+										case "standard melee weapon":
 										option.value.item = replace(option.value.item, result[2]);
 										break;
 										case "armor":

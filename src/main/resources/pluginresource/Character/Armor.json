@@ -1,7 +1,7 @@
 [
   {
     "name": "Heavy Leathers",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
       "Left Arm",
@@ -14,7 +14,7 @@
   },
   {
     "name": "Chainmail Suit",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
       "Left Arm",
@@ -29,7 +29,7 @@
   },
   {
     "name": "Feudal World Plate",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
       "Left Arm",
@@ -45,7 +45,7 @@
   },
   {
     "name": "Death World Beast Hide Vest",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
       "Body"
@@ -56,7 +56,7 @@
   },
   {
     "name": "Flak Helmet",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
       "Head"
@@ -67,7 +67,7 @@
   },
   {
     "name": "Flak Gauntlets",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
       "Left Arm",
@@ -79,7 +79,7 @@
   },
   {
     "name": "Light Flak Cloak",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
       "Left Arm",
@@ -94,7 +94,7 @@
   },
   {
     "name": "Flak Vest",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
       "Body"
@@ -105,7 +105,7 @@
   },
   {
     "name": "Flak Cloak",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
       "Left Arm",
@@ -120,7 +120,7 @@
   },
   {
     "name": "Flak Coat",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
       "Left Arm",
@@ -133,7 +133,7 @@
   },
   {
     "name": "Imperial Guard Flak Armor",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
       "Left Arm",
@@ -148,7 +148,7 @@
   },
   {
     "name": "Carapace Helm",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
       "Head"
@@ -159,7 +159,7 @@
   },
   {
     "name": "Carapace Gauntlets",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
       "Left Arm",
@@ -171,7 +171,7 @@
   },
   {
     "name": "Carapace Greaves",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
       "Right Leg",
@@ -183,7 +183,7 @@
   },
   {
     "name": "Light Carapace",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
       "Right Arm",
@@ -199,7 +199,7 @@
   },
   {
     "name": "Carapace Breastplate",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
       "Body"
@@ -210,7 +210,7 @@
   },
   {
     "name": "Storm Trooper Carapace",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
       "Right Arm",
@@ -226,7 +226,7 @@
   },
   {
     "name": "Subskin Armor",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "weight": 0,
     "locations": [
       "Right Arm",
@@ -243,7 +243,7 @@
   },
   {
     "name": "Cranial Armor",
-    "craftsmanship": "Good",
+    "craftsmanship": "Common",
     "weight": 0,
     "locations": [
       "Head"
