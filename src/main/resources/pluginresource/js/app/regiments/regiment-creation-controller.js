@@ -11,71 +11,118 @@ define(function() {
         function regimentElementEntry(){
         	this.header = "Please Wait...";
         	this._selected = null;
-        	regimentElementEntry.prototype = {
-        		set selected(value) {
-        			this._selected = angular.copy(value);
-        			if(value.name === "Hardened Fighters"){
-        				selection.selectionObject = {
-        					selections : 1,
-        					options : [
-        						{
-        							"index" : 0,
-        							"description" : "Replace standard melee weapon with a Common or more Availability melee weapon"
-        						},
-        						{
-        							"index" : 1,
-        							"description" : "Upgrade standard melee weapon with the Mono upgrade"
-        						}
-        					]
-        				};
-        				$uibModal.open({
-        					controller : "SelectionModalController",
-        					templateUrl : "pluginresource/templates/selection-modal.html"
-        				}).result.then(function(){
-        					var result = selection.selected[0];
-        					switch(result.index){
-        						case 0:
-        							selection.selectionObject = {
-        								selections: 1,
-        								options: $scope.weapons.filter(function(weapon){
-        									return weapon.class === "Melee"
-        										&& (weapon.availability === "Common"
-        											|| weapon.availability == "Plentiful"
-        											|| weapon.availability == "Abundant"
-        											|| weapon.availability == "Ubiquitous")
-        								}).map(function(weapon){
-        									return {
-        										weapon:weapon,
-        										description : weapon.name
-        									}
-        								})
-        							};
-        							$uibModal.open({
-        								controller : "SelectionModalController",
-        								templateUrl : "pluginresource/templates/selection-modal.html"
-        							}).result.then(function(){
-        								value;
-        							});
-        							break;
-        						case 1:
-        							var standardMeleeWeapon = $scope.regiment['fixed modifiers']['character kit'].find(function(item){
-        								return item['standard melee weapon'];
-        							});
-        							if(!standardMeleeWeapon.item.upgrades){
-        								standardMeleeWeapon.item.upgrades = [];
-        							}
-        							standardMeleeWeapon.item.upgrades.push("Mono");
-        							break;
-        					}
-        				});
-        			}
-        		reapplyModifiers()
-        		},
-        		get selected() {
-        			return this._selected;
-        		}
-        	};
-        }
+        };
+        regimentElementEntry.prototype = {
+                		set selected(value) {
+                			this._selected = angular.copy(value);
+                			if(value){
+                				switch(value.name){
+                					case "Hardened Fighters":{
+        		        				selection.selectionObject = {
+        	        					selections : 1,
+            	    					options : [
+                							{
+        	        							"index" : 0,
+        	        							"description" : "Replace standard melee weapon with a Common or more Availability melee weapon"
+        	        						},
+        		        					{
+                								"index" : 1,
+                								"description" : "Upgrade standard melee weapon with the Mono upgrade"
+                							}
+                						]
+                					};
+        	        					$uibModal.open({
+                					controller : "SelectionModalController",
+                					templateUrl : "pluginresource/templates/selection-modal.html"
+                				}).result.then(function(){
+        		        					var result = selection.selected[0];
+        		        					switch(result.index){
+                						case 0:
+                							//Choose one Melee weapon of Common or higher availability.
+                							selection.selectionObject = {
+                								selections: 1,
+                								options: $scope.equipment.weapons.filter(function(weapon){
+                									return weapon.class === "Melee"
+                										&& (weapon.availability === "Common"
+                											|| weapon.availability == "Plentiful"
+                											|| weapon.availability == "Abundant"
+                											|| weapon.availability == "Ubiquitous")
+                								}).map(function(weapon){
+                									return {
+                										weapon:weapon,
+                										description : weapon.name
+                									}
+                								})
+                							};
+                							$uibModal.open({
+                								controller : "SelectionModalController",
+                								templateUrl : "pluginresource/templates/selection-modal.html"
+                							}).result.then(function(){
+                								//Add selected melee weapon, laspistol + 2 charg packs as main weapons
+                								selection.selected[0]['main weapon'] = true;
+                								var additions = [
+                									{
+                										count : 1,
+                										item : $scope.equipment.weapons.find(function(weapon){
+                											return weapon.name == "Laspistol"
+                										})
+                									},
+                									{
+                										count : 1,
+                										item : $scope.equipment.items.find(function(item){
+                											return item.name == "Charge Pack (Pistol)"
+                										})
+                									},
+                									{
+                										count : 1,
+                										item : selection.selected[0]
+                									}
+                								].forEach(function(item){item['main weapon'] = true;})
+                								$regiment['fixed modifiers']['character kit']
+                									= $regiment['fixed modifiers']['character kit'].filter(function(item){
+                										return !item['main weapon'];
+                									}).concat(additions);
+                							});
+                							break;
+                						case 1:
+                							var standardMeleeWeapon = $scope.regiment['fixed modifiers']['character kit'].find(function(item){
+                								return item['standard melee weapon'];
+                							});
+                							if(!standardMeleeWeapon.item.upgrades){
+                								standardMeleeWeapon.item.upgrades = [];
+                							}
+                							standardMeleeWeapon.item.upgrades.push("Mono");
+                							break;
+                					}
+        	    	    				});
+            	    					break;
+            	    				}
+                					case "Warrior Weapons":{
+                					selection.selectionObject = {
+                						selections : 1,
+                						options : $scope.equipment.weapons.filter(function(weapon){
+                							return weapon.class === "Low-Tech"
+                								&& (weapon.availability === "Common"
+                								|| weapon.availability == "Plentiful"
+                								|| weapon.availability == "Abundant"
+                								|| weapon.availability == "Ubiquitous")
+                						})
+                					};
+                					$uibModal.open({
+                						controller : "SelectionModalController",
+                						templateUrl : "pluginresource/templates/selection-modal.html"
+                					}).result.then(function(){
+                						value;
+                					});
+                				}
+                				}
+                				reapplyModifiers()
+                			}
+                		},
+                		get selected() {
+                			return this._selected;
+                		}
+                	};
         $scope.regimentElements = {
             homeworld: new regimentElementEntry(),
             commander: new regimentElementEntry(),
@@ -97,7 +144,7 @@ define(function() {
                 "items": characteroptions.items()
             })
         }).then(function(results) {
-        	$scope.weapons = results['character options'].weapons;
+        	$scope.equipment = results['character options'];
             $scope.basicWeapons = results['character options'].weapons.filter(function(weapon) {
                 var availability = false;
                 switch (weapon.availability) {
