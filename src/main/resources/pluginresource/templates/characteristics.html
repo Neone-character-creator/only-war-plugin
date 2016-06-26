@@ -32,7 +32,8 @@
                 <tr>
                     <td ng-repeat="characteristic in characteristicNames" class="text-center">
                         <input type="number" ng-model="characteristics[characteristic.toLowerCase()].rolled"
-                               style="width:50px;text-align:center;height:50px" jqyoui-droppable="{}" data-drop=true />
+                               style="width:50px;text-align:center;height:50px" jqyoui-droppable="{onDrop:'drop'}"
+                               data-drop=true/>
                     </td>
                 </tr>
             </table>

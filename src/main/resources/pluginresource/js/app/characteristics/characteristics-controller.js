@@ -25,6 +25,10 @@ define(function(){
 	        }
 	    };
 
+	    $scope.drop = function(){
+	    	$state.$current.data.complete = isComplete();
+	    }
+
 	    $scope.valueButtonClick = function(index) {
 	        $scope.generate(index);
 	    }
@@ -39,23 +43,5 @@ define(function(){
 			}
 			return true;
     	}
-
-    	$scope.$on('$stateChangeStart', function(e, toState, toParam, fromState, fromParams) {
-	        if (toState.name !== fromState.name && !isComplete()) {
-	            var resultHandler = function(result) {
-	                if (result) {
-	                    suppressDialog = true;
-	                    $state.go(toState);
-	                }
-	            };
-	            if (!suppressDialog) {
-	                e.preventDefault();
-	                confirm = $uibModal.open({
-	                    controller: "ConfirmationController",
-	                    templateUrl: "pluginresource/templates/confirm-navigation-modal.html"
-	                }).result.then(resultHandler);
-	            }
-	        }
-	    });
 	}
 });
