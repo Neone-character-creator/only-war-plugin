@@ -65,7 +65,7 @@
       "special abilities": [
         {
           "name": "Hardened Fighters",
-          "description": "Replace standard melee weapon with any one Common or more available primitive melee weapon or upgrade standard melee weapon"
+          "description": "Replace standard melee weapon with any one Common or more available primitive melee weapon or give standard melee weapon the Mono upgrade."
         }
       ]
     }
@@ -167,7 +167,7 @@
             "count": 1
           }
         ],
-        "other weapons": [
+        "standard melee weapon": [
           {
             "item": {
               "name": "Knife",
@@ -546,7 +546,7 @@
             {
               "property": [
                 "character kit",
-                "other weapons"
+                "standard melee weapon"
               ],
               "value": {
                 "Combat Shotgun": 1
