@@ -110,11 +110,11 @@ define(function() {
                 charge: 0,
                 run: 0,
                 calc: function(agilityBonus) {
-                    if (agilityBonus === 0) {
-                        speeds.half = .5;
-                        speeds.full = 1;
-                        speeds.charge = 2;
-                        speeds.run = 3;
+                    if (agilityBonus === 0 || !agilityBonus) {
+                        _speeds.half = .5;
+                        _speeds.full = 1;
+                        _speeds.charge = 2;
+                        _speeds.run = 3;
                     } else {
                         _speeds.half = agilityBonus;
                         _speeds.full = agilityBonus * 2;
@@ -241,22 +241,22 @@ define(function() {
                 },
                 get movement() {
                     return {
-                        half: function() {
+                        get half() {
                             _speeds.calc()
                             return _speeds.half;
                         },
-                        full: function() {
+                        get full() {
                             _speeds.calc()
                             return _speeds.full;
                         },
-                        charge: function() {
+                        get charge() {
                             _speeds.calc()
                             return _speeds.charge;
                         },
-                        run: function() {
+                        get run() {
                             _speeds.calc()
                             return _speeds.run;
-                        },
+                        }
                     }
                 },
                 get fatePoints() {
@@ -414,7 +414,7 @@ define(function() {
                                 for (var category in modifier['fixed modifiers']['character kit']) {
                                     switch (category) {
                                         case "main weapon":
-                                        case "other weapons":
+                                        case "standard melee weapon":
                                             var weapons = modifier['fixed modifiers']['character kit'][category];
                                             $.each(weapons, function(index, element) {
                                                 _equipment.weapons.push(element);
@@ -546,7 +546,7 @@ define(function() {
                                 for (var category in modifier['fixed modifiers']['character kit']) {
                                     switch (category) {
                                         case "main weapon":
-                                        case "other weapons":
+                                        case "standard melee weapon":
                                             var weapons = modifier['fixed modifiers']['character kit'][category];
                                             var indexesToRemove = []
                                             $.each(weapons, function(i, element) {
