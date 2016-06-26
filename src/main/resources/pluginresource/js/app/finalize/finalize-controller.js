@@ -3,19 +3,15 @@ define(function() {
 		$scope.character = characterService.character;
 		$scope.selectedSpecialty = specialties.selected;
 		$scope.selectedRegiment = regiments.selected;
-		$scope.rolledWounds = characterService.character.wounds.modifiers.find(function(modifier){
-			return modifier.name === "rolled";
-		});
-		$scope.woundsTotal = characterService.character.wounds.total;
 
 		$scope.rollWounds = function() {
-			$scope.rolledWounds.modifier=dice.roll(1, 5);
+			characterService.character.wounds.fromRoll = dice.roll(1, 5);
 		};
 
 		$scope.rollFP = function() {
 			$scope.fpRoll = dice.roll(1, 10);
 			characteroptions.fatePointRolls().then(function(result) {
-				characterService.character.fatePoints=result.forRoll($scope.fpRoll);
+				characterService.character.fatePoints.total=result.forRoll($scope.fpRoll);
 			});
 
 			$scope.character = characterService.character;
@@ -25,16 +21,20 @@ define(function() {
 		$scope.categories = [{
 			id: 1,
 			value: "Characteristics"
-		}, {
+		},
+		{
 			id: 2,
 			value: "Skills"
-		}, {
+		},
+		{
 			id: 3,
 			value: "Talents"
-		}, {
+		},
+		{
 			id: 4,
 			value: "Psychic Powers"
-		}].filter(function(element){
+		}]
+		.filter(function(element){
 			return element.value !== "Psychic Powers" || characterService.character.traits.find(function(trait){
 				return trait.name === "Psyker";
 			});
@@ -138,7 +138,7 @@ define(function() {
 			$scope.availableXp = characterService.character.experience().available();
 		};
 
-		$scope.numBonusAptitudes = characterService.character.aptitudes.base.reduce(function(previous, current, index, array){
+		$scope.numBonusAptitudes = characterService.character.aptitudes.reduce(function(previous, current, index, array){
 			if(array.slice(index+1).indexOf(current) !== -1){
 				previous++;
 			}
@@ -147,7 +147,7 @@ define(function() {
 
 		characteroptions.characteristics().then(function(result){
 			$scope.availableAptitudes = result.filter(function(element, index, array){
-				var possessedAptitudes = characterService.character.aptitudes.all;
+				var possessedAptitudes = characterService.character.aptitudes;
 				return possessedAptitudes.indexOf(element.name) === -1;
 			}).map(function(element){
 				return element.name;
