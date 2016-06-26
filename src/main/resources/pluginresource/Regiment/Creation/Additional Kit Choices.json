@@ -80,7 +80,7 @@
     "cost": 2,
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -99,7 +99,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -124,7 +124,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -149,7 +149,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -174,7 +174,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -198,7 +198,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -217,7 +217,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": {
         "item": {
           "name": "Smoke Grenade"
@@ -234,7 +234,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other weapons",
+      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -271,6 +271,12 @@
             "name": "Combat Shotgun"
           },
           "count": 1
+        },
+        {
+          "item": {
+            "name": "Clip"
+          },
+          "count": 1
         }
       ]
     }
@@ -288,7 +294,13 @@
       "results": [
         {
           "item": {
-            "name": "Frag Grenade"
+            "name": "Combat Shotgun"
+          },
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Clip"
           },
           "count": 1
         }
