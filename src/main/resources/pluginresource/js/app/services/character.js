@@ -1,28 +1,34 @@
 /*
-Service for the character being created.
+Service for the character currently being created.
 
 character() returns the current character.
 refresh() replaces the current character with a new one.
 */
 define(function() {
-    return function($q, characteroptions) {
+    return function($q) {
+    	//A single characteristic value.
         function Characteristic(name) {
+        	//The amount that the value increases for each advancement purchased for it
             var _perAdvancementBonus = 5;
             return {
                 name: name,
+                //The base rolled value
                 rolled: 0,
+                //Bonus from character specialty
                 specialty: 0,
+                //Bonust from character regiment
                 regiment: 0,
+                //Number of advancements applied
                 advancements: 0,
-                total: function() {
-                    var total = Number(this.rolled) + this.specialty + this.regiment + (this.advancements * _perAdvancementBonus);
-                    return total;
+                get total() {
+                    return Number.parseInt(this.rolled) + this.specialty + this.regiment + (this.advancements * _perAdvancementBonus);
                 }
             }
         };
-
-        Skill = function(name, rating) {
+		//A skill a character has
+        function Skill(name, rating) {
             var _name = name;
+            //The number of advancements of the skill
             var _advancements = rating | 0;
             return {
                 name: function() {
@@ -36,7 +42,16 @@ define(function() {
                 }
             }
         }
+        /*A purchased advancement. Cost is the amount of spent xp, property is the property the advancement improves
+        and the value is the added value.
 
+        The property names and values depend on what on the character is modified.
+        For a characteristic, the property is 'characteristics[name]' and the value is the number of advancements added.
+        For a skill, the property is 'skills[name]' and the value is the number of advancements added.
+        For a talent, the property is 'talents' and the value is the talent object.
+        For a psychic power, the property is 'psychic power' and the value is the power object.
+        For psy rating, the property is 'psy rating' and the value is the amount it increases.
+        */
         Advancement = function(cost, property, value) {
             return {
                 cost: cost,
@@ -446,24 +461,9 @@ define(function() {
                     } else if (type === "regiment") {
 
                     }
-                    characteroptions.weapons().then(function(weapons) {
-                        if (_character._regiment) {
-                            var favoredWeapons = _character._regiment['fixed modifiers']['favored weapons'].map(function(name) {
-                                return weapons.find(function(weapon) {
-                                    return weapon.name === name;
-                                });
-                            });
-
-                            _equipment.weapons = _equipment.weapons.map(function(weapon) {
-                                if (weapon.favored) {
-                                    var type = weapon.item.name.substring("Regimental Favored".length, weapon.item.name.indexOf("Weapon")).trim();
-                                    weapon.item = favoredWeapons.find(function(favoredWeapon) {
-                                        return favoredWeapon.class === type;
-                                    });
-                                }
-                                return weapon;
-                            });
-                        }
+                    if (_character._regiment) {
+                    	var favoredWeapons = _character._regiment['fixed modifiers']['favored weapons'];
+                    }
                     })
                 }
             };
@@ -629,7 +629,7 @@ define(function() {
             };
             return _character;
         }
-
+		//If there isn't already a character, create a new one.
         var _character = _character || new OnlyWarCharacter();
 
         var service = {
