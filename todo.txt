@@ -9,9 +9,10 @@ Implement a walkthrough.
 Move tooltips into templates instead of hardcoded strings.
 Add tooltips to the skill rating radio buttons to show how much xp it will cost/refund to change the rating.
 Support weapons with multiple stat profiles (Triplex Lasgun, etc.)
+In selection lists, make it so that unavailable items are disabled and have a tooltip to show why they are disabled
+Make sure every item instance has a craftsmanship value.
+Add tests for stuff, so many things keep breaking.
 
 Regiment Creation:
-Implement regiment creation.
-Implement prerequisites for regiment creation options.
-Implement replacing Regimental Favored weapons with the actual weapon where needed.
-When creating a regiment, make sure all regiment creation time selections are made.
+Put a floating div that displays the available regiment points.
+Review the regiment creation options to make sure they are correct.
