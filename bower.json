@@ -25,7 +25,9 @@
     "angular-resource": "^1.5.3",
     "angular-filter": "^0.5.8",
     "angular-messages": "^1.5.3",
-    "js-cookie": "^2.1.2"
+    "js-cookie": "^2.1.2",
+    "jasmine-core": "jasmine#^2.4.1",
+    "karma": "^0.4.6"
   },
   "resolutions": {
     "angular": "1.5.5"
