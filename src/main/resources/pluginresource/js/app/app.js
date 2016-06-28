@@ -1,53 +1,4 @@
-require.config({
-    baseUrl: "pluginresource/js/",
-    "paths": {
-        "angular": "libs/angular/angular",
-        "bootstrap": "libs/bootstrap/dist/js/bootstrap",
-        "angular-resource": "libs/angular-resource/angular-resource",
-        "ui-router": "libs/angular-ui-router/release/angular-ui-router",
-        "dragdrop": "libs/angular-dragdrop/src/angular-dragdrop",
-        "jquery": "libs/jquery/dist/jquery.min",
-        "jquery-ui": "libs/jquery-ui/jquery-ui",
-        "angular-ui": "libs/angular-bootstrap/ui-bootstrap-tpls",
-        "angular-filter": "libs/angular-filter/dist/angular-filter",
-        "cookies": "libs/js-cookie/src/js.cookie"
-    },
-    shim: {
-        "jquery": {
-            exports: "$"
-        },
-        "angular": {
-            exports: "angular"
-        },
-        "ui-router": {
-            deps: ['angular']
-        },
-        "angular-resource": {
-            deps: ["angular"]
-        },
-        "jquery-ui": {
-            deps: ["jquery"]
-        },
-        "dragdrop": {
-            deps: ['angular', 'jquery-ui']
-        },
-        "angular-ui": {
-            deps: ['angular']
-        },
-        "angular-filter": {
-            deps: ['angular']
-        },
-        "angular-cookies": {
-            deps: ['angular'],
-            exports: 'angularCookies'
-        },
-        "bootstrap": {
-            deps: ['jquery']
-        }
-    }
-});
-
-define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
+require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
         "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
         "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection", "app/services/tutorials"
     ],
@@ -295,4 +246,5 @@ define(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "
             return toExport;
         }
         return app;
-    });
+    }
+);
