@@ -1,6 +1,6 @@
 import {OnlyWarCharacter} from "./Character"
 import {Talent} from "./Talent";
-import {CharacteristicValue, CharacteristicName} from "./Characteristic";
+import {CharacteristicValue, Characteristic} from "./Characteristic";
 import {Trait} from "./Trait";
 import {Item} from "./items/Item";
 import {Skill} from "./Skill";
@@ -17,13 +17,13 @@ export abstract class CharacterModifier {
      *
      * Maps the characteristic name to a number modifier.
      */
-    protected _characteristics:Map<CharacteristicName, number>;
+    protected _characteristics:Map<Characteristic, number>;
     /**
      * Skill modifiers.
      *
      * Maps a tuple containing a skill name and optional specialization to a skill rating.
      */
-    private _skills:Map<[string,string], number>;
+    private _skills:Array<Skill>;
     /**
      * Talent modifiers.
      *
@@ -53,11 +53,11 @@ export abstract class CharacterModifier {
      *
      *  Positive or negative modifier to character wounds.
      */
-    private _wounds:number;
+    protected _wounds:number;
     private _psyRating:number;
     private type:OnlyWarCharacterModifierTypes;
 
-    constructor(characteristics:Map<CharacteristicName, number>, skills:Map<[string, string], number>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Array<Item>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
+    constructor(characteristics:Map<Characteristic, number>, skills:Array<Skill>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Array<Item>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
         this._characteristics = characteristics;
         this._skills = skills;
         this._talents = talents;
@@ -76,6 +76,7 @@ export abstract class CharacterModifier {
         this.applyKitModifiers(character);
         this.applyTalentModifiers(character);
         this.applyTraitsModifiers(character);
+        this.applyWoundsModifier(character);
     }
 
     protected applyCharacteristicModifiers(character:OnlyWarCharacter) {
@@ -92,13 +93,12 @@ export abstract class CharacterModifier {
     };
 
     protected applySkillModifiers(character:OnlyWarCharacter) {
-        for (var skill of this._skills.entries()) {
-            let existingSkill = character.skills.get(skill[0]);
-            if (existingSkill) {
-                existingSkill.rank += this._skills.get(skill[0]);
+        for (var skill of this._skills) {
+            var index = character.skills.indexOf(skill);
+            if (index !== -1) {
+                character.skills[index].rank += skill.rank;
             } else {
-                existingSkill = new Skill(skill[0][0], skill[1], skill[0][1]);
-                character.skills.set(skill[0], existingSkill);
+                character.skills.push(skill);
             }
         }
     };
@@ -126,6 +126,9 @@ export abstract class CharacterModifier {
             character.kit.push(item);
         }
     }
+
+    protected applyWoundsModifier(character:OnlyWarCharacter) {
+    };
 }
 
 export enum OnlyWarCharacterModifierTypes{
