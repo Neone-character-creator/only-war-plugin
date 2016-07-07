@@ -7,26 +7,39 @@ import {OnlyWarCharacterModifierTypes} from "../CharacterModifier";
  */
 
 export class SkillAdvancement extends CharacterAdvancement {
-    private skill:[string,string];
+    private skill:Skill;
 
     apply(character:OnlyWarCharacter) {
-        let existingSkill = (<Map<[string,string],Skill>>character.skills).get(this.value);
+        var existingSkill = character.skills.find((skill)=> {
+            return skill.name === this.skill.name && skill.specialization === this.skill.specialization;
+        });
         if (existingSkill) {
-            existingSkill.rank += 1
+            return existingSkill.rank++;
         } else {
-            existingSkill = new Skill(this.value[0], 1, this.value[1]);
-            character.skills.set(this.value, existingSkill);
+            character.skills.push(this.skill);
         }
     }
 
-    constructor(skillAndSpecialization:[string,string]) {
-        var skills = new Map();
-        skills.set(skillAndSpecialization, 1);
-        super(AdvanceableProperty.SKILL, skills, new Map(), [], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
-        this.skill = skillAndSpecialization;
+    constructor(skill:Skill) {
+        var skills:Array<Skill> = [skill];
+        super(AdvanceableProperty.SKILL, new Map(), skills, [], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        this.skill = skill;
     }
 
-    get value():[string,string] {
+    get value():Skill {
         return this.skill;
+    }
+
+    public calculateExperienceCost(character:OnlyWarCharacter):number {
+        var matchingAptitudes:number = 0;
+        var existingSkillRating = character.skills.find((skill)=> {
+            return this.skill.name === skill.name && this.skill.specialization === skill.specialization;
+        }).rank;
+        character.aptitudes.forEach((aptitude)=> {
+            if (this.skill.aptitudes.indexOf(aptitude) !== -1) {
+                matchingAptitudes++;
+            }
+        });
+        return (existingSkillRating + 1) * (3 - matchingAptitudes) * 100;
     }
 }

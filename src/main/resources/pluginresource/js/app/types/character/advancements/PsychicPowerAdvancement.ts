@@ -6,6 +6,9 @@ import {OnlyWarCharacterModifierTypes} from "../CharacterModifier";
  * Created by Damien on 6/29/2016.
  */
 export class PsychicPowerAdvancement extends CharacterAdvancement {
+    calculateExperienceCost(character:OnlyWarCharacter):number {
+        return this.power.xpCost;
+    }
     apply(character:OnlyWarCharacter) {
         character.powers.addPower(this.value, this.isBonus);
     }
@@ -16,7 +19,7 @@ export class PsychicPowerAdvancement extends CharacterAdvancement {
     constructor(value:PsychicPower, isBonus:boolean) {
         super(AdvanceableProperty.PSYCHIC_POWER,
             new Map(),
-            new Map(),
+            [],
             [],
             [],
             [],

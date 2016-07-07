@@ -6,12 +6,15 @@ import {OnlyWarCharacterModifierTypes} from "../CharacterModifier";
  * Created by Damien on 6/29/2016.
  */
 export class PsyRatingAdvancement extends CharacterAdvancement {
+    calculateExperienceCost(character:OnlyWarCharacter):number {
+        return (character.powers.psyRating + 1) * 200;
+    }
     apply(character:OnlyWarCharacter) {
         character.powers.psyRating += 1;
     }
 
     constructor() {
-        super(AdvanceableProperty.PSY_RATING, new Map(), new Map(), [], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        super(AdvanceableProperty.PSY_RATING, new Map(), [], [], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
     }
 
     /**

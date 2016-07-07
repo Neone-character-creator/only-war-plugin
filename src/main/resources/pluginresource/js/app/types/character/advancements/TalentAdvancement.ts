@@ -13,7 +13,7 @@ export class TalentAdvancement extends CharacterAdvancement {
     }
 
     constructor(talent:Talent) {
-        super(AdvanceableProperty.TALENT, new Map(), new Map(), [talent], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        super(AdvanceableProperty.TALENT, new Map(), [], [talent], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
         this.talent = talent;
     }
 
@@ -23,5 +23,22 @@ export class TalentAdvancement extends CharacterAdvancement {
      */
     get value():Talent {
         return this.talent;
+    }
+
+    public calculateExperienceCost(character:OnlyWarCharacter):number {
+        var aptitudeMatch:number = 0;
+        this.talent.aptitudes.forEach((aptitude) => {
+            if (character.aptitudes.indexOf(aptitude) !== -1) {
+                aptitudeMatch++;
+            }
+        });
+        switch (aptitudeMatch) {
+            case 0:
+                return (this.talent.tier) * 300;
+            case 1:
+                return (this.talent.tier) * 150;
+            case 2:
+                return (this.talent.tier) * 100;
+        }
     }
 }
