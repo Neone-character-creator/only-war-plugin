@@ -1,9 +1,10 @@
 import {AdvanceableProperty, OnlyWarCharacter} from "../Character";
 import {CharacterModifier, OnlyWarCharacterModifierTypes} from "../CharacterModifier";
-import {CharacteristicName} from "../Characteristic";
+import {Characteristic} from "../Characteristic";
 import {Talent} from "../Talent";
 import {Trait} from "../Trait";
 import {Item} from "../items/Item";
+import {Skill} from "../Skill";
 /**
  * An advancement to a character, purchased with xp.
  *
@@ -19,13 +20,10 @@ export abstract class CharacterAdvancement extends CharacterModifier {
      * The property that the advancement modifies.
      */
     private _property:AdvanceableProperty;
-    get property():AdvanceableProperty {
-        return this._property;
-    };
 
     constructor(property:AdvanceableProperty,
-                characteristics:Map<CharacteristicName, number>,
-                skills:Map<[string,string], number>,
+                characteristics:Map<Characteristic, number>,
+                skills:Array<Skill>,
                 talents:Array<Talent>,
                 aptitudes:Array<string>,
                 traits:Array<Trait>,
@@ -36,4 +34,17 @@ export abstract class CharacterAdvancement extends CharacterModifier {
         super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, type);
         this._property = property;
     }
+
+
+    get property():AdvanceableProperty {
+        return this._property;
+    }
+
+    /**
+     * Calculate the amount of experience it would cost to add this advancement to the given character.
+     *
+     * @param character
+     * @returns {number}
+     */
+    public abstract calculateExperienceCost(character:OnlyWarCharacter):number;
 }
