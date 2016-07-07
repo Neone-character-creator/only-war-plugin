@@ -1,6 +1,6 @@
 import {Regiment} from "./Regiment";
 import {Specialty} from "./Specialty";
-import {CharacteristicValue, CharacteristicName} from "./Characteristic";
+import {CharacteristicValue, Characteristic} from "./Characteristic";
 import {Skill} from "./Skill";
 import {Talent} from "./Talent";
 import {CharacterModifier, OnlyWarCharacterModifierTypes} from "./CharacterModifier";
@@ -9,8 +9,9 @@ import {Item} from "./items/Item";
 import {CharacterAdvancement} from "./advancements/CharacterAdvancement";
 import {PsychicPower} from "./PsychicPower";
 import {PsychicPowerAdvancement} from "./advancements/PsychicPowerAdvancement";
-
-declare var angular:any;
+import {CharacteristicAdvancement} from "./advancements/CharacteristicAdvancement";
+import {SkillAdvancement} from "./advancements/SkillAdvancement";
+import {TalentAdvancement} from "./advancements/TalentAdvancement";
 
 export class OnlyWarCharacter {
     private _name:String = "";
@@ -18,22 +19,21 @@ export class OnlyWarCharacter {
     private _description:String = "";
     private _regiment:Regiment;
     private _specialty:Specialty;
-    private _characteristics:Map<CharacteristicName, CharacteristicValue>;
-    private _skills:Map<[string,string], Skill> = new Map<[string,string],Skill>();
+    private _characteristics:Map<Characteristic, CharacteristicValue>;
+    private _skills:Array<Skill> = new Array<Skill>();
     private _talents:Array<Talent> = [];
     private _traits:Array<Trait> = [];
     private _kit:Array<Item> = [];
-    private _wounds:WoundsContainer;
+    private _wounds:WoundsContainer = new WoundsContainer();
     private _criticalDamage:Array<String> = [];
     private _insanity:InsanityContainer = new InsanityContainer();
     private _corruption:CorruptionContainer = new CorruptionContainer();
     private _speeds:SpeedContainer = new SpeedContainer(this);
     private _fatePoints:Number = 0;
     private _experience:ExperienceContainer;
-    private _aptitudes:Array<String> = [];
+    private _aptitudes:Array<string> = [];
     private _powers:PsychicPowersContainer = new PsychicPowersContainer();
     private _fatigue:Number;
-
 
     get fatigue():Number {
         return this._fatigue;
@@ -63,11 +63,11 @@ export class OnlyWarCharacter {
         return this._specialty;
     }
 
-    get characteristics():Map<CharacteristicName, CharacteristicValue> {
+    get characteristics():Map<Characteristic, CharacteristicValue> {
         return this._characteristics;
     }
 
-    get skills():Map<[string,string], Skill> {
+    get skills():Array<Skill> {
         return this._skills;
     }
 
@@ -111,7 +111,7 @@ export class OnlyWarCharacter {
         return this._experience;
     }
 
-    get aptitudes():Array<String> {
+    get aptitudes():Array<string> {
         return this._aptitudes;
     }
 
@@ -146,17 +146,10 @@ export class OnlyWarCharacter {
     }
 
     constructor() {
-        this._characteristics = new Map<CharacteristicName, CharacteristicValue>();
-        this._characteristics.set(CharacteristicName.AGILITY, new CharacteristicValue(CharacteristicName.AGILITY));
-        this._characteristics.set(CharacteristicName.STRENGTH, new CharacteristicValue(CharacteristicName.STRENGTH));
-        this._characteristics.set(CharacteristicName.TOUGHNESS, new CharacteristicValue(CharacteristicName.TOUGHNESS));
-        this._characteristics.set(CharacteristicName.INTELLIGENCE, new CharacteristicValue(CharacteristicName.INTELLIGENCE));
-        this._characteristics.set(CharacteristicName.WEAPON_SKILL, new CharacteristicValue(CharacteristicName.WEAPON_SKILL));
-        this._characteristics.set(CharacteristicName.BALLISTIC_SKILL, new CharacteristicValue(CharacteristicName.BALLISTIC_SKILL));
-        this._characteristics.set(CharacteristicName.WILLPOWER, new CharacteristicValue(CharacteristicName.WILLPOWER));
-        this._characteristics.set(CharacteristicName.FELLOWSHIP, new CharacteristicValue(CharacteristicName.AGILITY));
-        this._characteristics.set(CharacteristicName.PERCEPTION, new CharacteristicValue(CharacteristicName.PERCEPTION));
-
+        this._characteristics = new Map<Characteristic, CharacteristicValue>();
+        for (var c of Characteristic.characteristics.values()) {
+            this._characteristics.set(c, new CharacteristicValue(c));
+        }
         this._experience = new ExperienceContainer(this);
     }
 
@@ -228,7 +221,7 @@ class SpeedContainer {
     private _run:Number;
 
     get half() {
-        let agilityBonus = this.character.characteristics.get(CharacteristicName.AGILITY).bonus;
+        let agilityBonus = this.character.characteristics.get(Characteristic.characteristics.get("Agility")).bonus;
         if (agilityBonus === 0) {
             return .5;
         } else {
@@ -237,7 +230,7 @@ class SpeedContainer {
     }
 
     get full() {
-        let agilityBonus = this.character.characteristics.get(CharacteristicName.AGILITY).bonus;
+        let agilityBonus = this.character.characteristics.get(Characteristic.characteristics.get("Agility")).bonus;
         if (agilityBonus === 0) {
             return 1;
         } else {
@@ -246,7 +239,7 @@ class SpeedContainer {
     }
 
     get charge() {
-        let agilityBonus = this.character.characteristics.get(CharacteristicName.AGILITY).bonus;
+        let agilityBonus = this.character.characteristics.get(Characteristic.characteristics.get("Agility")).bonus;
         if (agilityBonus === 0) {
             return 2;
         } else {
@@ -255,7 +248,7 @@ class SpeedContainer {
     }
 
     get run() {
-        let agilityBonus = this.character.characteristics.get(CharacteristicName.AGILITY).bonus;
+        let agilityBonus = this.character.characteristics.get(Characteristic.characteristics.get("Agility")).bonus;
         if (agilityBonus === 0) {
             return 3;
         } else {
@@ -307,8 +300,8 @@ class ExperienceContainer {
      * @param value
      */
     public set available(value:number) {
-        this._available = value;
         this._total += value - this._available;
+        this._available = value;
     }
 
     public get advancements() {
@@ -316,12 +309,43 @@ class ExperienceContainer {
     }
 
     /**
-     * Add an advancement to the character.
+     * Attempt to add the given advancement to the character. The character will determine if
+     * it can add the advancement. If it can, it will add the advancement and this method will return
+     * true. Else, this will return false.
      * @param advancement
+     * @returns return if the advancement was added
      */
-    public addAdvancement(advancement:CharacterAdvancement) {
+    public addAdvancement(advancement:CharacterAdvancement):boolean {
+        switch (advancement.property) {
+            case AdvanceableProperty.CHARACTERISTIC:
+                //If the characteristic already has 4 advancements, can't add another.
+                if (this._character.characteristics.get((<CharacteristicAdvancement>advancement).value).advancements.length >= 4) {
+                    return false;
+                }
+                break;
+            case AdvanceableProperty.SKILL:
+                //If the skill already has a rating of 4, can't improve any further.
+                var existingSkill = this._character.skills.find((skill)=> {
+                    return (<SkillAdvancement>advancement).value.name === skill.name &&
+                        (<SkillAdvancement>advancement).value.specialization === skill.specialization
+                })
+                if (existingSkill && existingSkill.rank >= 4) {
+                    return false;
+                }
+                break;
+            case AdvanceableProperty.TALENT:
+                let incomingTalent = (<TalentAdvancement>advancement).value;
+                //Don't add if the character has a talent with the same name and specialization.
+                if (this._character.talents.find(function (talent) {
+                        return talent.name === incomingTalent.name && talent.specialization === incomingTalent.specialization;
+                    })) {
+                    return false;
+                }
+                break;
+        }
         this._advances.push(advancement);
         advancement.apply(this._character);
+        return true;
     }
 
     public removeAdvancement(advancement:CharacterAdvancement) {
