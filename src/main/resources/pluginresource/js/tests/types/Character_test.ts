@@ -4,7 +4,6 @@
  */
 import {OnlyWarCharacter} from "../../app/types/character/Character"
 import {Characteristic} from "../../app/types/character/Characteristic";
-import {CharacterModifier} from "../../app/types/character/CharacterModifier";
 import {CharacteristicAdvancement} from "../../app/types/character/advancements/CharacteristicAdvancement";
 import {Regiment} from "../../app/types/character/Regiment";
 import {Specialty} from "../../app/types/character/Specialty";
@@ -103,7 +102,7 @@ describe("The character", ()=> {
             expect(theCharacter.talents).toBeDefined();
         });
         it("must allow gaining talents from the character regiment.", function () {
-            var talent = new Talent("Test Talent", "Test", 1);
+            var talent = new Talent("Test Talent", "Test", 1, []);
             var talents = [talent];
             var regiment = new Regiment(new Map(),
                 [],
@@ -112,7 +111,7 @@ describe("The character", ()=> {
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
         it("must allow gaining talents from the character specialty.", function () {
-            var talent = new Talent("Test Talent", "Test", 1);
+            var talent = new Talent("Test Talent", "Test", 1, []);
             var talents = [talent];
             var specialty = new Specialty(new Map(),
                 [],
@@ -121,13 +120,13 @@ describe("The character", ()=> {
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
         it("must allow gaining talents by character advancement.", function () {
-            var talent = new Talent("Test Talent", "Test", 1);
+            var talent = new Talent("Test Talent", "Test", 1, []);
             var advancement = new TalentAdvancement(talent);
             theCharacter.experience.addAdvancement(advancement);
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
         it("must not allow adding a Talent by advancement with the same name and specialization as one the character already has.", function () {
-            var talent = new Talent("Test Talent", "Test", 1);
+            var talent = new Talent("Test Talent", "Test", 1, []);
             var advancement = new TalentAdvancement(talent);
             theCharacter.experience.addAdvancement(advancement);
             expect(theCharacter.experience.addAdvancement(advancement)).toEqual(false);
@@ -226,8 +225,11 @@ describe("The character", ()=> {
             expect(theCharacter.experience.total).toEqual(100);
         });
         it("recalculate available experience", function () {
-            theCharacter.experience.available = 100;
+            theCharacter.experience.available = 500;
             var advancement = new CharacteristicAdvancement(Characteristic.characteristics.get("Agility"));
+            theCharacter.experience.addAdvancement(advancement);
+            expect(theCharacter.experience.total).toEqual(500);
+            expect(theCharacter.experience.available).toEqual(0);
         });
     });
 });

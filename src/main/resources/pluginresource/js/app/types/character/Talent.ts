@@ -52,8 +52,9 @@ export class Talent implements HasPrerequisites<OnlyWarCharacter> {
         return this._maxTimesPurchaseable;
     }
 
-    constructor(name:String, source:String, tier:number, specialization?:string, prerequisites?:Prerequisites<OnlyWarCharacter>, maxTimesPurchaseable?:number) {
+    constructor(name:String, source:String, tier:number, aptitudes:Array<string>, specialization?:string, prerequisites?:Prerequisites<OnlyWarCharacter>, maxTimesPurchaseable?:number) {
         this.prerequisites = prerequisites;
+        this._aptitudes = aptitudes;
         this._name = name;
         this._source = source;
         this._tier = tier
