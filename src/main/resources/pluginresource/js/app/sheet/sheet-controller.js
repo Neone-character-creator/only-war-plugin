@@ -1,4 +1,4 @@
-define(function() {
+define(["../types/character/advancements/CharacterAdvancement"], function (Advancements) {
     return function($scope, characterService, regiments, specialties, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, cookies, $state, tutorials) {
         $scope.character = characterService.character;
         characteroptions.characteristics().then(function(result) {
@@ -286,7 +286,7 @@ define(function() {
             	$.each(this.locations, function(i, location){
             		location.providers = [];
             	});
-            	$.each(characterService.character.equipment.armor, function(i, armor){
+                $.each(characterService.character.kit.armor, function (i, armor) {
 					$.each(armor.item.locations, function(i, location){
 						switch(location){
 							case "Head":
@@ -332,7 +332,9 @@ define(function() {
             	});
             }
         };
-        $.each(characterService.character.equipment.armor.map(function(element) {
+        $.each(characterService.character.kit.filter(function (item) {
+            return item.type === "Armor";
+        }).map(function (element) {
             return element.item
         }), function(index, armor) {
             $.each(armor.locations, function(index, location) {
@@ -394,7 +396,9 @@ define(function() {
         updateAvailableWeapons = function() {
             $scope.availableWeapons = characteroptions.weapons().then(function(result) {
                 $scope.availableWeapons = result.filter(function(element) {
-                    var weapons = characterService.character.equipment.weapons.map(function(weapon) {
+                    var weapons = characterService.character.kit.filter(function (item) {
+                        return item.type === "Weapon";
+                    }).map(function (weapon) {
                         return weapon.item;
                     });
                     return weapons.indexOf(element) === -1;
@@ -404,26 +408,28 @@ define(function() {
         updateAvailableWeapons();
 
         $scope.addNewWeapon = function() {
-            characterService.character.equipment.weapons.push({
+            characterService.character.kit.weapons.push({
                 item: $scope.availableWeapons[$scope.newWeapon],
                 count: 1
             });
             updateAvailableweapons;
         };
         $scope.removeWeapon = function(index) {
-            characterService.character.equipment.weapons.splice(index);
+            characterService.character.kit.weapons.splice(index);
             $scope.newWeapon = null;
             updateAvailableWeapons();
         }
 
-		$scope.$watch("character.equipment.armor.length", function(newVal){
+        $scope.$watch("character.kit.armor.length", function (newVal) {
 			$scope.armor.update();
 		});
 
         updateAvailableArmor = function() {
             $scope.availableArmor = characteroptions.armor().then(function(result) {
                 $scope.availableArmor = result.filter(function(element) {
-                    var armor = characterService.character.equipment.armor.map(function(armor) {
+                    var armor = characterService.character.kit.filter(function (item) {
+                        return item.type === "Armor";
+                    }).map(function (armor) {
                         return armor.item;
                     });
                     return armor.indexOf(element) === -1;
@@ -433,14 +439,14 @@ define(function() {
         updateAvailableArmor();
 
         $scope.addNewArmor = function() {
-            characterService.character.equipment.armor.push({
+            characterService.character.kit.armor.push({
                 item: $scope.availableArmor[$scope.newArmor],
                 count: 1
             });
             updateAvailableArmor();
         };
         $scope.removeArmor = function(index) {
-            characterService.character.equipment.armor.splice(index);
+            characterService.character.kit.armor.splice(index);
             $scope.newArmor = null;
             updateAvailableArmor();
         }
@@ -450,5 +456,25 @@ define(function() {
             tutorials.show('introduction');
             $state.go("modal.tutorial");
         }
+
+        $scope.availablePowers;
+        function updateAvailablePowers() {
+            characteroptions.powers().then(function (result) {
+                $scope.availablePowers = result.filter(function (power) {
+                    for (var i = 0; i < $scope.character.powers.powers.length; i++) {
+                        if (power.name === $scope.character.powers.powers[i].name) {
+                            return false;
+                        }
+                    }
+                    return true;
+                });
+            });
+        }
+
+        updateAvailablePowers();
+
+        $scope.addNewPower = function () {
+            $scope.character.experience.addAdvancement(new Advancements.PsychicPowerAdvancement($scope.availablePowers[parseInt($scope.newPower)], false));
+        };
     };
 });
