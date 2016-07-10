@@ -13,6 +13,10 @@ define(["require", "exports", "./CharacterModifier"], function (require, exports
                 character.characteristics.get(characteristic[0]).regimentModifier = characteristic[1];
             }
         }
+
+        applyWoundsModifier(character) {
+            character.wounds.regimentModifier = this._wounds;
+        }
     }
     exports.Regiment = Regiment;
 });
