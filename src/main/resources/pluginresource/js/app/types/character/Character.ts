@@ -6,12 +6,11 @@ import {Talent} from "./Talent";
 import {CharacterModifier, OnlyWarCharacterModifierTypes} from "./CharacterModifier";
 import {Trait} from "./Trait";
 import {Item} from "./items/Item";
-import {CharacterAdvancement} from "./advancements/CharacterAdvancement";
 import {PsychicPower} from "./PsychicPower";
-import {PsychicPowerAdvancement} from "./advancements/PsychicPowerAdvancement";
-import {CharacteristicAdvancement} from "./advancements/CharacteristicAdvancement";
-import {SkillAdvancement} from "./advancements/SkillAdvancement";
-import {TalentAdvancement} from "./advancements/TalentAdvancement";
+import {
+    CharacterAdvancement, CharacteristicAdvancement, SkillAdvancement,
+    TalentAdvancement, PsychicPowerAdvancement
+} from "./advancements/CharacterAdvancement";
 
 export class OnlyWarCharacter {
     private _name:String = "";
@@ -343,6 +342,7 @@ class ExperienceContainer {
                 }
                 break;
         }
+        this._available -= advancement.calculateExperienceCost(this._character);
         this._advances.push(advancement);
         advancement.apply(this._character);
         return true;
@@ -403,7 +403,7 @@ class PsychicPowersContainer {
     }
 
     public get powers() {
-        return this.powers.map((wrapper)=> {
+        return this._powers.map((wrapper)=> {
             return wrapper.power;
         });
     }
