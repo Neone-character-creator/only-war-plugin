@@ -3,7 +3,7 @@
     "name": "Smite",
     "source": "core",
     "discipline": "Biomancy",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [],
     "action": "Half Action",
     "focus power": {
@@ -24,27 +24,27 @@
     "name": "Iron Arm",
     "source": "core",
     "discipline": "Biomancy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "characteristic",
         "name": "Strength",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 35
+          "xpCost": 35
         }
       },
       {
         "property": "characteristic",
         "name": "Toughness",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 35
+          "xpCost": 35
         }
       },
       {
         "property": "power",
-        "value": "Endurance"
+        "xpCost": "Endurance"
       }
     ],
     "action": "Half Action",
@@ -65,14 +65,14 @@
     "name": "Enfeeble",
     "source": "core",
     "discipline": "Biomancy",
-    "value": 100,
+    "xpCost": 100,
     "prerequisites": [
       {
         "property": "characteristic",
         "name": "Toughness",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 35
+          "xpCost": 35
         }
       }
     ],
@@ -95,19 +95,19 @@
     "name": "Life Leech",
     "source": "core",
     "discipline": "Biomancy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "characteristic",
         "name": "Toughness",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 40
+          "xpCost": 40
         }
       },
       {
         "property": "power",
-        "value": "Enfeeble"
+        "xpCost": "Enfeeble"
       }
     ],
     "action": "Full Action",
@@ -129,13 +129,13 @@
     "name": "Warp Speed",
     "source": "core",
     "discipline": "Biomancy",
-    "value": 500,
+    "xpCost": 500,
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 5
+          "xpCost": 5
         }
       }
     ],
@@ -151,24 +151,24 @@
     "subtypes": [
       "Concentration"
     ],
-    "description": "The immaterium flows through the psyker, allowing him the means to defy the limits of time, hastening his movements and reflexes far beyond the range of any human. He becomes but a blur to his enemies, striking out with lightning speed. The psyker gains the Unnatural Weapon Skill, Unnatural Ballistic Skill, and Unnatural Agility Traits, all at values equal to his Psy Rating."
+    "description": "The immaterium flows through the psyker, allowing him the means to defy the limits of time, hastening his movements and reflexes far beyond the range of any human. He becomes but a blur to his enemies, striking out with lightning speed. The psyker gains the Unnatural Weapon Skill, Unnatural Ballistic Skill, and Unnatural Agility Traits, all at xpCosts equal to his Psy Rating."
   },
   {
     "name": "Haemorrhage",
     "source": "core",
     "discipline": "Biomancy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 4
+          "xpCost": 4
         }
       },
       {
         "property": "power",
-        "value": "Smite"
+        "xpCost": "Smite"
       }
     ],
     "action": "Half Action",
@@ -190,14 +190,14 @@
     "name": "Prescience",
     "source": "core",
     "discipline": "Divination",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [
       {
         "property": "skill",
         "name": "Psyniscience",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 1
+          "xpCost": 1
         }
       }
     ],
@@ -220,14 +220,14 @@
     "name": "Foreboding",
     "source": "core",
     "discipline": "Divination",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [
       {
         "property": "skill",
         "name": "Psyniscience",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 1
+          "xpCost": 1
         }
       }
     ],
@@ -249,11 +249,11 @@
     "name": "Forewarning",
     "source": "core",
     "discipline": "Divination",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Foreboding"
+        "xpCost": "Foreboding"
       }
     ],
     "action": "Half Action",
@@ -274,7 +274,7 @@
     "name": "Misfortune",
     "source": "core",
     "discipline": "Divination",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [],
     "action": "Half Action",
     "focus power": {
@@ -295,11 +295,11 @@
     "name": "Perfect Timing",
     "source": "core",
     "discipline": "Divination",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Prescience"
+        "xpCost": "Prescience"
       }
     ],
     "action": "Half Action",
@@ -320,11 +320,11 @@
     "name": "Precognition",
     "source": "core",
     "discipline": "Divination",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Perfect Timing"
+        "xpCost": "Perfect Timing"
       }
     ],
     "action": "Full Action",
@@ -345,14 +345,14 @@
     "name": "Scrier's Gaze",
     "source": "core",
     "discipline": "Divination",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [
       {
         "property": "skill",
         "name": "Psyniscience",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 2
+          "xpCost": 2
         }
       }
     ],
@@ -374,18 +374,18 @@
     "name": "Flame Breath",
     "source": "core",
     "discipline": "Pyromancy",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 3
+          "xpCost": 3
         }
       },
       {
         "property": "power",
-        "value": "Spontaneous Combustion"
+        "xpCost": "Spontaneous Combustion"
       }
     ],
     "action": "Half Action",
@@ -406,18 +406,18 @@
     "name": "Fiery Form",
     "source": "core",
     "discipline": "Pyromancy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 4
+          "xpCost": 4
         }
       },
       {
         "property": "power",
-        "value": "Fire Shield"
+        "xpCost": "Fire Shield"
       }
     ],
     "action": "Half Action",
@@ -438,7 +438,7 @@
     "name": "Fire Shield",
     "source": "core",
     "discipline": "Pyromancy",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [],
     "action": "Free Action",
     "focus power": {
@@ -458,17 +458,17 @@
     "name": "Inferno",
     "source": "core",
     "discipline": "Pyromancy",
-    "value": 500,
+    "xpCost": 500,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Molten Beam"
+        "xpCost": "Molten Beam"
       },
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 5
+          "xpCost": 5
         }
       }
     ],
@@ -490,7 +490,7 @@
     "name": "Spontaneous Combustion",
     "source": "core",
     "discipline": "Pyromancy",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [],
     "action": "Special",
     "focus power": {
@@ -510,17 +510,17 @@
     "name": "Sunburst",
     "source": "core",
     "discipline": "Pyromancy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Flame Breath"
+        "xpCost": "Flame Breath"
       },
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 4
+          "xpCost": 4
         }
       }
     ],
@@ -542,17 +542,17 @@
     "name": "Molten Beam",
     "source": "core",
     "discipline": "Pyromancy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Flame Breath"
+        "xpCost": "Flame Breath"
       },
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 4
+          "xpCost": 4
         }
       }
     ],
@@ -574,7 +574,7 @@
     "name": "Assail",
     "source": "core",
     "discipline": "Telekinesis",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [
     ],
     "action": "Half Action",
@@ -596,11 +596,11 @@
     "name": "Crush",
     "source": "core",
     "discipline": "Telekinesis",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Assail"
+        "xpCost": "Assail"
       }
     ],
     "action": "Half Action",
@@ -622,13 +622,13 @@
     "name": "Gate Of Infinity",
     "source": "core",
     "discipline": "Telekinesis",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "psy rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 5
+          "xpCost": 5
         }
       }
     ],
@@ -650,11 +650,11 @@
     "name": "Objuration Mechanicum",
     "source": "core",
     "discipline": "Telekinesis",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Assail"
+        "xpCost": "Assail"
       }
     ],
     "action": "Half Action",
@@ -675,11 +675,11 @@
     "name": "Shockwave",
     "source": "core",
     "discipline": "Telekinesis",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Assail"
+        "xpCost": "Assail"
       }
     ],
     "action": "Half Action",
@@ -701,13 +701,13 @@
     "name": "Telekine Dome",
     "source": "core",
     "discipline": "Telekinesis",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 4
+          "xpCost": 4
         }
       }
     ],
@@ -729,25 +729,25 @@
     "name": "Vortex of Doom",
     "source": "core",
     "discipline": "Telekinesis",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Crush"
+        "xpCost": "Crush"
       },
       {
         "property": "power",
-        "value": "Objuration Mechanicum"
+        "xpCost": "Objuration Mechanicum"
       },
       {
         "property": "power",
-        "value": "Shockwave"
+        "xpCost": "Shockwave"
       },
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 5
+          "xpCost": 5
         }
       }
     ],
@@ -770,13 +770,13 @@
     "name": "Psychic Shriek",
     "source": "core",
     "discipline": "Telepathy",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 3
+          "xpCost": 3
         }
       }
     ],
@@ -798,14 +798,14 @@
     "name": "Dominate",
     "source": "core",
     "discipline": "Telepathy",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [
       {
         "property": "characteristic",
         "name ": "Willpower",
-        "value": {
+        "xpCost": {
           "comparison": "at least",
-          "value": 40
+          "xpCost": 40
         }
       }
     ],
@@ -827,11 +827,11 @@
     "name": "Mental Fortitude",
     "source": "core",
     "discipline": "Telepathy",
-    "value": 300,
+    "xpCost": 300,
     "prerequisites": [
       {
         "property": "talent",
-        "value": "Fearless"
+        "xpCost": "Fearless"
       }
     ],
     "action": "Half Action",
@@ -852,11 +852,11 @@
     "name": "Puppet Master",
     "source": "core",
     "discipline": "Telepathy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Dominate"
+        "xpCost": "Dominate"
       }
     ],
     "action": "Full Action",
@@ -877,11 +877,11 @@
     "name": "Terrify",
     "source": "core",
     "discipline": "Telepathy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "power",
-        "value": "Hallucination"
+        "xpCost": "Hallucination"
       }
     ],
     "action": "Full Action",
@@ -902,20 +902,20 @@
     "name": "Invisibility",
     "source": "core",
     "discipline": "Telepathy",
-    "value": 400,
+    "xpCost": 400,
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "value ": {
+        "xpCost ": {
           "comparison ": "at least",
-          "value ": 4
+          "xpCost ": 4
         }
       },
       {
         "property": "Agility",
-        "value ": {
+        "xpCost ": {
           "comparison ": "at least",
-          "value ": 30
+          "xpCost ": 30
         }
       }
     ],
@@ -937,7 +937,7 @@
     "name": "Hallucination",
     "source": "core",
     "discipline": "Telepathy",
-    "value": 200,
+    "xpCost": 200,
     "prerequisites": [],
     "action": "Half Action",
     "focus power": {
