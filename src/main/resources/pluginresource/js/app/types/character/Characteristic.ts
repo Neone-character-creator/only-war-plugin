@@ -1,4 +1,4 @@
-import {CharacteristicAdvancement} from "./advancements/CharacteristicAdvancement";
+import {CharacteristicAdvancement} from "./advancements/CharacterAdvancement";
 /**
  * A single characteristic value.
  */
