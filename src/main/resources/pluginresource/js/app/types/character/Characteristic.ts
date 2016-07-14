@@ -81,14 +81,14 @@ export class Characteristic {
     public static characteristics:Map<string, Characteristic> = new Map(
         [
             ["Weapon Skill", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Ballistic Skill", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Strength", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Toughness", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Agility", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Intelligence", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Perception", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Willpower", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])],
-            ["Fellowship", new Characteristic("Weapon Skill", ["Weapon Skill", "Offence"])]
+            ["Ballistic Skill", new Characteristic("Ballistic Skill", ["Ballistic Skill", "Finesse"])],
+            ["Strength", new Characteristic("Strength", ["Strength", "Offence"])],
+            ["Toughness", new Characteristic("Toughness", ["Toughness", "Defence"])],
+            ["Agility", new Characteristic("Agility", ["Agility", "Finesse"])],
+            ["Intelligence", new Characteristic("Intelligence", ["Intelligence", "Knowledge"])],
+            ["Perception", new Characteristic("Perception", ["Perception", "Fieldcraft"])],
+            ["Willpower", new Characteristic("Willpower", ["Willpower", "Psyker"])],
+            ["Fellowship", new Characteristic("Fellowship", ["Fellowship", "Socia"])]
         ]);
 
     _name:string;
