@@ -35,8 +35,7 @@
         "options": [
           {
             "property": [
-              "character kit",
-              "other gear"
+              "character kit"
             ],
             "value": {
               "Injector": 1
@@ -44,8 +43,7 @@
           },
           {
             "property": [
-              "character kit",
-              "other gear"
+              "character kit"
             ],
             "value": {
               "Inhaler": 1
@@ -59,8 +57,7 @@
         "options": [
           {
             "property": [
-              "character kit",
-              "other gear"
+              "character kit"
             ],
             "value": {
               "Frenzon": 5
@@ -68,8 +65,7 @@
           },
           {
             "property": [
-              "character kit",
-              "other gear"
+              "character kit"
             ],
             "value": {
               "Stimm": 3
