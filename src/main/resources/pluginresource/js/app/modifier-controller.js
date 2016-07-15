@@ -1,113 +1,112 @@
-define(function() {
-	return function(associatedServiceName){
-	var associatedServiceName = associatedServiceName;
-		return function($scope, $state, $injector ,characterService, selection, optionselection, $uibModal, characteroptions) {
-		switch(associatedServiceName){
-			case "regiments":
-			characteroptions.regiments().then(function(names) {
-				$scope.available = names;
-				$scope.selectionType = associatedServiceName;
-			});
-			$scope.createNewRegiment = function(){
-				$uibModal.open({
-					controller : "RegimentCreationController",
-					templateUrl : 'pluginresource/templates/regiment-creation.html'
-				}).result.then(function(result){
+define(function () {
+    return function (associatedServiceName) {
+        var associatedServiceName = associatedServiceName;
+        return function ($scope, $state, $injector, $q, characterService, selection, optionselection, $uibModal, characteroptions) {
+            $q.all({
+                service: $injector.get(associatedServiceName),
+                characteroptions: characteroptions
+            }).then(function (results) {
+                    switch (associatedServiceName) {
+                        case "regiments":
+                            $scope.selected = characterService.character.regiment;
+                            $scope.selectionType = "regiments";
+                            if ($scope.selected) {
+                                $scope.requiredSelections = characterService.character.regiment['optional modifiers']
+                            }
+                            results.service.regiments.then(function (regiments) {
+                                $scope.available = regiments;
+                            });
+                            break;
+                        case "specialties":
+                            $scope.selected = characterService.character.specialty;
+                            if (characterService.character.specialty) {
+                                $scope.requiredSelections = characterService.character.specialty['optional modifiers']
+                            }
+                            $scope.selectionType = "specialties";
+                            results.service.specialties.then(function (specialties) {
+                                $scope.available = specialties;
+                            });
 
-				});
-			}
-			break;
-			case "specialties":
-			characteroptions.specialties().then(function(names) {
-				$scope.available = names;
-				$scope.selectionType = associatedServiceName;
-			});
-			break;
-		}
-		$scope.character = characterService.character;
-		var modifierService = $injector.get(associatedServiceName);
+                            break;
+                    }
+                    $scope.character = characterService.character;
 
-		$scope.selected = modifierService.selected();
-		$scope.requiredSelections = modifierService.remainingSelections();
+                    var suppressDialog = false;
 
-		var suppressDialog = false;
+                    $scope.select = function (selected) {
+                        var confirm;
+                        var proceed = function () {
+                            $scope.requiredSelections = selected.optionalModifiers;
+                            switch ($scope.selectionType) {
+                                case "regiments":
+                                    characterService.character.regiment = selected;
+                                    break;
+                                case "specialties":
+                                    characterService.character.specialty = selected;
+                                    break;
+                            }
+                            if ($scope.requiredSelections.length > 0) {
+                                $state.$current.data.complete = false;
+                            }
+                            $scope.selected = selected;
+                        }
+                        if ($scope.selected && $state.$current.data.dirty) {
+                            confirm = $uibModal.open({
+                                controller: "ConfirmationController",
+                                templateUrl: "pluginresource/templates/confirm-discard-changes-modal.html"
+                            }).result.then(function () {
+                                proceed();
+                            });
+                        } else {
+                            proceed();
+                        }
 
-		$scope.$on('$stateChangeStart', function(e, toState, fromState, fromParams) {
-			if (toState !== fromState && modifierService.remainingSelections().length !== 0) {
-				var resultHandler = function(result) {
-					if (result) {
-						suppressDialog = true;
-						$state.go(toState);
-					}
-				};
-				if (!suppressDialog) {
-					e.preventDefault();
-					confirm = $uibModal.open({
-						controller: "ConfirmationController",
-						templateUrl: "pluginresource/templates/confirm-navigation-modal.html"
-					}).result.then(resultHandler);
-				}
-			}
-		});
+                    };
 
-		$scope.select = function(selected) {
-			var confirm;
-			var proceed = function() {
-				modifierService.select(selected);
-				$scope.requiredSelections = modifierService.remainingSelections();
-				switch(associatedServiceName){
-					case "regiments":
-						characterService.character.regiment = selected;
-					break;
-					case "specialties":
-						characterService.character.specialty = selected;
-					break;
-				}
-				$scope.selected = modifierService.selected();
-			}
-			if (modifierService.selected() && !modifierService.selectionComplete) {
-				confirm = $uibModal.open({
-					controller: "ConfirmationController",
-					templateUrl: "pluginresource/templates/confirm-discard-changes-modal.html"
-				}).result.then(function() {
-					proceed();
-				});
-			} else {
-				proceed();
-			}
+                    $scope.openSelectionModal = function (selectedObject) {
+                        //Prepare the selection service
+                        selection.selectionObject = selectedObject;
+                        optionselection.target = modifierService.selected;
+                        optionselection.selectionObject = selectedObject;
+                        optionselection.associatedService = modifierService;
+                        var stateTransition = $state.go("modal.selection.modifier", {
+                            "on-completion-callback": function () {
+                                if ($scope.requiredSelections.length == 0) {
+                                    $state.previous.data.complete = true;
+                                }
+                                switch (associatedServiceName) {
+                                    case "regiments":
+                                        characterService.character.regiment = $scope.selected;
+                                        break;
+                                    case "specialties":
+                                        characterService.character.specialty = $scope.selected;
+                                        break;
+                                }
+                            }
+                        });
 
-		};
+                    };
 
-		$scope.openSelectionModal = function(selectedObject) {
-			selection.target = modifierService.selected();
-			selection.associatedService = modifierService;
-			selection.selectionObject = selectedObject;
-			$uibModal.open({
-				controller: "SelectionModalController",
-				templateUrl: 'pluginresource/templates/selection-modal.html',
-			}).result.then(function() {
-				$scope.selected = modifierService.selected();
-				switch(associatedServiceName){
-                					case "regiments":
-                						characterService.character.regiment = $scope.selected;
-                					break;
-                					case "specialties":
-                						characterService.character.specialty = $scope.selected;
-                					break;
-                				}
-                optionselection.target = $scope.selected;
-                optionselection.selectionObject = selectedObject;
-                optionselection.selected = selection.selected;
-                optionselection.associatedService = modifierService;
-                optionselection.applySelection();
-			});
-		};
+                    $scope.openStartingPowersModal = function () {
+                        $uibModal.open({
+                            controller: "StartingPowersController",
+                            templateUrl: 'pluginresource/templates/starting-powers-modal.html'
+                        });
+                    }
 
-		$scope.openStartingPowersModal = function() {
-			$uibModal.open({
-				controller: "StartingPowersController",
-				templateUrl: 'pluginresource/templates/starting-powers-modal.html'
-			});
-		}
-	}
-}});
+                    $scope.$watch("selected", function () {
+                        if ($scope.selected) {
+                            $scope.selectedCharacteristics = Array.from($scope.selected.characteristics.entries()).map(function (entry) {
+                                return {name: entry[0].name, value: entry[1]};
+                            });
+
+                            $scope.kit = Array.from($scope.selected.kit.entries()).map(function (entry) {
+                                return {name: entry[0].name, count: entry[1]};
+                            });
+                        }
+                    });
+                }
+            );
+        }
+    }
+});
