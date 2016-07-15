@@ -41,21 +41,9 @@ share the same format to allow for easy combination of their values:
 			name
 		],
 		wounds : Number,	//Integer wounds modifier
-		character kit : {	//Equipment provided
-			weapons : {
-				main weapon : name,	//The main regimental weapon
-				other weapons : name	//All other weapons
-			},
-			armor : [
-				name
-			],
-			other gear : [
-				name
-			],
-			squad : [	//Items that are provided to the entire squad, rather than the character
+		character kit : [	//Equipment provided
 
-			]
-		},
+		],
 		favored weapons : [
 			name
 		]
@@ -93,7 +81,7 @@ with rules for how to combine them once all the modifiers have been selected and
 		character kit : {
 			weapons : {
 				main weapon : name,	//Replaces the starting main weapon
-				other weapons : name	//Adds to existing weapons
+				standard melee weapon : name	//Adds to existing weapons
 			},
 			armor : [	//Replaced starting armor
 				name
