@@ -7,6 +7,7 @@ import {Item} from "../items/Item";
 import {Skill} from "../Skill";
 import {PsychicPower} from "../PsychicPower";
 import {Characteristic} from "../Characteristic";
+import enumerate = Reflect.enumerate;
 /**
  * An advancement to a character, purchased with xp.
  *
@@ -29,7 +30,7 @@ export abstract class CharacterAdvancement extends CharacterModifier {
                 talents:Array<Talent>,
                 aptitudes:Array<string>,
                 traits:Array<Trait>,
-                kit:Array<Item>,
+                kit:Map<Item, number>,
                 wounds:number,
                 psyRating:number,
                 type:OnlyWarCharacterModifierTypes) {
@@ -71,7 +72,7 @@ export class CharacteristicAdvancement extends CharacterAdvancement {
             [],
             [],
             [],
-            [],
+            new Map<Item, number>(),
             0,
             0,
             OnlyWarCharacterModifierTypes.ADVANCEMENT);
@@ -143,7 +144,7 @@ export class PsychicPowerAdvancement extends CharacterAdvancement {
     }
 
     apply(character:OnlyWarCharacter) {
-        character.powers.addPower(this.value, this.isBonus);
+        character.powers.addPower(this.value, this.isBonus, this);
     }
 
     private isBonus:boolean;
@@ -156,7 +157,7 @@ export class PsychicPowerAdvancement extends CharacterAdvancement {
             [],
             [],
             [],
-            [],
+            new Map<Item, number>(),
             0,
             0,
             OnlyWarCharacterModifierTypes.ADVANCEMENT);
@@ -179,7 +180,7 @@ export class PsyRatingAdvancement extends CharacterAdvancement {
     }
 
     constructor() {
-        super(AdvanceableProperty.PSY_RATING, new Map(), [], [], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        super(AdvanceableProperty.PSY_RATING, new Map(), [], [], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
     }
 
     /**
@@ -209,7 +210,7 @@ export class SkillAdvancement extends CharacterAdvancement {
 
     constructor(skill:Skill) {
         var skills:Array<Skill> = [skill];
-        super(AdvanceableProperty.SKILL, new Map(), skills, [], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        super(AdvanceableProperty.SKILL, new Map(), skills, [], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
         this.skill = skill;
     }
 
@@ -240,7 +241,7 @@ export class TalentAdvancement extends CharacterAdvancement {
     }
 
     constructor(talent:Talent) {
-        super(AdvanceableProperty.TALENT, new Map(), [], [talent], [], [], [], 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        super(AdvanceableProperty.TALENT, new Map(), [], [talent], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
         this.talent = talent;
     }
 

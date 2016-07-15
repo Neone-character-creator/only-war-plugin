@@ -4,7 +4,6 @@ import {CharacteristicValue, Characteristic} from "./Characteristic";
 import {Trait} from "./Trait";
 import {Item} from "./items/Item";
 import {Skill} from "./Skill";
-import {CharacteristicAdvancement} from "./advancements/CharacteristicAdvancement";
 /**
  * A grouping of values that can be added to a Character, modifying its statistics.
  *
@@ -17,7 +16,7 @@ export abstract class CharacterModifier {
      *
      * Maps the characteristic name to a number modifier.
      */
-    protected _characteristics:Map<Characteristic, number>;
+    private _characteristics:Map<Characteristic, number>;
     /**
      * Skill modifiers.
      *
@@ -47,17 +46,17 @@ export abstract class CharacterModifier {
      *
      * Array of items that the character will gain.
      */
-    private _kit:Array<Item>;
+    private _kit:Map<Item, number>;
     /**
      *  Wound modifier.
      *
      *  Positive or negative modifier to character wounds.
      */
-    protected _wounds:number;
+    private _wounds:number;
     private _psyRating:number;
-    private type:OnlyWarCharacterModifierTypes;
+    private _type:OnlyWarCharacterModifierTypes;
 
-    constructor(characteristics:Map<Characteristic, number>, skills:Array<Skill>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Array<Item>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
+    constructor(characteristics:Map<Characteristic, number>, skills:Array<Skill>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Map<Item, number>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
         this._characteristics = characteristics;
         this._skills = skills;
         this._talents = talents;
@@ -66,7 +65,7 @@ export abstract class CharacterModifier {
         this._kit = kit;
         this._wounds = wounds;
         this._psyRating = psyRating;
-        this.type = type;
+        this._type = type;
     }
 
     public apply(character:OnlyWarCharacter) {
@@ -81,7 +80,7 @@ export abstract class CharacterModifier {
 
     protected applyCharacteristicModifiers(character:OnlyWarCharacter) {
         for (var characteristic of this._characteristics) {
-            switch (this.type) {
+            switch (this._type) {
                 case OnlyWarCharacterModifierTypes.REGIMENT:
                     character.characteristics.get(characteristic[0]).regimentModifier = characteristic[1];
                     break;
@@ -122,13 +121,54 @@ export abstract class CharacterModifier {
     }
 
     protected applyKitModifiers(character:OnlyWarCharacter) {
-        for (var item of this._kit) {
-            character.kit.push(item);
+        for (var item of this._kit.entries()) {
+            if (character.kit.get(item[0])) {
+                character.kit.set(item[0], character.kit.get(item[0]) + item[1]);
+            } else {
+                character.kit.set(item[0], item[1]);
+            }
         }
     }
 
     protected applyWoundsModifier(character:OnlyWarCharacter) {
     };
+
+
+    get characteristics():Map<Characteristic, number> {
+        return this._characteristics;
+    }
+
+    get skills():Array<Skill> {
+        return this._skills;
+    }
+
+    get talents():Array<Talent> {
+        return this._talents;
+    }
+
+    get aptitudes():Array<string> {
+        return this._aptitudes;
+    }
+
+    get traits():Array<Trait> {
+        return this._traits;
+    }
+
+    get kit():Map<Item, number> {
+        return this._kit;
+    }
+
+    get wounds():number {
+        return this._wounds;
+    }
+
+    get psyRating():number {
+        return this._psyRating;
+    }
+
+    get type():OnlyWarCharacterModifierTypes {
+        return this._type;
+    }
 }
 
 export enum OnlyWarCharacterModifierTypes{

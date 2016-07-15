@@ -1,3 +1,4 @@
+///<reference path="../../../../../../../../typings/index.d.ts" />
 import {Regiment} from "./Regiment";
 import {Specialty} from "./Specialty";
 import {CharacteristicValue, Characteristic} from "./Characteristic";
@@ -22,7 +23,7 @@ export class OnlyWarCharacter {
     private _skills:Array<Skill> = new Array<Skill>();
     private _talents:Array<Talent> = [];
     private _traits:Array<Trait> = [];
-    private _kit:Array<Item> = [];
+    private _kit:Map<Item, number> = new Map<Item,number>();
     private _wounds:WoundsContainer = new WoundsContainer();
     private _criticalDamage:Array<String> = [];
     private _insanity:InsanityContainer = new InsanityContainer();
@@ -78,7 +79,7 @@ export class OnlyWarCharacter {
         return this._traits;
     }
 
-    get kit():Array<Item> {
+    get kit():Map<Item, number> {
         return this._kit;
     }
 
@@ -378,7 +379,7 @@ class PsychicPowersContainer {
      * @param power
      * @param asBonus   if the power is purchased with the psychic power bonus xp
      */
-    public addPower(power:PsychicPower, asBonus:boolean) {
+    public addPower(power:PsychicPower, asBonus:boolean, source:CharacterModifier) {
         if (this.powers.indexOf(power) !== -1) {
             console.log("Tried to add power " + power.name + " but ")
         } else {
@@ -389,7 +390,7 @@ class PsychicPowersContainer {
                 power.isBonus = true;
                 this._bonusXp -= power.xpCost;
             }
-            this.powers.push(power);
+            this._powers.push(new PsychicPowerWrapper(power, source));
         }
     }
 
@@ -409,11 +410,11 @@ class PsychicPowersContainer {
     }
 
     public get bonusXp() {
-        return this.bonusXp;
+        return this._bonusXp;
     }
 
-    public set bonusXp(value:Number) {
-        this.bonusXp = value;
+    public set bonusXp(value:number) {
+        this._bonusXp = value;
     }
 
     get psyRating():number {
@@ -443,14 +444,20 @@ class EquipmentContainer {
  */
 class PsychicPowerWrapper {
     private _power:PsychicPower;
-    private _source:PsychicPowerAdvancement|CharacterModifier;
+    private _source:CharacterModifier;
 
     get power():PsychicPower {
         return this._power;
     }
 
-    get source():PsychicPowerAdvancement|CharacterModifier {
+    get source():CharacterModifier {
         return this._source;
+    }
+
+
+    constructor(power:PsychicPower, source:CharacterModifier) {
+        this._power = power;
+        this._source = source;
     }
 }
 
