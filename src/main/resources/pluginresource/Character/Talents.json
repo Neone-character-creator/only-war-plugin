@@ -619,8 +619,7 @@
     "prerequisites": [
       {
         "property": [
-          "character kit",
-          "other gear"
+          "character kit"
         ],
         "value": {
           "name": "Ferric Lure Implants"
@@ -1127,10 +1126,7 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property": [
-          "character kit",
-          "other gear"
-        ],
+        "property": "character kit",
         "value": {
           "name": "Luminen Capacitor"
         }
@@ -1154,10 +1150,7 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property": [
-          "character kit",
-          "other gear"
-        ],
+        "property": "character kit",
         "value": {
           "name": "Maglev Coils"
         }
@@ -1517,10 +1510,7 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property": [
-          "character kit",
-          "other gear"
-        ],
+        "property": "character kit",
         "value": {
           "name": "Autosanguine Implants"
         }
@@ -2010,7 +2000,13 @@
     "source": "core",
     "tier": 2,
     "prerequisites": [
-      "characteristic,Weapon Skill,>=, 45",
+      {
+        "property": "characteristic",
+        "value": {
+          "name": "Weapon Skill",
+          "rating": 45
+        }
+      },
       {
         "property": "characteristic",
         "value": {
