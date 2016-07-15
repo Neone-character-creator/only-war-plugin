@@ -19,15 +19,12 @@ define(function() {
 							for (var p = 0; p < properties.length; p++) {
 							if (fixedModifier[properties[p]] === undefined) {
 								switch (properties[p]) {
-									case 'character kit':
 									case 'characteristics':
 									case "skills":
 										fixedModifier[properties[p]] = {};
 										break;
 									case "talents":
-									case 'other weapons':
-									case 'armor':
-									case 'other gear':
+									case 'character kit':
 										fixedModifier[properties[p]] = [];
 										break;
 								};
