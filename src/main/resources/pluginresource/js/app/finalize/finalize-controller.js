@@ -1,5 +1,5 @@
 define(function() {
-	return function($scope, characterService, characteroptions, regiments, specialties, dice) {
+	return function ($scope, characterService, characteroptions, regimentProvider, specialtyProvider, dice) {
 		$scope.character = characterService.character;
 		$scope.selectedSpecialty = specialties.selected;
 		$scope.selectedRegiment = regiments.selected;
