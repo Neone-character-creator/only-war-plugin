@@ -7,16 +7,16 @@ export class Talent implements HasPrerequisites<OnlyWarCharacter> {
     /**
      * The name of the talent.
      */
-    private _name:String;
+    private _name:string;
     /**
      * The source of the talent.
      */
-    private _source:String;
+    private _source:string;
     /**
      * The tier of the talent.
      */
     private _tier:number;
-    private _specialization:string;
+    private _specialization:string|boolean;
     private _aptitudes:Array<string>;
     prerequisites:Prerequisites<OnlyWarCharacter>;
     /**
@@ -28,11 +28,11 @@ export class Talent implements HasPrerequisites<OnlyWarCharacter> {
         return this.prerequisites.match(target);
     }
 
-    get name():String {
+    get name():string {
         return this._name;
     }
 
-    get source():String {
+    get source():string {
         return this._source;
     }
 
@@ -40,7 +40,7 @@ export class Talent implements HasPrerequisites<OnlyWarCharacter> {
         return this._tier;
     }
 
-    get specialization():string {
+    get specialization():string|boolean {
         return this._specialization;
     }
 
@@ -52,7 +52,7 @@ export class Talent implements HasPrerequisites<OnlyWarCharacter> {
         return this._maxTimesPurchaseable;
     }
 
-    constructor(name:String, source:String, tier:number, aptitudes:Array<string>, specialization?:string, prerequisites?:Prerequisites<OnlyWarCharacter>, maxTimesPurchaseable?:number) {
+    constructor(name:string, source:string, tier:number, aptitudes:Array<string>, specialization:string|boolean, prerequisites?:Prerequisites<OnlyWarCharacter>, maxTimesPurchaseable?:number) {
         this.prerequisites = prerequisites;
         this._aptitudes = aptitudes;
         this._name = name;
