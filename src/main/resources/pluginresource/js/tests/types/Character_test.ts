@@ -4,16 +4,16 @@
  */
 import {OnlyWarCharacter} from "../../app/types/character/Character"
 import {Characteristic} from "../../app/types/character/Characteristic";
-import {CharacteristicAdvancement} from "../../app/types/character/advancements/CharacteristicAdvancement";
 import {Regiment} from "../../app/types/character/Regiment";
 import {Specialty} from "../../app/types/character/Specialty";
-import {SkillAdvancement} from "../../app/types/character/advancements/SkillAdvancement";
 import {Talent} from "../../app/types/character/Talent";
-import {TalentAdvancement} from "../../app/types/character/advancements/TalentAdvancement";
 import {Trait} from "../../app/types/character/Trait";
-import {Item, ItemCraftsmanship} from "../../app/types/character/items/Item";
-import {CharacterAdvancement} from "../../app/types/character/advancements/CharacterAdvancement";
+import {Item, Craftsmanship, ItemType, Availability} from "../../app/types/character/items/Item";
 import {Skill} from "../../app/types/character/Skill";
+import {
+    TalentAdvancement,
+    CharacteristicAdvancement, SkillAdvancement
+} from "../../app/types/character/advancements/CharacterAdvancement";
 describe("The character", ()=> {
     var theCharacter;
     beforeEach(function () {
@@ -31,7 +31,7 @@ describe("The character", ()=> {
         it("must allow for adding modifiers to the characteristics from their regiment", function () {
             var characteristics = new Map<Characteristic, number>();
             characteristics.set(Characteristic.characteristics.get("Agility"), 5);
-            var regiment = new Regiment(characteristics, [], [], [], [], [], 0);
+            var regiment = new Regiment("", characteristics, [], [], [], [], new Map<Item, number>(), 0, []);
             theCharacter.regiment = regiment;
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).regimentModifier).toEqual(5);
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).total).toEqual(5);
@@ -39,7 +39,7 @@ describe("The character", ()=> {
         it("must allow for adding modifiers to the characteristics from their specialty", function () {
             var characteristics = new Map<Characteristic, number>();
             characteristics.set(Characteristic.characteristics.get("Agility"), 5);
-            var specialty = new Specialty(characteristics, [], [], [], [], [], 0);
+            var specialty = new Specialty(characteristics, [], [], [], [], new Map<Item, number>(), 0, []);
             theCharacter.specialty = specialty;
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).specialtyModifier).toEqual(5);
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).total).toEqual(5);
@@ -74,13 +74,13 @@ describe("The character", ()=> {
         });
         it("must allow for adding modifiers to the skills from their regiment", function () {
             var skills = [new Skill("Acrobatics", 1, [])];
-            var regiment = new Regiment(new Map<Characteristic, number>(), skills, [], [], [], [], 0);
+            var regiment = new Regiment("", new Map<Characteristic, number>(), skills, [], [], [], new Map<Item, number>(), 0, []);
             theCharacter.regiment = regiment;
             expect(theCharacter.skills[0].rank).toEqual(1);
         });
         it("must allow for adding modifiers to the skills from their specialty", function () {
             var skills = [new Skill("Acrobatics", 1, [])];
-            var specialty = new Specialty(new Map<Characteristic, number>(), skills, [], [], [], [], 0);
+            var specialty = new Specialty(new Map<Characteristic, number>(), skills, [], [], [], new Map<Item, number>(), 0, []);
             theCharacter.specialty = specialty;
             expect(theCharacter.skills[0].rank).toEqual(1);
         });
@@ -102,31 +102,31 @@ describe("The character", ()=> {
             expect(theCharacter.talents).toBeDefined();
         });
         it("must allow gaining talents from the character regiment.", function () {
-            var talent = new Talent("Test Talent", "Test", 1, []);
+            var talent = new Talent("Test Talent", "Test", 1, [], false);
             var talents = [talent];
-            var regiment = new Regiment(new Map(),
+            var regiment = new Regiment("", new Map(),
                 [],
-                talents, [], [], [], 0);
+                talents, [], [], new Map<Item, number>(), 0, []);
             theCharacter.regiment = regiment;
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
         it("must allow gaining talents from the character specialty.", function () {
-            var talent = new Talent("Test Talent", "Test", 1, []);
+            var talent = new Talent("Test Talent", "Test", 1, [], false);
             var talents = [talent];
             var specialty = new Specialty(new Map(),
                 [],
-                talents, [], [], [], 0);
+                talents, [], [], new Map<Item, number>(), 0, []);
             theCharacter.specialty = specialty;
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
         it("must allow gaining talents by character advancement.", function () {
-            var talent = new Talent("Test Talent", "Test", 1, []);
+            var talent = new Talent("Test Talent", "Test", 1, [], false);
             var advancement = new TalentAdvancement(talent);
             theCharacter.experience.addAdvancement(advancement);
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
         it("must not allow adding a Talent by advancement with the same name and specialization as one the character already has.", function () {
-            var talent = new Talent("Test Talent", "Test", 1, []);
+            var talent = new Talent("Test Talent", "Test", 1, [], false);
             var advancement = new TalentAdvancement(talent);
             theCharacter.experience.addAdvancement(advancement);
             expect(theCharacter.experience.addAdvancement(advancement)).toEqual(false);
@@ -140,7 +140,7 @@ describe("The character", ()=> {
             var traits = new Array<Trait>();
             var testTrait = new Trait("", "");
             traits.push(testTrait);
-            var regiment = new Regiment(new Map<Characteristic, number>(), [], [], [], traits, [], 0);
+            var regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], traits, new Map<Item, number>(), 0, []);
             theCharacter.regiment = regiment;
             expect(theCharacter.traits.indexOf(testTrait)).toEqual(0);
         });
@@ -148,7 +148,7 @@ describe("The character", ()=> {
             var traits = new Array<Trait>();
             var testTrait = new Trait("", "");
             traits.push(testTrait);
-            var specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], traits, [], 0);
+            var specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], traits, new Map<Item, number>(), 0, []);
             theCharacter.specialty = specialty;
             expect(theCharacter.traits.indexOf(testTrait)).toEqual(0);
         });
@@ -156,33 +156,35 @@ describe("The character", ()=> {
             var traits = new Array<Trait>();
             var testTrait = new Trait("", "");
             traits.push(testTrait);
-            var regiment = new Regiment(new Map<Characteristic, number>(), [], [], [], traits, [], 0);
+            var regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], traits, new Map<Item, number>(), 0, []);
             theCharacter.regiment = regiment;
             expect(theCharacter.traits.indexOf(testTrait)).toEqual(0);
         });
     });
     describe("kit", function () {
         it("must allow for adding items from the regiment", function () {
-            var item = new Item("", ItemCraftsmanship.COMMON);
-            var items:Array<Item> = [item];
-            theCharacter.regiment = new Regiment(new Map<Characteristic, number>(), [], [], [], [], items, 0);
+            var item = new Item("", ItemType.Other, Availability.Abundant);
+            var items:Map<Item, number> = new Map<Item, number>();
+            items.set(item, 1);
+            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], [], items, 0, []);
             expect(theCharacter.kit.indexOf(item)).toEqual(0);
         });
         it("must allow for adding items from the specialty", function () {
-            var item = new Item("", ItemCraftsmanship.COMMON);
-            var items:Array<Item> = [item];
-            theCharacter.specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], [], items, 0);
+            var item = new Item("", ItemType.Other, Availability.Abundant);
+            var items:Map<Item, number> = new Map<Item, number>();
+            items.set(item, 1);
+            theCharacter.specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], [], items, 0, []);
             expect(theCharacter.kit.indexOf(item)).toEqual(0);
         });
     });
     describe("wounds", function () {
         it("must allow for adding a modifier to wounds from the regiment", function () {
-            theCharacter.regiment = new Regiment(new Map<Characteristic, number>(), [], [], [], [], [], 1);
+            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], [], new Map<Item, number>(), 1, []);
             expect(theCharacter.wounds.regimentModifier).toEqual(1);
             expect(theCharacter.wounds.total).toEqual(1);
         });
         it("must allow for adding a modifier to wounds from the regiment", function () {
-            theCharacter.specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], [], [], 1);
+            theCharacter.specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], [], new Map<Item, number>(), 1, []);
             expect(theCharacter.wounds.specialtyModifier).toEqual(1);
             expect(theCharacter.wounds.total).toEqual(1);
         });
@@ -224,7 +226,7 @@ describe("The character", ()=> {
             expect(theCharacter.experience.available).toEqual(100);
             expect(theCharacter.experience.total).toEqual(100);
         });
-        it("recalculate available experience", function () {
+        it("recalculate available experience after spending some", function () {
             theCharacter.experience.available = 500;
             var advancement = new CharacteristicAdvancement(Characteristic.characteristics.get("Agility"));
             theCharacter.experience.addAdvancement(advancement);
