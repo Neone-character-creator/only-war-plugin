@@ -504,7 +504,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="col-md-6">
-                    <div class="row" ng-show="character.powers.psyrating">
+                    <div class="row">
                         <h4 style="display:inline">Psychic Powers</h4>
                         <button class="btn btn-info img-circle"
                                 uib-tooltip=""
@@ -519,13 +519,16 @@
                                               min="2" max="10" integer/>
                         </div>
                         <ul>
-                            <li ng-repeat="power in character.powers.all">{{power.name}}</li>
+                            <li ng-repeat="power in character.powers.powers">{{power.name}}</li>
                         </ul>
                         <div class="row">
                             <select ng-model="newPower">
                                 <option ng-repeat="power in availablePowers" value="{{$index}}">{{power.name}}</option>
                             </select>
                         </div>
+                        <button ng-click="addNewPower()">
+                            Add
+                        </button>
                     </div>
                 </div>
                 <div class="col-md-6">
