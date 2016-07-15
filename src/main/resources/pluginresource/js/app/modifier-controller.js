@@ -10,18 +10,12 @@ define(function () {
                         case "regiments":
                             $scope.selected = characterService.character.regiment;
                             $scope.selectionType = "regiments";
-                            if ($scope.selected) {
-                                $scope.requiredSelections = characterService.character.regiment['optional modifiers']
-                            }
                             results.service.regiments.then(function (regiments) {
                                 $scope.available = regiments;
                             });
                             break;
                         case "specialties":
                             $scope.selected = characterService.character.specialty;
-                            if (characterService.character.specialty) {
-                                $scope.requiredSelections = characterService.character.specialty['optional modifiers']
-                            }
                             $scope.selectionType = "specialties";
                             results.service.specialties.then(function (specialties) {
                                 $scope.available = specialties;
@@ -103,6 +97,8 @@ define(function () {
                             $scope.kit = Array.from($scope.selected.kit.entries()).map(function (entry) {
                                 return {name: entry[0].name, count: entry[1]};
                             });
+
+                            $scope.requiredSelections = $scope.selected.optionalModifiers;
                         }
                     });
                 }
