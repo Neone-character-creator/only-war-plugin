@@ -7,10 +7,14 @@
             Choose {{selectionsNeeded}} :
         </div>
         <div class="row">
-            <ul ng-repeat="option in options"><input type="checkbox" ng-model="selected[$index]">{{option | modal_option}}</ul>
+            <ul ng-repeat="option in options"><input type="checkbox" ng-model="selected[$index]">
+                {{option.description}}
+            </ul>
         </div>
         <div class="row">
-            <button ng-click="ok()" ng-disabled="((selected | filter : true).length !== selectionsNeeded)" class="btn btn-primary">Select</button>
+            <button ng-click="ok()" ng-disabled="((selected | filter : true).length !== selectionsNeeded)"
+                    class="btn btn-primary">Select
+            </button>
         </div>
     </div>
 </div>
