@@ -18,31 +18,24 @@ define(["require", "exports"], function (require, exports) {
                 this._maxTimesPurchaseable = 1;
             }
         }
-
         meetsPrerequisites(target) {
             return this.prerequisites.match(target);
         }
-
         get name() {
             return this._name;
         }
-
         get source() {
             return this._source;
         }
-
         get tier() {
             return this._tier;
         }
-
         get specialization() {
             return this._specialization;
         }
-
         get aptitudes() {
             return this._aptitudes;
         }
-
         get maxTimesPurchaseable() {
             return this._maxTimesPurchaseable;
         }

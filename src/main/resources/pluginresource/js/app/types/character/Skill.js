@@ -13,27 +13,21 @@ define(["require", "exports"], function (require, exports) {
             this._aptitudes = aptitudes;
             this._specialization = specialization;
         }
-
         static get skills() {
             return Skill._skills;
         }
-
         get name() {
             return this._name;
         }
-
         get rank() {
             return this._rank;
         }
-
         get specialization() {
             return this._specialization;
         }
-
         get aptitudes() {
             return this._aptitudes;
         }
-
         set rank(value) {
             if (value < 0 || value > 4) {
                 throw "The rank must be between 0 and 4 but was" + value + ".";
