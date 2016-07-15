@@ -9,24 +9,20 @@
       "talents": [
         "Technical Knock"
       ],
-      "character kit": {
-        "other gear": [
-          {
-            "item": {
-              "name": "Anointed Maintenance Toolkit"
-            },
-            "count": 1
-          }
-        ],
-        "squad kit": [
-          {
-            "item": {
-              "name": "Leman Russ Battle Tank"
-            },
-            "count": 1
-          }
-        ]
-      }
+      "character kit": [
+        {
+          "item": {
+            "name": "Anointed Maintenance Toolkit"
+          },
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Leman Russ Battle Tank"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -43,16 +39,14 @@
       "talents": [
         "Combat Sense"
       ],
-      "character kit": {
-        "other gear": [
-          {
-            "item": {
-              "name": "Magnoculars"
-            },
-            "count": 1
-          }
-        ]
-      }
+      "character kit": [
+        {
+          "item": {
+            "name": "Magnoculars"
+          },
+          "count": 1
+        }
+      ]
     },
     "optional modifiers": [
       {
@@ -105,50 +99,46 @@
       "talents": [
         "Catfall"
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "Lascarbine"
-            },
-            "count": 1
-          }
-        ],
-        "armor": [
-          {
-            "item": {
-              "name": "Imperial Guard Flak Armor"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Charge Pack (Basic"
-            },
-            "count": 4
+      "character kit": [
+        {
+          "item": {
+            "name": "Lascarbine"
           },
-          {
-            "item": {
-              "name": "Grav Chute"
-            },
-            "count": 1
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Basic)"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 2
+          "count": 4,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Imperial Guard Flak Armor"
           },
-          {
-            "item": {
-              "name": "Smoke Grenade"
-            },
-            "count": 2
-          }
-        ]
-      }
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Grav Chute"
+          },
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Smoke Grenade"
+          },
+          "count": 2
+        }
+      ]
     }
   },
   {
@@ -217,50 +207,48 @@
       "talents": [
         "Sprint"
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "Lascarbine"
-            },
-            "count": 1
-          }
-        ],
-        "armor": [
-          {
-            "item": {
-              "name": "Flak Vest"
-            },
-            "count": 1
+      "character kit": [
+        {
+          "item": {
+            "name": "Lascarbine"
           },
-          {
-            "item": {
-              "name": "Flak Helmet"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Charge Pack (Basic)"
-            },
-            "count": 4
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Basic)"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 2
+          "count": 4,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Flak Vest"
           },
-          {
-            "item": {
-              "name": "Smoke Grenade"
-            },
-            "count": 2
-          }
-        ]
-      }
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Flak Helmet"
+          },
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Smoke Grenade"
+          },
+          "count": 2
+        }
+      ]
     }
   },
   {
@@ -277,44 +265,41 @@
       "talents": [
         "Rapid Reload"
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "M36 Lasgun"
-            },
-            "count": 1
-          }
-        ],
-        "armor": [
-          {
-            "item": {
-              "name": "Imperial Guard Flak Armor"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Charge Pack (Basic)"
-            },
-            "count": 4
+      "character kit": [
+        {
+          "item": {
+            "name": "M36 Lasgun"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 2
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Imperial Guard Flak Armor"
           },
-          {
-            "item": {
-              "name": "Smoke Grenade"
-            },
-            "count": 2
-          }
-        ]
-      }
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Basic)"
+          },
+          "count": 4,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Smoke Grenade"
+          },
+          "count": 2
+        }
+      ]
     }
   },
   {
@@ -331,47 +316,47 @@
       "talents": [
         "Rapid Reload"
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "M36 Lasgun"
-            },
-            "count": 1
-          }
-        ],
-        "armor": [
-          {
-            "item": {
-              "name": "Imperial Guard Flak Armor"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Charge Pack (Basic)"
-            },
-            "count": 4
+      "character kit": [
+        {
+          "item": {
+            "name": "M36 Lasgun"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 2
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Imperial Guard Flak Armor"
           },
-          {
-            "item": {
-              "name": "Smoke Grenade"
-            },
-            "count": 2
-          }
-        ]
-      },
-      "squad kit": {
-        "Chimera Armored Transport": 1
-      }
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Basic)"
+          },
+          "count": 4,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Smoke Grenade"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Chimera Armored Transport"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -388,44 +373,41 @@
       "talents": [
         "Nerves of Steel"
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "M36 Lasgun"
-            },
-            "count": 1
-          }
-        ],
-        "armor": [
-          {
-            "item": {
-              "name": "Imperial Guard Flak Armor"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Charge Pack (Basic)"
-            },
-            "count": 6
+      "character kit": [
+        {
+          "item": {
+            "name": "M36 Lasgun"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 2
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Imperial Guard Flak Armor"
           },
-          {
-            "item": {
-              "name": "Photon Flash Grenade"
-            },
-            "count": 2
-          }
-        ]
-      }
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Basic)"
+          },
+          "count": 6,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Photon Flash Grenade"
+          },
+          "count": 2
+        }
+      ]
     }
   },
   {
@@ -449,46 +431,41 @@
           "description": "Select a type of terrain. Characters from the regiment re-roll failed Survival and Navitage (Surface) Skill Tests in that terrain."
         }
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "Lascarbine"
-            },
-            "count": 1
-          }
-        ],
-        "armor": [
-          {
-            "item": {
-              "name": "Imperial Guard Flak Armor"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Charge Pack (Basic)"
-            },
-            "count": 4
+      "character kit": [
+        {
+          "item": {
+            "name": "Lascarbine"
           },
-          {
-            "item": {
-              "name": "Magnoculars"
-            },
-            "count": 1
-          }
-        ],
-        "squad kit": [
-          {
-            "item": {
-              "name": "Vox-Caster"
-            },
-            "count": 1
-          }
-        ]
-      }
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Imperial Guard Flak Armor"
+          },
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Basic)"
+          },
+          "count": 4,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Magnoculars"
+          },
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Vox-Caster"
+          },
+          "count": 1
+        }
+      ]
     },
     "optional modifiers": [
       {
@@ -533,42 +510,40 @@
       "talents": [
         "Ambush"
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "Lascarbine"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Carge Pack (Basic)"
-            },
-            "count": 4
+      "character kit": [
+        {
+          "item": {
+            "name": "Lascarbine"
           },
-          {
-            "item": {
-              "name": "Blind Grenade"
-            },
-            "count": 2
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Basic)"
           },
-          {
-            "item": {
-              "name": "Stun Grenade"
-            },
-            "count": 2
+          "count": 4,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Blind Grenade"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 1
-          }
-        ]
-      }
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Stun Grenade"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -587,50 +562,39 @@
       "talents": [
         "Bombardier"
       ],
-      "character kit": {
-        "armor": [
-          {
-            "item": {
-              "name": "Light Carapace Armor"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Charge Pack (Basic)"
-            },
-            "count": 6
+      "character kit": [
+        {
+          "item": {
+            "name": "Light Carapace Armor"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 1
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
           },
-          {
-            "item": {
-              "name": "Krak Grenade"
-            },
-            "count": 1
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Krak Grenade"
           },
-          {
-            "item": {
-              "name": "Deadspace Earpiece"
-            },
-            "count": 1
-          }
-        ],
-        "other weapons": [
-          {
-            "item": {
-              "name": "Grenade Launcher"
-            },
-            "count": 2
-          }
-        ]
-      }
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Deadspace Earpiece"
+          },
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Grenade Launcher"
+          },
+          "count": 2
+        }
+      ]
     }
   },
   {
@@ -650,22 +614,20 @@
         "Push The Limit",
         "Tank Hunter"
       ],
-      "character kit": {
-        "other gear": [
-          {
-            "item": {
-              "name": "Sentinel Scout Walker"
-            },
-            "count": 1
+      "character kit": [
+        {
+          "item": {
+            "name": "Sentinel Scout Walker"
           },
-          {
-            "item": {
-              "name": "Magnoculars"
-            },
-            "count": 1
-          }
-        ]
-      }
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Magnoculars"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -683,80 +645,77 @@
       "talents": [
         "Catfall"
       ],
-      "character kit": {
-        "main weapon": [
-          {
-            "item": {
-              "name": "Hunting Lance"
-            },
-            "count": 1
-          }
-        ],
-        "armor": [
-          {
-            "item": {
-              "name": "Flak Jacket"
-            },
-            "count": 1
+      "character kit": [
+        {
+          "item": {
+            "name": "Hunting Lance"
           },
-          {
-            "item": {
-              "name": "Flak Helmet"
-            },
-            "count": 1
-          }
-        ],
-        "other gear": [
-          {
-            "item": {
-              "name": "Laspistol"
-            },
-            "count": 1
+          "count": 1,
+          "main weapon": true
+        },
+        {
+          "item": {
+            "name": "Flak Vest"
           },
-          {
-            "item": {
-              "name": "Charge Pack (Pistol)"
-            },
-            "count": 2
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Flak Helmet"
           },
-          {
-            "item": {
-              "name": "Frag Grenade"
-            },
-            "count": 2
+          "count": 1,
+          "armor": true
+        },
+        {
+          "item": {
+            "name": "Laspistol"
           },
-          {
-            "item": {
-              "name": "Photon Flash Grenade"
-            },
-            "count": 2
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Charge Pack (Pistol)"
           },
-          {
-            "item": {
-              "name": "Riding Beast"
-            },
-            "count": 1
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Frag Grenade"
           },
-          {
-            "item": {
-              "name": "Saddle"
-            },
-            "count": 1
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Photon Flash Grenade"
           },
-          {
-            "item": {
-              "name": "Saddlebag"
-            },
-            "count": 2
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Riding Beast"
           },
-          {
-            "item": {
-              "name": "Riding Tack"
-            },
-            "count": 1
-          }
-        ]
-      }
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Saddle"
+          },
+          "count": 1
+        },
+        {
+          "item": {
+            "name": "Saddlebag"
+          },
+          "count": 2
+        },
+        {
+          "item": {
+            "name": "Riding Tack"
+          },
+          "count": 1
+        }
+      ]
     }
   }
 ]
