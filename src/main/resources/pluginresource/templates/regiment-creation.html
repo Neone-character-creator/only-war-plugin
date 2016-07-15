@@ -22,9 +22,7 @@
                                 <ul class="dropdown-menu">
                                     <li ng-repeat="option in regimentElements[category].options | filter : costFilter">
                                         <a ng-click="regimentElements[category].selected = option">{{option.name}}
-                                            {{"
-                                            (" +
-                                            option.cost +" pts)"}}
+                                            " (" {{option.cost}}" pts)"
                                         </a>
                                     </li>
                                 </ul>
@@ -54,7 +52,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div ng-show="Object.keys(regimentElements[category].selected['fixed modifiers'].skills).length"
+                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].skills"
                                          class="row">
                                         <h4>Skills</h4>
                                         <ul>
@@ -114,8 +112,8 @@
                                     <div ng-show="regimentElements[category].selected['fixed modifiers']['regiment kit points']"
                                          class="row">
                                         <h4>Additional Regimenal Equipment Points</h4>
-                                        You gain {{regimentElements[category].selected['fixed modifiers']['regiment kit
-                                        points']}} points to modify the regiment equipment.
+                                        You gain {{regimentElements[category].selected['fixed modifiers']['regiment
+                                        kitpoints']}} points to modify the regiment equipment.
                                     </div>
                                     <div class="row"
                                          ng-show="regimentElements[category].selected['fixed modifiers']['character kit']">
