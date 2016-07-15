@@ -1,10 +1,10 @@
 require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
         "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
-        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/characteroptions", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection", "app/services/tutorials"
+        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/CharacterOptionsService", "app/services/regiments", "app/services/specialties", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection", "app/services/tutorials", "app/services/placeholders"
     ],
     function(angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, cookies,
-        modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
-        selectionService, modifierService, characterService, characterOptions, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials) {
+             modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
+             selectionService, modifierService, characterService, characterOptions, regimentsProvider, specialtyProvider, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials) {
         var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function($stateProvider) {
@@ -80,18 +80,18 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         });
 
         //Register services
-        app.factory("regiments", modifierService)
         app.factory("selection", selectionService);
         app.factory("optionselection", optionSelection);
-        app.factory("specialties", modifierService);
         app.factory("characterService", characterService);
-        app.factory("characteroptions", characterOptions);
+        app.factory("characteroptions", characterOptions.CharacterOptionsService);
         app.factory("dice", diceService);
         app.factory("characteristicTooltipService", characteristicTooltipService);
         app.factory("armorTooltipService", armorTooltipService);
         app.factory("regimentOptions", regimentOptions);
         app.factory("cookies", function(){return cookies});
         app.factory("tutorials", tutorials);
+        app.factory("regiments", regimentsProvider.RegimentService);
+        app.factory("specialties", specialtyProvider);
 
         //Register additional controllers not used by the main pages below
         app.controller("SelectionModalController", selectionModalController);
