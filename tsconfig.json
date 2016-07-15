@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es6",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "noEmitOnError": true,
+    "watch": true,
+    "sourceMap": true
+  }
+}
