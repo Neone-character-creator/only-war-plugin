@@ -4,7 +4,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
     ],
     function(angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, cookies,
              modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
-             selectionService, modifierService, characterService, characterOptions, regimentsProvider, specialtyProvider, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials) {
+             selectionService, modifierService, characterService, characterOptions, regimentsProvider, specialtyProvider, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials, placeholderReplacement) {
         var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function($stateProvider) {
@@ -92,6 +92,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         app.factory("tutorials", tutorials);
         app.factory("regiments", regimentsProvider.RegimentService);
         app.factory("specialties", specialtyProvider);
+        app.factory("placeholders", placeholderReplacement);
 
         //Register additional controllers not used by the main pages below
         app.controller("SelectionModalController", selectionModalController);
