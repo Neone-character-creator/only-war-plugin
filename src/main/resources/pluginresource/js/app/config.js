@@ -44,5 +44,6 @@ require.config({
         "bootstrap": {
             deps: ['jquery']
         }
-    }
+    },
+    deps: ['app/app']
 });
