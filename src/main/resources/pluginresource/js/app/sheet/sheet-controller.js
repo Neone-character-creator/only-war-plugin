@@ -329,7 +329,7 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 });
             }
         };
-        $.each(characterService.character.kit.filter(function (item) {
+        $.each(Array.from(characterService.character.kit.entries()).filter(function (item) {
             return item.type === "Armor";
         }).map(function (element) {
             return element.item
@@ -394,7 +394,7 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
         var updateAvailableWeapons = function () {
             characteroptions.weapons.then(function (weapons) {
                 $scope.availableWeapons = weapons.filter(function (element) {
-                    var weapons = characterService.character.kit.filter(function (item) {
+                    var weapons = Array.from(characterService.character.kit.values()).filter(function (item) {
                         return item.type === "Weapon";
                     }).map(function (weapon) {
                         return weapon.item;
@@ -425,7 +425,7 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
         var updateAvailableArmor = function () {
             characteroptions.armor.then(function (armor) {
                 $scope.availableArmor = armor.filter(function (element) {
-                    var armor = characterService.character.kit.filter(function (item) {
+                    var armor = Array.from(characterService.character.kit.values()).filter(function (item) {
                         return item.type === "Armor";
                     }).map(function (armor) {
                         return armor.item;
