@@ -1,4 +1,4 @@
-import {Trait} from "../js/app/types/character/Trait";
+import {Trait} from "./Trait";
 /**
  * Created by Damien on 7/6/2016.
  */
