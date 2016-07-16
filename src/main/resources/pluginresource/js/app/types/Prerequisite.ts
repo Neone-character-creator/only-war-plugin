@@ -6,7 +6,7 @@
  *
  * The generic type parameter specifies the type that the prerequisite targets.
  */
-export class Prerequisites<T> {
+export class Prerequisite<T> {
     private _matcher:Array<any>;
 
     /**
@@ -15,22 +15,26 @@ export class Prerequisites<T> {
      * The matcher parameter is used for recursion internally and shouldn't be set by callers.
      * @param target
      */
-    public match(target:any):boolean {
-        return this._matcher.reduce(function (predicate, previous) {
-            return previous && predicate(target);
-        }, false);
+    public match(target:T):boolean {
+        return !this._matcher || this._matcher.map(predicate=> {
+                return predicate(target);
+            }).reduce((previous, current, currentIndex)=> {
+                if (current === undefined) {
+                    throw "The predicate at " + currentIndex + " in this Prerequisite returned undefined";
+                }
+                return previous && current;
+            }, true);
     }
 
-    constructor(matcher:Array<any>) {
-        for (var i = 0; i < matcher.length; i++) {
-            if (typeof matcher[i] !== "function") {
-                throw "Prerequisite matchers must be functions";
+    constructor(matcher?:Array<any>) {
+        if (matcher) {
+            for (var i = 0; i < matcher.length; i++) {
+                if (typeof matcher[i] !== "function") {
+                    throw "Prerequisite matchers must be functions";
+                }
             }
-            if (matcher[i].arguments.length < 1) {
-                throw "Prerequisite matchers must have at least 1 argument."
-            }
+            this._matcher = matcher;
         }
-        this._matcher = matcher;
     }
 }
 
@@ -38,6 +42,6 @@ export class Prerequisites<T> {
  * Marks a type that can have prerequisites.
  */
 export interface HasPrerequisites<T> {
-    prerequisites:Prerequisites<T>;
+    prerequisites:Array<Prerequisite<T>>;
     meetsPrerequisites(target:T):boolean;
 }
