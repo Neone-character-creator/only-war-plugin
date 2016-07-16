@@ -167,14 +167,14 @@ describe("The character", ()=> {
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
             theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], [], items, 0, []);
-            expect(theCharacter.kit.indexOf(item)).toEqual(0);
+            expect(theCharacter.kit.get(item)).toEqual(1);
         });
         it("must allow for adding items from the specialty", function () {
             var item = new Item("", ItemType.Other, Availability.Abundant);
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
             theCharacter.specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], [], items, 0, []);
-            expect(theCharacter.kit.indexOf(item)).toEqual(0);
+            expect(theCharacter.kit.get(item)).toEqual(1);
         });
     });
     describe("wounds", function () {
@@ -183,7 +183,7 @@ describe("The character", ()=> {
             expect(theCharacter.wounds.regimentModifier).toEqual(1);
             expect(theCharacter.wounds.total).toEqual(1);
         });
-        it("must allow for adding a modifier to wounds from the regiment", function () {
+        it("must allow for adding a modifier to wounds from the specialty", function () {
             theCharacter.specialty = new Specialty(new Map<Characteristic, number>(), [], [], [], [], new Map<Item, number>(), 1, []);
             expect(theCharacter.wounds.specialtyModifier).toEqual(1);
             expect(theCharacter.wounds.total).toEqual(1);
