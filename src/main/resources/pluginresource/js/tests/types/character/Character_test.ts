@@ -1,19 +1,19 @@
-/// <reference path="../../../../../../../typings/index.d.ts" />
+/// <reference path="../../../../../../../../typings/index.d.ts" />
 /**
  * Created by Damien on 7/1/2016.
  */
-import {OnlyWarCharacter} from "../../app/types/character/Character"
-import {Characteristic} from "../../app/types/character/Characteristic";
-import {Regiment} from "../../app/types/character/Regiment";
-import {Specialty} from "../../app/types/character/Specialty";
-import {Talent} from "../../app/types/character/Talent";
-import {Trait} from "../../app/types/character/Trait";
-import {Item, Craftsmanship, ItemType, Availability} from "../../app/types/character/items/Item";
-import {Skill} from "../../app/types/character/Skill";
+import {OnlyWarCharacter} from "../../../app/types/character/Character"
+import {Characteristic} from "../../../app/types/character/Characteristic";
+import {Regiment} from "../../../app/types/character/Regiment";
+import {Specialty} from "../../../app/types/character/Specialty";
+import {Talent} from "../../../app/types/character/Talent";
+import {Trait} from "../../../app/types/character/Trait";
+import {Item, Craftsmanship, ItemType, Availability} from "../../../app/types/character/items/Item";
+import {Skill} from "../../../app/types/character/Skill";
 import {
     TalentAdvancement,
     CharacteristicAdvancement, SkillAdvancement
-} from "../../app/types/character/advancements/CharacterAdvancement";
+} from "../../../app/types/character/advancements/CharacterAdvancement";
 describe("The character", ()=> {
     var theCharacter;
     beforeEach(function () {
