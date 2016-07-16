@@ -12,7 +12,7 @@ define(function() {
 		return {
 			//The selection object being chosen from
 			set selectionObject(value){
-				if(typeof value.selections !== "number"){
+				if (typeof value.numSelectionsNeeded !== "number") {
 					throw "Selection object selections value must be a number but was " + typeof value.selections;
 				}
 				if(!Array.isArray(value.options)){
@@ -32,8 +32,8 @@ define(function() {
 			//Decompose this option if valid selections made.
 			choose: function(selectedIndices) {
 				var selectionObject = this.selectionObject;
-				if (selectedIndices.length !== selectionObject.selections) {
-					throw "Chose " + selectedIndices.length + " but " + selectionObject.selections + " allowed."
+				if (selectedIndices.length !== selectionObject.numSelectionsNeeded) {
+					throw "Chose " + selectedIndices.length + " but " + selectionObject.numSelectionsNeeded + " allowed."
 				}
 				var chosen = [];
 				$.each(selectedIndices, function(index, selectedIndex) {
