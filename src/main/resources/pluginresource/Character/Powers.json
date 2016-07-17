@@ -28,23 +28,21 @@
     "prerequisites": [
       {
         "property": "characteristic",
-        "name": "Strength",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 35
+        "value": {
+          "name": "Strength",
+          "rating": 35
         }
       },
       {
         "property": "characteristic",
-        "name": "Toughness",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 35
+        "value": {
+          "name": "Toughness",
+          "rating": 35
         }
       },
       {
         "property": "power",
-        "xpCost": "Endurance"
+        "value": "Endurance"
       }
     ],
     "action": "Half Action",
@@ -69,10 +67,9 @@
     "prerequisites": [
       {
         "property": "characteristic",
-        "name": "Toughness",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 35
+        "value": {
+          "name": "Toughness",
+          "rating": 35
         }
       }
     ],
@@ -99,15 +96,14 @@
     "prerequisites": [
       {
         "property": "characteristic",
-        "name": "Toughness",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 40
+        "value": {
+          "name": "Toughness",
+          "rating": 40
         }
       },
       {
         "property": "power",
-        "xpCost": "Enfeeble"
+        "value": "Enfeeble"
       }
     ],
     "action": "Full Action",
@@ -133,10 +129,7 @@
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 5
-        }
+        "value": 5
       }
     ],
     "action": "Half Action",
@@ -161,14 +154,11 @@
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 4
-        }
+        "value": 4
       },
       {
         "property": "power",
-        "xpCost": "Smite"
+        "value": "Smite"
       }
     ],
     "action": "Half Action",
@@ -194,10 +184,9 @@
     "prerequisites": [
       {
         "property": "skill",
-        "name": "Psyniscience",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 1
+        "value": {
+          "name": "Psyniscience",
+          "rating": 1
         }
       }
     ],
@@ -224,10 +213,9 @@
     "prerequisites": [
       {
         "property": "skill",
-        "name": "Psyniscience",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 1
+        "value": {
+          "name": "Psyniscience",
+          "rating": 1
         }
       }
     ],
@@ -253,7 +241,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Foreboding"
+        "value": "Foreboding"
       }
     ],
     "action": "Half Action",
@@ -299,7 +287,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Prescience"
+        "value": "Prescience"
       }
     ],
     "action": "Half Action",
@@ -324,7 +312,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Perfect Timing"
+        "value": "Perfect Timing"
       }
     ],
     "action": "Full Action",
@@ -349,10 +337,9 @@
     "prerequisites": [
       {
         "property": "skill",
-        "name": "Psyniscience",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 2
+        "value": {
+          "name": "Psyniscience",
+          "rating": 2
         }
       }
     ],
@@ -378,10 +365,7 @@
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 3
-        }
+        "value": 3
       },
       {
         "property": "power",
@@ -410,14 +394,11 @@
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 4
-        }
+        "value": 4
       },
       {
         "property": "power",
-        "xpCost": "Fire Shield"
+        "value": "Fire Shield"
       }
     ],
     "action": "Half Action",
@@ -462,14 +443,11 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Molten Beam"
+        "value": "Molten Beam"
       },
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 5
-        }
+        "value": 5
       }
     ],
     "action": "Half Action",
@@ -514,14 +492,11 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Flame Breath"
+        "value": "Flame Breath"
       },
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 4
-        }
+        "value": 4
       }
     ],
     "action": "Half Action",
@@ -546,14 +521,11 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Flame Breath"
+        "value": "Flame Breath"
       },
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 4
-        }
+        "value": 4
       }
     ],
     "action": "Half Action",
@@ -600,7 +572,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Assail"
+        "value": "Assail"
       }
     ],
     "action": "Half Action",
@@ -626,10 +598,7 @@
     "prerequisites": [
       {
         "property": "psy rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 5
-        }
+        "value": 5
       }
     ],
     "action": "Extended Action (3)",
@@ -654,7 +623,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Assail"
+        "value": "Assail"
       }
     ],
     "action": "Half Action",
@@ -679,7 +648,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Assail"
+        "value": "Assail"
       }
     ],
     "action": "Half Action",
@@ -705,10 +674,7 @@
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 4
-        }
+        "value": 4
       }
     ],
     "action": "Half Action",
@@ -733,22 +699,19 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Crush"
+        "value": "Crush"
       },
       {
         "property": "power",
-        "xpCost": "Objuration Mechanicum"
+        "value": "Objuration Mechanicum"
       },
       {
         "property": "power",
-        "xpCost": "Shockwave"
+        "value": "Shockwave"
       },
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 5
-        }
+        "value": 5
       }
     ],
     "action": "Half Action",
@@ -774,10 +737,7 @@
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 3
-        }
+        "value": 3
       }
     ],
     "action": "Half Action",
@@ -802,10 +762,9 @@
     "prerequisites": [
       {
         "property": "characteristic",
-        "name ": "Willpower",
-        "xpCost": {
-          "comparison": "at least",
-          "xpCost": 40
+        "value": {
+          "name ": "Willpower",
+          "rating": 40
         }
       }
     ],
@@ -831,7 +790,7 @@
     "prerequisites": [
       {
         "property": "talent",
-        "xpCost": "Fearless"
+        "value": "Fearless"
       }
     ],
     "action": "Half Action",
@@ -856,7 +815,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Dominate"
+        "value": "Dominate"
       }
     ],
     "action": "Full Action",
@@ -881,7 +840,7 @@
     "prerequisites": [
       {
         "property": "power",
-        "xpCost": "Hallucination"
+        "value": "Hallucination"
       }
     ],
     "action": "Full Action",
@@ -906,17 +865,11 @@
     "prerequisites": [
       {
         "property": "Psy Rating",
-        "xpCost ": {
-          "comparison ": "at least",
-          "xpCost ": 4
-        }
+        "value ": 4
       },
       {
         "property": "Agility",
-        "xpCost ": {
-          "comparison ": "at least",
-          "xpCost ": 30
-        }
+        "value ": 30
       }
     ],
     "action": "Half Action",
