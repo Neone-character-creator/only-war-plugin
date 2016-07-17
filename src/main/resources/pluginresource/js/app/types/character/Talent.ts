@@ -1,4 +1,4 @@
-import {Prerequisites, HasPrerequisites} from "../Prerequisite";
+import {Prerequisite, HasPrerequisites} from "../Prerequisite";
 import {OnlyWarCharacter} from "./Character";
 /**
  * Created by Damien on 6/28/2016.
@@ -18,7 +18,7 @@ export class Talent implements HasPrerequisites<OnlyWarCharacter> {
     private _tier:number;
     private _specialization:string|boolean;
     private _aptitudes:Array<string>;
-    prerequisites:Prerequisites<OnlyWarCharacter>;
+    prerequisites:Prerequisite<OnlyWarCharacter>;
     /**
      * The maximum number of times this talent can be
      */
@@ -52,7 +52,7 @@ export class Talent implements HasPrerequisites<OnlyWarCharacter> {
         return this._maxTimesPurchaseable;
     }
 
-    constructor(name:string, source:string, tier:number, aptitudes:Array<string>, specialization:string|boolean, prerequisites?:Prerequisites<OnlyWarCharacter>, maxTimesPurchaseable?:number) {
+    constructor(name:string, source:string, tier:number, aptitudes:Array<string>, specialization?:string|boolean, prerequisites?:Prerequisite<OnlyWarCharacter>, maxTimesPurchaseable?:number) {
         this.prerequisites = prerequisites;
         this._aptitudes = aptitudes;
         this._name = name;
