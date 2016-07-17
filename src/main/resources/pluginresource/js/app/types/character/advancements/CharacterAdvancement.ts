@@ -38,7 +38,6 @@ export abstract class CharacterAdvancement extends CharacterModifier {
         this._property = property;
     }
 
-
     get property():AdvanceableProperty {
         return this._property;
     }
@@ -54,10 +53,6 @@ export abstract class CharacterAdvancement extends CharacterModifier {
 
 export class CharacteristicAdvancement extends CharacterAdvancement {
     private characteristic:Characteristic;
-
-    apply(character:OnlyWarCharacter):void {
-        character.characteristics.get(this.value).advancements.push(this);
-    }
 
     /**
      * The name of the characteristic that the advancement improves.
@@ -87,10 +82,17 @@ export class CharacteristicAdvancement extends CharacterAdvancement {
         return this.characteristic;
     }
 
-    protected applyCharacteristicModifiers(character:OnlyWarCharacter):any {
+    public apply(character:OnlyWarCharacter):any {
+        super.apply(character);
         character.characteristics.get(this.value).advancements.push(this);
     }
 
+    public unapply() {
+        this._appliedTo.characteristics.get(this.value).advancements.splice(
+            this._appliedTo.characteristics.get(this.value).advancements.indexOf(this)
+        );
+        super.unapply();
+    }
 
     public calculateExperienceCost(character:OnlyWarCharacter):number {
         var existingAdvancements:number = character.characteristics.get(this.value).advancements.length;
@@ -144,7 +146,13 @@ export class PsychicPowerAdvancement extends CharacterAdvancement {
     }
 
     apply(character:OnlyWarCharacter) {
+        super.apply(character);
         character.powers.addPower(this.value, this.isBonus, this);
+    }
+
+    unapply() {
+        this._appliedTo.powers.removePower(this.value);
+        super.unapply();
     }
 
     private isBonus:boolean;
@@ -176,7 +184,13 @@ export class PsyRatingAdvancement extends CharacterAdvancement {
     }
 
     apply(character:OnlyWarCharacter) {
+        super.apply(character);
         character.powers.psyRating += 1;
+    }
+
+    unapply() {
+        this._appliedTo.powers.psyRating -= 1;
+        super.unapply();
     }
 
     constructor() {
@@ -196,17 +210,6 @@ export class PsyRatingAdvancement extends CharacterAdvancement {
 
 export class SkillAdvancement extends CharacterAdvancement {
     private skill:Skill;
-
-    apply(character:OnlyWarCharacter) {
-        var existingSkill = character.skills.find((skill)=> {
-            return skill.name === this.skill.name && skill.specialization === this.skill.specialization;
-        });
-        if (existingSkill) {
-            return existingSkill.rank++;
-        } else {
-            character.skills.push(this.skill);
-        }
-    }
 
     constructor(skill:Skill) {
         var skills:Array<Skill> = [skill];
@@ -237,7 +240,13 @@ export class TalentAdvancement extends CharacterAdvancement {
     private talent:Talent;
 
     apply(character:OnlyWarCharacter) {
+        super.apply(character);
         character.talents.push(this.value);
+    }
+
+    unapply() {
+        this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(this.value));
+        super.unapply();
     }
 
     constructor(talent:Talent) {
