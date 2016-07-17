@@ -55,6 +55,7 @@ export abstract class CharacterModifier {
     private _wounds:number;
     private _psyRating:number;
     private _type:OnlyWarCharacterModifierTypes;
+    protected _appliedTo:OnlyWarCharacter;
 
     constructor(characteristics:Map<Characteristic, number>, skills:Array<Skill>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Map<Item, number>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
         this._characteristics = characteristics;
@@ -69,92 +70,59 @@ export abstract class CharacterModifier {
     }
 
     public apply(character:OnlyWarCharacter) {
-        this.applyCharacteristicModifiers(character);
-        this.applySkillModifiers(character);
-        this.applyAptitudesModifiers(character);
-        this.applyKitModifiers(character);
-        this.applyTalentModifiers(character);
-        this.applyTraitsModifiers(character);
-        this.applyWoundsModifier(character);
-    }
-
-    protected applyCharacteristicModifiers(character:OnlyWarCharacter) {
-        for (var characteristic of this._characteristics) {
-            switch (this._type) {
-                case OnlyWarCharacterModifierTypes.REGIMENT:
-                    character.characteristics.get(characteristic[0]).regimentModifier = characteristic[1];
-                    break;
-                case OnlyWarCharacterModifierTypes.SPECIALTY:
-                    character.characteristics.get(characteristic[0]).specialtyModifier = characteristic[1];
-                    break;
-            }
-        }
-    };
-
-    protected applySkillModifiers(character:OnlyWarCharacter) {
-        for (var skill of this._skills) {
-            var index = character.skills.indexOf(skill);
-            if (index !== -1) {
-                character.skills[index].rank += skill.rank;
+        this._appliedTo = character;
+        this.kit.forEach((count, item)=> {
+            var existingCount:number = character.kit.get(item);
+            if (existingCount) {
+                character.kit.set(item, existingCount + count);
             } else {
-                character.skills.push(skill);
+                character.kit.set(item, count);
             }
-        }
-    };
-
-    protected applyTalentModifiers(character:OnlyWarCharacter) {
-        for (var talent of this._talents) {
-            character.talents.push(talent);
-        }
-    }
-
-    protected applyAptitudesModifiers(character:OnlyWarCharacter) {
-        for (var aptitude of this._aptitudes) {
-            character.aptitudes.push(aptitude);
-        }
-    }
-
-    protected applyTraitsModifiers(character:OnlyWarCharacter) {
-        for (var trait of this._traits) {
-            character.traits.push(trait);
-        }
-    }
-
-    protected applyKitModifiers(character:OnlyWarCharacter) {
-        for (var item of this._kit.entries()) {
-            if (character.kit.get(item[0])) {
-                character.kit.set(item[0], character.kit.get(item[0]) + item[1]);
+        });
+        this.skills.forEach(skillToAdd=> {
+            var existingSkill:Skill = character.skills.find(skill=> {
+                return skillToAdd.name === skill.name
+                    && skillToAdd.specialization === skill.specialization;
+            });
+            if (existingSkill) {
+                existingSkill.rank += skillToAdd.rank;
             } else {
-                character.kit.set(item[0], item[1]);
+                character.skills.push(skillToAdd);
             }
-        }
+        });
+        this.talents.forEach(talentToAdd=> {
+            character.talents.push(talentToAdd);
+        });
+        this.traits.forEach(traitToAdd=> {
+            character.traits.push(traitToAdd);
+        });
     }
 
-    protected applyWoundsModifier(character:OnlyWarCharacter) {
-    };
+    public unapply() {
+        this._appliedTo = null;
+    }
 
-
-    get characteristics():Map<Characteristic, number> {
+    get characteristics():Map < Characteristic, number > {
         return this._characteristics;
     }
 
-    get skills():Array<Skill> {
+    get skills():Array <Skill> {
         return this._skills;
     }
 
-    get talents():Array<Talent> {
+    get talents():Array < Talent > {
         return this._talents;
     }
 
-    get aptitudes():Array<string> {
+    get aptitudes():Array < string > {
         return this._aptitudes;
     }
 
-    get traits():Array<Trait> {
+    get traits():Array < Trait > {
         return this._traits;
     }
 
-    get kit():Map<Item, number> {
+    get kit():Map < Item, number > {
         return this._kit;
     }
 
@@ -182,6 +150,13 @@ export enum OnlyWarCharacterModifierTypes{
  *  of the modifier.
  */
 export class SelectableModifier {
+
+
+    constructor(numSelectionsNeeded:number, options:Array<any>) {
+        this.numSelectionsNeeded = numSelectionsNeeded;
+        this.options = options;
+    }
+
     /**
      * The number of options that need to be selected.
      */
