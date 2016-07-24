@@ -20,7 +20,6 @@ define(function () {
                             results.service.specialties.then(function (specialties) {
                                 $scope.available = specialties;
                             });
-
                             break;
                     }
                     $scope.character = characterService.character;
@@ -30,7 +29,6 @@ define(function () {
                     $scope.select = function (selected) {
                         var confirm;
                         var proceed = function () {
-                            $scope.requiredSelections = selected.optionalModifiers;
                             switch ($scope.selectionType) {
                                 case "regiments":
                                     characterService.character.regiment = selected;
@@ -38,9 +36,6 @@ define(function () {
                                 case "specialties":
                                     characterService.character.specialty = selected;
                                     break;
-                            }
-                            if ($scope.requiredSelections.length > 0) {
-                                $state.$current.data.complete = false;
                             }
                             $scope.selected = selected;
                         }
@@ -60,9 +55,8 @@ define(function () {
                     $scope.openSelectionModal = function (selectedObject) {
                         //Prepare the selection service
                         selection.selectionObject = selectedObject;
-                        optionselection.target = modifierService.selected;
+                        optionselection.target = $scope.selected;
                         optionselection.selectionObject = selectedObject;
-                        optionselection.associatedService = modifierService;
                         var stateTransition = $state.go("modal.selection.modifier", {
                             "on-completion-callback": function () {
                                 if ($scope.requiredSelections.length == 0) {
@@ -99,6 +93,9 @@ define(function () {
                             });
 
                             $scope.requiredSelections = $scope.selected.optionalModifiers;
+                            if ($scope.requiredSelections.length > 0) {
+                                $state.$current.data.complete = false;
+                            }
                         }
                     });
                 }
