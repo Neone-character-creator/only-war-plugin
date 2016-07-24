@@ -56,7 +56,14 @@
     "availability": "Common"
   },
   {
-    "name": "Respirator/Gas Mask",
+    "name": "Respirator",
+    "craftmanship": "Common",
+    "weight": 0.5,
+    "description": "",
+    "availability": "Average"
+  },
+  {
+    "name": "Gas Mask",
     "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
@@ -245,7 +252,7 @@
     "availability": "Common"
   },
   {
-    "name": "Grav Chute",
+    "name": "Grav-Chute",
     "craftmanship": "Common",
     "weight": 15,
     "description": "",
@@ -958,7 +965,19 @@
     "availability": "Common"
   },
   {
-    "name": "",
+    "name": "Toxic Environment Trenchcoat",
+    "craftmanship": "Common",
+    "weight": 0,
+    "availability": "Common"
+  },
+  {
+    "name": "Armageddon Rebreather",
+    "craftmanship": "Common",
+    "weight": 0,
+    "availability": "Common"
+  },
+  {
+    "name": "Horse",
     "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
