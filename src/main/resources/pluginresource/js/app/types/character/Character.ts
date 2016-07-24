@@ -1,4 +1,3 @@
-///<reference path="../../../../../../../../typings/index.d.ts" />
 import {Regiment} from "./Regiment";
 import {Specialty} from "./Specialty";
 import {CharacteristicValue, Characteristic} from "./Characteristic";
@@ -12,6 +11,8 @@ import {
     CharacterAdvancement, CharacteristicAdvancement, SkillAdvancement,
     TalentAdvancement, PsychicPowerAdvancement
 } from "./advancements/CharacterAdvancement";
+
+import * as angular from "angular";
 
 export class OnlyWarCharacter {
     private _name:String = "";
@@ -34,114 +35,144 @@ export class OnlyWarCharacter {
     private _aptitudes:Array<string> = [];
     private _powers:PsychicPowersContainer = new PsychicPowersContainer();
     private _fatigue:Number;
-
-    get fatigue():Number {
+    get fatigue /* istanbul ignore next */
+    ():Number {
         return this._fatigue;
     }
 
     set fatigue(value:Number) {
+        /* istanbul ignore next */
         this._fatigue = value;
     }
 
     get name():String {
+        /* istanbul ignore next */
         return this._name;
     }
 
     get player():String {
+        /* istanbul ignore next */
         return this._player;
     }
 
     get description():String {
+        /* istanbul ignore next */
         return this._description;
     }
 
     get regiment():Regiment {
+        /* istanbul ignore next */
         return this._regiment;
     }
 
     get specialty():Specialty {
+        /* istanbul ignore next */
         return this._specialty;
     }
 
     get characteristics():Map<Characteristic, CharacteristicValue> {
+        /* istanbul ignore next */
         return this._characteristics;
     }
 
     get skills():Array<Skill> {
+        /* istanbul ignore next */
         return this._skills;
     }
 
     get talents():Array<Talent> {
+        /* istanbul ignore next */
         return this._talents;
     }
 
     get traits():Array<Trait> {
+        /* istanbul ignore next */
         return this._traits;
     }
 
     get kit():Map<Item, number> {
+        /* istanbul ignore next */
         return this._kit;
     }
 
     get wounds():WoundsContainer {
+        /* istanbul ignore next */
         return this._wounds;
     }
 
     get criticalDamage():Array<String> {
+        /* istanbul ignore next */
         return this._criticalDamage;
     }
 
     get insanity():InsanityContainer {
+        /* istanbul ignore next */
         return this._insanity;
     }
 
     get corruption():CorruptionContainer {
+        /* istanbul ignore next */
         return this._corruption;
     }
 
     get speeds():SpeedContainer {
+        /* istanbul ignore next */
         return this._speeds;
     }
 
     get fatePoints():Number {
+        /* istanbul ignore next */
         return this._fatePoints;
     }
 
     get experience():ExperienceContainer {
+        /* istanbul ignore next */
         return this._experience;
     }
 
     get aptitudes():Array<string> {
+        /* istanbul ignore next */
         return this._aptitudes;
     }
 
     get powers():PsychicPowersContainer {
+        /* istanbul ignore next */
         return this._powers;
     }
 
     set name(value:String) {
+        /* istanbul ignore next */
         this._name = value;
     }
 
     set player(value:String) {
+        /* istanbul ignore next */
         this._player = value;
     }
 
     set regiment(value:Regiment) {
+        if (this._regiment) {
+            this._regiment.unapply();
+        }
         this._regiment = value;
         this.addModifier(value);
     }
 
     set description(value:String) {
+        /* istanbul ignore next */
         this._description = value;
     }
 
     set specialty(value:Specialty) {
+        if (this._specialty) {
+            this._specialty.unapply();
+        }
         this._specialty = value;
         this.addModifier(value);
     }
 
     set fatePoints(value:Number) {
+        /* istanbul ignore next */
         this._fatePoints = value;
     }
 
@@ -287,10 +318,12 @@ class ExperienceContainer {
      * @returns {number}
      */
     public get total() {
+        /* istanbul ignore next */
         return this._total;
     }
 
     public get available() {
+        /* istanbul ignore next */
         return this._available;
     }
 
@@ -305,6 +338,7 @@ class ExperienceContainer {
     }
 
     public get advancements() {
+        /* istanbul ignore next */
         return this._advances;
     }
 
@@ -326,8 +360,7 @@ class ExperienceContainer {
             case AdvanceableProperty.SKILL:
                 //If the skill already has a rating of 4, can't improve any further.
                 var existingSkill = this._character.skills.find((skill)=> {
-                    return (<SkillAdvancement>advancement).value.name === skill.name &&
-                        (<SkillAdvancement>advancement).value.specialization === skill.specialization
+                    return angular.equals((<SkillAdvancement>advancement).value, skill.identifier);
                 })
                 if (existingSkill && existingSkill.rank >= 4) {
                     return false;
@@ -342,6 +375,13 @@ class ExperienceContainer {
                     return false;
                 }
                 break;
+            case AdvanceableProperty.PSYCHIC_POWER:
+                let incomingPower = (<PsychicPowerAdvancement>advancement).value;
+                if (this._character.powers.powers.find(function (power) {
+                        return power.name === incomingPower.name;
+                    })) {
+                    return false;
+                }
         }
         this._available -= advancement.calculateExperienceCost(this._character);
         this._advances.push(advancement);
@@ -350,10 +390,9 @@ class ExperienceContainer {
     }
 
     public removeAdvancement(advancement:CharacterAdvancement) {
-        let index = this.advancements.indexOf(advancement);
-        if (index) {
-            this.advancements.splice(index);
-        }
+        advancement.unapply();
+        this._advances.splice(this._advances.indexOf(advancement));
+        this._available += advancement.calculateExperienceCost(this._character);
     }
 }
 
@@ -380,63 +419,56 @@ class PsychicPowersContainer {
      * @param asBonus   if the power is purchased with the psychic power bonus xp
      */
     public addPower(power:PsychicPower, asBonus:boolean, source:CharacterModifier) {
+        /* istanbul ignore next */
         if (this.powers.indexOf(power) !== -1) {
-            console.log("Tried to add power " + power.name + " but ")
+            console.log("Tried to add power " + power.name + " but character already has it.");
         } else {
             if (asBonus) {
+                /* istanbul ignore if */
                 if (this.bonusXp < power.xpCost) {
-                    throw "Tried to purchase a bonus psychic power but didn't have enough bonus xp."
+                    throw "Tried to purchase a bonus psychic power but didn't have enough bonus xp, needed "
+                    + power.xpCost + " but had " + this.bonusXp + ".";
                 }
-                power.isBonus = true;
                 this._bonusXp -= power.xpCost;
             }
-            this._powers.push(new PsychicPowerWrapper(power, source));
+            this._powers.push(new PsychicPowerWrapper(power, source, asBonus));
         }
     }
 
     public removePower(power:PsychicPower) {
-        this._powers = this._powers.filter(function (wrapper:PsychicPowerWrapper) {
-            return !angular.equals(wrapper.power, power);
-        });
-        if (power.isBonus) {
+        var removedWrapper = this._powers.splice(this._powers.findIndex(function (wrapper:PsychicPowerWrapper) {
+            return angular.equals(wrapper.power, power);
+        }), 1);
+        if (removedWrapper[0].isBonus) {
             this._bonusXp += power.xpCost;
         }
     }
 
     public get powers() {
+        /* istanbul ignore next */
         return this._powers.map((wrapper)=> {
             return wrapper.power;
         });
     }
 
     public get bonusXp() {
+        /* istanbul ignore next */
         return this._bonusXp;
     }
 
     public set bonusXp(value:number) {
+        /* istanbul ignore next */
         this._bonusXp = value;
     }
 
     get psyRating():number {
+        /* istanbul ignore next */
         return this._psyRating;
     }
 
     set psyRating(value:number) {
+        /* istanbul ignore next */
         this._psyRating = value;
-    }
-}
-
-class EquipmentContainer {
-    private items:Array<Item> = [];
-
-    /**
-     * Add all of the items in the given array to the character kit.
-     *
-     * Some of these items may replace existing items
-     * @param items
-     */
-    public addItems(items:Array<Item>) {
-
     }
 }
 /**
@@ -445,19 +477,27 @@ class EquipmentContainer {
 class PsychicPowerWrapper {
     private _power:PsychicPower;
     private _source:CharacterModifier;
+    private _isBonus:boolean;
 
     get power():PsychicPower {
+        /* istanbul ignore next */
         return this._power;
     }
 
     get source():CharacterModifier {
+        /* istanbul ignore next */
         return this._source;
     }
 
 
-    constructor(power:PsychicPower, source:CharacterModifier) {
+    get isBonus():boolean {
+        return this._isBonus;
+    }
+
+    constructor(power:PsychicPower, source:CharacterModifier, isBonus:boolean) {
         this._power = power;
         this._source = source;
+        this._isBonus = isBonus;
     }
 }
 
