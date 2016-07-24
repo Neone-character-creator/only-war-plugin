@@ -22,5 +22,14 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://bitbucket.org/ThisIsNoZaku/only-war-plugin#readme",
-  "typings": "./typings/index.d.ts"
+  "typings": "src/main/resources/pluginresource/js/libs/index.d.ts",
+  "devDependencies": {
+    "angular-mock": "^1.0.0",
+    "angular-mocks": "^1.5.8",
+    "istanbul": "^0.4.4",
+    "karma": "^1.1.1",
+    "karma-coverage": "^1.1.0",
+    "quickmock": "^1.0.12"
+  },
+  "private": true
 }
