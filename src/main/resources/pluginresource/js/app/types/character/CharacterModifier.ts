@@ -98,6 +98,9 @@ export abstract class CharacterModifier {
         this.traits.forEach(traitToAdd=> {
             character.traits.push(traitToAdd);
         });
+        this.aptitudes.forEach(aptitudeToAdd=> {
+            character.aptitudes.push(aptitudeToAdd);
+        });
     }
 
     public unapply() {
@@ -115,6 +118,16 @@ export abstract class CharacterModifier {
         }
         for (var trait of this._traits) {
             this._appliedTo.traits.splice(this._appliedTo.traits.indexOf(trait), 1);
+        }
+        this.aptitudes.forEach(aptitude=> {
+            this._appliedTo.aptitudes.splice(this._appliedTo.aptitudes.indexOf(aptitude), 1);
+        });
+        for (let entry of this._kit.entries()) {
+            if (this._appliedTo.kit.get(entry[0]) == entry[1]) {
+                this._appliedTo.kit.delete(entry[0]);
+            } else {
+                this._appliedTo.kit.set(entry[0], this._appliedTo.kit.get(entry[0]) - entry[1]);
+            }
         }
         this._appliedTo = null;
     }
