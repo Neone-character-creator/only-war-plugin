@@ -4,12 +4,12 @@
  */
 import {OnlyWarCharacter} from "../../../app/types/character/Character"
 import {Characteristic} from "../../../app/types/character/Characteristic";
-import {Regiment} from "../../../app/types/character/Regiment";
-import {Specialty, SpecialtyType} from "../../../app/types/character/Specialty";
+import {Regiment, RegimentBuilder} from "../../../app/types/character/Regiment";
+import {Specialty, SpecialtyType, SpecialtyBuilder} from "../../../app/types/character/Specialty";
 import {Talent} from "../../../app/types/character/Talent";
 import {Trait} from "../../../app/types/character/Trait";
 import {Item, Craftsmanship, ItemType, Availability} from "../../../app/types/character/items/Item";
-import {Skill} from "../../../app/types/character/Skill";
+import {Skill, SkillDescription} from "../../../app/types/character/Skill";
 import {
     TalentAdvancement,
     CharacteristicAdvancement, SkillAdvancement, PsychicPowerAdvancement
@@ -32,7 +32,7 @@ describe("The character", ()=> {
         it("must allow for adding modifiers to the characteristics from their regiment", function () {
             var characteristics = new Map<Characteristic, number>();
             characteristics.set(Characteristic.characteristics.get("Agility"), 5);
-            var regiment = new Regiment("", characteristics, [], [], [], [], new Map<Item, number>(), 0, []);
+            var regiment = new RegimentBuilder().characteristics(characteristics).build();
             theCharacter.regiment = regiment;
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).regimentModifier).toEqual(5);
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).total).toEqual(5);
@@ -40,7 +40,7 @@ describe("The character", ()=> {
         it("must allow for adding modifiers to the characteristics from their specialty", function () {
             var characteristics = new Map<Characteristic, number>();
             characteristics.set(Characteristic.characteristics.get("Agility"), 5);
-            var specialty = new Specialty("", characteristics, SpecialtyType.Guardsman, [], [], [], [], new Map<Item, number>(), 0, []);
+            var specialty = new SpecialtyBuilder().specialtyType(SpecialtyType.Guardsman).characteristics(characteristics).build();
             theCharacter.specialty = specialty;
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).specialtyModifier).toEqual(5);
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).total).toEqual(5);
@@ -74,27 +74,30 @@ describe("The character", ()=> {
             expect(theCharacter.skills).toBeDefined();
         });
         it("must allow for adding modifiers to the skills from their regiment", function () {
-            var skills = [new Skill("Acrobatics", 1, [])];
-            var regiment = new Regiment("", new Map<Characteristic, number>(), skills, [], [], [], new Map<Item, number>(), 0, []);
+            var skills = new Map<SkillDescription, number>();
+            skills.set(new SkillDescription("Acrobatics", []), 1);
+            var regiment = new RegimentBuilder().skills(skills).build();
             theCharacter.regiment = regiment;
             expect(theCharacter.skills[0].rank).toEqual(1);
         });
         it("must allow for adding modifiers to the skills from their specialty", function () {
-            var skills = [new Skill("Acrobatics", 1, [])];
-            var specialty = new Specialty("", new Map<Characteristic, number>(), SpecialtyType.Guardsman, skills, [], [], [], new Map<Item, number>(), 0, []);
+            var skills = new Map<SkillDescription, number>();
+            skills.set(new SkillDescription("Acrobatics", []), 1);
+            var specialty = new SpecialtyBuilder().specialtyType(SpecialtyType.Guardsman).skills(skills).build();
             theCharacter.specialty = specialty;
             expect(theCharacter.skills[0].rank).toEqual(1);
         });
         it("must allow adding advancements for each skill and specialization", function () {
-            var advancement = new SkillAdvancement(new Skill("Acrobatics", 1, []));
+            var advancement = new SkillAdvancement(new SkillDescription("Acrobatics", []));
             theCharacter.experience.addAdvancement(advancement);
             expect(theCharacter.skills[0].rank).toEqual(1);
         });
         it("must not allow improving a skill beyond 4 by advancement", function () {
-            var advancement = new SkillAdvancement(new Skill("Acrobatics", 1, []));
             for (var i = 0; i < 4; i++) {
+                var advancement = new SkillAdvancement(new SkillDescription("Acrobatics", []));
                 theCharacter.experience.addAdvancement(advancement);
             }
+            var advancement = new SkillAdvancement(new SkillDescription("Acrobatics", []));
             expect(theCharacter.experience.addAdvancement(advancement)).toEqual(false);
         });
     });
@@ -105,19 +108,14 @@ describe("The character", ()=> {
         it("must allow gaining talents from the character regiment.", function () {
             var talent = new Talent("Test Talent", "Test", 1, [], false);
             var talents = [talent];
-            var regiment = new Regiment("", new Map(),
-                [],
-                talents, [], [], new Map<Item, number>(), 0, []);
+            var regiment = new RegimentBuilder().talents(talents).build();
             theCharacter.regiment = regiment;
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
         it("must allow gaining talents from the character specialty.", function () {
             var talent = new Talent("Test Talent", "Test", 1, [], false);
             var talents = [talent];
-            var specialty = new Specialty("", new Map(),
-                SpecialtyType.Guardsman,
-                [],
-                talents, [], [], new Map<Item, number>(), 0, []);
+            var specialty = new SpecialtyBuilder().talents(talents).specialtyType(SpecialtyType.Guardsman).build();
             theCharacter.specialty = specialty;
             expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
         });
@@ -142,7 +140,7 @@ describe("The character", ()=> {
             var traits = new Array<Trait>();
             var testTrait = new Trait("", "");
             traits.push(testTrait);
-            var regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], traits, new Map<Item, number>(), 0, []);
+            var regiment = new RegimentBuilder().traits(traits).build();
             theCharacter.regiment = regiment;
             expect(theCharacter.traits.indexOf(testTrait)).toEqual(0);
         });
@@ -150,7 +148,7 @@ describe("The character", ()=> {
             var traits = new Array<Trait>();
             var testTrait = new Trait("", "");
             traits.push(testTrait);
-            var specialty = new Specialty("", new Map<Characteristic, number>(), SpecialtyType.Guardsman, [], [], [], traits, new Map<Item, number>(), 0, []);
+            var specialty = new SpecialtyBuilder().specialtyType(SpecialtyType.Guardsman).traits(traits).build();
             theCharacter.specialty = specialty;
             expect(theCharacter.traits.indexOf(testTrait)).toEqual(0);
         });
@@ -158,7 +156,7 @@ describe("The character", ()=> {
             var traits = new Array<Trait>();
             var testTrait = new Trait("", "");
             traits.push(testTrait);
-            var regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], traits, new Map<Item, number>(), 0, []);
+            var regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], traits, new Map<Item, number>(), 0, []);
             theCharacter.regiment = regiment;
             expect(theCharacter.traits.indexOf(testTrait)).toEqual(0);
         });
@@ -168,33 +166,33 @@ describe("The character", ()=> {
             var item = new Item("", ItemType.Other, Availability.Abundant);
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
-            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], [], items, 0, []);
+            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], [], items, 0, []);
             expect(theCharacter.kit.get(item)).toEqual(1);
         });
         it("must allow for adding items from the specialty", function () {
             var item = new Item("", ItemType.Other, Availability.Abundant);
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
-            theCharacter.specialty = new Specialty("", new Map<Characteristic, number>(), SpecialtyType.Guardsman, [], [], [], [], items, 0, []);
+            theCharacter.specialty = new SpecialtyBuilder().specialtyType(SpecialtyType.Guardsman).kit(items).build();
             expect(theCharacter.kit.get(item)).toEqual(1);
         });
         it("must increase the count of an item when trying to add an identical item to the character", ()=> {
             var item = new Item("", ItemType.Other, Availability.Abundant);
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
-            theCharacter.specialty = new Specialty("", new Map<Characteristic, number>(), SpecialtyType.Guardsman, [], [], [], [], items, 0, []);
-            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], [], items, 0, []);
+            theCharacter.specialty = new SpecialtyBuilder().specialtyType(SpecialtyType.Guardsman).kit(items).build();
+            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], [], items, 0, []);
             expect(theCharacter.kit.get(item)).toEqual(2);
         });
     });
     describe("wounds", function () {
         it("must allow for adding a modifier to wounds from the regiment", function () {
-            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), [], [], [], [], new Map<Item, number>(), 1, []);
+            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], [], new Map<Item, number>(), 1, []);
             expect(theCharacter.wounds.regimentModifier).toEqual(1);
             expect(theCharacter.wounds.total).toEqual(1);
         });
         it("must allow for adding a modifier to wounds from the specialty", function () {
-            theCharacter.specialty = new Specialty("", new Map<Characteristic, number>(), SpecialtyType.Guardsman, [], [], [], [], new Map<Item, number>(), 1, []);
+            theCharacter.specialty = new SpecialtyBuilder().specialtyType(SpecialtyType.Guardsman).wounds(1).build();
             expect(theCharacter.wounds.specialtyModifier).toEqual(1);
             expect(theCharacter.wounds.total).toEqual(1);
         });
@@ -264,7 +262,7 @@ describe("The character", ()=> {
         });
         it("allows improving the character skills by spending xp", function () {
             theCharacter.experience.available = 300;
-            theCharacter.experience.addAdvancement(new SkillAdvancement(new Skill("Command", 1, [])));
+            theCharacter.experience.addAdvancement(new SkillAdvancement(new SkillDescription("Command", [])));
             expect(theCharacter.skills[0].rank).toEqual(1);
             expect(theCharacter.experience.total).toEqual(300);
             expect(theCharacter.experience.available).toEqual(0);
