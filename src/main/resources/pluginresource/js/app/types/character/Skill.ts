@@ -1,5 +1,4 @@
 import {CharacterModifier} from "./CharacterModifier";
-import mod = require("module");
 /**
  * A Skill that exists on a character.
  */
@@ -40,7 +39,7 @@ export class Skill {
     }
 
     addRankModifier(modifier:CharacterModifier) {
-        if (this._rankSources.indexOf(modifier) !== -1) {
+        if (this._rankSources.indexOf(modifier) === -1) {
             this._rankSources.push(modifier)
         } else {
             throw "Tried to add a modifier to the skill " + this._identifier.name + " (" + this._identifier.specialization + ") that was already modifying it.";
