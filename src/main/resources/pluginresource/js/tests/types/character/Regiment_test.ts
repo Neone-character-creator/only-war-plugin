@@ -5,6 +5,7 @@ import {OnlyWarCharacter} from "../../../app/types/character/Character";
 import {SkillDescription} from "../../../app/types/character/Skill";
 import {Talent} from "../../../app/types/character/Talent";
 import {Trait} from "../../../app/types/character/Trait";
+import {Item, ItemType, Availability} from "../../../app/types/character/items/Item";
 /**
  * Created by Damien on 7/24/2016.
  */
@@ -99,5 +100,40 @@ describe("A regiment", ()=> {
         expect(theCharacter.traits.find(t=> {
             return t.name === "";
         })).not.toBeDefined();
+    });
+    it("must correctly set the regiment modifier to wounds of the character", ()=> {
+        var regiment = new RegimentBuilder().wounds(1).build();
+        theCharacter.regiment = regiment;
+        expect(theCharacter.wounds.total).toEqual(1);
+        expect(theCharacter.wounds.regimentModifier).toEqual(1);
+    });
+    it("must unset the regiment modifier to wounds of the character when removed", ()=> {
+        var regiment = new RegimentBuilder().wounds(1).build();
+        theCharacter.regiment = regiment;
+        expect(theCharacter.wounds.total).toEqual(1);
+        expect(theCharacter.wounds.regimentModifier).toEqual(1);
+        theCharacter.regiment = null;
+        expect(theCharacter.wounds.total).toEqual(0);
+        expect(theCharacter.wounds.regimentModifier).toEqual(0);
+    });
+    it("must be able to add aptitudes to the character", ()=> {
+        var regiment = new RegimentBuilder().aptitudes(["Aptitude"]).build();
+        theCharacter.regiment = regiment;
+        expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(0);
+    });
+    it("must correctly remove any aptitudes it added when removed", ()=> {
+        var regiment = new RegimentBuilder().aptitudes(["Aptitude"]).build();
+        theCharacter.regiment = regiment;
+        expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(0);
+        theCharacter.regiment = null;
+        expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(-1);
+    });
+    it("must be able to add items to the character kit", ()=> {
+        var kit = new Map<Item, number>();
+        var item = new Item("", ItemType.Other, Availability.Common);
+        kit.set(item, 1);
+        var regiment = new RegimentBuilder().kit(kit).build();
+        theCharacter.regiment = regiment;
+        expect(theCharacter.kit.get(item)).toEqual(1);
     });
 });
