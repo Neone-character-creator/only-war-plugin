@@ -1,6 +1,6 @@
 import {Characteristic} from "../types/character/Characteristic";
 import {Talent} from "../types/character/Talent";
-import {Skill} from "../types/character/Skill";
+import {Skill, SkillDescription} from "../types/character/Skill";
 import {PsychicPower} from "../types/character/PsychicPower";
 import {Armor} from "../types/character/items/Armor";
 import {Weapon} from "../types/character/items/Weapon";
@@ -68,7 +68,7 @@ export class CharacterOptionsService {
                                     subpredicates.push(
                                         (character:OnlyWarCharacter)=> {
                                             return character.skills.find(skill=> {
-                                                return skill.name === prerequisite.value.name && skill.rank === prerequisite.value.rating;
+                                                return skill.identifier.name === prerequisite.value.name && skill.rank === prerequisite.value.rating;
                                             })
                                         });
                                     break;
@@ -167,7 +167,7 @@ export class CharacterOptionsService {
         return this._talents;
     }
 
-    get skills():Array < Skill > {
+    get skills():Map<SkillDescription, Skill> {
         return this._skills;
     }
 
