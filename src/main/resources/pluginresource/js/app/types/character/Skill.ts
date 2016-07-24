@@ -1,57 +1,85 @@
+import {CharacterModifier} from "./CharacterModifier";
+import mod = require("module");
 /**
- * A character Skill.
+ * A Skill that exists on a character.
  */
 export class Skill {
     /**
-     * The name of the skill.
+     * The combination name and specialization of the skill.
      */
-    private _name:string;
+    private _identifier:SkillDescription;
     /**
-     * The rank of the skill, from 0 to 4, mapped to the Only War skill ratings.
+     * The modifiers that have modified the rank of this skill and the amount of a modifier they provide.
+     * @private
+     */
+    private _rankSources:Array<CharacterModifier> = new Array<CharacterModifier>();
+
+    constructor(identifier:SkillDescription) {
+        this._identifier = identifier;
+    }
+
+    get identifier():SkillDescription {
+        return this._identifier;
+    }
+
+    /**
+     * The rank of the skill, from 1 to 4, mapped to the Only War skill ratings.
      *
-     * 0 is untrained (-30).
      * 1 is known (+0).
      * 2 is trained (+10).
      * 3 is experienced (+20).
      * 4 is veteran (+30).
      */
-    private _rank:number;
-    /**
-     * The specialization of the skill, if it has one.
-     */
+    get rank():number {
+        var calculated = Array.from(this._rankSources.values()).map(modifier=> {
+            return modifier.skills.get(this._identifier);
+        }).reduce((original, next)=> {
+            return original + next;
+        }, 0);
+        return calculated <= 4 ? calculated : 4;
+    }
+
+    addRankModifier(modifier:CharacterModifier) {
+        if (this._rankSources.indexOf(modifier) !== -1) {
+            this._rankSources.push(modifier)
+        } else {
+            throw "Tried to add a modifier to the skill " + this._identifier.name + " (" + this._identifier.specialization + ") that was already modifying it.";
+        }
+    }
+
+    removeRankModifier(modifier:CharacterModifier) {
+        var index = this._rankSources.indexOf(modifier);
+        if (index !== -1) {
+            this._rankSources.splice(index, 1);
+        }
+    }
+}
+
+/**
+ * Contains the name and optional specialization and aptitudes of the skill.
+ */
+export class SkillDescription {
+    private _name:string;
     private _specialization:string;
     private _aptitudes:Array<string>;
 
-    constructor(name:string, rank:number, aptitudes:Array<string>, specialization:string = null) {
-        if (rank < 0 || rank > 4) {
-            throw "The rank must be at least 0 and less than 4 but was" + rank + ".";
-        }
+    constructor(name:string, aptitudes:Array<string>, specialization?:string) {
         this._name = name;
-        this._rank = rank;
         this._aptitudes = aptitudes;
         this._specialization = specialization;
     }
 
+
     get name():string {
         return this._name;
-    }
-
-    get rank():number {
-        return this._rank;
     }
 
     get specialization():string {
         return this._specialization;
     }
 
+
     get aptitudes():Array<string> {
         return this._aptitudes;
-    }
-
-    set rank(value:number) {
-        if (value < 0 || value > 4) {
-            throw "The rank must be between 0 and 4 but was" + value + ".";
-        }
-        this._rank = value;
     }
 }
