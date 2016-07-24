@@ -68,10 +68,11 @@
             <div class="row">
                 <h3>Starting Talents and Traits</h3>
                 <ul>
-                    <li ng-repeat="talent in selected.talents">{{talent.name + (talent.specialization ? " (" +
+                    <li ng-repeat="talent in selected.talents track by $index">{{talent.name + (talent.specialization ?
+                        " (" +
                         talent.specialization + ")" : "")}}
                     </li>
-                    <li ng-repeat="trait in selected.traits">{{trait.name}}
+                    <li ng-repeat="trait in selected.traits track by $index">{{trait.name}}
                     </li>
                 </ul>
             </div>
@@ -103,7 +104,7 @@
                 {{selected['favored weapons'].join(', ')}}
             </div>
         </div>
-        <div class="col-md-5 col-md-offset-1" ng-show="requiredSelections.length || character.powers.bonusXp">
+        <div class="col-md-6" ng-show="requiredSelections.length || character.powers.bonusXp">
             You also choose from the following optional benefits:
             <ul>
                 <li ng-repeat="selection in requiredSelections">
