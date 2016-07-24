@@ -4,10 +4,11 @@ import {CharacterModifier, OnlyWarCharacterModifierTypes} from "../CharacterModi
 import {Talent} from "../Talent";
 import {Trait} from "../Trait";
 import {Item} from "../items/Item";
-import {Skill} from "../Skill";
+import {Skill, SkillDescription} from "../Skill";
 import {PsychicPower} from "../PsychicPower";
 import {Characteristic} from "../Characteristic";
 import enumerate = Reflect.enumerate;
+import * as angular from "angular";
 /**
  * An advancement to a character, purchased with xp.
  *
@@ -26,7 +27,7 @@ export abstract class CharacterAdvancement extends CharacterModifier {
 
     constructor(property:AdvanceableProperty,
                 characteristics:Map<Characteristic, number>,
-                skills:Array<Skill>,
+                skills:Map<SkillDescription, number>,
                 talents:Array<Talent>,
                 aptitudes:Array<string>,
                 traits:Array<Trait>,
@@ -63,7 +64,7 @@ export class CharacteristicAdvancement extends CharacterAdvancement {
         characteristics.set(value, 5);
         super(AdvanceableProperty.CHARACTERISTIC,
             characteristics,
-            [],
+            new Map(),
             [],
             [],
             [],
@@ -142,12 +143,20 @@ export class CharacteristicAdvancement extends CharacterAdvancement {
 
 export class PsychicPowerAdvancement extends CharacterAdvancement {
     calculateExperienceCost(character:OnlyWarCharacter):number {
-        return this.power.xpCost;
+        if (character.powers.bonusXp >= this.power.xpCost) {
+            return 0;
+        } else {
+            return this.power.xpCost;
+        }
     }
 
     apply(character:OnlyWarCharacter) {
         super.apply(character);
-        character.powers.addPower(this.value, this.isBonus, this);
+        if (character.powers.bonusXp >= this.value.xpCost) {
+            character.powers.addPower(this.value, true, this);
+        } else {
+            character.powers.addPower(this.value, false, this);
+        }
     }
 
     unapply() {
@@ -155,13 +164,12 @@ export class PsychicPowerAdvancement extends CharacterAdvancement {
         super.unapply();
     }
 
-    private isBonus:boolean;
     private power:PsychicPower;
 
-    constructor(value:PsychicPower, isBonus:boolean) {
+    constructor(value:PsychicPower) {
         super(AdvanceableProperty.PSYCHIC_POWER,
             new Map(),
-            [],
+            new Map(),
             [],
             [],
             [],
@@ -170,7 +178,6 @@ export class PsychicPowerAdvancement extends CharacterAdvancement {
             0,
             OnlyWarCharacterModifierTypes.ADVANCEMENT);
         this.power = value;
-        this.isBonus = isBonus;
     }
 
     get value():PsychicPower {
@@ -194,7 +201,7 @@ export class PsyRatingAdvancement extends CharacterAdvancement {
     }
 
     constructor() {
-        super(AdvanceableProperty.PSY_RATING, new Map(), [], [], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        super(AdvanceableProperty.PSY_RATING, new Map(), new Map(), [], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
     }
 
     /**
@@ -209,22 +216,23 @@ export class PsyRatingAdvancement extends CharacterAdvancement {
 }
 
 export class SkillAdvancement extends CharacterAdvancement {
-    private skill:Skill;
+    private skill:SkillDescription;
 
-    constructor(skill:Skill) {
-        var skills:Array<Skill> = [skill];
+    constructor(skill:SkillDescription) {
+        var skills:Map<SkillDescription, number> = new Map<SkillDescription, number>();
+        skills.set(skill, 1);
         super(AdvanceableProperty.SKILL, new Map(), skills, [], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
         this.skill = skill;
     }
 
-    get value():Skill {
+    get value():SkillDescription {
         return this.skill;
     }
 
     public calculateExperienceCost(character:OnlyWarCharacter):number {
         var matchingAptitudes:number = 0;
         var existingSkill = character.skills.find((skill)=> {
-            return this.skill.name === skill.name && this.skill.specialization === skill.specialization;
+            return angular.equals(this.skill, skill);
         });
         var existingSkillRating = existingSkill ? existingSkill.rank : 0;
         character.aptitudes.forEach((aptitude)=> {
@@ -250,7 +258,7 @@ export class TalentAdvancement extends CharacterAdvancement {
     }
 
     constructor(talent:Talent) {
-        super(AdvanceableProperty.TALENT, new Map(), [], [talent], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+        super(AdvanceableProperty.TALENT, new Map(), new Map(), [talent], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);
         this.talent = talent;
     }
 
@@ -271,11 +279,11 @@ export class TalentAdvancement extends CharacterAdvancement {
         });
         switch (aptitudeMatch) {
             case 0:
-                return (this.talent.tier) * 300;
+                return (this.talent.tier + 1) * 300;
             case 1:
-                return (this.talent.tier) * 150;
+                return (this.talent.tier + 1) * 150;
             case 2:
-                return (this.talent.tier) * 100;
+                return (this.talent.tier + 1) * 100;
         }
     }
 }

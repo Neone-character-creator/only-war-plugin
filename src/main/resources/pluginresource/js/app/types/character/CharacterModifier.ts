@@ -3,7 +3,9 @@ import {Talent} from "./Talent";
 import {CharacteristicValue, Characteristic} from "./Characteristic";
 import {Trait} from "./Trait";
 import {Item} from "./items/Item";
-import {Skill} from "./Skill";
+import {Skill, SkillDescription} from "./Skill";
+import {CharacterOptionsService} from "../../services/CharacterOptionsService";
+import * as angular from "angular";
 /**
  * A grouping of values that can be added to a Character, modifying its statistics.
  *
@@ -22,7 +24,7 @@ export abstract class CharacterModifier {
      *
      * Maps a tuple containing a skill name and optional specialization to a skill rating.
      */
-    private _skills:Array<Skill>;
+    private _skills:Map<SkillDescription, number>;
     /**
      * Talent modifiers.
      *
@@ -56,8 +58,9 @@ export abstract class CharacterModifier {
     private _psyRating:number;
     private _type:OnlyWarCharacterModifierTypes;
     protected _appliedTo:OnlyWarCharacter;
+    protected _characteroptions:CharacterOptionsService;
 
-    constructor(characteristics:Map<Characteristic, number>, skills:Array<Skill>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Map<Item, number>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
+    constructor(characteristics:Map<Characteristic, number>, skills:Map<SkillDescription, number>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Map<Item, number>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
         this._characteristics = characteristics;
         this._skills = skills;
         this._talents = talents;
@@ -79,17 +82,16 @@ export abstract class CharacterModifier {
                 character.kit.set(item, count);
             }
         });
-        this.skills.forEach(skillToAdd=> {
+        for (var entry of this.skills.entries()) {
             var existingSkill:Skill = character.skills.find(skill=> {
-                return skillToAdd.name === skill.name
-                    && skillToAdd.specialization === skill.specialization;
+                return angular.equals(entry[0], skill.identifier);
             });
-            if (existingSkill) {
-                existingSkill.rank += skillToAdd.rank;
-            } else {
-                character.skills.push(skillToAdd);
+            if (!existingSkill) {
+                existingSkill = new Skill(entry[0]);
+                character.skills.push(existingSkill)
             }
-        });
+            existingSkill.addRankModifier(this);
+        }
         this.talents.forEach(talentToAdd=> {
             character.talents.push(talentToAdd);
         });
@@ -106,7 +108,7 @@ export abstract class CharacterModifier {
         return this._characteristics;
     }
 
-    get skills():Array <Skill> {
+    get skills():Map<SkillDescription, number> {
         return this._skills;
     }
 
