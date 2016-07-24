@@ -20,15 +20,16 @@ module.exports = function (config) {
             //Application scripts
             {pattern: 'libs/**/*.js', included: false},
             {pattern: 'app/**/*.js', included: false},
-            {pattern: 'app/app.js', included: false},
-            {pattern: "../templates/**", included: false},
+
             //Test scripts
             {pattern: 'tests/**/*.js', included: false}
         ],
 
         // list of files to exclude
         exclude: [
-            'libs/**/*Spec.js'
+            'libs/**/*Spec.js',
+            'app/app.js',
+            'app/config.js'
         ],
 
         // preprocess matching files before serving them to the browser
