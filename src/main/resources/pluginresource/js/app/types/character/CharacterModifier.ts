@@ -101,6 +101,21 @@ export abstract class CharacterModifier {
     }
 
     public unapply() {
+        for (var entry of this.skills.entries()) {
+            var existingSkill:Skill = this._appliedTo.skills.find(skill=> {
+                return angular.equals(entry[0], skill.identifier);
+            });
+            existingSkill.removeRankModifier(this);
+            if (existingSkill.rank == 0) {
+                this._appliedTo.skills.splice(this._appliedTo.skills.indexOf(existingSkill), 1);
+            }
+        }
+        for (var talent of this._talents) {
+            this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+        }
+        for (var trait of this._traits) {
+            this._appliedTo.traits.splice(this._appliedTo.traits.indexOf(trait), 1);
+        }
         this._appliedTo = null;
     }
 
