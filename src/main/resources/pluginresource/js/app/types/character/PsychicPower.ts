@@ -4,7 +4,11 @@
 export class PsychicPower {
     private _name:String;
     private _xpCost:number;
-    private _isBonus:boolean;
+
+    constructor(name:String, xpCost:number) {
+        this._name = name;
+        this._xpCost = xpCost;
+    }
 
     get name() {
         return this._name;
@@ -12,13 +16,5 @@ export class PsychicPower {
 
     get xpCost() {
         return this._xpCost;
-    }
-
-    get isBonus() {
-        return this._isBonus;
-    }
-
-    set isBonus(value:boolean) {
-        this._isBonus = value;
     }
 }
