@@ -155,7 +155,9 @@ export class OnlyWarCharacter {
             this._regiment.unapply();
         }
         this._regiment = value;
-        this.addModifier(value);
+        if (value) {
+            this.addModifier(value);
+        }
     }
 
     set description(value:String) {
@@ -168,7 +170,9 @@ export class OnlyWarCharacter {
             this._specialty.unapply();
         }
         this._specialty = value;
-        this.addModifier(value);
+        if (value) {
+            this.addModifier(value);
+        }
     }
 
     set fatePoints(value:Number) {
