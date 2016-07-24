@@ -178,13 +178,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Combat Formation"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Double Team"
             }
           ]
@@ -196,13 +196,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Sprint"
             }
           ]
@@ -385,19 +385,19 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Lightning Reflexes"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Light Sleeper"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Resistance (Poison)"
             }
           ]
@@ -658,7 +658,7 @@
         },
         {
           "item": {
-            "name": "Grav-chute"
+            "name": "Grav-Chute"
           },
           "count": 1
         },
@@ -909,13 +909,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Combat Formation"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Double Team"
             }
           ]
@@ -927,19 +927,19 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Orthoproxy"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Unshakeable Faith"
             }
           ]
@@ -1749,13 +1749,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Ambush"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Skilled Rider"
             }
           ]
@@ -1767,13 +1767,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Duelist"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Double Team"
             }
           ]
@@ -1932,34 +1932,32 @@
         "Meltagun"
       ]
     },
-    "optional modifiers": {
-      "talents": [
-        {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            [
-              {
-                "property": "talents",
-                "value": "Heightened Senses (Hearing)"
-              }
-            ],
-            [
-              {
-                "property": "talents",
-                "value": "Paranoia"
-              }
-            ],
-            [
-              {
-                "property": "talents",
-                "value": "Unremarkable"
-              }
-            ]
+    "optional modifiers": [
+      {
+        "selections": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "talent",
+              "value": "Heightened Senses (Hearing)"
+            }
+          ],
+          [
+            {
+              "property": "talent",
+              "value": "Paranoia"
+            }
+          ],
+          [
+            {
+              "property": "talent",
+              "value": "Unremarkable"
+            }
           ]
-        }
-      ]
-    }
+        ]
+      }
+    ]
   },
   {
     "name": "9th Uhlans of the Death riders of Krieg",
@@ -2145,18 +2143,24 @@
         "selections": 1,
         "selection time": "character",
         "options": [
-          {
-            "property": "talents",
-            "value": "Nerves of Steel"
-          },
-          {
-            "property": "talents",
-            "value": "Orthoproxy"
-          },
-          {
-            "property": "talents",
-            "value": "Unshakeable Faith"
-          }
+          [
+            {
+              "property": "talent",
+              "value": "Nerves of Steel"
+            }
+          ],
+          [
+            {
+              "property": "talent",
+              "value": "Orthoproxy"
+            }
+          ],
+          [
+            {
+              "property": "talent",
+              "value": "Unshakeable Faith"
+            }
+          ]
         ]
       }
     ]
@@ -2342,14 +2346,18 @@
         "selections": 1,
         "selection time": "character",
         "options": [
-          {
-            "property": "talents",
+          [
+            {
+              "property": "talent",
             "value": "Nerves of Steel"
-          },
-          {
-            "property": "talents",
+            }
+          ],
+          [
+            {
+              "property": "talent",
             "value": "Sprint"
-          }
+            }
+          ]
         ]
       }
     ],
@@ -2533,25 +2541,25 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Berserk Charge"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Cold Hearted"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Frenzy"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Paranoia"
             }
           ]
@@ -2563,13 +2571,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Combat Master"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Double Team"
             }
           ]
@@ -2581,13 +2589,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Peer (Underworld)"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Street Fighting"
             }
           ]
@@ -2776,13 +2784,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Air of Authority"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Peer (Nobility)"
             }
           ]
@@ -2981,13 +2989,13 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Combat Sense"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Quick Draw"
             }
           ]
@@ -3159,19 +3167,19 @@
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Orthoproxy"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Unshakeable Faith"
             }
           ]
