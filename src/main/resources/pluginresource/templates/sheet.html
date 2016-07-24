@@ -98,14 +98,14 @@
                             <th>+20</th>
                             <th>+30</th>
                         </tr>
-                        <tr ng-repeat="(skillName, skill) in character.skills" class="text-center">
-                            <td>{{skillName}}
+                        <tr ng-repeat="skill in character.skills" class="text-center">
+                            <td>{{skill.name + (skill.specialization ? " (" + skill.specialization +")" : "")}}
                                 <button ng-click="removeSkill(skill)"
                                         uib-tooltip="Click to remove all skill advancements"><span
                                         class="glyphicon glyphicon-remove"></span></button>
                             </td>
                             <td ng-repeat="i in [1,2,3,4]"><input type="radio"
-                                                                  ng-checked="skill.advancements >= i"
+                                                                  ng-checked="skill.rank >= i"
                                                                   ng-click="setSkillLevel(skillName, i)"/></td>
                         </tr>
                     </table>
