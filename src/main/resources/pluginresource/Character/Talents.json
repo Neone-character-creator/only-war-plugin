@@ -618,9 +618,7 @@
     "tier": 1,
     "prerequisites": [
       {
-        "property": [
-          "character kit"
-        ],
+        "property": "character kit",
         "value": {
           "name": "Ferric Lure Implants"
         }
@@ -828,7 +826,13 @@
           "rating": 40
         }
       },
-      "skill,Operate"
+      {
+        "property": "skill",
+        "value": {
+          "name": "Operate",
+          "rating": 1
+        }
+      }
     ],
     "aptitudes": [
       "Agility",
@@ -848,7 +852,13 @@
           "rating": 40
         }
       },
-      "skill,Lore"
+      {
+        "property": "skill",
+        "value": {
+          "name": "Lore",
+          "rating": 1
+        }
+      }
     ],
     "aptitudes": [
       "General",
@@ -1099,10 +1109,7 @@
         }
       },
       {
-        "property": [
-          "character kit",
-          "other gear"
-        ],
+        "property": "character kit",
         "value": {
           "name": "Luminen Capacitor"
         }
@@ -1174,10 +1181,7 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property": [
-          "character kit",
-          "other gear"
-        ],
+        "property": "character kit",
         "value": {
           "name": "Maglev Coils"
         }
@@ -1728,7 +1732,22 @@
           "rating": 40
         }
       },
-      "skill,Dodge || skill Parry"
+      [
+        {
+          "property": "skill",
+          "value": {
+            "name": "Dodge",
+            "rating": 1
+          }
+        },
+        {
+          "property": "skill",
+          "value": {
+            "name": "Parry",
+            "rating": 1
+          }
+        }
+      ]
     ],
     "aptitudes": [
       "Agility",
@@ -1748,74 +1767,71 @@
           "rating": 45
         }
       },
-      {
-        "match": "any",
-        "prerequisites": [
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Bolt"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Flame"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Flame"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Heavy"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Las"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Launcher"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Melta"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Plasma"
-            }
-          },
-          {
-            "property": "talent",
-            "value": {
-              "name": "Weapon Training",
-              "specialization": "Solid Projectile"
-            }
+      [
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Bolt"
           }
-        ]
-      }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Flame"
+          }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Flame"
+          }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Heavy"
+          }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Las"
+          }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Launcher"
+          }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Melta"
+          }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Plasma"
+          }
+        },
+        {
+          "property": "talent",
+          "value": {
+            "name": "Weapon Training",
+            "specialization": "Solid Projectile"
+          }
+        }
+      ]
     ],
     "aptitudes": [
       "Ballistic Skill",
@@ -2413,10 +2429,7 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property": [
-          "character kit",
-          "other gear"
-        ],
+        "property": "character kit",
         "value": {
           "value": {
             "count": 2,
@@ -2427,7 +2440,7 @@
         }
       },
       {
-        "property": "skills",
+        "property": "skill",
         "value": {
           "name": "Tech-Use",
           "rating": 1
@@ -2446,7 +2459,7 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property": "skills",
+        "property": "skill",
         "value": {
           "name": "Tech-Use",
           "rating": 2
@@ -3098,32 +3111,29 @@
     "source": "hammer of the emperor",
     "tier": 3,
     "prerequisites": [
-      {
-        "match": "any",
-        "prerequisites": [
-          {
-            "property": "characteristic",
-            "value": {
-              "name": "Ballistic Skill",
-              "rating": 45
-            }
-          },
-          {
-            "property": "characteristic",
-            "value": {
-              "name": "Weapon Skill",
-              "rating": 45
-            }
-          },
-          {
-            "property": "characteristic",
-            "value": {
-              "name": "Willpower",
-              "rating": 45
-            }
+      [
+        {
+          "property": "characteristic",
+          "value": {
+            "name": "Ballistic Skill",
+            "rating": 45
           }
-        ]
-      }
+        },
+        {
+          "property": "characteristic",
+          "value": {
+            "name": "Weapon Skill",
+            "rating": 45
+          }
+        },
+        {
+          "property": "characteristic",
+          "value": {
+            "name": "Willpower",
+            "rating": 45
+          }
+        }
+      ]
     ],
     "aptitudes": [
       "Offence",
@@ -3144,16 +3154,7 @@
         }
       },
       {
-        "property": [
-          [
-            "character kit",
-            "other gear"
-          ],
-          [
-            "character kit",
-            "weapons"
-          ]
-        ],
+        "property": "character kit",
         "value": {
           "tags": [
             "Cybernetic",
@@ -3345,20 +3346,7 @@
     "tier": 2,
     "prerequisites": [
       {
-        "property": [
-          [
-            "character kit",
-            "other gear"
-          ],
-          [
-            "character kit",
-            "weapons"
-          ],
-          [
-            "character kit",
-            "armor"
-          ]
-        ],
+        "property": "character kit",
         "value": {
           "tags": [
             "Cybernetics"
@@ -3487,13 +3475,8 @@
     "tier": 3,
     "prerequisites": [
       {
-        "property": [
-          "specialty",
-          " type"
-        ],
-        "value": {
-          "name": "Guardsman"
-        }
+        "property": "specialty type",
+        "value": "Guardsman"
       }
     ],
     "aptitudes": [
