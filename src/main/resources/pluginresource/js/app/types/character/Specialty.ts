@@ -70,9 +70,13 @@ export class SpecialtyBuilder {
     private _kit:Map<Item,number> = new Map();
     private _wounds:number = 0;
     private _optionalModifiers:Array<SelectableModifier> = [];
+    private _specialtyType:SpecialtyType;
 
     build():Specialty {
-        return new Specialty(this._name, this._characteristics, this._skills, this._talents, this._aptitudes,
+        if (this._specialtyType === undefined) {
+            throw "Need to set the specialty type.";
+        }
+        return new Specialty(this._name, this._characteristics, this._specialtyType, this._skills, this._talents, this._aptitudes,
             this._traits, this._kit, this._wounds, this._optionalModifiers);
     }
 
@@ -119,6 +123,11 @@ export class SpecialtyBuilder {
 
     optionalModifiers(value:Array<SelectableModifier>) {
         this._optionalModifiers = value;
+        return this;
+    }
+
+    specialtyType(value:SpecialtyType) {
+        this._specialtyType = value;
         return this;
     }
 }
