@@ -59,3 +59,66 @@ export enum SpecialtyType{
     Guardsman,
     Specialist
 }
+
+export class SpecialtyBuilder {
+    private _name:string = "";
+    private _characteristics:Map<Characteristic, number> = new Map();
+    private _talents:Array<Talent> = [];
+    private _skills:Map<SkillDescription, number> = new Map();
+    private _traits:Array<Trait> = [];
+    private _aptitudes:Array<string> = [];
+    private _kit:Map<Item,number> = new Map();
+    private _wounds:number = 0;
+    private _optionalModifiers:Array<SelectableModifier> = [];
+
+    build():Specialty {
+        return new Specialty(this._name, this._characteristics, this._skills, this._talents, this._aptitudes,
+            this._traits, this._kit, this._wounds, this._optionalModifiers);
+    }
+
+
+    name(value:string) {
+        this._name = value;
+        return this;
+    }
+
+    characteristics(value:Map<Characteristic, number>) {
+        this._characteristics = value;
+        return this;
+    }
+
+    talents(value:Array<Talent>) {
+        this._talents = value;
+        return this;
+    }
+
+    skills(value:Map<SkillDescription, number>) {
+        this._skills = value;
+        return this;
+    }
+
+    traits(value:Array<Trait>) {
+        this._traits = value;
+        return this;
+    }
+
+    aptitudes(value:Array<string>) {
+        this._aptitudes = value;
+        return this;
+    }
+
+    kit(value:Map<Item, number>) {
+        this._kit = value;
+        return this;
+    }
+
+    wounds(value:number) {
+        this._wounds = value;
+        return this;
+    }
+
+    optionalModifiers(value:Array<SelectableModifier>) {
+        this._optionalModifiers = value;
+        return this;
+    }
+}
