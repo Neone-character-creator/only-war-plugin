@@ -59,5 +59,13 @@ export enum ItemType{
 export enum Availability{
     Ubiquitous,
     Abundant,
-    Plentiful
+    Plentiful,
+    Common,
+    Average,
+    Scarce,
+    Rare,
+    Very_Rare,
+    Extremely_Rare,
+    Near_Unique,
+    Unique
 }
