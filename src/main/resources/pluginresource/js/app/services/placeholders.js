@@ -24,7 +24,16 @@ define(function () {
             return result ? result : placeholder;
         }
 
-        return characteroptions.then(function (characteroptions) {
+        return $q.all({
+            talents: characteroptions.talents,
+            skills: characteroptions.skills,
+            powers: characteroptions.powers,
+            weapons: characteroptions.weapons,
+            armor: characteroptions.armor,
+            items: characteroptions.items,
+            vehicles: characteroptions.vehicles,
+            traits: characteroptions.traits
+        }).then(function (characteroptions) {
             placeholders.replace = function (modifier) {
                 var fixedModifiers = modifier['fixed modifiers'];
                 if (fixedModifiers) {
