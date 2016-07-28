@@ -6,6 +6,7 @@ import {Trait} from "../types/character/Trait";
 import {Item} from "../types/character/items/Item";
 import {SelectableModifier} from "../types/character/CharacterModifier";
 import {PlaceholderReplacement} from "./PlaceholderReplacement";
+import {SpecialAbility} from "../types/regiment/SpecialAbility";
 /**
  * Created by Damien on 7/12/2016.
  */
@@ -60,6 +61,9 @@ export class RegimentService {
                     favoredWeapons.push(result.placeholders.replace({item: {name: favoredWeapon}}, "item"));
                 }
                 var specialAbilities = []
+                $.each(regiment['fixed modifiers']['special abilities'], function (i, ability) {
+                    specialAbilities.push(new SpecialAbility(ability.name, ability.description));
+                });
                 var optionalModifiers = Array<SelectableModifier>();
                 if (regiment['optional modifiers']) {
                     for (var optional of regiment['optional modifiers']) {
