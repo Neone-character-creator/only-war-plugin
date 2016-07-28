@@ -156,7 +156,7 @@ describe("The character", ()=> {
             var traits = new Array<Trait>();
             var testTrait = new Trait("", "");
             traits.push(testTrait);
-            var regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], traits, new Map<Item, number>(), 0, []);
+            var regiment = new RegimentBuilder().traits(traits).build();
             theCharacter.regiment = regiment;
             expect(theCharacter.traits.indexOf(testTrait)).toEqual(0);
         });
@@ -166,7 +166,7 @@ describe("The character", ()=> {
             var item = new Item("", ItemType.Other, Availability.Abundant);
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
-            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], [], items, 0, []);
+            theCharacter.regiment = new RegimentBuilder().kit(items);
             expect(theCharacter.kit.get(item)).toEqual(1);
         });
         it("must allow for adding items from the specialty", function () {
@@ -181,13 +181,13 @@ describe("The character", ()=> {
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
             theCharacter.specialty = new SpecialtyBuilder().specialtyType(SpecialtyType.Guardsman).kit(items).build();
-            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], [], items, 0, []);
+            theCharacter.regiment = new RegimentBuilder().kit(items);
             expect(theCharacter.kit.get(item)).toEqual(2);
         });
     });
     describe("wounds", function () {
         it("must allow for adding a modifier to wounds from the regiment", function () {
-            theCharacter.regiment = new Regiment("", new Map<Characteristic, number>(), new Map(), [], [], [], new Map<Item, number>(), 1, []);
+            theCharacter.regiment = new RegimentBuilder().wounds(1);
             expect(theCharacter.wounds.regimentModifier).toEqual(1);
             expect(theCharacter.wounds.total).toEqual(1);
         });
