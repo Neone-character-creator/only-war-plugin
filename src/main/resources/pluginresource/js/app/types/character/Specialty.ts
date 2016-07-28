@@ -34,7 +34,6 @@ export class Specialty extends CharacterModifier {
         for (var entry of this.characteristics.entries()) {
             character.characteristics.get(entry[0]).specialtyModifier = entry[1];
         }
-        ;
     }
 
     public unapply() {
