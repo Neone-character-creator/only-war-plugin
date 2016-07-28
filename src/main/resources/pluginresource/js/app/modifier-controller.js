@@ -92,6 +92,10 @@ define(function () {
                                 return {name: entry[0].name, count: entry[1]};
                             });
 
+                            $scope.skills = Array.from($scope.selected.skills.entries()).map(function (entry) {
+                                return {name: entry[0].name, specialization: entry[0].specialization, rating: entry[1]};
+                            })
+
                             $scope.requiredSelections = $scope.selected.optionalModifiers;
                             if ($scope.requiredSelections.length > 0) {
                                 $state.$current.data.complete = false;
