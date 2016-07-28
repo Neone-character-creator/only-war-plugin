@@ -59,9 +59,11 @@
             <div class="row">
                 <h3>Starting Skills</h3>
                 <ul>
-                    <li ng-repeat="skill in selected.skills track by $index">{{skill.name + (skill.specialization ? " ("
-                        + skill.specialization + ")" : "")}}{{skill.rating > 1 ? +
-                        (skill.rating * 10) : ""}}
+                    <li ng-repeat="skill in skills track by $index">
+                        {{skill.name}}
+                        {{(skill.specialization ? " ("
+                        + skill.specialization + ")" : "")}}
+                        {{+(skill.rating * 10)}}
                     </li>
                 </ul>
             </div>
