@@ -2339,6 +2339,10 @@
             "count": 1
           }
         }
+      ],
+      "favored weapons": [
+        "Grenade Launcher",
+        "Plasma Gun"
       ]
     },
     "optional modifiers": [
@@ -2360,10 +2364,6 @@
           ]
         ]
       }
-    ],
-    "favored weapons": [
-      "Grenade Launcher",
-      "Plasma Gun"
     ]
   },
   {
