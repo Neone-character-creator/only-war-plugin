@@ -5,6 +5,7 @@ import {Trait} from "./Trait";
 import {Characteristic} from "./Characteristic";
 import {OnlyWarCharacter} from "./Character";
 import {Skill, SkillDescription} from "./Skill";
+import {Weapon} from "./items/Weapon";
 /**
  * A fully complete regiment modifier.
  *
@@ -21,13 +22,16 @@ export class Regiment extends CharacterModifier {
                 traits:Array<Trait>,
                 kit:Map<Item, number>,
                 wounds:number,
-                optionalModifiers:Array<SelectableModifier>) {
+                optionalModifiers:Array<SelectableModifier>,
+                favoredWeapons:Array<Weapon>) {
         super(characteristics, skills, talents, aptitudes, traits, kit, wounds, 0, OnlyWarCharacterModifierTypes.REGIMENT);
         this._name = name;
+        this._favoredWeapons = favoredWeapons;
         this._optionalModifiers = optionalModifiers;
     }
 
     private _optionalModifiers:Array<SelectableModifier>
+    private _favoredWeapons:Array<Weapon>;
 
     public apply(character:OnlyWarCharacter):any {
         super.apply(character);
@@ -51,6 +55,10 @@ export class Regiment extends CharacterModifier {
         return this._name;
     }
 
+    get favoredWeapons():Array<Weapon> {
+        return this._favoredWeapons;
+    }
+
     get optionalModifiers():Array<SelectableModifier> {
         return this._optionalModifiers;
     }
@@ -68,13 +76,18 @@ export class RegimentBuilder {
     private _aptitudes:Array<string> = [];
     private _kit:Map<Item,number> = new Map();
     private _wounds:number = 0;
+    private _favoredWeapons:Array<Weapon>;
     private _optionalModifiers:Array<SelectableModifier> = [];
 
     build():Regiment {
         return new Regiment(this._name, this._characteristics, this._skills, this._talents, this._aptitudes,
-            this._traits, this._kit, this._wounds, this._optionalModifiers);
+            this._traits, this._kit, this._wounds, this._optionalModifiers, this._favoredWeapons);
     }
 
+    favoredWeapons(value:Array<Weapon>) {
+        this._favoredWeapons = value;
+        return this;
+    }
 
     name(value:string) {
         this._name = value;
