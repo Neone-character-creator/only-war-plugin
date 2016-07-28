@@ -80,52 +80,52 @@ export class SpecialtyBuilder {
     }
 
 
-    name(value:string) {
+    setName(value:string) {
         this._name = value;
         return this;
     }
 
-    characteristics(value:Map<Characteristic, number>) {
+    setCharacteristics(value:Map<Characteristic, number>) {
         this._characteristics = value;
         return this;
     }
 
-    talents(value:Array<Talent>) {
+    setTalents(value:Array<Talent>) {
         this._talents = value;
         return this;
     }
 
-    skills(value:Map<SkillDescription, number>) {
+    setSkills(value:Map<SkillDescription, number>) {
         this._skills = value;
         return this;
     }
 
-    traits(value:Array<Trait>) {
+    setTraits(value:Array<Trait>) {
         this._traits = value;
         return this;
     }
 
-    aptitudes(value:Array<string>) {
+    setAptitudes(value:Array<string>) {
         this._aptitudes = value;
         return this;
     }
 
-    kit(value:Map<Item, number>) {
+    setKit(value:Map<Item, number>) {
         this._kit = value;
         return this;
     }
 
-    wounds(value:number) {
+    setWounds(value:number) {
         this._wounds = value;
         return this;
     }
 
-    optionalModifiers(value:Array<SelectableModifier>) {
+    setOptionalModifiers(value:Array<SelectableModifier>) {
         this._optionalModifiers = value;
         return this;
     }
 
-    specialtyType(value:SpecialtyType) {
+    setSpecialtyType(value:SpecialtyType) {
         this._specialtyType = value;
         return this;
     }
