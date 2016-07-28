@@ -15,7 +15,7 @@ import {SpecialtyType} from "../types/character/Specialty";
  */
 export class CharacterOptionsService {
     private _talents;
-    private _skills;
+    private _skills:Array<SkillDescription>;
     private _powers;
     private _fatePointRolls:any;
     private _weapons;
@@ -57,8 +57,8 @@ export class CharacterOptionsService {
                                 {
                                     subpredicates.push(
                                         (character:OnlyWarCharacter)=> {
-                                            return character.talents.find(talent=> {
-                                                return talent.name === this._skills;
+                                            return character.talents.find(characterTalent=> {
+                                                return characterTalent.name === talent.name && characterTalent.specialization === characterTalent.specialization;
                                             });
                                         });
                                     break;
@@ -167,7 +167,7 @@ export class CharacterOptionsService {
         return this._talents;
     }
 
-    get skills():Map<SkillDescription, Skill> {
+    get skills():Array<SkillDescription> {
         return this._skills;
     }
 
