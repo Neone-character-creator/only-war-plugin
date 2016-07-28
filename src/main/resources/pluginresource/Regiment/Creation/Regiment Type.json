@@ -50,7 +50,7 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -158,7 +158,7 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -469,7 +469,7 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "regiment",
         "options": [
           [

@@ -30,7 +30,7 @@
     "cost": 2,
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           {
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           {

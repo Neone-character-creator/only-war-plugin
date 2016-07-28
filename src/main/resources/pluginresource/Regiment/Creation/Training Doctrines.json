@@ -5,13 +5,13 @@
     "cost": 2,
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             [
               {
-                "property": "talents",
+                "property": "talent",
                 "value": "Combat Formation"
               }
             ]
@@ -19,7 +19,7 @@
           [
             [
               {
-                "property": "talents",
+                "property": "talent",
                 "value": "Double Team"
               }
             ]
@@ -46,7 +46,7 @@
       "skills": {
         "Forbidden Lore": 1
       },
-      "talents": [
+      "talent": [
         "Hatred"
       ]
     }
@@ -59,7 +59,7 @@
       "characteristics": {
         "Weapon Skill": 2
       },
-      "talents": [
+      "talent": [
         "Street Fighting"
       ],
       "special abilities": [
@@ -88,7 +88,7 @@
       "aptitudes": [
         "Ballistic Skill"
       ],
-      "talents": [
+      "talent": [
         "Deadeye Shot"
       ]
     }
@@ -117,7 +117,7 @@
       "aptitudes": [
         "Ballistic Skill"
       ],
-      "talents": [
+      "talent": [
         "Storm of Iron"
       ],
       "special abilities": [
@@ -133,7 +133,7 @@
     "source": "hammer of the emperor",
     "cost": 4,
     "fixed modifiers": {
-      "talents": [
+      "talent": [
         "Tank Hunter"
       ],
       "special abilities": [
@@ -193,7 +193,7 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -230,7 +230,7 @@
           "description": "Heavy Lancers excel at the charge and train extensively for this purpose. Members of a Heavy Lancer regiment increase the distance their Mounts can move as part of a Crushing Charge Mounted Special Action by a number of metres equal to twice the Mount’s Agility Bonus."
         }
       ],
-      "talents": [
+      "talent": [
         "Unstoppable Charge"
       ]
     }
@@ -249,7 +249,7 @@
           "description": "Infiltrators are extremely adept at slipping past the enemy, and use every distraction and dirty trick in the book to this end. When two or more characters from a Squad with this Doctrine are called upon to make a Stealth Test, one of the characters making the Test may choose to make his Test at a –10 penalty. If he succeeds, one other character making the Test may use the first character’s Agility Characteristic for the Test instead of his own. The characters must be within 10 metres of one another to use this ability."
         }
       ],
-      "talents": [
+      "talent": [
         "Blind Fighting"
       ]
     }
@@ -268,19 +268,19 @@
           "description": "Skirmishers are adept at using terrain and the speed of their mounts to devastating effect, and are masters of strikeand-fade tactics. When member of a Skirmisher regiment hits a Surprised or Unaware target as part of a Strike and Fade Mounted Special Action, he increases the distance his Mount can move after the attack by a number of metres equal to his Mount’s Agility Bonus."
         }
       ],
-      "talents": [
+      "talent": [
         "Blind Fighting"
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             [
               {
-                "property": "talents",
+                "property": "talent",
                 "value": "Skilled Rider"
               }
             ]
@@ -288,7 +288,7 @@
           [
             [
               {
-                "property": "talents",
+                "property": "talent",
                 "value": "Ambush"
               }
             ]
@@ -518,7 +518,7 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "regiment",
         "options": [
           [

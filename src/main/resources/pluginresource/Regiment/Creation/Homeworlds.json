@@ -18,7 +18,7 @@
         },
         {
           "name": "Hardened",
-          "description": "Gain one of the following talents: Light Sleeper, Lightning Reflexes or Resistance (Poison)."
+          "description": "Gain one of the following talent: Light Sleeper, Lightning Reflexes or Resistance (Poison)."
         }
       ],
       "wounds": 2,
@@ -26,13 +26,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Perception +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Perception": 3
               }
@@ -41,7 +41,7 @@
           [
             {
               "description": "Strength +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Strength": 3
               }
@@ -50,7 +50,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -59,27 +59,27 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Light Sleeper Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Light Sleeper"
             }
           ],
           [
             {
               "description": "Lightning Reflexes Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Lightning Reflexes"
             }
           ],
           [
             {
               "description": "Resistance (Poison) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Resistance (Poison)"
             }
           ]
@@ -98,7 +98,7 @@
         "Common Lore (Imperial Guard)": 1,
         "Linguistics (Low Gothic)": 1
       },
-      "talents": [
+      "talent": [
         "Hatred"
       ],
       "special abilities": [
@@ -108,20 +108,20 @@
         },
         {
           "name": "Combat Doctrine",
-          "description": "Gain one of the following talents: Nerves of Steel or Sprint."
+          "description": "Gain one of the following talent: Nerves of Steel or Sprint."
         }
       ],
       "regiment kit points": 30
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Ballistic Skill +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Ballistic Skill": 3
               }
@@ -130,7 +130,7 @@
           [
             {
               "description": "Willpower +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Willpower": 3
               }
@@ -139,7 +139,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -148,20 +148,20 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Nerves of Steel Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
               "description": "Sprint Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Sprint"
             }
           ]
@@ -179,7 +179,7 @@
         "Inquiry": 1,
         "Linguistics (High Gothic)": 1
       },
-      "talents": [
+      "talent": [
         "Hatred"
       ],
       "special abilities": [
@@ -197,7 +197,7 @@
         },
         {
           "name": "The Finest Tutors",
-          "description": "Gain one of the following talents: Air of Authority or Peer (Nobility)."
+          "description": "Gain one of the following talent: Air of Authority or Peer (Nobility)."
         }
       ],
       "wounds": -1,
@@ -206,13 +206,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Fellowship +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Fellowship": 3
               }
@@ -221,7 +221,7 @@
           [
             {
               "description": "Intelligence +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Intelligence": 3
               }
@@ -230,7 +230,7 @@
           [
             {
               "description": "Weapon Skill +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Weapon Skill": 3
               }
@@ -239,20 +239,20 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Air of Authority Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Air of Authority"
             }
           ],
           [
             {
               "description": "Peer (Nobility) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Peer (Nobility)"
             }
           ]
@@ -281,7 +281,7 @@
         },
         {
           "name": "Urban Violence",
-          "description": "Gain one of the following talents: Heightened Senses (Hearing), Paranoia or Unremarkable."
+          "description": "Gain one of the following talent: Heightened Senses (Hearing), Paranoia or Unremarkable."
         }
       ],
       "wounds": -1,
@@ -289,13 +289,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Agility +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Agility": 3
               }
@@ -304,7 +304,7 @@
           [
             {
               "description": "Fellowship +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Fellowship": 3
               }
@@ -313,7 +313,7 @@
           [
             {
               "description": "Perception +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Perception": 3
               }
@@ -322,20 +322,20 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Air of Authority Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Air of Authority"
             }
           ],
           [
             {
               "description": "Peer (Nobility) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Peer (Nobility)"
             }
           ]
@@ -348,7 +348,7 @@
     "source": "core",
     "cost": 1,
     "fixed modifiers": {
-      "characteristics": {
+      "characteristic": {
         "Willpower": 3
       },
       "skills": {
@@ -356,7 +356,7 @@
         "Common Lore (Imperial Creed)": 1,
         "Linguistics (Low Gothic)": 1
       },
-      "talents": [
+      "talent": [
         "Hatred (Mutants)"
       ],
       "special abilities": [
@@ -373,13 +373,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Ballistic Skill +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Ballistic Skill": 3
               }
@@ -388,7 +388,7 @@
           [
             {
               "description": "Weapon Skill +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Weapon Skill": 3
               }
@@ -397,7 +397,7 @@
           [
             {
               "description": "Strength +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Strength": 3
               }
@@ -406,7 +406,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -415,7 +415,7 @@
           [
             {
               "description": "Agility +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Agility": 3
               }
@@ -424,7 +424,7 @@
           [
             {
               "description": "Intelligence +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Intelligence": 3
               }
@@ -433,7 +433,7 @@
           [
             {
               "description": "Fellowship +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Fellowship": 3
               }
@@ -442,7 +442,7 @@
           [
             {
               "description": "Perception +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Perception": 3
               }
@@ -461,13 +461,13 @@
         "Intimidate": 1,
         "Linguistics (Low Gothic)": 1
       },
-      "talents": [
+      "talent": [
         "Hatred (Mutants)"
       ],
       "special abilities": [
         {
           "name": "Honor Amongst Thieves",
-          "description": "Gain one of the following talents: Peer (Underworld) or Street Fighting."
+          "description": "Gain one of the following talent: Peer (Underworld) or Street Fighting."
         }
       ],
       "wounds": 1,
@@ -485,13 +485,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Agility +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Agility": 3
               }
@@ -500,7 +500,7 @@
           [
             {
               "description": "Strength +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Strength": 3
               }
@@ -509,7 +509,7 @@
           [
             {
               "description": "Toughess +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -518,20 +518,20 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Street Fighting Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Street Fighting"
             }
           ],
           [
             {
               "description": "Peer (Underworld) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Peer (Underworld)"
             }
           ]
@@ -553,7 +553,7 @@
       "special abilities": [
         {
           "name": "The Blood of Martyrs",
-          "description": "Gain one of the following talents: Nerves of Steel, Orthoproxy or Unshakeable Faith."
+          "description": "Gain one of the following talent: Nerves of Steel, Orthoproxy or Unshakeable Faith."
         },
         {
           "name": "Only One Life to Give",
@@ -569,13 +569,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Fellowship +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Fellowship": 3
               }
@@ -584,7 +584,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -593,7 +593,7 @@
           [
             {
               "description": "Willpower +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Willpower": 3
               }
@@ -602,27 +602,27 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Nerves of Steel Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
               "description": "Orthoproxy Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Orthoproxy"
             }
           ],
           [
             {
               "description": "Unshakeable Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Unshakeable Faith"
             }
           ]
@@ -635,7 +635,7 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "fixed characteristics": [
+      "fixed characteristic": [
         {
           "Willpower": 3
         }
@@ -650,7 +650,7 @@
       "special abilities": [
         {
           "name": "Only In Death Does Duty End",
-          "description": "All Progena characters gain one of the following talents: Air of Authority or Unshakeable Faith."
+          "description": "All Progena characters gain one of the following talent: Air of Authority or Unshakeable Faith."
         }
       ],
       "wounds": 1,
@@ -658,12 +658,12 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "regiment",
         "options": [
           [
             {
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Weapon Skill": 3
               }
@@ -671,7 +671,7 @@
           ],
           [
             {
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Ballistic Skill": 3
               }
@@ -680,18 +680,18 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Air of Authority"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Unshakeable Faith"
             }
           ]
@@ -713,7 +713,7 @@
       "special abilities": [
         {
           "name": "The Blood of Martyrs",
-          "description": "Gain one of the following talents: Nerves of Steel, Orthoproxy or Unshakeable Faith."
+          "description": "Gain one of the following talent: Nerves of Steel, Orthoproxy or Unshakeable Faith."
         },
         {
           "name": "Only One Life to Give",
@@ -729,13 +729,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Fellowship +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Fellowship": 3
               }
@@ -744,7 +744,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -753,7 +753,7 @@
           [
             {
               "description": "Willpower +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Willpower": 3
               }
@@ -762,27 +762,27 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Nerves of Steel Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Nerves of Steel"
             }
           ],
           [
             {
               "description": "Orthoproxy Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Orthoproxy"
             }
           ],
           [
             {
               "description": "Unshakeable Faith Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Unshakeable Faith"
             }
           ]
@@ -817,13 +817,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Perception +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Perception": 3
               }
@@ -832,7 +832,7 @@
           [
             {
               "description": "Strength +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Strength": 3
               }
@@ -841,7 +841,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -850,27 +850,27 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Light Sleeper Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Light Sleeper"
             }
           ],
           [
             {
               "description": "Lightning Reflexes Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Lightning Reflexes"
             }
           ],
           [
             {
               "description": "Resistance (Poison) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Resistance (Poison)"
             }
           ]
@@ -902,13 +902,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Fellowship +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Fellowship": 3
               }
@@ -917,7 +917,7 @@
           [
             {
               "description": "Strength +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Strength": 3
               }
@@ -926,7 +926,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness:": 3
               }
@@ -963,13 +963,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Weapon Skill +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Weapon Skill": 3
               }
@@ -978,7 +978,7 @@
           [
             {
               "description": "Strength +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Strength": 3
               }
@@ -987,7 +987,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -996,18 +996,18 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Duelist"
             }
           ],
           [
             {
-              "property": "talents",
+              "property": "talent",
               "value": "Double Team"
             }
           ]
@@ -1027,7 +1027,7 @@
         "Linguistics (Techna Lingua)": 1,
         "Logic": 1
       },
-      "talents": [
+      "talent": [
         "Peer (Adeptus Mechanicus)"
       ],
       "special abilities": [
@@ -1037,7 +1037,7 @@
         },
         {
           "name": "Rites of Rewiring",
-          "description": "Where most Imperial citizens see a machine as a singular and mysterious entity, those from a forge world view machines as a collection of discreet, sacred components, each with a uniquely important purpose. They are highly prized by armoured, mechanised, and siege regiments for their ability to both keep friendly machines running in the worst conditions and to efficiently dismantle enemy equipment. Forge world characters can choose to start with one of the following Talents: Technical Knock or Weapon-Tech"
+          "description": "Where most Imperial citizens see a machine as a singular and mysterious entity, those from a forge world view machines as a collection of discreet, sacred components, each with a uniquely important purpose. They are highly prized by armoured, mechanised, and siege regiments for their ability to both keep friendly machines running in the worst conditions and to efficiently dismantle enemy equipment. Forge world characters can choose to start with one of the following talent: Technical Knock or Weapon-Tech"
         },
         {
           "name": "Isolated by Machines",
@@ -1048,13 +1048,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Intelligence +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Intelligence": 3
               }
@@ -1063,7 +1063,7 @@
           [
             {
               "description": "Perception +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Perception": 3
               }
@@ -1072,7 +1072,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -1081,20 +1081,20 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Technical Knock Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Technical Knock"
             }
           ],
           [
             {
               "description": "Weapon-Tech Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Weapon-Tech"
             }
           ]
@@ -1130,13 +1130,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Agility +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Agility": 3
               }
@@ -1145,7 +1145,7 @@
           [
             {
               "description": "Ballistic Skill +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Ballistic Skill": 3
               }
@@ -1154,7 +1154,7 @@
           [
             {
               "description": "Perception +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Perception": 3
               }
@@ -1163,20 +1163,20 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Combat Sense Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Combat Sense"
             }
           ],
           [
             {
               "description": "Quick Draw Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Quick Draw"
             }
           ]
@@ -1198,7 +1198,7 @@
       "special abilities": [
         {
           "name": "Acclimated to Darkness",
-          "description": " Life below ground is incredibly dangerous, and those who make their living in the bowels of their worlds are a hardy lot indeed. Aside from the common industrial style accidents and the ever present threat of caveins, there are also dangerous extremes of temperature, deadly clouds of invisible toxic gasses, and the constant, oppressive gloom to deal with. Regiments raised from a mining colony are full of men and women who have grown accustomed to this strange and gruelling way of life, and whose bodies have adapted to their environments. Mining colony characters can choose to start with one of the following Talents: Heightened Senses (Hearing) and Resistance (Cold) or Resistance (Heat) or Resistance (Poisons)."
+          "description": " Life below ground is incredibly dangerous, and those who make their living in the bowels of their worlds are a hardy lot indeed. Aside from the common industrial style accidents and the ever present threat of caveins, there are also dangerous extremes of temperature, deadly clouds of invisible toxic gasses, and the constant, oppressive gloom to deal with. Regiments raised from a mining colony are full of men and women who have grown accustomed to this strange and gruelling way of life, and whose bodies have adapted to their environments. Mining colony characters can choose to start with one of the following talent: Heightened Senses (Hearing) and Resistance (Cold) or Resistance (Heat) or Resistance (Poisons)."
         },
         {
           "name": "Tunnel Rat",
@@ -1213,13 +1213,13 @@
     },
     "optional modifiers": [
       {
-        "selections": 2,
+        "numSelectionsNeeded": 2,
         "selection time": "regiment",
         "options": [
           [
             {
               "description": "Agility +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Agility": 3
               }
@@ -1228,7 +1228,7 @@
           [
             {
               "description": "Toughness +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Toughness": 3
               }
@@ -1237,7 +1237,7 @@
           [
             {
               "description": "Perception +3",
-              "property": "characteristics",
+              "property": "characteristic",
               "value": {
                 "Perception": 3
               }
@@ -1246,34 +1246,34 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "description": "Heightened Senses (Hearing) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Heightened Senses (Hearing)"
             }
           ],
           [
             {
               "description": "Resistance (Cold) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Resistance (Cold)"
             }
           ],
           [
             {
               "description": "Resistance (Heat) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Resistance (Heat)"
             }
           ],
           [
             {
               "description": "Resistance (Poison) Talent",
-              "property": "talents",
+              "property": "talent",
               "value": "Resistance (Poisons)"
             }
           ]
