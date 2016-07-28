@@ -95,7 +95,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             return cookies
         });
         app.factory("tutorials", tutorials);
-        app.factory("regiments", regimentsProvider.RegimentService);
+        app.service("regiments", regimentsProvider.RegimentService);
         app.factory("specialties", specialtyProvider);
         app.factory("placeholders", function ($q, characteroptions) {
             return $q.all({
@@ -155,23 +155,22 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         //Filter for formatting a clickable summary for a selection.
         app.filter('option_summary', function () {
             return function (inVal) {
-                if (typeof inVal.selections === 'number' && Array.isArray(inVal.options)) {
-                    var out = "Choose " + inVal.selections + " from ";
+                if (typeof inVal.numSelectionsNeeded === 'number' && Array.isArray(inVal.options)) {
+                    var out = "Choose " + inVal.numSelectionsNeeded + " from ";
                     var options = [];
                     $.each(inVal.options, function (index, option) {
                         var optionElements = [];
                         for (var op = 0; op < option.length; op++) {
                             switch (option[op].property) {
-                                case 'characteristics':
+                                case 'characteristic':
                                     for (var characteristic in option[op].value) {
                                         optionElements.push(characteristic + " +" + option[op].value[characteristic])
                                     }
                                     break;
-
-                                case 'talents':
+                                case 'talent':
                                     optionElements.push(option[op].value.name);
                                     break;
-                                case 'skills':
+                                case 'skill':
                                     for (var skill in option[op].value) {
                                         optionElements.push(skill + " + " + (option[op].value[skill] - 1) * 10);
                                     }
@@ -193,20 +192,9 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         //Filter for formatting an selectable option in a modal.
         app.filter('modal_option', function () {
             function filter(inVal) {
-                if (Array.isArray(inVal)) {
-                    if (inVal.length == 1) {
-                        return inVal[0].description;
-                    } else {
-                        var descriptionElements = [];
-                        inVal.slice(0, inVal.length - 1).forEach(function (e) {
-                            descriptionElements.push(e);
-                        });
-                        var description = descriptionElements.join(", ") + " and " + inVal[inVal.length - 1].description;
-                        return description;
-                    }
-                } else {
-                    return inVal.description;
-                }
+                return inVal.map(function (option) {
+                    return option.value.name;
+                }).join(", ");
             }
 
             return filter;
