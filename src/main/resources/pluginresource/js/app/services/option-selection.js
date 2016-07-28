@@ -1,4 +1,4 @@
-define(function () {
+define(["../types/character/Characteristic"], function (Characteristic) {
     return function () {
         var service = {
             //The object the option object exists within. Will be modified by the selection.
@@ -19,19 +19,23 @@ define(function () {
                             case "talent":
                                 target.talents.push(selected[sub].value);
                                 break;
-                            case "skills":
+                            case "skill":
                                 target.skills.push(selected[sub].value);
                                 break;
-                            case "characteristics":
+                            case "characteristic":
                                 for (var property in selected[sub].value) {
-                                    if (!fixedModifier[property]) {
-                                        fixedModifier[property] = selected[sub].value[property];
-                                    } else {
-                                        if (typeof fixedModifier[property] === 'number') {
-                                            fixedModifier[property] += selected[sub].value[property];
-                                        } else {
-                                            throw "Tried to use a skill or characteristic rating that wasn't a number."
+                                    if (typeof selected[sub].value[property] === 'number') {
+                                        if (!target['fixed modifiers']['characteristics']) {
+                                            target['fixed modifiers']['characteristics'] = {};
                                         }
+                                        var previousValue = target['fixed modifiers']['characteristics'][property];
+                                        if (previousValue) {
+                                            target['fixed modifiers']['characteristics'][property] += selected[sub].value[property];
+                                        } else {
+                                            target['fixed modifiers']['characteristics'][property] = selected[sub].value[property];
+                                        }
+                                    } else {
+                                        throw "Tried to use a skill or characteristic rating that wasn't a number."
                                     }
                                 }
                                 break;
@@ -40,7 +44,7 @@ define(function () {
                         }
                     }
                 });
-                target.optionalModifiers.splice(target.optionalModifiers.indexOf(this.selectionObject), 1);
+                target['optional modifiers'].splice(target['optional modifiers'].indexOf(this.selectionObject), 1);
             }
         }
         return service;
