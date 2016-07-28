@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <ul ng-repeat="option in options"><input type="checkbox" ng-model="selected[$index]">
-                {{option.description}}
+                {{option | modal_option}}
             </ul>
         </div>
         <div class="row">
