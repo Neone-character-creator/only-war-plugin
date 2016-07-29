@@ -199,7 +199,7 @@
           [
             [
               {
-                "property": "Double Team",
+                "property": "talent",
                 "value": "Double Team"
               }
             ]
@@ -207,7 +207,7 @@
           [
             [
               {
-                "property": "Combat Master",
+                "property": "talent",
                 "value": "Combat Master"
               }
             ]
@@ -532,10 +532,7 @@
               }
             },
             {
-              "property": [
-                "character kit",
-                "other Gear"
-              ],
+              "property": "character kit",
               "value": {
                 "Clip": 4
               }
@@ -543,19 +540,13 @@
           ],
           [
             {
-              "property": [
-                "character kit",
-                "main weapon"
-              ],
+              "property": "character kit",
               "value": {
                 "Lascarbine": 1
               }
             },
             {
-              "property": [
-                "character kit",
-                "other gear"
-              ],
+              "property": "character kit",
               "value": {
                 "Charge Pack (Basic)": 4
               }

@@ -33,22 +33,22 @@
         "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
-          {
-            "property": [
-              "character kit"
-            ],
-            "value": {
-              "Injector": 1
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "Injector": 1
+              }
             }
-          },
-          {
-            "property": [
-              "character kit"
-            ],
-            "value": {
-              "Inhaler": 1
+          ],
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "Inhaler": 1
+              }
             }
-          }
+          ]
         ]
       },
       {
