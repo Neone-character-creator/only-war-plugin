@@ -24,7 +24,7 @@ require.config({
         "jquery-ui": "libs/jquery-ui/jquery-ui",
         "angular-ui": "libs/angular-bootstrap/ui-bootstrap-tpls",
         "angular-filter": "libs/angular-filter/dist/angular-filter",
-        "cookies": "libs/js-cookie/src/js.cookie"
+        "angular-mocks": "libs/angular-mocks/angular-mocks"
     },
     shim: {
         "jquery": {
@@ -57,11 +57,11 @@ require.config({
         },
         "bootstrap": {
             deps: ['jquery']
+        },
+        "angular-mocks": {
+            deps: ["angular"]
         }
     },
     deps: allTestFiles,
     callback: window.__karma__.start
-});
-
-require(["app/app"], function (app) {
 });
