@@ -11,16 +11,13 @@ import IInjectStatic = angular.IInjectStatic;
 
 describe("The  page controller", ()=> {
     var mockScope, mockUibModal, mockState, mockCharacterService, mockDice;
-    beforeEach(()=> {
-        angular.module("OnlyWar", []);
-    });
-    beforeEach(()=> {
-        angular.mock.inject(($rootScope)=> {
+    var theController;
+    beforeEach(angular.mock.inject(($rootScope)=> {
             mockScope = $rootScope.$new();
-        });
-    });
+            theController = new CharacteristicSelectionPageController(mockScope, mockUibModal, mockState, mockCharacterService, mockDice);
+        }
+    ));
 
-    var theController = new CharacteristicSelectionPageController(mockScope, mockUibModal, mockState, mockCharacterService, mockDice);
     it("must keep track of the rolled value of each characteristic", ()=> {
         for (var characteristic of Characteristic.characteristics.keys()) {
             expect(mockScope["characteristicNames"].find(definedCharacteristic=> {
