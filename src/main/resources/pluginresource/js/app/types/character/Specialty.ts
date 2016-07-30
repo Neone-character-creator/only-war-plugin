@@ -34,10 +34,28 @@ export class Specialty extends CharacterModifier {
         for (var entry of this.characteristics.entries()) {
             character.characteristics.get(entry[0]).specialtyModifier = entry[1];
         }
+        switch (this._specialtyType) {
+            case SpecialtyType.Guardsman:
+                character.experience.available += 600;
+                break;
+            case SpecialtyType.Specialist:
+                character.experience.available += 300;
+                break;
+        }
     }
 
     public unapply() {
         this._appliedTo.wounds.specialtyModifier = 0;
+        switch (this._specialtyType) {
+            case SpecialtyType.Guardsman:
+                this._appliedTo.experience.available -= 600;
+                this._appliedTo.experience.total -= 600;
+                break;
+            case SpecialtyType.Specialist:
+                this._appliedTo.experience.available -= 300;
+                this._appliedTo.experience.total -= 300;
+                break;
+        }
         super.unapply();
     };
 
