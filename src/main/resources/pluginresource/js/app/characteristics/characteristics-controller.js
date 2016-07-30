@@ -1,24 +1,16 @@
-define(function(){
+define(["../types/character/Characteristic"], function (Characteristic) {
 	return function($scope, $uibModal, $state, characteroptions, characterService, dice) {
-        //Bring all the characteristic names into scope
-        characteroptions.characteristics().then(function(result){
-        	$scope.characteristicNames = result.map(function(characteristic){
-        		return characteristic.name;
-        	});
-        });
-		//Reference to the character object
-    	$scope.character = characterService.character;
     	//The randomly generated values
     	$scope.generatedValues = [];
-    	$scope.characteristics = characterService.character.characteristics;
+		$scope.characteristics = Array.from(characterService.character.characteristics.values());
     	//Random characteristic generation function. Takes an index to roll a single value or regenerates all of them.
 	    $scope.generate = function(index) {
 	        if (index === undefined) {
-	            for (var i = 0; i < $scope.characteristicNames.length; i++) {
+				for (var i = 0; i < $scope.characteristics.length; i++) {
 	            	//Generate random values between 22 and 40
 	                $scope.generatedValues[i] = dice.roll(1, 10, 2) + 20;
 	                //Reset all of already assigned values to 0.
-	                $scope.characteristics[$scope.characteristicNames[i].toLowerCase()].rolled = 0;
+					$scope.characteristics[i].rolled = 0;
 	            }
 	        } else {
 	            $scope.generatedValues[index] = dice.roll(1, 10, 2) + 20;
