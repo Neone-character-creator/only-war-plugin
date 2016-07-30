@@ -326,6 +326,10 @@ class ExperienceContainer {
         return this._total;
     }
 
+    public set total(value:number) {
+        this._total = value;
+    }
+
     public get available() {
         /* istanbul ignore next */
         return this._available;
