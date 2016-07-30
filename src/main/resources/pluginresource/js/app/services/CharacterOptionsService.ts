@@ -4,7 +4,7 @@ import {Skill, SkillDescription} from "../types/character/Skill";
 import {PsychicPower} from "../types/character/PsychicPower";
 import {Armor} from "../types/character/items/Armor";
 import {Weapon} from "../types/character/items/Weapon";
-import {Item} from "../types/character/items/Item";
+import {Item, ItemType, Availability} from "../types/character/items/Item";
 import {Vehicle} from "../types/character/items/Vehicle";
 import {Trait} from "../types/character/Trait";
 import {OnlyWarCharacter} from "../types/character/Character";
@@ -155,11 +155,60 @@ export class CharacterOptionsService {
         );
         this._skills = $resource("pluginresource/Character/Skills.json").query().$promise;
         this._powers = $resource("pluginresource/Character/Powers.json").query().$promise;
-        this._weapons = $resource("pluginresource/Character/Weapons.json").query().$promise;
-        this._armor = $resource("pluginresource/Character/Armor.json").query().$promise;
-        this._items = $resource("pluginresource/Character/Items.json").query().$promise;
+        this._weapons = $resource("pluginresource/Character/Weapons.json").query().$promise.then(function (weapons) {
+            return weapons.map(weapon=> {
+                switch (weapon.availability) {
+                    case "Ubiquitous":
+                        weapon.availability = Availability.Ubiquitous;
+                        break;
+                    case "Abundant":
+                        weapon.availability = Availability.Abundant;
+                        break;
+                    case "Plentiful":
+                        weapon.availability = Availability.Plentiful;
+                        break;
+                    case "Common":
+                        weapon.availability = Availability.Common;
+                        break;
+                    case "Average":
+                        weapon.availability = Availability.Average;
+                        break;
+                    case "Scarce":
+                        weapon.availability = Availability.Scarce;
+                        break;
+                    case "Rare":
+                        weapon.availability = Availability.Rare;
+                        break;
+                    case "Very Rare":
+                        weapon.availability = Availability.Very_Rare;
+                        break;
+                    case "Extremely Rare":
+                        weapon.availability = Availability.Extremely_Rare;
+                        break;
+                    case "Near Unique":
+                        weapon.availability = Availability.Near_Unique;
+                        break;
+                    case "Unique":
+                        weapon.availability = Availability.Unique;
+                        break;
+                }
+                return new Weapon(weapon.name, weapon.availability, weapon.class, weapon.range, weapon.rof, weapon.damage, weapon.pen,
+                    weapon.clip, weapon.reload, weapon['special qualities'], weapon.weight);
+            });
+        });
+        this._armor = $resource("pluginresource/Character/Armor.json").query().$promise.then(function (armor) {
+            return armor.map(armor=> {
+                return new Armor(armor.name, armor.availability, armor.locations, armor.ap, armor.weight, armor);
+            });
+        });
+        this._items = $resource("pluginresource/Character/Items.json").query().$promise.then(function (items) {
+            return items.map(item=> {
+                return new Item(item.name, ItemType.Other, item.availability, item.weight);
+            });
+        });
         this._vehicles = $resource("pluginresource/Character/Vehicles.json").query().$promise;
         this._traits = $resource("pluginresource/Character/Traits.json").query().$promise;
+        this._fatePointRolls = $resource("pluginresource/Character/fatepoints.json").get().$promise;
     }
 
 
