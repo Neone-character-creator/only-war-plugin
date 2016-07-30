@@ -20,7 +20,7 @@ define(["../types/character/Characteristic"], function (Characteristic) {
                                 target.talents.push(selected[sub].value);
                                 break;
                             case "skill":
-                                target.skills.push(selected[sub].value);
+                                target.skills.set(selected[sub].value.skill, selected[sub].value.rank);
                                 break;
                             case "characteristic":
                                 for (var property in selected[sub].value) {
@@ -39,12 +39,22 @@ define(["../types/character/Characteristic"], function (Characteristic) {
                                     }
                                 }
                                 break;
+                            case "character kit":
+                                $.each(selected, function (i, entry) {
+                                    var existingItemCount = target.kit.get(entry.value.item);
+                                    if (existingItemCount) {
+                                        target.kit.set(entry.value.item, target.kit.get(entry.value.item) + existingItemCount);
+                                    } else {
+                                        target.kit.set(entry.value.item, entry.value.count);
+                                    }
+                                });
+                                break;
                             default:
                                 throw "Not implemented"
                         }
                     }
                 });
-                target['optional modifiers'].splice(target['optional modifiers'].indexOf(this.selectionObject), 1);
+                target.optionalModifiers.splice(target.optionalModifiers.indexOf(this.selectionObject), 1);
             }
         }
         return service;
