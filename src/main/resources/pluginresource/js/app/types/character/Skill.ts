@@ -52,6 +52,10 @@ export class Skill {
             this._rankSources.splice(index, 1);
         }
     }
+    
+    get rankSources():Array<CharacterModifier> {
+        return this._rankSources;
+    }
 }
 
 /**
