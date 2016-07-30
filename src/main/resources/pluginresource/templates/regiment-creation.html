@@ -56,7 +56,7 @@
                                          class="row">
                                         <h4>Skills</h4>
                                         <ul>
-                                            <li ng-repeat="skill in regimentElements[category].selected['fixed modifiers'].skills">
+                                            <li ng-repeat="skill in regimentElements[category].selected['fixed modifiers'].skills track by $index">
                                                 {{!skill.specialization
                                                 ?
                                                 skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' +
@@ -119,20 +119,8 @@
                                          ng-show="regimentElements[category].selected['fixed modifiers']['character kit']">
                                         <h3>Starting Gear</h3>
                                         <ul>
-                                            <li ng-repeat="item in regimentElements[category].selected['character kit']">
+                                            <li ng-repeat="item in regimentElements[category].selected['fixed modifiers']['character kit']">
                                                 {{item.count + " x " + item.item.name}}
-                                            </li>
-                                            <li ng-repeat="item in regimentElements[category].selected['character kit']['standard melee weapon']">
-                                                {{item.count + " x " + item.item.name}}
-                                            </li>
-                                            <li ng-repeat="item in regimentElements[category].selected['character kit']['armor']">
-                                                {{item.count + " x " + item.item.name}}
-                                            </li>
-                                            <li ng-repeat="item in regimentElements[category].selected['character kit']['other gear']">
-                                                {{item.count + " x " + item.item.name}}
-                                            </li>
-                                            <li ng-repeat="item in regimentElements[category].selected['character kit']['squad kit']">
-                                                {{item.count + " x " + item.item.name}} (Squad)
                                             </li>
                                         </ul>
                                     </div>
@@ -197,7 +185,7 @@
             <div class="panel-body">
                 <div class="col-md-10 col-md-offset-1">
                     Regiment Name
-                    <input type="text" ng-model="regiment.name"/>
+                    <input type="text" ng-model="regimentName"/>
                     <div class="row" ng-show="regiment" class="text-center">
                         <div class="row">
                             <h3>{{regiment.name}}</h3>
@@ -258,10 +246,10 @@
                         <div class="row">
                             <h3>Starting Gear</h3>
                             <ul>
-                                <li ng-repeat="item in regiment['character kit']">
-                                    {{item.count + " x " + (item.item.craftsmanship !== "Common" ?
-                                    item.item.craftsmanship + " Craftsmanship " : "") + item.item.name}}
-                                    {{item.item.upgrades ? "w/ " + item.item.upgrades.join(", ") : ""}}
+                                <li ng-repeat="item in regimentKit">
+                                    {{item[1] + " x " + (item[0].craftsmanship !== "Common" ?
+                                    item[0].craftsmanship + " Craftsmanship " : "") + item[0].name}}
+                                    {{item[0].upgrades ? "w/ " + item[0].upgrades.join(", ") : ""}}
                                 </li>
                             </ul>
                         </div>
