@@ -1,10 +1,7 @@
 define(["../types/character/advancements/CharacterAdvancement", "../types/character/Characteristic"], function (Advancements, Characteristics) {
     return function ($scope, characterService, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, cookies, $state, tutorials) {
         $scope.character = characterService.character;
-        $scope.characteristics = []
-        for (var key in Characteristics.Characteristic.characteristics.keys()) {
-            $scope.characteristics.push(key);
-        }
+        $scope.characteristics = Array.from($scope.character.characteristics.values());
 
         $scope.characteristicTooltip = function (characteristic) {
             characteristicTooltipService.displayed = characteristic;
@@ -93,61 +90,22 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
             }
         };
 
-        $scope.setSkillLevel = function (skillName, newRating) {
-            if (skillName && newRating) {
-                //If the new rating is an increase, determine how many new levels are needed.
-                if ((newRating - characterService.character.skills[skillName].advancements) > 0) {
-                    var matchingAptitudes = 0;
-                    characteroptions.skills().then(function (result) {
-                        var originalSkillName = skillName;
-                        for (var i = characterService.character.skills[skillName].advancements + 1; i <= newRating; i++) {
-                            $.each(result, function (index, element) {
-                                if (skillName.indexOf("(") !== -1) {
-                                    skillName = skillName.substring(0, skillName.indexOf("(")).trim();
-                                }
-                                if (element.name === skillName) {
-                                    var newRating = i;
-                                    for (var a = 0; a < element.aptitudes; a++) {
-                                        if (characterService.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
-                                            matchingAptitudes++;
-                                        }
-                                        ;
-                                    }
-                                    ;
-                                    characteroptions.xpCosts().then(function (result) {
-                                        var xpCost = new Number(result.skills.advances[newRating - 1]['cost by aptitudes'][matchingAptitudes]);
-                                        if ($scope.newSkillSpecialization) {
-                                            skillName += " (" + $scope.newSkillSpecialization + ")";
-                                        }
-                                        ;
-                                        var newSkill = {
-                                            name: originalSkillName,
-                                            rating: newRating
-                                        };
-                                        characterService.character.experience.addAdvancement(xpCost, "skills", newSkill);
-                                    });
-                                    return false;
-                                }
-                                ;
-                            });
-                        }
-                    });
-                } else if ((newRating - characterService.character.skills[skillName].advancements) < 0) {
-                    for (var i = characterService.character.skills[skillName].advancements; i >= newRating; i--) {
-                        //Look for any advancements that increased the skill between the current rating and the new one
-                        var indexesToRemove = [];
-                        $.each(characterService.character.experience.advancements, function (index, element) {
-                            if (element.property === "skills" && element.value.rating > newRating) {
-                                indexesToRemove.push(index);
-                            }
-                        });
-                        //Sort and reverse the array. Removing elements backwards means that each change to the array  won't affect the index of the next item to remove.
-                        indexesToRemove = indexesToRemove.sort(function (a, b) {
-                            return b - a;
-                        })
-                        $.each(indexesToRemove, function (loopIndex, indexToRemove) {
-                            characterService.character.experience.removeAdvancement(indexToRemove);
-                        })
+        $scope.setSkillLevel = function (skill, newRating) {
+            if (skill && newRating) {
+                //If the new rating is an increase, add advancements.
+                if (newRating > skill.rank) {
+                    for (var i = skill.rank; i <= newRating; i++) {
+                        $scope.character.experience.addAdvancement(new Advancements.SkillAdvancement(skill.identifier));
+                    }
+                }
+                //If the new rating is lower, attempt to remove advancements.
+                else if (newRating < skill.rank) {
+                    while (newRating < skill.rank && skill.rankSources.find(function (advancement) {
+                        return advancement.constructor.name === "SkillAdvancement";
+                    })) {
+                        skill.removeRankModifier(skill.rankSources.find(function (advancement) {
+                            return advancement.constructor.name === Advancements.SkillAdvancement.name;
+                        }));
                     }
                 }
             }
@@ -475,5 +433,9 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
             $scope.character.experience.addAdvancement(new Advancements.PsychicPowerAdvancement(angular.copy($scope.availablePowers[parseInt($scope.newPower)]), false));
             updateAvailablePowers();
         };
+
+        $scope.$watch("character", function () {
+            $scope.characterSkills = Array.from($scope.character.skills);
+        });
     }
 });

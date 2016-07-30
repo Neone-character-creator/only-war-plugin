@@ -64,7 +64,7 @@
                             tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
                             tooltip-popup-delay="500" tooltip-placement="bottom"
                         >
-                            <span class="text-center">{{characteristic}}</span>
+                            <span class="text-center">{{characteristic.characteristic.name}}</span>
                         </td>
                     </tr>
                     <tr>
@@ -73,9 +73,10 @@
                             uib-tooltip-template="'templates/characteristic-tooltip.html'" tooltip-append-to-body="true"
                             tooltip-enable="character.characteristics[characteristic.toLowerCase()].total()"
                             tooltip-popup-delay="500" tooltip-placement="bottom">
-                            {{character.characteristics[characteristic.toLowerCase()].total()}}
+                            <span class="text-center">{{characteristic.total}}</span>
                         </td>
                     </tr>
+                    <div ng-repeat-end></div>
                 </table>
             </div>
         </div>
@@ -98,15 +99,16 @@
                             <th>+20</th>
                             <th>+30</th>
                         </tr>
-                        <tr ng-repeat="skill in character.skills" class="text-center">
-                            <td>{{skill.name + (skill.specialization ? " (" + skill.specialization +")" : "")}}
+                        <tr ng-repeat="skill in characterSkills" class="text-center">
+                            <td>{{skill.identifier.name + (skill.identifier.specialization ? " (" +
+                                skill.identifier.specialization +")" : "")}}
                                 <button ng-click="removeSkill(skill)"
                                         uib-tooltip="Click to remove all skill advancements"><span
                                         class="glyphicon glyphicon-remove"></span></button>
                             </td>
                             <td ng-repeat="i in [1,2,3,4]"><input type="radio"
                                                                   ng-checked="skill.rank >= i"
-                                                                  ng-click="setSkillLevel(skillName, i)"/></td>
+                                                                  ng-click="setSkillLevel(skill, i)"/></td>
                         </tr>
                     </table>
                 </div>
@@ -139,7 +141,7 @@
                 </button>
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="talent in character.talents track by $index">
-                        {{talent.name}}
+                        {{talent.specialization ? talent.name + " (" + talent.specialization + ")" : talent.name}}
                         <button ng-click="removeTalent(talent)"
                                 uib-tooltip="Click to remove this talent advancement"
                                 ng-show="talent.boughtAsAdvancement">
