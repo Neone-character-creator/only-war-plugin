@@ -37,7 +37,9 @@
             {
               "property": "character kit",
               "value": {
-                "Injector": 1
+                "item": {
+                  "Injector": 1
+                }
               }
             }
           ],
@@ -45,7 +47,9 @@
             {
               "property": "character kit",
               "value": {
-                "Inhaler": 1
+                "item": {
+                  "Inhaler": 1
+                }
               }
             }
           ]

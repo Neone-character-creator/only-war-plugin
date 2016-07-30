@@ -528,13 +528,19 @@
                 "standard melee weapon"
               ],
               "value": {
-                "Combat Shotgun": 1
+                "item": {
+                  "name": "Combat Shotgun"
+                },
+                "count": 1
               }
             },
             {
               "property": "character kit",
               "value": {
-                "Clip": 4
+                "item": {
+                  "name": "Clip"
+                },
+                "count": 4
               }
             }
           ],
@@ -542,13 +548,19 @@
             {
               "property": "character kit",
               "value": {
-                "Lascarbine": 1
+                "item": {
+                  "name": "Lascarbine"
+                },
+                "count": 1
               }
             },
             {
               "property": "character kit",
               "value": {
-                "Charge Pack (Basic)": 4
+                "item": {
+                  "name": "Charge Pack (Basic)"
+                },
+                "count": 4
               }
             }
           ]
