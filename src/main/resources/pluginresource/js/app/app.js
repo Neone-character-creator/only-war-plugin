@@ -1,10 +1,12 @@
 require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
-        "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/finalize-controller", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
-        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/CharacterOptionsService", "app/services/regiments", "app/services/specialties", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection", "app/services/tutorials", "app/services/PlaceholderReplacement"
+        "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/FinalizePageController", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
+        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/CharacterOptionsService", "app/services/regiments", "app/services/specialties", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection", "app/services/tutorials", "app/services/PlaceholderReplacement",
+        "app/filters/OptionalSelectionModalOptionDisplayFilter", "app/filters/OptionSummaryDisplayFilter"
     ],
     function (angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, cookies,
               modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
-              selectionService, modifierService, characterService, characterOptions, regimentsProvider, specialtyProvider, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials, placeholderReplacement) {
+              selectionService, modifierService, characterService, characterOptions, regimentsProvider, specialtyProvider, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials, placeholderReplacement,
+              OptionSelectionModalOptionDisplayFilter, OptionSummaryDisplayFilter) {
         var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function ($stateProvider) {
@@ -41,7 +43,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("finalize", {
                 url: "/finalize",
                 templateUrl: "pluginresource/templates/finalize.html",
-                controller: finalizeController,
+                controller: finalizeController.FinalizePageController,
                 data: {
                     complete: false
                 }
@@ -71,6 +73,8 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                         optionselection.applySelection();
                         $stateParams['on-completion-callback']();
                         $state.go($state.previous.name);
+                    }, function (error) {
+                        $state.go($state.previous.name);
                     });
                 },
                 params: {
@@ -96,7 +100,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         });
         app.factory("tutorials", tutorials);
         app.service("regiments", regimentsProvider.RegimentService);
-        app.factory("specialties", specialtyProvider);
+        app.factory("specialties", specialtyProvider.SpecialtyService);
         app.factory("placeholders", function ($q, characteroptions) {
             return $q.all({
                 armor: characteroptions.armor,
@@ -154,50 +158,11 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
 
         //Filter for formatting a clickable summary for a selection.
         app.filter('option_summary', function () {
-            return function (inVal) {
-                if (typeof inVal.numSelectionsNeeded === 'number' && Array.isArray(inVal.options)) {
-                    var out = "Choose " + inVal.numSelectionsNeeded + " from ";
-                    var options = [];
-                    $.each(inVal.options, function (index, option) {
-                        var optionElements = [];
-                        for (var op = 0; op < option.length; op++) {
-                            switch (option[op].property) {
-                                case 'characteristic':
-                                    for (var characteristic in option[op].value) {
-                                        optionElements.push(characteristic + " +" + option[op].value[characteristic])
-                                    }
-                                    break;
-                                case 'talent':
-                                    optionElements.push(option[op].value.name);
-                                    break;
-                                case 'skill':
-                                    for (var skill in option[op].value) {
-                                        optionElements.push(skill + " + " + (option[op].value[skill] - 1) * 10);
-                                    }
-                                    break;
-                            }
-                            if (Array.isArray(option[op].property)) {
-                                optionElements.push(option[op].value.count + " x " + option[op].value.item.name);
-                            }
-                        }
-                        options.push(optionElements.join(", "));
-                    });
-                    out += options.join(" or ");
-                    return out;
-                } else {
-                    return inVal;
-                }
-            };
+            return OptionSummaryDisplayFilter.filter;
         })
         //Filter for formatting an selectable option in a modal.
         app.filter('modal_option', function () {
-            function filter(inVal) {
-                return inVal.map(function (option) {
-                    return option.value.name;
-                }).join(", ");
-            }
-
-            return filter;
+            return OptionSelectionModalOptionDisplayFilter.filter;
         });
 
         angular.bootstrap(document, ['OnlyWar']);
