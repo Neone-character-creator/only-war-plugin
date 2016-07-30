@@ -11,6 +11,8 @@ import * as angular from "angular";
  *
  * A modified can be the character's Regiment, their Specialty or an advancement bought with xp.
  * Created by Damien on 6/29/2016.
+ *
+ * TODO: Do something about this class being mutable! I can imagine a lot of things that might go wrong because of it.
  */
 export abstract class CharacterModifier {
     /**
@@ -108,13 +110,17 @@ export abstract class CharacterModifier {
             var existingSkill:Skill = this._appliedTo.skills.find(skill=> {
                 return angular.equals(entry[0], skill.identifier);
             });
-            existingSkill.removeRankModifier(this);
-            if (existingSkill.rank == 0) {
-                this._appliedTo.skills.splice(this._appliedTo.skills.indexOf(existingSkill), 1);
+            if (existingSkill) {
+                existingSkill.removeRankModifier(this);
+                if (existingSkill.rank == 0) {
+                    this._appliedTo.skills.splice(this._appliedTo.skills.indexOf(existingSkill), 1);
+                }
             }
         }
         for (var talent of this._talents) {
-            this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+            if (this._appliedTo.talents.indexOf(talent) !== -1) {
+                this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+            }
         }
         for (var trait of this._traits) {
             this._appliedTo.traits.splice(this._appliedTo.traits.indexOf(trait), 1);
