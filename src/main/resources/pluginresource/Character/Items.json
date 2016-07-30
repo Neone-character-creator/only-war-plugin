@@ -1,728 +1,624 @@
 [
   {
     "name": "Chameleoline Cloak",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Clip/Drop Harness",
-    "craftmanship": "Common",
     "weight": 2,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Deadspace Earpiece",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Filtration Plugs",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Photo-Visors",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Preysense Goggles",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Rebreather",
-    "craftmanship": "Common",
     "weight": 1,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Recoil Gloves",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Respirator",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Gas Mask",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Survival Suit",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Synskin",
-    "craftmanship": "Common",
     "weight": 2,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Void Suit",
-    "craftmanship": "Common",
     "weight": 8,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Amasec",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "De-Tox",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Frenzon",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Lho-Sticks",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Obscura",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Recaf",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Abundant"
   },
   {
     "name": "Sacred Ungents",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Slaught",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Spook",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Stimm",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Tranq",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Abundant"
   },
   {
     "name": "Inhaler",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Accordian Wire",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Auspex",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Auto Quill",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Calixian Infantryman's PCTD",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Combi-Tool",
-    "craftmanship": "Common",
     "weight": 1,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Data-Slate",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Demolition Charge",
-    "craftmanship": "Common",
     "weight": 1,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Diagnostor",
-    "craftmanship": "Common",
     "weight": 4,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Field Suture",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Rechargeable Lamp-Pack",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Abundant"
   },
   {
     "name": "Grapnel & Line",
-    "craftmanship": "Common",
     "weight": 2,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Grav-Chute",
-    "craftmanship": "Common",
     "weight": 15,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Injector",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Lascutter",
-    "craftmanship": "Common",
     "weight": 4,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Laud Hailer",
-    "craftmanship": "Common",
     "weight": 4,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Magboots",
-    "craftmanship": "Common",
     "weight": 2,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Magnoculars",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Manacles",
-    "craftmanship": "Common",
     "weight": 1,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Mantrap",
-    "craftmanship": "Common",
     "weight": 2,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Medi-kit",
-    "craftmanship": "Common",
     "weight": 2,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Melta Bomb",
-    "craftmanship": "Common",
     "weight": 12,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Micro-bead",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Multicompass",
-    "craftmanship": "Common",
     "weight": 4,
     "description": "",
     "availability": "Near Unique"
   },
   {
     "name": "Multikey",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Munitorum Manual",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Pict Reorder",
-    "craftmanship": "Common",
     "weight": 1,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Psy Focus",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Average"
   },
   {
     "name": "Screamer",
-    "craftmanship": "Common",
     "weight": 2,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Hand-Held Targeter",
-    "craftmanship": "Common",
     "weight": 0.5,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Uplifting Primer",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Vox-Caster",
-    "craftmanship": "Common",
     "weight": 4,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Uniform",
-    "craftmanship": "Common",
     "weight": 4,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Poor Weather Gear",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Rucksack",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Basic Tools",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Mess Kit and Water Canteen",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Blanket and Sleep Bag",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Rechargeable Lamp Pack",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Grooming Kit",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Identification",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Handbook",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Weeks' Rations",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Anointed Maintenance Toolkit",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Arrow/Quarrel",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Shot",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Bullet",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Plentiful"
   },
   {
     "name": "Cartridge",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Clip",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Backpack Power Pack",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Charge Cell",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Charge Pack (Pistol)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Charge Pack (Basic)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Charge Pack (Heavy)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Fuel (Pistol)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Fuel (Basic)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Fuel (Heavy)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Scarce"
   },
   {
     "name": "Bolt Shell",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Melta Canister (Pistol)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Melta Canister (Basic)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Melta Canister (Heavy)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Plasma Flask (Pistol)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Plasma Flask (Basic)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Rare"
   },
   {
     "name": "Plasma Flask (Heavy)",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Exotic",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Artillery",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Very Rare"
   },
   {
     "name": "Field Uniform",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Dress Uniform",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Purity Seals",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Advanced Medkit",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Chrono",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Photo-Visor",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Photo-Contacts",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Gas Mask",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Empty Sandbag",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Entrenching Tool",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Basic Toolkit",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Dog Tags",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Imperial Infantryman's Uplifting Primer",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
   },
   {
     "name": "Grav-Chute",
-    "craftmanship": "Common",
     "weight": 0,
     "description": "",
     "availability": "Common"
@@ -738,247 +634,206 @@
   },
   {
     "name": "Augur Array",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Autosanguine",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Baleful Eye",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Near Unique"
   },
   {
     "name": "Ballistic Mechadendrite",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Bionic Arm",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Scarce"
   },
   {
     "name": "Bionic Legs",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Scarce"
   },
   {
     "name": "Bionic Respiratory System",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Bionic Heart",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Calculus Logi Upgrade",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Cerebral Implants",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Cranial Armor",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Scarce"
   },
   {
     "name": "Cybernetic Senses",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Ferric Lure Implants",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Interface Port",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Internal Reservoir",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Locator Matrix",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Lumen Capacitor",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Maglev Coils",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Manipulator Mechadendrite",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Medicae Mechadendrite",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Memorance Implant",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Mind Impulse Unit",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "MIU Weapon Interface",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Optical Mechadendrite",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Very Rare"
   },
   {
     "name": "Respiratory Filter Implant",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Synthmuscle",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Utility Mechadendrite",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Vocal Implant",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Scarce"
   },
   {
     "name": "Volitor Implant",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Rare"
   },
   {
     "name": "Arrow",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Quarrel",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Shot",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Bullet",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Cartridge",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Backpack Ammo Pack",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Backpack Power Pack",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Charge Cell",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Charge Pack",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Toxic Environment Trenchcoat",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Armageddon Rebreather",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   },
   {
     "name": "Horse",
-    "craftmanship": "Common",
     "weight": 0,
     "availability": "Common"
   }
