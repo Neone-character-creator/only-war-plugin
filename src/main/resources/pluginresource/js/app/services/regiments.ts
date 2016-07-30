@@ -52,13 +52,13 @@ export class RegimentService {
 
                 var kit:Map<Item, number> = new Map<Item, number>();
                 for (var itemDescription of regiment['fixed modifiers']['character kit']) {
-                    var item = result.placeholders.replace(itemDescription, "item");
+                    var item = result.placeholders.replace(itemDescription.item, "item");
                     kit.set(item, itemDescription.count);
                 }
                 var wounds:number = regiment['fixed modifiers'].wounds;
                 var favoredWeapons = [];
                 for (var favoredWeapon of regiment['fixed modifiers']['favored weapons']) {
-                    favoredWeapons.push(result.placeholders.replace({item: {name: favoredWeapon}}, "item"));
+                    favoredWeapons.push(result.placeholders.replace({"name": favoredWeapon}, "item"));
                 }
                 var specialAbilities = []
                 $.each(regiment['fixed modifiers']['special abilities'], function (i, ability) {
