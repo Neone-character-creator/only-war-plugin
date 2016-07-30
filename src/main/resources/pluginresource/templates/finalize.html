@@ -5,9 +5,9 @@
     To spend your starting experience, click the dropdown under <strong>Spend Experience</strong> to choose a category.
     <div class="row">
         <h3>Wounds</h3>
-        Regiment Modifier: {{selectedRegiment['fixed modifiers'].wounds}} <br/>
-        Specialty Modifier: {{selectedSpecialty['fixed modifiers'].wounds}} <br/>
-        Roll: <input type="number" ng-model="character.wounds.fromRoll" ng-model-options="{getterSetter:true}"/>
+        Regiment Modifier: {{character.wounds.regimentModifier}} <br/>
+        Specialty Modifier: {{character.wounds.specialtyModifier}} <br/>
+        Roll: <input type="number" ng-model="character.wounds.rolled" ng-model-options="{getterSetter:true}"/>
         <button class="btn btn-standard" ng-click="rollWounds()">Roll</button>
         <br/>
         Total: <input type="number" ng-value="character.wounds.total" ng-model-options="{getterSetter:true}" readonly>
@@ -22,13 +22,14 @@
             <button class="btn btn-standard" ng-click="rollFP()">Roll</button>
             <br/>
         </div>
-        Fate Points : <input type="number" ng-model="character.fatePoints.total"
+        Fate Points : <input type="number" ng-model="character.fatePoints"
                              ng-model-options="{ getterSetter: true }"/>
     </div>
     <hr/>
     <div class="row" ng-show="numBonusAptitudes">
         <div class="row">
-            You have {{numBonusAptitudes}} duplicate aptitudes from your Regiment and Specialty. You may select that many bonus aptitudes.
+            You have {{numBonusAptitudes}} duplicate aptitudes from your Regiment and Specialty. You may select that
+            many bonus aptitudes.
         </div>
         <div class="row">
             Choose {{numBonusAptitudes}}:
@@ -67,16 +68,22 @@
                                     <th class="text-center" colspan="2">Needed Aptitudes</th>
                                 </tr>
                                 <tr>
-                                    <td style="width:50%" class="text-center" ng-repeat="aptitude in displayedOption.aptitudes"
-                                        ng-style="{'background-color': character.aptitudes.all.indexOf(aptitude) !== -1 ? 'green' : 'red'}"
+                                    <td style="width:50%" class="text-center"
+                                        ng-repeat="aptitude in displayedOption.aptitudes"
+                                        ng-style="{'background-color': character.aptitudes.indexOf(aptitude) !== -1 ? 'green' : 'red'}"
                                         uib-tooltip="If this turns green, it means you have a matching aptitude, making your chosen advancement cheaper."
-                                    tooltip-append-to-body="true" tooltip-popup-delay="1000">
+                                        tooltip-append-to-body="true" tooltip-popup-delay="500">
                                         {{aptitude}}
                                     </td>
                                 </tr>
                             </table>
                         </div>
                         <div class="row text-center">
+
+                            <span ng-show="displayedOption.specialization !== false">
+                                Specialization:
+                            <input type="text" ng-model="displayedOption.specialization"/>
+                            </span>
                             <button class="btn btn-default" ng-click="buyAdvancement()"
                                     ng-disabled="optionXpCost > availableXp">Buy for {{optionXpCost}} XP
                             </button>
@@ -89,7 +96,8 @@
                         </div>
                         <div class="row text-center">
                             <button class="btn btn-default" ng-click="buyAdvancement()"
-                                    ng-disabled="optionXpCost > availableXp">Buy for {{optionXpCost}} XP
+                                    ng-disabled="optionXpCost > availableXp && displayedOption.specialization !== true">
+                                Buy for {{optionXpCost}} XP
                             </button>
                         </div>
                     </div>
