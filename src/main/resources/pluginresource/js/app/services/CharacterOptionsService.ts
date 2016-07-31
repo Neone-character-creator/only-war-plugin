@@ -147,7 +147,6 @@ export class CharacterOptionsService {
                                 return false;
                             }
                         }
-                        ;
                         return true;
                     }));
                 });
@@ -198,11 +197,81 @@ export class CharacterOptionsService {
         });
         this._armor = $resource("pluginresource/Character/Armor.json").query().$promise.then(function (armor) {
             return armor.map(armor=> {
-                return new Armor(armor.name, armor.availability, armor.locations, armor.ap, armor.weight, armor);
+                switch (armor.availability) {
+                    case "Ubiquitous":
+                        armor.availability = Availability.Ubiquitous;
+                        break;
+                    case "Abundant":
+                        armor.availability = Availability.Abundant;
+                        break;
+                    case "Plentiful":
+                        armor.availability = Availability.Plentiful;
+                        break;
+                    case "Common":
+                        armor.availability = Availability.Common;
+                        break;
+                    case "Average":
+                        armor.availability = Availability.Average;
+                        break;
+                    case "Scarce":
+                        armor.availability = Availability.Scarce;
+                        break;
+                    case "Rare":
+                        armor.availability = Availability.Rare;
+                        break;
+                    case "Very Rare":
+                        armor.availability = Availability.Very_Rare;
+                        break;
+                    case "Extremely Rare":
+                        armor.availability = Availability.Extremely_Rare;
+                        break;
+                    case "Near Unique":
+                        armor.availability = Availability.Near_Unique;
+                        break;
+                    case "Unique":
+                        armor.availability = Availability.Unique;
+                        break;
+                }
+                return new Armor(armor.name, armor.availability, armor.locations, armor.ap, armor.type, armor.weight);
             });
         });
         this._items = $resource("pluginresource/Character/Items.json").query().$promise.then(function (items) {
             return items.map(item=> {
+                switch (item.availability) {
+                    case "Ubiquitous":
+                        item.availability = Availability.Ubiquitous;
+                        break;
+                    case "Abundant":
+                        item.availability = Availability.Abundant;
+                        break;
+                    case "Plentiful":
+                        item.availability = Availability.Plentiful;
+                        break;
+                    case "Common":
+                        item.availability = Availability.Common;
+                        break;
+                    case "Average":
+                        item.availability = Availability.Average;
+                        break;
+                    case "Scarce":
+                        item.availability = Availability.Scarce;
+                        break;
+                    case "Rare":
+                        item.availability = Availability.Rare;
+                        break;
+                    case "Very Rare":
+                        item.availability = Availability.Very_Rare;
+                        break;
+                    case "Extremely Rare":
+                        item.availability = Availability.Extremely_Rare;
+                        break;
+                    case "Near Unique":
+                        item.availability = Availability.Near_Unique;
+                        break;
+                    case "Unique":
+                        item.availability = Availability.Unique;
+                        break;
+                }
                 return new Item(item.name, ItemType.Other, item.availability, item.weight);
             });
         });
