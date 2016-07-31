@@ -148,34 +148,22 @@ export class FinalizePageController {
                 characterService.character.experience.addAdvancement(advancement);
                 $scope.availableXp = characterService.character.experience().available();
             };
-            $scope.numBonusAptitudes = characterService.character.aptitudes.reduce(function (previous, current, index, array) {
-                if (array.slice(index + 1).indexOf(current) !== -1) {
-                    previous++;
-                }
-                return previous;
-            }, 0);
+            $scope.duplicateAptitudes = characterService.character.aptitudes.filter((aptitude, index, original)=> {
+                return original.indexOf(aptitude, index + 1) !== -1;
+            });
 
-            $scope.availableAptitudes = Aptitudes.aptitudes.filter(function (aptitude) {
+            $scope.availableAptitudes = Array.from(Characteristic.characteristics.keys()).filter(function (aptitude) {
                 var possessedAptitudes = characterService.character.aptitudes;
                 return possessedAptitudes.indexOf(aptitude) === -1;
             });
 
             $scope.chosenBonusAptitudes = [];
-            $scope.addBonusAptitudes = function () {
-                var filteredAptitudes = characterService.character.aptitudes().all().filter(function (element, index, array) {
-                    return array.slice(index + 1).indexOf(element) === -1;
-                });
-                for (var i = 0; i < $scope.chosenBonusAptitudes.length; i++) {
-                    filteredAptitudes.push($scope.availableAptitudes[Number(i)]);
+            $scope.$watch("chosenBonusAptitudes", function (newValue, oldValue) {
+                for (var aptitude in oldValue) {
+                    $scope.character.aptitudes.splice($scope.character.aptitudes.indexOf(aptitude));
                 }
-                characterService.character.aptitudes().all(filteredAptitudes);
-                $scope.numBonusAptitudes = characterService.character.aptitudes().all().reduce(function (previous, current, index, array) {
-                    if (array.slice(index + 1).indexOf(current) !== -1) {
-                        previous++;
-                    }
-                    return previous;
-                }, 0);
-            }
+                $scope.character.aptitudes = $scope.character.aptitudes.concat(newValue);
+            });
         })
     }
 }
