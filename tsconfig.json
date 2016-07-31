@@ -5,7 +5,8 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "watch": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "removeComments": false,
+    "watch": true
   }
 }
