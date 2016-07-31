@@ -1,4 +1,4 @@
-define(["../types/character/advancements/CharacterAdvancement", "../types/character/Characteristic"], function (Advancements, Characteristics) {
+define(["../types/character/advancements/CharacterAdvancement", "../types/character/Characteristic", "../types/character/items/Item"], function (Advancements, Characteristics, Item) {
     return function ($scope, characterService, characteroptions, characteristicTooltipService, armorTooltipService, $uibModal, cookies, $state, tutorials) {
         $scope.character = characterService.character;
         $scope.characteristics = Array.from($scope.character.characteristics.values());
@@ -42,32 +42,16 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
         $scope.$watch('newSkill', function (newVal, oldVal) {
             if (newVal) {
                 var newSkill = angular.copy($scope.availableSkills[$scope.newSkill]);
-                var matchingAptitudes = 0;
-                for (var a = 0; a < newSkill.aptitudes; a++) {
-                    if (characterService.character.aptitudes.all().indexOf($scope.displayedOption.aptitudes[a]) !== -1) {
-                        matchingAptitudes++;
-                    }
-                }
-                characteroptions.xpCosts().then(function (result) {
-                    $scope.newSkillXpCost = parseInt(result.skills.advances[0]['cost by aptitudes'][matchingAptitudes]);
-                });
+                $scope.newSkillXpCost = new Advancements.SkillAdvancement(newSkill).calculateExperienceCost($scope.character);
             } else {
                 $scope.newSkillXpCost = undefined;
             }
         });
+
         $scope.$watch('newTalent', function (newVal) {
             if (newVal) {
                 var newTalent = angular.copy($scope.availableTalents[$scope.newTalent]);
-                var matchingAptitudes = 0;
-                for (var a = 0; a < newTalent.aptitudes; a++) {
-                    if (characterService.character.aptitudes.all().indexOf(newTalent.aptitudes[a]) !== -1) {
-                        matchingAptitudes++;
-                    }
-                }
-
-                characteroptions.xpCosts().then(function (result) {
-                    $scope.newTalentXpCost = new Number(result.talents.advances[newTalent.tier - 1]['cost by aptitudes'][matchingAptitudes]);
-                });
+                $scope.newTalentXpCost = new Advancements.TalentAdvancement(newTalent).calculateExperienceCost($scope.character);
             } else {
                 $scope.newTalentXpCost = undefined;
             }
@@ -75,23 +59,14 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
 
         $scope.addSkill = function () {
             if ($scope.newSkill) {
-                var selectedSkill = $scope.availableSkills[$scope.newSkill];
-                var name = selectedSkill.name;
-                if ($scope.newSkillSpecialization) {
-                    name += " (" + $scope.newSkillSpecialization + ")";
-                }
-                var newSkill = {
-                    name: name,
-                    rating: 1
-                };
-                characterService.character.experience.addAdvancement($scope.newSkillXpCost, "skills", newSkill);
+                characterService.character.experience.addAdvancement(new Advancements.SkillAdvancement($scope.availableSkills[$scope.newSkill]));
                 $scope.newSkill = null;
                 updateAvailableSkills();
             }
         };
 
         $scope.setSkillLevel = function (skill, newRating) {
-            if (skill && newRating) {
+            if (skill && newRating >= 0) {
                 //If the new rating is an increase, add advancements.
                 if (newRating > skill.rank) {
                     for (var i = skill.rank; i <= newRating; i++) {
@@ -103,27 +78,12 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                     while (newRating < skill.rank && skill.rankSources.find(function (advancement) {
                         return advancement.constructor.name === "SkillAdvancement";
                     })) {
-                        skill.removeRankModifier(skill.rankSources.find(function (advancement) {
+                        $scope.character.experience.removeAdvancement(skill.rankSources.find(function (advancement) {
                             return advancement.constructor.name === Advancements.SkillAdvancement.name;
                         }));
                     }
                 }
             }
-        }
-        $scope.removeSkill = function (skillName) {
-            var indexesToRemove = [];
-            $.each(characterService.character.experience._advancementsBought, function (index, element) {
-                if (element.property === "skills" && element.value.name == skillName) {
-                    indexesToRemove.push(index);
-                }
-            });
-            indexesToRemove = indexesToRemove.sort(function (a, b) {
-                return b - a;
-            });
-            $.each(indexesToRemove, function (index, indexToRemove) {
-                characterService.character.experience.removeAdvancement(indexToRemove);
-            });
-            updateAvailableSkills();
         }
 
         $scope.newTalent;
@@ -287,40 +247,6 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 });
             }
         };
-        $.each(Array.from(characterService.character.kit.entries()).filter(function (item) {
-            return item.type === "Armor";
-        }).map(function (element) {
-            return element.item
-        }), function (index, armor) {
-            $.each(armor.locations, function (index, location) {
-                switch (location) {
-                    case "Left Arm":
-                        $scope.armor.leftArm.rating += armor.ap
-                        $scope.armor.leftArm.providers.push(armor);
-                        break;
-                    case "Right Arm":
-                        $scope.armor.rightArm.rating += armor.ap
-                        $scope.armor.rightArm.providers.push(armor);
-                        break;
-                    case "Head":
-                        $scope.armor.head.rating += armor.ap
-                        $scope.armor.head.providers.push(armor);
-                        break;
-                    case "Body":
-                        $scope.armor.body.rating += armor.ap
-                        $scope.armor.body.providers.push(armor);
-                        break;
-                    case "Left Leg":
-                        $scope.armor.leftLeg.rating += armor.ap
-                        $scope.armor.leftLeg.providers.push(armor);
-                        break;
-                    case "Right Leg":
-                        $scope.armor.rightLeg.rating += armor.ap
-                        $scope.armor.rightLeg.providers.push(armor);
-                        break;
-                }
-            });
-        });
 
         $scope.armorTooltip = function (location) {
             armorTooltipService.location = location;
@@ -434,8 +360,58 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
             updateAvailablePowers();
         };
 
-        $scope.$watch("character", function () {
+        $scope.$watchCollection("character.skills", function () {
             $scope.characterSkills = Array.from($scope.character.skills);
+        });
+
+        $scope.$watchCollection("character.kit", function () {
+            $scope.characterWeapons = Array.from($scope.character.kit.entries()).filter(function (entry) {
+                return entry[0].type === Item.ItemType.Weapon;
+            }).map(function (entry) {
+                return {item: entry[0], count: entry[1]};
+            });
+            $scope.characterArmor = Array.from($scope.character.kit.entries()).filter(function (entry) {
+                return entry[0].type === Item.ItemType.Armor;
+            }).map(function (entry) {
+                return {item: entry[0], count: entry[1]};
+            });
+            $scope.characterOtherItems = Array.from($scope.character.kit.entries()).filter(function (entry) {
+                return entry[0].type === Item.ItemType.Other;
+            }).map(function (entry) {
+                return {item: entry[0], count: entry[1]};
+            });
+            $.each($scope.characterArmor.map(function (entry) {
+                return entry.item;
+            }), function (index, armor) {
+                $.each(armor.locations, function (index, location) {
+                    switch (location) {
+                        case "Left Arm":
+                            $scope.armor.locations.leftArm.rating += armor.ap
+                            $scope.armor.locations.leftArm.providers.push(armor);
+                            break;
+                        case "Right Arm":
+                            $scope.armor.locations.rightArm.rating += armor.ap
+                            $scope.armor.locations.rightArm.providers.push(armor);
+                            break;
+                        case "Head":
+                            $scope.armor.locations.head.rating += armor.ap
+                            $scope.armor.locations.head.providers.push(armor);
+                            break;
+                        case "Body":
+                            $scope.armor.locations.body.rating += armor.ap
+                            $scope.armor.locations.body.providers.push(armor);
+                            break;
+                        case "Left Leg":
+                            $scope.armor.locations.leftLeg.rating += armor.ap
+                            $scope.armor.locations.leftLeg.providers.push(armor);
+                            break;
+                        case "Right Leg":
+                            $scope.armor.locations.rightLeg.rating += armor.ap
+                            $scope.armor.locations.rightLeg.providers.push(armor);
+                            break;
+                    }
+                });
+            });
         });
     }
 });
