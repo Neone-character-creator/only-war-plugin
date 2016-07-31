@@ -102,8 +102,8 @@
                         <tr ng-repeat="skill in characterSkills" class="text-center">
                             <td>{{skill.identifier.name + (skill.identifier.specialization ? " (" +
                                 skill.identifier.specialization +")" : "")}}
-                                <button ng-click="removeSkill(skill)"
-                                        uib-tooltip="Click to remove all skill advancements"><span
+                                <button ng-click="setSkillLevel(skill, 0)"
+                                        uib-tooltip="Click to remove all skill advancements. This will remove the skill entirely if no ranks were gain from other sources."><span
                                         class="glyphicon glyphicon-remove"></span></button>
                             </td>
                             <td ng-repeat="i in [1,2,3,4]"><input type="radio"
@@ -323,7 +323,7 @@
                         tooltip-placement="right">?
                 </button>
                 <table class="table table-bordered">
-                    <tbody ng-repeat="weapon in character.equipment.weapons">
+                    <tbody ng-repeat="weapon in characterWeapons">
                     <tr>
                         <td colspan="1">Name</td>
                         <td colspan="7">{{weapon.item.name}}
@@ -456,7 +456,7 @@
                 </div>
                 <div class="row">
                     <table class="table table-bordered">
-                        <tbody ng-repeat="armor in character.equipment.armor">
+                        <tbody ng-repeat="armor in characterArmor">
                         <tr>
                             <td colspan="1">Name:</td>
                             <td colspan="7">{{armor.item.name}}
@@ -466,7 +466,7 @@
                         </tr>
                         <tr>
                             <td>Type:</td>
-                            <td>{{armor.item.type}}</td>
+                            <td>{{armor.item.armorType}}</td>
                             <td>Locations:</td>
                             <td>{{armor.item.locations.join(',')}}</td>
                             <td>Protection:</td>
@@ -487,7 +487,7 @@
                     </div>
                     <div class="row">
                         <ul>
-                            <li ng-repeat="item in character.equipment['other gear']">
+                            <li ng-repeat="item in characterOtherItems track by $index">
                                 <div class="row">
                                     <div class="btn-group-vertical">
                                         <button class="btn btn-standard btn-sm" ng-click="item.count=item.count+1">+
