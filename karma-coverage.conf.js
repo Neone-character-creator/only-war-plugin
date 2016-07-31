@@ -18,7 +18,8 @@ module.exports = function (config) {
             //Test config
             {pattern: 'tests/test-main.js', included: true},
             //Application scripts
-            {pattern: 'libs/**/*.js', included: false},
+            {pattern: 'libs/angular/angular.js'},
+            {pattern: 'libs/angular-mocks/angular-mocks.js'},
             {pattern: 'app/**/*.js', included: false},
 
             //Test scripts
