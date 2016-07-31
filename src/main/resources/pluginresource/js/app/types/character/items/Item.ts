@@ -37,9 +37,12 @@ export class Item {
         return this._weight;
     }
 
-
     get availability():Availability {
         return this._availability;
+    }
+    
+    get type():ItemType {
+        return this._type;
     }
 }
 
