@@ -26,20 +26,18 @@
                              ng-model-options="{ getterSetter: true }"/>
     </div>
     <hr/>
-    <div class="row" ng-show="numBonusAptitudes">
+    <div class="row" ng-show="duplicateAptitudes">
         <div class="row">
-            You have {{numBonusAptitudes}} duplicate aptitudes from your Regiment and Specialty. You may select that
-            many bonus aptitudes.
+            You've gained the {{duplicateAptitudes}} aptitudes multiple times from your Regiment and Specialty. You may
+            select that
+            many bonus characteristic aptitudes as a bonus.
         </div>
         <div class="row">
-            Choose {{numBonusAptitudes}}:
+            Choose {{duplicateAptitudes.length}}:
             <select multiple ng-model="chosenBonusAptitudes">
-                <option ng-repeat="aptitude in availableAptitudes" value="{{$index}}">{{aptitude}}</option>
+                <option ng-repeat="aptitude in availableAptitudes" value={{$index}}>{{aptitude}}</option>
             </select>
         </div>
-        <button class="btn btn-standard" ng-disabled="chosenBonusAptitudes.length !== numBonusAptitudes"
-                ng-click="addBonusAptitudes()">Add These Aptitudes
-        </button>
     </div>
     <hr/>
     <div class="row">
