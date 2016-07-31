@@ -11,9 +11,7 @@ export function filter(inVal:any) {
             for (var op = 0; op < option.length; op++) {
                 switch (option[op].property) {
                     case 'characteristic':
-                        for (var characteristic in option[op].value) {
-                            optionElements.push(characteristic + " +" + option[op].value[characteristic])
-                        }
+                        optionElements.push(option[op].value.characteristic.name + " +" + option[op].value.rating);
                         break;
                     case 'talent':
                         var talentDescription = option[op].value.specialization ? option[op].value.name + " (" + option[op].value.specialization + ")" : option[op].value.name;
