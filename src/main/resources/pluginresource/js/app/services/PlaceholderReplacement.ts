@@ -75,7 +75,8 @@ export class PlaceholderReplacement {
             }
             case "characteristic":
             {
-                return Characteristic.characteristics.get(placeholder);
+                placeholder.characteristic = Characteristic.characteristics.get(placeholder.characteristic);
+                return placeholder;
             }
             case "trait":
             {
