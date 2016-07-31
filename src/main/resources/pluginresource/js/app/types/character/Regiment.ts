@@ -37,20 +37,63 @@ export class Regiment extends CharacterModifier {
     private _favoredWeapons:Array<Weapon>;
     private _specialAbilities:Array<SpecialAbility>;
 
-    public apply(character:OnlyWarCharacter):any {
-        super.apply(character);
+    protected applyCharacteristicsModifiers(character:OnlyWarCharacter) {
         for (var entry of this.characteristics.entries()) {
             character.characteristics.get(entry[0]).regimentModifier = entry[1];
         }
+    }
+
+    protected applyWoundsModifier(character:OnlyWarCharacter) {
         character.wounds.regimentModifier = this.wounds;
     }
 
-    public unapply() {
+    protected applyTalentModifiers(character:OnlyWarCharacter) {
+        if (character.specialty) {
+            for (var talent of this.talents) {
+                var specialtyProvidesTalent = character.specialty.talents.find(characterTalent=> {
+                    return characterTalent.name === talent.name && characterTalent.specialization == talent.specialization;
+                });
+                if (specialtyProvidesTalent) {
+                    character.experience.available += 100;
+                } else {
+                    character.talents.push(talent);
+                }
+            }
+        } else {
+            for (var talent of this.talents) {
+                character.talents.push(talent);
+            }
+        }
+    }
+
+    public unapplyCharacteristicsModifiers() {
         for (var entry of this.characteristics.entries()) {
             this._appliedTo.characteristics.get(entry[0]).regimentModifier = 0;
         }
+    }
+
+    protected unapplyTalentModifiers() {
+        if (this._appliedTo.specialty) {
+            for (var talent of this.talents) {
+                var specialtyProvidesTalent = this._appliedTo.specialty.talents.find(characterTalent=> {
+                    return characterTalent.name === talent.name && characterTalent.specialization == talent.specialization;
+                });
+                if (specialtyProvidesTalent) {
+                    this._appliedTo.experience.available -= 100;
+                    this._appliedTo.experience.total -= 100;
+                } else {
+                    this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+                }
+            }
+        } else {
+            for (var talent of this.talents) {
+                this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+            }
+        }
+    }
+
+    protected unapplyWoundsModifier() {
         this._appliedTo.wounds.regimentModifier = 0;
-        super.unapply();
     }
 
     private _name:string;

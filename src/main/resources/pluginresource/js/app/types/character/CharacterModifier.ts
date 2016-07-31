@@ -74,70 +74,6 @@ export abstract class CharacterModifier {
         this._type = type;
     }
 
-    public apply(character:OnlyWarCharacter) {
-        this._appliedTo = character;
-        this.kit.forEach((count, item)=> {
-            var existingCount:number = character.kit.get(item);
-            if (existingCount) {
-                character.kit.set(item, existingCount + count);
-            } else {
-                character.kit.set(item, count);
-            }
-        });
-        for (var entry of this.skills.entries()) {
-            var existingSkill:Skill = character.skills.find(skill=> {
-                return angular.equals(entry[0], skill.identifier);
-            });
-            if (!existingSkill) {
-                existingSkill = new Skill(entry[0]);
-                character.skills.push(existingSkill)
-            }
-            existingSkill.addRankModifier(this);
-        }
-        this.talents.forEach(talentToAdd=> {
-            character.talents.push(talentToAdd);
-        });
-        this.traits.forEach(traitToAdd=> {
-            character.traits.push(traitToAdd);
-        });
-        this.aptitudes.forEach(aptitudeToAdd=> {
-            character.aptitudes.push(aptitudeToAdd);
-        });
-    }
-
-    public unapply() {
-        for (var entry of this.skills.entries()) {
-            var existingSkill:Skill = this._appliedTo.skills.find(skill=> {
-                return angular.equals(entry[0], skill.identifier);
-            });
-            if (existingSkill) {
-                existingSkill.removeRankModifier(this);
-                if (existingSkill.rank == 0) {
-                    this._appliedTo.skills.splice(this._appliedTo.skills.indexOf(existingSkill), 1);
-                }
-            }
-        }
-        for (var talent of this._talents) {
-            if (this._appliedTo.talents.indexOf(talent) !== -1) {
-                this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
-            }
-        }
-        for (var trait of this._traits) {
-            this._appliedTo.traits.splice(this._appliedTo.traits.indexOf(trait), 1);
-        }
-        this.aptitudes.forEach(aptitude=> {
-            this._appliedTo.aptitudes.splice(this._appliedTo.aptitudes.indexOf(aptitude), 1);
-        });
-        for (let entry of this._kit.entries()) {
-            if (this._appliedTo.kit.get(entry[0]) == entry[1]) {
-                this._appliedTo.kit.delete(entry[0]);
-            } else {
-                this._appliedTo.kit.set(entry[0], this._appliedTo.kit.get(entry[0]) - entry[1]);
-            }
-        }
-        this._appliedTo = null;
-    }
-
     get characteristics():Map < Characteristic, number > {
         return this._characteristics;
     }
@@ -172,6 +108,130 @@ export abstract class CharacterModifier {
 
     get type():OnlyWarCharacterModifierTypes {
         return this._type;
+    }
+
+    public apply(character:OnlyWarCharacter) {
+        this._appliedTo = character;
+        this.applyKitModifiers(character);
+        this.applySkillModifiers(character);
+        this.applyTalentModifiers(character);
+        this.applyTraitModifiers(character);
+        this.applyAptitudeModifiers(character);
+        this.applyWoundsModifier(character);
+        this.applyCharacteristicsModifiers(character);
+    }
+
+    public unapply() {
+        this.unapplyTalentModifiers();
+        this.unapplyTraitModifiers();
+        this.unapplyAptitudeModifiers();
+        this.unapplySkillModifiers();
+        this.unapplyWoundsModifier();
+        this.unapplyCharacteristicsModifiers();
+        this.unapplyKitModifiers();
+        this._appliedTo = null;
+    }
+
+    protected applyTalentModifiers(character:OnlyWarCharacter) {
+        this.talents.forEach(talentToAdd=> {
+            character.talents.push(talentToAdd);
+        });
+    }
+
+    protected applyKitModifiers(character:OnlyWarCharacter) {
+        this.kit.forEach((count, item)=> {
+            var existingCount:number = character.kit.get(item);
+            if (existingCount) {
+                character.kit.set(item, existingCount + count);
+            } else {
+                character.kit.set(item, count);
+            }
+        });
+    }
+
+    protected applySkillModifiers(character:OnlyWarCharacter) {
+        for (var entry of this.skills.entries()) {
+            var existingSkill:Skill = character.skills.find(skill=> {
+                return angular.equals(entry[0], skill.identifier);
+            });
+            if (!existingSkill) {
+                existingSkill = new Skill(entry[0]);
+                character.skills.push(existingSkill)
+            }
+            existingSkill.addRankModifier(this);
+        }
+    }
+
+    protected applyTraitModifiers(character:OnlyWarCharacter) {
+        this.traits.forEach(traitToAdd=> {
+            character.traits.push(traitToAdd);
+        });
+    }
+
+    protected applyAptitudeModifiers(character:OnlyWarCharacter) {
+        this.aptitudes.forEach(aptitudeToAdd=> {
+            character.aptitudes.push(aptitudeToAdd);
+        });
+    }
+
+    protected applyWoundsModifier(character:OnlyWarCharacter) {
+
+    }
+
+    protected applyCharacteristicsModifiers(character:OnlyWarCharacter) {
+
+    }
+
+    protected unapplyTalentModifiers() {
+        for (var talent of this._talents) {
+            if (this._appliedTo.talents.indexOf(talent) !== -1) {
+                this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+            }
+        }
+    }
+
+    protected unapplyTraitModifiers() {
+        for (var trait of this._traits) {
+            this._appliedTo.traits.splice(this._appliedTo.traits.indexOf(trait), 1);
+        }
+    }
+
+    protected unapplyAptitudeModifiers() {
+        this.aptitudes.forEach(aptitude=> {
+            this._appliedTo.aptitudes.splice(this._appliedTo.aptitudes.indexOf(aptitude), 1);
+        });
+    }
+
+    protected unapplyKitModifiers() {
+        for (let entry of this._kit.entries()) {
+            if (this._appliedTo.kit.get(entry[0]) == entry[1]) {
+                this._appliedTo.kit.delete(entry[0]);
+            } else {
+                this._appliedTo.kit.set(entry[0], this._appliedTo.kit.get(entry[0]) - entry[1]);
+            }
+        }
+    }
+
+    protected unapplySkillModifiers() {
+        for (var entry of this.skills.entries()) {
+            var existingSkill:Skill = this._appliedTo.skills.find(skill=> {
+                return angular.equals(entry[0], skill.identifier);
+            });
+            if (existingSkill) {
+                existingSkill.removeRankModifier(this);
+                if (existingSkill.rank == 0) {
+                    this._appliedTo.skills.splice(this._appliedTo.skills.indexOf(existingSkill), 1);
+                }
+            }
+        }
+    }
+
+    protected unapplyWoundsModifier() {
+
+    }
+
+    protected unapplyCharacteristicsModifiers() {
+
     }
 }
 

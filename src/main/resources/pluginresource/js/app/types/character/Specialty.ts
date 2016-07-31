@@ -30,11 +30,7 @@ export class Specialty extends CharacterModifier {
 
     public apply(character:OnlyWarCharacter) {
         super.apply(character);
-        character.wounds.specialtyModifier = this.wounds;
-        for (var entry of this.characteristics.entries()) {
-            character.characteristics.get(entry[0]).specialtyModifier = entry[1];
-        }
-        switch (this._specialtyType) {
+        switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
                 character.experience.available += 600;
                 break;
@@ -45,8 +41,7 @@ export class Specialty extends CharacterModifier {
     }
 
     public unapply() {
-        this._appliedTo.wounds.specialtyModifier = 0;
-        switch (this._specialtyType) {
+        switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
                 this._appliedTo.experience.available -= 600;
                 this._appliedTo.experience.total -= 600;
@@ -57,7 +52,66 @@ export class Specialty extends CharacterModifier {
                 break;
         }
         super.unapply();
-    };
+    }
+
+    protected applyCharacteristicsModifiers(character:OnlyWarCharacter) {
+        for (var entry of this.characteristics.entries()) {
+            character.characteristics.get(entry[0]).specialtyModifier = entry[1];
+        }
+    }
+
+    protected applyWoundsModifier(character:OnlyWarCharacter) {
+        character.wounds.specialtyModifier = this.wounds;
+    }
+
+    protected applyTalentModifiers(character:OnlyWarCharacter) {
+        if (character.regiment) {
+            for (var talent of this.talents) {
+                var regimentProvidesTalent = character.regiment.talents.find(characterTalent=> {
+                    return characterTalent.name === talent.name && characterTalent.specialization == talent.specialization;
+                });
+                if (regimentProvidesTalent) {
+                    character.experience.available += 100;
+                } else {
+                    character.talents.push(talent);
+                }
+            }
+        } else {
+            for (var talent of this.talents) {
+                character.talents.push(talent);
+            }
+        }
+    }
+
+    public unapplyCharacteristicsModifiers() {
+        for (var entry of this.characteristics.entries()) {
+            this._appliedTo.characteristics.get(entry[0]).specialtyModifier = 0;
+        }
+    }
+
+    protected unapplyTalentModifiers() {
+        if (this._appliedTo.regiment) {
+            for (var talent of this.talents) {
+                var regimentProvidesTalent = this._appliedTo.regiment.talents.find(characterTalent=> {
+                    return characterTalent.name === talent.name && characterTalent.specialization == talent.specialization;
+                });
+                if (regimentProvidesTalent) {
+                    this._appliedTo.experience.available -= 100;
+                    this._appliedTo.experience.total -= 100;
+                } else {
+                    this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+                }
+            }
+        } else {
+            for (var talent of this.talents) {
+                this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(talent), 1);
+            }
+        }
+    }
+
+    protected unapplyWoundsModifier() {
+        this._appliedTo.wounds.specialtyModifier = 0;
+    }
 
     get name():string {
         return this._name;
