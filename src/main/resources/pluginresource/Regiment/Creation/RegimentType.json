@@ -153,9 +153,7 @@
         "options": [
           [
             {
-              "property": [
-                "character kit"
-              ],
+              "property": "character kit",
               "value": {
                 "item": {
                   "name": "Sentinel Scout Walker"
@@ -166,10 +164,7 @@
           ],
           [
             {
-              "property": [
-                "character kit",
-                "other gear"
-              ],
+              "property": "character kit",
               "value": {
                 "item": {
                   "name": "Hellhound Support Tank"
@@ -463,22 +458,22 @@
         "options": [
           [
             {
-              "property": [
-                "character kit",
-                "other gear"
-              ],
+              "property": "character kit",
               "value": {
-                "Basilisk": 1
+                "item": {
+                  "name": "Basilisk"
+                },
+                "count": 1
               }
             }
           ],
           {
-            "property": [
-              "character kit",
-              "other gear"
-            ],
+            "property": "character kit",
             "value": {
-              "Mortar": 1
+              "item": {
+                "name": "Mortar"
+              },
+              "count": 1
             }
           }
         ]
