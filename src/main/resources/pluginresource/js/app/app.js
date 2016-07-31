@@ -29,7 +29,9 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("characteristics", {
                 url: "/characteristics",
                 templateUrl: "pluginresource/templates/characteristics.html",
-                controller: characteristicsController,
+                controller: function ($scope, $uibModal, $state, characterService, dice) {
+                    return new characteristicsController($scope, $uibModal, $state, characterService, dice);
+                },
                 data: {
                     complete: false
                 }
@@ -43,7 +45,9 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("finalize", {
                 url: "/finalize",
                 templateUrl: "pluginresource/templates/finalize.html",
-                controller: finalizeController.FinalizePageController,
+                controller: function ($q, $scope, characterService, characteroptions, dice) {
+                    return new finalizeController.FinalizePageController($q, $scope, characterService, characteroptions, dice);
+                },
                 data: {
                     complete: false
                 }
@@ -90,7 +94,9 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         app.factory("selection", selectionService);
         app.factory("optionselection", optionSelection);
         app.factory("characterService", characterService);
-        app.factory("characteroptions", characterOptions.CharacterOptionsService);
+        app.factory("characteroptions", function ($resource, $q, $log) {
+            return new characterOptions.CharacterOptionsService($resource, $q, $log);
+        });
         app.factory("dice", diceService);
         app.factory("characteristicTooltipService", characteristicTooltipService);
         app.factory("armorTooltipService", armorTooltipService);
@@ -99,8 +105,12 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             return cookies
         });
         app.factory("tutorials", tutorials);
-        app.service("regiments", regimentsProvider.RegimentService);
-        app.factory("specialties", specialtyProvider.SpecialtyService);
+        app.service("regiments", function ($resource, $q, characteroptions, placeholders) {
+            return new regimentsProvider.RegimentService($resource, $q, characteroptions, placeholders);
+        });
+        app.factory("specialties", function ($resource, $q, characteroptions, placeholders) {
+            return new specialtyProvider.SpecialtyService($resource, $q, characteroptions, placeholders);
+        });
         app.factory("placeholders", function ($q, characteroptions) {
             return $q.all({
                 armor: characteroptions.armor,
