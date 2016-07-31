@@ -502,7 +502,8 @@
             {
               "property": "characteristic",
               "value": {
-                "Ballistic Skill": 5
+                "characteristic": "Ballistic Skill",
+                "rating": 5
               }
             }
           ],
@@ -510,7 +511,8 @@
             {
               "property": "characteristic",
               "value": {
-                "Weapon Skill": 5
+                "characteristic": "Weapon Skill",
+                "rating": 5
               }
             }
           ]
