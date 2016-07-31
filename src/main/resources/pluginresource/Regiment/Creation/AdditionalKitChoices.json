@@ -313,7 +313,7 @@
     "maxSelectCount": 1,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -330,10 +330,10 @@
     "maxSelectCount": 1,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
-          "other gear": {
+          "item": {
             "name": "Clip/Drop Harness"
           },
           "count": 1
@@ -346,7 +346,7 @@
     "cost": 2,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -362,7 +362,7 @@
     "cost": 5,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -379,7 +379,7 @@
     "effect": [
       {
         "type": "Add",
-        "target": "other gear",
+        "target": "character kit",
         "results": [
           {
             "item": {
@@ -396,7 +396,7 @@
     "cost": 3,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -412,7 +412,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -428,7 +428,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -444,7 +444,7 @@
     "cost": 15,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -467,7 +467,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": {
         "item": {
           "name": "Purity Seals"
@@ -481,7 +481,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": {
         "item": {
           "name": "Respirator/Gas Mask"
@@ -495,7 +495,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -511,7 +511,7 @@
     "cost": 15,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -536,7 +536,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -552,7 +552,7 @@
     "cost": 3,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -575,7 +575,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -598,7 +598,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -614,7 +614,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -639,7 +639,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -655,7 +655,7 @@
     "cost": 5,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -671,7 +671,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -687,7 +687,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -703,7 +703,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -719,7 +719,7 @@
     "cost": 10,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -735,7 +735,7 @@
     "cost": 8,
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
@@ -758,7 +758,7 @@
     },
     "effect": {
       "type": "Add",
-      "target": "other gear",
+      "target": "character kit",
       "results": [
         {
           "item": {
