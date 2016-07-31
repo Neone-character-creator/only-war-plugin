@@ -1,3 +1,3 @@
-This is a webapp designed for use in my NEOne Character Creator umbrella project.
+This is a webapp designed for use in the NEOne Character Creator umbrella project: https://bitbucket.org/ThisIsNoZaku/neone-character-builder-core
 
-This webapp lets users create characters for Fantasy Flight Games Only War RPG.
+This project is a single-page application based on AngularJS.
