@@ -130,7 +130,53 @@ describe("The character", ()=> {
             var advancement = new TalentAdvancement(talent);
             theCharacter.experience.addAdvancement(advancement);
             expect(theCharacter.experience.addAdvancement(advancement)).toEqual(false);
-        })
+        });
+        it("must provide 100 bonus xp for each duplicate Talent that the Specialty and Regiment both provide with the same name an specialization", ()=> {
+            var talent = new Talent("Test Talent", "Test", 1, [], false);
+            var talents = [talent];
+            var specialty = new SpecialtyBuilder().setTalents(talents).setSpecialtyType(SpecialtyType.Guardsman).build();
+            var regiment = new RegimentBuilder().setTalents(talents).build();
+            theCharacter.specialty = specialty;
+            theCharacter.regiment = regiment;
+            expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
+            expect(theCharacter.talents.length).toEqual(1);
+            expect(theCharacter.experience.available).toEqual(700);
+            expect(theCharacter.experience.total).toEqual(700);
+        });
+        it("must refund the bonus xp for duplicate Talents when removing the character Specialty that provides such bonus xp", ()=> {
+            var talent = new Talent("Test Talent", "Test", 1, [], false);
+            var talents = [talent];
+            var specialty = new SpecialtyBuilder().setTalents(talents).setSpecialtyType(SpecialtyType.Guardsman).build();
+            var regiment = new RegimentBuilder().setTalents(talents).build();
+            theCharacter.specialty = specialty;
+            theCharacter.regiment = regiment;
+            expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
+            expect(theCharacter.talents.length).toEqual(1);
+            expect(theCharacter.experience.available).toEqual(700);
+            expect(theCharacter.experience.total).toEqual(700);
+            theCharacter.specialty = null;
+            expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
+            expect(theCharacter.talents.length).toEqual(1);
+            expect(theCharacter.experience.available).toEqual(0);
+            expect(theCharacter.experience.total).toEqual(0);
+        });
+        it("must refund the bonus xp for duplicate Talents when removing the character Regiment that provides such bonus xp", ()=> {
+            var talent = new Talent("Test Talent", "Test", 1, [], false);
+            var talents = [talent];
+            var specialty = new SpecialtyBuilder().setTalents(talents).setSpecialtyType(SpecialtyType.Guardsman).build();
+            var regiment = new RegimentBuilder().setTalents(talents).build();
+            theCharacter.specialty = specialty;
+            theCharacter.regiment = regiment;
+            expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
+            expect(theCharacter.talents.length).toEqual(1);
+            expect(theCharacter.experience.available).toEqual(700);
+            expect(theCharacter.experience.total).toEqual(700);
+            theCharacter.regiment = null;
+            expect(theCharacter.talents.indexOf(talent)).not.toEqual(-1);
+            expect(theCharacter.talents.length).toEqual(1);
+            expect(theCharacter.experience.available).toEqual(600);
+            expect(theCharacter.experience.total).toEqual(600);
+        });
     });
     describe("traits", function () {
         it("must exist", ()=> {
