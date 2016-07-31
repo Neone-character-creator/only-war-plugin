@@ -32,12 +32,16 @@ export class OnlyWarCharacter {
     private _speeds:SpeedContainer = new SpeedContainer(this);
     private _fatePoints:Number = 0;
     private _experience:ExperienceContainer;
-    private _aptitudes:Array<string> = [];
+    private _aptitudes:Array<string> = ["General"];
     private _powers:PsychicPowersContainer = new PsychicPowersContainer();
     private _fatigue:Number;
     get fatigue /* istanbul ignore next */
     ():Number {
         return this._fatigue;
+    }
+
+    set aptitudes(value:Array<string>) {
+        this._aptitudes = value;
     }
 
     set fatigue(value:Number) {
