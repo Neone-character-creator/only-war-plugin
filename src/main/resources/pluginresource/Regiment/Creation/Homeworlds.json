@@ -31,28 +31,28 @@
         "options": [
           [
             {
-              "description": "Perception +3",
               "property": "characteristic",
               "value": {
-                "Perception": 3
+                "characteristic": "Perception",
+                "rating": 3
               }
             }
           ],
           [
             {
-              "description": "Strength +3",
               "property": "characteristic",
               "value": {
-                "Strength": 3
+                "characteristic": "Strength",
+                "rating": 3
               }
             }
           ],
           [
             {
-              "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ]
@@ -123,7 +123,8 @@
               "description": "Ballistic Skill +3",
               "property": "characteristic",
               "value": {
-                "Ballistic Skill": 3
+                "characteristic": "Ballistic Skill",
+                "rating": 3
               }
             }
           ],
@@ -132,7 +133,8 @@
               "description": "Willpower +3",
               "property": "characteristic",
               "value": {
-                "Willpower": 3
+                "characteristic": "Willpower",
+                "rating": 3
               }
             }
           ],
@@ -141,7 +143,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ]
@@ -211,19 +214,19 @@
         "options": [
           [
             {
-              "description": "Fellowship +3",
               "property": "characteristic",
               "value": {
-                "Fellowship": 3
+                "characteristic": "Fellowship",
+                "rating": 3
               }
             }
           ],
           [
             {
-              "description": "Intelligence +3",
               "property": "characteristic",
               "value": {
-                "Intelligence": 3
+                "characteristic": "Intelligence",
+                "rating": 3
               }
             }
           ],
@@ -232,7 +235,8 @@
               "description": "Weapon Skill +3",
               "property": "characteristic",
               "value": {
-                "Weapon Skill": 3
+                "characteristic": "Weapon Skill",
+                "rating": 3
               }
             }
           ]
@@ -294,10 +298,10 @@
         "options": [
           [
             {
-              "description": "Agility +3",
               "property": "characteristic",
               "value": {
-                "Agility": 3
+                "characteristic": "Agility",
+                "rating": 3
               }
             }
           ],
@@ -306,7 +310,8 @@
               "description": "Fellowship +3",
               "property": "characteristic",
               "value": {
-                "Fellowship": 3
+                "characteristic": "Fellowship",
+                "rating": 3
               }
             }
           ],
@@ -315,7 +320,8 @@
               "description": "Perception +3",
               "property": "characteristic",
               "value": {
-                "Perception": 3
+                "characteristic": "Perception",
+                "rating": 3
               }
             }
           ]
@@ -381,7 +387,8 @@
               "description": "Ballistic Skill +3",
               "property": "characteristic",
               "value": {
-                "Ballistic Skill": 3
+                "characteristic": "Ballistic Skill",
+                "rating": 3
               }
             }
           ],
@@ -390,7 +397,8 @@
               "description": "Weapon Skill +3",
               "property": "characteristic",
               "value": {
-                "Weapon Skill": 3
+                "characteristic": "Weapon Skill",
+                "value": 3
               }
             }
           ],
@@ -399,7 +407,8 @@
               "description": "Strength +3",
               "property": "characteristic",
               "value": {
-                "Strength": 3
+                "characteristic": "Strength",
+                "value": 3
               }
             }
           ],
@@ -408,7 +417,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "value": 3
               }
             }
           ],
@@ -417,7 +427,8 @@
               "description": "Agility +3",
               "property": "characteristic",
               "value": {
-                "Agility": 3
+                "characteristic": "Agility",
+                "rating": 3
               }
             }
           ],
@@ -426,7 +437,8 @@
               "description": "Intelligence +3",
               "property": "characteristic",
               "value": {
-                "Intelligence": 3
+                "characteristic": "Intelligence",
+                "rating": 3
               }
             }
           ],
@@ -435,7 +447,8 @@
               "description": "Fellowship +3",
               "property": "characteristic",
               "value": {
-                "Fellowship": 3
+                "characteristic": "Fellowship",
+                "rating": 3
               }
             }
           ],
@@ -444,7 +457,8 @@
               "description": "Perception +3",
               "property": "characteristic",
               "value": {
-                "Perception": 3
+                "characteristic": "Perception",
+                "rating": 3
               }
             }
           ]
@@ -493,7 +507,8 @@
               "description": "Agility +3",
               "property": "characteristic",
               "value": {
-                "Agility": 3
+                "characteristic": "Agility",
+                "rating": 3
               }
             }
           ],
@@ -502,7 +517,8 @@
               "description": "Strength +3",
               "property": "characteristic",
               "value": {
-                "Strength": 3
+                "characteristic": "Strength",
+                "rating": 3
               }
             }
           ],
@@ -511,7 +527,8 @@
               "description": "Toughess +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ]
@@ -577,7 +594,8 @@
               "description": "Fellowship +3",
               "property": "characteristic",
               "value": {
-                "Fellowship": 3
+                "characteristic": "Fellowship",
+                "rating": 3
               }
             }
           ],
@@ -586,7 +604,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ],
@@ -595,7 +614,8 @@
               "description": "Willpower +3",
               "property": "characteristic",
               "value": {
-                "Willpower": 3
+                "characteristic": "Willpower",
+                "rating": 3
               }
             }
           ]
@@ -665,7 +685,8 @@
             {
               "property": "characteristic",
               "value": {
-                "Weapon Skill": 3
+                "characteristic": "Weapon Skill",
+                "rating": 3
               }
             }
           ],
@@ -673,7 +694,8 @@
             {
               "property": "characteristic",
               "value": {
-                "Ballistic Skill": 3
+                "characteristic": "Ballistic Skill",
+                "rating": 3
               }
             }
           ]
@@ -737,7 +759,8 @@
               "description": "Fellowship +3",
               "property": "characteristic",
               "value": {
-                "Fellowship": 3
+                "characteristic": "Fellowship",
+                "rating": 3
               }
             }
           ],
@@ -746,7 +769,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ],
@@ -755,7 +779,8 @@
               "description": "Willpower +3",
               "property": "characteristic",
               "value": {
-                "Willpower": 3
+                "characteristic": "Willpower",
+                "rating": 3
               }
             }
           ]
@@ -825,7 +850,8 @@
               "description": "Perception +3",
               "property": "characteristic",
               "value": {
-                "Perception": 3
+                "characteristic": "Perception",
+                "rating": 3
               }
             }
           ],
@@ -834,7 +860,8 @@
               "description": "Strength +3",
               "property": "characteristic",
               "value": {
-                "Strength": 3
+                "characteristic": "Strength",
+                "rating": 3
               }
             }
           ],
@@ -843,7 +870,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ]
@@ -910,7 +938,8 @@
               "description": "Fellowship +3",
               "property": "characteristic",
               "value": {
-                "Fellowship": 3
+                "characteristic": "Fellowship",
+                "rating": 3
               }
             }
           ],
@@ -919,7 +948,8 @@
               "description": "Strength +3",
               "property": "characteristic",
               "value": {
-                "Strength": 3
+                "characteristic": "Strength",
+                "rating": 3
               }
             }
           ],
@@ -928,7 +958,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness:": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ]
@@ -971,7 +1002,8 @@
               "description": "Weapon Skill +3",
               "property": "characteristic",
               "value": {
-                "Weapon Skill": 3
+                "characteristic": "Weapon Skill",
+                "rating": 3
               }
             }
           ],
@@ -980,7 +1012,8 @@
               "description": "Strength +3",
               "property": "characteristic",
               "value": {
-                "Strength": 3
+                "characteristic": "Strength",
+                "rating": 3
               }
             }
           ],
@@ -989,7 +1022,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ]
@@ -1056,7 +1090,8 @@
               "description": "Intelligence +3",
               "property": "characteristic",
               "value": {
-                "Intelligence": 3
+                "characteristic": "Intelligence",
+                "rating": 3
               }
             }
           ],
@@ -1065,7 +1100,8 @@
               "description": "Perception +3",
               "property": "characteristic",
               "value": {
-                "Perception": 3
+                "characteristic": "Perception",
+                "rating": 3
               }
             }
           ],
@@ -1074,7 +1110,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ]
@@ -1138,7 +1175,8 @@
               "description": "Agility +3",
               "property": "characteristic",
               "value": {
-                "Agility": 3
+                "characteristic": "Agility",
+                "rating": 3
               }
             }
           ],
@@ -1147,7 +1185,8 @@
               "description": "Ballistic Skill +3",
               "property": "characteristic",
               "value": {
-                "Ballistic Skill": 3
+                "characteristic": "Ballistic Skill",
+                "rating": 3
               }
             }
           ],
@@ -1156,7 +1195,8 @@
               "description": "Perception +3",
               "property": "characteristic",
               "value": {
-                "Perception": 3
+                "characteristic": "Perception",
+                "rating": 3
               }
             }
           ]
@@ -1221,7 +1261,8 @@
               "description": "Agility +3",
               "property": "characteristic",
               "value": {
-                "Agility": 3
+                "characteristic": "Agility",
+                "rating": 3
               }
             }
           ],
@@ -1230,7 +1271,8 @@
               "description": "Toughness +3",
               "property": "characteristic",
               "value": {
-                "Toughness": 3
+                "characteristic": "Toughness",
+                "rating": 3
               }
             }
           ],
@@ -1239,7 +1281,8 @@
               "description": "Perception +3",
               "property": "characteristic",
               "value": {
-                "Perception": 3
+                "characteristic": "Perception",
+                "rating": 3
               }
             }
           ]

@@ -49,7 +49,7 @@
                 <ul>
                     <li ng-repeat="characteristic in selectedCharacteristics">
                         {{characteristic.name}} :
-                        {{characteristic.name > 0 ?
+                        {{characteristic.value > 0 ?
                         '+' +
                         characteristic.value :
                         characteristic.value}}

@@ -8,12 +8,6 @@ import {Aptitudes} from "../types/character/Aptitudes";
  * Created by Damien on 7/29/2016.
  */
 export class FinalizePageController {
-    private $q;
-    private $scope;
-    private characterService;
-    private characteroption;
-    private dice;
-
 
     constructor($q, $scope, characterService, characteroptions, dice) {
         $q.all({
@@ -166,4 +160,10 @@ export class FinalizePageController {
             });
         })
     }
+
+    private $q;
+    private $scope;
+    private characterService;
+    private characteroption;
+    private dice;
 }

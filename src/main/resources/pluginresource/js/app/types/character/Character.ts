@@ -345,7 +345,6 @@ class ExperienceContainer {
      * @param value
      */
     public set available(value:number) {
-        this._total += value - this._available;
         this._available = value;
     }
 
@@ -395,7 +394,6 @@ class ExperienceContainer {
                     return false;
                 }
         }
-        this._available -= advancement.calculateExperienceCost(this._character);
         this._advances.push(advancement);
         advancement.apply(this._character);
         return true;
@@ -404,7 +402,6 @@ class ExperienceContainer {
     public removeAdvancement(advancement:CharacterAdvancement) {
         advancement.unapply();
         this._advances.splice(this._advances.indexOf(advancement));
-        this._available += advancement.calculateExperienceCost(this._character);
     }
 }
 

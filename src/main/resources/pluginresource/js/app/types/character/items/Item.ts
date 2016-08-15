@@ -2,15 +2,15 @@
  * Created by Damien on 6/29/2016.
  */
 export class Item {
-    private _name:String;
-    private _craftsmanship:Craftsmanship;
-    private _weight:Number;
-    private _availability:Availability;
+    private _name:string;
+    private _craftsmanship:string;
+    private _weight:number;
+    private _availability:string;
     private _type:ItemType;
+    private _upgrades:Array<string>;
 
-    constructor(name:String, type:ItemType, availability:Availability, weight?:Number, craftsmanship?:Craftsmanship) {
+    constructor(name:string, type:ItemType, availability:string, weight?:number, upgrades?:Array<string>, craftsmanship?:string, isMainWeapon?:boolean) {
         this._name = name;
-        this._craftsmanship = craftsmanship;
         this._availability = availability;
         if (weight) {
             this._weight = weight;
@@ -20,55 +20,39 @@ export class Item {
         if (craftsmanship) {
             this._craftsmanship = craftsmanship;
         } else {
-            this._craftsmanship = Craftsmanship.Common;
+            this._craftsmanship = "Common";
         }
         this._type = type;
+        this._upgrades = upgrades;
     }
 
-    get name():String {
+    get name():string {
         return this._name;
     }
 
-    get craftsmanship():Craftsmanship {
+    get craftsmanship():string {
         return this._craftsmanship;
     }
 
-    get weight():Number {
+    get weight():number {
         return this._weight;
     }
 
-    get availability():Availability {
+    get availability():string {
         return this._availability;
     }
     
     get type():ItemType {
         return this._type;
     }
-}
 
-export enum Craftsmanship{
-    Poor = 1,
-    Common,
-    Good,
-    Best
+    get upgrades():Array<string> {
+        return this._upgrades;
+    }
 }
 
 export enum ItemType{
     Weapon,
     Armor,
     Other
-}
-
-export enum Availability{
-    Ubiquitous,
-    Abundant,
-    Plentiful,
-    Common,
-    Average,
-    Scarce,
-    Rare,
-    Very_Rare,
-    Extremely_Rare,
-    Near_Unique,
-    Unique
 }

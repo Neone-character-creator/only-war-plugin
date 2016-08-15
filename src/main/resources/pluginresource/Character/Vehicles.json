@@ -33,7 +33,7 @@
         ],
         "additional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Bolter",
@@ -52,7 +52,7 @@
         ],
         "optional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     [
                         {
@@ -87,7 +87,7 @@
                 ]
             },
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Stubber",
@@ -135,7 +135,7 @@
         ],
         "additional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Bolter",
@@ -154,7 +154,7 @@
         ],
         "optional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     [
                         {
@@ -199,7 +199,7 @@
                 ]
             },
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Stubber",
@@ -248,7 +248,7 @@
         ],
         "additional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Bolter",
@@ -267,7 +267,7 @@
         ],
         "optional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     [
                         {
@@ -302,7 +302,7 @@
                 ]
             },
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Stubber",
@@ -343,7 +343,7 @@
         "primary weapons": [],
         "additional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Multi-Laser",
@@ -364,7 +364,7 @@
                 ]
             },
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Bolter",
@@ -379,7 +379,7 @@
         ],
         "optional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Stubber",
@@ -424,7 +424,7 @@
         ],
         "additional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Bolter",
@@ -439,7 +439,7 @@
         ],
         "optional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Stubber",
@@ -486,7 +486,7 @@
         ],
         "additional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Bolter",
@@ -501,7 +501,7 @@
         ],
         "optional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Stubber",
@@ -539,7 +539,7 @@
         "primary weapons": [],
         "additional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Multi-Laser",
@@ -622,7 +622,7 @@
         "additional weapons": [],
         "optional weapons": [
             {
-                "selections": 1,
+                "numSelectionsNeeded": 1,
                 "options": [
                     {
                         "name": "Heavy Stubber",

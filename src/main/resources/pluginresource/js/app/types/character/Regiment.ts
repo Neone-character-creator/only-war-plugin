@@ -24,7 +24,7 @@ export class Regiment extends CharacterModifier {
                 kit:Map<Item, number>,
                 wounds:number,
                 optionalModifiers:Array<SelectableModifier>,
-                favoredWeapons:Array<Weapon>,
+                favoredWeapons:Map<string, Weapon>,
                 specialAbilities:Array<SpecialAbility>) {
         super(characteristics, skills, talents, aptitudes, traits, kit, wounds, 0, OnlyWarCharacterModifierTypes.REGIMENT);
         this._name = name;
@@ -34,7 +34,7 @@ export class Regiment extends CharacterModifier {
     }
 
     private _optionalModifiers:Array<SelectableModifier>
-    private _favoredWeapons:Array<Weapon>;
+    private _favoredWeapons:Map<string, Weapon>;
     private _specialAbilities:Array<SpecialAbility>;
 
     protected applyCharacteristicsModifiers(character:OnlyWarCharacter) {
@@ -55,6 +55,7 @@ export class Regiment extends CharacterModifier {
                 });
                 if (specialtyProvidesTalent) {
                     character.experience.available += 100;
+                    character.experience.total += 100;
                 } else {
                     character.talents.push(talent);
                 }
@@ -102,7 +103,7 @@ export class Regiment extends CharacterModifier {
         return this._name;
     }
 
-    get favoredWeapons():Array<Weapon> {
+    get favoredWeapons():Map<string, Weapon> {
         return this._favoredWeapons;
     }
 
@@ -127,7 +128,7 @@ export class RegimentBuilder {
     private _aptitudes:Array<string> = [];
     private _kit:Map<Item,number> = new Map();
     private _wounds:number = 0;
-    private _favoredWeapons:Array<Weapon> = [];
+    private _favoredWeapons:Map<string,Weapon> = new Map();
     private _optionalModifiers:Array<SelectableModifier> = [];
     private _specialAbilities:Array<SpecialAbility> = [];
 
@@ -136,7 +137,7 @@ export class RegimentBuilder {
             this._traits, this._kit, this._wounds, this._optionalModifiers, this._favoredWeapons, this._specialAbilities);
     }
 
-    setFavoredWeapons(value:Array<Weapon>) {
+    setFavoredWeapons(value:Map<string, Weapon>) {
         this._favoredWeapons = value;
         return this;
     }
@@ -224,7 +225,7 @@ export class RegimentBuilder {
         return this._wounds;
     }
 
-    get favoredWeapons():Array<Weapon> {
+    get favoredWeapons():Map<string, Weapon> {
         return this._favoredWeapons;
     }
 

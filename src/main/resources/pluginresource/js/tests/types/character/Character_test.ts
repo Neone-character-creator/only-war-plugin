@@ -8,7 +8,7 @@ import {Regiment, RegimentBuilder} from "../../../app/types/character/Regiment";
 import {Specialty, SpecialtyType, SpecialtyBuilder} from "../../../app/types/character/Specialty";
 import {Talent} from "../../../app/types/character/Talent";
 import {Trait} from "../../../app/types/character/Trait";
-import {Item, Craftsmanship, ItemType, Availability} from "../../../app/types/character/items/Item";
+import {Item, ItemType} from "../../../app/types/character/items/Item";
 import {Skill, SkillDescription} from "../../../app/types/character/Skill";
 import {
     TalentAdvancement,
@@ -209,21 +209,21 @@ describe("The character", ()=> {
     });
     describe("kit", function () {
         it("must allow for adding items from the regiment", function () {
-            var item = new Item("", ItemType.Other, Availability.Abundant);
+            var item = new Item("", ItemType.Other, "Abundant");
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
             theCharacter.regiment = new RegimentBuilder().setKit(items).build();
             expect(theCharacter.kit.get(item)).toEqual(1);
         });
         it("must allow for adding items from the specialty", function () {
-            var item = new Item("", ItemType.Other, Availability.Abundant);
+            var item = new Item("", ItemType.Other, "Abundant");
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
             theCharacter.specialty = new SpecialtyBuilder().setSpecialtyType(SpecialtyType.Guardsman).setKit(items).build();
             expect(theCharacter.kit.get(item)).toEqual(1);
         });
         it("must increase the count of an item when trying to add an identical item to the character", ()=> {
-            var item = new Item("", ItemType.Other, Availability.Abundant);
+            var item = new Item("", ItemType.Other, "Abundant");
             var items:Map<Item, number> = new Map<Item, number>();
             items.set(item, 1);
             theCharacter.specialty = new SpecialtyBuilder().setSpecialtyType(SpecialtyType.Guardsman).setKit(items).build();
@@ -275,23 +275,10 @@ describe("The character", ()=> {
         it("exists", function () {
             expect(theCharacter.experience).toBeDefined();
         });
-        it("allows adding to the characters available experience and recalculates total experience when setting it", function () {
-            theCharacter.experience.available = 100;
-            expect(theCharacter.experience.available).toEqual(100);
-            expect(theCharacter.experience.total).toEqual(100);
-        });
-        it("recalculate available experience after spending some", function () {
-            theCharacter.experience.available = 500;
-            var advancement = new CharacteristicAdvancement(Characteristic.characteristics.get("Agility"));
-            theCharacter.experience.addAdvancement(advancement);
-            expect(theCharacter.experience.total).toEqual(500);
-            expect(theCharacter.experience.available).toEqual(0);
-        });
         it("allows improving the character characteristics by spending xp", function () {
             theCharacter.experience.available = 500;
             theCharacter.experience.addAdvancement(new CharacteristicAdvancement(Characteristic.characteristics.get("Agility")));
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).total).toEqual(5);
-            expect(theCharacter.experience.total).toEqual(500);
             expect(theCharacter.experience.available).toEqual(0);
         });
         it("allows removing an advancement that improves characteristics from the character, regaining the spent xp", function () {
@@ -299,42 +286,35 @@ describe("The character", ()=> {
             var advancement = new CharacteristicAdvancement(Characteristic.characteristics.get("Agility"));
             theCharacter.experience.addAdvancement(advancement);
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).total).toEqual(5);
-            expect(theCharacter.experience.total).toEqual(500);
             expect(theCharacter.experience.available).toEqual(0);
             theCharacter.experience.removeAdvancement(advancement);
             expect(theCharacter.characteristics.get(Characteristic.characteristics.get("Agility")).total).toEqual(0);
-            expect(theCharacter.experience.total).toEqual(500);
             expect(theCharacter.experience.available).toEqual(500);
         });
         it("allows improving the character skills by spending xp", function () {
             theCharacter.experience.available = 300;
             theCharacter.experience.addAdvancement(new SkillAdvancement(new SkillDescription("Command", [])));
             expect(theCharacter.skills[0].rank).toEqual(1);
-            expect(theCharacter.experience.total).toEqual(300);
             expect(theCharacter.experience.available).toEqual(0);
         });
         it("allows adding a talent to the character by spending xp", function () {
             theCharacter.experience.available = 600;
             theCharacter.experience.addAdvancement(new TalentAdvancement(new Talent("", "", 1, [])));
             expect(theCharacter.talents[0]).toBeDefined();
-            expect(theCharacter.experience.total).toEqual(600);
             expect(theCharacter.experience.available).toEqual(0);
         });
         it("allows adding a psychic power to the character by spending xp", function () {
             theCharacter.experience.available = 100;
             theCharacter.experience.addAdvancement(new PsychicPowerAdvancement(new PsychicPower("", 100)));
             expect(theCharacter.powers.powers[0]).toBeDefined();
-            expect(theCharacter.experience.total).toEqual(100);
             expect(theCharacter.experience.available).toEqual(0);
         });
         it("allows removing an advancement that gives a talent from the character, regaining the spent xp and removing the talent", function () {
             theCharacter.experience.available = 600;
             var advancement = new TalentAdvancement(new Talent("", "", 1, []));
             theCharacter.experience.addAdvancement(advancement);
-            expect(theCharacter.experience.total).toEqual(600);
             expect(theCharacter.experience.available).toEqual(0);
             theCharacter.experience.removeAdvancement(advancement);
-            expect(theCharacter.experience.total).toEqual(600);
             expect(theCharacter.experience.available).toEqual(600);
             expect(theCharacter.talents.length).toEqual(0);
         });
@@ -345,7 +325,6 @@ describe("The character", ()=> {
             var thePower = new PsychicPower("", 200);
             theCharacter.experience.addAdvancement(new PsychicPowerAdvancement(thePower));
             expect(theCharacter.experience.available).toEqual(0);
-            expect(theCharacter.experience.total).toEqual(200);
         });
         it("will be paid with bonus xp if the character has enough", ()=> {
             theCharacter.powers.bonusXp = 200;

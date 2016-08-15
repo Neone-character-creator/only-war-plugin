@@ -1,5 +1,5 @@
 define(["../types/character/Characteristic"], function (Characteristic) {
-	return function($scope, $uibModal, $state, characteroptions, characterService, dice) {
+	return function ($scope, $uibModal, $state, characterService, dice) {
     	//The randomly generated values
     	$scope.generatedValues = [];
 		$scope.characteristics = Array.from(characterService.character.characteristics.values());

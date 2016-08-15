@@ -7,7 +7,7 @@
             Choose {{selectionsNeeded}} :
         </div>
         <div class="row">
-            <ul ng-repeat="option in options"><input type="checkbox" ng-model="selected[$index]">
+            <ul ng-repeat="option in options track by $index"><input type="checkbox" ng-model="selected[$index]">
                 {{option | modal_option}}
             </ul>
         </div>

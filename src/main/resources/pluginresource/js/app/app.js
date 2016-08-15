@@ -1,12 +1,12 @@
 require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
-        "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/FinalizePageController", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/regiment-creation-controller",
-        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/CharacterOptionsService", "app/services/regiments", "app/services/specialties", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/regimentoptions", "app/services/option-selection", "app/services/tutorials", "app/services/PlaceholderReplacement",
-        "app/filters/OptionalSelectionModalOptionDisplayFilter", "app/filters/OptionSummaryDisplayFilter"
+        "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/FinalizePageController", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/RegimentCreationController", "app/regiments/RegimentCreationElementController",
+        "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/CharacterOptionsService", "app/services/regiments", "app/services/specialties", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/RegimentOptionService", "app/services/option-selection", "app/services/tutorials", "app/services/PlaceholderReplacement",
+        "app/filters/OptionalSelectionModalOptionDisplayFilter", "app/filters/OptionSummaryDisplayFilter", "app/filters/ItemSummaryFilter"
     ],
     function (angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, cookies,
-              modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController,
+              modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController, regimentCreationElementController,
               selectionService, modifierService, characterService, characterOptions, regimentsProvider, specialtyProvider, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials, placeholderReplacement,
-              OptionSelectionModalOptionDisplayFilter, OptionSummaryDisplayFilter) {
+              OptionSelectionModalOptionDisplayFilter, OptionSummaryDisplayFilter, ItemSummaryFilter) {
         var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function ($stateProvider) {
@@ -54,7 +54,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("createRegiment", {
                 url: "/regiment/create",
                 templateUrl: "pluginresource/templates/regiment-creation.html",
-                controller: regimentCreationController
+                controller: regimentCreationController.RegimentCreationController
             }).state("modal", {
                 abstract: true
             }).state("modal.tutorial", {
@@ -67,7 +67,6 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                 abstract: true
             }).state("modal.selection.modifier", {
                 onEnter: function ($state, $uibModal, $stateParams, optionselection, selection) {
-                    console.log("modal.selection.modifier");
                     var modal = $uibModal.open({
                         templateUrl: "pluginresource/templates/selection-modal.html",
                         controller: selectionModalController
@@ -75,6 +74,25 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                     modal.result.then(function (result) {
                         optionselection.selected = selection.selected;
                         optionselection.applySelection();
+                        $stateParams['on-completion-callback']();
+                        $state.go($state.previous.name);
+                    }, function (error) {
+                        $state.go($state.previous.name);
+                    });
+                },
+                params: {
+                    "on-completion-callback": {
+                        value: function () {
+                        }
+                    }
+                }
+            }).state("createRegiment.kitModifier", {
+                onEnter: function ($state, $uibModal, $stateParams, selection) {
+                    var modal = $uibModal.open({
+                        templateUrl: "pluginresource/templates/selection-modal.html",
+                        controller: selectionModalController
+                    });
+                    modal.result.then(function (result) {
                         $stateParams['on-completion-callback']();
                         $state.go($state.previous.name);
                     }, function (error) {
@@ -100,7 +118,11 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         app.factory("dice", diceService);
         app.factory("characteristicTooltipService", characteristicTooltipService);
         app.factory("armorTooltipService", armorTooltipService);
-        app.factory("regimentOptions", regimentOptions);
+        app.factory("regimentOptions",
+            function ($resource, $q, placeholders) {
+                return new regimentOptions.RegimentOptionService($resource, $q, placeholders)
+            }
+        );
         app.factory("cookies", function () {
             return cookies
         });
@@ -133,6 +155,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         app.controller("StartingPowersController", startingPowersController);
         app.controller("ArmorTooltipController", armorTooltipController);
         app.controller("RegimentCreationController", regimentCreationController);
+        app.controller("regimentCreationElementController", regimentCreationElementController.RegimentCreationElementController);
 
         app.run(function ($rootScope, $state, $uibModal) {
             var suppressDialog = false;
@@ -174,6 +197,21 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         app.filter('modal_option', function () {
             return OptionSelectionModalOptionDisplayFilter.filter;
         });
+        app.filter('item_summary', function () {
+            return ItemSummaryFilter.ItemSummamryFilter;
+        });
+
+        app.directive("regimentCreationElement", function () {
+            return {
+                templateUrl: "pluginresource/templates/RegimentCreationElementDisplay.html",
+                restrict: 'E',
+                scope: {
+                    "element": "="
+                },
+                require: "",
+                controller: regimentCreationElementController.RegimentCreationElementController
+            }
+        });
 
         angular.bootstrap(document, ['OnlyWar']);
 
@@ -192,7 +230,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             var toExport = {};
             var characterService = angular.element(document.body).injector().get("character");
             var character = angular.copy(characterService.character);
-            toExport.name = character.name;
+            toExport.name = character.name
             toExport.player = character.player;
             toExport.regiment = character.regiment;
             toExport.specialty = character.specialty;

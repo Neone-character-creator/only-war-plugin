@@ -5,7 +5,7 @@ import {OnlyWarCharacter} from "../../../app/types/character/Character";
 import {SkillDescription} from "../../../app/types/character/Skill";
 import {Talent} from "../../../app/types/character/Talent";
 import {Trait} from "../../../app/types/character/Trait";
-import {Item, ItemType, Availability} from "../../../app/types/character/items/Item";
+import {Item, ItemType} from "../../../app/types/character/items/Item";
 /**
  * Created by Damien on 7/24/2016.
  */
@@ -119,18 +119,19 @@ describe("A regiment", ()=> {
     it("must be able to add aptitudes to the character", ()=> {
         var regiment = new RegimentBuilder().setAptitudes(["Aptitude"]).build();
         theCharacter.regiment = regiment;
-        expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(0);
+        expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(1);
+        expect(theCharacter.aptitudes.length).toEqual(2);
     });
     it("must correctly remove any aptitudes it added when removed", ()=> {
         var regiment = new RegimentBuilder().setAptitudes(["Aptitude"]).build();
         theCharacter.regiment = regiment;
-        expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(0);
+        expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(1);
         theCharacter.regiment = null;
         expect(theCharacter.aptitudes.indexOf("Aptitude")).toEqual(-1);
     });
     it("must be able to add items to the character kit", ()=> {
         var kit = new Map<Item, number>();
-        var item = new Item("", ItemType.Other, Availability.Common);
+        var item = new Item("", ItemType.Other, "Common");
         kit.set(item, 1);
         var regiment = new RegimentBuilder().setKit(kit).build();
         theCharacter.regiment = regiment;
@@ -138,7 +139,7 @@ describe("A regiment", ()=> {
     });
     it("must remove items it added to the character when removed", ()=> {
         var kit = new Map<Item, number>();
-        var item = new Item("", ItemType.Other, Availability.Common);
+        var item = new Item("", ItemType.Other, "Common");
         kit.set(item, 1);
         var regiment = new RegimentBuilder().setKit(kit).build();
         theCharacter.regiment = regiment;

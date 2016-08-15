@@ -64,7 +64,7 @@ export class SpecialtyService {
                 var optionalModifiers = Array<SelectableModifier>();
                 if (specialty['optional modifiers']) {
                     for (var optional of specialty['optional modifiers']) {
-                        optionalModifiers.push(new SelectableModifier(optional.selections, optional.options.map(optionGroup=> {
+                        optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
                             return optionGroup.map(option=> {
                                 switch (option.property) {
@@ -81,7 +81,7 @@ export class SpecialtyService {
                                 return option;
                             });
 
-                        })));
+                        }), optional['selection time']));
                     }
                 }
 

@@ -1,4 +1,4 @@
-define(["../types/character/Regiment", "../types/character/Characteristic"], function (Regiment, Characteristic) {
+define(["../types/character/Regiment", "../types/character/Characteristic", "../types/regiment/creation/RegimentCreationElementsContainer"], function (Regiment, Characteristic, RegimentCreationElementContainer) {
     return function ($scope, $state, regimentOptions, regiments, characterService, $q, optionselection, $uibModal, characteroptions, selection) {
         $q.all({
             "characterOptions": $q.all({
@@ -14,7 +14,7 @@ define(["../types/character/Regiment", "../types/character/Characteristic"], fun
                         "types": regimentOptions.types,
                         "equipmentDoctrines": regimentOptions.equipmentDoctrines,
                         "trainingDoctrines": regimentOptions.trainingDoctrines,
-                        "standardRegimentKit": regimentOptions.standardRegimentKit,
+                        "standardRegimentalKit": regimentOptions.standardRegimentalKit,
                         "additionalKitChoices": regimentOptions.additionalKitChoices
                     });
                 }
@@ -537,7 +537,7 @@ define(["../types/character/Regiment", "../types/character/Characteristic"], fun
                             });
                         }
                     }
-                    $scope.regiment.addModifier(results.regimentOptions.standardRegimentKit);
+                    $scope.regiment.addModifier(results.regimentOptions.standardRegimentalKit);
                     $scope.remainingRegimentPoints = 12;
                     for (var regimentModifierSection in $scope.regimentElements) {
                         if ($scope.regimentElements[regimentModifierSection].selected) {

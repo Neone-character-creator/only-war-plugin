@@ -1,4 +1,4 @@
-import {Item, ItemType, Availability, Craftsmanship} from "./Item";
+import {Item, ItemType} from "./Item";
 /**
  * Created by Damien on 7/9/2016.
  */
@@ -11,10 +11,11 @@ export class Weapon extends Item {
     private _clip:string;
     private _reload:string;
     private _special:Array<string>;
+    private _isMainWeapon:boolean;
 
-    constructor(name:string, availability:Availability, weaponClass:string, range:string, rateOfFire:string, damage:string,
-                penetration:string, clip:string, reload:string, special:Array<string>, weight?:number, craftsmanship?:Craftsmanship) {
-        super(name, ItemType.Weapon, availability, weight, craftsmanship);
+    constructor(name:string, availability:string, weaponClass:string, range:string, rateOfFire:string, damage:string,
+                penetration:string, clip:string, reload:string, special:Array<string>, weight?:number, isMainWeapon?:boolean, upgrades?:Array<string>, craftsmanship?:string) {
+        super(name, ItemType.Weapon, availability, weight, upgrades, craftsmanship);
         this._class = weaponClass;
         this._range = range;
         this._rateOfFire = rateOfFire;
@@ -23,6 +24,14 @@ export class Weapon extends Item {
         this._clip = clip;
         this._reload = reload;
         this._special = special;
+        this._isMainWeapon = isMainWeapon;
+    }
+
+    get isMainWeapon():boolean {
+        if (this._isMainWeapon) {
+            return this._isMainWeapon;
+        }
+        return false;
     }
 
     get class():string {
@@ -53,7 +62,9 @@ export class Weapon extends Item {
         return this._reload;
     }
 
-    get special():Array<String> {
+    get special():Array<string> {
         return this._special;
     }
+
+
 }

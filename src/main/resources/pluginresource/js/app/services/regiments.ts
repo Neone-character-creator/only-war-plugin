@@ -7,6 +7,7 @@ import {Item} from "../types/character/items/Item";
 import {SelectableModifier} from "../types/character/CharacterModifier";
 import {PlaceholderReplacement} from "./PlaceholderReplacement";
 import {SpecialAbility} from "../types/regiment/SpecialAbility";
+import {Weapon} from "../types/character/items/Weapon";
 /**
  * Created by Damien on 7/12/2016.
  */
@@ -56,9 +57,9 @@ export class RegimentService {
                     kit.set(item, itemDescription.count);
                 }
                 var wounds:number = regiment['fixed modifiers'].wounds;
-                var favoredWeapons = [];
+                var favoredWeapons = new Map<string, Weapon>();
                 for (var favoredWeapon of regiment['fixed modifiers']['favored weapons']) {
-                    favoredWeapons.push(result.placeholders.replace({"name": favoredWeapon}, "item"));
+                    favoredWeapons.set(favoredWeapon["type"], result.placeholders.replace(favoredWeapon['item'], "item"));
                 }
                 var specialAbilities = []
                 $.each(regiment['fixed modifiers']['special abilities'], function (i, ability) {
@@ -67,7 +68,7 @@ export class RegimentService {
                 var optionalModifiers = Array<SelectableModifier>();
                 if (regiment['optional modifiers']) {
                     for (var optional of regiment['optional modifiers']) {
-                        optionalModifiers.push(new SelectableModifier(optional.selections, optional.options.map(optionGroup=> {
+                        optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
                             return optionGroup.map(option=> {
                                 option.value = result.placeholders.replace(option.value, option.property);
@@ -75,7 +76,7 @@ export class RegimentService {
                                 return option;
                             });
 
-                        })));
+                        }), optional['selection time']));
                     }
                 }
                 return new Regiment(regiment.name, characteristics, characterSkills, characterTalents, regiment['fixed modifiers'].aptitudes,

@@ -33,9 +33,11 @@ export class Specialty extends CharacterModifier {
         switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
                 character.experience.available += 600;
+                character.experience.total += 600;
                 break;
             case SpecialtyType.Specialist:
                 character.experience.available += 300;
+                character.experience.total += 300;
                 break;
         }
     }
@@ -72,6 +74,7 @@ export class Specialty extends CharacterModifier {
                 });
                 if (regimentProvidesTalent) {
                     character.experience.available += 100;
+                    character.experience.total += 100;
                 } else {
                     character.talents.push(talent);
                 }

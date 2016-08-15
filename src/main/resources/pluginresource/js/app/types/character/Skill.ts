@@ -30,7 +30,7 @@ export class Skill {
      * 4 is veteran (+30).
      */
     get rank():number {
-        var calculated = Array.from(this._rankSources.values()).map(modifier=> {
+        var calculated = this._rankSources.map(modifier=> {
             return modifier.skills.get(this._identifier);
         }).reduce((original, next)=> {
             return original + next;
@@ -63,10 +63,10 @@ export class Skill {
  */
 export class SkillDescription {
     private _name:string;
-    private _specialization:string;
+    private _specialization:string|boolean;
     private _aptitudes:Array<string>;
 
-    constructor(name:string, aptitudes:Array<string>, specialization?:string) {
+    constructor(name:string, aptitudes:Array<string>, specialization?:string|boolean) {
         this._name = name;
         this._aptitudes = aptitudes;
         this._specialization = specialization;
@@ -77,10 +77,9 @@ export class SkillDescription {
         return this._name;
     }
 
-    get specialization():string {
+    get specialization():string|boolean {
         return this._specialization;
     }
-
 
     get aptitudes():Array<string> {
         return this._aptitudes;

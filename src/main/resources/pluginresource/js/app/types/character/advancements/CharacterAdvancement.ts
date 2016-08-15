@@ -24,6 +24,10 @@ export abstract class CharacterAdvancement extends CharacterModifier {
      * The property that the advancement modifies.
      */
     private _property:AdvanceableProperty;
+    /**
+     * The amount of xp this cost when applied to the character.
+     */
+    private _actualXpSpent:number;
 
     constructor(property:AdvanceableProperty,
                 characteristics:Map<Characteristic, number>,
@@ -50,6 +54,18 @@ export abstract class CharacterAdvancement extends CharacterModifier {
      * @returns {number}
      */
     public abstract calculateExperienceCost(character:OnlyWarCharacter):number;
+
+    public apply(character:OnlyWarCharacter) {
+        super.apply(character);
+        this._actualXpSpent = this.calculateExperienceCost(character);
+        character.experience.available -= this._actualXpSpent;
+    }
+
+    public unapply() {
+        this._appliedTo.experience.available += this._actualXpSpent;
+        this._actualXpSpent = 0;
+        super.unapply();
+    }
 }
 
 export class CharacteristicAdvancement extends CharacterAdvancement {
@@ -246,16 +262,6 @@ export class SkillAdvancement extends CharacterAdvancement {
 
 export class TalentAdvancement extends CharacterAdvancement {
     private talent:Talent;
-
-    apply(character:OnlyWarCharacter) {
-        super.apply(character);
-        character.talents.push(this.value);
-    }
-
-    unapply() {
-        this._appliedTo.talents.splice(this._appliedTo.talents.indexOf(this.value));
-        super.unapply();
-    }
 
     constructor(talent:Talent) {
         super(AdvanceableProperty.TALENT, new Map(), new Map(), [talent], [], [], new Map<Item, number>(), 0, 0, OnlyWarCharacterModifierTypes.ADVANCEMENT);

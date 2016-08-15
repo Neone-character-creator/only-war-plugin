@@ -53,24 +53,28 @@
         "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
-          {
-            "property": "character kit",
-            "value": {
-              "item": {
-                "name": "Sentinel Scout Walker"
-              },
-              "count": 1
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Sentinel Scout Walker"
+                },
+                "count": 1
+              }
             }
-          },
-          {
-            "property": "character kit",
-            "value": {
-              "item": {
-                "name": "Chimera Armored Transport"
-              },
-              "count": 1
+          ],
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Chimera Armored Transport"
+                },
+                "count": 1
+              }
             }
-          }
+          ]
         ]
       }
     ]
@@ -467,15 +471,17 @@
               }
             }
           ],
-          {
-            "property": "character kit",
-            "value": {
-              "item": {
-                "name": "Mortar"
-              },
-              "count": 1
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Mortar"
+                },
+                "count": 1
+              }
             }
-          }
+          ]
         ]
       }
     ]

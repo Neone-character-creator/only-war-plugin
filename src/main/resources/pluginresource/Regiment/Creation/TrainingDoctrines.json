@@ -9,20 +9,16 @@
         "selection time": "character",
         "options": [
           [
-            [
-              {
-                "property": "talent",
-                "value": "Combat Formation"
-              }
-            ]
+            {
+              "property": "talent",
+              "value": "Combat Formation"
+            }
           ],
           [
-            [
-              {
-                "property": "talent",
-                "value": "Double Team"
-              }
-            ]
+            {
+              "property": "talent",
+              "value": "Double Team"
+            }
           ]
         ]
       }
@@ -197,20 +193,16 @@
         "selection time": "character",
         "options": [
           [
-            [
-              {
-                "property": "talent",
-                "value": "Double Team"
-              }
-            ]
+            {
+              "property": "talent",
+              "value": "Double Team"
+            }
           ],
           [
-            [
-              {
-                "property": "talent",
-                "value": "Combat Master"
-              }
-            ]
+            {
+              "property": "talent",
+              "value": "Combat Master"
+            }
           ]
         ]
       }
@@ -278,20 +270,16 @@
         "selection time": "character",
         "options": [
           [
-            [
-              {
-                "property": "talent",
-                "value": "Skilled Rider"
-              }
-            ]
+            {
+              "property": "talent",
+              "value": "Skilled Rider"
+            }
           ],
           [
-            [
-              {
-                "property": "talent",
-                "value": "Ambush"
-              }
-            ]
+            {
+              "property": "talent",
+              "value": "Ambush"
+            }
           ]
         ]
       }
@@ -411,14 +399,14 @@
           },
           "count": 1
         }
+      ],
+      "special abilities": [
+        {
+          "name": "Covert Strike",
+          "description": "Members of this regiment gain a +10 bonus to all Logistics Tests made to acquire chameleoline cloaks or armour, clip/drop harnesses, rebreathers, survival suits, auspex/scanners, demolitions charges, grav chutes, multikeys, multicompasses, stummers, static generators, and any other such equipment designed for stealth and infiltration. The Logistics bonus also covers the following stealth weapons: needle rifles, needle pistols, and sniper rifles, as well as the Silencer and Tox Dispenser upgrades."
+        }
       ]
-    },
-    "special abilities": [
-      {
-        "name": "Covert Strike",
-        "description": "Members of this regiment gain a +10 bonus to all Logistics Tests made to acquire chameleoline cloaks or armour, clip/drop harnesses, rebreathers, survival suits, auspex/scanners, demolitions charges, grav chutes, multikeys, multicompasses, stummers, static generators, and any other such equipment designed for stealth and infiltration. The Logistics bonus also covers the following stealth weapons: needle rifles, needle pistols, and sniper rifles, as well as the Silencer and Tox Dispenser upgrades."
-      }
-    ]
+    }
   },
   {
     "name": "Forward Observation",
@@ -523,10 +511,7 @@
         "options": [
           [
             {
-              "property": [
-                "character kit",
-                "standard melee weapon"
-              ],
+              "property": "character kit",
               "value": {
                 "item": {
                   "name": "Combat Shotgun"

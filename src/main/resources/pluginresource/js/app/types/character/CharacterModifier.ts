@@ -247,20 +247,22 @@ export enum OnlyWarCharacterModifierTypes{
  */
 export class SelectableModifier {
 
-
-    constructor(numSelectionsNeeded:number, options:Array<any>) {
-        this.numSelectionsNeeded = numSelectionsNeeded;
-        this.options = options;
+    constructor(numSelectionsNeeded:number, options:Array<any>, selectionTime:string) {
+        this._numSelectionsNeeded = numSelectionsNeeded;
+        this._options = options;
+        this._selectionTime = selectionTime;
     }
 
     /**
      * The number of options that need to be selected.
      */
-    private numSelectionsNeeded:number;
+    private _numSelectionsNeeded:number;
     /**
      * The available options
      */
-    private options:Array<any>;
+    private _options:Array<any>;
+
+    private _selectionTime:string;
 
     /**
      * Choose from this selection, decomposing it into the selected options.
@@ -268,11 +270,23 @@ export class SelectableModifier {
      * @param chosenIndices
      */
     public makeSelection(chosenIndices:Array<Number>):Array<any> {
-        if (chosenIndices.length != this.numSelectionsNeeded) {
-            throw "The selection requires that " + this.numSelectionsNeeded + " selections be made but " + chosenIndices.length + " were instead."
+        if (chosenIndices.length != this._numSelectionsNeeded) {
+            throw "The selection requires that " + this._numSelectionsNeeded + " selections be made but " + chosenIndices.length + " were instead."
         }
-        return this.options.filter((element, index)=> {
+        return this._options.filter((element, index)=> {
             return chosenIndices.indexOf(index) !== -1;
         });
+    }
+
+    get numSelectionsNeeded():number {
+        return this._numSelectionsNeeded;
+    }
+
+    get options():Array<any> {
+        return this._options;
+    }
+
+    get selectionTime():string {
+        return this._selectionTime;
     }
 }

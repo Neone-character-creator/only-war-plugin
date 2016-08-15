@@ -38,8 +38,9 @@
               "property": "character kit",
               "value": {
                 "item": {
-                  "Injector": 1
-                }
+                  "name": "Injector"
+                },
+                "count": 1
               }
             }
           ],
@@ -48,8 +49,9 @@
               "property": "character kit",
               "value": {
                 "item": {
-                  "Inhaler": 1
-                }
+                  "name": "Inhaler"
+                },
+                "count": 1
               }
             }
           ]
@@ -59,22 +61,28 @@
         "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
-          {
-            "property": [
-              "character kit"
-            ],
-            "value": {
-              "Frenzon": 5
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Frenzon"
+                },
+                "count": 5
+              }
             }
-          },
-          {
-            "property": [
-              "character kit"
-            ],
-            "value": {
-              "Stimm": 3
+          ],
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Stimm"
+                },
+                "count": 3
+              }
             }
-          }
+          ]
         ]
       }
     ]

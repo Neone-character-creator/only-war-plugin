@@ -167,13 +167,23 @@
         }
       ],
       "favored weapons": [
-        "Autocannon",
-        "Grenade Launcher"
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Autocannon"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Grenade Launcher"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -191,7 +201,7 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -374,13 +384,23 @@
         }
       ],
       "favored weapons": [
-        "Flamer",
-        "Heavy Bolter"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Flamer"
+          }
+        },
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Heavy Bolter"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -573,8 +593,18 @@
         }
       ],
       "favored weapons": [
-        "Meltagun",
-        "Heavy Bolter"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Meltagun"
+          }
+        },
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Heavy Bolter"
+          }
+        }
       ]
     }
   },
@@ -748,8 +778,18 @@
         }
       ],
       "favored weapons": [
-        "Heavy Bolter",
-        "Plasma Gun"
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Heavy Bolter"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Plasma Gun"
+          }
+        }
       ]
     }
   },
@@ -898,13 +938,23 @@
         }
       ],
       "favored weapons": [
-        "Lascannon",
-        "Plasma Gun"
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Lascannon"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Plasma Gun"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -922,7 +972,7 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -1084,8 +1134,18 @@
         }
       ],
       "favored weapons": [
-        "Lascannon",
-        "Grenade Launcher"
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Lascannon"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Grenade Launcher"
+          }
+        }
       ]
     }
   },
@@ -1241,8 +1301,18 @@
         }
       ],
       "favored weapons": [
-        "Missile Launcher",
-        "Plasma Gun"
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Missile Launcher"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Plasma Gun"
+          }
+        }
       ]
     }
   },
@@ -1402,8 +1472,18 @@
         }
       ],
       "favored weapons": [
-        "Long Las",
-        "Heavy Bolter"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Long Las"
+          }
+        },
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Heavy Bolter"
+          }
+        }
       ]
     }
   },
@@ -1545,8 +1625,18 @@
         "Chimera Armored Fighting Vehicle ": 1
       },
       "favored weapons": [
-        "Grenade Launcher",
-        "Missile Launcher"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Grenade Launcher"
+          }
+        },
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Missile Launcher"
+          }
+        }
       ]
     }
   },
@@ -1738,13 +1828,23 @@
         }
       ],
       "favored weapons": [
-        "Hunting Lance",
-        "Bolt Pistol"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Hunting Lance"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Bolt Pistol"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -1762,7 +1862,7 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -1928,13 +2028,23 @@
         }
       ],
       "favored weapons": [
-        "Autocannon",
-        "Meltagun"
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Autocannon"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Meltagun"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -2134,13 +2244,23 @@
         }
       ],
       "favored weapons": [
-        "Cavalry Saber",
-        "Hunting Lance"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Cavalry Saber"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Hunting Lance"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -2341,25 +2461,35 @@
         }
       ],
       "favored weapons": [
-        "Grenade Launcher",
-        "Plasma Gun"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Grenade Launcher"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Plasma Gun"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
               "property": "talent",
-            "value": "Nerves of Steel"
+              "value": "Nerves of Steel"
             }
           ],
           [
             {
               "property": "talent",
-            "value": "Sprint"
+              "value": "Sprint"
             }
           ]
         ]
@@ -2530,13 +2660,23 @@
         }
       ],
       "favored weapons": [
-        "Autocannon",
-        "Sniper Rifle"
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Autocannon"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Sniper Rifle"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -2566,7 +2706,7 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -2584,7 +2724,7 @@
         ]
       },
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -2773,13 +2913,23 @@
         }
       ],
       "favored weapons": [
-        "Bolt Pistol",
-        "Power Sword"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Bolt Pistol"
+          }
+        },
+        {
+          "type": "basic",
+          "item": {
+            "name": "Power Sword"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -2978,13 +3128,23 @@
         }
       ],
       "favored weapons": [
-        "Long Las",
-        "Missile Tube"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Long Las"
+          }
+        },
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Missile Tube"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
@@ -3156,13 +3316,23 @@
         }
       ],
       "favored weapons": [
-        "Flamer",
-        "Mortar"
+        {
+          "type": "basic",
+          "item": {
+            "name": "Flamer"
+          }
+        },
+        {
+          "type": "heavy",
+          "item": {
+            "name": "Mortar"
+          }
+        }
       ]
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [

@@ -4,10 +4,10 @@
     "character kit": [
       {
         "item": {
-          "name": "Laspistol"
+          "name": "Laspistol",
+          "main weapon": true
         },
-        "count": 1,
-        "main weapon": true
+        "count": 1
       },
       {
         "item": {

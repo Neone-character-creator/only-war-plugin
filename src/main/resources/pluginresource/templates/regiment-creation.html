@@ -12,157 +12,22 @@
                     </h4>
                 </div>
                 <div class="row"
-                     ng-repeat="category in ['homeworld','commander','type', 'doctrine1', 'doctrine2']">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="btn-group">
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    {{regimentElements[category].header}}
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li ng-repeat="option in regimentElements[category].options | filter : costFilter">
-                                        <a ng-click="regimentElements[category].selected = option">
-                                            {{option.name}} ({{option.cost}} pts)
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div style="display:inline-block;float:right">
-                                <button class="btn btn-default" ng-click="regimentElements[category].selected = null">
-                                    Clear
-                                </button>
-                            </div>
-
-                        </div>
-                        <div class="panel-body">
-                            <div ng-show="regimentElements[category].selected">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <h2>{{regimentElements[category].selected.name}}</h2>
-                                        {{regimentElements[category].selected.description}}
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].characteristics"
-                                         class="row">
-                                        <h4>Characteristics</h4>
-                                        <ul>
-                                            <li ng-repeat="(name, value) in regimentElements[category].selected['fixed modifiers'].characteristics">
-                                                {{name}}
-                                                {{value >
-                                                0 ? '+' + value : value}}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].skills"
-                                         class="row">
-                                        <h4>Skills</h4>
-                                        <ul>
-                                            <li ng-repeat="skill in regimentElements[category].selected['fixed modifiers'].skills track by $index">
-                                                {{!skill.specialization
-                                                ?
-                                                skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' +
-                                                (skill.advancements-1)
-                                                * 10}}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].talents"
-                                         class="row">
-                                        <h4>Talents</h4>
-                                        <ul>
-                                            <li ng-repeat="talent in regimentElements[category].selected['fixed modifiers'].talents">
-                                                {{talent.name}}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].traits"
-                                         class="row">
-                                        <h4>Traits</h4>
-                                        <ul>
-                                            <li ng-repeat="trait in regimentElements[category].selected['fixed modifiers'].traits">
-                                                {{trait.name}}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers']['special abilities']"
-                                         class="row">
-                                        <h4>Regiment Special Abilities</h4>
-                                        <ul>
-                                            <li ng-repeat="ability in regimentElements[category].selected['fixed modifiers']['special abilities']">
-                                                <span><strong>{{ability.name}}</strong></span>
-                                                <span ng-repeat-end>{{ability.description}}</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].aptitudes"
-                                         class="row">
-                                        <h4>Aptitudes</h4>
-                                        <ul>
-                                            <li ng-repeat="aptitude in regimentElements[category].selected['fixed modifiers'].aptitudes">
-                                                {{aptitude}}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers'].wounds"
-                                         class="row">
-                                        <h4>Wounds</h4>
-                                        {{regimentElements[category].selected['fixed modifiers'].wounds > 0 ? "+" +
-                                        regimentElements[category].selected['fixed modifiers'].wounds :
-                                        regimentElements[category].selected['fixed modifiers'].wounds}}
-                                    </div>
-                                    <div ng-show="regimentElements[category].selected['fixed modifiers']['regiment kit points']"
-                                         class="row">
-                                        <h4>Additional Regimenal Equipment Points</h4>
-                                        You gain {{regimentElements[category].selected['fixed modifiers']['regiment
-                                        kitpoints']}} points to modify the regiment equipment.
-                                    </div>
-                                    <div class="row"
-                                         ng-show="regimentElements[category].selected['fixed modifiers']['character kit']">
-                                        <h3>Starting Gear</h3>
-                                        <ul>
-                                            <li ng-repeat="item in regimentElements[category].selected['fixed modifiers']['character kit']">
-                                                {{item.count + " x " + item.item.name}}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div ng-show="regimentElements[category].selected['optional modifiers']">
-                                <h4>Choose from the following bonuses for your regiment now:</h4>
-                                <ul>
-                                    <li ng-repeat="option in regimentElements[category].selected['optional modifiers'] | filter : {'selection time' : 'regiment'}">
-                                        <button class="btn btn-link"
-                                                ng-click="openSelectionModal(option, regimentElements[category].selected)">
-                                            {{option |
-                                            option_summary}}
-                                        </button>
-                                    </li>
-                                </ul>
-
-                                Characters from this regiment will also choose from the following benefits at character
-                                creation:
-                                <ul>
-                                    <li ng-repeat="option in regimentElements[category].selected['optional modifiers'] | filter : {'selection time' : 'character'}">
-                                        {{option |
-                                        option_summary}}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                     ng-repeat="category in ['homeworld','commander','regimentType', 'firstSpecialDoctrine', 'secondSpecialDoctrine']">
+                    <regiment-creation-element element="regimentElements[category]"></regiment-creation-element>
                 </div>
                 <div class="row" id="favored_weapons">
                     <div class="panel panel-basic">
                         <div class="panel-body">
                             <div class="row" id="favored_basic_weapon">
                                 Choose your Regimental Favored Basic Weapon
-                                <select ng-model="regiment['favored weapons'][0]"
+                                <select ng-model="basicFavoredWeapon"
                                         ng-options="weapon as weapon.name for weapon in basicWeapons">
                                     {{weapon.name}}
                                 </select>
                             </div>
                             <div class="row" id="favored_heavy_weapon">
                                 Choose your Regimental Favored Heavy Weapon
-                                <select ng-model="regiment['favored weapons'][1]"
+                                <select ng-model="heavyFavoredWeapon"
                                         ng-options="weapon as weapon.name for weapon in heavyWeapons">
                                     {{weapon.name}}
                                 </select>
@@ -173,7 +38,10 @@
             </div>
             <div class="row">
                 <div class="text-center">
-                    <button ng-disabled="!isRegimentCreationComplete" class="btn btn-standard" ng-click="finish()">
+                    <button class="btn btn-standard" ng-click="isRegimentCreationComplete ? finish():''"
+                            ng-class="{disabled:regimentCompletionStepsRequiredMessage}"
+                            uib-tooltip="{{regimentCompletionStepsRequiredMessage}}"
+                            style="white-space: normal;">
                         Complete
                     </button>
                 </div>
@@ -185,10 +53,10 @@
             <div class="panel-body">
                 <div class="col-md-10 col-md-offset-1">
                     Regiment Name
-                    <input type="text" ng-model="regimentName"/>
+                    <input type="text" ng-model="regimentElements.name"/>
                     <div class="row" ng-show="regiment" class="text-center">
                         <div class="row">
-                            <h3>{{regiment.name}}</h3>
+                            <h3>{{regimentElements.name}}</h3>
                         </div>
                         <div class="row">
                             <h3>Characteristic Modifiers</h3>
@@ -197,15 +65,19 @@
                                     {{characteristic[0].name}} :
                                     {{characteristic[1] >= 0 ?
                                     '+' + characteristic[1] :
-                                    '-' + characteristic[1]}}
+                                    characteristic[1]}}
                                 </li>
                             </ul>
                         </div>
                         <div class="row">
                             <h3>Starting Skills</h3>
                             <ul>
-                                <li ng-repeat="(skill,rating) in regiment.skills">
-                                    {{skill}}{{rating > 1 ? + (rating * 10) : ""}}
+                                <li ng-repeat="entry in regimentSkills">
+                                    {{!entry.skill.specialization
+                                    ?
+                                    entry.skill.name : entry.skill.name + " (" + entry.skill.specialization +")"}} {{'
+                                    +' +
+                                    (entry.rating -1) * 10}}
                                 </li>
                             </ul>
                         </div>
@@ -221,7 +93,7 @@
                         <div class="row">
                             <h3>Regiment Special Abilities</h3>
                             <ul>
-                                <li ng-repeat="ability in regiment['special abilities']">
+                                <li ng-repeat="ability in regiment.specialAbilities">
                                     <strong>{{ability.name}}</strong> - {{ability.description}}
                                 </li>
                             </ul>
@@ -235,10 +107,10 @@
                             </ul>
                             <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
                         </div>
-                        <div class="row">
+                        <div class="row" ng-show="regiment.aptitudes.length > 0">
                             <h3>Aptitudes</h3>
                             <ul>
-                                <li ng-repeat="aptitude in regiment['aptitudes'] track by $index">
+                                <li ng-repeat="aptitude in regiment.aptitudes    track by $index">
                                     {{aptitude}}
                                 </li>
                             </ul>
@@ -247,17 +119,28 @@
                             <h3>Starting Gear</h3>
                             <ul>
                                 <li ng-repeat="item in regimentKit">
-                                    {{item[1] + " x " + (item[0].craftsmanship !== "Common" ?
-                                    item[0].craftsmanship + " Craftsmanship " : "") + item[0].name}}
-                                    {{item[0].upgrades ? "w/ " + item[0].upgrades.join(", ") : ""}}
+                                    {{item | item_summary}}
                                 </li>
                             </ul>
                         </div>
-                        <div class="row" ng-show="regiment['favored weapons']">
+                        <div class="row" ng-show="regimentFavoredWeapons">
                             <h3>Favored Weapons</h3>
                             <ul>
-                                <li ng-repeat="weapon in regiment['favored weapons']">
-                                    {{weapon.name}}
+                                <li>
+                                    <span ng-repeat="weapon in regimentElements.basicFavoredWeapons.slice(0, regimentElements.basicFavoredWeapons.length-1)">
+                                        {{weapon.name}},
+                                    </span>
+                                    <span>
+                                        {{regimentElements.basicFavoredWeapons[regimentElements.basicFavoredWeapons.length-1].name}}
+                                    </span>
+                                </li>
+                                <li>
+                                    <span ng-repeat="weapon in regimentElements.heavyFavoredWeapons.slice(0, regimentElements.heavyFavoredWeapons.length-1)">
+                                        {{weapon.name}},
+                                    </span>
+                                    <span>
+                                        {{regimentElements.heavyFavoredWeapons[regimentElements.heavyFavoredWeapons.length-1].name}}
+                                    </span>
                                 </li>
                             </ul>
 
@@ -276,18 +159,20 @@
                                                     ng-click="!choice.unavailableMessage ? addKitModifier(choice) : null"
                                                     uib-tooltip="{{choice.unavailableMessage}}"
                                                     style="white-space: normal;">
-                                                {{choice.description + " (" + choice.cost +" pts)"}}
+                                                {{choice.description + " (" + choice.kitPointCost +" pts)"}}
                                             </button>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="row" ng-show="chosenKitModifiers.length">
+                                {{chosenKitModifiers.length}}
+                                <div class="row" ng-show="chosenKitModifiers.length > 0">
                                     <h4>Chosen Kit Modifiers</h4>
-                                    Click to undo chosen modifiers
+                                    Click to undo chosen modifiers. Removing a modifier will also remove each modifier
+                                    after it.
                                     <ul>
                                         <li ng-repeat="chosen in chosenKitModifiers">
-                                            <button class="btn btn-link" ng-click="removeKitModifier(chosen)">
-                                                {{chosen.description}}
+                                            <button class="btn btn-link" ng-click="removeKitModifier($index)">
+                                                {{chosen.modifier.description}}
                                             </button>
                                         </li>
                                     </ul>

@@ -1,4 +1,3 @@
-import {Craftsmanship} from "../types/character/items/Item";
 /**
  * Created by Damien on 7/29/2016.
  */
@@ -24,19 +23,6 @@ export function filter(inVal:any) {
                     case 'character kit':
                         var itemDescription = option[op].value.count + " x ";
                         var itemCraftsmanship = option[op].value.item.craftsmanship;
-                        if (itemCraftsmanship !== Craftsmanship.Common) {
-                            switch (itemCraftsmanship) {
-                                case Craftsmanship.Best:
-                                    itemDescription += "Best craftsmanship ";
-                                    break;
-                                case Craftsmanship.Good:
-                                    itemDescription += "Good craftsmanship ";
-                                    break;
-                                case Craftsmanship.Poor:
-                                    itemDescription += "Poor craftsmanship ";
-                                    break;
-                            }
-                        }
                         itemDescription += option[op].value.item.name;
                         var itemUpgrades = option[op].value.item.upgrades;
                         if (itemUpgrades) {
@@ -44,7 +30,6 @@ export function filter(inVal:any) {
                         }
                         optionElements.push(itemDescription)
                         break;
-
                 }
             }
             options.push(optionElements.join(", "));

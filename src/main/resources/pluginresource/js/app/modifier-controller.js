@@ -49,7 +49,6 @@ define(function () {
                         } else {
                             proceed();
                         }
-
                     };
 
                     $scope.openSelectionModal = function (selectedObject) {

@@ -1,7 +1,9 @@
 import {Talent} from "../types/character/Talent";
-import {Item, ItemType, Availability} from "../types/character/items/Item";
+import {Item, ItemType} from "../types/character/items/Item";
 import {CharacterOptionsService} from "./CharacterOptionsService";
 import {Characteristic} from "../types/character/Characteristic";
+import {SkillDescription} from "../types/character/Skill";
+import {Weapon} from "../types/character/items/Weapon";
 /**
  * Created by Damien on 7/15/2016.
  */
@@ -41,21 +43,27 @@ export class PlaceholderReplacement {
                 if (!item) {
                     item = this._characteroptions.weapons.find(weapon=> {
                         return weapon.name === placeholder.name;
-                    })
+                    });
                 }
                 if (!item) {
                     item = this._characteroptions.armor.find(armor=> {
                         return armor.name === placeholder.name;
-                    })
+                    });
                 }
                 if (!item) {
                     item = this._characteroptions.vehicles.find(vehicle=> {
                         return vehicle.name === placeholder.name;
-                    })
+                    });
+                }
+                if (item && placeholder['main weapon']) {
+                    let original:Weapon = <Weapon>item;
+                    item = new Weapon(original.name, original.availability, original.class, original.range,
+                        original.rateOfFire, original.damage, original.penetration, original.clip, original.reload,
+                        original.special, original.weight, true, original.upgrades, original.craftsmanship);
                 }
                 if (!item) {
                     console.log("Tried to find item for " + placeholder.name + " but failed.");
-                    item = new Item(placeholder.name, ItemType.Other, Availability.Common);
+                    item = new Item(placeholder.name, ItemType.Other, "Common");
                     item['main weapon'] = placeholder['main weapon'];
                     item['armor'] = placeholder['armor'];
                 }
@@ -67,11 +75,11 @@ export class PlaceholderReplacement {
                 var skill = this._characteroptions.skills.find(function (skill) {
                     return skill.name === skillName;
                 });
+                var skillSpecialization;
                 if (skill.specialization) {
-                    skill.specialization = placeholder.indexOf("(") === -1 ? null : placeholder.substring(placeholder.indexOf("(") + 1, placeholder.indexOf(")")).trim();
-                    placeholder.indexOf("(") === -1 ? placeholder : placeholder.substring(placeholder.indexOf("(") + 1, placeholder.indexOf(")")).trim();
+                    var skillSpecialization = placeholder.indexOf("(") === -1 ? null : placeholder.substring(placeholder.indexOf("(") + 1, placeholder.indexOf(")")).trim();
                 }
-                return skill;
+                return new SkillDescription(skill.name, skill.aptitudes, skillSpecialization);
             }
             case "characteristic":
             {

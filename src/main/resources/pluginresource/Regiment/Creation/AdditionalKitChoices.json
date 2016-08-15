@@ -4,11 +4,9 @@
     "cost": 5,
     "effect": {
       "type": "Upgrade",
-      "target": [
-        {
-          "craftsmanship": "Common"
-        }
-      ],
+      "target": {
+        "craftsmanship": "Common"
+      },
       "results": [
         {
           "craftsmanship": "Good"
@@ -22,16 +20,12 @@
     "cost": 10,
     "effect": {
       "type": "Upgrade",
-      "target": [
-        {
-          "craftsmanship": "Common"
-        }
-      ],
-      "results": [
-        {
-          "craftsmanship": "Best"
-        }
-      ]
+      "target": {
+        "craftsmanship": "Common"
+      },
+      "results": {
+        "craftsmanship": "Best"
+      }
     },
     "results": "Best"
   },
@@ -40,11 +34,9 @@
     "cost": 5,
     "effect": {
       "type": "Replace",
-      "target": [
-        {
-          "name": "Laspistol"
-        }
-      ],
+      "target": {
+        "name": "Laspistol"
+      },
       "results": [
         {
           "item": {
@@ -60,11 +52,9 @@
     "cost": 5,
     "effect": {
       "type": "Replace",
-      "target": [
-        {
-          "name": "Lascarbine"
-        }
-      ],
+      "target": {
+        "name": "Lascarbine"
+      },
       "results": [
         {
           "item": {
@@ -99,7 +89,6 @@
     },
     "effect": {
       "type": "Add",
-      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -217,13 +206,14 @@
     },
     "effect": {
       "type": "Add",
-      "target": "standard melee weapon",
-      "results": {
-        "item": {
-          "name": "Smoke Grenade"
-        },
-        "count": 1
-      }
+      "results": [
+        {
+          "item": {
+            "name": "Smoke Grenade"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -234,7 +224,6 @@
     },
     "effect": {
       "type": "Add",
-      "target": "standard melee weapon",
       "results": [
         {
           "item": {
@@ -260,11 +249,9 @@
     },
     "effect": {
       "type": "Replace",
-      "target": [
-        {
-          "name": "M36 Lasgun"
-        }
-      ],
+      "target": {
+        "name": "M36 Lasgun"
+      },
       "results": [
         {
           "item": {
@@ -286,11 +273,9 @@
     "cost": 10,
     "effect": {
       "type": "Replace",
-      "target": [
-        {
-          "name": "Lascarbine"
-        }
-      ],
+      "target": {
+        "name": "Lascarbine"
+      },
       "results": [
         {
           "item": {
@@ -362,7 +347,6 @@
     "cost": 5,
     "effect": {
       "type": "Add",
-      "target": "character kit",
       "results": [
         {
           "item": {
@@ -376,20 +360,17 @@
   {
     "description": "Add filtration plugs to standard kit.",
     "cost": 5,
-    "effect": [
-      {
-        "type": "Add",
-        "target": "character kit",
-        "results": [
-          {
-            "item": {
-              "name": "Filtration Plugs"
-            },
-            "count": 1
-          }
-        ]
-      }
-    ]
+    "effect": {
+      "type": "Add",
+      "results": [
+        {
+          "item": {
+            "name": "Filtration Plugs"
+          },
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "description": "Add the Munitorum Manual to standard kit.",
@@ -468,12 +449,14 @@
     "effect": {
       "type": "Add",
       "target": "character kit",
-      "results": {
-        "item": {
-          "name": "Purity Seals"
-        },
-        "count": 1
-      }
+      "results": [
+        {
+          "item": {
+            "name": "Purity Seals"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -482,12 +465,14 @@
     "effect": {
       "type": "Add",
       "target": "character kit",
-      "results": {
-        "item": {
-          "name": "Respirator/Gas Mask"
-        },
-        "count": 1
-      }
+      "results": [
+        {
+          "item": {
+            "name": "Respirator/Gas Mask"
+          },
+          "count": 1
+        }
+      ]
     }
   },
   {
@@ -834,7 +819,7 @@
     }
   },
   {
-    "description": "Add one Favored Basic Weapon.",
+    "description": "Add one weapon to Regiment Basic Favored Weapons.",
     "cost": 10,
     "limits": {
       "maxSelectCount": 1
@@ -845,7 +830,7 @@
     }
   },
   {
-    "description": "Add one Favoured Heavy Weapon.",
+    "description": "Add one weapon to Regiment Heavy Favored Weapons.",
     "cost": 15,
     "limits": {
       "maxSelectCount": 1

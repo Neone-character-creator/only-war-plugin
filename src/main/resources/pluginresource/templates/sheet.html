@@ -76,7 +76,16 @@
                             <span class="text-center">{{characteristic.total}}</span>
                         </td>
                     </tr>
-                    <div ng-repeat-end></div>
+                    <tr>
+                        <td ng-repeat="characteristic in characteristics" class="text-center">
+                            <button class="text-center" uib-tooltip="Add an advancement."
+                                    ng-click="addCharacteristicAdvancement(characteristic)">+
+                            </button>
+                            <button class="text-center" uib-tooltip="Remove an advancement."
+                                    ng-click="removeCharacteristicAdvancement(characteristic)">-
+                            </button>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
@@ -143,8 +152,7 @@
                     <li class="list-group-item" ng-repeat="talent in character.talents track by $index">
                         {{talent.specialization ? talent.name + " (" + talent.specialization + ")" : talent.name}}
                         <button ng-click="removeTalent(talent)"
-                                uib-tooltip="Click to remove this talent advancement"
-                                ng-show="talent.boughtAsAdvancement">
+                                uib-tooltip="Click to remove this talent advancement">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </li>

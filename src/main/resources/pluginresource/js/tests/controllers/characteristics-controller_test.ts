@@ -9,7 +9,7 @@ import IInjectStatic = angular.IInjectStatic;
  * Created by Damien on 7/20/2016.
  */
 
-describe("The  page controller", ()=> {
+describe("The characteristic creation page controller", ()=> {
     var mockScope, mockUibModal, mockState, mockCharacterService, mockDice;
     var theController;
     beforeEach(angular.mock.inject(($rootScope)=> {
@@ -24,9 +24,8 @@ describe("The  page controller", ()=> {
                 return characteristic === definedCharacteristic;
             })).toBeDefined();
         }
-        ;
     });
     it("must be able to generate random numbers for all characteristics at once", ()=> {
-
+        expect(mockScope.generatedCharacteristics)
     });
 });

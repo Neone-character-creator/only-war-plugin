@@ -23,21 +23,11 @@ define(["../types/character/Characteristic"], function (Characteristic) {
                                 target.skills.set(selected[sub].value.skill, selected[sub].value.rank);
                                 break;
                             case "characteristic":
-                                for (var property in selected[sub].value) {
-                                    if (typeof selected[sub].value[property] === 'number') {
-                                        if (!target['fixed modifiers']['characteristics']) {
-                                            target['fixed modifiers']['characteristics'] = {};
-                                        }
-                                        var previousValue = target['fixed modifiers']['characteristics'][property];
-                                        if (previousValue) {
-                                            target['fixed modifiers']['characteristics'][property] += selected[sub].value[property];
-                                        } else {
-                                            target['fixed modifiers']['characteristics'][property] = selected[sub].value[property];
-                                        }
-                                    } else {
-                                        throw "Tried to use a skill or characteristic rating that wasn't a number."
-                                    }
+                                var existingValue = target.characteristics.get(selected[sub].value.characteristic);
+                                if (!existingValue) {
+                                    existingValue = 0;
                                 }
+                                target.characteristics.set(selected[sub].value.characteristic, existingValue + selected[sub].value.rating);
                                 break;
                             case "character kit":
                                 $.each(selected, function (i, entry) {
