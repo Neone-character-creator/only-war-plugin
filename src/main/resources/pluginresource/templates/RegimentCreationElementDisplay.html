@@ -54,7 +54,12 @@
                     <h4>Talents</h4>
                     <ul>
                         <li ng-repeat="talent in element.selected.talents">
-                            {{talent.name}}
+                            <span ng-if="talent.specialization === true">
+                                {{talent.specialization ? talent.name + " (" + talent.specialization +")" : talent.name}}
+                            </span>
+                            <span ng-if="talent.specialization !== true">
+                                {{talent.specialization ? talent.name + " (" + talent.specialization +")" : talent.name}}
+                            </span>
                         </li>
                     </ul>
                 </div>

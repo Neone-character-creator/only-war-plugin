@@ -11,6 +11,8 @@ import * as angular from "angular";
 import {SkillDescription} from "../../character/Skill";
 import {SpecialAbility} from "../SpecialAbility";
 import {Armor} from "../../character/items/Armor";
+import {KitModifierResult} from "./KitModifier";
+import preventExtensions = Reflect.preventExtensions;
 
 /**
  * Created by Damien on 7/31/2016.
@@ -31,6 +33,9 @@ export class RegimentCreationElementsContainer {
     private _standardRegimentalKit:Map<Item, number> = new Map();
     private _basicFavoredWeapons:Array<Weapon> = [];
     private _heavyFavoredWeapons:Array<Weapon> = [];
+    private _kitModifiers:Array<KitModifierResult> = [];
+    private _remainingKitPoints:number;
+    private _remainingRegimentPoints:number;
 
     set basicFavoredWeapons(value:Array<Weapon>) {
         this._basicFavoredWeapons = value;
@@ -78,7 +83,7 @@ export class RegimentCreationElementsContainer {
 
     get regimentKit():Map<Item, number> {
         let mainWeaponsReplaced:boolean = this._regimentType.selected ? Array.from(this._regimentType.selected.kit.keys()).map(item=> {
-            if (item instanceof Weapon) {
+            if (item instanceof Weapon && (<Weapon>item).isMainWeapon) {
                 return true;
             }
             return false;
@@ -121,11 +126,53 @@ export class RegimentCreationElementsContainer {
                 regimentKit.set(entry[0], entry[1] + existingCount)
             }
         });
+        this._remainingRegimentPoints = [this.homeworld.selected, this.commander.selected, this.regimentType.selected, this.firstSpecialDoctrine.selected, this.secondSpecialDoctrine.selected].filter(e=> {
+            return e !== null;
+        }).map(e=> {
+            return e.cost;
+        }).reduce((previous, current)=> {
+            return previous - current;
+        }, 12);
+        this._remainingKitPoints = 30 + this._remainingRegimentPoints * 2;
+        this._kitModifiers.forEach(mod=> {
+            for (let removed of mod.itemsRemoved.entries()) {
+                let count = regimentKit.get(removed[0]);
+                if (count == removed[1]) {
+                    regimentKit.delete(removed[0]);
+                } else {
+                    regimentKit.set(removed[0], count - removed[1]);
+                }
+            }
+            for (let added of mod.itemsAdded.entries()) {
+                let count = regimentKit.get(added[0]);
+                if (!count) {
+                    count = 0;
+                }
+                regimentKit.set(added[0], count + added[1]);
+            }
+            this._remainingKitPoints -= mod.modifier.kitPointCost;
+        })
         return regimentKit;
     }
 
     set standardRegimentalKit(value:Map<Item, number>) {
         this._standardRegimentalKit = value;
+    }
+
+    get kitModifiers():Array<KitModifierResult> {
+        return this._kitModifiers;
+    }
+
+    set kitModifiers(value:Array<KitModifierResult>) {
+        this._kitModifiers = value;
+    }
+
+    get remainingKitPoints():number {
+        return this._remainingKitPoints;
+    }
+
+    get remainingRegimentPoints():number {
+        return this._remainingRegimentPoints;
     }
 
     build():Regiment {

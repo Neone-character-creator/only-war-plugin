@@ -5,6 +5,7 @@ import {Regiment, RegimentBuilder} from "../types/character/Regiment";
 import {Characteristic} from "../types/character/Characteristic";
 import {KitModifierType, AddSpecificItemKitModifier, KitModifierResult} from "../types/regiment/creation/KitModifier";
 import {Item} from "../types/character/items/Item";
+import {Talent} from "../types/character/Talent";
 /**
  * Created by Damien on 8/1/2016.
  */
@@ -118,7 +119,7 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                     }
                     var timesSelected = 0;
                     if ($scope.kitChoices) {
-                        timesSelected = $scope.chosenKitModifiers.filter(function (previousChoice) {
+                        timesSelected = $scope.regimentElements.kitModifiers.filter(function (previousChoice) {
                             return previousChoice.description === choice.description;
                         }).length;
                     }
@@ -215,26 +216,15 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                     return choice;
                 });
             };
-            /**
-             Contains all of the kit modifier choices that have already been selected by the user and applied.
-             */
-            $scope.chosenKitModifiers = [];
             $scope.readyToSelectKitModifiers = false;
 
             function reapplyModifiers() {
-                $scope.regiment = $scope.regimentElements.build();
-                $scope.remainingRegimentPoints = 12;
-                for (var regimentModifierSection in $scope.regimentElements) {
-                    if ($scope.regimentElements[regimentModifierSection].selected) {
-                        $scope.remainingRegimentPoints -= $scope.regimentElements[regimentModifierSection].selected.cost;
-                    }
-                }
                 $scope.readyToSelectEquipment = $scope.regimentElements['homeworld'] &&
                     $scope.regimentElements['commander'] &&
                     $scope.regimentElements['type'];
-                $scope.remainingKitPoints = 30 + ($scope.regiment.remainingRegimentPoints ? $scope.regiment.remainingRegimentPoints : 0 * 2);
                 checkReadyToSelectKitModifiers();
                 updateAvailableKitChoices();
+                $scope.regiment = $scope.regimentElements.build();
             }
 
             /**
@@ -334,7 +324,7 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                 switch (choice.type) {
                     case KitModifierType.AddSpecific:
                         choice = <AddSpecificItemKitModifier>choice;
-                        $scope.chosenKitModifiers.push(choice.apply($scope.regimentElements.regimentKit));
+                        $scope.regimentElements.kitModifiers.push(choice.apply($scope.regimentElements.regimentKit));
                         updateAvailableKitChoices();
                         break;
                     case KitModifierType.Replace:
@@ -357,7 +347,7 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                                 }).map(e=> {
                                     return e.value.item;
                                 });
-                                $scope.chosenKitModifiers.push(
+                                $scope.regimentElements.kitModifiers.push(
                                     choice.apply($scope.regimentElements.regimentKit, selectedItems));
                                 updateAvailableKitChoices();
                             }
@@ -384,7 +374,7 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                                 }).map(e=> {
                                     return e.value.item;
                                 });
-                                $scope.chosenKitModifiers.push(
+                                $scope.regimentElements.kitModifiers.push(
                                     choice.apply($scope.regimentElements.regimentKit, selectedItems));
                                 updateAvailableKitChoices();
                             }
@@ -422,7 +412,7 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                         }
                         $state.go("createRegiment.kitModifier", {
                             "on-completion-callback": function (result) {
-                                $scope.chosenKitModifiers.push(
+                                $scope.regimentElements.kitModifiers.push(
                                     choice.apply($scope.regimentElements.regimentKit));
                                 updateAvailableKitChoices();
                                 switch (choice.category) {
@@ -450,8 +440,8 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                  other modifiers that were applied afterwards are also removed and their
                  point cost refunded.
                  */
-                var removed:Array<KitModifierResult> = $scope.chosenKitModifiers.splice(index).reverse();
-                $scope.chosenKitModifiers = $scope.chosenKitModifiers.slice(0, index);
+                var removed:Array<KitModifierResult> = $scope.regimentElements.kitModifiers.splice(index).reverse();
+                $scope.regimentElements.kitModifiers = $scope.regimentElements.kitModifiers.slice(0, index);
                 removed.forEach(modifier=> {
                     for (let addedItemEntry of modifier.itemsAdded.entries()) {
                         if ($scope.regimentElements.regimentKit.has(addedItemEntry[0])) {
@@ -532,6 +522,19 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
 
             $scope.favoredWeaponsFilter = (element)=> {
                 return element.name;
+            }
+
+            $scope.setSpecialization = (element, talent)=> {
+                selection.selectionObject.numSelectionsNeeded = 0;
+                selection.selectionObject.options = [];
+                $state.go("createRegiment.setSpecialization", {
+                    "on-completion-callback": function () {
+                        element.talents = element.talents.splice(element.talents.findIndex(t=> {
+                            return t === talent;
+                        }));
+                        talent = new Talent(talent.name, talent.source, talent.tier, talent.aptitudes, selection.selected)
+                    }
+                })
             }
         }
     )

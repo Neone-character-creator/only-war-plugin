@@ -8,7 +8,7 @@
             <div class="panel-body">
                 <div class="row">
                     <h4>Remaining Regiment Creation Points: <span
-                            ng-style="{color:remainingRegimentPoints < 0 ? 'red;' : 'black;'}">{{remainingRegimentPoints}}</span>
+                            ng-style="{color:regimentElements.remainingRegimentPoints < 0 ? 'red;' : 'black;'}">{{regimentElements.remainingRegimentPoints}}</span>
                     </h4>
                 </div>
                 <div class="row"
@@ -75,16 +75,17 @@
                                 <li ng-repeat="entry in regimentSkills">
                                     {{!entry.skill.specialization
                                     ?
-                                    entry.skill.name : entry.skill.name + " (" + entry.skill.specialization +")"}} {{'
-                                    +' +
-                                    (entry.rating -1) * 10}}
+                                    entry.skill.name : entry.skill.name + " (" + entry.skill.specialization +")"}}
+                                    {{'+' + (entry.rating -1) * 10}}
                                 </li>
                             </ul>
                         </div>
                         <div class="row">
                             <h3>Starting Talents and Traits</h3>
                             <ul>
-                                <li ng-repeat="talent in regiment.talents">{{talent.name}}
+                                <li ng-repeat="talent in regiment.talents">
+                                    {{talent.specialization ? talent.name + " (" + talent.specialization +")" :
+                                    talent.name}}
                                 </li>
                                 <li ng-repeat="trait in regiment.traits">{{trait.name}}
                                 </li>
@@ -109,8 +110,9 @@
                         </div>
                         <div class="row" ng-show="regiment.aptitudes.length > 0">
                             <h3>Aptitudes</h3>
+                            {{regiment.aptitudes}}
                             <ul>
-                                <li ng-repeat="aptitude in regiment.aptitudes    track by $index">
+                                <li ng-repeat="aptitude in regiment.aptitudes track by $index">
                                     {{aptitude}}
                                 </li>
                             </ul>
@@ -152,7 +154,7 @@
                                 <div class="row">
 
                                     Select from the following options to customize your regimental starting gear.
-                                    Remaining Kit Points: {{remainingKitPoints}}
+                                    Remaining Kit Points: {{regimentElements.remainingKitPoints}}
                                     <ul>
                                         <li ng-repeat="choice in kitChoices track by $index">
                                             <button class="btn btn-link" ng-class="{disabled:choice.unavailableMessage}"
