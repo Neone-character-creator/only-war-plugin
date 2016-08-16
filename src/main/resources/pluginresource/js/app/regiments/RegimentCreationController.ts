@@ -396,13 +396,27 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                             case "Basic":
                                 selection.selectionObject = {
                                     numSelectionsNeeded: 1,
-                                    options: $scope.basicWeapons
+                                    options: $scope.basicWeapons.map(weapon=> {
+                                        return [{
+                                            property: "character kit", value: {
+                                                item: weapon,
+                                                count: 1
+                                            }
+                                        }]
+                                    })
                                 };
                                 break;
                             case "Heavy":
                                 selection.selectionObject = {
                                     numSelectionsNeeded: 1,
-                                    options: $scope.heavyWeapons
+                                    options: $scope.heavyWeapons.map(weapon=> {
+                                        return [{
+                                            property: "character kit", value: {
+                                                item: weapon,
+                                                count: 1
+                                            }
+                                        }]
+                                    })
                                 };
                                 break;
                         }
