@@ -23,7 +23,11 @@ export class Item {
             this._craftsmanship = "Common";
         }
         this._type = type;
-        this._upgrades = upgrades;
+        if (upgrades) {
+            this._upgrades = upgrades;
+        } else {
+            this._upgrades = [];
+        }
     }
 
     get name():string {
