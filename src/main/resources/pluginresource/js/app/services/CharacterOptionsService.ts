@@ -161,8 +161,9 @@ export class CharacterOptionsService {
         this._powers = $resource("pluginresource/Character/Powers.json").query().$promise;
         this._weapons = $resource("pluginresource/Character/Weapons.json").query().$promise.then(function (weapons) {
             return weapons.map(weapon=> {
-                return new Weapon(weapon.name, weapon.availability, weapon.class, weapon.range, weapon.rof, weapon.damage, weapon.pen,
-                    weapon.clip, weapon.reload, weapon['special qualities'], weapon.weight, weapon['main weapon']);
+                return new Weapon(weapon.name, weapon.availability, weapon.class, weapon.type, weapon.range, weapon.rof,
+                    weapon.damage, weapon.pen, weapon.clip, weapon.reload, weapon['special qualities'], weapon.weight,
+                    weapon['main weapon']);
             });
         });
         this._armor = $resource("pluginresource/Character/Armor.json").query().$promise.then(function (armor) {
