@@ -1,12 +1,14 @@
 require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", "dragdrop", "angular-filter", "cookies",
         "app/modifier-controller", "app/characteristics/characteristics-controller", "app/specialty/starting-powers-controller", "app/nav/selection-modal", "app/sheet/sheet-controller", "app/nav/confirmation-modal", "app/finalize/FinalizePageController", "app/sheet/characteristic-tooltip-controller", "app/sheet/armor-tooltip-controller", "app/regiments/RegimentCreationController", "app/regiments/RegimentCreationElementController",
         "app/services/selection", "app/services/modifier-service", "app/services/character", "app/services/CharacterOptionsService", "app/services/regiments", "app/services/specialties", "app/services/dice", "app/services/characteristic-tooltip-service", "app/services/armor-tooltip-service", "app/services/RegimentOptionService", "app/services/option-selection", "app/services/tutorials", "app/services/PlaceholderReplacement",
-        "app/filters/OptionalSelectionModalOptionDisplayFilter", "app/filters/OptionSummaryDisplayFilter", "app/filters/ItemSummaryFilter"
+        "app/filters/OptionalSelectionModalOptionDisplayFilter", "app/filters/OptionSummaryDisplayFilter", "app/filters/ItemSummaryFilter",
+        "app/types/serializers/RegimentSerializer", "app/types/serializers/CharacterSerializer", "app/types/serializers/SpecialtySerializer", "app/types/serializers/CharacterExporter"
     ],
     function (angular, bootstrap, uirouter, resource, angularui, dragdrop, angularFilter, cookies,
               modifierControllerFactory, characteristicsController, startingPowersController, selectionModalController, sheetController, confirmationController, finalizeController, characteristicTooltipController, armorTooltipController, regimentCreationController, regimentCreationElementController,
               selectionService, modifierService, characterService, characterOptions, regimentsProvider, specialtyProvider, diceService, characteristicTooltipService, armorTooltipService, regimentOptions, optionSelection, tutorials, placeholderReplacement,
-              OptionSelectionModalOptionDisplayFilter, OptionSummaryDisplayFilter, ItemSummaryFilter) {
+              OptionSelectionModalOptionDisplayFilter, OptionSummaryDisplayFilter, ItemSummaryFilter,
+              RegimentSerializer, CharacterSerializer, SpecialtySerializer, CharacterExporter) {
         var app = angular.module("OnlyWar", ["ui.router", "ngResource", "ui.bootstrap", "ngDragDrop", "angular.filter"]);
 
         app.config(function ($stateProvider) {
@@ -90,6 +92,25 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                 onEnter: function ($state, $uibModal, $stateParams, selection) {
                     var modal = $uibModal.open({
                         templateUrl: "pluginresource/templates/selection-modal.html",
+                        controller: selectionModalController
+                    });
+                    modal.result.then(function (result) {
+                        $stateParams['on-completion-callback']();
+                        $state.go($state.previous.name);
+                    }, function (error) {
+                        $state.go($state.previous.name);
+                    });
+                },
+                params: {
+                    "on-completion-callback": {
+                        value: function () {
+                        }
+                    }
+                }
+            }).state("createRegiment.setSpecialization", {
+                onEnter: function ($state, $uibModal, $stateParams, selection) {
+                    var modal = $uibModal.open({
+                        templateUrl: "pluginresource/templates/set-specialization-modal.html",
                         controller: selectionModalController
                     });
                     modal.result.then(function (result) {
@@ -215,57 +236,30 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
 
         angular.bootstrap(document, ['OnlyWar']);
 
-        character = function (value) {
-            var characterService = angular.element(document.body).injector().get("character");
+        window.character = function (value) {
+            var characterService = angular.element(document.body).injector().get("characterService");
+            var requiredSerializers = new Map();
+            var placeholders = angular.element(document.body).injector().get("placeholders");
+            var $q = angular.element(document.body).injector().get("$q");
+            requiredSerializers.set("Regiment", new RegimentSerializer.RegimentSerializer(placeholders));
+            requiredSerializers.set("Specialty", new SpecialtySerializer.SpecialtySerializer(placeholders));
+            var serializer = new CharacterSerializer.CharacterSerializer(requiredSerializers, placeholders, $q);
             if (value) {
-                characterService.character = value;
-                angular.element(document.body).injector().get("$state").reload();
+                serializer.deserialize(value).then(function(result){
+                    characterService.character = result;
+                    angular.element(document.body).injector().get("$state").reload();
+                });
             } else {
-                var characterService = angular.element(document.body).injector().get("character");
-                return characterService.character;
+                return serializer.serialize("", characterService.character);
             }
         };
 
-        exportCharacter = function () {
-            var toExport = {};
-            var characterService = angular.element(document.body).injector().get("character");
-            var character = angular.copy(characterService.character);
-            toExport.name = character.name
-            toExport.player = character.player;
-            toExport.regiment = character.regiment;
-            toExport.specialty = character.specialty;
-            toExport.demeanor = character.demeanor;
-            toExport.description = character.description;
-            toExport.characteristics = character.characteristics;
-            Object.keys(toExport.characteristics).map(function (value, index) {
-                toExport.characteristics[value] = toExport.characteristics[value].total()
-            });
-            toExport.skills = character.skills;
-            toExport.talents = character.talent;
-            toExport.traits = character.traits;
-            toExport.wounds = {
-                total: character.wounds.total,
-                criticalInjuries: character.wounds.criticalInjuries
-            };
-            toExport.insanity = character.insanity;
-            toExport.corruption = character.corruption;
-            toExport.speed = {
-                half: character.speed.half,
-                full: character.speed.full,
-                charge: character.speed.charge,
-                run: character.speed.run
-            };
-            toExport.fatePoints = character.fatePoints;
-            toExport.equipment = character.equipment;
-            toExport.experience = {
-                total: character.experience.total,
-                available: character.experience.available
-            };
-            toExport.aptitudes = character.aptitudes.all;
-            toExport.psychicPowers = character.psychicPowers;
-            toExport.fatigue = character.fatigue;
-            return toExport;
+        window.export = function(){
+            var characterExporter = new CharacterExporter.CharacterExporter();
+            var characterService = angular.element(document.body).injector().get("characterService");
+            return characterExporter.export(characterService.character);
         }
+
         return app;
     }
 );
