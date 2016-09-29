@@ -119,6 +119,7 @@ export abstract class CharacterModifier {
         this.applyAptitudeModifiers(character);
         this.applyWoundsModifier(character);
         this.applyCharacteristicsModifiers(character);
+        this.applyPsyRatingModifier(character);
     }
 
     public unapply() {
@@ -129,6 +130,7 @@ export abstract class CharacterModifier {
         this.unapplyWoundsModifier();
         this.unapplyCharacteristicsModifiers();
         this.unapplyKitModifiers();
+        this.unapplyPsyRatingModifier();
         this._appliedTo = null;
     }
 
@@ -232,6 +234,14 @@ export abstract class CharacterModifier {
 
     protected unapplyCharacteristicsModifiers() {
 
+    }
+
+    protected applyPsyRatingModifier(character:OnlyWarCharacter){
+        character.powers.psyRating += this._psyRating;
+    }
+
+    protected unapplyPsyRatingModifier(){
+        this._appliedTo.powers.psyRating -= this._psyRating;
     }
 }
 
