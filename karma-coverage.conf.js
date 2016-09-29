@@ -20,6 +20,8 @@ module.exports = function (config) {
             //Application scripts
             {pattern: 'libs/angular/angular.js'},
             {pattern: 'libs/angular-mocks/angular-mocks.js'},
+            {pattern: 'libs/underscore/underscore.js'},
+            {pattern: 'libs/typemoq/dist/typemoq.js'},
             {pattern: 'app/**/*.js', included: false},
 
             //Test scripts

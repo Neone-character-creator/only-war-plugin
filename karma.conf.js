@@ -15,6 +15,7 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
+            {pattern: 'libs/underscore/underscore.js'},
             //Test config
             {pattern: 'tests/test-main.js', included: true},
             //Application scripts
@@ -68,12 +69,6 @@ module.exports = function (config) {
         // how many browser should be started simultaneous
         concurrency: Infinity,
 
-        noResolve: false,
-
-        coverageReporter: {
-            instrumenterOptions: {
-                istanbul: {noCompact: true}
-            }
-        }
+        noResolve: false
     });
 };
