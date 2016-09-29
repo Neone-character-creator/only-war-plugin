@@ -15,13 +15,26 @@
         "Perception",
         "Toughness"
       ],
-      "skills": {
-        "Common Lore (Imperial Guard)": 1,
-        "Common Lore (War)": 1,
-        "Intimidate": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Intimidate",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Iron Jaw"
+        {
+          "name": "Iron Jaw"
+        }
       ],
       "wounds": 10
     },
@@ -32,13 +45,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -49,49 +68,73 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Bolt)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Bolt"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Chain)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Chain"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Flame)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Flame"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Launcher)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Launcher"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Melta)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Melta"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Plasma)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Plasma"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Power)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Power"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training(Shock)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Shock"
+              }
             }
           ]
         ]
@@ -103,7 +146,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Athletics",
+                "name": "Athletics",
                 "rank": 1
               }
             }
@@ -112,7 +155,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Survival",
+                "name": "Survival",
                 "rank": 1
               }
             }
@@ -124,7 +167,7 @@
         "options": [
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Missile Launcher"
@@ -133,7 +176,7 @@
               }
             },
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Frag Missile"
@@ -144,7 +187,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Heavy Stubber"
@@ -155,7 +198,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Regimental Favored Heavy Weapon"
@@ -184,14 +227,24 @@
         "Perception",
         "Willpower"
       ],
-      "skills": {
-        "Medicae": 1,
-        "Scholastic Lore (Chymistry)": 1
-      },
-      "talents": [
-        "Weapon Training (Low-Tech)"
+      "skills": [
+        {
+          "name": "Medicae",
+          "rating": 1
+        },
+        {
+          "name": "Scholastic Lore",
+          "Specialization": "Chymistry",
+          "rating": 1
+        }
       ],
-      "character kit": [
+      "talents": [
+        {
+          "name": "Weapon Training",
+          "specialization": "Low-Tech"
+        }
+      ],
+      "item": [
         {
           "item": {
             "name": "Diagnostor"
@@ -221,7 +274,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Scrutiny",
+                "name": "Scrutiny",
                 "rank": 1
               }
             }
@@ -230,7 +283,8 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Trade (Chymisty)",
+                "name": "Trade",
+                "rating": "Chymisty",
                 "rank": 1
               }
             }
@@ -243,13 +297,17 @@
           [
             {
               "property": "talent",
-              "value": "Cold Hearted"
+              "value": {
+                "name": "Cold Hearted"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Jaded"
+              "value": {
+                "name": "Jaded"
+              }
             }
           ]
         ]
@@ -260,13 +318,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -289,15 +353,27 @@
         "Intelligence",
         "Tech"
       ],
-      "skills": {
-        "Operate (Surface)": 1,
-        "Tech-Use": 1
-      },
-      "talents": [
-        "Weapon Training (Low-Tech)",
-        "Technical Knock"
+      "skills": [
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        },
+        {
+          "name": "Tech-Use",
+          "rating": 1
+        }
       ],
-      "character kit": [
+      "talents": [
+        {
+          "name": "Weapon Training",
+          "specialization": "Low-Tech"
+        },
+        {
+          "name": "Technical Knock"
+        }
+      ],
+      "item": [
         {
           "item": {
             "name": "Auspex"
@@ -339,7 +415,8 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Common Lore (Tech)",
+                "name": "Common Lore",
+                "specialization": "Tech",
                 "rank": 1
               }
             }
@@ -348,7 +425,8 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Navigate (Surface)",
+                "name": "Navigate",
+                "specialization": "Surface",
                 "rank": 1
               }
             }
@@ -361,13 +439,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -391,14 +475,23 @@
         "Toughness",
         "Weapon Skill"
       ],
-      "skills": {
-        "Command": 1
-      },
-      "talents": [
-        "Weapon Training (Low-Tech)",
-        "Weapon Training (Chain)"
+      "skills": [
+        {
+          "name": "Command",
+          "rating": 1
+        }
       ],
-      "character kit": [
+      "talents": [
+        {
+          "name": "Weapon Training",
+          "specialization": "Low-Tech"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Chain"
+        }
+      ],
+      "item": [
         {
           "item": {
             "name": "Laspistol"
@@ -422,7 +515,8 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Navigate (Surface)",
+                "name": "Navigate",
+                "specialization": "Surface",
                 "rank": 1
               }
             }
@@ -431,7 +525,8 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Scholastic Lore (Tactica Imperialis)",
+                "name": "Scholastic Lore",
+                "specialization": "Tactica Imperialis",
                 "rank": 1
               }
             }
@@ -444,13 +539,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -461,13 +562,17 @@
           [
             {
               "property": "talent",
-              "value": "Air of Authority"
+              "value": {
+                "name": "Air of Authority"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Iron Discipline"
+              "value": {
+                "name": "Iron Discipline"
+              }
             }
           ]
         ]
@@ -487,11 +592,23 @@
         "Finesse",
         "Weapon Skill"
       ],
-      "skills": {
-        "Navigate (Surface)": 1,
-        "Common Lore(Imperial Guard)": 1,
-        "Common Lore (War)": 1
-      },
+      "skills": [
+        {
+          "name": "Navigate",
+          "specialization": "Surface",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        }
+      ],
       "wounds": 8
     },
     "optional modifiers": [
@@ -525,7 +642,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Athletics",
+                "name": "Athletics",
                 "rank": 1
               }
             }
@@ -534,7 +651,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Survival",
+                "name": "Survival",
                 "rank": 1
               }
             }
@@ -547,13 +664,17 @@
           [
             {
               "property": "talent",
-              "value": "Lasgun Barrage"
+              "value": {
+                "name": "Lasgun Barrage"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Rapid Reload"
+              "value": {
+                "name": "Rapid Reload"
+              }
             }
           ]
         ]
@@ -564,43 +685,64 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Bolt)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Bolt"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Plasma)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Plasma"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Flame)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Flame"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Low-Tech)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Low-Tech"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Launcher)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Launcher"
+              }
             }
           ]
         ]
@@ -610,7 +752,7 @@
         "options": [
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Krak Grenade"
@@ -621,7 +763,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Frag Grenade"
@@ -637,7 +779,7 @@
         "options": [
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "M36 Lasgun",
@@ -649,7 +791,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Flamer"
@@ -660,7 +802,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Shotgun"
@@ -671,7 +813,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Regimental Favored Basic Weapon"
@@ -701,16 +843,32 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": {
-        "Common Lore (Imperial Guard)": 1,
-        "Scholastic Lore (Tactica Imperialis)": 1
-      },
-      "talents": [
-        "Air of Authority",
-        "Weapon Training (Bolt)",
-        "Weapon Training (Chain)"
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Scholastic Lore",
+          "specialization": "Tactica Imperialis",
+          "rating": 1
+        }
       ],
-      "character kit": [
+      "talents": [
+        {
+          "name": "Air of Authority"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Bolt"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Chain"
+        }
+      ],
+      "item": [
         {
           "item": {
             "name": "Chainsword",
@@ -741,13 +899,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -758,13 +922,17 @@
           [
             {
               "property": "talent",
-              "value": "Cold Hearted"
+              "value": {
+                "name": "Cold Hearted"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Unshakeable Faith"
+              "value": {
+                "name": "Unshakeable Faith"
+              }
             }
           ]
         ]
@@ -776,7 +944,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Command",
+                "name": "Command",
                 "rank": 1
               }
             }
@@ -785,7 +953,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Intimidate",
+                "name": "Intimidate",
                 "rank": 1
               }
             }
@@ -811,19 +979,49 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": {
-        "Common Lore (Ecclesiarchy)": 1,
-        "Forbidden Lore (Heresy)": 1,
-        "Scholastic Lore (Imperial Creed)": 1
-      },
-      "talents": [
-        "Hatred",
-        "Unshakeable Faith",
-        "Weapon Training (Chain)",
-        "Weapon Training (Flame)",
-        "Weapon Training (Low-Tech)"
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Forbidden Lore",
+          "specialization": "Heresy",
+          "rating": 1
+        },
+        {
+          "name": "Scholastic Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        }
       ],
-      "character kit": [
+      "talents": [
+        {
+          "name": "Hatred"
+        },
+        {
+          "name": "Unshakeable Faith"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Chain"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Flame"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Low-Tech"
+        }
+      ],
+      "item": [
         {
           "item": {
             "name": "Flamer"
@@ -858,13 +1056,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Bolt"
+              }
             }
           ]
         ]
@@ -876,7 +1080,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Charm",
+                "name": "Charm",
                 "rank": 1
               }
             }
@@ -885,7 +1089,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Inquiry",
+                "name": "Inquiry",
                 "rank": 1
               }
             }
@@ -914,14 +1118,24 @@
         "Weapon Skill"
       ],
       "talents": [
-        "Weapon Training (Heavy)",
-        "Weapon Training (Solid Projectile)"
+        {
+          "name": "Weapon Training",
+          "specialization": "Heavy"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Solid Projectile"
+        }
       ],
       "traits": [
-        "But It Dark in Dere!",
-        "Clumsy"
+        {
+          "name": "But It Dark in Dere!"
+        },
+        {
+          "name": "Clumsy"
+        }
       ],
-      "character kit": [
+      "item": [
         {
           "item": {
             "name": "Ripper Gun"
@@ -945,7 +1159,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Intimidate",
+                "name": "Intimidate",
                 "rank": 1
               }
             }
@@ -954,7 +1168,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Survival",
+                "name": "Survival",
                 "rank": 1
               }
             }
@@ -967,13 +1181,17 @@
           [
             {
               "property": "talent",
-              "value": "Die Hard"
+              "value": {
+                "name": "Die Hard"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Iron Jaw"
+              "value": {
+                "name": "Iron Jaw"
+              }
             }
           ]
         ]
@@ -999,19 +1217,37 @@
         "Perception",
         "Social"
       ],
-      "skills": {
-        "Deceive": 1,
-        "Trade (Cook)": 1
-      },
+      "skills": [
+        {
+          "name": "Deceive",
+          "rating": 1
+        },
+        {
+          "name": "Trade",
+          "specialization": "Cook",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Deadeye Shot",
-        "Weapon Training (Las)",
-        "Weapon Training (Solid Projectile)"
+        {
+          "name": "Deadeye Shot"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Las"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Solid Projectile"
+        }
       ],
       "traits": [
-        "Size (3)"
+        {
+          "name": "Size",
+          "rating": 3
+        }
       ],
-      "character kit": [
+      "item": [
         {
           "item": {
             "name": "Chameleoline Cloak"
@@ -1029,7 +1265,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Awareness",
+                "name": "Awareness",
                 "rank": 1
               }
             }
@@ -1038,7 +1274,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Stealth",
+                "name": "Stealth",
                 "rank": 1
               }
             }
@@ -1051,25 +1287,36 @@
           [
             {
               "property": "talent",
-              "value": "Heightened Senses (Sight)"
+              "value": {
+                "name": "Heightened Senses",
+                "specialization": "Sight"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Heightened Senses (Smell)"
+              "value": {
+                "name": "Heightened Senses",
+                "specialization": "Smell"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Heightened Senses (Taste)"
+              "value": {
+                "name": "Heightened Senses",
+                "specialization": "Taste"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Light Sleeper"
+              "value": {
+                "name": "Light Sleeper"
+              }
             }
           ]
         ]
@@ -1079,7 +1326,7 @@
         "options": [
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Long Las",
@@ -1091,7 +1338,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Sniper Rifle",
@@ -1124,21 +1371,44 @@
         "Strength",
         "Willpower"
       ],
-      "skills": {
-        "Common Lore (Adeptus Astra Telepathica)": 1,
-        "Forbidden Lore (Psykers)": 1,
-        "Psyniscience": 1,
-        "Scholastic Lore (Cryptology)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Adeptus Astra Telepathica",
+          "rating": 1
+        },
+        {
+          "name": "Forbidden Lore",
+          "specialization": "Psykers",
+          "rating": 1
+        },
+        {
+          "name": "Psyniscience",
+          "rating": 1
+        },
+        {
+          "name": "Scholastic Lore",
+          "specialization": "Cryptology",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Heightened Senses (Hearing)",
-        "Weapon Training (Low-Tech)"
+        {
+          "name": "Heightened Senses",
+          "specialization": "Hearing"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Low-Tech"
+        }
       ],
       "traits": [
-        "Psyker"
+        {
+          "name": "Psyker"
+        }
       ],
       "corruption": "1d5",
-      "character kit": [
+      "item": [
         {
           "item": {
             "name": "Staff",
@@ -1170,13 +1440,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -1199,16 +1475,31 @@
         "Offence",
         "Toughness"
       ],
-      "skills": {
-        "Awareness": 1,
-        "Scholastic Lore (Tactica Imperialis)": 1,
-        "Stealth": 1
-      },
-      "talents": [
-        "Takedown",
-        "Weapon Training (Low-Tech)"
+      "skills": [
+        {
+          "name": "Awareness",
+          "rating": 1
+        },
+        {
+          "name": "Scholastic Lore",
+          "specialization": "Tactica Imperialist",
+          "rating": 1
+        },
+        {
+          "name": "Stealth",
+          "rating": 1
+        }
       ],
-      "character kit": [
+      "talents": [
+        {
+          "name": "Takedown"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Low-Tech"
+        }
+      ],
+      "item": [
         {
           "item": {
             "name": "Hot-Shot Lasgun",
@@ -1233,7 +1524,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Dodge",
+                "name": "Dodge",
                 "rank": 1
               }
             }
@@ -1242,7 +1533,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Parry",
+                "name": "Parry",
                 "rank": 1
               }
             }
@@ -1256,7 +1547,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Intimidate",
+                "name": "Intimidate",
                 "rank": 1
               }
             }
@@ -1265,7 +1556,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Security",
+                "name": "Security",
                 "rank": 1
               }
             }
@@ -1278,13 +1569,17 @@
           [
             {
               "property": "talent",
-              "value": "Quick Draw"
+              "value": {
+                "name": "Quick Draw"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Rapid Reload"
+              "value": {
+                "name": "Rapid Reload"
+              }
             }
           ]
         ]
@@ -1295,13 +1590,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -1326,20 +1627,43 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": {
-        "Common Lore (Adeptus Mechanicus)": 1,
-        "Forbidden Lore (Adeptus Mechanicus)": 1,
-        "Tech-Use": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Adeptus Mechanicus",
+          "rating": 1
+        },
+        {
+          "name": "Forbidden Lore",
+          "specialization": "Adeptus Mechanicus",
+          "rating": 1
+        },
+        {
+          "name": "Tech-Use",
+          "specialization": "Adeptus Mechanicus",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Mechadendrite Use (Weapon)",
-        "Mechadendrite Use (Utility)",
-        "Weapon Training (Power)"
+        {
+          "name": "Mechadendrite Use",
+          "specialization": "Weapon"
+        },
+        {
+          "name": "Mechadendrite Use",
+          "specialization": "Utility"
+        },
+        {
+          "name": "Weapon Training",
+          "specialization": "Power"
+        }
       ],
       "traits": [
-        "Mechanicus Implants"
+        {
+          "name": "Mechanicus Implants"
+        }
       ],
-      "character kit": [
+      "item": [
         {
           "item": {
             "name": "Sacred Ungents"
@@ -1374,7 +1698,7 @@
         "options": [
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Utility Mechadendrite"
@@ -1385,7 +1709,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Ballistic Mechadendrite"
@@ -1402,13 +1726,17 @@
           [
             {
               "property": "talent",
-              "value": "Cold Hearted"
+              "value": {
+                "name": "Cold Hearted"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Technical Knock"
+              "value": {
+                "name": "Technical Knock"
+              }
             }
           ]
         ]
@@ -1419,13 +1747,19 @@
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Las)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Las"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Weapon Training (Solid Projectile)"
+              "value": {
+                "name": "Weapon Training",
+                "specialization": "Solid Projectile"
+              }
             }
           ]
         ]
@@ -1437,7 +1771,8 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Forbidden Lore (Archeotech)",
+                "name": "Forbidden Lore",
+                "specialization": "Archeotech",
                 "rank": 1
               }
             }
@@ -1446,7 +1781,7 @@
             {
               "property": "skill",
               "value": {
-                "skill": "Logic",
+                "name": "Logic",
                 "rank": 1
               }
             }
@@ -1458,7 +1793,7 @@
         "options": [
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Augur Array",
@@ -1470,7 +1805,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Autosanguine",
@@ -1482,7 +1817,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Baleful Eye",
@@ -1494,7 +1829,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Ballistic Mechadendrite",
@@ -1506,7 +1841,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Bionic Arm",
@@ -1518,7 +1853,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Bionic Legs",
@@ -1530,7 +1865,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Bionic Respiratory System",
@@ -1542,7 +1877,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Bionic Heart",
@@ -1554,7 +1889,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Calculus Logi Upgrade",
@@ -1566,7 +1901,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Cerebral Implants",
@@ -1578,7 +1913,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Cranial Armor",
@@ -1590,7 +1925,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Cybernetic Senses",
@@ -1602,7 +1937,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Ferric Lure Implants",
@@ -1614,7 +1949,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Interface Port",
@@ -1626,7 +1961,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Internal Reservoir",
@@ -1638,7 +1973,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Locator Matrix",
@@ -1650,7 +1985,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Lumen Capacitor",
@@ -1662,7 +1997,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Maglev Coils",
@@ -1674,7 +2009,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Manipulator Mechadendrite",
@@ -1686,7 +2021,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Medicae Mechadendrite",
@@ -1698,7 +2033,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Memorance Implant",
@@ -1710,7 +2045,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Mind Impulse Unit",
@@ -1722,7 +2057,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "MIU Weapon Interface",
@@ -1734,7 +2069,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Optical Mechadendrite",
@@ -1746,7 +2081,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Respiratory Filter Implant",
@@ -1758,7 +2093,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Subskin Armor",
@@ -1770,7 +2105,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Synthmuscle",
@@ -1782,7 +2117,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Utility Mechadendrite",
@@ -1794,7 +2129,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Vocal Implant",
@@ -1806,7 +2141,7 @@
           ],
           [
             {
-              "property": "character kit",
+              "property": "item",
               "value": {
                 "item": {
                   "name": "Volitor Implant",
