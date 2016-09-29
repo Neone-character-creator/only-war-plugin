@@ -10,7 +10,8 @@ require.config({
         "jquery-ui": "libs/jquery-ui/jquery-ui",
         "angular-ui": "libs/angular-bootstrap/ui-bootstrap-tpls",
         "angular-filter": "libs/angular-filter/dist/angular-filter",
-        "cookies": "libs/js-cookie/src/js.cookie"
+        "cookies": "libs/js-cookie/src/js.cookie",
+        "underscore": "libs/underscore/underscore"
     },
     shim: {
         "jquery": {
@@ -43,6 +44,9 @@ require.config({
         },
         "bootstrap": {
             deps: ['jquery']
+        },
+        "underscore" : {
+            exports: "_"
         }
     },
     deps: ['app/app']
