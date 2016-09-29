@@ -4,8 +4,7 @@
     "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
-      "Left Arm",
-      "Right Arm",
+      "Arms",
       "Body"
     ],
     "ap": 1,
@@ -17,11 +16,9 @@
     "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
-      "Left Arm",
-      "Right Arm",
+      "Arms",
       "Body",
-      "Left Leg",
-      "Right Leg"
+      "Legs"
     ],
     "ap": 3,
     "weight": 15,
@@ -32,11 +29,9 @@
     "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
-      "Left Arm",
-      "Right Arm",
+      "Arms",
       "Body",
-      "Left Leg",
-      "Right Leg",
+      "Legs",
       "Head"
     ],
     "ap": 5,
@@ -70,8 +65,7 @@
     "craftsmanship": "Common",
     "type": "Primitive",
     "locations": [
-      "Left Arm",
-      "Right Arm"
+      "Arms"
     ],
     "ap": 2,
     "weight": 1,
@@ -82,11 +76,9 @@
     "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
-      "Left Arm",
-      "Right Arm",
+      "Arms",
       "Body",
-      "Right Leg",
-      "Left Leg"
+      "Legs"
     ],
     "ap": 2,
     "weight": 4,
@@ -108,11 +100,9 @@
     "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
-      "Left Arm",
-      "Right Arm",
+      "Arms",
       "Body",
-      "Right Leg",
-      "Left Leg"
+      "Legs"
     ],
     "ap": 3,
     "weight": 8,
@@ -123,8 +113,7 @@
     "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
-      "Left Arm",
-      "Right Arm",
+      "Arms",
       "Body"
     ],
     "ap": 3,
@@ -136,11 +125,9 @@
     "craftsmanship": "Common",
     "type": "Flak",
     "locations": [
-      "Left Arm",
-      "Right Arm",
+      "Arms",
       "Body",
-      "Right Leg",
-      "Left Leg"
+      "Legs"
     ],
     "ap": 3,
     "weight": 8,
@@ -162,8 +149,7 @@
     "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
-      "Left Arm",
-      "Right Arm"
+      "Arms"
     ],
     "ap": 5,
     "weight": 2,
@@ -174,8 +160,7 @@
     "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
-      "Right Leg",
-      "Left Leg"
+      "Legs"
     ],
     "ap": 4,
     "weight": 3,
@@ -186,10 +171,8 @@
     "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
-      "Right Arm",
-      "Left Arm",
-      "Right Leg",
-      "Left Leg",
+      "Arms",
+      "Legs",
       "Body",
       "Head"
     ],
@@ -213,10 +196,8 @@
     "craftsmanship": "Common",
     "type": "Carapace",
     "locations": [
-      "Right Arm",
-      "Left Arm",
-      "Right Leg",
-      "Left Leg",
+      "Arms",
+      "Legs",
       "Body",
       "Head"
     ],
@@ -229,11 +210,9 @@
     "craftsmanship": "Common",
     "weight": 0,
     "locations": [
-      "Right Arm",
-      "Left Arm",
+      "Arms",
       "Body",
-      "Right Leg",
-      "Left Leg"
+      "Legs"
     ],
     "ap": 3,
     "availability": "Very Rare",
