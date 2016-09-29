@@ -9,7 +9,7 @@ export class Item {
     private _type:ItemType;
     private _upgrades:Array<string>;
 
-    constructor(name:string, type:ItemType, availability:string, weight?:number, upgrades?:Array<string>, craftsmanship?:string, isMainWeapon?:boolean) {
+    constructor(name:string, type:ItemType, availability:string, weight?:number, upgrades?:Array<string>, craftsmanship?:string) {
         this._name = name;
         this._availability = availability;
         if (weight) {
@@ -59,4 +59,9 @@ export enum ItemType{
     Weapon,
     Armor,
     Other
+}
+
+export enum SpecialEquipmentCategory{
+    StandardMeleeWeapon,
+    MainWeapon
 }
