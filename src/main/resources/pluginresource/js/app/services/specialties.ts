@@ -27,29 +27,25 @@ export class SpecialtyService {
                 }
                 var aptitudes = specialty['fixed modifiers'].aptitudes;
                 var characterSkills = new Map<SkillDescription, number>();
-                var skillContainer = specialty['fixed modifiers'].skills;
-                for (var skillName in skillContainer) {
-                    characterSkills.set(result.placeholders.replace(skillName, "skill"), skillContainer[skillName]);
+                var skillContainer = specialty['fixed modifiers'].skills
+                if (skillContainer) {
+                    for (var skillPlaceholder of skillContainer) {
+                        characterSkills.set(result.placeholders.replace(skillPlaceholder, "skill"), skillContainer[skillPlaceholder]);
+                    }
                 }
-
                 var characterTalents = new Array<Talent>();
                 if (specialty['fixed modifiers'].talents) {
-                    for (var talentDescription of specialty['fixed modifiers'].talents) {
-                        var talentName = talentDescription.substring(0, talentDescription.indexOf("(") == -1 ? talentDescription.length : talentDescription.indexOf("(")).trim();
-                        let specialization = talentDescription.substring(talentDescription.indexOf("(") + 1, talentDescription.indexOf((")")));
-                        var talent:Talent = result.placeholders.replace(talentDescription, "talent");
-                        characterTalents.push(new Talent(talent.name, talent.source, talent.tier, talent.aptitudes
-                            , specialization, talent.prerequisites, talent.maxTimesPurchaseable));
+                    for (var talentPlaceholder of specialty['fixed modifiers'].talents) {
+                        var talent:Talent = result.placeholders.replace(talentPlaceholder, "talent");
+                        characterTalents.push(talent);
                     }
                 }
 
                 var characterTraits = new Array<Trait>();
                 if (specialty['fixed modifiers'].traits) {
-                    for (var traitDescription of specialty['fixed modifiers'].traits) {
-                        var traitName = traitDescription.substring(0, traitDescription.indexOf("(") == -1 ? traitDescription.length : traitDescription.indexOf("(")).trim();
-                        var specialization = traitDescription.substring(traitDescription.indexOf("(") + 1, traitDescription.indexOf(")"));
-                        var trait:Trait = result.placeholders.replace(traitDescription, "trait");
-                        characterTraits.push(new Trait(trait.name, trait.description));
+                    for (var traitPlaceholder of specialty['fixed modifiers'].traits) {
+                        var trait:Trait = result.placeholders.replace(traitPlaceholder, "trait");
+                        characterTraits.push(trait);
                     }
                 }
 
@@ -67,17 +63,12 @@ export class SpecialtyService {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
                             return optionGroup.map(option=> {
-                                switch (option.property) {
-                                    case "skill":
-                                        option.value.skill = result.placeholders.replace(option.value.skill, option.property);
-                                        break;
-                                    case "character kit":
-                                        option.value.item = result.placeholders.replace(option.value.item, "item");
-                                        break;
+                                switch (option.property){
+                                    case "item":
+                                        option.value = result.placeholders.replace(option.value.item, option.property);
                                     default:
                                         option.value = result.placeholders.replace(option.value, option.property);
                                 }
-                                var options = [];
                                 return option;
                             });
 
