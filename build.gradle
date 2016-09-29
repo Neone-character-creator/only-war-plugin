@@ -26,9 +26,11 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile "io.github.thisisnozaku.charactercreator:neone-plugin-api:1.0"
-    compile "org.scala-lang:scala-library:2.11.7"
-    compile "com.typesafe.play:play_2.11:2.5.0"
     compile 'org.apache.felix:org.apache.felix.scr.annotations:1.9.12'
+    compile 'com.jayway.jsonpath:json-path:2.2.0'
+    compile "javax.json:javax.json-api:1.0"
+
+    runtime "org.glassfish:javax.json:1.0.4"
 }
 
 jar {
@@ -38,6 +40,10 @@ jar {
         instructionReplace 'Private-Package', 'io.github.thisisnozaku.*'
         instructionReplace 'Export-Package', '!*'
         instruction 'Import-Package', 'io.github.thisisnozaku.charactercreator.plugins; version=1.0.0'
+    }
+    from sourceSets.main.allSource
+    from {
+        configurations.runtime.collect {it.isDirectory() ? it : zipTree(it)}
     }
 }
 
@@ -54,6 +60,9 @@ processResources {
     outputs.upToDateWhen {
         file("$buildDir/resources/templates/character.html").exists()
     }
+    exclude "**/*.ts"
+    exclude "**/*.js.map"
+    exclude "**/tests/**"
 }
 
 /*
@@ -62,7 +71,6 @@ processResources {
 * build directory.
  */
 processResources << {
-    println "Copying"
     String source = "src/main/resources/character.html"
     String dest = "$buildDir/resources/templates/"
     copy {

@@ -5,7 +5,7 @@ define(["require", "exports", "angular", "../types/regiment/creation/RegimentCre
             selection.selectionObject = selectedObject;
             $uibModal.open({
                 controller: "SelectionModalController",
-                templateUrl: 'pluginresource/templates/selection-modal.html'
+                templateUrl: '/pluginresource/templates/selection-modal.html'
             }).result.then(function () {
                 optionselection.target = modifier;
                 optionselection.selected = selection.selected;
@@ -30,34 +30,24 @@ define(["require", "exports", "angular", "../types/regiment/creation/RegimentCre
         };
         //Filters creation options so that items with too high a cost are hidden
         $scope.costFilter = function (item) {
-            return item.cost <= $scope.$parent.$parent.remainingRegimentPoints;
+            return item.cost <= $scope.$parent.$parent.regimentElements.remainingRegimentPoints;
         };
-        $scope.$watch(() = > {
+        $scope.$watch(() => {
             return $scope.element ? $scope.element.selected : null;
-    },
-        () =
-    >
-        {
+        }, () => {
             if ($scope.element && $scope.element.selected) {
-                $scope.elementCharacteristics = Array.from($scope.element.selected.characteristics.entries()).map(entry = > {
-                        return {name: entry[0].name, rating: entry[1]};
-            })
-                ;
-                $scope.elementSkills = Array.from($scope.element.selected.skills.entries()).map(entry = > {
-                        return {skill: entry[0], rating: entry[1]};
-            })
-                ;
-                $scope.elementKit = Array.from($scope.element.selected.kit.entries()).map(entry = > {
-                        return {item: entry[0], count: entry[1]};
-            })
-                ;
+                $scope.elementCharacteristics = Array.from($scope.element.selected.characteristics.entries()).map(entry => {
+                    return { name: entry[0].name, rating: entry[1] };
+                });
+                $scope.elementSkills = Array.from($scope.element.selected.skills.entries()).map(entry => {
+                    return { skill: entry[0], rating: entry[1] };
+                });
+                $scope.elementKit = Array.from($scope.element.selected.kit.entries()).map(entry => {
+                    return { item: entry[0], count: entry[1] };
+                });
                 $scope.$parent.$parent.regimentElements[$scope.category];
             }
-        }
-    ,
-        true
-    )
-        ;
+        }, true);
         $scope.select = function (selected) {
             switch ($scope.element.category) {
                 case "homeworld":
@@ -76,7 +66,6 @@ define(["require", "exports", "angular", "../types/regiment/creation/RegimentCre
             }
         };
     }
-
     exports.RegimentCreationElementController = RegimentCreationElementController;
 });
 //# sourceMappingURL=RegimentCreationElementController.js.map

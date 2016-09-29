@@ -79,17 +79,22 @@ export class UpgradeItemKitModifier extends KitModifier {
             if (!kit.has(item)) {
                 throw "Tried to apply a kit modifier targeting an item the kit doesn't contain.";
             }
-            if (kit.get(item) == 0) {
-                kit.delete(item);
-            } else {
-                kit.set(item, kit.get(item) - 1);
+            for (let existingEntry of kit.entries()) {
+                if (angular.equals(existingEntry[0], item)) {
+                    if (existingEntry[1] == 1) {
+                        kit.delete(existingEntry[0]);
+                    } else {
+                        kit.set(existingEntry[0], existingEntry[1] - 1);
+                    }
+                    break;
+                }
             }
             removed.set(item, 1);
             let upgradedItem;
             switch (item.type) {
                 case ItemType.Weapon:
                     let weapon = <Weapon>item;
-                    upgradedItem = new Weapon(weapon.name, weapon.availability, weapon.class, weapon.range, weapon.rateOfFire, weapon.damage, weapon.penetration, weapon.clip, weapon.reload, weapon.special, weapon.weight, weapon.isMainWeapon, this._upgrade.upgrades ? item.upgrades.concat(this._upgrade.upgrades) : item.upgrades, this._upgrade.craftsmanship ? this._upgrade.craftsmanship : item.craftsmanship);
+                    upgradedItem = new Weapon(weapon.name, weapon.availability, weapon.class, weapon.weaponType, weapon.range, weapon.rateOfFire, weapon.damage, weapon.penetration, weapon.clip, weapon.reload, weapon.special, weapon.weight, weapon.specialEquipmentCategory, this._upgrade.upgrades ? item.upgrades.concat(this._upgrade.upgrades) : item.upgrades, this._upgrade.craftsmanship ? this._upgrade.craftsmanship : item.craftsmanship);
                     break;
                 case ItemType.Armor:
                     let armor = <Armor>item;
@@ -143,7 +148,7 @@ export class ReplaceItemKitModifier extends KitModifier {
 
     apply(kit:Map<Item, number>, toRemove?:Array<Item>):KitModifierResult {
         var removed:Map<Item,number> = new Map();
-        for (var existingItem of toRemove) {
+        for (var existingItem of kit.keys()) {
             if (this.matches(existingItem)) {
                 removed.set(existingItem, 1);
                 if (kit.get(existingItem) == 1) {
@@ -159,7 +164,7 @@ export class ReplaceItemKitModifier extends KitModifier {
             if (!existingCount) {
                 existingCount = 0;
             }
-            kit.set(replacementEntry[0], kit.get(replacementEntry[0]) + existingCount);
+            kit.set(replacementEntry[0], replacementEntry[1] + existingCount);
         }
         return {
             itemsAdded: this._replacements,
@@ -197,11 +202,21 @@ export class AddSpecificItemKitModifier extends KitModifier {
 
     apply(kit:Map<Item, number>) {
         for (let additionEntry of this._itemsToAdd.entries()) {
-            let existingCount = kit.get(additionEntry[0]);
-            if (!existingCount) {
-                existingCount = 0;
+            let found = false;
+            for (let existing of kit.entries()) {
+                if(angular.equals(existing[0], additionEntry[0])){
+                    let existingCount = kit.get(existing[0]);
+                    if (!existingCount) {
+                        existingCount = 0;
+                    }
+                    kit.set(existing[0], kit.get(existing[0]) + existingCount);
+                    found = true;
+                    break;
+                }
             }
-            kit.set(additionEntry[0], kit.get(additionEntry[0]) + existingCount);
+            if(!found){
+                kit.set(additionEntry[0], additionEntry[1]);
+            }
         }
         return {
             itemsAdded: this._itemsToAdd,

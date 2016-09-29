@@ -362,23 +362,35 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
                             results.characterOptions.armor
                         ).filter(option=> {
                             return choice.matches(option);
+                        }).map(option=> {
+                            return [{
+                                property: "character kit", value: {
+                                    "count": 1,
+                                    "item": option
+                                }
+                            }]
                         });
                         selection.selectionObject = {
                             numSelectionsNeeded: 1,
                             options: options
                         };
-                        $state.go("modal.selection.kitModifier", {
+                        $state.go("createRegiment.kitModifier", {
                             "on-completion-callback": function (result) {
-                                var selectedItems = selection.selected.reduce((previous, current)=> {
+                                var selectedItems = new Map();
+                                selection.selected.reduce((previous, current)=> {
                                     return previous.concat(current);
                                 }).map(e=> {
                                     return e.value.item;
+                                }).forEach(e=>{
+                                    selectedItems.set(e, 1);
                                 });
+
                                 $scope.regimentElements.kitModifiers.push(
                                     choice.apply($scope.regimentElements.regimentKit, selectedItems));
                                 updateAvailableKitChoices();
                             }
                         });
+                        break;
                     }
                     case KitModifierType.AddFavored:
                     {

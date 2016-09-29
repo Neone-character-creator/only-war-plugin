@@ -1,7 +1,7 @@
 import {Characteristic} from "../types/character/Characteristic";
 import {SkillDescription} from "../types/character/Skill";
 import {Talent} from "../types/character/Talent";
-import {Regiment} from "../types/character/Regiment";
+import {Regiment, RegimentBuilder} from "../types/character/Regiment";
 import {Trait} from "../types/character/Trait";
 import {Item} from "../types/character/items/Item";
 import {SelectableModifier} from "../types/character/CharacterModifier";
@@ -28,42 +28,38 @@ export class RegimentService {
                 var aptitudes = regiment['fixed modifiers'].aptitudes;
                 var characterSkills = new Map<SkillDescription, number>();
                 var skillContainer = regiment['fixed modifiers'].skills;
-                for (var skillName in skillContainer) {
-                    characterSkills.set(result.placeholders.replace(skillName, "skill"), skillContainer[skillName]);
+                for (var skillPlaceholder of skillContainer) {
+                    characterSkills.set(result.placeholders.replace(skillPlaceholder, "skill"), skillPlaceholder.rating);
                 }
 
                 var characterTalents = new Array<Talent>();
-                for (var talentDescription of regiment['fixed modifiers'].talents) {
-                    var talentName = talentDescription.substring(0, talentDescription.indexOf("(") == -1 ? talentDescription.length : talentDescription.indexOf("(")).trim();
-                    let specialization = talentDescription.substring(talentDescription.indexOf("(") + 1, talentDescription.indexOf((")")));
-                    var talent:Talent = result.placeholders.replace(talentDescription, "talent");
-                    characterTalents.push(new Talent(talent.name, talent.source, talent.tier, talent.aptitudes
-                        , specialization, talent.prerequisites, talent.maxTimesPurchaseable));
+                if (regiment['fixed modifiers'].talents) {
+                    for (var talentPlaceholder of regiment['fixed modifiers'].talents) {
+                        var talent:Talent = result.placeholders.replace(talentPlaceholder, "talent");
+                        characterTalents.push(talent);
+                    }
                 }
 
                 var characterTraits = new Array<Trait>();
                 if (regiment['fixed modifiers'].traits) {
-                    for (var traitDescription of regiment['fixed modifiers'].traits) {
-                        var traitName = traitDescription.substring(0, traitDescription.indexOf("(") == -1 ? traitDescription.length : traitDescription.indexOf("(")).trim();
-                        var specialization = traitDescription.substring(traitDescription.indexOf("(") + 1, traitDescription.indexOf(")"));
-                        var trait:Trait = result.placeholders.replace(traitDescription, "trait");
-                        characterTraits.push(new Trait(trait.name, trait.description));
+                    for (var traitPlaceholder of regiment['fixed modifiers'].traits) {
+                        var trait:Trait = result.placeholders.replace(traitPlaceholder, "trait");
+                        characterTraits.push(trait);
                     }
                 }
 
                 var kit:Map<Item, number> = new Map<Item, number>();
-                for (var itemDescription of regiment['fixed modifiers']['character kit']) {
-                    var item = result.placeholders.replace(itemDescription.item, "item");
-                    kit.set(item, itemDescription.count);
+                if (regiment['fixed modifiers']['character kit']) {
+                    for (var itemDescription of regiment['fixed modifiers']['character kit']) {
+                        var item = result.placeholders.replace(itemDescription.item, "item");
+                        kit.set(item, itemDescription.count);
+                    }
                 }
                 var wounds:number = regiment['fixed modifiers'].wounds;
-                var favoredWeapons = new Map<string, Weapon>();
-                for (var favoredWeapon of regiment['fixed modifiers']['favored weapons']) {
-                    favoredWeapons.set(favoredWeapon["type"], result.placeholders.replace(favoredWeapon['item'], "item"));
-                }
-                var specialAbilities = []
-                $.each(regiment['fixed modifiers']['special abilities'], function (i, ability) {
-                    specialAbilities.push(new SpecialAbility(ability.name, ability.description));
+
+                var favoredWeapons:Map<string, Array<Weapon>> = new Map();
+                regiment['fixed modifiers']['favored weapons'].forEach(e=>{
+                    favoredWeapons.set(e.type, [result.placeholders.replace(e.item, "item")]);
                 });
                 var optionalModifiers = Array<SelectableModifier>();
                 if (regiment['optional modifiers']) {
@@ -72,15 +68,15 @@ export class RegimentService {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
                             return optionGroup.map(option=> {
                                 option.value = result.placeholders.replace(option.value, option.property);
-                                var options = [];
                                 return option;
                             });
 
                         }), optional['selection time']));
                     }
                 }
-                return new Regiment(regiment.name, characteristics, characterSkills, characterTalents, regiment['fixed modifiers'].aptitudes,
-                    characterTraits, kit, wounds, optionalModifiers, favoredWeapons, specialAbilities);
+                return new RegimentBuilder().setName(regiment.name).setCharacteristics(characteristics).setSkills(characterSkills)
+                    .setTalents(characterTalents).setAptitudes(regiment['fixed modifiers'].aptitudes).setTraits(characterTraits)
+                    .setKit(kit).setWounds(wounds).setOptionalModifiers(optionalModifiers).setFavoredWeapons(favoredWeapons).build();
             });
         });
     }

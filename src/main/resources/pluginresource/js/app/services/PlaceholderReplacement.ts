@@ -1,9 +1,11 @@
 import {Talent} from "../types/character/Talent";
-import {Item, ItemType} from "../types/character/items/Item";
+import {Item, ItemType, SpecialEquipmentCategory} from "../types/character/items/Item";
 import {CharacterOptionsService} from "./CharacterOptionsService";
 import {Characteristic} from "../types/character/Characteristic";
 import {SkillDescription} from "../types/character/Skill";
 import {Weapon} from "../types/character/items/Weapon";
+import {Armor} from "../types/character/items/Armor";
+import {Trait} from "../types/character/Trait";
 /**
  * Created by Damien on 7/15/2016.
  */
@@ -25,15 +27,13 @@ export class PlaceholderReplacement {
         switch (type) {
             case "talent":
             {
-                var talentName = placeholder.substring(0, placeholder.indexOf("(") == -1 ? placeholder.length : placeholder.indexOf("(")).trim();
-                var specialization = placeholder.substring(placeholder.indexOf("(") + 1, placeholder.indexOf(")"));
                 var talent:Talent = this._characteroptions.talents.find(talent=> {
-                    return talent.name === talentName;
+                    return talent.name === placeholder.name;
                 });
                 if (!talent) {
-                    throw "Tried to find a replacement for talent " + placeholder + " but failed.";
+                    throw "Tried to find a talent replacement for " + placeholder + " but failed.";
                 }
-                return new Talent(talent.name, talent.source, talent.tier, talent.aptitudes, specialization, talent.prerequisites);
+                return new Talent(talent.name, talent.source, talent.tier, talent.aptitudes, placeholder.specialization, talent.prerequisites);
             }
             case "item":
             {
@@ -57,9 +57,25 @@ export class PlaceholderReplacement {
                 }
                 if (item && placeholder['main weapon']) {
                     let original:Weapon = <Weapon>item;
-                    item = new Weapon(original.name, original.availability, original.class, original.range,
+                    item = new Weapon(original.name, original.availability, original.class, original.weaponType, original.range,
                         original.rateOfFire, original.damage, original.penetration, original.clip, original.reload,
-                        original.special, original.weight, true, original.upgrades, original.craftsmanship);
+                        original.special, original.weight, SpecialEquipmentCategory.MainWeapon, original.upgrades, original.craftsmanship);
+                }
+                if (item) {
+                    switch (item.type) {
+                        case ItemType.Weapon:
+                            return new Weapon(item.name, item.availability, (<Weapon>item).class,
+                                (<Weapon>item).weaponType, (<Weapon>item).range, (<Weapon>item).rateOfFire,
+                                (<Weapon>item).damage, (<Weapon>item).penetration, (<Weapon>item).clip, (<Weapon>item).reload,
+                                (<Weapon>item).special, (<Weapon>item).weight, (<Weapon>item).specialEquipmentCategory, placeholder.upgrades,
+                                placeholder.craftsmanship);
+                        case ItemType.Armor:
+                            return new Armor(item.name, item.availability, (<Armor>item).locations, (<Armor>item).ap, (<Armor>item).armorType,
+                                (<Armor>item).weight, placeholder.upgrades, placeholder.craftsmanship);
+                        case ItemType.Other:
+                            return new Item(item.name, ItemType.Other, item.availability, item.weight, placeholder.upgrades,
+                                placeholder.craftsmanship);
+                    }
                 }
                 if (!item) {
                     console.log("Tried to find item for " + placeholder.name + " but failed.");
@@ -67,19 +83,15 @@ export class PlaceholderReplacement {
                     item['main weapon'] = placeholder['main weapon'];
                     item['armor'] = placeholder['armor'];
                 }
-            }
                 return item;
+            }
             case "skill":
             {
-                var skillName = placeholder.indexOf("(") === -1 ? placeholder : placeholder.substring(0, placeholder.indexOf("(")).trim();
                 var skill = this._characteroptions.skills.find(function (skill) {
-                    return skill.name === skillName;
+                    return skill.name === placeholder.name;
                 });
                 var skillSpecialization;
-                if (skill.specialization) {
-                    var skillSpecialization = placeholder.indexOf("(") === -1 ? null : placeholder.substring(placeholder.indexOf("(") + 1, placeholder.indexOf(")")).trim();
-                }
-                return new SkillDescription(skill.name, skill.aptitudes, skillSpecialization);
+                return new SkillDescription(skill.name, skill.aptitudes, placeholder.specialization);
             }
             case "characteristic":
             {
@@ -88,18 +100,13 @@ export class PlaceholderReplacement {
             }
             case "trait":
             {
-                var traitName = placeholder.indexOf("(") === -1 ? placeholder : placeholder.substring(0, placeholder.indexOf("(")).trim();
-                var rating = placeholder.indexOf("(") === -1 ? null : Number.parseInt(placeholder.substring(placeholder.indexOf("(") + 1, placeholder.indexOf(")")));
                 var foundTrait = this._characteroptions.traits.find((trait)=> {
-                    return trait.name === traitName;
+                    return trait.name === placeholder.name;
                 });
-                foundTrait = angular.copy(foundTrait);
-                foundTrait.rating = rating;
-                return foundTrait;
+                return new Trait(foundTrait.name, foundTrait.description, placeholder.rating);
             }
             default:
                 throw "Incorrect type name, must be skill, talent, item or power.";
         }
     }
-
 }

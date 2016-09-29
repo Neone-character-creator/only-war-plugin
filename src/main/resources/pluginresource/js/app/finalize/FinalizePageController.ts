@@ -127,7 +127,7 @@ export class FinalizePageController {
                 switch ($scope.selectedCategory.value) {
                     case "Characteristics":
                         property.push($scope.displayedOption.name);
-                        value = characterService.character.characteristics().byName($scope.displayedOption.name.toLowerCase()).advancements + 1;
+                        value = Characteristic.characteristics.get($scope.displayedOption.name);
                         advancement = new CharacteristicAdvancement(value);
                         break;
                     case "Skills":
@@ -140,7 +140,7 @@ export class FinalizePageController {
                         break;
                 }
                 characterService.character.experience.addAdvancement(advancement);
-                $scope.availableXp = characterService.character.experience().available();
+                $scope.availableXp = characterService.character.experience.available;
             };
             $scope.duplicateAptitudes = characterService.character.aptitudes.filter((aptitude, index, original)=> {
                 return original.indexOf(aptitude, index + 1) !== -1;

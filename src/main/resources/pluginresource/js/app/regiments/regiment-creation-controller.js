@@ -634,7 +634,7 @@ define(["../types/character/Regiment", "../types/character/Characteristic", "../
                     selection.selectionObject = selectedObject;
                     $uibModal.open({
                         controller: "SelectionModalController",
-                        templateUrl: 'pluginresource/templates/selection-modal.html'
+                        templateUrl: '/pluginresource/templates/selection-modal.html'
                     }).result.then(function () {
                         optionselection.target = modifier;
                         optionselection.selected = selection.selected;

@@ -77,7 +77,7 @@ define(function () {
                     $scope.openStartingPowersModal = function () {
                         $uibModal.open({
                             controller: "StartingPowersController",
-                            templateUrl: 'pluginresource/templates/starting-powers-modal.html'
+                            templateUrl: '/pluginresource/templates/starting-powers-modal.html'
                         });
                     }
 
@@ -98,6 +98,17 @@ define(function () {
                             $scope.requiredSelections = $scope.selected.optionalModifiers;
                             if ($scope.requiredSelections.length > 0) {
                                 $state.$current.data.complete = false;
+                            }
+
+                            if ($scope.selected.favoredWeapons) {
+                                $scope.favoredWeapons = Array.from($scope.selected.favoredWeapons.values()).reduce(function (next, previous) {
+                                    next.forEach(function (e) {
+                                        previous.push(e);
+                                    });
+                                    return previous;
+                                }).map(function(e){
+                                    return e.name;
+                                });
                             }
                         }
                     });

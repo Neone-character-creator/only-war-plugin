@@ -83,13 +83,13 @@ export class RegimentCreationElementsContainer {
 
     get regimentKit():Map<Item, number> {
         let mainWeaponsReplaced:boolean = this._regimentType.selected ? Array.from(this._regimentType.selected.kit.keys()).map(item=> {
-            if (item instanceof Weapon && (<Weapon>item).isMainWeapon) {
+            if (item instanceof Weapon && (<Weapon>item).specialEquipmentCategory) {
                 return true;
             }
             return false;
         }).reduce((previous, current)=> {
             return previous || current;
-        }) : false;
+        }, false) : false;
         let armorReplaced = this._regimentType.selected ? Array.from(this._regimentType.selected.kit.keys()).map(item=> {
             if (item instanceof Weapon) {
                 return true;
@@ -97,14 +97,14 @@ export class RegimentCreationElementsContainer {
             return false;
         }).reduce((previous, current)=> {
             return previous || current;
-        }) : false;
+        },false) : false;
         let regimentKit:Map<Item, number> = new Map();
         for (let entry of this._standardRegimentalKit.entries()) {
             let existingCount = regimentKit.get(entry[0]);
             if (!existingCount) {
                 existingCount = 0;
             }
-            if ((<Weapon>entry[0]).isMainWeapon && mainWeaponsReplaced) {
+            if ((<Weapon>entry[0]).specialEquipmentCategory && mainWeaponsReplaced) {
                 continue;
             }
             if (entry[0] instanceof Armor && armorReplaced) {
@@ -144,11 +144,20 @@ export class RegimentCreationElementsContainer {
                 }
             }
             for (let added of mod.itemsAdded.entries()) {
-                let count = regimentKit.get(added[0]);
-                if (!count) {
-                    count = 0;
+                let found = false;
+                for (let existing of regimentKit.entries()) {
+                    if (existing[0].name === added[0].name
+                        && existing[0].craftsmanship === added[0].craftsmanship
+                        && angular.equals(existing[0].upgrades, added[0].upgrades)) {
+                        let count = existing[1];
+                        regimentKit.set(existing[0], existing[1] + added[1]);
+                        found = true;
+                        break;
+                    }
                 }
-                regimentKit.set(added[0], count + added[1]);
+                if (!found) {
+                    regimentKit.set(added[0], added[1]);
+                }
             }
             this._remainingKitPoints -= mod.modifier.kitPointCost;
         })

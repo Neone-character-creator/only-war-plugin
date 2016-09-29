@@ -1,9 +1,10 @@
-import {Item, ItemType} from "./Item";
+import {Item, ItemType, SpecialEquipmentCategory} from "./Item";
 /**
  * Created by Damien on 7/9/2016.
  */
 export class Weapon extends Item {
     private _class:string;
+    private _weaponType:string;
     private _range:string;
     private _rateOfFire:string;
     private _damage:string;
@@ -11,12 +12,13 @@ export class Weapon extends Item {
     private _clip:string;
     private _reload:string;
     private _special:Array<string>;
-    private _isMainWeapon:boolean;
+    private _specialEquipmentCategory:SpecialEquipmentCategory;
 
-    constructor(name:string, availability:string, weaponClass:string, range:string, rateOfFire:string, damage:string,
-                penetration:string, clip:string, reload:string, special:Array<string>, weight?:number, isMainWeapon?:boolean, upgrades?:Array<string>, craftsmanship?:string) {
+    constructor(name:string, availability:string, weaponClass:string, weaponType:string, range:string, rateOfFire:string, damage:string,
+                penetration:string, clip:string, reload:string, special:Array<string>, weight?:number, specialEquipmentCategory?:SpecialEquipmentCategory, upgrades?:Array<string>, craftsmanship?:string) {
         super(name, ItemType.Weapon, availability, weight, upgrades, craftsmanship);
         this._class = weaponClass;
+        this._weaponType = weaponType;
         this._range = range;
         this._rateOfFire = rateOfFire;
         this._damage = damage;
@@ -24,14 +26,11 @@ export class Weapon extends Item {
         this._clip = clip;
         this._reload = reload;
         this._special = special;
-        this._isMainWeapon = isMainWeapon;
+        this._specialEquipmentCategory = specialEquipmentCategory;
     }
 
-    get isMainWeapon():boolean {
-        if (this._isMainWeapon) {
-            return this._isMainWeapon;
-        }
-        return false;
+    get specialEquipmentCategory():SpecialEquipmentCategory {
+        return this._specialEquipmentCategory;
     }
 
     get class():string {
@@ -66,5 +65,7 @@ export class Weapon extends Item {
         return this._special;
     }
 
-
+    get weaponType():string {
+        return this._weaponType;
+    }
 }

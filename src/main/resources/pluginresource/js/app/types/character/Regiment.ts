@@ -24,7 +24,7 @@ export class Regiment extends CharacterModifier {
                 kit:Map<Item, number>,
                 wounds:number,
                 optionalModifiers:Array<SelectableModifier>,
-                favoredWeapons:Map<string, Weapon>,
+                favoredWeapons:Map<string, Array<Weapon>>,
                 specialAbilities:Array<SpecialAbility>) {
         super(characteristics, skills, talents, aptitudes, traits, kit, wounds, 0, OnlyWarCharacterModifierTypes.REGIMENT);
         this._name = name;
@@ -34,7 +34,7 @@ export class Regiment extends CharacterModifier {
     }
 
     private _optionalModifiers:Array<SelectableModifier>
-    private _favoredWeapons:Map<string, Weapon>;
+    private _favoredWeapons:Map<string, Array<Weapon>>;
     private _specialAbilities:Array<SpecialAbility>;
 
     protected applyCharacteristicsModifiers(character:OnlyWarCharacter) {
@@ -103,7 +103,7 @@ export class Regiment extends CharacterModifier {
         return this._name;
     }
 
-    get favoredWeapons():Map<string, Weapon> {
+    get favoredWeapons():Map<string, Array<Weapon>> {
         return this._favoredWeapons;
     }
 
@@ -128,16 +128,20 @@ export class RegimentBuilder {
     private _aptitudes:Array<string> = [];
     private _kit:Map<Item,number> = new Map();
     private _wounds:number = 0;
-    private _favoredWeapons:Map<string,Weapon> = new Map();
+    private _favoredWeapons:Map<string,Array<Weapon>> = new Map();
     private _optionalModifiers:Array<SelectableModifier> = [];
     private _specialAbilities:Array<SpecialAbility> = [];
+
+
+    constructor() {
+    }
 
     build():Regiment {
         return new Regiment(this._name, this._characteristics, this._skills, this._talents, this._aptitudes,
             this._traits, this._kit, this._wounds, this._optionalModifiers, this._favoredWeapons, this._specialAbilities);
     }
 
-    setFavoredWeapons(value:Map<string, Weapon>) {
+    setFavoredWeapons(value:Map<string, Array<Weapon>>) {
         this._favoredWeapons = value;
         return this;
     }
@@ -225,7 +229,7 @@ export class RegimentBuilder {
         return this._wounds;
     }
 
-    get favoredWeapons():Map<string, Weapon> {
+    get favoredWeapons():Map<string, Array<Weapon>> {
         return this._favoredWeapons;
     }
 

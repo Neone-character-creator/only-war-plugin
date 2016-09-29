@@ -12,17 +12,47 @@
       "aptitudes": [
         "Willpower"
       ],
-      "skills": {
-        "Command": 1,
-        "Common Lore (Imperial Guard)": 1,
-        "Common Lore (Imperium)": 1,
-        "Common Lore (War)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Operate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Command",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Hatred (Servants of Chaos)",
-        "Rapid Reload"
+        {
+          "name": "Hatred",
+          "specialization": "Servants of Chaos",
+          "rating": 1
+        },
+        {
+          "name": "Rapid Reload",
+          "rating": 1
+        }
       ],
       "special abilities": [
         {
@@ -49,7 +79,7 @@
             "name": "Knife"
           },
           "count": 1,
-          "standard melee weapons": true
+          "standard melee weapon": true
         },
         {
           "item": {
@@ -74,12 +104,6 @@
             "name": "Charge Pack (Basic)"
           },
           "count": 4
-        },
-        {
-          "item": {
-            "name": "Clip"
-          },
-          "count": 2
         },
         {
           "item": {
@@ -189,13 +213,17 @@
           [
             {
               "property": "talent",
-              "value": "Combat Formation"
+              "value": {
+                "name": "Combat Formation"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Double Team"
+              "value": {
+                "name": "Double Team"
+              }
             }
           ]
         ]
@@ -207,13 +235,17 @@
           [
             {
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {
+                "name": "Nerves of Steel"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Sprint"
+              "value": {
+                "name": "Sprint"
+              }
             }
           ]
         ]
@@ -231,13 +263,25 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": {
-        "Survival": 1,
-        "Navigate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Survival",
+          "rating": 1
+        },
+        {
+          "name": "Navigate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Resistance (Fear)",
-        "Sprint"
+        {
+          "name": "Resistance",
+          "specialization": "Fear"
+        },
+        {
+          "name": "Sprint"
+        }
       ],
       "special abilities": [
         {
@@ -406,19 +450,26 @@
           [
             {
               "property": "talent",
-              "value": "Lightning Reflexes"
+              "value": {
+                "name": "Lightning Reflexes"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Light Sleeper"
+              "value": {
+                "name": "Light Sleeper"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Resistance (Poison)"
+              "value": {
+                "name": "Resistance",
+                "specialization": "Poison"
+              }
             }
           ]
         ]
@@ -438,17 +489,45 @@
         "Toughness",
         "Willpower"
       ],
-      "skills": {
-        "Common Lore (Ecclesiarchy)": 1,
-        "Common Lore (Imperial Creed)": 1,
-        "Common Lore (Imperial Guard)": 1,
-        "Common Lore (War)": 1,
-        "Intimidate": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Tech-Use": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Intimidate",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Tech-Use",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Nerves of Steel"
+        {
+          "name": "Nerves of Steel"
+        }
       ],
       "special abilities": [
         {
@@ -621,16 +700,39 @@
       "aptitudes": [
         "Willpower"
       ],
-      "skills": {
-        "Common Lore (Imperial Creed)": 1,
-        "Common Lore (Imperium)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Operate (Aeronautica)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Operate",
+          "specialization": "Aeronautica",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Catfall",
-        "Die Hard",
-        "Hatred (Mutants)"
+        {
+          "name": "Catfall"
+        },
+        {
+          "name": "Die Hard"
+        },
+        {
+          "name": "Hatred",
+          "specialization": "Mutants"
+        }
       ],
       "special abilities": [
         {
@@ -803,17 +905,41 @@
         "Weapon Skill": 2,
         "Willpower": 3
       },
-      "skills": {
-        "Athletics": 1,
-        "Common Lore (Ecclesiarchy)": 1,
-        "Common Lore (Imperial Creed)": 1,
-        "Intimidate": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Athletics",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Intimidate",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothics",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Paranoia",
-        "Rapid Reload",
-        "Street Fighting"
+        {
+          "name": "Paranoia"
+        },
+        {
+          "name": "Rapid Reload"
+        },
+        {
+          "name": "Street Fighting"
+        }
       ],
       "special abilities": [
         "Only One Life To Give",
@@ -960,13 +1086,17 @@
           [
             {
               "property": "talent",
-              "value": "Combat Formation"
+              "value": {
+                "name": "Combat Formation"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Double Team"
+              "value": {
+                "name": "Double Team"
+              }
             }
           ]
         ]
@@ -978,19 +1108,25 @@
           [
             {
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {
+                "name": "Nerves of Steel"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Orthoproxy"
+              "value": {
+                "name": "Orthoproxy"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Unshakeable Faith"
+              "value": {
+                "name": "Unshakeable Faith"
+              }
             }
           ]
         ]
@@ -1007,16 +1143,41 @@
         "Perception": 3,
         "Weapon Skill": -3
       },
-      "skills": {
-        "Common Lore (Imperial Guard)": 1,
-        "Common Lore (Imperium)": 1,
-        "Common Lore (War)": 1,
-        "Deceive": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Operate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Deceive",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Technical Knock"
+        {
+          "name": "Technical Knock"
+        }
       ],
       "special abilities": [
         "Accustomed To Crowds",
@@ -1160,14 +1321,27 @@
       "aptitudes": [
         "Ballistic Skill"
       ],
-      "skills": {
-        "Survival": 1,
-        "Navigate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Survival",
+          "rating": 1
+        },
+        {
+          "name": "Navigate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Deadeye Shot",
-        "Foresight",
-        "Technical Knock"
+        {
+          "name": "Deadeye Shot"
+        },
+        {
+          "name": "Foresight"
+        },
+        {
+          "name": "Technical Knock"
+        }
       ],
       "special abilities": [
         "Fluency",
@@ -1330,18 +1504,44 @@
       "aptitudes": [
         "Ballistic Skill"
       ],
-      "skills": {
-        "Athletics": 1,
-        "Common Lore (Imperial Creed": 1,
-        "Common Lore (Imperium)": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Athletics",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Deadeye Shot",
-        "Hatred (Mutants)",
-        "Rapid Reaction",
-        "Rapid Reload",
-        "Street Fighting"
+        {
+          "name": "Deadeye Shot"
+        },
+        {
+          "name": "Hatred",
+          "specialization": "Mutants"
+        },
+        {
+          "name": "Rapid Reaction"
+        },
+        {
+          "name": "Rapid Reload"
+        },
+        {
+          "name": "Street Fighting"
+        }
       ],
       "special abilities": [
         "Blessed Ignorance"
@@ -1495,17 +1695,44 @@
         "Agility": 3,
         "Fellowship": 3
       },
-      "skills": {
-        "Common Lore (Imperium)": 1,
-        "Deceive": 1,
-        "Forbidden Lore (Orks)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Operate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Deceive",
+          "rating": 1
+        },
+        {
+          "name": "Forbidden Lore",
+          "specialization": "Orks",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Hatred (Orks)",
-        "Rapid Reload",
-        "Resistance (Fear)"
+        {
+          "name": "Hatred",
+          "specialization": "Orks"
+        },
+        {
+          "name": "Rapid Reload"
+        },
+        {
+          "name": "Resistance",
+          "specialization": "Fear"
+        }
       ],
       "special abilities": [
         "Unused to the Open"
@@ -1653,15 +1880,31 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": {
-        "Athletics": 1,
-        "Common Lore (War)": 1,
-        "Survival": 1
-      },
+      "skills": [
+        {
+          "name": "Athletics",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Survival",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Catfall",
-        "Die Hard",
-        "Street Fighting"
+        {
+          "name": "Catfall"
+        },
+        {
+          "name": "Die Hard"
+        },
+        {
+          "name": "Street Fighting"
+        }
       ],
       "special abilities": [
         "Fluency",
@@ -1850,13 +2093,17 @@
           [
             {
               "property": "talent",
-              "value": "Ambush"
+              "value": {
+                "name": "Ambush"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Skilled Rider"
+              "value": {
+                "name": "Skilled Rider"
+              }
             }
           ]
         ]
@@ -1868,13 +2115,17 @@
           [
             {
               "property": "talent",
-              "value": "Duelist"
+              "value": {
+                "name": "Duelist"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Double Team"
+              "value": {
+                "name": "Double Team"
+              }
             }
           ]
         ]
@@ -1892,15 +2143,31 @@
         "Weapon Skill": 2,
         "Strength": 3
       },
-      "skills": {
-        "Athletics": 1,
-        "Common Lore (Imperium)": 1,
-        "Deceive": 1
-      },
+      "skills": [
+        {
+          "name": "Athletics",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Deceive",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Die Hard",
-        "Rapid Reload",
-        "Street Fighting"
+        {
+          "name": "Die Hard"
+        },
+        {
+          "name": "Rapid Reload"
+        },
+        {
+          "name": "Street Fighting"
+        }
       ],
       "special abilities": [
         "Accustomed to Crowds",
@@ -2050,19 +2317,26 @@
           [
             {
               "property": "talent",
-              "value": "Heightened Senses (Hearing)"
+              "value": {
+                "name": "Heightened Senses",
+                "specialization": "Hearing"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Paranoia"
+              "value": {
+                "name": "Paranoia"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Unremarkable"
+              "value": {
+                "name": "Unremarkable"
+              }
             }
           ]
         ]
@@ -2083,18 +2357,48 @@
         "Weapon Skill",
         "Willpower"
       ],
-      "skills": {
-        "Common Lore (Ecclesiarchy)": 1,
-        "Common Lore (Imperial Creed)": 1,
-        "Common Lore (Imperial Guard)": 1,
-        "Common Lore (War)": 1,
-        "Intimidate": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Survival": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Greed",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Intimidate",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothics",
+          "rating": 1
+        },
+        {
+          "name": "Survival",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Catfall",
-        "Unstoppable Charge"
+        {
+          "name": "Catfall"
+        },
+        {
+          "name": "Unstoppable Charge"
+        }
       ],
       "special abilities": [
         "Only One Life to Give",
@@ -2266,19 +2570,25 @@
           [
             {
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {
+                "name": "Nerves of Steel"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Orthoproxy"
+              "value": {
+                "name": "Orthoproxy"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Unshakeable Faith"
+              "value": {
+                "name": "Unshakeable Faith"
+              }
             }
           ]
         ]
@@ -2298,17 +2608,46 @@
       "aptitudes": [
         "Willpower"
       ],
-      "skills": {
-        "Command": 1,
-        "Common Lore (War)": 1,
-        "Common Lore (Imperium)": 1,
-        "Common Lore (Imperial Guard)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Tech-Use": 1
-      },
+      "skills": [
+        {
+          "name": "Command",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Tech-Use",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Bombardier",
-        "Hatred (Servants of Chaos)"
+        {
+          "name": "Bombardier",
+          "rating": 1
+        },
+        {
+          "name": "Hatred",
+          "specialization": "Servants of Chaos",
+          "rating": 1
+        }
       ],
       "special abilities": [
         "Bred For War",
@@ -2483,13 +2822,17 @@
           [
             {
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {
+                "name": "Nerves of Steel"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Sprint"
+              "value": {
+                "name": "Sprint"
+              }
             }
           ]
         ]
@@ -2504,15 +2847,31 @@
         "Agility": 3,
         "Strength": 3
       },
-      "skills": {
-        "Intimidate": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Stealth": 2
-      },
+      "skills": [
+        {
+          "name": "Intimidate",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothics",
+          "rating": 1
+        },
+        {
+          "name": "Stealth",
+          "rating": 2
+        }
+      ],
       "talents": [
-        "Ambush",
-        "Blind Fighting",
-        "Rapid Reaction"
+        {
+          "name": "Ambush"
+        },
+        {
+          "name": "Blind Fighting"
+        },
+        {
+          "name": "Rapid Reaction"
+        }
       ],
       "special abilities": [
         "The Emperor's Scum",
@@ -2682,25 +3041,33 @@
           [
             {
               "property": "talent",
-              "value": "Berserk Charge"
+              "value": {
+                "name": "Berserk Charge"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Cold Hearted"
+              "value": {
+                "name": "Cold Hearted"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Frenzy"
+              "value": {
+                "name": "Frenzy"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Paranoia"
+              "value": {
+                "name": "Paranoia"
+              }
             }
           ]
         ]
@@ -2712,13 +3079,17 @@
           [
             {
               "property": "talent",
-              "value": "Combat Master"
+              "value": {
+                "name": "Combat Master"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Double Team"
+              "value": {
+                "name": "Double Team"
+              }
             }
           ]
         ]
@@ -2730,13 +3101,18 @@
           [
             {
               "property": "talent",
-              "value": "Peer (Underworld)"
+              "value": {
+                "name": "Peer",
+                "specialization": "Underworld"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Street Fighting"
+              "value": {
+                "name": "Street Fighting"
+              }
             }
           ]
         ]
@@ -2751,15 +3127,35 @@
         "Fellowship": 3,
         "Intelligence": 3
       },
-      "skills": {
-        "Command": 1,
-        "Common Lore (Administratum)": 1,
-        "Inquiry": 1,
-        "Linguistics (High Gothic)": 1,
-        "Operate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Command",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Administratum",
+          "rating": 1
+        },
+        {
+          "name": "Inquiry",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "High Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Technical Knock"
+        {
+          "name": "Technical Knock"
+        }
       ],
       "special abilities": [
         "Fluency",
@@ -2935,13 +3331,18 @@
           [
             {
               "property": "talent",
-              "value": "Air of Authority"
+              "value": {
+                "name": "Air of Authority"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Peer (Nobility)"
+              "value": {
+                "name": "Peer",
+                "specialization": "Nobility"
+              }
             }
           ]
         ]
@@ -2961,17 +3362,47 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": {
-        "Awareness": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Navigate (Surface)": 1,
-        "Survival": 1,
-        "Stealth": 1
-      },
+      "skills": [
+        {
+          "name": "Awareness",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothics",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothics",
+          "rating": 1
+        },
+        {
+          "name": "Navigate",
+          "specialization": "Surface",
+          "rating": 1
+        },
+        {
+          "name": "Survival",
+          "rating": 1
+        },
+        {
+          "name": "Stealth",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Ambush",
-        "Hatred (Servants of Chaos)",
-        "Resistance (Fear)"
+        {
+          "name": "Ambush"
+        },
+        {
+          "name": "Hatred",
+          "specialization": "Servants of Chaos"
+        },
+        {
+          "name": "Resistance",
+          "specialization": " Fear"
+        }
       ],
       "special abilities": [
         "Ghosts in Name and Action",
@@ -3150,13 +3581,17 @@
           [
             {
               "property": "talent",
-              "value": "Combat Sense"
+              "value": {
+                "name": "Combat Sense"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Quick Draw"
+              "value": {
+                "name": "Quick Draw"
+              }
             }
           ]
         ]
@@ -3176,18 +3611,47 @@
       "aptitudes": [
         "Agility"
       ],
-      "skills": {
-        "Awareness": 1,
-        "Common Lore (Ecclesiarchy)": 1,
-        "Common Lore (Imperial Creed)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Forbidden Lore (Orks)": 1,
-        "Intimidate": 1
-      },
+      "skills": [
+        {
+          "name": "Awareness",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Forbidden Lore",
+          "specialization": "Orks",
+          "rating": 1
+        },
+        {
+          "name": "Intimidate",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Air of Authority",
-        "Hatred (Orks)",
-        "Rapid Reload"
+        {
+          "name": "Air of Authority"
+        },
+        {
+          "name": "Hatred",
+          "specialization": "Orks"
+        },
+        {
+          "name": "Rapid Reload"
+        }
       ],
       "special abilities": [
         "Intractable",
@@ -3338,19 +3802,19 @@
           [
             {
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {"name":"Nerves of Steel"}
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Orthoproxy"
+              "value": {"name":"Orthoproxy"}
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Unshakeable Faith"
+              "value": {"name":"Unshakeable Faith"}
             }
           ]
         ]

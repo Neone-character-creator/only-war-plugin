@@ -63,7 +63,7 @@
                         {{skill.name}}
                         {{(skill.specialization ? " ("
                         + skill.specialization + ")" : "")}}
-                        {{+(skill.rating * 10)}}
+                        {{"+" + ((skill.rating - 1) * 10)}}
                     </li>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
                 </ul>
                 <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
             </div>
-            <div class="row">
+            <div class="row" ng-show="character.aptitides.length > 0">
                 <h3>Aptitudes</h3>
                 <ul>
                     <li ng-repeat="aptitude in selected['aptitudes']">{{aptitude}}</li>
@@ -101,9 +101,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="row" ng-show="selected['favored weapons']">
+            <div class="row" ng-show="favoredWeapons">
                 <h3>Favored Weapons</h3>
-                {{selected['favored weapons'].join(', ')}}
+                {{favoredWeapons.join(', ')}}
             </div>
         </div>
         <div class="col-md-6" ng-show="requiredSelections.length || character.powers.bonusXp">

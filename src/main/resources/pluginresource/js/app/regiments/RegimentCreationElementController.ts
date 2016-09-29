@@ -12,7 +12,7 @@ export function RegimentCreationElementController($scope, selection, $uibModal, 
         selection.selectionObject = selectedObject;
         $uibModal.open({
             controller: "SelectionModalController",
-            templateUrl: 'pluginresource/templates/selection-modal.html'
+            templateUrl: '/pluginresource/templates/selection-modal.html'
         }).result.then(function () {
             optionselection.target = modifier;
             optionselection.selected = selection.selected;
@@ -37,7 +37,7 @@ export function RegimentCreationElementController($scope, selection, $uibModal, 
     };
     //Filters creation options so that items with too high a cost are hidden
     $scope.costFilter = function (item) {
-        return item.cost <= $scope.$parent.$parent.remainingRegimentPoints;
+        return item.cost <= $scope.$parent.$parent.regimentElements.remainingRegimentPoints;
     }
     $scope.$watch(()=> {
         return $scope.element ? $scope.element.selected : null;

@@ -29,8 +29,7 @@
     "grunt": "^1.0.1",
     "istanbul": "^0.4.4",
     "karma": "^1.1.1",
-    "karma-coverage": "^1.1.0",
-    "quickmock": "^1.0.12"
+    "karma-coverage": "^1.1.1"
   },
   "private": true
 }
