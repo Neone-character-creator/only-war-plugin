@@ -176,19 +176,11 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                             rating: 0,
                             providers: []
                         },
-                        leftArm: {
+                        arms: {
                             rating: 0,
                             providers: []
                         },
-                        rightArm: {
-                            rating: 0,
-                            providers: []
-                        },
-                        leftLeg: {
-                            rating: 0,
-                            providers: []
-                        },
-                        rightLeg: {
+                        legs: {
                             rating: 0,
                             providers: []
                         }
@@ -206,17 +198,11 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                                     case "Body":
                                         $scope.armor.locations.body.providers.push(armor);
                                         break;
-                                    case "Right Arm":
+                                    case "Arms":
                                         $scope.armor.locations.rightArm.providers.push(armor);
                                         break;
-                                    case "Left Arm":
-                                        $scope.armor.locations.leftArm.providers.push(armor);
-                                        break;
-                                    case "Right Leg":
+                                    case "Legs":
                                         $scope.armor.locations.rightLeg.providers.push(armor);
-                                        break;
-                                    case "Left Leg":
-                                        $scope.armor.locations.leftLeg.providers.push(armor);
                                         break;
                                 }
                             });
@@ -375,13 +361,9 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                     }), function (index, armor) {
                         $.each(armor.locations, function (index, location) {
                             switch (location) {
-                                case "Left Arm":
-                                    $scope.armor.locations.leftArm.rating += armor.ap
-                                    $scope.armor.locations.leftArm.providers.push(armor);
-                                    break;
-                                case "Right Arm":
-                                    $scope.armor.locations.rightArm.rating += armor.ap
-                                    $scope.armor.locations.rightArm.providers.push(armor);
+                                case "Arms":
+                                    $scope.armor.locations.arms.rating += armor.ap
+                                    $scope.armor.locations.arms.providers.push(armor);
                                     break;
                                 case "Head":
                                     $scope.armor.locations.head.rating += armor.ap
@@ -391,13 +373,9 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                                     $scope.armor.locations.body.rating += armor.ap
                                     $scope.armor.locations.body.providers.push(armor);
                                     break;
-                                case "Left Leg":
-                                    $scope.armor.locations.leftLeg.rating += armor.ap
-                                    $scope.armor.locations.leftLeg.providers.push(armor);
-                                    break;
-                                case "Right Leg":
-                                    $scope.armor.locations.rightLeg.rating += armor.ap
-                                    $scope.armor.locations.rightLeg.providers.push(armor);
+                                case "Legs":
+                                    $scope.armor.locations.legs.rating += armor.ap
+                                    $scope.armor.locations.legs.providers.push(armor);
                                     break;
                             }
                         });
