@@ -273,14 +273,23 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 updateAvailableWeapons();
 
                 $scope.addNewWeapon = function () {
-                    characterService.character.kit.push({
-                        item: $scope.availableWeapons[$scope.newWeapon],
-                        count: 1
-                    });
-                    updateAvailableweapons;
+                    var weapon = $scope.availableWeapons[parseInt($scope.newWeapon)];
+                    var existing = $scope.character.kit.get(weapon);
+                    if(existing){
+                        $scope.character.kit.set(weapon, existing+1);
+                    } else {
+                        $scope.character.kit.set(weapon, 1);
+                    }
+                    $scope.newWeapon = null;
+                    updateAvailableWeapons();
                 };
-                $scope.removeWeapon = function (index) {
-                    characterService.character.kit.splice(index);
+                $scope.removeWeapon = function (weapon) {
+                    var existing = $scope.character.kit.get(weapon);
+                    if(existing > 1){
+                        $scope.character.kit.set(weapon, existing-1);
+                    } else {
+                        $scope.character.kit.delete(weapon);
+                    }
                     $scope.newWeapon = null;
                     updateAvailableWeapons();
                 }
@@ -351,13 +360,13 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                     $scope.characterSkills = Array.from($scope.character.skills);
                 });
 
-                $scope.$watch(function(scope, old){
+                $scope.$watch(function(){
                     return Array.from($scope.character.kit.entries());
                 }, function () {
-                    $scope.characterWeapons = Array.from($scope.character.kit.entries()).filter(function (entry) {
-                        return entry[0].type === Item.ItemType.Weapon;
+                    $scope.characterWeapons = Array.from($scope.character.kit.keys()).filter(function (entry) {
+                        return entry.type === Item.ItemType.Weapon;
                     }).map(function (entry) {
-                        return {item: entry[0], count: entry[1]};
+                        return entry;
                     });
                     $scope.characterArmor = Array.from($scope.character.kit.entries()).filter(function (entry) {
                         return entry[0].type === Item.ItemType.Armor;
