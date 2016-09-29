@@ -41,7 +41,8 @@
                             </div>
                             <div class="row">
                                 <label for="description">Description</label>
-                                <input type="text" id="description" style="width:100%" ng-model="character.description"/>
+                                <input type="text" id="description" style="width:100%"
+                                       ng-model="character.description"/>
                             </div>
                         </div>
                     </div>
@@ -467,20 +468,21 @@
                         <tbody ng-repeat="armor in characterArmor">
                         <tr>
                             <td colspan="1">Name:</td>
-                            <td colspan="7">{{armor.item.name}}
-                                <button class="btn btn-standard" ng-click="removeArmor($index)"><span
+                            <td colspan="7">{{armor.name}}
+                                <button class="btn btn-standard" ng-click="removeArmor(armor)"><span
                                         class="glyphicon glyphicon-remove"></span></button>
                             </td>
                         </tr>
                         <tr>
                             <td>Type:</td>
-                            <td>{{armor.item.armorType}}</td>
+                            <td>{{armor.armorType}}</td>
                             <td>Locations:</td>
-                            <td>{{armor.item.locations.join(',')}}</td>
+                            <td>{{armor.locations.join(',')}}</td>
                             <td>Protection:</td>
-                            <td>{{armor.item.ap}} AP</td>
+                            <td>{{armor.ap}}</td>
+                            <td>AP</td>
                             <td>Weight:</td>
-                            <td>{{armor.item.weight}}</td>
+                            <td>{{armor.weight}}</td>
                         </tr>
                         <tr>
                             <td colspan="2">Special Rules</td>
