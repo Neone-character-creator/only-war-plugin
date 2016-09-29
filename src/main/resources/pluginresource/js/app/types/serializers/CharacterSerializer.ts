@@ -151,6 +151,7 @@ export class CharacterSerializer implements Serializer<IPromise<OnlyWarCharacter
             character.wounds.rolled = parsed._wounds.rolled;
             character.wounds.criticalDamage = parsed._wounds.criticalDamage;
             character.fatePoints = parsed._fatePoints;
+            character.comrade = parsed._comrade;
             parsed._experience.advances.forEach(a=>{
                 switch (a.property) {
                     case "characteristic":

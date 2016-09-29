@@ -37,9 +37,8 @@ export abstract class CharacterAdvancement extends CharacterModifier {
                 traits:Array<Trait>,
                 kit:Map<Item, number>,
                 wounds:number,
-                psyRating:number,
-                type:OnlyWarCharacterModifierTypes) {
-        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, type);
+                psyRating:number) {
+        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.ADVANCEMENT);
         this._property = property;
     }
 
@@ -291,5 +290,33 @@ export class TalentAdvancement extends CharacterAdvancement {
             case 2:
                 return (this.talent.tier + 1) * 100;
         }
+    }
+}
+
+export class ComradeAdvancement extends CharacterAdvancement{
+    private _experienceCost:number;
+    private _specialAbility:String;
+
+    constructor(experienceCost:number, specialAbility:String) {
+        super(AdvanceableProperty.COMRADE, new Map(), [], [], [], [], new Map(), 0, 0);
+        this._experienceCost = experienceCost;
+        this._specialAbility = specialAbility;
+    }
+
+    calculateExperienceCost(character:OnlyWarCharacter):number {
+        return this._experienceCost;
+    }
+
+
+    public apply(character:OnlyWarCharacter):any {
+        super.apply(character);
+        character.comrade.specialAbilties
+    }
+
+    public unapply():any {
+        this._appliedTo.comrade.specialAbilties = this._appliedTo.comrade.specialAbilties.splice(
+            this._appliedTo.comrade.specialAbilties.indexOf(this._specialAbility)
+        )
+        return super.unapply();
     }
 }

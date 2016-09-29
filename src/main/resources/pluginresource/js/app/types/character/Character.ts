@@ -35,6 +35,23 @@ export class OnlyWarCharacter{
     private _aptitudes:Array<string> = ["General"];
     private _powers:PsychicPowersContainer = new PsychicPowersContainer();
     private _fatigue:Number;
+    private _comrade:Comrade = new Comrade();
+
+    get comrade():Comrade {
+        return this._comrade;
+    }
+
+    set comrade(value:Comrade) {
+        this._comrade = value;
+    }
+
+    get addModifier():(modifier:CharacterModifier)=>any {
+        return this._addModifier;
+    }
+
+    set addModifier(value:(modifier:CharacterModifier)=>any) {
+        this._addModifier = value;
+    }
 
     get demeanor():string {
         return this._demeanor;
@@ -164,7 +181,7 @@ export class OnlyWarCharacter{
         }
         this._regiment = value;
         if (value) {
-            this.addModifier(value);
+            this._addModifier(value);
         }
     }
 
@@ -179,7 +196,7 @@ export class OnlyWarCharacter{
         }
         this._specialty = value;
         if (value) {
-            this.addModifier(value);
+            this._addModifier(value);
         }
     }
     
@@ -200,7 +217,7 @@ export class OnlyWarCharacter{
         this._experience = new ExperienceContainer(this);
     }
 
-    private addModifier = function (modifier:CharacterModifier) {
+    private _addModifier = function (modifier:CharacterModifier) {
         modifier.apply(this);
     }
 }
@@ -523,5 +540,28 @@ export enum AdvanceableProperty{
     SKILL,
     TALENT,
     PSY_RATING,
-    PSYCHIC_POWER
+    PSYCHIC_POWER,
+    COMRADE
+}
+
+class Comrade{
+    private _name:String;
+    private _specialAbilties:Array<String> = [];
+
+
+    get name():String {
+        return this._name;
+    }
+
+    set name(value:String) {
+        this._name = value;
+    }
+
+    get specialAbilties():Array<String> {
+        return this._specialAbilties;
+    }
+
+    set specialAbilties(value:Array<String>) {
+        this._specialAbilties = value;
+    }
 }
