@@ -32,7 +32,7 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <label for="player-name">Player Name</label>
-                                <input type="text" id="player-name" style="width:100%"/>
+                                <input type="text" id="player-name" style="width:100%" ng-model="character.player"/>
                             </div>
                             <div class="row" tooltip-popup-delay="150"
                                  uib-tooltip="Click the Select Specialty button at the top of the screen to choose your Specialty.">
@@ -41,7 +41,7 @@
                             </div>
                             <div class="row">
                                 <label for="description">Description</label>
-                                <input type="text" id="description" style="width:100%"/>
+                                <input type="text" id="description" style="width:100%" ng-model="character.description"/>
                             </div>
                         </div>
                     </div>
@@ -397,15 +397,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('rightArm')"
+                        <div class="col-md-2 col-md-offset-3" ng-mouseenter="armorTooltip('arms')"
                              uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
                              tooltip-append-to-body="true"
-                             tooltip-enable="armor.locations.rightArm.rating"
+                             tooltip-enable="armor.locations.arms.rating"
                              tooltip-popup-delay="500" tooltip-placement="bottom"
                         >
                             Right Arm (11-20)
                             <div style="outline:1px solid black">
-                                {{armor.locations.rightArm.rating}}
+                                {{armor.locations.arms.rating}}
                             </div>
                         </div>
                         <div class="col-md-2" ng-mouseenter="armorTooltip('body')"
@@ -419,39 +419,39 @@
                                 {{armor.locations.body.rating}}
                             </div>
                         </div>
-                        <div class="col-md-2" ng-mouseenter="armorTooltip('leftArm')"
+                        <div class="col-md-2" ng-mouseenter="armorTooltip('arms')"
                              uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
                              tooltip-append-to-body="true"
-                             tooltip-enable="armor.locations.leftArm.rating"
+                             tooltip-enable="armor.locations.arms.rating"
                              tooltip-popup-delay="500" tooltip-placement="bottom"
                         >
                             Left Arm (21-30)
                             <div style="outline:1px solid black">
-                                {{armor.locations.leftArm.rating}}
+                                {{armor.locations.arms.rating}}
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('rightLeg')"
+                        <div class="col-md-2 col-md-offset-4" ng-mouseenter="armorTooltip('legs')"
                              uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
                              tooltip-append-to-body="true"
-                             tooltip-enable="armor.locations.rightLeg.rating"
+                             tooltip-enable="armor.locations.legs.rating"
                              tooltip-popup-delay="500" tooltip-placement="bottom"
                         >
                             Right Leg (71-85)
                             <div style="outline:1px solid black">
-                                {{armor.locations.rightLeg.rating}}
+                                {{armor.locations.legs.rating}}
                             </div>
                         </div>
-                        <div class="col-md-2" ng-mouseenter="armorTooltip('leftLeg')"
+                        <div class="col-md-2" ng-mouseenter="armorTooltip('arms')"
                              uib-tooltip-template="'pluginresource/templates/armor-tooltip.html'"
                              tooltip-append-to-body="true"
-                             tooltip-enable="armor.locations.leftLeg.rating"
+                             tooltip-enable="armor.locations.legs.rating"
                              tooltip-popup-delay="500" tooltip-placement="bottom"
                         >
                             Left Leg (86-100)
                             <div style="outline:1px solid black">
-                                {{armor.locations.leftLeg.rating}}
+                                {{armor.locations.legs.rating}}
                             </div>
                         </div>
                     </div>
