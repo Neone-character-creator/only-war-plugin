@@ -14,10 +14,11 @@ import {
 
 import * as angular from "angular";
 
-export class OnlyWarCharacter {
+export class OnlyWarCharacter{
     private _name:String = "";
     private _player:String = "";
     private _description:String = "";
+    private _demeanor:string = "";
     private _regiment:Regiment;
     private _specialty:Specialty;
     private _characteristics:Map<Characteristic, CharacteristicValue>;
@@ -26,7 +27,6 @@ export class OnlyWarCharacter {
     private _traits:Array<Trait> = [];
     private _kit:Map<Item, number> = new Map<Item,number>();
     private _wounds:WoundsContainer = new WoundsContainer();
-    private _criticalDamage:Array<String> = [];
     private _insanity:InsanityContainer = new InsanityContainer();
     private _corruption:CorruptionContainer = new CorruptionContainer();
     private _speeds:SpeedContainer = new SpeedContainer(this);
@@ -35,6 +35,15 @@ export class OnlyWarCharacter {
     private _aptitudes:Array<string> = ["General"];
     private _powers:PsychicPowersContainer = new PsychicPowersContainer();
     private _fatigue:Number;
+
+    get demeanor():string {
+        return this._demeanor;
+    }
+
+    set demeanor(value:string) {
+        this._demeanor = value;
+    }
+
     get fatigue /* istanbul ignore next */
     ():Number {
         return this._fatigue;
@@ -102,11 +111,6 @@ export class OnlyWarCharacter {
     get wounds():WoundsContainer {
         /* istanbul ignore next */
         return this._wounds;
-    }
-
-    get criticalDamage():Array<String> {
-        /* istanbul ignore next */
-        return this._criticalDamage;
     }
 
     get insanity():InsanityContainer {
@@ -178,6 +182,10 @@ export class OnlyWarCharacter {
             this.addModifier(value);
         }
     }
+    
+    set kit(value:Map<Item, number>) {
+        this._kit = value;
+    }
 
     set fatePoints(value:Number) {
         /* istanbul ignore next */
@@ -210,6 +218,8 @@ class WoundsContainer {
      * The modifier from the character regiment.
      */
     public regimentModifier:number = 0;
+
+    public criticalDamage:Array<String> = [];
 
     /**
      * Return the modified wounds total, including all modifiers.
@@ -253,11 +263,6 @@ class SpeedContainer {
     constructor(character:OnlyWarCharacter) {
         this.character = character;
     }
-
-    private _half:Number;
-    private _full:Number;
-    private _charge:Number;
-    private _run:Number;
 
     get half() {
         let agilityBonus = this.character.characteristics.get(Characteristic.characteristics.get("Agility")).bonus;
