@@ -30,7 +30,7 @@ export class SpecialtyService {
                 var skillContainer = specialty['fixed modifiers'].skills
                 if (skillContainer) {
                     for (var skillPlaceholder of skillContainer) {
-                        characterSkills.set(result.placeholders.replace(skillPlaceholder, "skill"), skillContainer[skillPlaceholder]);
+                        characterSkills.set(result.placeholders.replace(skillPlaceholder, "skill"), skillPlaceholder.rating);
                     }
                 }
                 var characterTalents = new Array<Talent>();
@@ -57,6 +57,8 @@ export class SpecialtyService {
                     }
                 }
                 var wounds:number = specialty['fixed modifiers'].wounds;
+                var bonusXp:number = specialty['fixed modifiers']['starting power experience'];
+                var psyrating:number = specialty['fixed modifiers']['psy rating'];
                 var optionalModifiers = Array<SelectableModifier>();
                 if (specialty['optional modifiers']) {
                     for (var optional of specialty['optional modifiers']) {
@@ -88,7 +90,7 @@ export class SpecialtyService {
                         throw "Type must be 'guardsman' or 'specialist', was " + specialty.type;
                 }
                 return new Specialty(specialty.name, characteristics, type, characterSkills, characterTalents, specialty['fixed modifiers'].aptitudes,
-                    characterTraits, kit, wounds, optionalModifiers);
+                    characterTraits, kit, wounds, bonusXp, psyrating, optionalModifiers);
             });
         });
     }
