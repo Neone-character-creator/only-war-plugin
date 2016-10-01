@@ -5,6 +5,7 @@ import {Item} from "./items/Item";
 import {Characteristic} from "./Characteristic";
 import {OnlyWarCharacter} from "./Character";
 import {Skill, SkillDescription} from "./Skill";
+import {PsychicPower} from "./PsychicPower";
 /**
  * Created by Damien on 6/29/2016.
  */
@@ -12,6 +13,8 @@ export class Specialty extends CharacterModifier {
     private _name:string;
     private _optionalModifiers:Array<SelectableModifier>;
     private _specialtyType:SpecialtyType;
+    private _bonusPowerXp:number;
+    private _psychicPowers:Array<PsychicPower> = [];
 
     constructor(name:string, characteristics:Map<Characteristic, number>,
                 specialtyType:SpecialtyType,
@@ -21,15 +24,22 @@ export class Specialty extends CharacterModifier {
                 traits:Array<Trait>,
                 kit:Map<Item, number>,
                 wounds:number,
+                bonusPowerXp:number,
+                psyRating:number,
                 optionalModifiers:Array<SelectableModifier>) {
-        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, 0, OnlyWarCharacterModifierTypes.SPECIALTY)
+        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.SPECIALTY)
         this._specialtyType = specialtyType;
         this._name = name;
+        this._bonusPowerXp = bonusPowerXp;;
         this._optionalModifiers = optionalModifiers;
     }
 
     public apply(character:OnlyWarCharacter) {
         super.apply(character);
+        character.powers.bonusXp += this._bonusPowerXp;
+        $.each(this._psychicPowers, function(i, power){
+            character.powers.powers.push(power);
+        })
         switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
                 character.experience.available += 600;
@@ -43,6 +53,10 @@ export class Specialty extends CharacterModifier {
     }
 
     public unapply() {
+        this._appliedTo.powers.bonusXp -= this._bonusPowerXp;
+        $.each(this._psychicPowers, function(i, power){
+            this._appliedTo.powers.powers.splice(this._appliedTo.powers.powers.indexOf(power),1);
+        })
         switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
                 this._appliedTo.experience.available -= 600;
@@ -127,6 +141,22 @@ export class Specialty extends CharacterModifier {
     get specialtyType():SpecialtyType {
         return this._specialtyType;
     }
+
+    get bonusPowerXp():number {
+        return this._bonusPowerXp;
+    }
+
+    set bonusPowerXp(value:number) {
+        this._bonusPowerXp = value;
+    }
+
+    get psychicPowers():Array<PsychicPower> {
+        return this._psychicPowers;
+    }
+
+    set psychicPowers(value:Array<PsychicPower>) {
+        this._psychicPowers = value;
+    }
 }
 
 export enum SpecialtyType{
@@ -145,13 +175,15 @@ export class SpecialtyBuilder {
     private _wounds:number = 0;
     private _optionalModifiers:Array<SelectableModifier> = [];
     private _specialtyType:SpecialtyType;
+    private _bonusPowerXp:number = 0;
+    private _psyRating = 0;
 
     build():Specialty {
         if (this._specialtyType === undefined) {
             throw "Need to set the specialty type.";
         }
         return new Specialty(this._name, this._characteristics, this._specialtyType, this._skills, this._talents, this._aptitudes,
-            this._traits, this._kit, this._wounds, this._optionalModifiers);
+            this._traits, this._kit, this._wounds, this._bonusPowerXp, this._psyRating,this._optionalModifiers);
     }
 
 
@@ -202,6 +234,16 @@ export class SpecialtyBuilder {
 
     setSpecialtyType(value:SpecialtyType) {
         this._specialtyType = value;
+        return this;
+    }
+
+    setStartingPsychicPowerBonusXp(value:number){
+        this._bonusPowerXp = value;
+        return this;
+    }
+
+    setPsyRating(value:number){
+        this._psyRating = value;
         return this;
     }
 }
