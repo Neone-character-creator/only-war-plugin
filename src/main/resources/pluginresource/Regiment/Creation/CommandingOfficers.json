@@ -4,7 +4,9 @@
     "cost": "2",
     "fixed modifiers": {
       "talents": [
-        "Paranoia"
+        {
+          "name": "Paranoia"
+        }
       ]
     }
   },
@@ -13,7 +15,9 @@
     "cost": "2",
     "fixed modifiers": {
       "talents": [
-        "Foresight"
+        {
+          "name": "Foresight"
+        }
       ]
     }
   },
@@ -22,7 +26,9 @@
     "cost": "2",
     "fixed modifiers": {
       "talents": [
-        "Rapid Reaction"
+        {
+          "name": "Rapid Reaction"
+        }
       ]
     }
   },
@@ -30,9 +36,12 @@
     "name": "Fixed",
     "cost": "1",
     "fixed modifiers": {
-      "skills": {
-        "Command" : 1
-      }
+      "skills": [
+        {
+          "name": "Command",
+          "rating": 1
+        }
+      ]
     }
   },
   {
@@ -40,7 +49,10 @@
     "cost": "2",
     "fixed modifiers": {
       "talents": [
-        "Resistance (Fire)"
+        {
+          "name": "Resistance",
+          "specialization": "Fire"
+        }
       ]
     }
   },
@@ -49,7 +61,9 @@
     "cost": "2",
     "fixed modifiers": {
       "talents": [
-        "Air of Authority"
+        {
+          "name": "Air of Authority"
+        }
       ]
     }
   },
@@ -57,10 +71,18 @@
     "name": "Phlegmatic",
     "cost": "1",
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (Imperial Guard)" : 1,
-        "Common Lore (War)" : 1
-      }
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        }
+      ]
     }
   },
   {
@@ -68,7 +90,9 @@
     "cost": "2",
     "fixed modifiers": {
       "talents": [
-        "Die Hard"
+        {
+          "name": "Die Hard"
+        }
       ]
     }
   },
@@ -76,10 +100,18 @@
     "name": "Supine",
     "cost": "1",
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (Ecclesiarchy)" : 1,
-        "Common Lore (Imperial Creed)" : 1
-      }
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        }
+      ]
     }
   }
 ]

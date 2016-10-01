@@ -3,11 +3,17 @@
     "name": "Armored Regiment",
     "cost": 4,
     "fixed modifiers": {
-      "skills": {
-        "Operate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Technical Knock"
+        {
+          "name": "Technical Knock"
+        }
       ],
       "character kit": [
         {
@@ -33,11 +39,16 @@
         "Perception": 3,
         "Willpower": -3
       },
-      "skills": {
-        "Awareness": 1
-      },
+      "skills": [
+        {
+          "name": "Awareness",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Combat Sense"
+        {
+          "name": "Combat Sense"
+        }
       ],
       "character kit": [
         {
@@ -87,11 +98,17 @@
         "Agility": 3,
         "Fellowship": -3
       },
-      "skills": {
-        "Operate (Aeronautica)": 1
-      },
+      "skills": [
+        {
+          "name": "Operate",
+          "specialization": "Aeronautica",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Catfall"
+        {
+          "name": "Catfall"
+        }
       ],
       "character kit": [
         {
@@ -143,11 +160,18 @@
         "Ballistic Skill": 3,
         "Strength": -3
       },
-      "skills": {
-        "Navigate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Navigate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Resistance (Fear)"
+        {
+          "name": "Resistance",
+          "specialization": "Fear"
+        }
       ]
     },
     "optional modifiers": [
@@ -189,11 +213,17 @@
         "Agility": 3,
         "Toughness": -3
       },
-      "skills": {
-        "Navigate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Navigate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Sprint"
+        {
+          "name": "Sprint"
+        }
       ],
       "character kit": [
         {
@@ -247,11 +277,16 @@
         "Strength": 3,
         "Intelligence": -3
       },
-      "skills": {
-        "Athletics": 1
-      },
+      "skills": [
+        {
+          "name": "Athletics",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Rapid Reload"
+        {
+          "name": "Rapid Reload"
+        }
       ],
       "character kit": [
         {
@@ -298,11 +333,17 @@
         "Agility": 3,
         "Perception": -3
       },
-      "skills": {
-        "Operate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Rapid Reload"
+        {
+          "name": "Rapid Reload"
+        }
       ],
       "character kit": [
         {
@@ -355,11 +396,16 @@
         "Toughness": 3,
         "Intelligence": -3
       },
-      "skills": {
-        "Tech-Use": 1
-      },
+      "skills": [
+        {
+          "name": "Tech-Use",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Nerves of Steel"
+        {
+          "name": "Nerves of Steel"
+        }
       ],
       "character kit": [
         {
@@ -407,11 +453,17 @@
         "Ballistic Skill": 3,
         "Toughness": 3
       },
-      "skills": {
-        "Operate (Surface)": 1
-      },
+      "skills": [
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Bombardier"
+        {
+          "name": "Bombardier"
+        }
       ],
       "special abilities": [
         {
@@ -494,11 +546,16 @@
         "Perception": 3,
         "Fellowship": -3
       },
-      "skills": {
-        "Stealth": 1
-      },
+      "skills": [
+        {
+          "name": "Stealth",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Ambush"
+        {
+          "name": "Ambush"
+        }
       ],
       "character kit": [
         {
@@ -546,11 +603,16 @@
         "Toughness": 3,
         "Perception": -3
       },
-      "skills": {
-        "Tech-Use": 1
-      },
+      "skills": [
+        {
+          "name": "Tech-Use",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Bombardier"
+        {
+          "name": "Bombardier"
+        }
       ],
       "character kit": [
         {
@@ -596,13 +658,24 @@
         "Agility": 6,
         "Toughness": -6
       },
-      "skills": {
-        "Operate (Surface)": 1,
-        "Tech-Use": 1
-      },
+      "skills": [
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        },
+        {
+          "name": "Tech-Use",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Push The Limit",
-        "Tank Hunter"
+        {
+          "name": "Push The Limit"
+        },
+        {
+          "name": "Tank Hunter"
+        }
       ],
       "character kit": [
         {
@@ -629,11 +702,16 @@
         "Agility": 3,
         "Ballistic Skill": -3
       },
-      "skills": {
-        "Survival": 1
-      },
+      "skills": [
+        {
+          "name": "Survival",
+          "rating": 1
+        }
+      ],
       "talents": [
-        "Catfall"
+        {
+          "name": "Catfall"
+        }
       ],
       "character kit": [
         {

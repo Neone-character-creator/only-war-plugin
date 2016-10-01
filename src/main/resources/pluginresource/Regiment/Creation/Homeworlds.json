@@ -4,9 +4,12 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Survival": 1
-      },
+      "skills": [
+        {
+          "name": "Survival",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "Fluency",
@@ -66,21 +69,28 @@
             {
               "description": "Light Sleeper Talent",
               "property": "talent",
-              "value": "Light Sleeper"
+              "value": {
+                "name": "Light Sleeper"
+              }
             }
           ],
           [
             {
               "description": "Lightning Reflexes Talent",
               "property": "talent",
-              "value": "Lightning Reflexes"
+              "value": {
+                "name": "Lightning Reflexes"
+              }
             }
           ],
           [
             {
               "description": "Resistance (Poison) Talent",
               "property": "talent",
-              "value": "Resistance (Poison)"
+              "value": {
+                "name": "Resistance",
+                "specialization": "Poison"
+              }
             }
           ]
         ]
@@ -92,14 +102,32 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (War)": 1,
-        "Common Lore (Imperium)": 1,
-        "Common Lore (Imperial Guard)": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        }
+      ],
       "talent": [
-        "Hatred"
+        {
+          "name": "Hatred"
+        }
       ],
       "special abilities": [
         {
@@ -158,14 +186,18 @@
             {
               "description": "Nerves of Steel Talent",
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {
+                "name": "Nerves of Steel"
+              }
             }
           ],
           [
             {
               "description": "Sprint Talent",
               "property": "talent",
-              "value": "Sprint"
+              "value": {
+                "name": "Sprint"
+              }
             }
           ]
         ]
@@ -177,13 +209,26 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (Administratum)": 1,
-        "Inquiry": 1,
-        "Linguistics (High Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Administratum",
+          "rating": 1
+        },
+        {
+          "name": "Inquiry",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specializationm": "High Gothic",
+          "rating": 1
+        }
+      ],
       "talent": [
-        "Hatred"
+        {
+          "name": "Hatred"
+        }
       ],
       "special abilities": [
         {
@@ -250,14 +295,19 @@
             {
               "description": "Air of Authority Talent",
               "property": "talent",
-              "value": "Air of Authority"
+              "value": {
+                "name": "Air of Authority"
+              }
             }
           ],
           [
             {
               "description": "Peer (Nobility) Talent",
               "property": "talent",
-              "value": "Peer (Nobility)"
+              "value": {
+                "name": "Peer",
+                "specialization": "Nobility)"
+              }
             }
           ]
         ]
@@ -269,11 +319,22 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (Imperium)": 1,
-        "Deceive": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Deceive",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "Accustomed to Crowds",
@@ -335,14 +396,19 @@
             {
               "description": "Air of Authority Talent",
               "property": "talent",
-              "value": "Air of Authority"
+              "value": {
+                "name": "Air of Authority"
+              }
             }
           ],
           [
             {
               "description": "Peer (Nobility) Talent",
               "property": "talent",
-              "value": "Peer (Nobility)"
+              "value": {
+                "name": "Peer",
+                "specialization": "Nobility"
+              }
             }
           ]
         ]
@@ -357,13 +423,28 @@
       "characteristic": {
         "Willpower": 3
       },
-      "skills": {
-        "Common Lore (Imperium)": 1,
-        "Common Lore (Imperial Creed)": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        }
+      ],
       "talent": [
-        "Hatred (Mutants)"
+        {
+          "name": "Hatred",
+          "specialization": "Mutants"
+        }
       ],
       "special abilities": [
         {
@@ -471,12 +552,22 @@
     "source": "core",
     "cost": 2,
     "fixed modifiers": {
-      "skills": {
-        "Intimidate": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Intimidate",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        }
+      ],
       "talent": [
-        "Hatred (Mutants)"
+        {
+          "name": "Hatred",
+          "specialization": "Mutants"
+        }
       ],
       "special abilities": [
         {
@@ -542,14 +633,19 @@
             {
               "description": "Street Fighting Talent",
               "property": "talent",
-              "value": "Street Fighting"
+              "value": {
+                "name": "Street Fighting"
+              }
             }
           ],
           [
             {
               "description": "Peer (Underworld) Talent",
               "property": "talent",
-              "value": "Peer (Underworld)"
+              "value": {
+                "name": "Peer",
+                "specialization": "Underworld"
+              }
             }
           ]
         ]
@@ -561,12 +657,27 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (Ecclesiarchy)": 1,
-        "Common Lore (Imperial Creed)": 1,
-        "Intimidate": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Intimidate",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "The Blood of Martyrs",
@@ -629,21 +740,27 @@
             {
               "description": "Nerves of Steel Talent",
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {
+                "name": "Nerves of Steel"
+              }
             }
           ],
           [
             {
               "description": "Orthoproxy Talent",
               "property": "talent",
-              "value": "Orthoproxy"
+              "value": {
+                "name": "Orthoproxy"
+              }
             }
           ],
           [
             {
               "description": "Unshakeable Talent",
               "property": "talent",
-              "value": "Unshakeable Faith"
+              "value": {
+                "name": "Unshakeable Faith"
+              }
             }
           ]
         ]
@@ -660,13 +777,33 @@
           "Willpower": 3
         }
       ],
-      "skills": {
-        "Common Lore (Imperial Guard)": 1,
-        "Common Lore (Imperium)": 1,
-        "Common Lore (War)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Linguistics (High Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Guard",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperium",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "High Gothic",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "Only In Death Does Duty End",
@@ -708,13 +845,17 @@
           [
             {
               "property": "talent",
-              "value": "Air of Authority"
+              "value": {
+                "name": "Air of Authority"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Unshakeable Faith"
+              "value": {
+                "name": "Unshakeable Faith"
+              }
             }
           ]
         ]
@@ -726,12 +867,27 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (Ecclesiarchy)": 1,
-        "Common Lore (Imperial Creed)": 1,
-        "Intimidate": 1,
-        "Linguistics (Low Gothic)": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Ecclesiarchy",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Imperial Creed",
+          "rating": 1
+        },
+        {
+          "name": "Intimidate",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specializaton": "Low Gothic",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "The Blood of Martyrs",
@@ -794,21 +950,27 @@
             {
               "description": "Nerves of Steel Talent",
               "property": "talent",
-              "value": "Nerves of Steel"
+              "value": {
+                "name": "Nerves of Steel"
+              }
             }
           ],
           [
             {
               "description": "Orthoproxy Talent",
               "property": "talent",
-              "value": "Orthoproxy"
+              "value": {
+                "name": "Orthoproxy"
+              }
             }
           ],
           [
             {
               "description": "Unshakeable Faith Talent",
               "property": "talent",
-              "value": "Unshakeable Faith"
+              "value": {
+                "name": "Unshakeable Faith"
+              }
             }
           ]
         ]
@@ -820,9 +982,12 @@
     "source": "core",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Survival": 1
-      },
+      "skills": [
+        {
+          "name": "Survival",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "Fluency",
@@ -885,21 +1050,28 @@
             {
               "description": "Light Sleeper Talent",
               "property": "talent",
-              "value": "Light Sleeper"
+              "value": {
+                "name": "Light Sleeper"
+              }
             }
           ],
           [
             {
               "description": "Lightning Reflexes Talent",
               "property": "talent",
-              "value": "Lightning Reflexes"
+              "value": {
+                "name": "Lightning Reflexes"
+              }
             }
           ],
           [
             {
               "description": "Resistance (Poison) Talent",
               "property": "talent",
-              "value": "Resistance (Poison)"
+              "value": {
+                "name": "Resistance",
+                "specialization": "Poison"
+              }
             }
           ]
         ]
@@ -911,11 +1083,23 @@
     "source": "hammer of the emperor",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Linguistics (Low Gothic)": 1,
-        "Operate (Surface)": 1,
-        "Scholastic Lore (Beasts)": 1
-      },
+      "skills": [
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Operate",
+          "specialization": "Surface",
+          "rating": 1
+        },
+        {
+          "name": "Scholastic Lore",
+          "specialization": "Beasts",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "One With the Land",
@@ -972,10 +1156,17 @@
     "source": "hammer of the emperor",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Athletics": 1,
-        "Common Lore (War)": 1
-      },
+      "skills": [
+        {
+          "name": "Athletics",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "War",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "Fluency",
@@ -1036,13 +1227,17 @@
           [
             {
               "property": "talent",
-              "value": "Duelist"
+              "value": {
+                "name": "Duelist"
+              }
             }
           ],
           [
             {
               "property": "talent",
-              "value": "Double Team"
+              "value": {
+                "name": "Double Team"
+              }
             }
           ]
         ]
@@ -1054,15 +1249,37 @@
     "source": "hammer of the emperor",
     "cost": 4,
     "fixed modifiers": {
-      "skills": {
-        "Common Lore (Adeptus Mechanicus)": 1,
-        "Common Lore (Tech)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Linguistics (Techna Lingua)": 1,
-        "Logic": 1
-      },
+      "skills": [
+        {
+          "name": "Common Lore",
+          "specialization": "Adeptus Mechanicus",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Tech",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Techna Lingua",
+          "rating": 1
+        },
+        {
+          "name": "Logic",
+          "rating": 1
+        }
+      ],
       "talent": [
-        "Peer (Adeptus Mechanicus)"
+        {
+          "name": "Peer",
+          "specialization": "Adeptus Mechanicus"
+        }
       ],
       "special abilities": [
         {
@@ -1125,14 +1342,18 @@
             {
               "description": "Technical Knock Talent",
               "property": "talent",
-              "value": "Technical Knock"
+              "value": {
+                "name": "Technical Knock"
+              }
             }
           ],
           [
             {
               "description": "Weapon-Tech Talent",
               "property": "talent",
-              "value": "Weapon-Tech"
+              "value": {
+                "name": "Weapon-Tech"
+              }
             }
           ]
         ]
@@ -1144,12 +1365,26 @@
     "source": "hammer of the emperor",
     "cost": 4,
     "fixed modifiers": {
-      "skills": {
-        "Awareness": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Navigate (Surface)": 1,
-        "Survival": 1
-      },
+      "skills": [
+        {
+          "name": "Awareness",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Navigate",
+          "specialization": "Surface",
+          "rating": 1
+        },
+        {
+          "name": "Survival",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "Life on the Verge",
@@ -1210,14 +1445,18 @@
             {
               "description": "Combat Sense Talent",
               "property": "talent",
-              "value": "Combat Sense"
+              "value": {
+                "name": "Combat Sense"
+              }
             }
           ],
           [
             {
               "description": "Quick Draw Talent",
               "property": "talent",
-              "value": "Quick Draw"
+              "value": {
+                "name": "Quick Draw"
+              }
             }
           ]
         ]
@@ -1229,12 +1468,26 @@
     "source": "hammer of the emperor",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Awareness": 1,
-        "Common Lore (Tech)": 1,
-        "Linguistics (Low Gothic)": 1,
-        "Tech-Use": 1
-      },
+      "skills": [
+        {
+          "name": "Awareness",
+          "rating": 1
+        },
+        {
+          "name": "Common Lore",
+          "specialization": "Tech",
+          "rating": 1
+        },
+        {
+          "name": "Linguistics",
+          "specialization": "Low Gothic",
+          "rating": 1
+        },
+        {
+          "name": "Tech-Use",
+          "rating": 1
+        }
+      ],
       "special abilities": [
         {
           "name": "Acclimated to Darkness",
@@ -1296,28 +1549,40 @@
             {
               "description": "Heightened Senses (Hearing) Talent",
               "property": "talent",
-              "value": "Heightened Senses (Hearing)"
+              "value": {
+                "name": "Heightened Senses",
+                "specialization": "Hearing"
+              }
             }
           ],
           [
             {
               "description": "Resistance (Cold) Talent",
               "property": "talent",
-              "value": "Resistance (Cold)"
+              "value": {
+                "name": "Resistance",
+                "specialization": "Cold"
+              }
             }
           ],
           [
             {
               "description": "Resistance (Heat) Talent",
               "property": "talent",
-              "value": "Resistance (Heat)"
+              "value": {
+                "name": "Resistance",
+                "specialization": "Heat"
+              }
             }
           ],
           [
             {
               "description": "Resistance (Poison) Talent",
               "property": "talent",
-              "value": "Resistance (Poisons)"
+              "value": {
+                "name": "Resistance",
+                "specialization": "Poisons"
+              }
             }
           ]
         ]

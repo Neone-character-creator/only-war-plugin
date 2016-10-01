@@ -115,9 +115,12 @@
     "name": "Warrior Weapons",
     "cost": 3,
     "fixed modifiers": {
-      "skills": {
-        "Parry": 1
-      }
+      "skills": [
+        {
+          "name": "Parry",
+          "rating": 1
+        }
+      ]
     },
     "special abilities": [
       {
