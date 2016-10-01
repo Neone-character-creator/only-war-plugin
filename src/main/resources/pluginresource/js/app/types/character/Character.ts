@@ -482,6 +482,10 @@ class PsychicPowersContainer {
         });
     }
 
+    public get powersInWrappers(){
+        return this._powers;
+    }
+
     public get bonusXp() {
         /* istanbul ignore next */
         return this._bonusXp;
