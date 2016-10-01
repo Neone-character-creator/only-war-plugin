@@ -153,10 +153,12 @@ export class FinalizePageController {
 
             $scope.chosenBonusAptitudes = [];
             $scope.$watch("chosenBonusAptitudes", function (newValue, oldValue) {
-                for (var aptitude in oldValue) {
-                    $scope.character.aptitudes.splice($scope.character.aptitudes.indexOf(aptitude));
+                if (newValue !== oldValue) {
+                    for (var aptitude of oldValue) {
+                        $scope.character.aptitudes.splice($scope.character.aptitudes.indexOf(aptitude));
+                    }
+                    $scope.character.aptitudes = $scope.character.aptitudes.concat(newValue);
                 }
-                $scope.character.aptitudes = $scope.character.aptitudes.concat(newValue);
             });
         })
     }
