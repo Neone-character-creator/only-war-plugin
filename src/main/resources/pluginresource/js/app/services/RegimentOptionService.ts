@@ -37,18 +37,18 @@ export class RegimentOptionService {
                     }
                     modifier.characteristics = characteristics;
                     var characterSkills = new Map <SkillDescription, number>();
-                    var skillContainer = modifier['fixed modifiers'].skills;
-                    for (var skillName in modifier['fixed modifiers'].skills) {
-                        let skill:SkillDescription = placeholders.replace(skillName, "skill");
-                        characterSkills.set(skill, skillContainer[skillName]);
+                    if(modifier['fixed modifiers'].skills) {
+                        var skillContainer = modifier['fixed modifiers'].skills;
+                        for (var skillPlaceholder of modifier['fixed modifiers'].skills) {
+                            let skill:SkillDescription = placeholders.replace(skillPlaceholder, "skill");
+                            characterSkills.set(skill, skillPlaceholder.rating);
+                        }
                     }
                     modifier.skills = characterSkills;
 
                     var characterTalents = new Array < Talent >();
                     if (modifier['fixed modifiers'].talents) {
                         $.each(modifier['fixed modifiers'].talents, function (i, talentDescription) {
-                            var talentName = talentDescription.substring(0, talentDescription.indexOf("(") == -1 ? talentDescription.length : talentDescription.indexOf("(")).trim();
-                            var specialization = talentDescription.substring(talentDescription.indexOf("(") + 1, talentDescription.indexOf((")")));
                             var talent = placeholders.replace(talentDescription, "talent");
                             characterTalents.push(new Talent(talent.name, talent.source, talent.tier, talent.aptitudes
                                 , specialization, talent.prerequisites, talent.maxTimesPurchaseable));
