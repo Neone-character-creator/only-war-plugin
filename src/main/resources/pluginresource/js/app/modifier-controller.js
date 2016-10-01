@@ -1,4 +1,4 @@
-define(function () {
+define(["app/types/character/advancements/CharacterAdvancement"], function (Advancement) {
     return function (associatedServiceName) {
         var associatedServiceName = associatedServiceName;
         return function ($scope, $state, $injector, $q, characterService, selection, optionselection, $uibModal, characteroptions) {
@@ -51,6 +51,30 @@ define(function () {
                         }
                     };
 
+                    $scope.$watch("character.powers.bonusXp", function (o, n) {
+                        if (o !== n) {
+                            characteroptions.powers.then(function (powers) {
+                                $scope.availablePowers = powers.filter(function (p) {
+                                    return p.xpCost <= characterService.character.powers.bonusXp && !$scope.character.powers.powers.find(function(e){
+                                            return angular.equals(e, p);
+                                        });
+                                });
+                            })
+                        }
+                    });
+                    $scope.addPower = function () {
+                        var adv = new Advancement.PsychicPowerAdvancement($scope.newPower);
+                        characterService.character.experience.addAdvancement(adv);
+                    };
+
+                    $scope.removePower = function (power) {
+                        var adv = characterService.character.experience.advancements.find(function(a){
+                            return a.value === power;
+                        });
+                        if(adv) {
+                            characterService.character.experience.removeAdvancement(adv);
+                        }
+                    }
                     $scope.openSelectionModal = function (selectedObject) {
                         //Prepare the selection service
                         selection.selectionObject = selectedObject;
@@ -99,6 +123,11 @@ define(function () {
                             if ($scope.requiredSelections.length > 0) {
                                 $state.$current.data.complete = false;
                             }
+                            $scope.bonusPowers = characterService.character.powers.powersInWrappers.filter(function(p){
+                                return p.isBonus;
+                            }).map(function(p){
+                                return p.power;
+                            });
 
                             if ($scope.selected.favoredWeapons) {
                                 $scope.favoredWeapons = Array.from($scope.selected.favoredWeapons.values()).reduce(function (next, previous) {
@@ -106,7 +135,7 @@ define(function () {
                                         previous.push(e);
                                     });
                                     return previous;
-                                }).map(function(e){
+                                }).map(function (e) {
                                     return e.name;
                                 });
                             }

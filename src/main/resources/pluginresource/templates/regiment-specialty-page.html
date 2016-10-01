@@ -78,14 +78,26 @@
                     </li>
                 </ul>
             </div>
-            <div class="row" ng-show="character.powers.all.length">
+            <div class="row" ng-show="selected.psyRating">
                 <h3>Starting Powers</h3>
-                <ul>
-                    <li ng-repeat="power in character.powers.all">
-                        {{power.name}}
-                    </li>
-                </ul>
-                <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
+                <div class="col-md-12">
+                    <div class="row">
+                        Starting XP to purchase powers: {{selected.bonusPowerXp}}
+                    </div>
+                    <div class="row">
+                        Available Powers:
+                        <select ng-model="newPower"
+                        ng-options="power as (power.name + ' ('+power.xpCost + ' XP)')  for power in availablePowers track by power.name">
+                        </select>
+                        <button ng-click="addPower()">Add</button>
+                    </div>
+                    <div class="row">
+                        Click to remove and refund spent xp
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="power in character.powers.powers" ng-click="removePower(power)">{{power.name}}</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="row" ng-show="character.aptitides.length > 0">
                 <h3>Aptitudes</h3>
