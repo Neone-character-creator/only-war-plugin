@@ -1,0 +1,22 @@
+[
+  {
+    "name" : "Untrained",
+    "modifier" : -20
+  },
+  {
+    "name" : "Known",
+    "modifier" : 0
+  },
+  {
+    "name" : "Trained",
+    "modifier" : 10
+  },
+  {
+    "name" : "Experienced",
+    "modifier" : 20
+  },
+  {
+    "name" : "Veteran",
+    "modifier" : 30
+  }
+]

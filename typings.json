@@ -5,5 +5,5 @@
     "jquery": "registry:dt/jquery#1.10.0+20160704162008",
     "require": "registry:dt/require#2.1.20+20160316155526"
   },
-  "resolution": "src/main/resources/pluginresource/js/libs"
+  "resolution": "src/main/resources//js/libs"
 }

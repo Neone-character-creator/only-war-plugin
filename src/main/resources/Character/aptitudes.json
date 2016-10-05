@@ -1,0 +1,78 @@
+[
+  {
+    "name": "General",
+    "type": "general"
+  },
+  {
+    "name": "Weapon Skill",
+    "type": "characteristic"
+  },
+  {
+    "name": "Ballistic Skill",
+    "type": "characteristic"
+  },
+  {
+    "name": "Strength",
+    "type": "characteristic"
+  },
+  {
+    "name": "Toughness",
+    "type": "characteristic"
+  },
+  {
+    "name": "Agility",
+    "type": "characteristic"
+  },
+  {
+    "name": "Intelligence",
+    "type": "characteristic"
+  },
+  {
+    "name": "Perception",
+    "type": "characteristic"
+  },
+  {
+    "name": "Willpower",
+    "type": "characteristic"
+  },
+  {
+    "name": "Fellowship",
+    "type": "characteristic"
+  },
+  {
+    "name": "Offence",
+    "type": "expertise"
+  },
+  {
+    "name": "Finesse",
+    "type": "expertise"
+  },
+  {
+    "name": "Tech",
+    "type": "expertise"
+  },
+  {
+    "name": "Psyker",
+    "type": "expertise"
+  },
+  {
+    "name": "Defence",
+    "type": "expertise"
+  },
+  {
+    "name": "Knowledge",
+    "type": "expertise"
+  },
+  {
+    "name": "Leadership",
+    "type": "expertise"
+  },
+  {
+    "name": "Fieldcraft",
+    "type": "expertise"
+  },
+  {
+    "name": "Social",
+    "type": "expertise"
+  }
+]

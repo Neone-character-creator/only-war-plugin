@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Heavy Leathers",
+    "craftsmanship": "Common",
+    "type": "Primitive",
+    "locations": [
+      "Arms",
+      "Body"
+    ],
+    "ap": 1,
+    "weight": 5,
+    "availability": "Common"
+  },
+  {
+    "name": "Chainmail Suit",
+    "craftsmanship": "Common",
+    "type": "Primitive",
+    "locations": [
+      "Arms",
+      "Body",
+      "Legs"
+    ],
+    "ap": 3,
+    "weight": 15,
+    "availability": "Common"
+  },
+  {
+    "name": "Feudal World Plate",
+    "craftsmanship": "Common",
+    "type": "Primitive",
+    "locations": [
+      "Arms",
+      "Body",
+      "Legs",
+      "Head"
+    ],
+    "ap": 5,
+    "weight": 30,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Death World Beast Hide Vest",
+    "craftsmanship": "Common",
+    "type": "Primitive",
+    "locations": [
+      "Body"
+    ],
+    "ap": 6,
+    "weight": 20,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Flak Helmet",
+    "craftsmanship": "Common",
+    "type": "Flak",
+    "locations": [
+      "Head"
+    ],
+    "ap": 2,
+    "weight": 2,
+    "availability": "Average"
+  },
+  {
+    "name": "Flak Gauntlets",
+    "craftsmanship": "Common",
+    "type": "Primitive",
+    "locations": [
+      "Arms"
+    ],
+    "ap": 2,
+    "weight": 1,
+    "availability": "Average"
+  },
+  {
+    "name": "Light Flak Cloak",
+    "craftsmanship": "Common",
+    "type": "Flak",
+    "locations": [
+      "Arms",
+      "Body",
+      "Legs"
+    ],
+    "ap": 2,
+    "weight": 4,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Flak Vest",
+    "craftsmanship": "Common",
+    "type": "Flak",
+    "locations": [
+      "Body"
+    ],
+    "ap": 3,
+    "weight": 5,
+    "availability": "Average"
+  },
+  {
+    "name": "Flak Cloak",
+    "craftsmanship": "Common",
+    "type": "Flak",
+    "locations": [
+      "Arms",
+      "Body",
+      "Legs"
+    ],
+    "ap": 3,
+    "weight": 8,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Flak Coat",
+    "craftsmanship": "Common",
+    "type": "Flak",
+    "locations": [
+      "Arms",
+      "Body"
+    ],
+    "ap": 3,
+    "weight": 5,
+    "availability": "Average"
+  },
+  {
+    "name": "Imperial Guard Flak Armor",
+    "craftsmanship": "Common",
+    "type": "Flak",
+    "locations": [
+      "Arms",
+      "Body",
+      "Legs"
+    ],
+    "ap": 3,
+    "weight": 8,
+    "availability": "Scarce"
+  },
+  {
+    "name": "Carapace Helm",
+    "craftsmanship": "Common",
+    "type": "Carapace",
+    "locations": [
+      "Head"
+    ],
+    "ap": 4,
+    "weight": 2,
+    "availability": "Rare"
+  },
+  {
+    "name": "Carapace Gauntlets",
+    "craftsmanship": "Common",
+    "type": "Carapace",
+    "locations": [
+      "Arms"
+    ],
+    "ap": 5,
+    "weight": 2,
+    "availability": "Rare"
+  },
+  {
+    "name": "Carapace Greaves",
+    "craftsmanship": "Common",
+    "type": "Carapace",
+    "locations": [
+      "Legs"
+    ],
+    "ap": 4,
+    "weight": 3,
+    "availability": "Rare"
+  },
+  {
+    "name": "Light Carapace Armor",
+    "craftsmanship": "Common",
+    "type": "Carapace",
+    "locations": [
+      "Arms",
+      "Legs",
+      "Body",
+      "Head"
+    ],
+    "ap": 5,
+    "weight": 15,
+    "availability": "Rare"
+  },
+  {
+    "name": "Carapace Breastplate",
+    "craftsmanship": "Common",
+    "type": "Carapace",
+    "locations": [
+      "Body"
+    ],
+    "ap": 6,
+    "weight": 7,
+    "availability": "Rare"
+  },
+  {
+    "name": "Storm Trooper Carapace",
+    "craftsmanship": "Common",
+    "type": "Carapace",
+    "locations": [
+      "Arms",
+      "Legs",
+      "Body",
+      "Head"
+    ],
+    "ap": 6,
+    "weight": 15,
+    "availability": "Very Rare"
+  },
+  {
+    "name": "Subskin Armor",
+    "craftsmanship": "Common",
+    "weight": 0,
+    "locations": [
+      "Arms",
+      "Body",
+      "Legs"
+    ],
+    "ap": 3,
+    "availability": "Very Rare",
+    "tags" : [
+      "cybernetics"
+    ]
+  },
+  {
+    "name": "Cranial Armor",
+    "craftsmanship": "Common",
+    "weight": 0,
+    "locations": [
+      "Head"
+    ],
+    "ap": 1,
+    "availability": "Very Rare",
+    "tags" : [
+      "cybernetics"
+    ]
+  }
+]

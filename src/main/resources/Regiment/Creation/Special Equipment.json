@@ -1,0 +1,144 @@
+[
+  {
+    "name": "Augmetics",
+    "cost": 2,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Augmetics",
+          "description": "Gain a +10 bonus to Logistics Tests to obtain bionic replacements and implants."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Chameleoline",
+    "cost": 3,
+    "fixed modifiers": {
+      "character kit": [
+        {
+          "item": {
+            "name": "Chameleoline Cloak"
+          },
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "Combat Drugs",
+    "cost": 2,
+    "optional modifiers": [
+      {
+        "numSelectionsNeeded": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Injector"
+                },
+                "count": 1
+              }
+            }
+          ],
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Inhaler"
+                },
+                "count": 1
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "numSelectionsNeeded": 1,
+        "selection time": "character",
+        "options": [
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Frenzon"
+                },
+                "count": 5
+              }
+            }
+          ],
+          [
+            {
+              "property": "character kit",
+              "value": {
+                "item": {
+                  "name": "Stimm"
+                },
+                "count": 3
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Demolitions",
+    "cost": 3,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Demolitions",
+          "description": "The regiment gains a +10 bonus to Logistics tests to obtain grenades, missiles, explosives and special tank ammunition."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Scavengers",
+    "cost": 3,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Scavengers",
+          "description": "May gain a +10 bonus to any Logistics Tests. Any doubles on a roll with this bonus draws unwanted attention."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Warrior Weapons",
+    "cost": 3,
+    "fixed modifiers": {
+      "skills": [
+        {
+          "name": "Parry",
+          "rating": 1
+        }
+      ]
+    },
+    "special abilities": [
+      {
+        "name": "Warrior Weapons",
+        "description": "Regiment exchanges their Main Weapon for a Common Low-Tech weapon and a laspistol with two charge packs."
+      }
+    ]
+  },
+  {
+    "name": "Well-Provisioned",
+    "cost": 3,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Well-Provisioned",
+          "description": "Increases the number of clips for the main weapon and weeks of rations by 2 and an additional grenade of each type. Gain +10 to all Logistics tests to obtain fuel and parts for vehicles."
+        }
+      ]
+    }
+  }
+]

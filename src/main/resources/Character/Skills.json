@@ -1,0 +1,149 @@
+[
+{
+	"name": "Acrobatics",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "General"]
+},
+{
+	"name": "Athletics",
+	"characteristic": "Strength",
+	"aptitudes": ["Strength", "General"]
+},
+{
+	"name": "Awareness",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "Fieldcraft"]
+},
+{
+	"name": "Charm",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Social"]
+},
+{
+	"name": "Command",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Leadership"]
+},
+{
+	"name": "Commerce",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "General"]
+},
+{
+	"name": "Common Lore",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "General"],
+	"specialization" : true
+},
+{
+	"name": "Deceive",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Social"]
+},
+{
+	"name": "Dodge",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Defense"]
+},
+{
+	"name": "Forbidden Lore",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Knowledge"],
+	"specialization" : true
+},
+{
+	"name": "Inquiry",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Fellowship", "Social"]
+},
+{
+	"name": "Interrogation",
+	"characteristic": "Willpower",
+	"aptitudes": ["Willpower", "Social"]
+},
+{
+	"name": "Intimidate",
+	"characteristic": "Strength",
+	"aptitudes": ["Strength", "Social"]
+},
+{
+	"name": "Linguistics",
+	"characteristic": "Fellowship",
+	"aptitudes": ["Intelligence", "General"],
+	"specialization" : true
+},
+{
+	"name": "Logic",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Knowledge"]
+},
+{
+	"name": "Medicae",
+	"characteristic": "Inteligence",
+	"aptitudes": ["Intelligence", "Fieldcraft"]
+},
+{
+	"name": "Navigate",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Fieldcraft"],
+	"specialization" : true
+},
+{
+	"name": "Operate",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Fieldcraft"],
+	"specialization" : true
+},
+{
+	"name": "Parry",
+	"characteristic": "Weapon Skill",
+	"aptitudes": ["Weapon Skill", "Defense"]
+},
+{
+	"name": "Psyniscience",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "Psyker"]
+},
+{
+	"name": "Scholastic Lore",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Knowledge"],
+	"specialization" : true
+},
+{
+	"name": "Scrutiny",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "General"]
+},
+{
+	"name": "Security",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Tech"]
+},
+{
+	"name": "Sleight of Hand",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Knowledge"]
+},
+{
+	"name": "Stealth",
+	"characteristic": "Agility",
+	"aptitudes": ["Agility", "Fieldcraft"]
+},
+{
+	"name": "Survival",
+	"characteristic": "Perception",
+	"aptitudes": ["Perception", "Fieldcraft"]
+},
+{
+	"name": "Tech-Use",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "Tech"]
+},
+{
+	"name": "Trade",
+	"characteristic": "Intelligence",
+	"aptitudes": ["Intelligence", "General"],
+	"specialization" : true
+}
+]

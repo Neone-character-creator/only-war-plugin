@@ -56,9 +56,9 @@ crashlytics.properties
 crashlytics-build.properties
 
 # Created by .ignore support plugin (hsz.mobi)
-/src/main/resources/pluginresource/js/libs
+/src/main/resources/js/libs
 
 tests/**/*.js
 /debug.log
-/src/main/resources/pluginresource/js/coverage/
+/src/main/resources/js/coverage/
 /node_modules/

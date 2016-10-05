@@ -1,0 +1,133 @@
+[
+  {
+   "name" : "Amorphous",
+    "description" : "An  amorphous  creature  has  a  malleable  form,  capable  of  squeezing  its  body  or  expanding  it.  It  can  change  size  by one-step  in  either  direction,  though  doing  so  does  not change  its  speed.  Creatures  with  this  Trait  determine  their movement rates using one half of their Agility Bonus rounded up. Amorphous creatures are often missing senses and so rely on the Unnatural Senses Trait to perceive their surroundings."
+  },
+  {
+    "name" : "Amphibious",
+    "description" : "The  creature  can  breathe  water  as  well  as  air  and  can  stay   underwater indefinitely without the need to surface. If this Trait is taken by a creature with the ability to breathe another predominate substance other than air (i.e. water, ammonia, carbon-dioxide, etc.) then it can breathe air as well as its native atmosphere."
+  },
+  {
+    "name" : "Auto-Stabilized",
+    "description" : "The  creature  always  counts  as  braced  when  firing  heavy  weapons  and  therefore  may  fire  a  weapon  on  full  or  semi-automatic  without  taking  the  Brace  Action  first,  and  not suffer any penalties to hit."
+  },
+  {
+    "name" : "Bestial",
+    "description" : "A  creature  with  this  Trait  is  animalistic,  tending  to  behave  instinctively  rather  than  rationally.  No  matter  how  high  its Intelligence  score  is,  it  is  still  bestial.  A  creature  with  this Trait never needs to make a Survival Test whilst in its natural habitat. Unless starving or desperate, a Bestial creature must make a Challenging (+0) Willpower Test when frightened, startled, or injured. On a failed Test, the creature flees. "
+  },
+  {
+    "name" : "Blind",
+    "description" : "Blind creatures automatically fail all Tests based on vision and automatically fail all Ballistic Skill Tests. Such creatures take a –30 penalty to Weapon Skill Tests and most other Tests that ordinarily  involve  or  are  benefited  by  vision.  Note  that  this Trait indicates not only that the creature cannot see but that it also has no other senses which would provide the same benefit as eyes. The Blind Fighting Talent reduces the penalty  to  Weapon  Skill  Tests  as  normal  for  Blind creatures, from –30 to –15. "
+  },
+  {
+    "name" : "Brutal Charge",
+    "rating" : true,
+    "description" : "A creature with this Trait deals an extra (X) points of Damage per attack, during a Turn in which it has already charged."
+  },
+  {
+    "name" : "Burrower",
+    "rating" : true,
+    "description" : "A  creature  with  this  Trait  can  move  through  solid  objects  by  burrowing  through  them.  The  number  in  parentheses  (X) indicates its speed when burrowing. Such creatures can burrow through soil, rock, sand, and so on, though some (expressed in the creature entry) can burrow through metal. When a creature burrows, it leaves behind a tunnel. Creatures of one-size smaller than the creature that created the tunnel can enter these areas without  impediment.  There’s  a  50%  chance  each  Round  that the tunnel collapses behind the creature."
+  },
+  {
+    "name" : "Crawler",
+    "description" : "Worms, serpents, and similar creatures crawl and slither rather than walk. The base move for a creature with this Trait is half their normal movement rate (round up) as determined by their Agility Bonus, but they do not take penalties for moving over difficult terrain"
+  },
+  {
+    "name" : "Daemonic",
+    "rating" : true,
+    "description" : "Daemonic  creatures  are  denizens  of  the  warp,  but  can  manifest in real space either through sheer strength of will, hunger,  or  occult  rituals.  Creatures  with  this  Trait  increase their  Toughness  Bonus  against  all  Damage  by  the  number indicated  in  the  parentheses  (X)  in  the  same  manner  as  an Unnatural Characteristic (see Unnatural Characteristics Trait on page 158). The effects of this Trait stack with the effects of the Unnatural Characteristic Trait. This increase is negated by Damage inflicted by force weapons, psychic powers, holy attacks, or other creatures with this Trait. Daemonic creatures are  also  immune  to  poison  and  disease.  Creatures  with  the Daemonic Trait also gain benefits when using Psychic Powers as detailed in Chapter VII: Psychic Powers. "
+  },
+  {
+    "name" : "Dark Sight",
+    "description" : "A creature with this Trait sees normally even in areas of total darkness,  and  never  takes  a  penalty  for  fighting  in  areas  of dim or no lighting. "
+  },
+  {
+    "name" : "Deadly Natural Weapons",
+    "description" : "This creature’s natural attacks are powerful enough to crush plasteel or punch through armour. The creature gains all the benefits of the Natural Weapons Trait (see page 156), except that its attacks no longer have the Primitive Special Quality. "
+  },
+  {
+    "name" : "Fear",
+    "rating" : true,
+    "description" : "A creature with this Trait has an unnerving appearance. The Fear  Trait  always  has  an  associated  rating  (1–4)  to  reflect just how awful the creature is to behold and is indicated by the number in parentheses (X). The higher the Fear Rating, the  harder  it  is  for  others  to  resist  going  insane  from  the encounter,  as  shown  on Table  5–5:  Fear  Rating .  When a  character  encounters  a  creature  with  this  Trait,  they  must make  a  Willpower  Test,  modified  by  the  severity  of  the creature’s Trait. On a success, the character may act as normal. On a failure, the character must roll on Table 9–5: Shock (see page 304), adding +10 to the roll for every Degree of Failure by which the Willpower Test was failed."
+  },
+  {
+    "name" : "Flyer",
+    "rating" : true,
+    "description" : "A  creature  with  this  Trait  has  the  natural  ability  to  fly, whether with broad leathery wings, strange warp energies, or inflatable  gas  sacs.  The  number  in  parentheses  (X)  indicates its  speed  when  flying.  This  number  replaces  the  creature’s Agility  Bonus  for  movement  Actions.  For  more  details  on flying, see Chapter I: Playing the Game."
+  },
+  {
+    "name" : "From Beyond",
+    "description" : "The  mind  of  a  creature  with  this  Trait  is  beyond  the  petty frailties and precarious sanity of a mortal mind. It is immune to Fear, Pinning, Insanity Points, and psychic powers used to cloud, control, or delude its mind."
+  },
+  {
+    "name" : "Hoverer",
+    "rating" : true,
+    "description" : "Creatures  with  this  Trait  have  a  limited  capability  for  flight, flying no higher than two metres. The number in parentheses (X) indicates its speed when hovering. This number replaces its Agility Bonus for purposes of calculating Movement. For more details on flying, see Chapter I: Playing the Game."
+  },
+  {
+    "name" : "Incorporeal",
+    "description" : "Incorporeal creatures are insubstantial and weightless, able to pass  through  solid  objects  such  as  walls  and  weapons.  An incorporeal creature gains a +30 bonus on Stealth Tests due to their ability to merge with objects and the fact they make practically no sound when they move. Incorporeal creatures gain  the  Hoverer  (6)  Trait.  An  incorporeal  creature  is  also immune  to  normal  weapons—they  simply  pass  through  its body  as  if  it  wasn’t  there.  Daemons,  psychic  powers,  warp creatures,  other  incorporeal  creatures,  and  opponents  armed with  force  weapons  may  all  injure  an  incorporeal  creature normally.   An   incorporeal   creature   can’t   normally   affect the  mortal  world,  and  thus  can’t  damage  non-incorporeal opponents  unless  it  has  a  suitable  special  ability  or  Talent. Creatures  with  the  Incorporeal  Trait  can  damage  other creatures with the Incorporeal Trait normally. Certain  devices  can  keep  an  incorporeal  creature  at  bay, most notably the Gellar Field of a spaceship. Creatures with this Trait cannot pass through such a field."
+  },
+  {
+    "name" : "Machine",
+    "rating" : true,
+    "description" : "A creature with the Machine Trait is fashioned from inorganic materials  and  is  generally  more  rigorous  then  fleshy  folks. Machines  do  not  breathe,  are  immune  to  the  effects  of  a vacuum,  extremes  of  cold,  any  mind-influencing  psychic effect,  and  their  Armour  Points  apply  toward  fire  Damage. Machines have a certain number of Armour Points (indicated by the number in parentheses). This armour stacks with worn armour, but not with the Natural Armour Trait."
+  },
+  {
+    "name" : "Mechanicus Implants",
+    "description" : "The  character  is  a  servant  of  the  Machine-God,  and  has access to implants beyond other characters.ELECTRO-GRAFT The  Electro-graft  is  a  small  port  that  is  grafted  into  the nervous system. Once a recipient has been properly trained, this  allows  him  to  interface  with  machine  data  ports  and certain  types  of  data  nets.  Electro-grafts  can  take  many forms, such as skull shunts, finger probes, or spine jacks. ELECTOO INDUCTORS Electoo  Inductors  are  palm-sized  metal  skin  grafts that  appear  much  like  tattoos  to  the  uninitiated.  The electoos are wired into the nervous system, where they derive power from the bio-electrical emanations of the flesh and the sacred mysteries of the Potenia Coil. They can be used to emit or siphon power in many ways. RESPIRATOR UNIT A Respirator Unit implant involves tubes, wires, vox-grills, or other augmetic parts replacing the neck and upper chest. The unit purifies the air supply, granting a +20 bonus to resist airborne toxins and gas weapons. The  respirator  unit  also  contains  a  vox-synthesiser capable of transmitting the voice in a variety of ways. CYBER-MANTLE The Cyber-mantle is a framework of metal, wires, and impulse  transmitters  bolted  onto  the  spine  and  lower ribcage.  As  the  initiate  gains  further  implants,  this mantle acts as a sub-dermal anchorage point. Amongst some  servants  of  the  Omnissiah,  this  cyber-mantle  is often referred to as “the true flesh.” POTENTIA COIL Cradled within the cyber-mantle is a power unit known as the Potentia Coil. This mass can store energy and produce various  types  of  fields.  Coils  come  in  many  types,  from small crystal stack affairs to bulky electrical galvinators. CRANIAL CIRCUITRY Cranial  circuitry  is  a  series  of  linked  processors, implants,  and  cortical  circuits  that  enhances  mental capacities.  Most  sit  within  housing  bolted  onto  the skull, whilst others nestle within the brain itself"
+  },
+  {
+    "name" : "Multiple Arms",
+    "rating" : true,
+    "description" : "This  creature  has  more  than  one  pair  of  arms.  The  exact  number  of  arms  is  indicated  in  parentheses  (X),  so  a Genestealer  with  Multiple  Arms  (4)  has  four  arms  total.  It gains  a  +10  bonus  on  Athletics  Tests  involving  climbing and swimming. In addition, for each pair of arms it has— the  Multiple  Arms  value  divided  by  2—it  may  make  an additional  attack  as  if  wielding  multiple  melee  weapons (the  creature  must  either  have  natural  weapons  or  actual melee weapons to wield for this to take effect). Note, that a creature still requires Two-Weapon Wielder (Melee) to make multiple attacks in the same Turn."
+  },
+  {
+    "name" : "Natural Armor",
+    "rating" : true,
+    "description" : "This  creature  has  a  naturally  tough  hide  or  an  exoskeleton,  affording  it  some  protection  against  attacks.  The  number in  parentheses  (X)  indicates  how  many  Armour  Points  the creature  gains  to  all  locations.  Natural  armour  stacks  with worn armour, but not with the Machine Trait."
+  },
+  {
+    "name" : "Natural Weapons",
+    "description" : "This  creature  has  sharp  claws,  teeth,  spines  or  some  other  natural  weapon  with  which  it  can  slice  and  dice  its  foes.  It counts as being armed even when not wielding weapons. Its attacks deal 1d10 points of Damage plus its Strength Bonus. The  creature  may  make  attacks  with  its  Natural  Weapons using its Weapon Skill, though it cannot Parry with its natural weapons, nor can it be disarmed unless, of course, its limbs are hacked off ! (In general, creatures with Natural Weapons are immune to the Power Field quality, as it’s assumed they have  enough  teeth,  claws,  or  spines  to  ignore  a  few  being removed.)  Natural  weapons  have  the  Primitive  (7)  Special Quality unless stated otherwise in the profile."
+  },
+  {
+    "name" : "Phase",
+    "description" : "A  creature  with  this  Trait  can  transform  its  body  into  an  insubstantial  state,  passing  ghost-like  through  solid  objects  or barriers of any sort. By spending a Half Action, the creature may become insubstantial or change back from insubstantial to solidity. While  insubstantial,  the  creature  gains  a  +30  bonus  to Stealth Tests to remain visibly concealed and makes no sound whatsoever. While insubstantial, the creature is also immune to  normal  weapons—they  simply  pass  through  its  body  as if  it  wasn’t  there.  Daemons,  psychic  powers,  warp  creatures, other insubstantial creatures, and opponents armed with Force Weapons may all injure an insubstantial creature normally. An insubstantial creature can’t normally affect the mortal world, and  thus,  can’t  damage  non-insubstantial  opponents  unless noted otherwise. An insubstantial creature cannot cross psychically charged barriers, holy wards, or energy fields designed to flux space or manipulate the warp, such as a Gellar Field or a Void Shield. "
+  },
+  {
+    "name" : "Possession",
+    "description" : "Certain  spirit-beings  and  denizens  of  the  warp  have  the     ability to possess mortal bodies. This is a far more insidious     and damaging process than most forms of mental control, or     even the power of the strongest psykers to “wear” the bodies     of  others,  as  the  very  fabric  of  the  assaulting  warp  being  is     merged with the victim’s living body on a fundamental level,     so as to allow it to remain in our reality. The mechanisms by     which these possessions occur in the game are detailed below,     although circumstance and the nature of the entity itself may     vary. Note that Daemonhosts, being extraordinarily powerful     examples  of  deliberate,  ritualistic  possessions,  designed  to     bind and control daemons in living vessels, are a special case     and dealt with separately.     The Possession Attack     The entity must be within a few metres of its intended victim     and use a Full Action. The creature and target make Opposed     Willpower  Tests  each  Round  until  either  the  entity  or  the     victim  achieve  a  total  of  five  Degrees  of  Success  over  the     other—this  is  cumulative  over  several  Rounds.  If  the  entity     wins, it successfully possesses its victim. If the victim wins, he     has  repelled  the  entity,  who  may  not  attempt  to  possess  him     again for 24 hours. A repelled entity also takes 1d10 points of     Energy Damage which is not reduced by Armour or Toughness.     The Effects of Possession     A possessing entity takes control utterly, binding itself to its     victim, and is capable of commanding the body to function     regardless  of  pain  and  injury  (and  indeed  might  delight  in     damaging or altering it to suit its whims). The victim increases     its Strength and Toughness Characteristics by 10 and gains     1d10+3  Wounds.  The  victim  uses  the  possessing  entity’s     Intelligence, Perception, Willpower, and Fellowship, and uses     the entity’s Psy Rating and powers in place of its own (if any).     Likewise, the victim uses any mind-related Skills and Talents     of the entity and loses its own.     The entity may also attempt to recall memories and skills     from its victim with a successful Intelligence Test. In the case     of possession by a daemon, the victim has a good chance of     becoming  immediately  mutated,  and  likely  becomes  further     mutated  the  longer  the  possession  continues  (see     Chapter     IX: The Game Master     for more details on mutation).     Surviving Possession     Should  the  victim  survive  and  the  entity  is  cast  out  by     exorcism  or  some  other  means,  then  the  ordeal  deals  2d10     points  of  permanent  Damage  to  the  character’s  Toughness     and Willpower Characteristics. In addition, the victim gains     1d10 Insanity and Corruption Points."
+  },
+  {
+    "name" : "Psyker",
+    "description" : "Whether due to unnatural influences, the study of forbidden lore,      or simply sheer force of will, this individual is a Psyker, and can     bend the Immaterium to his will. Though this Trait has no benefits     on its own, it allows characters to purchase the Psyniscience Skill     and the Psy Rating and Psychic Power Talents."
+  },
+  {
+    "name" : "Quadruped",
+    "description" : "Quadrupeds  are  much  quicker  over  a  distance  than  their       bipedal counterparts. Their movement is double that normally     indicated  by  their  Agility  Bonus  (see  page  29).  This  Trait     is  intended  to  cover  creatures  with  hind  legs  and  forepaws.     Creatures with more than four legs may gain this Trait as well,     increasing their movement as indicated above but adding an     additional 2 (after doubling) to their final movement rate, for     each set of legs beyond the first two pairs (i.e. +2 for 6 legs,     +4 for 8 legs, etc)."
+  },
+  {
+    "name" : "Regeneration",
+    "rating" : true,
+    "description" : "Creatures  with  this  Trait  heal  very  quickly.  Each  Round,  at       the start of its Turn, the creature makes a Toughness Test to     removes an amount of Damage indicated in the parentheses     after the Trait. It loses this Trait when slain. "
+  },
+  {
+    "name" : "Size",
+    "rating" : true,
+    "description" : "Creatures  come  in  one  of  ten  different  size  categories,  as       shown on     Table 5–6: Size     . Size affects movement, how well     the creature can hide and move undetected, and how easy or     hard  it  is  to  strike  in  combat.  When  calculating  movement,     apply  the  size  modifier  first,  and  then  other  modifiers  from     other Traits or Talents (such as Quadruped). For the purposes     of comparison, a human is a Size (4) creature. Note that a     creature’s movement cannot be reduced to less than 1."
+  },
+  {
+    "name" : "Sonar Sense",
+    "description" : "A creature with this Trait perceives its surroundings by emitting a frequency noise, allowing the creature to locate the position of any solid object within 30 meters. Other creatures within this 30 meter range, which succeed on an Awareness Skill Test at -10, may detect the curious keening."
+  },
+  {
+    "name" : "But It Dark in Dere!",
+    "description" : "Despite their fearsome and fearless nature, Ogryns are extremely claustrophobic. They will not enter caves, basements, ruins, infantry fighting vehicles like the Chimera, or even smaller than average buildings, of their own free will. Officers and Commissars can order them into such places, but suffer a –10 penalty to any Command Skill Tests to do so, and Ogryns suffer a –10 to all Skill Tests when so confined."
+  },
+  {
+    "name" : "Clumsy",
+    "description" : "Ogryn’s hands are not only much larger than those of a normal human, but also far stronger, and most Ogryn have a  hard time using them to perform delicate, or even normal, tasks. Because of this, Ogryn cannot use most weapons made for humans, as they tend to break them when they try. Any weapon which doesn’t have the Ogryn-Proof Trait cannot be used by a character with the Clumsy Trait."
+  }
+]

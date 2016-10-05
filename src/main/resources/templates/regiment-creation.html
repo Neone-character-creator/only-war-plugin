@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="container">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <h4>Remaining Regiment Creation Points: <span
+                            ng-style="{color:regimentElements.remainingRegimentPoints < 0 ? 'red;' : 'black;'}">{{regimentElements.remainingRegimentPoints}}</span>
+                    </h4>
+                </div>
+                <div class="row"
+                     ng-repeat="category in ['homeworld','commander','regimentType', 'firstSpecialDoctrine', 'secondSpecialDoctrine']">
+                    <regiment-creation-element element="regimentElements[category]"></regiment-creation-element>
+                </div>
+                <div class="row" id="favored_weapons">
+                    <div class="panel panel-basic">
+                        <div class="panel-body">
+                            <div class="row" id="favored_basic_weapon">
+                                Choose your Regimental Favored Basic Weapon
+                                <select ng-model="basicFavoredWeapon"
+                                        ng-options="weapon as weapon.name for weapon in basicWeapons">
+                                    {{weapon.name}}
+                                </select>
+                            </div>
+                            <div class="row" id="favored_heavy_weapon">
+                                Choose your Regimental Favored Heavy Weapon
+                                <select ng-model="heavyFavoredWeapon"
+                                        ng-options="weapon as weapon.name for weapon in heavyWeapons">
+                                    {{weapon.name}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <button class="btn btn-standard" ng-click="isRegimentCreationComplete ? finish():''"
+                            ng-class="{disabled:regimentCompletionStepsRequiredMessage}"
+                            uib-tooltip="{{regimentCompletionStepsRequiredMessage}}"
+                            style="white-space: normal;">
+                        Complete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-10 col-md-offset-1">
+                    Regiment Name
+                    <input type="text" ng-model="regimentElements.name"/>
+                    <div class="row" ng-show="regiment" class="text-center">
+                        <div class="row">
+                            <h3>{{regimentElements.name}}</h3>
+                        </div>
+                        <div class="row">
+                            <h3>Characteristic Modifiers</h3>
+                            <ul>
+                                <li ng-repeat="characteristic in regimentCharacteristics">
+                                    {{characteristic[0].name}} :
+                                    {{characteristic[1] >= 0 ?
+                                    '+' + characteristic[1] :
+                                    characteristic[1]}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h3>Starting Skills</h3>
+                            <ul>
+                                <li ng-repeat="entry in regimentSkills">
+                                    {{!entry.skill.specialization
+                                    ?
+                                    entry.skill.name : entry.skill.name + " (" + entry.skill.specialization +")"}}
+                                    {{'+' + (entry.rating -1) * 10}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h3>Starting Talents and Traits</h3>
+                            <ul>
+                                <li ng-repeat="talent in regiment.talents">
+                                    {{talent.specialization ? talent.name + " (" + talent.specialization +")" :
+                                    talent.name}}
+                                </li>
+                                <li ng-repeat="trait in regiment.traits">{{trait.name}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h3>Regiment Special Abilities</h3>
+                            <ul>
+                                <li ng-repeat="ability in regiment.specialAbilities">
+                                    <strong>{{ability.name}}</strong> - {{ability.description}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row" ng-show="character.psychicPowers.powers.length">
+                            <h3>Starting Powers</h3>
+                            <ul>
+                                <li ng-repeat="power in character.psychicPowers.powers">
+                                    {{power.name}}
+                                </li>
+                            </ul>
+                            <button class="btn btn-standard" ng-click="openStartingPowersModal()">Change</button>
+                        </div>
+                        <div class="row" ng-show="regiment.aptitudes.length > 0">
+                            <h3>Aptitudes</h3>
+                            {{regiment.aptitudes}}
+                            <ul>
+                                <li ng-repeat="aptitude in regiment.aptitudes track by $index">
+                                    {{aptitude}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h3>Starting Gear</h3>
+                            <ul>
+                                <li ng-repeat="item in regimentKit">
+                                    {{item | item_summary}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row" ng-show="regimentFavoredWeapons">
+                            <h3>Favored Weapons</h3>
+                            <ul>
+                                <li>
+                                    <span ng-repeat="weapon in regimentElements.basicFavoredWeapons.slice(0, regimentElements.basicFavoredWeapons.length-1)">
+                                        {{weapon.name}},
+                                    </span>
+                                    <span>
+                                        {{regimentElements.basicFavoredWeapons[regimentElements.basicFavoredWeapons.length-1].name}}
+                                    </span>
+                                </li>
+                                <li>
+                                    <span ng-repeat="weapon in regimentElements.heavyFavoredWeapons.slice(0, regimentElements.heavyFavoredWeapons.length-1)">
+                                        {{weapon.name}},
+                                    </span>
+                                    <span>
+                                        {{regimentElements.heavyFavoredWeapons[regimentElements.heavyFavoredWeapons.length-1].name}}
+                                    </span>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="row">
+                            <h4>Regimental Kit Options</h4>
+                            <div>
+                                <!--<div ng-show="readyToSelectKitModifiers">-->
+                                <div class="row">
+
+                                    Select from the following options to customize your regimental starting gear.
+                                    Remaining Kit Points: {{regimentElements.remainingKitPoints}}
+                                    <ul>
+                                        <li ng-repeat="choice in kitChoices track by $index">
+                                            <button class="btn btn-link" ng-class="{disabled:choice.unavailableMessage}"
+                                                    ng-click="!choice.unavailableMessage ? addKitModifier(choice) : null"
+                                                    uib-tooltip="{{choice.unavailableMessage}}"
+                                                    style="white-space: normal;">
+                                                {{choice.description + " (" + choice.kitPointCost +" pts)"}}
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {{chosenKitModifiers.length}}
+                                <div class="row" ng-show="chosenKitModifiers.length > 0">
+                                    <h4>Chosen Kit Modifiers</h4>
+                                    Click to undo chosen modifiers. Removing a modifier will also remove each modifier
+                                    after it.
+                                    <ul>
+                                        <li ng-repeat="chosen in chosenKitModifiers">
+                                            <button class="btn btn-link" ng-click="removeKitModifier($index)">
+                                                {{chosen.modifier.description}}
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div ng-show="!readyToSelectKitModifiers">
+                                After you've chosen your Homeworld, Regiment Type, Commanding Officer and Favored
+                                Weapons, you can modify your regiments' equipment.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

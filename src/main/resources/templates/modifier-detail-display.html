@@ -1,0 +1,64 @@
+<div class="btn-group">
+    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{description}}</button>
+    <ul class="dropdown-menu">
+        <li ng-repeat="origin in origins"><a ng-click="select(property, modifier)">{{modifier.name}} {{" (" + modifier.cost +" pts)"}}</a></li>
+    </ul>
+</div>
+<div>
+    <h2>{{modifier.name}}</h2>
+    {{modifier.description}}
+    <div>
+        <div ng-show="modifier['fixed modifiers'].characteristics" class="row">
+            <h4>Characteristics</h4>
+            <ul>
+                <li ng-repeat="(name, value) in modifier['fixed modifiers'].characteristics">{{name}}
+                    {{value >
+                    0 ? '+' + value : value}}
+                </li>
+            </ul>
+        </div>
+        <div ng-show="modifier['fixed modifiers'].skills" class="row">
+            <h4>Skills</h4>
+            <ul>
+                <li ng-repeat="skill in modifier['fixed modifiers'].skills">{{!skill.specialization ?
+                    skill.name : skill.name + " (" + skill.specialization +")"}} {{'+' +
+                    (skill.advancements-1)
+                    * 10}}
+                </li>
+            </ul>
+        </div>
+        <div ng-show="modifier['fixed modifiers'].talents" class="row">
+            <h4>Talents</h4>
+            <ul>
+                <li ng-repeat="talent in modifier['fixed modifiers'].talents">{{talent.name}}</li>
+            </ul>
+        </div>
+        <div ng-show="modifier['fixed modifiers'].traits" class="row">
+            <h4>Traits</h4>
+            <ul>
+                <li ng-repeat="trait in modifier['fixed modifiers'].traits">{{trait.name}}</li>
+            </ul>
+        </div>
+        <div ng-show="modifier['fixed modifiers']['special abilities']" class="row collapse"
+             data-toggle="collapse" data-target="#modifier" id="modifier">
+            <h4>Regiment Special Abilities</h4>
+            <ul>
+                <li ng-repeat="ability in modifier['fixed modifiers']['special abilities']">
+                    <span><strong>{{ability.name}}</strong></span>
+                    <span ng-repeat-end>{{ability.description}}</span>
+                </li>
+            </ul>
+        </div>
+        <div ng-show="modifier['fixed modifiers'].aptitudes" class="row">
+            <h4>Aptitudes</h4>
+            <ul>
+                <li ng-repeat="aptitude in modifier['fixed modifiers'].aptitudes">{{aptitude}}</li>
+            </ul>
+        </div>
+    </div>
+    <div ng-show="modifier['optional modifiers']">
+        Also choose from the following additional modifiers:
+                            <span ng-repeat="option in origin['optional modifiers']"
+                                  ng-click="openSelectionModal(option)">option | option_summary</span>
+    </div>
+</div>
