@@ -51,30 +51,13 @@ sourceSets {
     main {
         output.resourcesDir "$buildDir/resources"
         resources {
-            srcDirs = ['src/main/resources/pluginresource']
+            srcDirs = ['src/main/resources/']
         }
     }
 }
 
 processResources {
-    outputs.upToDateWhen {
-        file("$buildDir/resources/templates/character.html").exists()
-    }
     exclude "**/*.ts"
     exclude "**/*.js.map"
     exclude "**/tests/**"
-}
-
-/*
-* Move character.html, which is kept in the root of the resources directory
-* for ease of testing due to relative urls, into the resources/templates
-* build directory.
- */
-processResources << {
-    String source = "src/main/resources/character.html"
-    String dest = "$buildDir/resources/templates/"
-    copy {
-        from source
-        into dest
-    }
 }
