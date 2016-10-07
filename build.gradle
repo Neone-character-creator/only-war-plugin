@@ -4,13 +4,16 @@ version '1.0'
 buildscript {
     dependencies {
         classpath 'be.jlr-home.gradle:scrPlugin:0.1.+'
+        classpath "com.eriwen:gradle-js-plugin:1.12.1"
     }
     repositories {
         mavenLocal()
         mavenCentral()
+        jcenter()
     }
 }
 
+apply plugin: "com.eriwen.gradle.js"
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'scr'
@@ -57,12 +60,29 @@ processResources {
         file("$buildDir/resources/templates/character.html").exists()
     }
     exclude "**/*.ts"
-    exclude "**/*.js.map"
     exclude "**/tests/**"
     exclude "**/coverage/**"
-    exclude {details -> details.file.name.endsWith(".js") &&
-        !details.file.name.endsWith(".min.js")}
-
+    //Ignore javascript and css files if a minified version can be found.
+    exclude {
+        details -> details.file.name.endsWith(".js") &&
+        !details.file.name.endsWith("min.js") &&
+        Arrays.asList(details.file.getParentFile().listFiles()).find {
+            it.name.endsWith(".min.js")
+        }} != null
+    exclude {details -> details.file.name.endsWith(".css") &&
+            Arrays.asList(details.file.getParentFile().listFiles()).find {
+                it.name.endsWith(".min.css")
+            }} != null
+    exclude "**/libs/**/*bower*"
+    exclude "**/libs/**/*package.json"
+    exclude "**/libs/**/*README.md"
+    exclude "**/libs/**/test"
+    exclude "**/less"
+    exclude "**/jquery/src"
+    exclude "**/jquery-ui/themes"
+    exclude "**/bootstrap/js"
+    exclude "**/bootstrap/grunt"
+    exclude "**/bootstrap/nuget"
 }
 
 /*
