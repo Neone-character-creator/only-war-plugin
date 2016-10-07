@@ -41,10 +41,6 @@ jar {
         instructionReplace 'Export-Package', '!*'
         instruction 'Import-Package', 'io.github.thisisnozaku.charactercreator.plugins; version=1.0.0'
     }
-    from sourceSets.main.allSource
-    from {
-        configurations.runtime.collect {it.isDirectory() ? it : zipTree(it)}
-    }
 }
 
 sourceSets {
@@ -63,6 +59,10 @@ processResources {
     exclude "**/*.ts"
     exclude "**/*.js.map"
     exclude "**/tests/**"
+    exclude "**/coverage/**"
+    exclude {details -> details.file.name.endsWith(".js") &&
+        !details.file.name.endsWith(".min.js")}
+
 }
 
 /*
@@ -72,7 +72,7 @@ processResources {
  */
 processResources << {
     String source = "src/main/resources/character.html"
-    String dest = "$buildDir/resources/templates/"
+    String dest = "$buildDir/resources/templates"
     copy {
         from source
         into dest
