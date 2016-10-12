@@ -25,7 +25,7 @@ export class CharacterOptionsService {
     private _traits;
 
     constructor($resource, $q, $log) {
-        this._talents = $resource("pluginresource/Character/Talents.json").query().$promise.then(talents => {
+        this._talents = $resource("Character/Talents.json").query().$promise.then(talents => {
                 return talents.map(talent=> {
                     if (!talent.prerequisites) {
                         talent.prerequisites = [];
@@ -152,33 +152,33 @@ export class CharacterOptionsService {
                 });
             }
         );
-        this._skills = $resource("pluginresource/Character/Skills.json").query().$promise.then(result=> {
+        this._skills = $resource("Character/Skills.json").query().$promise.then(result=> {
             return result.map(skill=> {
                 return new SkillDescription(skill.name, skill.aptitudes, skill.specialization)
             });
             ;
         });
-        this._powers = $resource("pluginresource/Character/Powers.json").query().$promise;
-        this._weapons = $resource("pluginresource/Character/Weapons.json").query().$promise.then(function (weapons) {
+        this._powers = $resource("Character/Powers.json").query().$promise;
+        this._weapons = $resource("Character/Weapons.json").query().$promise.then(function (weapons) {
             return weapons.map(weapon=> {
                 return new Weapon(weapon.name, weapon.availability, weapon.class, weapon.type, weapon.range, weapon.rof,
                     weapon.damage, weapon.pen, weapon.clip, weapon.reload, weapon['special qualities'], weapon.weight,
                     weapon['main weapon']);
             });
         });
-        this._armor = $resource("pluginresource/Character/Armor.json").query().$promise.then(function (armor) {
+        this._armor = $resource("Character/Armor.json").query().$promise.then(function (armor) {
             return armor.map(armor=> {
                 return new Armor(armor.name, armor.availability, armor.locations, armor.ap, armor.type, armor.weight);
             });
         });
-        this._items = $resource("pluginresource/Character/Items.json").query().$promise.then(function (items) {
+        this._items = $resource("Character/Items.json").query().$promise.then(function (items) {
             return items.map(item=> {
                 return new Item(item.name, ItemType.Other, item.availability, item.weight);
             });
         });
-        this._vehicles = $resource("pluginresource/Character/Vehicles.json").query().$promise;
-        this._traits = $resource("pluginresource/Character/Traits.json").query().$promise;
-        this._fatePointRolls = $resource("pluginresource/Character/fatepoints.json").get().$promise;
+        this._vehicles = $resource("Character/Vehicles.json").query().$promise;
+        this._traits = $resource("Character/Traits.json").query().$promise;
+        this._fatePointRolls = $resource("Character/fatepoints.json").get().$promise;
     }
 
 

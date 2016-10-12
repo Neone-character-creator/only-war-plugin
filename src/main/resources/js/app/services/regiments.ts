@@ -17,7 +17,7 @@ export class RegimentService {
 
     constructor($resource, $q, characteroptions, placeholders:PlaceholderReplacement) {
         this._regiments = $q.all({
-            regiments: $resource("/Regiment/Regiments.json").query().$promise,
+            regiments: $resource("Regiment/Regiments.json").query().$promise,
             placeholders: placeholders
         }).then(function (result) {
             return result.regiments.map(regiment => {

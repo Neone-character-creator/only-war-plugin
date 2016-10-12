@@ -5,7 +5,7 @@ define(["require", "exports", "angular", "../types/regiment/creation/RegimentCre
             selection.selectionObject = selectedObject;
             $uibModal.open({
                 controller: "SelectionModalController",
-                templateUrl: '/pluginresource/templates/selection-modal.html'
+                templateUrl: '//templates/selection-modal.html'
             }).result.then(function () {
                 optionselection.target = modifier;
                 optionselection.selected = selection.selected;

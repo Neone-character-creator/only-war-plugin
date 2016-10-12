@@ -1,4 +1,4 @@
-import {Characteristic} from "../types/character/Characteristic";
+import {Characteristic} from "../../app/types/character/Characteristic";
 import {IScope} from "angular";
 /**
  * Created by Damien on 7/20/2016.

@@ -19,18 +19,18 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                 }
             }).state("sheet", {
                 url: "/",
-                templateUrl: "/templates/sheet.html",
+                templateUrl: "templates/sheet.html",
                 controller: sheetController,
             }).state("regiment", {
                 url: "/regiment",
-                templateUrl: "/templates/regiment-specialty-page.html",
+                templateUrl: "templates/regiment-specialty-page.html",
                 controller: modifierControllerFactory("regiments"),
                 data: {
                     complete: false
                 }
             }).state("characteristics", {
                 url: "/characteristics",
-                templateUrl: "/templates/characteristics.html",
+                templateUrl: "templates/characteristics.html",
                 controller: function ($scope, $uibModal, $state, characterService, dice) {
                     return new characteristicsController($scope, $uibModal, $state, characterService, dice);
                 },
@@ -39,14 +39,14 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                 }
             }).state("specialty", {
                 url: "/specialty",
-                templateUrl: "/templates/regiment-specialty-page.html",
+                templateUrl: "templates/regiment-specialty-page.html",
                 controller: modifierControllerFactory("specialties"),
                 data: {
                     complete: false
                 }
             }).state("finalize", {
                 url: "/finalize",
-                templateUrl: "/templates/finalize.html",
+                templateUrl: "templates/finalize.html",
                 controller: function ($q, $scope, characterService, characteroptions, dice) {
                     return new finalizeController.FinalizePageController($q, $scope, characterService, characteroptions, dice);
                 },
@@ -55,14 +55,14 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                 }
             }).state("createRegiment", {
                 url: "/regiment/create",
-                templateUrl: "/templates/regiment-creation.html",
+                templateUrl: "templates/regiment-creation.html",
                 controller: regimentCreationController.RegimentCreationController
             }).state("modal", {
                 abstract: true
             }).state("modal.tutorial", {
                 onEnter: function ($state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: "/templates/tutorial.html"
+                        templateUrl: "templates/tutorial.html"
                     })
                 }
             }).state("modal.selection", {
@@ -70,7 +70,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("modal.selection.modifier", {
                 onEnter: function ($state, $uibModal, $stateParams, optionselection, selection) {
                     var modal = $uibModal.open({
-                        templateUrl: "/templates/selection-modal.html",
+                        templateUrl: "templates/selection-modal.html",
                         controller: selectionModalController
                     });
                     modal.result.then(function (result) {
@@ -91,7 +91,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("createRegiment.kitModifier", {
                 onEnter: function ($state, $uibModal, $stateParams, selection) {
                     var modal = $uibModal.open({
-                        templateUrl: "/templates/selection-modal.html",
+                        templateUrl: "templates/selection-modal.html",
                         controller: selectionModalController
                     });
                     modal.result.then(function (result) {
@@ -110,7 +110,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("createRegiment.setSpecialization", {
                 onEnter: function ($state, $uibModal, $stateParams, selection) {
                     var modal = $uibModal.open({
-                        templateUrl: "/templates/set-specialization-modal.html",
+                        templateUrl: "templates/set-specialization-modal.html",
                         controller: selectionModalController
                     });
                     modal.result.then(function (result) {
@@ -199,7 +199,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                     e.preventDefault();
                     confirm = $uibModal.open({
                         controller: "ConfirmationController",
-                        templateUrl: "/templates/confirm-navigation-modal.html"
+                        templateUrl: "templates/confirm-navigation-modal.html"
                     }).result.then(resultHandler);
                 }
                 suppressDialog = false;
@@ -224,7 +224,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
 
         app.directive("regimentCreationElement", function () {
             return {
-                templateUrl: "/templates/RegimentCreationElementDisplay.html",
+                templateUrl: "templates/RegimentCreationElementDisplay.html",
                 restrict: 'E',
                 scope: {
                     "element": "="

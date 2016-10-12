@@ -1,4 +1,4 @@
-define(["../types/character/Characteristic"], function (Characteristic) {
+define(["../../app/types/character/Characteristic"], function (Characteristic) {
 	return function ($scope, $uibModal, $state, characterService, dice) {
     	//The randomly generated values
     	$scope.generatedValues = [];
