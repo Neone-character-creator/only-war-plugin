@@ -65,14 +65,12 @@ processResources {
     //Ignore javascript and css files if a minified version can be found.
     exclude {
         details -> details.file.name.endsWith(".js") &&
-        !details.file.name.endsWith("min.js") &&
-        Arrays.asList(details.file.getParentFile().listFiles()).find {
-            it.name.endsWith(".min.js")
-        }} != null
-    exclude {details -> details.file.name.endsWith(".css") &&
-            Arrays.asList(details.file.getParentFile().listFiles()).find {
-                it.name.endsWith(".min.css")
-            }} != null
+        !details.file.name.endsWith("min.js")
+        }
+    exclude {
+        details -> details.file.name.endsWith(".css") &&
+        !details.file.name.endsWith("min.css")
+        }
     exclude "**/libs/**/*bower*"
     exclude "**/libs/**/*package.json"
     exclude "**/libs/**/*README.md"
@@ -98,3 +96,11 @@ processResources << {
         into dest
     }
 }
+
+task grunt(type:Exec) {
+    //TODO: Windows only, fix for other OS'.
+    executable 'grunt.cmd'
+    workingDir = file('./')
+}
+
+processResources.dependsOn(grunt)
