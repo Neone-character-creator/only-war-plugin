@@ -1,6 +1,3 @@
-group 'io.github.thisisnozaku.charactercreator'
-version '1.0'
-
 buildscript {
     dependencies {
         classpath 'be.jlr-home.gradle:scrPlugin:0.1.+'
@@ -12,6 +9,14 @@ buildscript {
         jcenter()
     }
 }
+
+plugins {
+  id "com.moowork.grunt" version "0.13"
+  id "com.moowork.node" version "0.13"
+}
+
+group 'io.github.thisisnozaku.charactercreator'
+version '1.0'
 
 apply plugin: "com.eriwen.gradle.js"
 apply plugin: 'java'
@@ -50,37 +55,9 @@ sourceSets {
     main {
         output.resourcesDir "$buildDir/resources"
         resources {
-            srcDirs = ['src/main/resources/']
+            srcDirs = ['src/main/resources/dist']
         }
     }
-}
-
-processResources {
-    outputs.upToDateWhen {
-        file("$buildDir/resources/templates/character.html").exists()
-    }
-    exclude "**/*.ts"
-    exclude "**/tests/**"
-    exclude "**/coverage/**"
-    //Ignore javascript and css files if a minified version can be found.
-    exclude {
-        details -> details.file.name.endsWith(".js") &&
-        !details.file.name.endsWith("min.js")
-        }
-    exclude {
-        details -> details.file.name.endsWith(".css") &&
-        !details.file.name.endsWith("min.css")
-        }
-    exclude "**/libs/**/*bower*"
-    exclude "**/libs/**/*package.json"
-    exclude "**/libs/**/*README.md"
-    exclude "**/libs/**/test"
-    exclude "**/less"
-    exclude "**/jquery/src"
-    exclude "**/jquery-ui/themes"
-    exclude "**/bootstrap/js"
-    exclude "**/bootstrap/grunt"
-    exclude "**/bootstrap/nuget"
 }
 
 /*
@@ -97,10 +74,4 @@ processResources << {
     }
 }
 
-task grunt(type:Exec) {
-    //TODO: Windows only, fix for other OS'.
-    executable 'grunt.cmd'
-    workingDir = file('./')
-}
-
-processResources.dependsOn(grunt)
+processResources.dependsOn(grunt_default)
