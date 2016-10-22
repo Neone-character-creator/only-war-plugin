@@ -1,17 +1,17 @@
 require.config({
     baseUrl: "js/",
     "paths": {
-        "angular": "libs/angular/angular.min",
-        "bootstrap": "libs/bootstrap/dist/js/bootstrap.min",
-        "angular-resource": "libs/angular-resource/angular-resource.min",
-        "ui-router": "libs/angular-ui-router/release/angular-ui-router.min",
-        "dragdrop": "libs/angular-dragdrop/src/angular-dragdrop.min",
-        "jquery": "libs/jquery/dist/jquery.min",
-        "jquery-ui": "libs/jquery-ui/jquery-ui.min",
-        "angular-ui": "libs/angular-bootstrap/ui-bootstrap-tpls.min",
-        "angular-filter": "libs/angular-filter/dist/angular-filter.min",
-        "cookies": "libs/js-cookie/src/js.cookie",
-        "underscore": "libs/underscore/underscore"
+        "angular": "libs/angular.min",
+        "bootstrap": "libs/bootstrap.min",
+        "angular-resource": "libs/angular-resource.min",
+        "ui-router": "libs/angular-ui-router.min",
+        "dragdrop": "libs/angular-dragdrop.min",
+        "jquery": "libs/jquery.min",
+        "jquery-ui": "libs/jquery-ui.min",
+        "angular-ui": "libs/ui-bootstrap-tpls.min",
+        "angular-filter": "libs/angular-filter.min",
+        "cookies": "libs/js.cookie.min",
+        "underscore": "libs/underscore.min"
     },
     shim: {
         "jquery": {
