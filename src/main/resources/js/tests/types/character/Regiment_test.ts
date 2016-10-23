@@ -1,4 +1,4 @@
-/// <reference path="../../../libs/index.d.ts" />
+/// <reference path="../../../index.d.ts" />
 import {Regiment, RegimentBuilder} from "../../../app/types/character/Regiment";
 import {Characteristic} from "../../../app/types/character/Characteristic";
 import {OnlyWarCharacter} from "../../../app/types/character/Character";

@@ -1,0 +1,12 @@
+{
+  "description" : {
+    "creator" : "Damien Marble",
+    "game" : "Warhammer 40k: Only War",
+    "version" : "1.0.0"
+  },
+  "resources" : {
+    "character" : "templates/character.html",
+    "description" : "templates/description.html",
+    "pdf" : "character.pdf"
+  }
+}

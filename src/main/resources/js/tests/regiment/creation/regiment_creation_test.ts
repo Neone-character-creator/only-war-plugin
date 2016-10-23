@@ -1,4 +1,4 @@
-/// <reference path="../../../libs/globals/jasmine/index.d.ts" />
+/// <reference path="../../../index.d.ts" />
 import {
     RegimentCreationModifier,
     CommandingOfficer, Homeworld, RegimentType

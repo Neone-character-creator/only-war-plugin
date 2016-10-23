@@ -8,5 +8,12 @@
     "sourceMap": true,
     "removeComments": false,
     "watch": true
-  }
+  },
+  "include" : [
+    "src/resources/js/app/**/*.ts"
+  ],
+  "exclude": [
+    "src/resources/js/app/**/*.d.ts",
+    "node_modules"
+  ]
 }

@@ -2,13 +2,11 @@ Miscellaneous:
 Implement bonus xp for duplicate talents and bonus aptitudes for duplicate aptitudes.
 Finish Trait data file.
 Make fields for spending xp or adding things filterable so that only options that the character qualifies for can be taken.
-Add Orders.
 Add Advanced Specialties from Hammer of the Emperor
 Add comrade advances.
 Move tooltips into templates instead of hardcoded strings.
 Add tooltips to the skill rating radio buttons to show how much xp it will cost/refund to change the rating.
 Support weapons with multiple stat profiles (Triplex Lasgun, etc.)
-Add tests for stuff, so many things keep breaking.
 Make it so that the user can set the specialization of talents/skills when chosen in optional selections.
 
 Regiment Creation:

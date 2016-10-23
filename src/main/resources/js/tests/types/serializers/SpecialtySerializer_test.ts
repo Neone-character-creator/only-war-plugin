@@ -1,5 +1,4 @@
-/// <reference path="../../../libs/globals/jasmine/index.d.ts" />
-/// <reference path="../../../libs/typemoq/dist/typemoq.d.ts" />
+/// <reference path="../../../index.d.ts" />
 import {Characteristic} from "../../../app/types/character/Characteristic";
 import {SpecialtySerializer} from  "../../../app/types/serializers/SpecialtySerializer";
 import {RegimentBuilder, Regiment} from "../../../app/types/character/Regiment";
@@ -8,7 +7,8 @@ import * as angular from "angular";
 import {Talent} from "../../../app/types/character/Talent";
 import {PlaceholderReplacement} from "../../../app/services/PlaceholderReplacement";
 import createSpy = jasmine.createSpy;
-import It = TypeMoqIntern.It;
+import * as TypeMoq from "typemoq";
+import It = TypeMoq.It;
 import {Trait} from "../../../app/types/character/Trait";
 import {Weapon} from "../../../app/types/character/items/Weapon";
 import {SelectableModifier} from "../../../app/types/character/CharacterModifier";

@@ -1,9 +1,9 @@
 {
   "globalDependencies": {
-    "angular": "registry:dt/angular#1.5.0+20160627105203",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "jquery": "registry:dt/jquery#1.10.0+20160704162008",
-    "require": "registry:dt/require#2.1.20+20160316155526"
+    "angular": "registry:dt/angular#1.5.0+20161016133926",
+    "angular-mocks": "registry:dt/angular-mocks#1.5.0+20160608104721",
+    "jasmine": "registry:dt/jasmine#2.5.0+20161003201800",
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922"
   },
-  "resolution": "src/main/resources//js/libs"
+  "resolution": "src/main/resources/js"
 }

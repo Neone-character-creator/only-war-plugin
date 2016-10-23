@@ -1,10 +1,9 @@
-/// <reference path="../../libs/globals/jasmine/index.d.ts" />
+/// <reference path="../../index.d.ts" />
 import {
     CharacteristicSelectionPageController
 } from "../../app/characteristics/CharacteristicSelectionPageController";
 import {Characteristic} from "../../app/types/character/Characteristic";
 import * as angular from "angular";
-import IInjectStatic = angular.IInjectStatic;
 /**
  * Created by Damien on 7/20/2016.
  */

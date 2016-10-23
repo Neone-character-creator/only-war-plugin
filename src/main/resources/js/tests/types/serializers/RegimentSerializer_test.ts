@@ -1,4 +1,4 @@
-/// <reference path="../../../libs/index.d.ts" />
+/// <reference path="../../../index.d.ts" />
 import {Characteristic, CharacteristicValue} from "../../../app/types/character/Characteristic";
 import {RegimentBuilder, Regiment} from "../../../app/types/character/Regiment";
 import {RegimentSerializer} from "../../../app/types/serializers/RegimentSerializer";
@@ -6,7 +6,7 @@ import {Skill, SkillDescription} from "../../../app/types/character/Skill";
 import * as angular from "angular";
 import {Talent} from "../../../app/types/character/Talent";
 import {PlaceholderReplacement} from "../../../app/services/PlaceholderReplacement";
-import It = TypeMoqIntern.It;
+import * as Typemoq from "typemoq";
 import createSpy = jasmine.createSpy;
 import {Trait} from "../../../app/types/character/Trait";
 import {Weapon} from "../../../app/types/character/items/Weapon";
@@ -14,6 +14,9 @@ import {SelectableModifier} from "../../../app/types/character/CharacterModifier
 import {SpecialAbility} from "../../../app/types/regiment/SpecialAbility";
 import {Item, ItemType} from "../../../app/types/character/items/Item";
 import {Armor} from "../../../app/types/character/items/Armor";
+import * as TypeMoq from "typemoq";
+import It = TypeMoq.It;
+
 /**
  * Created by Damien on 8/19/2016.
  */

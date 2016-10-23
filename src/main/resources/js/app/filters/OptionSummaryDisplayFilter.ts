@@ -1,3 +1,4 @@
+import * as angular from "angular";
 /**
  * Created by Damien on 7/29/2016.
  */

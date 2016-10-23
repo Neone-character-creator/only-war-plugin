@@ -1,5 +1,4 @@
-/// <reference path="../../../libs/globals/jasmine/index.d.ts" />
-/// <reference path="../../../libs/typemoq/dist/typemoq.d.ts" />
+/// <reference path="../../../../js/index.d.ts" />
 import {OnlyWarCharacter} from "../../../app/types/character/Character";
 import {CharacterSerializer} from "../../../app/types/serializers/CharacterSerializer";
 import {Characteristic} from "../../../app/types/character/Characteristic";
@@ -15,10 +14,11 @@ import {SkillDescription} from "../../../app/types/character/Skill";
 import {Talent} from "../../../app/types/character/Talent";
 import {Trait} from "../../../app/types/character/Trait";
 import {Weapon} from "../../../app/types/character/items/Weapon";
-import MockBehavior = TypeMoqIntern.MockBehavior;
-import Times = TypeMoqIntern.Times;
-import Mock = TypeMoqIntern.Mock;
-import It = TypeMoqIntern.It;
+import * as TypeMoq from "typemoq";
+import MockBehavior = TypeMoq.MockBehavior;
+import Times = TypeMoq.Times;
+import Mock = TypeMoq.Mock;
+import It = TypeMoq.It;
 import {PsychicPower} from "../../../app/types/character/PsychicPower";
 import {RegimentBuilder, Regiment} from "../../../app/types/character/Regiment";
 import {SpecialAbility} from "../../../app/types/regiment/SpecialAbility";

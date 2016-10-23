@@ -1,4 +1,4 @@
-/// <reference path="../../libs/globals/jasmine/index.d.ts" />
+/// <reference path="../../index.d.ts" />
 /**
  * Created by Damien on 7/16/2016.
  */

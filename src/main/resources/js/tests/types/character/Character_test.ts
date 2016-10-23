@@ -1,4 +1,4 @@
-/// <reference path="../../../libs/index.d.ts" />
+/// <reference path="../../../index.d.ts" />
 /**
  * Created by Damien on 7/1/2016.
  */

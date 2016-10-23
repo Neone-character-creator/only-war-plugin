@@ -1,6 +1,4 @@
-/// <reference path="../../../libs/globals/jasmine/index.d.ts" />
-/// <reference path="../../../libs/globals/angular/index.d.ts" />
-
+/// <reference path="../../../index.d.ts" />
 import {Item, ItemType} from "../../../app/types/character/items/Item";
 import {
     ReplaceItemKitModifier,

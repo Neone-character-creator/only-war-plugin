@@ -1,4 +1,4 @@
-/// <reference path="../../../libs/globals/jasmine/index.d.ts" />
+/// <reference path="../../../index.d.ts" />
 import {OnlyWarCharacter} from "../../../app/types/character/Character";
 import {Talent} from "../../../app/types/character/Talent";
 import {
