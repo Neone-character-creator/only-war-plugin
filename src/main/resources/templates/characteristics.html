@@ -1,0 +1,42 @@
+<!doctype HTML>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-standard" ng-click="generate()"
+                    uib-tooltip="Roll new values, discarding any previous ones, including assigned ones."
+                    tooltip-popup-delay="300">Generate
+            </button>
+        </div>
+    </div>
+    <div class="row text-center" ng-show="generatedValues.length > 0">
+        Double click to reroll, click and drag onto the fields below to assign, drag onto assigned value to swap.
+        <ul class="list-inline">
+            <li ng-repeat="number in generatedValues track by $index">
+                <div ng-dblclick="valueButtonClick($index)">
+                    <div class="btn btn-primary"
+                         jqyoui-draggable="{index:$index, animate:true}"
+                         data-jqyoui-options="{revert:'invalid'}" data-drag="true" ng-model="generatedValues">
+                        {{number}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12" uib-tooltip="Click inside a field to enter a value." tooltip-popup-delay="5000">
+            <table class="table table-bordered" style="width:100%">
+                <tr>
+                    <td class="text-center" ng-repeat="characteristic in characteristics"><span class="text-center">{{characteristic.characteristic.name}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-repeat="characteristic in characteristics" class="text-center">
+                        <input type="number" ng-model="characteristic.rolled"
+                               style="width:50px;text-align:center;height:50px" jqyoui-droppable="{onDrop:'drop'}"
+                               data-drop="true"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

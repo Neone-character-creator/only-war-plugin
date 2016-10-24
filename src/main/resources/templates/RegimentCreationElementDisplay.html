@@ -1,0 +1,142 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                {{element.header}}
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="option in element.options | filter : costFilter">
+                    <a ng-click="select(option)">
+                        {{option.name}} ({{option.cost}} pts)
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div style="display:inline-block;float:right">
+            <button class="btn btn-default" ng-click="element.selected = null">
+                Clear
+            </button>
+        </div>
+
+    </div>
+    <div class="panel-body">
+        <div ng-show="element.selected">
+            <div class="col-md-12">
+                <div class="row">
+                    <h2>{{element.selected.name}}</h2>
+                    {{element.selected.description}}
+                </div>
+                <div ng-show="elementCharacteristics.length > 0"
+                     class="row">
+                    <h4>Characteristics</h4>
+                    <ul>
+                        <li ng-repeat="entry in elementCharacteristics">
+                            {{entry.name}}
+                            {{entry.rating >=
+                            0 ? '+' + entry.rating : entry.rating}}
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="elementSkills.length > 0"
+                     class="row">
+                    <h4>Skills</h4>
+                    <ul>
+                        <li ng-repeat="entry in elementSkills track by $index">
+                            {{!entry.skill.specialization
+                            ?
+                            entry.skill.name : entry.skill.name + " (" + entry.skill.specialization +")"}} {{' +' +
+                            (entry.rating -1) * 10}}
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="element.selected.talents.length > 0"
+                     class="row">
+                    <h4>Talents</h4>
+                    <ul>
+                        <li ng-repeat="talent in element.selected.talents">
+                            <span ng-if="talent.specialization === true">
+                                {{talent.specialization ? talent.name + " (" + talent.specialization +")" : talent.name}}
+                            </span>
+                            <span ng-if="talent.specialization !== true">
+                                {{talent.specialization ? talent.name + " (" + talent.specialization +")" : talent.name}}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="element.selected.traits"
+                     class="row">
+                    <h4>Traits</h4>
+                    <ul>
+                        <li ng-repeat="trait in element.selected.traits">
+                            {{trait.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="element.selected.specialAbilities.length > 0"
+                     class="row">
+                    <h4>Regiment Special Abilities</h4>
+                    <ul>
+                        <li ng-repeat="ability in element.selected.specialAbilities ">
+                            <span><strong>{{ability.name}}</strong></span>
+                            <span ng-repeat-end>{{ability.description}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="element.selected.aptitudes.length > 0"
+                     class="row">
+                    <h4>Aptitudes</h4>
+                    <ul>
+                        <li ng-repeat="aptitude in element.selected.aptitudes">
+                            {{aptitude}}
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="element.selected.wounds"
+                     class="row">
+                    <h4>Wounds</h4>
+                    {{element.selected.wounds > 0 ? "+" +
+                    element.selected.wounds :
+                    element.selected.wounds}}
+                </div>
+                <div ng-show="element.selected['regiment kit points']"
+                     class="row">
+                    <h4>Additional Regimenal Equipment Points</h4>
+                    You gain {{element.selected['regiment kitpoints']}}
+                    points to modify the regiment equipment.
+                </div>
+                <div class="row"
+                     ng-show="elementKit.length > 0">
+                    <h3>Starting Gear</h3>
+                    <ul>
+                        <li ng-repeat="entry in elementKit">
+                            {{entry.count + " x " + entry.item.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div ng-show="element.selected.optionalModifiers.length > 0">
+            <div ng-show="(element.selected.optionalModifiers | filter : {'selectionTime' : 'regiment'}).length > 0">
+                <h4>Choose from the following bonuses for your regiment now:</h4>
+                <ul>
+                    <li ng-repeat="option in element.selected.optionalModifiers | filter : {'selectionTime' : 'regiment'}">
+                        <button class="btn btn-link"
+                                ng-click="openSelectionModal(option, element.selected)">
+                            {{option |
+                            option_summary}}
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="(element.selected.optionalModifiers | filter : {'selectionTime' : 'character'}).length > 0">
+                Characters from this regiment will also choose from the following benefits at character creation:
+                <ul>
+                    <li ng-repeat="option in element.selected.optionalModifiers | filter : {'selectionTime' : 'character'}">
+                        {{option |
+                        option_summary}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
