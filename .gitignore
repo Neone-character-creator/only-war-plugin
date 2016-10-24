@@ -63,3 +63,4 @@ tests/**/*.js
 /src/main/resources/js/coverage/
 /src/main/resources/dist
 /node_modules/
+dist

@@ -55,7 +55,7 @@ sourceSets {
     main {
         output.resourcesDir "$buildDir/resources"
         resources {
-            srcDirs = ['src/main/resources/dist']
+            srcDirs = ['dist']
         }
     }
 }

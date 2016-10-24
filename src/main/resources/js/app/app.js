@@ -154,20 +154,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         app.factory("specialties", function ($resource, $q, characteroptions, placeholders) {
             return new specialtyProvider.SpecialtyService($resource, $q, characteroptions, placeholders);
         });
-        app.factory("placeholders", function ($q, characteroptions) {
-            return $q.all({
-                armor: characteroptions.armor,
-                items: characteroptions.items,
-                powers: characteroptions.powers,
-                skills: characteroptions.skills,
-                talents: characteroptions.talents,
-                traits: characteroptions.traits,
-                vehicles: characteroptions.vehicles,
-                weapons: characteroptions.weapons
-            }).then(function (characteroptions) {
-                return new placeholderReplacement.PlaceholderReplacement(characteroptions);
-            });
-        });
+        app.factory("placeholders", placeholderReplacement.PlaceholderReplacement);
 
         //Register additional controllers not used by the main pages below
         app.controller("SelectionModalController", selectionModalController);

@@ -15,20 +15,25 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 }
 
                 function updateAvailableSkills() {
-                    $scope.availableSkills = characteroptions.skills.filter(function (element) {
-                        for (var skill in characterService.character.skills) {
-                            if (skill === element.name) {
-                                return false;
+                    characteroptions.skills.then(function (skills) {
+                        $scope.availableSkills = skills.filter(function (element) {
+                            for (var skill in characterService.character.skills) {
+                                if (skill === element.name) {
+                                    return false;
+                                }
                             }
-                        }
-                        return true;
+                            return true;
+                        });
                     });
                 };
+
                 updateAvailableSkills();
 
                 function updateAvailableTalents() {
-                    $scope.availableTalents = characteroptions.talents.filter(function (element) {
-                        return character && characterService.character && characterService.character.talents && characterService.character.talents.indexOf(element) === -1;
+                    characteroptions.talents.then(function(talents){
+                        $scope.availableTalents = filter(function (element) {
+                            return character && characterService.character && characterService.character.talents && characterService.character.talents.indexOf(element) === -1;
+                        });
                     });
                 };
                 updateAvailableTalents();
@@ -190,7 +195,7 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                             location.providers = [];
                             location.rating = 0;
                         });
-                        $.each(Array.from(characterService.character.kit.keys()).filter(function(i){
+                        $.each(Array.from(characterService.character.kit.keys()).filter(function (i) {
                             return i.type === Item.ItemType.Armor;
                         }), function (i, armor) {
                             $.each(armor.locations, function (i, location) {
@@ -275,8 +280,8 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 $scope.addNewWeapon = function () {
                     var weapon = $scope.availableWeapons[parseInt($scope.newWeapon)];
                     var existing = $scope.character.kit.get(weapon);
-                    if(existing){
-                        $scope.character.kit.set(weapon, existing+1);
+                    if (existing) {
+                        $scope.character.kit.set(weapon, existing + 1);
                     } else {
                         $scope.character.kit.set(weapon, 1);
                     }
@@ -285,8 +290,8 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 };
                 $scope.removeWeapon = function (weapon) {
                     var existing = $scope.character.kit.get(weapon);
-                    if(existing > 1){
-                        $scope.character.kit.set(weapon, existing-1);
+                    if (existing > 1) {
+                        $scope.character.kit.set(weapon, existing - 1);
                     } else {
                         $scope.character.kit.delete(weapon);
                     }
@@ -312,18 +317,18 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
 
                 $scope.addNewArmor = function () {
                     var existing = $scope.character.kit.get($scope.availableArmor[$scope.newArmor]);
-                    if(existing){
-                        $scope.character.kit.set($scope.availableArmor[$scope.newArmor], existing+1);
+                    if (existing) {
+                        $scope.character.kit.set($scope.availableArmor[$scope.newArmor], existing + 1);
                     } else {
-                        $scope.character.kit.set($scope.availableArmor[$scope.newArmor],1);
+                        $scope.character.kit.set($scope.availableArmor[$scope.newArmor], 1);
                     }
                     $scope.newArmor = null;
                     updateAvailableArmor();
                 };
                 $scope.removeArmor = function (armor) {
                     var existing = $scope.character.kit.get(armor);
-                    if(existing > 1){
-                        $scope.character.kit.set(armor, existing-1);
+                    if (existing > 1) {
+                        $scope.character.kit.set(armor, existing - 1);
                     } else {
                         $scope.character.kit.delete(armor);
                     }
@@ -360,7 +365,7 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                     $scope.characterSkills = Array.from($scope.character.skills);
                 });
 
-                $scope.$watch(function(){
+                $scope.$watch(function () {
                     return Array.from($scope.character.kit.entries());
                 }, function () {
                     $scope.characterWeapons = Array.from($scope.character.kit.keys()).filter(function (entry) {
@@ -381,19 +386,19 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                     });
                 }, true);
 
-                $scope.addCharacteristicAdvancement = function(characteristic){
+                $scope.addCharacteristicAdvancement = function (characteristic) {
                     var advancement = new Advancements.CharacteristicAdvancement(characteristic.characteristic);
                     characterService.character.experience.addAdvancement(advancement);
                 }
 
-            $scope.removeCharacteristicAdvancement = function(characteristic){
-                var advancement = characterService.character.experience.advancements.find(function(a){
-                       return a.value === characteristic.characteristic;
+                $scope.removeCharacteristicAdvancement = function (characteristic) {
+                    var advancement = characterService.character.experience.advancements.find(function (a) {
+                        return a.value === characteristic.characteristic;
                     });
-                if(advancement){
-                    characterService.character.experience.removeAdvancement(advancement);
+                    if (advancement) {
+                        characterService.character.experience.removeAdvancement(advancement);
+                    }
                 }
-            }
             }
         );
     }
