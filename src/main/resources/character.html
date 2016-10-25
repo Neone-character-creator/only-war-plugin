@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Only War</title>
-    <script src="js/require.min.js" data-main="js/app/config.min"
+    <script src="js/require.min.js" data-main="js/app/config"
             type="text/javascript"></script>
     <link rel="stylesheet" href="css/character.min.css" type="text/css"/>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
     <ul class="nav nav-pills nav-justified">
         <li role="presentation" ui-sref-active="active"><a ui-sref="sheet">Character
             Sheet</a></li>
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div ui-view>
+<div ui-view class="container-fluid">
 
 </div>
 </body>
