@@ -70,13 +70,6 @@ module.exports = function (grunt) {
                             flatten: true
                         },
                         {
-                            "src": "angular-ui-router/release/angular-ui-router.min.js",
-                            "dest": "dist/js",
-                            cwd: "node_modules",
-                            expand: true,
-                            flatten: true
-                        },
-                        {
                             "src": "angular-ui-bootstrap/dist/ui-bootstrap-tpls.js",
                             "dest": "dist/js",
                             cwd: "node_modules",
@@ -86,6 +79,19 @@ module.exports = function (grunt) {
                         {
                             "src": "angular-ui-bootstrap/dist/ui-bootstrap-css.css",
                             "dest": "dist/css",
+                            cwd: "node_modules",
+                            expand: true,
+                            flatten: true
+                        },
+                        {
+                            "src": "angular-ui-bootstrap/template/",
+                            "dest": "dist/templates",
+                            cwd: "node_modules",
+                            expand: true
+                        },
+                        {
+                            "src": "angular-ui-router/release/angular-ui-router.min.js",
+                            "dest": "dist/js",
                             cwd: "node_modules",
                             expand: true,
                             flatten: true
@@ -112,25 +118,35 @@ module.exports = function (grunt) {
                             flatten: true
                         },
                         {
-                            src: "js-cookie/src/js.cookie.js",
+                            src: "bootstrap-modal/app/**/*.js",
                             dest: "dist/js",
                             cwd: "node_modules",
                             expand: true,
                             flatten: true
                         },
                         {
-                            src: "jquery/dist/jquery.min.js",
+                            src: "bootstrap-modal/**/*.css",
+                            dest: "dist/css",
+                            cwd: "node_modules",
+                            expand: true,
+                            flatten: true
+                        },
+                        {
+                            src: [
+                                "jquery/dist/*.min.js",
+                                "!jquery/dist/*.slim.min.js"
+                            ],
                             dest: "dist/js",
                             cwd: "node_modules",
                             expand: true,
                             flatten: true
                         },
                         {
-                            src: "jquery-ui-dist/*.min.js",
+                            src: "jquery-ui-dist/**/*.*",
                             dest: "dist/js",
                             cwd: "node_modules",
                             expand: true,
-                            flatten: true
+                            flatten : true
                         },
                         {
                             src: "jquery-ui-dist/*.min.css",
@@ -139,6 +155,13 @@ module.exports = function (grunt) {
                             expand: true,
                             flatten: true
                         },
+                        {
+                            src: "js-cookie/src/js.cookie.js",
+                            dest: "dist/js",
+                            cwd: "node_modules",
+                            expand: true,
+                            flatten: true
+                        }
                     ]
                 },
                 css: {
@@ -158,6 +181,7 @@ module.exports = function (grunt) {
                             cwd: "src/main/resources/js/app",
                             src: "**/*.js",
                             dest: "dist/js/app",
+                            flatten: false,
                             expand: true
                         },
                         {
@@ -181,14 +205,17 @@ module.exports = function (grunt) {
             },
             uglify: {
                 build: {
+                    options: {
+                        mangle: false,
+                        beautify: true
+                    },
                     files: [
                         {
-                            cwd: "dist/js/app",
+                            cwd: "dist/js",
                             src: "**/*.compiled.js",
-                            dest: "dist/js/app",
-                            flatten: false,
-                            ext: ".min.js",
-                            expand: true
+                            dest: "dist/js",
+                            ext: ".js",
+                            expand: true,
                         },
                         {
                             src: "requirejs/require.js",
@@ -196,14 +223,14 @@ module.exports = function (grunt) {
                             cwd: "node_modules",
                             expand: true,
                             flatten: true,
-                            ext: ".min.js",
+                            ext: ".min.js"
                         }
                     ]
                 }
             },
             babel: {
                 options: {
-                    presets: ["es2015"]
+                    presets: ["latest"]
                 },
                 files: {
                     cwd: "dist/js/app",
@@ -229,24 +256,11 @@ module.exports = function (grunt) {
             clean: {
                 build: {
                     src: [
-                        "dist/js/**/*.js",
                         "dist/js/**/*.compiled.js",
-                        "!dist/js/**/*.min.js",
-                        "!dist/js/js.cookies.js"
                     ]
                 },
-                prebuild: [
-                    "dist"
-                ]
-            },
-            requirejs: {
-                compile: {
-                    options: {
-                        appDir: "src/main/resources/js/app",
-                        include: "src/main/resources/js/app",
-                        mainConfigFile: "src/main/resources/js/app/config.js",
-                        path: "dist/js/compiled"
-                    }
+                prebuild: {
+                    src: "dist"
                 }
             }
         }
@@ -259,7 +273,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-babel");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
-    grunt.loadNpmTasks("grunt-contrib-requirejs");
 
-    grunt.registerTask('default', ["clean:prebuild", "copy:libraries","ts", "babel", "uglify", "concat-json", "clean:build"]);
+    grunt.registerTask('default', ["clean:prebuild", "copy", "ts", "babel", "uglify", "concat-json", "cssmin", "clean:build"]);
 }
