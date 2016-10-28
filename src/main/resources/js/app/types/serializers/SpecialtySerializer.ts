@@ -85,8 +85,8 @@ export class SpecialtySerializer implements Serializer<Promise<Specialty>> {
                 characteristics.set(e, value);
             });
             let skills:Map<SkillDescription, number> = new Map();
-            parsed._skills.forEach(e=>{
-                skills.set(placeholders.replace(e, "skill"), e.rating);
+            parsed._skills.forEach(async (e)=>{
+                skills.set(await placeholders.replace(e, "skill"), e.rating);
             })
             let traits = parsed._traits.map(e=>{
                 return placeholders.replace(e, "trait");

@@ -47,8 +47,8 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }).state("finalize", {
                 url: "/finalize",
                 templateUrl: "templates/finalize.html",
-                controller: function ($q, $scope, characterService, characteroptions, dice) {
-                    return new finalizeController.FinalizePageController($q, $scope, characterService, characteroptions, dice);
+                controller: function ($q, $scope, characterService, characterOptions, dice) {
+                    return new finalizeController.FinalizePageController($q, $scope, characterService, characterOptions, dice);
                 },
                 data: {
                     complete: false
@@ -133,28 +133,43 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
         app.factory("selection", selectionService);
         app.factory("optionselection", optionSelection);
         app.factory("characterService", characterService);
-        app.factory("characteroptions", function ($resource, $q, $log) {
-            return new characterOptions.CharacterOptionsService($resource, $q, $log);
+        app.factory("characterOptions", function ($resource, $q, $log) {
+            return $resource("Character/Character.json").get().$promise.then(result=> {
+                "use strict";
+                return new characterOptions.CharacterOptionsService(result, $log);
+            })
         });
         app.factory("dice", diceService);
         app.factory("characteristicTooltipService", characteristicTooltipService);
         app.factory("armorTooltipService", armorTooltipService);
-        app.factory("regimentOptions",
-            function ($resource, $q, placeholders) {
-                return new regimentOptions.RegimentOptionService($resource, $q, placeholders)
-            }
-        );
+        app.factory("regimentOptions", function ($resource, $q, placeholders) {
+            return $q.all({
+                regimentOptions: $resource("Regiment/Regiment-Creation.json").get().$promise,
+                placeholders: placeholders
+            }).then(result=> {
+                return new regimentOptions.RegimentOptionService(result.regimentOptions, result.placeholders);
+            })
+        });
         app.factory("cookies", function () {
             return cookies
         });
         app.factory("tutorials", tutorials);
-        app.service("regiments", function ($resource, $q, characteroptions, placeholders) {
-            return new regimentsProvider.RegimentService($resource, $q, characteroptions, placeholders);
+        app.service("regiments", function ($resource, placeholders) {
+            return $resource("Regiment/Regiments.json").query().$promise.then(regiments=> {
+                return new regimentsProvider.RegimentService(regiments, placeholders);
+            });
         });
-        app.factory("specialties", function ($resource, $q, characteroptions, placeholders) {
-            return new specialtyProvider.SpecialtyService($resource, $q, characteroptions, placeholders);
+        app.factory("specialties", function ($resource, $q, characterOptions, placeholders) {
+            return $q.all({characterOptions: characterOptions, placeholder: placeholders}).then(result=> {
+                "use strict";
+                return new specialtyProvider.SpecialtyService($resource, $q, result.characterOptions, result.placeholders);
+            });
         });
-        app.factory("placeholders", placeholderReplacement.PlaceholderReplacement);
+        app.factory("placeholders", function (characterOptions) {
+            return characterOptions.then(characterOptions=> {
+                return new placeholderReplacement.PlaceholderReplacement(characterOptions);
+            })
+        });
 
         //Register additional controllers not used by the main pages below
         app.controller("SelectionModalController", selectionModalController);
@@ -232,7 +247,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             requiredSerializers.set("Specialty", new SpecialtySerializer.SpecialtySerializer(placeholders));
             var serializer = new CharacterSerializer.CharacterSerializer(requiredSerializers, placeholders, $q);
             if (value) {
-                serializer.deserialize(value).then(function(result){
+                serializer.deserialize(value).then(function (result) {
                     characterService.character = result;
                     angular.element(document.body).injector().get("$state").reload();
                 });
@@ -241,7 +256,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             }
         };
 
-        window.export = function(){
+        window.export = function () {
             var characterExporter = new CharacterExporter.CharacterExporter();
             var characterService = angular.element(document.body).injector().get("characterService");
             return characterExporter.export(characterService.character);

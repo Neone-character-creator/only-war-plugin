@@ -1,25 +1,21 @@
 define(["app/types/character/advancements/CharacterAdvancement"], function (Advancement) {
     return function (associatedServiceName) {
         var associatedServiceName = associatedServiceName;
-        return function ($scope, $state, $injector, $q, characterService, selection, optionselection, $uibModal, characteroptions) {
+        return function ($scope, $state, $injector, $q, characterService, selection, optionselection, $uibModal, characterOptions) {
             $q.all({
                 service: $injector.get(associatedServiceName),
-                characteroptions: characteroptions
+                characterOptions: characterOptions
             }).then(function (results) {
                     switch (associatedServiceName) {
                         case "regiments":
                             $scope.selected = characterService.character.regiment;
                             $scope.selectionType = "regiments";
-                            results.service.regiments.then(function (regiments) {
-                                $scope.available = regiments;
-                            });
+                            $scope.available = results.service.regiments;
                             break;
                         case "specialties":
                             $scope.selected = characterService.character.specialty;
                             $scope.selectionType = "specialties";
-                            results.service.specialties.then(function (specialties) {
-                                $scope.available = specialties;
-                            });
+                            $scope.available = results.service.specialties;
                             break;
                     }
                     $scope.character = characterService.character;
@@ -50,16 +46,15 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
                             proceed();
                         }
                     };
-                    updateAvailablePowers = function () {
-                        characteroptions.powers.then(function (powers) {
-                            $scope.availablePowers = powers.filter(function (p) {
-                                return p.xpCost <= characterService.character.powers.bonusXp && !$scope.character.powers.powers.find(function (e) {
-                                        return angular.equals(e, p);
-                                    });
-                            });
-                        })
+                    function updateAvailablePowers() {
+                        $scope.availablePowers = results.characterOptions.powers.filter(function (p) {
+                            return p.xpCost <= characterService.character.powers.bonusXp && !$scope.character.powers.powers.find(function (e) {
+                                    return angular.equals(e, p);
+                                });
+                        });
                     }
-                    updateAvailablePowers;
+
+                    updateAvailablePowers();
                     $scope.$watch("character.powers.bonusXp", function (o, n) {
                         if (n != undefined && o !== n) {
                             updateAvailablePowers;

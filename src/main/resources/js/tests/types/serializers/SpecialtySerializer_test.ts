@@ -28,7 +28,7 @@ describe("The specialty serializer", ()=> {
         q = $q;
 
         placeholders = TypeMoq.Mock.ofType(PlaceholderReplacement, TypeMoq.MockBehavior.Strict);
-        placeholders.setup(x=> x.replace(It.isAny(), It.isAnyString())).returns((e, type)=>{
+        placeholders.setup(x=> x.replace(It.isAny(), It.isAnyString())).returns(async (e, type)=>{
             switch (type){
                 case "skill":
                     return new SkillDescription(e.name, [], e.specialization);

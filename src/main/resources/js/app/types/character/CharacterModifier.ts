@@ -60,7 +60,7 @@ export abstract class CharacterModifier {
     private _psyRating:number;
     private _type:OnlyWarCharacterModifierTypes;
     protected _appliedTo:OnlyWarCharacter;
-    protected _characteroptions:CharacterOptionsService;
+    protected _characterOptions:CharacterOptionsService;
 
     constructor(characteristics:Map<Characteristic, number>, skills:Map<SkillDescription, number>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Map<Item, number>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
         this._characteristics = characteristics;

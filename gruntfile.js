@@ -7,9 +7,17 @@ module.exports = function (grunt) {
             pfk: grunt.file.readJSON('package.json'),
             "concat-json": {
                 character_json: {
-                    src: '*.json',
+                    src: [
+                        '*.json',
+                        "!Specialties.json"
+                    ],
                     dest: 'dist/Character/Character.json',
                     cwd: "src/main/resources/Character"
+                },
+                regimentjson: {
+                    src: "*.json",
+                    dest: "dist/Regiment/Regiment-Creation.json",
+                    cwd: "src/main/resources/Regiment/Creation"
                 }
             },
             ts: {
@@ -146,7 +154,7 @@ module.exports = function (grunt) {
                             dest: "dist/js",
                             cwd: "node_modules",
                             expand: true,
-                            flatten : true
+                            flatten: true
                         },
                         {
                             src: "jquery-ui-dist/*.min.css",
@@ -188,6 +196,12 @@ module.exports = function (grunt) {
                             cwd: "src/main/resources/Regiment",
                             src: "**/*.json",
                             dest: "dist/Regiment",
+                            expand: true
+                        },
+                        {
+                            cwd: "src/main/resources/Character",
+                            src: "Specialty.json",
+                            dest: "dist/Character",
                             expand: true
                         }
                     ]

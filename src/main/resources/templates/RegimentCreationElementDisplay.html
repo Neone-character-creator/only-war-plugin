@@ -5,7 +5,7 @@
                 {{element.header}}
             </button>
             <ul class="dropdown-menu">
-                <li ng-repeat="option in element.options | filter : costFilter">
+                <li ng-repeat="option in element.options | filter : availabilityFilter">
                     <a ng-click="select(option)">
                         {{option.name}} ({{option.cost}} pts)
                     </a>

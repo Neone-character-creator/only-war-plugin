@@ -9,19 +9,19 @@ import {Aptitudes} from "../types/character/Aptitudes";
  */
 export class FinalizePageController {
 
-    constructor($q, $scope, characterService, characteroptions, dice) {
+    constructor($q, $scope, characterService, characterOptions, dice) {
         $q.all({
-            armor: characteroptions.armor,
-            items: characteroptions.items,
-            powers: characteroptions.powers,
-            skills: characteroptions.skills,
-            talents: characteroptions.talents,
-            traits: characteroptions.traits,
-            vehicles: characteroptions.vehicles,
-            weapons: characteroptions.weapons,
-            xpCosts: characteroptions.xpCost,
-            fatePointRolls: characteroptions.fatePointRolls
-        }).then(function (characteroptions) {
+            armor: characterOptions.armor,
+            items: characterOptions.items,
+            powers: characterOptions.powers,
+            skills: characterOptions.skills,
+            talents: characterOptions.talents,
+            traits: characterOptions.traits,
+            vehicles: characterOptions.vehicles,
+            weapons: characterOptions.weapons,
+            xpCosts: characterOptions.xpCost,
+            fatePointRolls: characterOptions.fatePointRolls
+        }).then(function (characterOptions) {
             $scope.character = characterService.character;
 
             $scope.rollWounds = function () {
@@ -30,7 +30,7 @@ export class FinalizePageController {
 
             $scope.rollFP = function () {
                 $scope.fpRoll = dice.roll(1, 10);
-                characterService.character.fatePoints = characteroptions.fatePointRolls[$scope.fpRoll];
+                characterService.character.fatePoints = characterOptions.fatePointRolls[$scope.fpRoll];
 
                 $scope.character = characterService.character;
             };
@@ -66,18 +66,18 @@ export class FinalizePageController {
             $scope.toggleDisplayedCategory = function () {
                 switch ($scope.selectedCategory.value) {
                     case "Skills":
-                        setDisplayedOptions(characteroptions.skills.filter(function (skill) {
+                        setDisplayedOptions(characterOptions.skills.filter(function (skill) {
                             var characterSkill = characterService.character.skills[skill.name];
                             return !characterSkill || characterSkill.advancements < 4;
                         }));
                         break;
                     case "Talents":
-                        setDisplayedOptions(characteroptions.talents.filter(function (talent) {
+                        setDisplayedOptions(characterOptions.talents.filter(function (talent) {
                             return characterService.character.talents.indexOf(talent) === -1;
                         }));
                         break;
                     case "Psychic Powers":
-                        setDisplayedOptions(characteroptions.powers.filter(function (power) {
+                        setDisplayedOptions(characterOptions.powers.filter(function (power) {
                             return characterService.character.powers().all().indexOf(power) === -1;
                         }));
                         break;

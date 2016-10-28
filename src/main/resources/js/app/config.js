@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: "js/",
+    baseUrl: "js",
     "paths": {
         "angular": "angular.min",
         "bootstrap": "bootstrap.min",
@@ -11,7 +11,8 @@ require.config({
         "angular-ui": "ui-bootstrap-tpls",
         "angular-filter": "angular-filter.min",
         "cookies": "js.cookie",
-        "underscore": "underscore.min"
+        "underscore": "underscore.min",
+        "bootstrap-modal": "bootstrap"
     },
     shim: {
         "jquery": {
@@ -45,9 +46,13 @@ require.config({
         "bootstrap": {
             deps: ['jquery']
         },
+        "bootstrap-modal":{
+            deps: ["jquery"],
+            exports: "jQuery.fn.modal"
+        },
         "underscore" : {
             exports: "_"
         }
     },
-    deps: ['app/app.min']
+    deps: ["app/app"]
 });

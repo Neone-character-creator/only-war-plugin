@@ -15,9 +15,9 @@ export class SpecialtyService {
     private _specialties;
     private _angular;
 
-    constructor($resource, $q, characteroptions, placeholders:PlaceholderReplacement) {
+    constructor($resource, $q, characterOptions, placeholders:PlaceholderReplacement) {
         this._specialties = $q.all({
-            specialties: $resource("/Character/Specialties.json").query().$promise,
+            specialties: $resource("Character/Specialties.json").query().$promise,
             placeholders: placeholders
         }).then(function (result) {
             return result.specialties.map(specialty => {

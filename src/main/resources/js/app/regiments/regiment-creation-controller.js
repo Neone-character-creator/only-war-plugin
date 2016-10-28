@@ -1,11 +1,11 @@
 define(["../types/character/Regiment", "../types/character/Characteristic", "../types/regiment/creation/RegimentCreationElementsContainer"], function (Regiment, Characteristic, RegimentCreationElementContainer) {
-    return function ($scope, $state, regimentOptions, regiments, characterService, $q, optionselection, $uibModal, characteroptions, selection) {
+    return function ($scope, $state, regimentOptions, regiments, characterService, $q, optionselection, $uibModal, characterOptions, selection) {
         $q.all({
             "characterOptions": $q.all({
-                weapons: characteroptions.weapons,
-                armor: characteroptions.armor,
-                items: characteroptions.items,
-                vehicles: characteroptions.vehicles,
+                weapons: characterOptions.weapons,
+                armor: characterOptions.armor,
+                items: characterOptions.items,
+                vehicles: characterOptions.vehicles,
             }),
             "regimentOptions": regimentOptions.then(function (regimentOptions) {
                     return $q.all({

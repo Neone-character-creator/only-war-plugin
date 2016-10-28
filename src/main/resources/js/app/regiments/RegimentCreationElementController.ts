@@ -12,7 +12,7 @@ export function RegimentCreationElementController($scope, selection, $uibModal, 
         selection.selectionObject = selectedObject;
         $uibModal.open({
             controller: "SelectionModalController",
-            templateUrl: '//templates/selection-modal.html'
+            templateUrl: 'templates/selection-modal.html'
         }).result.then(function () {
             optionselection.target = modifier;
             optionselection.selected = selection.selected;
@@ -36,8 +36,18 @@ export function RegimentCreationElementController($scope, selection, $uibModal, 
         });
     };
     //Filters creation options so that items with too high a cost are hidden
-    $scope.costFilter = function (item) {
-        return item.cost <= $scope.$parent.$parent.regimentElements.remainingRegimentPoints;
+    $scope.availabilityFilter = function (item) {
+        let elements = $scope.$parent.$parent.regimentElements;
+        var cost = item.cost <= elements.remainingRegimentPoints;
+
+        var selected = [
+            elements.homeworld,
+            elements.regimentType,
+            elements.commander,
+            elements.firstSpecialDoctrine,
+            elements.secondSpecialDoctrine
+        ].map(e=> e.selected).find(e=> e && e.name==item.name);
+        return cost && !selected;
     }
     $scope.$watch(()=> {
         return $scope.element ? $scope.element.selected : null;

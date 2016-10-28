@@ -8,6 +8,7 @@ import {SelectableModifier} from "../types/character/CharacterModifier";
 import {PlaceholderReplacement} from "./PlaceholderReplacement";
 import {SpecialAbility} from "../types/regiment/SpecialAbility";
 import {Weapon} from "../types/character/items/Weapon";
+import IPromise = angular.IPromise;
 /**
  * Created by Damien on 7/12/2016.
  */
@@ -15,12 +16,9 @@ export class RegimentService {
     private _regiments;
     private _angular;
 
-    constructor($resource, $q, characteroptions, placeholders:PlaceholderReplacement) {
-        this._regiments = $q.all({
-            regiments: $resource("Regiment/Regiments.json").query().$promise,
-            placeholders: placeholders
-        }).then(function (result) {
-            return result.regiments.map(regiment => {
+    constructor(regiments, placeholders:IPromise<PlaceholderReplacement>) {
+        placeholders.then(placeholders=> {
+            this._regiments = regiments.map((regiment) => {
                 var characteristics = new Map<Characteristic, number>();
                 for (var characteristicName in regiment['fixed modifiers'].characteristics) {
                     characteristics.set(Characteristic.characteristics.get(characteristicName), regiment['fixed modifiers'].characteristics[characteristicName]);
@@ -29,13 +27,13 @@ export class RegimentService {
                 var characterSkills = new Map<SkillDescription, number>();
                 var skillContainer = regiment['fixed modifiers'].skills;
                 for (var skillPlaceholder of skillContainer) {
-                    characterSkills.set(result.placeholders.replace(skillPlaceholder, "skill"), skillPlaceholder.rating);
+                    characterSkills.set(placeholders.replace(skillPlaceholder, "skill"), skillPlaceholder.rating);
                 }
 
                 var characterTalents = new Array<Talent>();
                 if (regiment['fixed modifiers'].talents) {
                     for (var talentPlaceholder of regiment['fixed modifiers'].talents) {
-                        var talent:Talent = result.placeholders.replace(talentPlaceholder, "talent");
+                        var talent:Talent = placeholders.replace(talentPlaceholder, "talent");
                         characterTalents.push(talent);
                     }
                 }
@@ -43,7 +41,7 @@ export class RegimentService {
                 var characterTraits = new Array<Trait>();
                 if (regiment['fixed modifiers'].traits) {
                     for (var traitPlaceholder of regiment['fixed modifiers'].traits) {
-                        var trait:Trait = result.placeholders.replace(traitPlaceholder, "trait");
+                        var trait:Trait = placeholders.replace(traitPlaceholder, "trait");
                         characterTraits.push(trait);
                     }
                 }
@@ -51,23 +49,23 @@ export class RegimentService {
                 var kit:Map<Item, number> = new Map<Item, number>();
                 if (regiment['fixed modifiers']['character kit']) {
                     for (var itemDescription of regiment['fixed modifiers']['character kit']) {
-                        var item = result.placeholders.replace(itemDescription.item, "item");
+                        var item = placeholders.replace(itemDescription.item, "item");
                         kit.set(item, itemDescription.count);
                     }
                 }
                 var wounds:number = regiment['fixed modifiers'].wounds;
 
                 var favoredWeapons:Map<string, Array<Weapon>> = new Map();
-                regiment['fixed modifiers']['favored weapons'].forEach(e=>{
-                    favoredWeapons.set(e.type, [result.placeholders.replace(e.item, "item")]);
+                regiment['fixed modifiers']['favored weapons'].forEach(e=> {
+                    favoredWeapons.set(e.type, [placeholders.replace(e.item, "item")]);
                 });
                 var optionalModifiers = Array<SelectableModifier>();
                 if (regiment['optional modifiers']) {
                     for (var optional of regiment['optional modifiers']) {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
-                            return optionGroup.map(option=> {
-                                option.value = result.placeholders.replace(option.value, option.property);
+                            return optionGroup.map(async(option)=> {
+                                option.value = placeholders.replace(option.value, option.property);
                                 return option;
                             });
 
@@ -78,7 +76,7 @@ export class RegimentService {
                     .setTalents(characterTalents).setAptitudes(regiment['fixed modifiers'].aptitudes).setTraits(characterTraits)
                     .setKit(kit).setWounds(wounds).setOptionalModifiers(optionalModifiers).setFavoredWeapons(favoredWeapons).build();
             });
-        });
+        })
     }
 
     get regiments() {

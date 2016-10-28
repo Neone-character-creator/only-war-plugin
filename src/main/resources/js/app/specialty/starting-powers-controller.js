@@ -1,12 +1,12 @@
 define(function(){
-	return function($scope, characteroptions, characterService){
+	return function($scope, characterOptions, characterService){
 		$scope.character =characterService.character;
 		$scope.boughtPowers = characterService.character.psychicPowers.powers.filter(function(element){
 			return element.bonus;
 		});
 		function getAvailablePowers(){
 			var powers;
-			characteroptions.powers().then(function(result){
+			characterOptions.powers().then(function(result){
 				$scope.powers = result.filter(function(element){
 					return element.value <= characterService.character.psychicPowers.bonusXp && characterService.character.psychicPowers.powers.indexOf(element) === -1;
 				});
