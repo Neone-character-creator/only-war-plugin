@@ -388,7 +388,23 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 if (advancement) {
                     characterService.character.experience.removeAdvancement(advancement);
                 }
-            }
+            };
+
+            $scope.addComradeAdvance = function () {
+                "use strict";
+                if ($scope.newComradeAdvance) {
+                    $scope.character.experience.addAdvancement($scope.character.specialty._availableComradeAdvances[$scope.newComradeAdvance]);
+                }
+            };
+
+            $scope.removeComradeAdvance = function (index) {
+                "use strict";
+                let name = $scope.character.comrade.specialAbilities[index];
+                let advance = $scope.character.experience.advancements.find(function(e){
+                    return e.name === name;
+                });
+                $scope.character.experience.removeAdvancement(advance);
+            };
         });
     }
 });

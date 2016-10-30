@@ -551,7 +551,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        {{character.comrade}}
+                        {{character.comrade.specialAbilities}}
                         <div class="row">
                             Comrade
                         </div>
@@ -562,14 +562,24 @@
                             Status<input type="text" ng-model="character.comrade.status">
                         </div>
                         <div class="row">
-                            Special Abilities
+                            Special Abilities - Click to remove
                         </div>
                         <div class="row">
-                            <ul>
-                                <li ng-repeat="ability in character.comrade.special-abilities">
-                                    {{ability.name}}
+                            <ul class="list-group">
+                                <li ng-repeat="ability in character.comrade.specialAbilities"
+                                    class="list-group-item"
+                                ng-click="removeComradeAdvance($index)">
+                                    {{ability}}
                                 </li>
                             </ul>
+                        </div>
+                        <div class="row">
+                            <select ng-model="newComradeAdvance">
+                                <option ng-repeat="advance in character.specialty.availableComradeAdvances track by $index" value="{{$index}}">
+                                    {{advance.name + " (" + advance.experienceCost + "xp)"}}
+                                </option>
+                            </select>
+                            <button ng-click="addComradeAdvance()">Add Comrade Advance</button>
                         </div>
                     </div>
                 </div>

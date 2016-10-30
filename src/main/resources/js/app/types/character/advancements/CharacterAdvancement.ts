@@ -292,29 +292,47 @@ export class TalentAdvancement extends CharacterAdvancement {
 }
 
 export class ComradeAdvancement extends CharacterAdvancement{
+    private _name:string;
+    private _description:string;
     private _experienceCost:number;
-    private _specialAbility:String;
+    private _advanceType:string;
 
-    constructor(experienceCost:number, specialAbility:String) {
+    constructor(name:string, description:string, experienceCost:number, advancementType:string) {
         super(AdvanceableProperty.COMRADE, new Map(), new Map(), [], [], [], new Map(), 0, 0);
+        this._name = name;
+        this._description = description;
+        this._advanceType = advancementType;
         this._experienceCost = experienceCost;
-        this._specialAbility = specialAbility;
     }
 
     calculateExperienceCost(character:OnlyWarCharacter):number {
         return this._experienceCost;
     }
 
-
     public apply(character:OnlyWarCharacter):any {
         super.apply(character);
-        character.comrade.specialAbilties
+        character.comrade.specialAbilities.push(this._name);
     }
 
     public unapply():any {
-        this._appliedTo.comrade.specialAbilties = this._appliedTo.comrade.specialAbilties.splice(
-            this._appliedTo.comrade.specialAbilties.indexOf(this._specialAbility)
-        )
+        var index = this._appliedTo.comrade.specialAbilities.indexOf(this._name);
+        this._appliedTo.comrade.specialAbilities.splice(index);
         return super.unapply();
+    }
+
+    get name():string {
+        return this._name;
+    }
+
+    get description():string {
+        return this._description;
+    }
+
+    get experienceCost():number {
+        return this._experienceCost;
+    }
+
+    get advacementType():string {
+        return this._advanceType;
     }
 }

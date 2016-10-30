@@ -549,23 +549,33 @@ export enum AdvanceableProperty{
 }
 
 class Comrade{
-    private _name:String;
-    private _specialAbilties:Array<String> = [];
+    private _name:string;
+    private _status:string;
+    private _specialAbilties:Array<string> = [];
 
 
-    get name():String {
+    get name():string {
         return this._name;
     }
 
-    set name(value:String) {
+    set name(value:string) {
         this._name = value;
     }
 
-    get specialAbilties():Array<String> {
+    get specialAbilities():Array<string> {
         return this._specialAbilties;
     }
 
-    set specialAbilties(value:Array<String>) {
+    set specialAbilities(value:Array<string>) {
         this._specialAbilties = value;
+    }
+
+
+    get status():string {
+        return this._status;
+    }
+
+    set status(value:string) {
+        this._status = value;
     }
 }

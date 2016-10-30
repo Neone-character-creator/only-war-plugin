@@ -6,6 +6,7 @@ import {Characteristic} from "./Characteristic";
 import {OnlyWarCharacter} from "./Character";
 import {Skill, SkillDescription} from "./Skill";
 import {PsychicPower} from "./PsychicPower";
+import {ComradeAdvancement} from "./advancements/CharacterAdvancement";
 /**
  * Created by Damien on 6/29/2016.
  */
@@ -15,6 +16,7 @@ export class Specialty extends CharacterModifier {
     private _specialtyType:SpecialtyType;
     private _bonusPowerXp:number;
     private _psychicPowers:Array<PsychicPower> = [];
+    private _availableComradeAdvances:Array<ComradeAdvancement> = [];
 
     constructor(name:string, characteristics:Map<Characteristic, number>,
                 specialtyType:SpecialtyType,
@@ -26,18 +28,20 @@ export class Specialty extends CharacterModifier {
                 wounds:number,
                 bonusPowerXp:number,
                 psyRating:number,
-                optionalModifiers:Array<SelectableModifier>) {
+                optionalModifiers:Array<SelectableModifier>,
+                availableComradeAdvances:Array<ComradeAdvancement>) {
         super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.SPECIALTY)
         this._specialtyType = specialtyType;
         this._name = name;
-        this._bonusPowerXp = bonusPowerXp;;
+        this._bonusPowerXp = bonusPowerXp;
         this._optionalModifiers = optionalModifiers;
+        this._availableComradeAdvances = availableComradeAdvances;
     }
 
     public apply(character:OnlyWarCharacter) {
         super.apply(character);
         character.powers.bonusXp += this._bonusPowerXp;
-        $.each(this._psychicPowers, function(i, power){
+        $.each(this._psychicPowers, function (i, power) {
             character.powers.powers.push(power);
         })
         switch (this.specialtyType) {
@@ -54,8 +58,8 @@ export class Specialty extends CharacterModifier {
 
     public unapply() {
         this._appliedTo.powers.bonusXp -= this._bonusPowerXp;
-        $.each(this._psychicPowers, function(i, power){
-            this._appliedTo.powers.powers.splice(this._appliedTo.powers.powers.indexOf(power),1);
+        $.each(this._psychicPowers, function (i, power) {
+            this._appliedTo.powers.powers.splice(this._appliedTo.powers.powers.indexOf(power), 1);
         })
         switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
@@ -157,6 +161,15 @@ export class Specialty extends CharacterModifier {
     set psychicPowers(value:Array<PsychicPower>) {
         this._psychicPowers = value;
     }
+
+
+    get availableComradeAdvances():Array<ComradeAdvancement> {
+        return this._availableComradeAdvances;
+    }
+
+    set availableComradeAdvances(value:Array<ComradeAdvancement>) {
+        this._availableComradeAdvances = value;
+    }
 }
 
 export enum SpecialtyType{
@@ -177,13 +190,14 @@ export class SpecialtyBuilder {
     private _specialtyType:SpecialtyType;
     private _bonusPowerXp:number = 0;
     private _psyRating = 0;
+    private _availableComradeAdvances = [];
 
     build():Specialty {
         if (this._specialtyType === undefined) {
             throw "Need to set the specialty type.";
         }
         return new Specialty(this._name, this._characteristics, this._specialtyType, this._skills, this._talents, this._aptitudes,
-            this._traits, this._kit, this._wounds, this._bonusPowerXp, this._psyRating,this._optionalModifiers);
+            this._traits, this._kit, this._wounds, this._bonusPowerXp, this._psyRating, this._optionalModifiers, this._availableComradeAdvances);
     }
 
 
@@ -237,13 +251,18 @@ export class SpecialtyBuilder {
         return this;
     }
 
-    setStartingPsychicPowerBonusXp(value:number){
+    setStartingPsychicPowerBonusXp(value:number) {
         this._bonusPowerXp = value;
         return this;
     }
 
-    setPsyRating(value:number){
+    setPsyRating(value:number) {
         this._psyRating = value;
+        return this;
+    }
+
+    setComradeAdvances(value:Array<ComradeAdvancement>){
+        this._availableComradeAdvances = value;
         return this;
     }
 }

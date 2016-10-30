@@ -9,6 +9,7 @@ import {PlaceholderReplacement} from "./PlaceholderReplacement";
 import {SpecialAbility} from "../types/regiment/SpecialAbility";
 import {Specialty, SpecialtyType} from "../types/character/Specialty";
 import IPromise = angular.IPromise;
+import {ComradeAdvancement} from "../types/character/advancements/CharacterAdvancement";
 /**
  * Created by Damien on 7/12/2016.
  */
@@ -94,8 +95,19 @@ export class SpecialtyService {
                     default:
                         throw "Type must be 'guardsman' or 'specialist', was " + specialty.type;
                 }
+                var availableComradeAdvancements:Array<ComradeAdvancement> = [];
+                if(specialty['fixed modifiers']['comrade advances']){
+                    for(let advance of specialty['fixed modifiers']['comrade advances']){
+                        availableComradeAdvancements.push(new ComradeAdvancement(
+                            advance.name,
+                            advance.description,
+                            advance.cost,
+                            advance.type
+                        ));
+                    }
+                }
                 return new Specialty(specialty.name, characteristics, type, characterSkills, characterTalents, specialty['fixed modifiers'].aptitudes,
-                    characterTraits, kit, wounds, bonusXp, psyrating, optionalModifiers);
+                    characterTraits, kit, wounds, bonusXp, psyrating, optionalModifiers, availableComradeAdvancements);
             });
         });
     }
