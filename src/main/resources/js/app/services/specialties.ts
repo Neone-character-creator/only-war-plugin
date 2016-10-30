@@ -1,5 +1,5 @@
 import {Characteristic} from "../types/character/Characteristic";
-import {SkillDescription} from "../types/character/Skill";
+import {SkillDescription, Skill} from "../types/character/Skill";
 import {Talent} from "../types/character/Talent";
 import {Regiment} from "../types/character/Regiment";
 import {Trait} from "../types/character/Trait";
@@ -8,19 +8,17 @@ import {SelectableModifier} from "../types/character/CharacterModifier";
 import {PlaceholderReplacement} from "./PlaceholderReplacement";
 import {SpecialAbility} from "../types/regiment/SpecialAbility";
 import {Specialty, SpecialtyType} from "../types/character/Specialty";
+import IPromise = angular.IPromise;
 /**
  * Created by Damien on 7/12/2016.
  */
 export class SpecialtyService {
     private _specialties;
-    private _angular;
 
-    constructor($resource, $q, characterOptions, placeholders:PlaceholderReplacement) {
-        this._specialties = $q.all({
-            specialties: $resource("Character/Specialties.json").query().$promise,
-            placeholders: placeholders
-        }).then(function (result) {
-            return result.specialties.map(specialty => {
+    constructor(specialties, character, placeholders:IPromise<PlaceholderReplacement>) {
+        var self = this;
+        placeholders.then(function (placeholders) {
+            self._specialties = specialties.map(specialty => {
                 var characteristics = new Map<Characteristic, number>();
                 for (var characteristicName in specialty['fixed modifiers'].characteristics) {
                     characteristics.set(Characteristic.characteristics.get(characteristicName), specialty['fixed modifiers'].characteristics[characteristicName]);
@@ -30,13 +28,13 @@ export class SpecialtyService {
                 var skillContainer = specialty['fixed modifiers'].skills
                 if (skillContainer) {
                     for (var skillPlaceholder of skillContainer) {
-                        characterSkills.set(result.placeholders.replace(skillPlaceholder, "skill"), skillPlaceholder.rating);
+                        characterSkills.set(placeholders.replace(skillPlaceholder, "skill"), skillPlaceholder.rating);
                     }
                 }
                 var characterTalents = new Array<Talent>();
                 if (specialty['fixed modifiers'].talents) {
                     for (var talentPlaceholder of specialty['fixed modifiers'].talents) {
-                        var talent:Talent = result.placeholders.replace(talentPlaceholder, "talent");
+                        var talent:Talent = placeholders.replace(talentPlaceholder, "talent");
                         characterTalents.push(talent);
                     }
                 }
@@ -44,7 +42,7 @@ export class SpecialtyService {
                 var characterTraits = new Array<Trait>();
                 if (specialty['fixed modifiers'].traits) {
                     for (var traitPlaceholder of specialty['fixed modifiers'].traits) {
-                        var trait:Trait = result.placeholders.replace(traitPlaceholder, "trait");
+                        var trait:Trait = placeholders.replace(traitPlaceholder, "trait");
                         characterTraits.push(trait);
                     }
                 }
@@ -52,7 +50,7 @@ export class SpecialtyService {
                 var kit:Map<Item, number> = new Map<Item, number>();
                 if (specialty['fixed modifiers']['character kit']) {
                     for (var itemDescription of specialty['fixed modifiers']['character kit']) {
-                        var item = result.placeholders.replace(itemDescription.item, "item");
+                        var item = placeholders.replace(itemDescription.item, "item");
                         kit.set(item, itemDescription.count);
                     }
                 }
@@ -67,9 +65,16 @@ export class SpecialtyService {
                             return optionGroup.map(option=> {
                                 switch (option.property){
                                     case "item":
-                                        option.value = result.placeholders.replace(option.value.item, option.property);
+                                        option.value.item = placeholders.replace(option.value.item, option.property);
+                                        break;
+                                    case "skill":
+                                        option.value = {
+                                            description : placeholders.replace(option.value, option.property),
+                                            rank : option.value.rank
+                                        };
+                                        break;
                                     default:
-                                        option.value = result.placeholders.replace(option.value, option.property);
+                                        option.value = placeholders.replace(option.value, option.property);
                                 }
                                 return option;
                             });

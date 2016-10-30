@@ -27,7 +27,7 @@ export class CharacterOptionsService {
     private _traits;
     private _specialties;
 
-    constructor(characterOptions, placeholders, $log) {
+    constructor(characterOptions, $log) {
         this._talents = characterOptions.talents.map(talent=> {
             if (!talent.prerequisites) {
                 talent.prerequisites = [];

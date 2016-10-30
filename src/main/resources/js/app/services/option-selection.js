@@ -20,7 +20,7 @@ define(["../types/character/Characteristic"], function (Characteristic) {
                                 target.talents.push(selected[sub].value);
                                 break;
                             case "skill":
-                                target.skills.set(selected[sub].value.skill, selected[sub].value.rank);
+                                target.skills.set(selected[sub].value.description, selected[sub].value.rank);
                                 break;
                             case "characteristic":
                                 var existingValue = target.characteristics.get(selected[sub].value.characteristic);
@@ -29,7 +29,7 @@ define(["../types/character/Characteristic"], function (Characteristic) {
                                 }
                                 target.characteristics.set(selected[sub].value.characteristic, existingValue + selected[sub].value.rating);
                                 break;
-                            case "character kit":
+                            case "item":
                                 $.each(selected, function (i, entry) {
                                     var existingItemCount = target.kit.get(entry.value.item);
                                     if (existingItemCount) {

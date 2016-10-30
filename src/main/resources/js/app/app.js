@@ -48,7 +48,8 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                 url: "/finalize",
                 templateUrl: "templates/finalize.html",
                 controller: function ($q, $scope, characterService, characterOptions, dice) {
-                    return new finalizeController.FinalizePageController($q, $scope, characterService, characterOptions, dice);
+                        "use strict";
+                        return new finalizeController.FinalizePageController($q, $scope, characterService, characterOptions, dice);
                 },
                 data: {
                     complete: false
@@ -160,9 +161,12 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             });
         });
         app.factory("specialties", function ($resource, $q, characterOptions, placeholders) {
-            return $q.all({characterOptions: characterOptions, placeholder: placeholders}).then(result=> {
+            return $q.all({
+                specialties: $resource("Character/Specialties.json").query().$promise,
+                characterOptions: characterOptions}
+            ).then(result=> {
                 "use strict";
-                return new specialtyProvider.SpecialtyService($resource, $q, result.characterOptions, result.placeholders);
+                return new specialtyProvider.SpecialtyService(result.specialties, result.characterOptions, placeholders);
             });
         });
         app.factory("placeholders", function (characterOptions) {

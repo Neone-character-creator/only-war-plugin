@@ -93,7 +93,6 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
                                 }
                             }
                         });
-
                     };
 
                     $scope.openStartingPowersModal = function () {
@@ -105,6 +104,7 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
 
                     $scope.$watch("selected", function () {
                         if ($scope.selected) {
+                            updateAvailablePowers();
                             $scope.selectedCharacteristics = Array.from($scope.selected.characteristics.entries()).map(function (entry) {
                                 return {name: entry[0].name, value: entry[1]};
                             });

@@ -1,12 +1,11 @@
 import {Characteristic} from "../types/character/Characteristic";
 import {SkillDescription} from "../types/character/Skill";
 import {Talent} from "../types/character/Talent";
-import {Regiment, RegimentBuilder} from "../types/character/Regiment";
+import {RegimentBuilder} from "../types/character/Regiment";
 import {Trait} from "../types/character/Trait";
 import {Item} from "../types/character/items/Item";
 import {SelectableModifier} from "../types/character/CharacterModifier";
 import {PlaceholderReplacement} from "./PlaceholderReplacement";
-import {SpecialAbility} from "../types/regiment/SpecialAbility";
 import {Weapon} from "../types/character/items/Weapon";
 import IPromise = angular.IPromise;
 /**
@@ -64,7 +63,7 @@ export class RegimentService {
                     for (var optional of regiment['optional modifiers']) {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
-                            return optionGroup.map(async(option)=> {
+                            return optionGroup.map((option)=> {
                                 option.value = placeholders.replace(option.value, option.property);
                                 return option;
                             });

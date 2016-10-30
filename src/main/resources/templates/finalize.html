@@ -42,65 +42,11 @@
     <hr/>
     <div class="row">
         <div class="col-md-12">
-            <h3>Spend Experience</h3>
+            <h3>Starting Experience</h3>
             <div class="row">
-                XP available: {{availableXp}}
+                {{availableXp}}
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <select ng-model="selectedCategory" ng-change="toggleDisplayedCategory()"
-                            ng-options="category.value for category in categories track by category.id">
-                    </select>
-                </div>
-                <div class="col-md-9" ng-show="selectedCategory">
-                    <div class="row">
-                        Select an advancement category:
-                        <select ng-model="displayedOption" ng-options="option.name for option in options"
-                                ng-change="displayXpCost()">
-                        </select>
-                    </div>
-                    <div ng-show="displayedOption && selectedCategory.value !== 'Psychic Powers'">
-                        <div class="row">
-                            <table class="table bordered-table">
-                                <tr>
-                                    <th class="text-center" colspan="2">Needed Aptitudes</th>
-                                </tr>
-                                <tr>
-                                    <td style="width:50%" class="text-center"
-                                        ng-repeat="aptitude in displayedOption.aptitudes"
-                                        ng-style="{'background-color': character.aptitudes.indexOf(aptitude) !== -1 ? 'green' : 'red'}"
-                                        uib-tooltip="If this turns green, it means you have a matching aptitude, making your chosen advancement cheaper."
-                                        tooltip-append-to-body="true" tooltip-popup-delay="500">
-                                        {{aptitude}}
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="row text-center">
-
-                            <span ng-show="displayedOption.specialization !== false">
-                                Specialization:
-                            <input type="text" ng-model="displayedOption.specialization"/>
-                            </span>
-                            <button class="btn btn-default" ng-click="buyAdvancement()"
-                                    ng-disabled="optionXpCost > availableXp">Buy for {{optionXpCost}} XP
-                            </button>
-                        </div>
-                        {{bought}}
-                    </div>
-                    <div ng-show="displayedOption && selectedCategory.value === 'Psychic Powers'">
-                        <div class="row">
-                            <h4>{{displayedOption.name}}</h4>
-                        </div>
-                        <div class="row text-center">
-                            <button class="btn btn-default" ng-click="buyAdvancement()"
-                                    ng-disabled="optionXpCost > availableXp && displayedOption.specialization !== true">
-                                Buy for {{optionXpCost}} XP
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            You may spend this experience on the main character sheet.
         </div>
     </div>
 </div>

@@ -10,18 +10,7 @@ import {Aptitudes} from "../types/character/Aptitudes";
 export class FinalizePageController {
 
     constructor($q, $scope, characterService, characterOptions, dice) {
-        $q.all({
-            armor: characterOptions.armor,
-            items: characterOptions.items,
-            powers: characterOptions.powers,
-            skills: characterOptions.skills,
-            talents: characterOptions.talents,
-            traits: characterOptions.traits,
-            vehicles: characterOptions.vehicles,
-            weapons: characterOptions.weapons,
-            xpCosts: characterOptions.xpCost,
-            fatePointRolls: characterOptions.fatePointRolls
-        }).then(function (characterOptions) {
+        characterOptions.then(characterOptions=> {
             $scope.character = characterService.character;
 
             $scope.rollWounds = function () {
@@ -163,7 +152,6 @@ export class FinalizePageController {
         })
     }
 
-    private $q;
     private $scope;
     private characterService;
     private characteroption;

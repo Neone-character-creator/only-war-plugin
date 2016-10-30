@@ -18,15 +18,15 @@ export function filter(inVal:any) {
                         optionElements.push(talentDescription);
                         break;
                     case 'skill':
-                        var skillDescription = option[op].value.specialization ? option[op].value.skill.name + " (" + option[op].value.skill.specialization + ")" : option[op].value.skill.name;
+                        var skillDescription = option[op].value.specialization ? option[op].value.description.name + " (" + option[op].value.description.specialization + ")" : option[op].value.description.name;
                         optionElements.push(skillDescription + " +" + (option[op].value.rank - 1) * 10);
                         break;
-                    case 'character kit':
+                    case 'item':
                         var itemDescription = option[op].value.count + " x ";
                         var itemCraftsmanship = option[op].value.item.craftsmanship;
                         itemDescription += option[op].value.item.name;
                         var itemUpgrades = option[op].value.item.upgrades;
-                        if (itemUpgrades) {
+                        if (itemUpgrades && itemUpgrades.length) {
                             itemDescription += " with " + itemUpgrades.join(", ");
                         }
                         optionElements.push(itemDescription)

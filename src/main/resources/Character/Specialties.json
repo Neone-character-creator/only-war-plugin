@@ -986,11 +986,6 @@
           "rating": 1
         },
         {
-          "name": "Common Lore",
-          "specialization": "Ecclesiarchy",
-          "rating": 1
-        },
-        {
           "name": "Forbidden Lore",
           "specialization": "Heresy",
           "rating": 1

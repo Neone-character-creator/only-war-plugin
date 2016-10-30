@@ -200,8 +200,14 @@ module.exports = function (grunt) {
                         },
                         {
                             cwd: "src/main/resources/Character",
-                            src: "Specialty.json",
+                            src: "Specialties.json",
                             dest: "dist/Character",
+                            expand: true
+                        },
+                        {
+                            cwd : "src/main/resources",
+                            src: "plugin.json",
+                            dest: "dist",
                             expand: true
                         }
                     ]

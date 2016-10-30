@@ -11,12 +11,12 @@ export function filter(inVal) {
             }
             case "skill":
             {
-                return option.value.specialization ? option.value.skill.name
-                + " (" + option.value.skill.specialization
+                return option.value.description.specialization ? option.value.description.name
+                + " (" + option.value.description.specialization
                 + ") +" + (option.value.rank - 1) * 10
-                    : option.value.skill.name + " +" + (option.value.rank - 1) * 10;
+                    : option.value.description.name + " +" + (option.value.rank - 1) * 10;
             }
-            case "character kit":
+            case "item":
             {
                 var itemDescription = option.value.count + " x ";
                 var itemCraftsmanship = option.value.item.craftsmanship;
@@ -25,7 +25,7 @@ export function filter(inVal) {
                 }
                 itemDescription += option.value.item.name;
                 var itemUpgrades = option.value.item.upgrades;
-                if (itemUpgrades) {
+                if (itemUpgrades && itemUpgrades.length) {
                     itemDescription += " with " + itemUpgrades.join(", ");
                 }
                 return itemDescription;

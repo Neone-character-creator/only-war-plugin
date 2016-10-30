@@ -7,14 +7,17 @@ import {Armor} from "../types/character/items/Armor";
 import {Trait} from "../types/character/Trait";
 import IPromise = angular.IPromise;
 import {CharacterOptionsService} from "./CharacterOptionsService";
+import {OnlyWarCharacter} from "../types/character/Character";
 /**
  * Created by Damien on 7/15/2016.
  */
 export class PlaceholderReplacement {
     private _characterOptions:CharacterOptionsService;
+    private _character:OnlyWarCharacter;
 
-    constructor(characterOptions:CharacterOptionsService) {
+    constructor(characterOptions:CharacterOptionsService, character:OnlyWarCharacter) {
         this._characterOptions = characterOptions;
+        this._character = character;
     }
 
     /**
@@ -38,6 +41,10 @@ export class PlaceholderReplacement {
             }
             case "item":
             {
+                if(placeholder.name == "Regimental Favored Heavy Weapon" ||
+                    placeholder.name == "Regimental Favored Basic Weapon"){
+                    return placeholder;
+                }
                 var item = this._characterOptions.items
                     .concat(this._characterOptions.weapons)
                     .concat(this._characterOptions.armor)
@@ -53,16 +60,19 @@ export class PlaceholderReplacement {
                 }
                 if (item) {
                     switch (item.type) {
-                        case ItemType.Weapon:
+                        case
+                        ItemType.Weapon:
                             return new Weapon(item.name, item.availability, (<Weapon>item).class,
                                 (<Weapon>item).weaponType, (<Weapon>item).range, (<Weapon>item).rateOfFire,
                                 (<Weapon>item).damage, (<Weapon>item).penetration, (<Weapon>item).clip, (<Weapon>item).reload,
                                 (<Weapon>item).special, (<Weapon>item).weight, (<Weapon>item).specialEquipmentCategory, placeholder.upgrades,
                                 placeholder.craftsmanship);
-                        case ItemType.Armor:
+                        case
+                        ItemType.Armor:
                             return new Armor(item.name, item.availability, (<Armor>item).locations, (<Armor>item).ap, (<Armor>item).armorType,
                                 (<Armor>item).weight, placeholder.upgrades, placeholder.craftsmanship);
-                        case ItemType.Other:
+                        case
+                        ItemType.Other:
                             return new Item(item.name, ItemType.Other, item.availability, item.weight, placeholder.upgrades,
                                 placeholder.craftsmanship);
                     }
