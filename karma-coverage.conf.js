@@ -4,7 +4,7 @@
 module.exports = function (config) {
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: 'src/main/resources//js',
+        basePath: '',
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -16,16 +16,16 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             //Test config
-            {pattern: 'tests/test-main.js', included: true},
+            {pattern: 'src/main/resources/jstests/test-main.js', included: true},
             //Application scripts
-            {pattern: 'libs/angular/angular.js'},
-            {pattern: 'libs/angular-mocks/angular-mocks.js'},
-            {pattern: 'libs/underscore/underscore.js'},
-            {pattern: 'libs/typemoq/dist/typemoq.js'},
-            {pattern: 'app/**/*.js', included: false},
+            {pattern: 'node_modules/angular/angular.js'},
+            {pattern: 'node_modules/angular-mocks/angular-mocks.js'},
+            {pattern: 'node_modules/underscore/underscore.js'},
+            {pattern: 'node_modules/typemoq/dist/typemoq.js'},
+            {pattern: 'src/main/resources/js/app/**/*.js', included: false},
 
             //Test scripts
-            {pattern: 'tests/**/*.js', included: false}
+            {pattern: 'src/main/resources/js/tests/**/*.js', included: false}
         ],
 
         // list of files to exclude
