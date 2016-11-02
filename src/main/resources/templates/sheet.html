@@ -575,7 +575,7 @@
                         </div>
                         <div class="row">
                             <select ng-model="newComradeAdvance">
-                                <option ng-repeat="advance in character.specialty.availableComradeAdvances track by $index" value="{{$index}}">
+                                <option ng-repeat="advance in availableComradeAdvances track by $index" value="{{$index}}">
                                     {{advance.name + " (" + advance.experienceCost + "xp)"}}
                                 </option>
                             </select>

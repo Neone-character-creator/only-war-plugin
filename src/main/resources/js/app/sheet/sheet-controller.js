@@ -390,6 +390,13 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
                 }
             };
 
+            $scope.$watchCollection("character.comrade.specialAbilities", function (advance) {
+                "use strict";
+                $scope.availableComradeAdvances =$scope.character.specialty ? $scope.character.specialty.availableComradeAdvances.filter(function (e) {
+                    return $scope.character.comrade.specialAbilities.indexOf(e.name) === -1;
+                }) : [];
+            });
+
             $scope.addComradeAdvance = function () {
                 "use strict";
                 if ($scope.newComradeAdvance) {
@@ -400,7 +407,7 @@ define(["../types/character/advancements/CharacterAdvancement", "../types/charac
             $scope.removeComradeAdvance = function (index) {
                 "use strict";
                 let name = $scope.character.comrade.specialAbilities[index];
-                let advance = $scope.character.experience.advancements.find(function(e){
+                let advance = $scope.character.experience.advancements.find(function (e) {
                     return e.name === name;
                 });
                 $scope.character.experience.removeAdvancement(advance);
