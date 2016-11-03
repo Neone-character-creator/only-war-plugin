@@ -36,6 +36,10 @@ export class RegimentCreationElementsContainer {
     private _kitModifiers:Array<KitModifierResult> = [];
     private _remainingKitPoints:number;
     private _remainingRegimentPoints:number;
+    private _drawback:RegimentCreationElement<RegimentCreationModifier> = {
+        selected: null,
+        options: []
+    };
 
     set basicFavoredWeapons(value:Array<Weapon>) {
         this._basicFavoredWeapons = value;
@@ -97,7 +101,7 @@ export class RegimentCreationElementsContainer {
             return false;
         }).reduce((previous, current)=> {
             return previous || current;
-        },false) : false;
+        }, false) : false;
         let regimentKit:Map<Item, number> = new Map();
         for (let entry of this._standardRegimentalKit.entries()) {
             let existingCount = regimentKit.get(entry[0]);
@@ -126,7 +130,8 @@ export class RegimentCreationElementsContainer {
                 regimentKit.set(entry[0], entry[1] + existingCount)
             }
         });
-        this._remainingRegimentPoints = [this.homeworld.selected, this.commander.selected, this.regimentType.selected, this.firstSpecialDoctrine.selected, this.secondSpecialDoctrine.selected].filter(e=> {
+        this._remainingRegimentPoints = [this.homeworld.selected, this.commander.selected, this.regimentType.selected,
+            this.firstSpecialDoctrine.selected, this.secondSpecialDoctrine.selected, this.drawback.selected].filter(e=> {
             return e !== null;
         }).map(e=> {
             return e.cost;
@@ -182,6 +187,14 @@ export class RegimentCreationElementsContainer {
 
     get remainingRegimentPoints():number {
         return this._remainingRegimentPoints;
+    }
+
+    get drawback():any {
+        return this._drawback;
+    }
+
+    set drawback(value:any) {
+        this._drawback = value;
     }
 
     build():Regiment {

@@ -4,7 +4,7 @@
 import * as angular from "angular";
 import {
     Homeworld, CommandingOfficer, RegimentType,
-    SpecialEquipmentorTrainingDoctrine
+    SpecialEquipmentorTrainingDoctrine, Drawback
 } from "../types/regiment/creation/RegimentCreationModifier";
 
 export function RegimentCreationElementController($scope, selection, $uibModal, optionselection) {
@@ -45,7 +45,8 @@ export function RegimentCreationElementController($scope, selection, $uibModal, 
             elements.regimentType,
             elements.commander,
             elements.firstSpecialDoctrine,
-            elements.secondSpecialDoctrine
+            elements.secondSpecialDoctrine,
+            elements.drawback
         ].map(e=> e.selected).find(e=> e && e.name==item.name);
         return cost && !selected;
     }
@@ -62,9 +63,10 @@ export function RegimentCreationElementController($scope, selection, $uibModal, 
             $scope.elementKit = Array.from($scope.element.selected.kit.entries()).map(entry=> {
                 return {item: entry[0], count: entry[1]};
             });
-            $scope.$parent.$parent.regimentElements[$scope.category]
+            $scope.$parent.$parent.regimentElements[$scope.category];
         }
     }, true);
+
     $scope.select = function (selected) {
         switch ($scope.element.category) {
             case "homeworld":
@@ -79,6 +81,9 @@ export function RegimentCreationElementController($scope, selection, $uibModal, 
             case "firstSpecialDoctrine":
             case "secondSpecialDoctrine":
                 $scope.element.selected = new SpecialEquipmentorTrainingDoctrine(selected);
+                break;
+            case "drawback":
+                $scope.element.selected = new Drawback(selected);
                 break;
         }
     };

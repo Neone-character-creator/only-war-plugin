@@ -1,4 +1,3 @@
-//TODO reorganize to use new format
 [
   {
     "name": "Cloud of Suspicion",
@@ -6,7 +5,9 @@
     "cost": -3,
     "fixed modifiers": {
       "talents": [
-        "Paranoia"
+        {
+          "name": "Paranoia"
+        }
       ],
       "special abilities": [
         {
@@ -17,25 +18,34 @@
     },
     "optional modifiers": [
       {
-        "selections": 1,
+        "numSelectionsNeeded": 1,
         "selection time": "character",
         "options": [
           [
             {
-              "property": "talents",
-              "value": "Enemy (Adeptus Arbites)"
+              "property": "talent",
+              "value": {
+                "name": "Enemy",
+                "specialization": "Adeptus Arbites"
+              }
             }
           ],
           [
             {
-              "property": "talents",
-              "value": "Enemy (Inquisition)"
+              "property": "talent",
+              "value": {
+                "name": "Enemy",
+                "specialization": "Inquisition"
+              }
             }
           ],
           [
             {
-              "property": "talents",
-              "value": "Enemy (Other)"
+              "property": "talent",
+              "value": {
+                "name": "Enemy",
+                "specialization": "Other"
+              }
             }
           ]
         ]
@@ -43,30 +53,213 @@
     ]
   },
   {
-    "name": "Cloud of Suspicion",
+    "name": "Condemned",
+    "source": "hammer of the emperor",
+    "cost": -6,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Beyond Redemption",
+          "description": "Members of this regiment suffer a –20 penalty to all Fellowship-based Tests made when interacting with members of other Imperial Guard regiments, their own commanding officers, the Departmento Munitorum, and other officials both local and Imperial who would have likely heard of the regiment’s reputation. Additionally, its members suffer –20 penalty to all Logistics Tests. Further, this group is always assigned to the most dangerous missions on a given battlefront, and is rarely given respites between its missions to recuperate and reorganise at the Game Master’s discretion. Finally, at the Game Master’s discretion, any given Squad from a regiment with this Drawback might be assigned an Imperial Guard Commissar (see page 374 of the Only War Core Rulebook) to oversee its actions. At the GM’s discretion, this Drawback can be applied to a regiment or even a single Squad within a regiment after creation, as a punishment for crimes or incompetence. If a regiment or Squad receives this Drawback after creation, it does not receive the additional Regiment Creation Points that it would normally provides, but instead receives the Weapon Skill Aptitude (regiments and Squads that select this Drawback at creation do not gain this Aptitude)."
+        }
+      ]
+    },
+    "optional modifiers": [
+      {
+        "numSelectionsNeeded": 1,
+        "selection time": "character",
+        "options": [
+          [{
+            "property": "talent",
+            "value": {
+              "name": "Berserk Charge"
+            }
+          }],
+          [{
+            "property": "talent",
+            "value": {
+              "name": "Cold Hearted"
+            }
+          }],
+          [{
+            "property": "talent",
+            "value": {
+              "name": "Frenzy"
+            }
+          }],
+          [{
+            "property": "talent",
+            "value": {
+              "name": "Paranoia"
+            }
+          }]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cult of Chivalry",
+    "source": "hammer of the emperor",
+    "cost": -3,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Code of honor",
+          "description": "A member of this regiment must pass a Difficult (–10) Willpower Test before attempting to use the Deceive Skill (even on an enemy); if he fails, he must either tell the truth or remain silent. Members of such regiments can still lie by omission, though such tactics are almost invariably frowned upon. Further, due to their tendency to deal honestly with others, members of regiments with this Drawback suffer a –10 penalty to Scrutiny Tests Opposing the Deceive Skill."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Dishonored",
     "source": "hammer of the emperor",
     "cost": -3,
     "fixed modifiers": {
       "talents": [
-        "Paranoia"
+        {
+          "name" : "Paranoia"
+        }
       ],
       "special abilities": [
         {
-          "name": "Untimely Inquiries",
-          "description": "Whenever this regiment fails in an operation or the Squad fails to complete a mission or achieve a critical objective, the power with a worrisome interest in the regiment rears its ugly head, at the Game Master’s discretion. When such an investigation takes place, even on a regimental level, every member of the regiment suffers a –5 penalty to Willpower Tests until the interference concludes due to the stress that it causes."
+          "name": "Seeking Redemption",
+          "description": "While engaged in battle, a member of this regiment must pass a Difficult (–10) Willpower Test when ordered to give ground, withdraw, or otherwise relinquish something of importance to the mission. If the character fails this Test, he can still choose to follow the order to act against his desires, but he gains 1d5–2 (to a minimum of 1) Insanity Points from the mental stress of enduring this further disgrace."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Doomed",
+    "source": "hammer of the emperor",
+    "cost": -7,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Seeking Redemption",
+          "description": "Members of this regiment cannot Burn Fate Points to survive fatal injuries (see Burning Fate on page 33 of the Only War Core Rulebook). In addition, members of the regiment suffer a –10 penalty on Logistics Tests, and whenever the Squad rolls on Table 6–5: Random Issue Gear (see page 167 of the Only War Core Rulebook), they apply a –20 penalty to the roll. The Game Master should also take this Regimental Drawback into account when designing missions, and he should plan the number of Complications that spring up during the execution of the mission accordingly."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Honor Bound",
+    "source": "hammer of the emperor",
+    "cost": -4,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Pride over Life",
+          "description": "Members of this regiment must pass a Difficult (–10) Willpower Test to refuse any formal challenge or ignore any other major slight to their honour. If a character from this regiment succeeds on the Test, he sees the bigger picture and ignores the challenge or attempt to goad him into action. If he fails on the Test, however, he must engage the individual in question (either in a duel to settle matters in a formal and stylised fashion or simply in a brawl to express himself with his fists) or suffer a –10 penalty to Willpower Tests for the remainder of the session. This penalty is cumulative should he refuse multiple challenges to his dignity over the course of a single session. The Game Master can modify the difficulty of the Test—and the scale of the effects of failing it—as he deems appropriate to the situation."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Incompetent Leadership",
+    "source": "hammer of the emperor",
+    "cost": -5,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Orders of Fools",
+          "description": "Members of this regiment suffer a –10 penalty to Command Tests made during combat, either due to they themselves being incompetent or, in the case of most Player Characters, because they are saddled with unruly and sullen subordinates who have grown embittered by the poor decisions raining down from the ranks above. Further, members of this regiment must make a Routine (+20) Command or Intimidate Test as part of any Comrade Order that does not already require a Command Test; if the character fails the Test, the Comrade refuses the order due to a learned distrust for authority or fouls it up. Finally, the foolishness of this regiment’s leaders should have a noticeable effect upon the lives of the Player Characters (hurling them needlessly into danger, deploying unwise tactics against the enemy, falling for obvious traps, mistaking enemies for allies or allies for enemies, and other such blunders) at the Game Master’s discretion"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Lost Homeworld",
+    "source": "hammer of the emperor",
+    "cost": -5,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Survivor's Guilt",
+          "description": "Being one of a handful of survivors of a disaster that snuffed out the lives of teeming millions or billions has a deleterious effect on the human psyche. Survivors of such a cataclysmic loss tend to suffer numerous grief, loss, and stress-related maladies that complicate the already stressful life of an Imperial Guardsman. Members of this regiment begin play with 2d10 Insanity Points."
+        },
+        {
+          "name": "Last Survivors",
+          "description": "Whenever a member of this regiment falls, it represents an irreplaceable loss to the group, which can no longer pull reinforcements from its annihilated place of origin. The Departmento Munitorum often assigns members of other devastated regiments to join the survivors to bring the regiment back to strength, which can create considerable friction between two groups embittered by loss—of course, this assumes that there are reinforcements to be had at all in the battlefront, and sometimes there are simply no more soldiers to join regiments devastated by such loss. Each time a Squad from this regiment requests replacement members (to replace lost Comrades), the Game Master rolls 1d10 instead of having the recruits come from the original core of the regiment. On a result of 3–4, the recruits come from the original survivors of the regiment, members of other Squads within the regiment who also lost members. On a result of 5–10, they come from another regiment that has recently suffered terrible losses and happens to be near enough for the Departmento Munitorum to group the two regiments together. On a result of 1–2, however, the Squad receives no reinforcements at all, and must soldier on until its members can put in another request for troop support. Depending on how many members of the original regiment remain, the Game Master can decide whether or not replacement Player Characters should be members of the original regiment or generate their characters from the other recruits (using the rules for Mixed Regiments on page 48)."
         }
       ]
     },
-    "optional modifiers": {
-      "talents": [
+    "optional modifiers": [
+      {
+        "numSelectionsNeeded": 1,
+        "selection time": "regiment",
+        "options": [
+          [{
+            "property": "talent",
+            "value": {
+              "name": "Hatred",
+              "specialization": "Homeworld Destroyer"
+            }
+          }]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Mistrusted",
+    "source": "hammer of the emperor",
+    "cost": -3,
+    "fixed modifiers": {
+      "special abilities": [
         {
-          "selections": 1,
-          "selection time": "character",
-          "options": [
-            "Enemy (Adeptus Arbites)",
-            "Enemy (Inquisition)",
-            "Enemy (Other)"
-          ]
+          "name": "Bad Reputation",
+          "description": "Members of this regiment suffer a –10 penalty to all Fellowship-based Skill Tests made when interacting with members of other Imperial Guard regiments, the Departmento Munitorum, and other officials both local and Imperial who would have likely heard of the regiment’s reputation. Additionally, its members add 1d5 additional Degrees of Failure to all failed Logistics and Commerce Tests."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Poorly Provisioned",
+    "source": "hammer of the emperor",
+    "cost": -4,
+    "fixed modifiers": {
+      "special abilities": [
+        {
+          "name": "Overworked and Underfed",
+          "description": "Poorly provisioned units receive half the usual number of clips or charge packs for their main weapons and half the number of rations that their regiment rules would normally provide. If the regiment includes vehicles, its members suffer a –10 Penalty on all Logistics Tests made to acquire fuel, ammunition, and spare parts for their vehicles. If it is a Rough Rider regiment, its members suffer the same penalty to acquire materiel related to the care and feeding of their mounts. In addition, whenever a member of a Poorly Provisioned regiment successfully acquires equipment, the Game Master rolls 1d10; on a result of 4 or lower, the equipment that they receive is of Poor Craftsmanship, regardless of what its Craftsmanship would otherwise have been. Special: This Drawback cannot be taken by regiments"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Regimental Rivalry",
+    "source": "hammer of the emperor",
+    "cost": -2,
+    "fixed modifiers": {
+      "talents" : [
+        {"name" : "Hatred",
+        "specialization" : "Rival Regiment"},
+        {"name" : "Enemy",
+          "specialization" : "Rival Regiment"}
+      ]
+    }
+  },
+  {
+    "name": "Scarred by Loss",
+    "source": "hammer of the emperor",
+    "cost": -2,
+    "fixed modifiers": {
+      "special abilities" : [
+        {
+          "name" : "Mental Trauma",
+          "description" : "Members of this regiment begin play with 1d10 Insanity Points. Any time that a member of this regiment fails a Willpower-based Test by three or more Degrees of Failure, he becomes lost in traumatic"
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Few",
+    "source": "hammer of the emperor",
+    "cost": -5,
+    "fixed modifiers": {
+      "special abilities" : [
+        {
+          "name" : "Limited Numbers",
+          "description" : "When a Squad from this regiment requests reinforcements (to replace fallen Comrades), it must make a Hard (–20) Logistics Test if most of the regiment is actively deployed or an Ordinary (+10) Logistics Test if a significant portion of the regiment is not currently in the field (these Tests already include situational modifiers except those added at the GM’s discretion). If it fails, the regiment simply has no reinforcements it can spare for the Squad, and its members must soldier on until its members can put in another request for troop support."
         }
       ]
     }

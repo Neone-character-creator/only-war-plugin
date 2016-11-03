@@ -80,6 +80,9 @@ export function RegimentCreationController($scope, $state, regimentOptions, char
         $scope.regimentElements.secondSpecialDoctrine['header'] = "Special Equipment/Training Doctrine";
         $scope.regimentElements.secondSpecialDoctrine['category'] = "secondSpecialDoctrine";
         $scope.regimentElements.standardRegimentalKit = result.regimentOptions.standardRegimentalKit.kit;
+        $scope.regimentElements.drawback['options'] = result.regimentOptions.drawbacks;
+        $scope.regimentElements.drawback['header'] = "Drawback";
+        $scope.regimentElements.drawback['category'] = "drawback";
 
         /**
          Determines the availability of each of the regimental kit modifier choices, based on the current state of the

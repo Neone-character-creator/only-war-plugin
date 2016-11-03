@@ -115,6 +115,8 @@ export class SpecialEquipmentorTrainingDoctrine extends RegimentCreationModifier
 export class StandardRegimentKit extends RegimentCreationModifier {
 }
 
+export class Drawback extends RegimentCreationModifier{}
+
 export interface RegimentCreationModifierConfigurator {
     name?:string,
     characteristics?:Map<Characteristic, number>;

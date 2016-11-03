@@ -37,7 +37,8 @@ define(["require", "exports", "angular", "../types/regiment/creation/RegimentCre
                 elements.regimentType,
                 elements.commander,
                 elements.firstSpecialDoctrine,
-                elements.secondSpecialDoctrine
+                elements.secondSpecialDoctrine,
+                elements.drawback
             ].map(e => e.selected).find(e => e && e.name == item.name);
             return cost && !selected;
         };
@@ -71,6 +72,9 @@ define(["require", "exports", "angular", "../types/regiment/creation/RegimentCre
                 case "firstSpecialDoctrine":
                 case "secondSpecialDoctrine":
                     $scope.element.selected = new RegimentCreationModifier_1.SpecialEquipmentorTrainingDoctrine(selected);
+                    break;
+                case "drawback":
+                    $scope.element.selected = new RegimentCreationModifier_1.Drawback(selected);
                     break;
             }
         };

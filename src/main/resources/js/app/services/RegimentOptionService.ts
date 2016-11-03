@@ -27,6 +27,7 @@ export class RegimentOptionService {
     private _trainingDoctrines:Array<SpecialEquipmentorTrainingDoctrine>;
     private _standardRegimentalKit:StandardRegimentKit;
     private _additionalKitChoices;
+    private _drawbacks;
 
     constructor(regimentOptions, placeholders:PlaceholderReplacement) {
         var transformPlaceholders = (modifier) => {
@@ -138,7 +139,8 @@ export class RegimentOptionService {
                 case "AddFavored":
                     return new AddFavoredItemKitModifier(choice.description, choice.cost, choice.effect.target);
             }
-        })
+        });
+        this._drawbacks = regimentOptions.drawbacks.map(transformPlaceholders);
 
     }
 
@@ -168,5 +170,9 @@ export class RegimentOptionService {
 
     get additionalKitChoices() {
         return this._additionalKitChoices;
+    }
+
+    get drawbacks(){
+        return this._drawbacks;
     }
 }
