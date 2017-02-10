@@ -4,7 +4,7 @@ import {Trait} from "./Trait";
 import {Item} from "./items/Item";
 import {Characteristic} from "./Characteristic";
 import {OnlyWarCharacter} from "./Character";
-import {Skill, SkillDescription} from "./Skill";
+import {SkillDescription} from "./Skill";
 import {PsychicPower} from "./PsychicPower";
 /**
  * Created by Damien on 6/29/2016.
@@ -30,16 +30,14 @@ export class Specialty extends CharacterModifier {
         super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.SPECIALTY)
         this._specialtyType = specialtyType;
         this._name = name;
-        this._bonusPowerXp = bonusPowerXp;;
+        this._bonusPowerXp = bonusPowerXp;
         this._optionalModifiers = optionalModifiers;
     }
 
     public apply(character:OnlyWarCharacter) {
         super.apply(character);
         character.powers.bonusXp += this._bonusPowerXp;
-        $.each(this._psychicPowers, function(i, power){
-            character.powers.powers.push(power);
-        })
+        this._psychicPowers.forEach((p)=>character.powers.powers.push(p))
         switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
                 character.experience.available += 600;
@@ -54,9 +52,7 @@ export class Specialty extends CharacterModifier {
 
     public unapply() {
         this._appliedTo.powers.bonusXp -= this._bonusPowerXp;
-        $.each(this._psychicPowers, function(i, power){
-            this._appliedTo.powers.powers.splice(this._appliedTo.powers.powers.indexOf(power),1);
-        })
+        this._psychicPowers.forEach(p=>this._appliedTo.powers.powers.splice(this._appliedTo.powers.powers.indexOf(p), 1))
         switch (this.specialtyType) {
             case SpecialtyType.Guardsman:
                 this._appliedTo.experience.available -= 600;
@@ -183,7 +179,7 @@ export class SpecialtyBuilder {
             throw "Need to set the specialty type.";
         }
         return new Specialty(this._name, this._characteristics, this._specialtyType, this._skills, this._talents, this._aptitudes,
-            this._traits, this._kit, this._wounds, this._bonusPowerXp, this._psyRating,this._optionalModifiers);
+            this._traits, this._kit, this._wounds, this._bonusPowerXp, this._psyRating, this._optionalModifiers);
     }
 
 
@@ -237,12 +233,12 @@ export class SpecialtyBuilder {
         return this;
     }
 
-    setStartingPsychicPowerBonusXp(value:number){
+    setStartingPsychicPowerBonusXp(value:number) {
         this._bonusPowerXp = value;
         return this;
     }
 
-    setPsyRating(value:number){
+    setPsyRating(value:number) {
         this._psyRating = value;
         return this;
     }
