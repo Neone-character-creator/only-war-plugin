@@ -6,7 +6,7 @@ export function filter(inVal:any) {
     if (typeof inVal.numSelectionsNeeded === 'number' && Array.isArray(inVal.options)) {
         var out = "Choose " + inVal.numSelectionsNeeded + " from ";
         var options = [];
-        $.each(inVal.options, function (index, option) {
+        inVal.options.foreach((option, index) => {
             var optionElements = [];
             for (var op = 0; op < option.length; op++) {
                 switch (option[op].property) {
