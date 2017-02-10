@@ -10,10 +10,10 @@
     "watch": true
   },
   "include" : [
-    "src/resources/js/app/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "src/resources/js/app/**/*.d.ts",
+    "src/main/resources/js/app/**/*.d.ts",
     "node_modules"
   ]
 }
