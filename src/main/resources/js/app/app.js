@@ -63,6 +63,9 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
                 onEnter: function ($state, $uibModal) {
                     $uibModal.open({
                         templateUrl: "templates/tutorial.html"
+                    }).closed.then(function(){
+                        "use strict";
+                        $state.go($state.previous.name);
                     })
                 }
             }).state("modal.selection", {
