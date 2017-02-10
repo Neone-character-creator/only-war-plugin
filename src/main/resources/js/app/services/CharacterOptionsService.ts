@@ -11,7 +11,6 @@ import {OnlyWarCharacter} from "../types/character/Character";
 import {Prerequisite} from "../types/Prerequisite";
 import {SpecialtyType, Specialty} from "../types/character/Specialty";
 import IPromise = angular.IPromise;
-import {SelectableModifier} from "../types/character/CharacterModifier";
 /**
  * Created by Damien on 7/12/2016.
  */
@@ -28,7 +27,7 @@ export class CharacterOptionsService {
     private _specialties;
 
     constructor(characterOptions, placeholders, $log) {
-        this._talents = characterOptions.talents.map(talent=> {
+        this._talents = characterOptions.Talents.map(talent=> {
             if (!talent.prerequisites) {
                 talent.prerequisites = [];
             }
@@ -152,24 +151,24 @@ export class CharacterOptionsService {
                 return true;
             }));
         });
-        this._skills = characterOptions.skills.map(skill=> {
+        this._skills = characterOptions.Skills.map(skill=> {
             return new SkillDescription(skill.name, skill.aptitudes, skill.specialization);
         })
-        this._powers = characterOptions.powers;
-        this._weapons = characterOptions.weapons.map(weapon=> {
+        this._powers = characterOptions.Powers;
+        this._weapons = characterOptions.Weapons.map(weapon=> {
             return new Weapon(weapon.name, weapon.availability, weapon.class, weapon.type, weapon.range, weapon.rof,
                 weapon.damage, weapon.pen, weapon.clip, weapon.reload, weapon['special qualities'], weapon.weight,
                 weapon['main weapon']);
         });
-        this._armor = characterOptions.armor.map(armor=> {
+        this._armor = characterOptions.Armor.map(armor=> {
             return new Armor(armor.name, armor.availability, armor.locations, armor.ap, armor.type, armor.weight);
         });
-        this._items = characterOptions.items.map(item=> {
+        this._items = characterOptions.Items.map(item=> {
             return new Item(item.name, ItemType.Other, item.availability, item.weight);
         });
-        this._vehicles = characterOptions.vehicles;
-        this._traits = characterOptions.traits;
-        this._fatePointRolls = characterOptions.fatePointRolls;
+        this._vehicles = characterOptions.Vehicles;
+        this._traits = characterOptions.Traits;
+        this._fatePointRolls = characterOptions.FatePointRolls;
     }
 
 
