@@ -6,7 +6,6 @@ import {Trait} from "../types/character/Trait";
 import {Item} from "../types/character/items/Item";
 import {SelectableModifier} from "../types/character/CharacterModifier";
 import {PlaceholderReplacement} from "./PlaceholderReplacement";
-import {SpecialAbility} from "../types/regiment/SpecialAbility";
 import {Weapon} from "../types/character/items/Weapon";
 import IPromise = angular.IPromise;
 /**
