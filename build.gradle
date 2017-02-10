@@ -65,12 +65,16 @@ sourceSets {
 * for ease of testing due to relative urls, into the resources/templates
 * build directory.
  */
-processResources << {
+processResources.doLast {
     String source = "src/main/resources/character.html"
     String dest = "$buildDir/resources/templates"
     copy {
         from source
         into dest
+    }
+    copy {
+        from "src/main/resources/plugin.json"
+        into "$buildDir/resources"
     }
 }
 
