@@ -9,6 +9,4 @@ export class CharacteristicSelectionPageController {
     };
 
     private characteristicValues:Map<Characteristic, number> = new Map<Characteristic, number>();
-
-
 }
