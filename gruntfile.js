@@ -2,7 +2,7 @@
  * Created by Damien on 10/12/2016.
  */
 module.exports = function (grunt) {
-    require("time-grunt")(grunt);
+
     grunt.initConfig({
             pfk: grunt.file.readJSON('package.json'),
             "concat-json": {
