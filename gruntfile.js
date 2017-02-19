@@ -169,6 +169,13 @@ module.exports = function (grunt) {
                             cwd: "node_modules",
                             expand: true,
                             flatten: true
+                        },
+                        {
+                            src: "babel-polyfill/dist/polyfill.min.js",
+                            dest: "dist/js",
+                            cwd: "node_modules",
+                            expand: true,
+                            flatten: true
                         }
                     ]
                 },

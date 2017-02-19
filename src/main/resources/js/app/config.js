@@ -12,7 +12,8 @@ require.config({
         "angular-filter": "angular-filter.min",
         "cookies": "js.cookie",
         "underscore": "underscore.min",
-        "bootstrap-modal": "bootstrap"
+        "bootstrap-modal": "bootstrap",
+        "babel-polyfill" : "polyfill.min"
     },
     shim: {
         "jquery": {
@@ -54,5 +55,5 @@ require.config({
             exports: "_"
         }
     },
-    deps: ["app/app"]
+    deps: ["babel-polyfill", "app/app"]
 });

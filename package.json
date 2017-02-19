@@ -47,6 +47,7 @@
     "angular-resource": "^1.5.8",
     "angular-ui-bootstrap": "^2.2.0",
     "angular-ui-router": "^0.4.2",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
     "bootstrap": "^3.3.7",
     "bootstrap-modal": "^2.0.0",
