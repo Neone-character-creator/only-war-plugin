@@ -63,7 +63,7 @@ export class RegimentService {
                     for (var optional of regiment['optional modifiers']) {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
-                            return optionGroup.map(async(option)=> {
+                            return optionGroup.map((option)=> {
                                 option.value = placeholders.replace(option.value, option.property);
                                 return option;
                             });

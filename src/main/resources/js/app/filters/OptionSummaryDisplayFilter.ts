@@ -2,11 +2,13 @@ import * as angular from "angular";
 /**
  * Created by Damien on 7/29/2016.
  */
-export function filter(inVal:any) {
-    if (typeof inVal.numSelectionsNeeded === 'number' && Array.isArray(inVal.options)) {
+export function filter(inVal:string | {options:Array<any>, numSelectionsNeeded:number}):string {
+    if (inVal instanceof String) {
+        return inVal;
+    } else {
         var out = "Choose " + inVal.numSelectionsNeeded + " from ";
         var options = [];
-        inVal.options.foreach((option, index) => {
+        inVal.options.forEach((option, index) => {
             var optionElements = [];
             for (var op = 0; op < option.length; op++) {
                 switch (option[op].property) {
@@ -37,7 +39,5 @@ export function filter(inVal:any) {
         });
         out += options.join(" or ");
         return out;
-    } else {
-        return inVal;
     }
 }
