@@ -163,7 +163,7 @@ require(["angular", "bootstrap", "ui-router", "angular-resource", "angular-ui", 
             });
         });
         app.factory("specialties", function ($resource, $q, characterOptions, placeholders) {
-            return $q.all({characterOptions: characterOptions, placeholder: placeholders}).then(result=> {
+            return $q.all({characterOptions: characterOptions, placeholders: placeholders}).then(result=> {
                 "use strict";
                 return new specialtyProvider.SpecialtyService($resource, $q, result.characterOptions, result.placeholders);
             });
