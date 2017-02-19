@@ -128,12 +128,12 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
                             });
 
                             if ($scope.selected.favoredWeapons) {
-                                $scope.favoredWeapons = Array.from($scope.selected.favoredWeapons.values()).reduce(function (next, previous) {
+                                $scope.favoredWeapons = Array.from($scope.selected.favoredWeapons.values()).reduce(function (previous, next) {
                                     next.forEach(function (e) {
                                         previous.push(e);
                                     });
                                     return previous;
-                                }).map(function (e) {
+                                }, []).map(function (e) {
                                     return e.name;
                                 });
                             }
