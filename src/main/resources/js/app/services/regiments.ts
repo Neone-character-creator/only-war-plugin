@@ -16,8 +16,8 @@ export class RegimentService {
     private _angular;
 
     constructor(regiments, placeholders:IPromise<PlaceholderReplacement>) {
-        placeholders.then(placeholders=> {
-            this._regiments = regiments.map((regiment) => {
+        this._regiments = placeholders.then(placeholders=> {
+            return regiments.map((regiment) => {
                 var characteristics = new Map<Characteristic, number>();
                 for (var characteristicName in regiment['fixed modifiers'].characteristics) {
                     characteristics.set(Characteristic.characteristics.get(characteristicName), regiment['fixed modifiers'].characteristics[characteristicName]);

@@ -1,11 +1,15 @@
 define(["app/types/character/advancements/CharacterAdvancement"], function (Advancement) {
     return function (associatedServiceName) {
-        var associatedServiceName = associatedServiceName;
         return function ($scope, $state, $injector, $q, characterService, selection, optionselection, $uibModal, characterOptions) {
+            var service = $injector.get(associatedServiceName).then(function(service){
+                "use strict";
+                return associatedServiceName == "regiments" ? service.regiments : service.specialties;
+            });
             $q.all({
-                service: $injector.get(associatedServiceName),
+                service: service,
                 characterOptions: characterOptions
             }).then(function (results) {
+                results.service = associatedServiceName == "regiments" ? {regiments: results.service} : {specialties: results.service};
                     switch (associatedServiceName) {
                         case "regiments":
                             $scope.selected = characterService.character.regiment;
