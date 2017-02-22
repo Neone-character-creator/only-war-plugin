@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                 character_json: {
                     src: [
                         '*.json',
-                        "!Specialties.json"
+                        '!Specialties.json'
                     ],
                     dest: 'dist/Character/Character.json',
                     cwd: "src/main/resources/Character"
@@ -219,6 +219,16 @@ module.exports = function (grunt) {
                             cwd: "src/main/resources/templates",
                             src: "**/*.html",
                             dest: "dist/templates",
+                            expand: true
+                        }
+                    ]
+                },
+                json: {
+                    files: [
+                        {
+                            cwd: "src/main/resources/Character",
+                            src: "Specialties.json",
+                            dest: "dist/Character",
                             expand: true
                         }
                     ]
