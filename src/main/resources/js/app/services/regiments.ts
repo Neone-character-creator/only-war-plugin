@@ -64,7 +64,26 @@ export class RegimentService {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
                             return optionGroup.map((option)=> {
-                                option.value = placeholders.replace(option.value, option.property);
+                                switch (option.property) {
+                                    case "item":
+                                        //Wrap in a function to allow for type guard.
+                                        option.value = function (value) {
+                                            return placeholders.replace(value, option.property);
+                                        }(option.value.item);
+                                        break;
+                                    case "skill":
+                                        option.value = function (value) {
+                                            return placeholders.replace(value, option.property);
+                                        }(option.value);
+                                        break;
+                                    case "talent":
+                                        option.value = function (value) {
+                                            return placeholders.replace(value, option.property);
+                                        }(option.value);
+                                        break;
+                                    default:
+                                        throw "Handling placeholders of type " + option.property + " not supported.";
+                                }
                                 return option;
                             });
 
@@ -72,7 +91,7 @@ export class RegimentService {
                     }
                 }
                 return new RegimentBuilder().setName(regiment.name).setCharacteristics(characteristics).setSkills(characterSkills)
-                    .setTalents(characterTalents).setAptitudes(regiment['fixed modifiers'].aptitudes).setTraits(characterTraits)
+                    .setTalents(characterTalents).setAptitudes(regiment['fixed modifiers'].aptitudes || []).setTraits(characterTraits)
                     .setKit(kit).setWounds(wounds).setOptionalModifiers(optionalModifiers).setFavoredWeapons(favoredWeapons).build();
             });
         })

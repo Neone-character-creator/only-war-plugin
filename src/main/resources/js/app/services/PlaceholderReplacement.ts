@@ -68,6 +68,7 @@ export class PlaceholderReplacement {
                     }
                 }
                 if (!item) {
+                    debugger;
                     console.log("Tried to find item for " + placeholder.name + " but failed.");
                     item = new Item(placeholder.name, ItemType.Other, "Common");
                     item['main weapon'] = placeholder['main weapon'];
@@ -100,8 +101,28 @@ export class PlaceholderReplacement {
                 }
                 return new Trait(trait.name, trait.description, placeholder.rating);
             }
+            case "characteristics" :
+            {
+                return Characteristic.characteristics.get(placeholder);
+            }
             default:
                 throw "Incorrect type name, must be skill, talent, item or power.";
         }
     };
+}
+
+export interface TalentPlaceholder {
+    name:string;
+    specialization?:string;
+}
+
+export interface SkillPlaceholder {
+    name:string;
+    specialization?:string;
+    rating:number;
+}
+
+export interface ItemPlaceholder {
+    item:{name:string};
+    count:number;
 }

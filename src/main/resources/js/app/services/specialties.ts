@@ -1,12 +1,10 @@
 import {Characteristic} from "../types/character/Characteristic";
 import {SkillDescription} from "../types/character/Skill";
 import {Talent} from "../types/character/Talent";
-import {Regiment} from "../types/character/Regiment";
 import {Trait} from "../types/character/Trait";
 import {Item} from "../types/character/items/Item";
 import {SelectableModifier} from "../types/character/CharacterModifier";
-import {PlaceholderReplacement} from "./PlaceholderReplacement";
-import {SpecialAbility} from "../types/regiment/SpecialAbility";
+import {PlaceholderReplacement, ItemPlaceholder, SkillPlaceholder, TalentPlaceholder} from "./PlaceholderReplacement";
 import {Specialty, SpecialtyType} from "../types/character/Specialty";
 /**
  * Created by Damien on 7/12/2016.
@@ -65,11 +63,25 @@ export class SpecialtyService {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
                             optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
                             return optionGroup.map(option=> {
-                                switch (option.property){
+                                switch (option.property) {
                                     case "item":
-                                        option.value = result.placeholders.replace(option.value.item, option.property);
+                                        //Wrap in a function to allow for type guard.
+                                        option.value = function (value):value is ItemPlaceholder {
+                                            return result.placeholders.replace(value, option.property);
+                                        }(option.value.item);
+                                        break;
+                                    case "skill":
+                                        option.value = function (value):value is SkillPlaceholder {
+                                            return result.placeholders.replace(value, option.property);
+                                        }(option.value);
+                                        break;
+                                    case "talent":
+                                        option.value = function (value):value is TalentPlaceholder {
+                                            return result.placeholders.replace(value, option.property);
+                                        }(option.value);
+                                        break;
                                     default:
-                                        option.value = result.placeholders.replace(option.value, option.property);
+                                        throw "Handling placeholders of type " + option.property + " not supported."
                                 }
                                 return option;
                             });
@@ -89,7 +101,7 @@ export class SpecialtyService {
                     default:
                         throw "Type must be 'guardsman' or 'specialist', was " + specialty.type;
                 }
-                return new Specialty(specialty.name, characteristics, type, characterSkills, characterTalents, specialty['fixed modifiers'].aptitudes,
+                return new Specialty(specialty.name, characteristics, type, characterSkills, characterTalents, specialty['fixed modifiers'].aptitudes || [],
                     characterTraits, kit, wounds, bonusXp, psyrating, optionalModifiers);
             });
         });
