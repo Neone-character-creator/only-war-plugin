@@ -101,7 +101,7 @@ export class PlaceholderReplacement {
                 }
                 return new Trait(trait.name, trait.description, placeholder.rating);
             }
-            case "characteristics" :
+            case "characteristic" :
             {
                 return Characteristic.characteristics.get(placeholder);
             }

@@ -23,12 +23,12 @@ export function filter(inVal:string | {options:Array<any>, numSelectionsNeeded:n
                         var skillDescription = option[op].value.specialization ? option[op].value.skill.name + " (" + option[op].value.skill.specialization + ")" : option[op].value.skill.name;
                         optionElements.push(skillDescription + " +" + (option[op].value.rank - 1) * 10);
                         break;
-                    case 'character kit':
+                    case 'item':
                         var itemDescription = option[op].value.count + " x ";
                         var itemCraftsmanship = option[op].value.item.craftsmanship;
                         itemDescription += option[op].value.item.name;
                         var itemUpgrades = option[op].value.item.upgrades;
-                        if (itemUpgrades) {
+                        if (itemUpgrades.length > 0) {
                             itemDescription += " with " + itemUpgrades.join(", ");
                         }
                         optionElements.push(itemDescription)

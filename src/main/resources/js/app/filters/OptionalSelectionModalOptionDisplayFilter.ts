@@ -16,7 +16,7 @@ export function filter(inVal) {
                 + ") +" + (option.value.rank - 1) * 10
                     : option.value.skill.name + " +" + (option.value.rank - 1) * 10;
             }
-            case "character kit":
+            case "item":
             {
                 var itemDescription = option.value.count + " x ";
                 var itemCraftsmanship = option.value.item.craftsmanship;
@@ -25,7 +25,7 @@ export function filter(inVal) {
                 }
                 itemDescription += option.value.item.name;
                 var itemUpgrades = option.value.item.upgrades;
-                if (itemUpgrades) {
+                if (itemUpgrades.length > 0) {
                     itemDescription += " with " + itemUpgrades.join(", ");
                 }
                 return itemDescription;

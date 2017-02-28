@@ -61,18 +61,35 @@ export class SpecialtyService {
                 if (specialty['optional modifiers']) {
                     for (var optional of specialty['optional modifiers']) {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
-                            optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
+                            optionGroup.description = optionGroup.map(o=> {
+                                switch (o.property) {
+                                    case "talent":
+                                        return o.value.name + (o.value.specialization ? " (" + o.value.specialization + ")" : "");
+                                    case "skill":
+                                        let rating = "+" + (o.value.rating - 1) * 10;
+                                        return o.value.name + (o.value.specialization ? " (" + o.value.specialization + ")" : "") + rating;
+                                    case "item":
+                                        return o.value.item.name + " x " + o.value.count;
+                                }
+                            }).join(" or ");
                             return optionGroup.map(option=> {
                                 switch (option.property) {
                                     case "item":
                                         //Wrap in a function to allow for type guard.
                                         option.value = function (value):value is ItemPlaceholder {
-                                            return result.placeholders.replace(value, option.property);
-                                        }(option.value.item);
+                                            return <any>{
+                                                item: result.placeholders.replace(value.item, option.property),
+                                                count: value.count
+                                            };
+                                        }(option.value);
                                         break;
                                     case "skill":
                                         option.value = function (value):value is SkillPlaceholder {
-                                            return result.placeholders.replace(value, option.property);
+                                            let result:any = {
+                                                skill: placeholders.replace(value, option.property),
+                                                rank: value.rank
+                                            }
+                                            return result;
                                         }(option.value);
                                         break;
                                     case "talent":
@@ -80,7 +97,10 @@ export class SpecialtyService {
                                             return result.placeholders.replace(value, option.property);
                                         }(option.value);
                                         break;
+                                    case "characteristic":
+                                        break;
                                     default:
+                                        debugger;
                                         throw "Handling placeholders of type " + option.property + " not supported."
                                 }
                                 return option;
