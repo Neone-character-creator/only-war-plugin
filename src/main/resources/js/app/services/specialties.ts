@@ -1,13 +1,13 @@
 import {Characteristic} from "../types/character/Characteristic";
 import {SkillDescription} from "../types/character/Skill";
 import {Talent} from "../types/character/Talent";
-import {Regiment} from "../types/character/Regiment";
 import {Trait} from "../types/character/Trait";
 import {Item} from "../types/character/items/Item";
 import {SelectableModifier} from "../types/character/CharacterModifier";
-import {PlaceholderReplacement} from "./PlaceholderReplacement";
-import {SpecialAbility} from "../types/regiment/SpecialAbility";
+import {PlaceholderReplacement, ItemPlaceholder, SkillPlaceholder, TalentPlaceholder} from "./PlaceholderReplacement";
 import {Specialty, SpecialtyType} from "../types/character/Specialty";
+import {Weapon} from "../types/character/items/Weapon";
+import {CharacterService} from "./CharacterService";
 /**
  * Created by Damien on 7/12/2016.
  */
@@ -63,13 +63,71 @@ export class SpecialtyService {
                 if (specialty['optional modifiers']) {
                     for (var optional of specialty['optional modifiers']) {
                         optionalModifiers.push(new SelectableModifier(optional.numSelectionsNeeded, optional.options.map(optionGroup=> {
-                            optionGroup.description = optionGroup.map(o=>o.value).join(" or ");
-                            return optionGroup.map(option=> {
-                                switch (option.property){
+                            optionGroup.description = optionGroup.map(o=> {
+                                switch (o.property) {
+                                    case "talent":
+                                        return o.value.name + (o.value.specialization ? " (" + o.value.specialization + ")" : "");
+                                    case "skill":
+                                        let rating = "+" + (o.value.rating - 1) * 10;
+                                        return o.value.name + (o.value.specialization ? " (" + o.value.specialization + ")" : "") + rating;
                                     case "item":
-                                        option.value = result.placeholders.replace(option.value.item, option.property);
+                                    {
+                                        //Special handling for the regimental favored heavy weapon
+                                        return o.value.item.name + " x " + o.value.count;
+                                    }
+                                }
+                            }).join(" or ");
+                            return optionGroup.map(option=> {
+                                switch (option.property) {
+                                    case "item":
+                                        //Wrap in functions to allow for type guards.
+                                        if (option.name === "Regimental Favored Heavy Weapon") {
+                                            option = new Proxy(option, {
+                                                get: function (target, property) {
+                                                    if (property === "value") {
+                                                        if (target.target && target.target.regiment) {
+                                                            return target.target.regiment.favoredWeapons.get("heavy");
+                                                        } else {
+                                                            return [
+                                                                {
+                                                                    item: result.placeholders.replace(option.value.item, option.property),
+                                                                    count: option.value.count
+                                                                }
+                                                            ];
+                                                        }
+                                                    } else {
+                                                        return target[property];
+                                                    }
+                                                }
+                                            });
+                                        } else {
+                                            option.value = function (value):value is ItemPlaceholder {
+                                                return <any>{
+                                                    item: result.placeholders.replace(value.item, option.property),
+                                                    count: value.count
+                                                };
+                                            }(option.value);
+                                        }
+                                        break;
+                                    case "skill":
+                                        option.value = function (value):value is SkillPlaceholder {
+                                            let result:any = {
+                                                skill: placeholders.replace(value, option.property),
+                                                rank: value.rank
+                                            }
+                                            return result;
+                                        }(option.value);
+                                        break;
+                                    case "talent":
+                                        option.value = function (value):value is TalentPlaceholder {
+                                            return result.placeholders.replace(value, option.property);
+                                        }(option.value);
+                                        break;
+                                    case "characteristic":
+                                        break;
                                     default:
-                                        option.value = result.placeholders.replace(option.value, option.property);
+                                        debugger;
+                                        throw "Handling placeholders of type " + option.property + " not supported."
                                 }
                                 return option;
                             });
@@ -77,7 +135,6 @@ export class SpecialtyService {
                         }), optional['selection time']));
                     }
                 }
-
                 var type:SpecialtyType;
                 switch (specialty.type) {
                     case "guardsman":
@@ -89,8 +146,8 @@ export class SpecialtyService {
                     default:
                         throw "Type must be 'guardsman' or 'specialist', was " + specialty.type;
                 }
-                return new Specialty(specialty.name, characteristics, type, characterSkills, characterTalents, specialty['fixed modifiers'].aptitudes,
-                    characterTraits, kit, wounds, bonusXp, psyrating, optionalModifiers);
+                return new Specialty(specialty.name, characteristics, type, characterSkills, characterTalents, specialty['fixed modifiers'].aptitudes || [],
+                    characterTraits, kit, wounds, bonusXp, psyrating, specialty["depends-on"], optionalModifiers);
             });
         });
     }

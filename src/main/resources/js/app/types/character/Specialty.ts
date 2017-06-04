@@ -26,8 +26,9 @@ export class Specialty extends CharacterModifier {
                 wounds:number,
                 bonusPowerXp:number,
                 psyRating:number,
+                requirements: Object,
                 optionalModifiers:Array<SelectableModifier>) {
-        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.SPECIALTY)
+        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.SPECIALTY, requirements)
         this._specialtyType = specialtyType;
         this._name = name;
         this._bonusPowerXp = bonusPowerXp;
@@ -173,13 +174,14 @@ export class SpecialtyBuilder {
     private _specialtyType:SpecialtyType;
     private _bonusPowerXp:number = 0;
     private _psyRating = 0;
+    private _requirement = null;
 
     build():Specialty {
         if (this._specialtyType === undefined) {
             throw "Need to set the specialty type.";
         }
         return new Specialty(this._name, this._characteristics, this._specialtyType, this._skills, this._talents, this._aptitudes,
-            this._traits, this._kit, this._wounds, this._bonusPowerXp, this._psyRating, this._optionalModifiers);
+            this._traits, this._kit, this._wounds, this._bonusPowerXp, this._psyRating, this._requirement, this._optionalModifiers);
     }
 
 

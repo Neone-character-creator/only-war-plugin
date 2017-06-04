@@ -61,8 +61,9 @@ export abstract class CharacterModifier {
     private _type:OnlyWarCharacterModifierTypes;
     protected _appliedTo:OnlyWarCharacter;
     protected _characterOptions:CharacterOptionsService;
+    private _requirements:Object;
 
-    constructor(characteristics:Map<Characteristic, number>, skills:Map<SkillDescription, number>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Map<Item, number>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes) {
+    constructor(characteristics:Map<Characteristic, number>, skills:Map<SkillDescription, number>, talents:Array<Talent>, aptitudes:Array<string>, traits:Array<Trait>, kit:Map<Item, number>, wounds:number, psyRating:number, type:OnlyWarCharacterModifierTypes, requirements:Object) {
         this._characteristics = characteristics;
         this._skills = skills;
         this._talents = talents;
@@ -72,6 +73,11 @@ export abstract class CharacterModifier {
         this._wounds = wounds;
         this._psyRating = psyRating;
         this._type = type;
+        this._requirements = requirements;
+    }
+
+    get requirements():Object{
+        return this._requirements;
     }
 
     get characteristics():Map < Characteristic, number > {

@@ -1,11 +1,15 @@
 define(["app/types/character/advancements/CharacterAdvancement"], function (Advancement) {
     return function (associatedServiceName) {
-        var associatedServiceName = associatedServiceName;
         return function ($scope, $state, $injector, $q, characterService, selection, optionselection, $uibModal, characterOptions) {
+            var service = $injector.get(associatedServiceName).then(function (service) {
+                "use strict";
+                return associatedServiceName == "regiments" ? service.regiments : service.specialties;
+            });
             $q.all({
-                service: $injector.get(associatedServiceName),
+                service: service,
                 characterOptions: characterOptions
             }).then(function (results) {
+                    results.service = associatedServiceName == "regiments" ? {regiments: results.service} : {specialties: results.service};
                     switch (associatedServiceName) {
                         case "regiments":
                             $scope.selected = characterService.character.regiment;
@@ -24,6 +28,19 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
 
                     $scope.select = function (selected) {
                         var confirm;
+                        var checkDirty = function (afterCheck) {
+                            "use strict";
+                            if ($scope.selected && $state.$current.data.dirty) {
+                                return $uibModal.open({
+                                    controller: "ConfirmationController",
+                                    templateUrl: "/templates/confirm-discard-changes-modal.html"
+                                }).result.then(function () {
+                                    afterCheck();
+                                });
+                            } else {
+                                afterCheck();
+                            }
+                        }
                         var proceed = function () {
                             switch ($scope.selectionType) {
                                 case "regiments":
@@ -35,15 +52,23 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
                             }
                             $scope.selected = selected;
                         }
-                        if ($scope.selected && $state.$current.data.dirty) {
-                            confirm = $uibModal.open({
-                                controller: "ConfirmationController",
-                                templateUrl: "/templates/confirm-discard-changes-modal.html"
-                            }).result.then(function () {
-                                proceed();
-                            });
+                        if (selected.requirements) {
+                            var requirement = selected.requirements;
+                            switch (requirement.target) {
+                                case "character":
+                                    if (!$scope.character[requirement.property]) {
+                                        var modalScope = $scope.$new(true);
+                                        modalScope.message = "You can't use this selection right now because the character " + requirement.property + " is not set.";
+                                        $uibModal.open({
+                                            templateUrl: "templates/not-available-warning-modal.html",
+                                            scope: modalScope
+                                        });
+                                    } else {
+                                        checkDirty(proceed);
+                                    }
+                            }
                         } else {
-                            proceed();
+                            checkDirty(proceed);
                         }
                     };
                     function updateAvailablePowers() {
@@ -86,6 +111,13 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
                                 switch (associatedServiceName) {
                                     case "regiments":
                                         characterService.character.regiment = $scope.selected;
+                                        if (characterService.character.specialty && characterService.character.specialty.name == "Heavy Gunner") {
+                                            $uibModal.open({
+                                                templateUrl: "/templates/specialty-cleared-modal.html"
+                                            }).result.then(function () {
+                                                proceed();
+                                            });
+                                        }
                                         break;
                                     case "specialties":
                                         characterService.character.specialty = $scope.selected;
@@ -128,12 +160,12 @@ define(["app/types/character/advancements/CharacterAdvancement"], function (Adva
                             });
 
                             if ($scope.selected.favoredWeapons) {
-                                $scope.favoredWeapons = Array.from($scope.selected.favoredWeapons.values()).reduce(function (next, previous) {
+                                $scope.favoredWeapons = Array.from($scope.selected.favoredWeapons.values()).reduce(function (previous, next) {
                                     next.forEach(function (e) {
                                         previous.push(e);
                                     });
                                     return previous;
-                                }).map(function (e) {
+                                }, []).map(function (e) {
                                     return e.name;
                                 });
                             }

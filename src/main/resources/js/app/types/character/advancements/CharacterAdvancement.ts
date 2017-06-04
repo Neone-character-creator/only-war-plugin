@@ -37,8 +37,9 @@ export abstract class CharacterAdvancement extends CharacterModifier {
                 traits:Array<Trait>,
                 kit:Map<Item, number>,
                 wounds:number,
-                psyRating:number) {
-        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.ADVANCEMENT);
+                psyRating:number,
+                requirements:Object) {
+        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, psyRating, OnlyWarCharacterModifierTypes.ADVANCEMENT, requirements);
         this._property = property;
     }
 
@@ -85,7 +86,7 @@ export class CharacteristicAdvancement extends CharacterAdvancement {
             [],
             new Map<Item, number>(),
             0,
-            0);
+            0, null);
         this.characteristic = value;
     }
 
@@ -189,7 +190,7 @@ export class PsychicPowerAdvancement extends CharacterAdvancement {
             [],
             new Map<Item, number>(),
             0,
-            0);
+            0, null);
         this.power = value;
     }
 
@@ -214,7 +215,7 @@ export class PsyRatingAdvancement extends CharacterAdvancement {
     }
 
     constructor() {
-        super(AdvanceableProperty.PSY_RATING, new Map(), new Map(), [], [], [], new Map<Item, number>(), 0, 0);
+        super(AdvanceableProperty.PSY_RATING, new Map(), new Map(), [], [], [], new Map<Item, number>(), 0, 0, null);
     }
 
     /**
@@ -234,7 +235,7 @@ export class SkillAdvancement extends CharacterAdvancement {
     constructor(skill:SkillDescription) {
         var skills:Map<SkillDescription, number> = new Map<SkillDescription, number>();
         skills.set(skill, 1);
-        super(AdvanceableProperty.SKILL, new Map(), skills, [], [], [], new Map<Item, number>(), 0, 0);
+        super(AdvanceableProperty.SKILL, new Map(), skills, [], [], [], new Map<Item, number>(), 0, 0, null);
         this.skill = skill;
     }
 
@@ -261,7 +262,7 @@ export class TalentAdvancement extends CharacterAdvancement {
     private talent:Talent;
 
     constructor(talent:Talent) {
-        super(AdvanceableProperty.TALENT, new Map(), new Map(), [talent],[],[],new Map(),0, 0);
+        super(AdvanceableProperty.TALENT, new Map(), new Map(), [talent], [], [], new Map(), 0, 0, null);
         this.talent = talent;
     }
 
@@ -291,12 +292,12 @@ export class TalentAdvancement extends CharacterAdvancement {
     }
 }
 
-export class ComradeAdvancement extends CharacterAdvancement{
+export class ComradeAdvancement extends CharacterAdvancement {
     private _experienceCost:number;
     private _specialAbility:String;
 
     constructor(experienceCost:number, specialAbility:String) {
-        super(AdvanceableProperty.COMRADE, new Map(), new Map(), [], [], [], new Map(), 0, 0);
+        super(AdvanceableProperty.COMRADE, new Map(), new Map(), [], [], [], new Map(), 0, 0, null);
         this._experienceCost = experienceCost;
         this._specialAbility = specialAbility;
     }

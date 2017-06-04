@@ -25,8 +25,9 @@ export class Regiment extends CharacterModifier {
                 wounds:number,
                 optionalModifiers:Array<SelectableModifier>,
                 favoredWeapons:Map<string, Array<Weapon>>,
-                specialAbilities:Array<SpecialAbility>) {
-        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, 0, OnlyWarCharacterModifierTypes.REGIMENT);
+                specialAbilities:Array<SpecialAbility>,
+                requirements:Object) {
+        super(characteristics, skills, talents, aptitudes, traits, kit, wounds, 0, OnlyWarCharacterModifierTypes.REGIMENT, requirements);
         this._name = name;
         this._favoredWeapons = favoredWeapons;
         this._optionalModifiers = optionalModifiers;
@@ -131,14 +132,14 @@ export class RegimentBuilder {
     private _favoredWeapons:Map<string,Array<Weapon>> = new Map();
     private _optionalModifiers:Array<SelectableModifier> = [];
     private _specialAbilities:Array<SpecialAbility> = [];
-
+    private _requirements:Object;
 
     constructor() {
     }
 
     build():Regiment {
         return new Regiment(this._name, this._characteristics, this._skills, this._talents, this._aptitudes,
-            this._traits, this._kit, this._wounds, this._optionalModifiers, this._favoredWeapons, this._specialAbilities);
+            this._traits, this._kit, this._wounds, this._optionalModifiers, this._favoredWeapons, this._specialAbilities, this._requirements);
     }
 
     setFavoredWeapons(value:Map<string, Array<Weapon>>) {
