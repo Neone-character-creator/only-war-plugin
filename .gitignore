@@ -64,3 +64,5 @@ tests/**/*.js
 /src/main/resources/dist
 /node_modules/
 dist
+
+**/*.js.map
